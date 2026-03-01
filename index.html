@@ -769,6 +769,74 @@ async function loadData() {
       }
     });
 
+    // ── BREADTH DATA ──
+    if (data.breadth) {
+      const b = data.breadth;
+      const cards = document.querySelectorAll('.breadth-card');
+      cards.forEach(card => {
+        const label = card.querySelector('.bc-label').textContent;
+        const valEl = card.querySelector('.bc-value');
+        if (label.includes('Advance') && b.advance_decline_ratio !== undefined) {
+          valEl.textContent = b.advance_decline_ratio.toLocaleString('de-DE');
+          valEl.className = 'bc-value ' + (b.advance_decline_ratio >= 1 ? 'pos' : 'neg');
+          card.querySelector('.bc-sub').textContent = b.advancers + ' Gewinner / ' + b.decliners + ' Verlierer';
+        }
+        if (label.includes('SMA50') && b.pct_above_sma50 !== undefined) {
+          valEl.textContent = b.pct_above_sma50 + '%';
+          valEl.className = 'bc-value ' + (b.pct_above_sma50 >= 50 ? 'pos' : 'neg');
+        }
+        if (label.includes('SMA200') && b.pct_above_sma200 !== undefined) {
+          valEl.textContent = b.pct_above_sma200 + '%';
+          valEl.className = 'bc-value ' + (b.pct_above_sma200 >= 50 ? 'pos' : 'neg');
+        }
+        if (label.includes('Hochs') && b.new_highs !== undefined) {
+          valEl.textContent = b.new_highs + ' / ' + b.new_lows;
+          valEl.className = 'bc-value ' + (b.new_highs > b.new_lows ? 'pos' : 'neg');
+        }
+        if (label.includes('EMA20') && b.pct_above_ema20 !== undefined) {
+          valEl.textContent = b.pct_above_ema20 + '%';
+          valEl.className = 'bc-value ' + (b.pct_above_ema20 >= 50 ? 'pos' : 'neg');
+        }
+        if (label.includes('Up Volume') && b.up_volume_pct !== undefined) {
+          valEl.textContent = b.up_volume_pct + '%';
+          valEl.className = 'bc-value ' + (b.up_volume_pct >= 50 ? 'pos' : 'neg');
+        }
+      });
+      // McClellan
+      const mcCards = document.querySelectorAll('.mcclellan-card');
+      if (mcCards[0] && b.mcclellan_osc !== undefined) {
+        const v = b.mcclellan_osc;
+        mcCards[0].querySelector('.mc-value').textContent = (v >= 0 ? '+' : '') + v.toLocaleString('de-DE');
+        mcCards[0].querySelector('.mc-value').className = 'mc-value ' + (v >= 0 ? 'pos' : 'neg');
+        const sig = mcCards[0].querySelector('.mc-signal');
+        sig.textContent = b.mcclellan_osc_signal;
+        sig.className = 'mc-signal ' + (b.mcclellan_osc_signal === 'BULLISCH' ? 'bullish' : b.mcclellan_osc_signal === 'BÄRISCH' ? 'bearish' : 'neutral');
+      }
+      if (mcCards[1] && b.mcclellan_sum !== undefined) {
+        const v = b.mcclellan_sum;
+        mcCards[1].querySelector('.mc-value').textContent = (v >= 0 ? '+' : '') + v.toLocaleString('de-DE');
+        mcCards[1].querySelector('.mc-value').className = 'mc-value ' + (v >= 0 ? 'pos' : 'neg');
+        const sig = mcCards[1].querySelector('.mc-signal');
+        sig.textContent = b.mcclellan_sum_signal;
+        sig.className = 'mc-signal ' + (b.mcclellan_sum_signal === 'BULLISCH' ? 'bullish' : b.mcclellan_sum_signal === 'BÄRISCH' ? 'bearish' : 'neutral');
+      }
+    }
+    // Fear & Greed + Put/Call
+    if (data.fear_greed || data.put_call) {
+      document.querySelectorAll('.breadth-card').forEach(card => {
+        const label = card.querySelector('.bc-label').textContent;
+        if (label.includes('Fear') && data.fear_greed) {
+          card.querySelector('.bc-value').textContent = data.fear_greed.score;
+          const s = data.fear_greed.score;
+          card.querySelector('.bc-value').style.color = s < 30 ? 'var(--negative)' : s < 70 ? 'var(--neutral)' : 'var(--positive)';
+          card.querySelector('.bc-sub').textContent = 'CNN · ' + data.fear_greed.rating;
+        }
+        if (label.includes('Put/Call') && data.put_call) {
+          card.querySelector('.bc-value').textContent = data.put_call.toLocaleString('de-DE', {minimumFractionDigits: 2});
+        }
+      });
+    }
+
     // Currencies
     if (data.currencies) {
       const cards = document.querySelectorAll('.currency-card');
