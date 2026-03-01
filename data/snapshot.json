@@ -139,29 +139,29 @@
   ],
   "crypto": [
     {
-      "price": 65569.64,
-      "d1_pct": -2.13,
-      "w1_pct": 2.32,
-      "hi52w_pct": -47.44,
-      "ytd_pct": -26.1,
+      "price": 65610.35,
+      "d1_pct": -2.07,
+      "w1_pct": 2.39,
+      "hi52w_pct": -47.41,
+      "ytd_pct": -26.06,
       "symbol": "BTC-USD",
       "name": "Bitcoin (BTC)"
     },
     {
-      "price": 1925.54,
-      "d1_pct": -2.01,
-      "w1_pct": 3.92,
-      "hi52w_pct": -60.14,
-      "ytd_pct": -35.82,
+      "price": 1926.35,
+      "d1_pct": -1.97,
+      "w1_pct": 3.96,
+      "hi52w_pct": -60.13,
+      "ytd_pct": -35.8,
       "symbol": "ETH-USD",
       "name": "Ethereum (ETH)"
     },
     {
-      "price": 82.8,
-      "d1_pct": -1.85,
-      "w1_pct": 4.76,
-      "hi52w_pct": -66.56,
-      "ytd_pct": -34.68,
+      "price": 82.9,
+      "d1_pct": -1.74,
+      "w1_pct": 4.89,
+      "hi52w_pct": -66.52,
+      "ytd_pct": -34.6,
       "symbol": "SOL-USD",
       "name": "Solana (SOL)"
     }
@@ -225,19 +225,19 @@
   "currencies": [
     {
       "price": 1.18,
-      "d1_pct": 0.24,
-      "w1_pct": -0.03,
-      "hi52w_pct": -1.55,
-      "ytd_pct": 0.69,
+      "d1_pct": 0.29,
+      "w1_pct": 0.02,
+      "hi52w_pct": -1.5,
+      "ytd_pct": 0.74,
       "symbol": "EURUSD=X",
       "name": "EU"
     },
     {
       "price": 1.34,
-      "d1_pct": -0.51,
-      "w1_pct": -0.82,
-      "hi52w_pct": -2.91,
-      "ytd_pct": -0.38,
+      "d1_pct": -0.54,
+      "w1_pct": -0.85,
+      "hi52w_pct": -2.94,
+      "ytd_pct": -0.41,
       "symbol": "GBPUSD=X",
       "name": "GU"
     },
@@ -570,11 +570,11 @@
       "category": "Land"
     },
     {
-      "price": 82.8,
-      "d1_pct": -1.85,
-      "w1_pct": 4.76,
-      "hi52w_pct": -66.56,
-      "ytd_pct": -34.68,
+      "price": 82.9,
+      "d1_pct": -1.74,
+      "w1_pct": 4.89,
+      "hi52w_pct": -66.52,
+      "ytd_pct": -34.6,
       "symbol": "SOL-USD",
       "name": "Solana (SOL)",
       "category": "Krypto"
@@ -590,6 +590,16 @@
       "category": "Thema"
     },
     {
+      "price": 1926.35,
+      "d1_pct": -1.97,
+      "w1_pct": 3.96,
+      "hi52w_pct": -60.13,
+      "ytd_pct": -35.8,
+      "symbol": "ETH-USD",
+      "name": "Ethereum (ETH)",
+      "category": "Krypto"
+    },
+    {
       "price": 6.06,
       "d1_pct": 1.89,
       "w1_pct": 3.92,
@@ -598,16 +608,6 @@
       "symbol": "HG=F",
       "name": "Kupfer (HG)",
       "category": "Rohstoff"
-    },
-    {
-      "price": 1925.54,
-      "d1_pct": -2.01,
-      "w1_pct": 3.92,
-      "hi52w_pct": -60.14,
-      "ytd_pct": -35.82,
-      "symbol": "ETH-USD",
-      "name": "Ethereum (ETH)",
-      "category": "Krypto"
     },
     {
       "price": 5247.9,
@@ -650,13 +650,18 @@
       "category": "Sektor"
     }
   ],
+  "fear_greed": {
+    "score": 43,
+    "rating": "fear"
+  },
+  "put_call": 1.21,
   "ai_morning": {
-    "text": "<strong>Guten Morgen — hier dein Tagesbriefing.</strong> Trage hier dein Morgen-Briefing ein. Einfach diese Datei auf GitHub editieren (Stift-Symbol oben rechts). Du kannst &lt;strong&gt;fett&lt;/strong&gt; markieren für Hervorhebungen.",
+    "text": "Noch kein Briefing eingetragen.",
     "timestamp": "01. Mar 2026 · 07:00 CET"
   },
   "meta": {
-    "updated_at": "2026-03-01T21:35:34.190050+00:00",
+    "updated_at": "2026-03-01T21:52:40.852682+00:00",
     "briefing_type": "morning",
-    "source": "Yahoo Finance + Claude AI"
+    "source": "Yahoo Finance + CNN + McClellan berechnet"
   }
 }
