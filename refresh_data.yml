@@ -1,0 +1,64 @@
+name: Refresh Dashboard Data
+
+on:
+  # Morning briefing: 06:00 UTC = 07:00 CET
+  # Evening summary:  21:00 UTC = 22:00 CET
+  schedule:
+    - cron: '0 6 * * 1-5'   # Mo-Fr 07:00 CET (morning)
+    - cron: '0 21 * * 1-5'  # Mo-Fr 22:00 CET (evening)
+  
+  # Manual trigger with briefing type choice
+  workflow_dispatch:
+    inputs:
+      briefing_type:
+        description: 'Briefing type'
+        required: true
+        default: 'morning'
+        type: choice
+        options:
+          - morning
+          - evening
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Determine briefing type
+        id: briefing
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "type=${{ github.event.inputs.briefing_type }}" >> $GITHUB_OUTPUT
+          elif [ "$(date -u +%H)" -lt 12 ]; then
+            echo "type=morning" >> $GITHUB_OUTPUT
+          else
+            echo "type=evening" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build dashboard data
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BRIEFING_TYPE: ${{ steps.briefing.outputs.type }}
+        run: python scripts/build_data.py --out-dir data --briefing ${{ steps.briefing.outputs.type }}
+
+      - name: Commit and push data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "📊 Update dashboard data (${{ steps.briefing.outputs.type }} · $(date -u '+%Y-%m-%d %H:%M UTC'))"
+          git push
