@@ -161,7 +161,7 @@ def fetch_breadth_data():
     - % above EMA20, SMA50, SMA200
     - Advance/Decline ratio (today)
     - New 52-week highs vs lows
-    - McClellan Oscillator & Summation Index
+    - McClellan Oscillator & Summation Index (ratio-adjusted)
     """
     print("\n📊 Berechne Marktbreite (S&P 500 Komponenten)...")
     print("  ⏳ Das dauert 1-2 Minuten (500 Aktien werden geladen)...")
@@ -172,8 +172,7 @@ def fetch_breadth_data():
         return None
 
     try:
-        # Batch download — much faster than individual calls
-        # Need ~250 trading days for SMA200 + buffer
+        # Batch download — need long history for McClellan convergence
         data = yf.download(tickers, period="14mo", progress=False, threads=True)
 
         if data.empty:
@@ -181,7 +180,7 @@ def fetch_breadth_data():
             return None
 
         close = data["Close"]
-        volume = data["Volume"] if "Volume" in data.columns.get_level_values(0) else None
+        volume = data.get("Volume") if "Volume" in data else None
 
         # Drop tickers with insufficient data
         min_days = 200
@@ -190,7 +189,7 @@ def fetch_breadth_data():
         print(f"  → {n_total} Aktien mit ausreichend Daten")
 
         if n_total < 300:
-            print(f"  ⚠ Nur {n_total} gültige Aktien, Ergebnisse könnten ungenau sein")
+            print(f"  ⚠ Nur {n_total} gültige Aktien")
 
         latest = valid.iloc[-1]
         prev = valid.iloc[-2] if len(valid) > 1 else latest
@@ -200,9 +199,9 @@ def fetch_breadth_data():
         sma50 = valid.rolling(50).mean().iloc[-1]
         sma200 = valid.rolling(200).mean().iloc[-1]
 
-        above_ema20 = (latest > ema20).sum()
-        above_sma50 = (latest > sma50).sum()
-        above_sma200 = (latest > sma200).sum()
+        above_ema20 = int((latest > ema20).sum())
+        above_sma50 = int((latest > sma50).sum())
+        above_sma200 = int((latest > sma200).sum())
 
         pct_above_ema20 = round((above_ema20 / n_total) * 100)
         pct_above_sma50 = round((above_sma50 / n_total) * 100)
@@ -212,75 +211,104 @@ def fetch_breadth_data():
 
         # ── Advance / Decline (today) ──
         daily_change = latest - prev
-        advancers = (daily_change > 0).sum()
-        decliners = (daily_change < 0).sum()
-        unchanged = (daily_change == 0).sum()
+        advancers = int((daily_change > 0).sum())
+        decliners = int((daily_change < 0).sum())
         ad_ratio = round(advancers / max(decliners, 1), 2)
         print(f"  → A/D: {advancers} Gewinner / {decliners} Verlierer = {ad_ratio}")
 
         # ── New 52-week Highs / Lows ──
-        high_252 = valid.rolling(252).max().iloc[-1]  # ~252 trading days = 1 year
-        low_252 = valid.rolling(252).min().iloc[-1]
-        new_highs = (latest >= high_252 * 0.99).sum()  # within 1% of 52w high
-        new_lows = (latest <= low_252 * 1.01).sum()     # within 1% of 52w low
+        high_252 = valid.rolling(252, min_periods=200).max().iloc[-1]
+        low_252 = valid.rolling(252, min_periods=200).min().iloc[-1]
+        new_highs = int((latest >= high_252 * 0.995).sum())  # within 0.5%
+        new_lows = int((latest <= low_252 * 1.005).sum())
         print(f"  → Neue Hochs: {new_highs} | Neue Tiefs: {new_lows}")
 
         # ── Up Volume % ──
-        up_vol_pct = round((advancers / n_total) * 100)  # Proxy: use advance %
-        if volume is not None:
-            try:
-                vol_valid = volume[valid.columns]
-                latest_vol = vol_valid.iloc[-1]
-                up_mask = daily_change > 0
-                total_vol = latest_vol.sum()
-                up_vol = latest_vol[up_mask].sum()
-                if total_vol > 0:
-                    up_vol_pct = round((up_vol / total_vol) * 100)
-            except Exception:
-                pass  # Fall back to advance %
+        up_vol_pct = round((advancers / n_total) * 100)
+        try:
+            if volume is not None:
+                vol_valid = volume[valid.columns] if hasattr(volume, '__getitem__') else None
+                if vol_valid is not None:
+                    latest_vol = vol_valid.iloc[-1].dropna()
+                    up_mask = daily_change[latest_vol.index] > 0
+                    total_vol = latest_vol.sum()
+                    up_vol = latest_vol[up_mask].sum()
+                    if total_vol > 0:
+                        up_vol_pct = round((up_vol / total_vol) * 100)
+        except Exception:
+            pass
         print(f"  → Up Volume: {up_vol_pct}%")
 
         # ── McClellan Oscillator & Summation Index ──
-        # Need daily A/D data over time
-        print("  → Berechne McClellan Oscillator...")
-        ad_series = []
-        for i in range(min(60, len(valid))):  # Last 60 days
-            idx = -(i + 1)
-            if abs(idx) >= len(valid):
-                break
+        # Ratio-adjusted method (like StockCharts):
+        # RANA = (Advances - Declines) / (Advances + Declines) * 1000
+        # McClellan Osc = 19-day EMA of RANA - 39-day EMA of RANA
+        # Summation Index = cumulative sum of McClellan Osc
+        print("  → Berechne McClellan (ratio-adjusted)...")
+
+        n_days = min(len(valid), 280)  # Use as much history as possible
+        rana_list = []
+
+        for i in range(n_days - 1):
+            idx = -(n_days - 1 - i)
             day_close = valid.iloc[idx]
-            day_prev = valid.iloc[idx - 1] if abs(idx - 1) < len(valid) else day_close
+            day_prev = valid.iloc[idx - 1]
             day_change = day_close - day_prev
             day_adv = (day_change > 0).sum()
             day_dec = (day_change < 0).sum()
-            ad_series.append(day_adv - day_dec)
+            total = day_adv + day_dec
+            if total > 0:
+                rana = ((day_adv - day_dec) / total) * 1000
+            else:
+                rana = 0.0
+            rana_list.append(rana)
 
-        ad_series.reverse()  # Chronological order
+        if len(rana_list) >= 39:
+            rana_arr = np.array(rana_list, dtype=float)
 
-        if len(ad_series) >= 39:
-            ad_arr = np.array(ad_series, dtype=float)
-            # EMA 19-day and 39-day of net advances
-            def ema(data, span):
-                alpha = 2 / (span + 1)
-                result = np.zeros_like(data)
-                result[0] = data[0]
-                for i in range(1, len(data)):
-                    result[i] = alpha * data[i] + (1 - alpha) * result[i - 1]
-                return result
+            # EMA with proper smoothing constants
+            # 19-day EMA: alpha = 2/(19+1) = 0.10
+            # 39-day EMA: alpha = 2/(39+1) = 0.05
+            def calc_ema(data, span):
+                alpha = 2.0 / (span + 1)
+                ema_vals = np.zeros(len(data))
+                # Seed with SMA
+                ema_vals[span - 1] = np.mean(data[:span])
+                for i in range(span, len(data)):
+                    ema_vals[i] = alpha * data[i] + (1 - alpha) * ema_vals[i - 1]
+                return ema_vals
 
-            ema19 = ema(ad_arr, 19)
-            ema39 = ema(ad_arr, 39)
-            mcclellan_osc = round(ema19[-1] - ema39[-1], 1)
+            ema19 = calc_ema(rana_arr, 19)
+            ema39 = calc_ema(rana_arr, 39)
 
-            # Summation Index = cumulative sum of oscillator
-            osc_series = ema19 - ema39
-            mcclellan_sum = round(np.sum(osc_series), 0)
+            # Oscillator = difference of EMAs (only valid after both EMAs have data)
+            start_idx = 38  # After 39-day EMA has proper values
+            osc_series = ema19[start_idx:] - ema39[start_idx:]
+
+            mcclellan_osc = round(float(osc_series[-1]), 1)
+
+            # Summation Index = running cumulative sum of oscillator
+            summation = float(np.cumsum(osc_series)[-1])
+            mcclellan_sum = round(summation, 0)
 
             # Signals
-            osc_signal = "BULLISCH" if mcclellan_osc > 0 else "BÄRISCH" if mcclellan_osc < -50 else "NEUTRAL"
-            sum_signal = "BULLISCH" if mcclellan_sum > 0 else "BÄRISCH" if mcclellan_sum < -500 else "NEUTRAL"
+            if mcclellan_osc > 50:
+                osc_signal = "BULLISCH"
+            elif mcclellan_osc > 0:
+                osc_signal = "BULLISCH"
+            elif mcclellan_osc > -50:
+                osc_signal = "NEUTRAL"
+            else:
+                osc_signal = "BÄRISCH"
 
-            print(f"  → McClellan Osc: {mcclellan_osc} ({osc_signal}) | Sum: {mcclellan_sum} ({sum_signal})")
+            if mcclellan_sum > 200:
+                sum_signal = "BULLISCH"
+            elif mcclellan_sum > -200:
+                sum_signal = "NEUTRAL"
+            else:
+                sum_signal = "BÄRISCH"
+
+            print(f"  ✅ McClellan Osc: {mcclellan_osc} ({osc_signal}) | Sum: {mcclellan_sum} ({sum_signal})")
         else:
             mcclellan_osc = 0
             mcclellan_sum = 0
@@ -293,10 +321,10 @@ def fetch_breadth_data():
             "pct_above_sma50": pct_above_sma50,
             "pct_above_sma200": pct_above_sma200,
             "advance_decline_ratio": ad_ratio,
-            "advancers": int(advancers),
-            "decliners": int(decliners),
-            "new_highs": int(new_highs),
-            "new_lows": int(new_lows),
+            "advancers": advancers,
+            "decliners": decliners,
+            "new_highs": new_highs,
+            "new_lows": new_lows,
             "up_volume_pct": up_vol_pct,
             "mcclellan_osc": mcclellan_osc,
             "mcclellan_osc_signal": osc_signal,
@@ -356,40 +384,45 @@ def fetch_fear_greed():
 # ─────────────────────────────────────────────
 
 def fetch_put_call():
-    """Fetch CBOE Put/Call ratio."""
-    print("\n📞 Lade Put/Call Ratio...")
+    """Fetch CBOE Equity Put/Call ratio from their public CSV."""
+    print("\n📞 Lade Put/Call Ratio (CBOE)...")
     try:
-        # Try to get from Yahoo Finance VIX options as proxy
-        # Or use a known free endpoint
-        url = "https://www.cboe.com/us/options/market_statistics/daily/"
+        # CBOE publishes historical equity put/call as CSV
+        url = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/equitypc.csv"
         headers = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
         }
-        resp = requests.get(url, headers=headers, timeout=10)
+        resp = requests.get(url, headers=headers, timeout=15)
         if resp.status_code == 200:
-            import re
-            # Try to find put/call ratio in the page
-            match = re.search(r'Total Put/Call Ratio.*?(\d+\.\d+)', resp.text)
-            if match:
-                ratio = float(match.group(1))
-                print(f"  ✅ Put/Call Ratio: {ratio}")
-                return round(ratio, 2)
+            lines = resp.text.strip().split('\n')
+            # Find last data line (skip headers and blank lines)
+            for line in reversed(lines):
+                parts = line.strip().split(',')
+                if len(parts) >= 5:
+                    try:
+                        ratio = float(parts[4])  # P/C Ratio is the 5th column
+                        date = parts[0]
+                        print(f"  ✅ CBOE Equity Put/Call: {ratio} (Datum: {date})")
+                        return ratio
+                    except (ValueError, IndexError):
+                        continue
 
-        # Fallback: estimate from SPY options
-        print("  → Berechne Put/Call aus SPY-Optionen...")
-        spy = yf.Ticker("SPY")
-        expirations = spy.options
-        if expirations:
-            nearest = expirations[0]
-            chain = spy.option_chain(nearest)
-            put_vol = chain.puts["volume"].sum()
-            call_vol = chain.calls["volume"].sum()
-            if call_vol > 0:
-                ratio = round(put_vol / call_vol, 2)
-                print(f"  ✅ SPY Put/Call: {ratio} (Proxy)")
-                return ratio
+        # Fallback: total put/call ratio
+        url2 = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/totalpc.csv"
+        resp2 = requests.get(url2, headers=headers, timeout=15)
+        if resp2.status_code == 200:
+            lines = resp2.text.strip().split('\n')
+            for line in reversed(lines):
+                parts = line.strip().split(',')
+                if len(parts) >= 5:
+                    try:
+                        ratio = float(parts[4])
+                        print(f"  ✅ CBOE Total Put/Call: {ratio} (Fallback)")
+                        return ratio
+                    except (ValueError, IndexError):
+                        continue
 
-        print("  ⚠ Put/Call nicht verfügbar")
+        print("  ⚠ CBOE CSV nicht verfügbar")
         return None
     except Exception as e:
         print(f"  ⚠ Put/Call Fehler: {e}")
