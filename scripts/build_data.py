@@ -53,8 +53,8 @@ TICKERS = {
         "HG=F":  "Kupfer (HG)",
     },
     "currencies": {
-        "EURUSD=X": "EU",
-        "GBPUSD=X": "GU",
+        "EURUSD=X": "EUR/USD",
+        "GBPUSD=X": "GBP/USD",
         "DX-Y.NYB": "DXY",
     },
     "vix": {
@@ -117,11 +117,11 @@ TICKERS = {
         "TUR":  "🇹🇷 Türkei",
     },
     "watchlist": {
-        "ASM":   "ASM International",
-        "CCJ":   "Cameco",
-        "HL":    "Hecla Mining",
-        "RRX":   "Roper Technologies",
-        "SNDK":  "Western Digital",
+        "ASM.AS": "ASM International",
+        "CCJ":    "Cameco",
+        "HL":     "Hecla Mining",
+        "RRX":    "Regal Rexnord",
+        "WDC":    "Sandisk (WDC)",
     },
 }
 
@@ -160,11 +160,24 @@ def fetch_breadth_data():
     print("\n📊 Berechne S&P 500 Breadth...")
 
     tickers = get_sp500_tickers()
-    if not tickers:
-        return None
+
+    # Fallback: top 100 S&P 500 components by weight
+    if not tickers or len(tickers) < 100:
+        print("  → Wikipedia fehlgeschlagen, nutze Fallback-Liste (100 Ticker)...")
+        tickers = [
+            "AAPL","MSFT","NVDA","AMZN","GOOGL","META","BRK-B","AVGO","LLY","JPM",
+            "TSLA","UNH","XOM","V","MA","PG","COST","JNJ","HD","ABBV",
+            "WMT","NFLX","BAC","KO","MRK","CRM","CVX","ORCL","AMD","PEP",
+            "TMO","ACN","LIN","MCD","CSCO","ADBE","ABT","PM","WFC","GE",
+            "IBM","ISRG","DHR","TXN","CAT","QCOM","INTU","NOW","MS","AMGN",
+            "VZ","AMAT","GS","NEE","PFE","BLK","T","BKNG","LOW","RTX",
+            "UNP","DE","SPGI","AXP","SYK","HON","SCHW","COP","PLD","MDLZ",
+            "LRCX","BA","CB","ADI","VRTX","C","MMC","GILD","BX","ADP",
+            "PANW","REGN","KLAC","CME","SO","MU","FI","DUK","ICE","SHW",
+            "CL","CDNS","BMY","SNPS","EOG","MCO","WM","PH","PYPL","TGT",
+        ]
 
     try:
-        # Download in batches of 50 to avoid timeouts
         batch_size = 50
         all_frames = []
 
@@ -176,41 +189,53 @@ def fetch_breadth_data():
             try:
                 raw = yf.download(batch, period="14mo", progress=False, threads=True)
                 if raw.empty:
+                    print(f"    ⚠ Batch {batch_num} leer")
                     continue
 
-                # Handle MultiIndex: yfinance returns (Price, Ticker) columns
+                print(f"    Cols type: {type(raw.columns).__name__}, shape: {raw.shape}")
                 if isinstance(raw.columns, pd.MultiIndex):
-                    close_df = raw["Close"]
+                    print(f"    MultiIndex levels: {raw.columns.names}")
+                    # Try both orientations: (Price, Ticker) and (Ticker, Price)
+                    if "Close" in raw.columns.get_level_values(0):
+                        close_df = raw["Close"]
+                    elif "Close" in raw.columns.get_level_values(1):
+                        close_df = raw.xs("Close", level=1, axis=1)
+                    else:
+                        print(f"    ⚠ 'Close' nicht gefunden in MultiIndex")
+                        continue
                 elif "Close" in raw.columns:
-                    # Single ticker case
                     close_df = raw[["Close"]]
                     close_df.columns = [batch[0]]
                 else:
+                    print(f"    ⚠ Unbekanntes Spaltenformat: {raw.columns[:5].tolist()}")
                     continue
 
+                print(f"    ✅ {len(close_df.columns)} Close-Spalten extrahiert")
                 all_frames.append(close_df)
             except Exception as e:
                 print(f"    ⚠ Batch {batch_num} Fehler: {e}")
+                import traceback
+                traceback.print_exc()
                 continue
 
         if not all_frames:
             print("  ⚠ Keine Daten geladen")
             return None
 
-        # Combine all batches
         combined = pd.concat(all_frames, axis=1)
+        # Remove duplicate columns
+        combined = combined.loc[:, ~combined.columns.duplicated()]
         valid = combined.dropna(axis=1, thresh=200)
         n = len(valid.columns)
-        print(f"  → {n} Aktien mit genug Daten")
+        print(f"  → {n} Aktien mit genug Daten (min. 80)")
 
-        if n < 250:
-            print(f"  ⚠ Nur {n} Aktien — zu wenig (min. 250)")
+        if n < 80:
+            print(f"  ⚠ Nur {n} Aktien — nicht genug")
             return None
 
         latest = valid.iloc[-1]
         prev = valid.iloc[-2]
 
-        # % above SMAs
         sma20 = valid.rolling(20).mean().iloc[-1]
         sma50 = valid.rolling(50).mean().iloc[-1]
         sma200 = valid.rolling(200).mean().iloc[-1]
@@ -219,13 +244,11 @@ def fetch_breadth_data():
         pct_50 = round(float((latest > sma50).sum()) / n * 100, 1)
         pct_200 = round(float((latest > sma200).sum()) / n * 100, 1)
 
-        # Advance/Decline
         change = latest - prev
         adv = int((change > 0).sum())
         dec = int((change < 0).sum())
         ad_ratio = round(adv / max(dec, 1), 2)
 
-        # New 52W Highs/Lows
         hi52 = valid.rolling(252, min_periods=200).max().iloc[-1]
         lo52 = valid.rolling(252, min_periods=200).min().iloc[-1]
         new_hi = int((latest >= hi52 * 0.995).sum())
@@ -584,16 +607,28 @@ Datum: {now_str}"""
 
     try:
         print(f"  🤖 Claude API → {briefing_type}-Briefing...")
-        message = client.messages.create(
-            model="claude-sonnet-4-5-20250929",
-            max_tokens=600,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = message.content[0].text
-        print(f"  ✅ AI-Briefing generiert ({len(text)} Zeichen)")
+        # Try latest model, fall back to previous
+        models = ["claude-sonnet-4-5-20250514", "claude-sonnet-4-5-20250929"]
+        text = None
+        for model in models:
+            try:
+                print(f"    → Versuche Model: {model}")
+                message = client.messages.create(
+                    model=model,
+                    max_tokens=600,
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                text = message.content[0].text
+                print(f"  ✅ AI-Briefing generiert ({len(text)} Zeichen) mit {model}")
+                break
+            except Exception as model_err:
+                print(f"    ⚠ Model {model} fehlgeschlagen: {model_err}")
+                continue
         return text
     except Exception as e:
         print(f"  ⚠ Claude API Fehler: {e}")
+        import traceback
+        traceback.print_exc()
         return None
 
 
@@ -677,9 +712,10 @@ def main():
     ai_text = None
 
     if api_key:
+        print(f"\n🤖 ANTHROPIC_API_KEY vorhanden ({len(api_key)} Zeichen, beginnt mit {api_key[:8]}...)")
         ai_text = generate_ai_summary(snapshot, args.briefing)
     else:
-        print("\n  ℹ Kein ANTHROPIC_API_KEY — nutze manuelle Briefings")
+        print("\n  ℹ Kein ANTHROPIC_API_KEY gesetzt — nutze manuelle Briefings")
         briefings_path = out_dir / "briefings.json"
         if briefings_path.exists():
             try:
