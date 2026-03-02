@@ -91,13 +91,32 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .sparkline { display: inline-block; vertical-align: middle; }
 .sparkline svg { display: block; }
 
+/* PASSWORD OVERLAY */
+.pw-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--sand); z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.pw-overlay.hidden { display: none; }
+.pw-box { text-align: center; max-width: 360px; padding: 40px; }
+.pw-box h2 { font-family: var(--header-font); font-size: 32px; margin-bottom: 8px; }
+.pw-box .pw-sub { font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); letter-spacing: 1.5px; margin-bottom: 32px; }
+.pw-box input { width: 100%; padding: 14px 18px; font-family: var(--mono-font); font-size: 16px; background: var(--card-bg); border: 1px solid var(--sand-darker); border-radius: 2px; text-align: center; letter-spacing: 4px; outline: none; }
+.pw-box input:focus { border-color: var(--ink); }
+.pw-box .pw-error { font-family: var(--mono-font); font-size: 11px; color: var(--negative); margin-top: 12px; min-height: 16px; }
+.pw-box .pw-hint { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 20px; }
+
+/* WATCHLIST */
+.watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.watchlist-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+.watchlist-card .wl-left { display: flex; flex-direction: column; }
+.watchlist-card .wl-ticker { font-family: var(--mono-font); font-size: 14px; font-weight: 500; letter-spacing: 2px; }
+.watchlist-card .wl-name { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 2px; }
+.watchlist-card .wl-right { text-align: right; display: flex; align-items: center; gap: 12px; }
+.watchlist-card .wl-price { font-family: var(--mono-font); font-size: 18px; font-weight: 300; }
+.watchlist-card .wl-change { font-family: var(--mono-font); font-size: 11px; }
+.watchlist-card .wl-pcts { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+
 /* TOP 3 RANKED ROW HIGHLIGHTS */
 .data-table tbody tr.rank-1 { background: rgba(45,138,78,0.10); }
 .data-table tbody tr.rank-2 { background: rgba(45,138,78,0.06); }
 .data-table tbody tr.rank-3 { background: rgba(45,138,78,0.03); }
-.data-table tbody tr.rank-1 td:nth-child(2) { font-weight: 700; }
-.data-table tbody tr.rank-2 td:nth-child(2) { font-weight: 600; }
-.data-table tbody tr.rank-3 td:nth-child(2) { font-weight: 600; }
 
 .currency-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
 .currency-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
@@ -208,6 +227,17 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 </style>
 </head>
 <body>
+
+<!-- PASSWORD OVERLAY -->
+<div class="pw-overlay" id="pwOverlay">
+  <div class="pw-box">
+    <h2>YOLO Dashboard</h2>
+    <div class="pw-sub">PATREON · MEMBERS ONLY</div>
+    <input type="password" id="pwInput" placeholder="Passwort" autofocus>
+    <div class="pw-error" id="pwError"></div>
+    <div class="pw-hint">Passwort findest du im Patreon-Post</div>
+  </div>
+</div>
 <div class="container">
 
   <!-- ═══ HERO ═══ -->
@@ -384,6 +414,18 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
         <div style="font-family:var(--mono-font);font-size:11px;color:var(--ink-muted);margin-top:8px;"><span class="neg">-3,2%</span> · 1T</div>
         <div style="font-family:var(--mono-font);font-size:10px;color:var(--ink-muted);margin-top:4px;">&lt;15 Niedrig · 15–20 Normal · 20–30 Erhöht · &gt;30 Hoch</div>
       </div>
+    </div>
+  </div>
+
+  <!-- ═══ 03b · FOKUSLISTE ═══ -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">👁️</span>
+      <span class="section-title">Fokusliste</span>
+      <span class="section-sub">Watchlist · Aktuelle Kandidaten</span>
+    </div>
+    <div class="watchlist-grid" id="watchlist-grid">
+      <!-- Filled by JS -->
     </div>
   </div>
 
@@ -709,7 +751,7 @@ function renderTop10(items) {
     <td>${item.name}</td>
     <td>${fmtPrice(item.price)}</td>
     <td class="${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)}</td>
-    <td class="${pctClass(item.w1_pct)}" style="font-weight:700;">${fmtPct(item.w1_pct)}</td>
+    <td class="${pctClass(item.w1_pct)}">${fmtPct(item.w1_pct)}</td>
     <td><span class="cat-tag ${catColors[item.category] || ''}">${item.category}</span></td>
     <td>${spark}</td>
   </tr>`;
@@ -939,11 +981,76 @@ async function loadData() {
       } catch(e) { /* no manual briefings */ }
     }
 
+    // ── FOKUSLISTE / WATCHLIST ──
+    if (data.watchlist && data.watchlist.length) {
+      const grid = document.getElementById('watchlist-grid');
+      if (grid) {
+        grid.innerHTML = data.watchlist.map(item => {
+          const spark = makeSparkline(item.hist_5d, 56, 20);
+          return `<div class="watchlist-card">
+            <div class="wl-left">
+              <div class="wl-ticker">${item.symbol}</div>
+              <div class="wl-name">${item.name}</div>
+            </div>
+            <div class="wl-right">
+              ${spark}
+              <div>
+                <div class="wl-price">${fmtPrice(item.price)}</div>
+                <div class="wl-pcts">
+                  <span class="wl-change ${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)} 1T</span>
+                  <span class="wl-change ${pctClass(item.w1_pct)}">${fmtPct(item.w1_pct)} 1W</span>
+                </div>
+              </div>
+            </div>
+          </div>`;
+        }).join('');
+      }
+    }
+
   } catch (e) {
     console.log('Platzhalterdaten aktiv — snapshot.json nicht gefunden.');
   }
 }
 loadData();
+
+// ══════════════════════════════════════════════
+// PASSWORD PROTECTION
+// ══════════════════════════════════════════════
+(function() {
+  // SHA-256 hash of current password — change monthly
+  // To generate: echo -n "YourPassword" | sha256sum
+  // Current: "yolo2026" → update this hash each month
+  const PW_HASH = '5b9d639c316d59216b8c82e7d27426c1abb7b95daee2f4daf4ae8b9339a16422'; // "yolo2026"
+
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  const overlay = document.getElementById('pwOverlay');
+  const input = document.getElementById('pwInput');
+  const error = document.getElementById('pwError');
+
+  // Check if already authenticated this session
+  if (sessionStorage.getItem('yolo_auth') === 'true') {
+    overlay.classList.add('hidden');
+  }
+
+  input.addEventListener('keydown', async (e) => {
+    if (e.key === 'Enter') {
+      const hash = await sha256(input.value);
+      if (hash === PW_HASH) {
+        sessionStorage.setItem('yolo_auth', 'true');
+        overlay.classList.add('hidden');
+      } else {
+        error.textContent = 'Falsches Passwort';
+        input.value = '';
+        input.classList.add('shake');
+        setTimeout(() => input.classList.remove('shake'), 500);
+      }
+    }
+  });
+})();
 
 // ══════════════════════════════════════════════
 // TRADERECHNER

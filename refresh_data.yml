@@ -50,6 +50,7 @@ jobs:
           fi
 
       - name: Build dashboard data
+        timeout-minutes: 15
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           BRIEFING_TYPE: ${{ steps.briefing.outputs.type }}
