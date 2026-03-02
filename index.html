@@ -392,11 +392,11 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </div>
     <div class="currency-row">
       <div class="currency-card">
-        <div><span class="pair">EU</span></div>
+        <div><span class="pair">EUR/USD</span></div>
         <div><div class="cur-price">1,0842</div><div class="cur-change pos">+0,18%</div></div>
       </div>
       <div class="currency-card">
-        <div><span class="pair">GU</span></div>
+        <div><span class="pair">GBP/USD</span></div>
         <div><div class="cur-price">1,2654</div><div class="cur-change neg">-0,12%</div></div>
       </div>
       <div class="currency-card">
@@ -425,7 +425,11 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       <span class="section-sub">Watchlist · Aktuelle Kandidaten</span>
     </div>
     <div class="watchlist-grid" id="watchlist-grid">
-      <!-- Filled by JS -->
+      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">ASM</div><div class="wl-name">ASM International</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
+      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">CCJ</div><div class="wl-name">Cameco</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
+      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">HL</div><div class="wl-name">Hecla Mining</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
+      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">RRX</div><div class="wl-name">Regal Rexnord</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
+      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">SNDK</div><div class="wl-name">Sandisk (WDC)</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
     </div>
   </div>
 
@@ -699,11 +703,15 @@ function fmtInt(n) { return n.toLocaleString('de-DE'); }
 function fmtPnL(v) { return (v >= 0 ? '+' : '-') + '$' + fmt(Math.abs(v)); }
 function pctClass(v) { return v >= 0 ? 'pos' : v < 0 ? 'neg' : 'muted'; }
 function fmtPct(v) { return (v >= 0 ? '+' : '') + fmt(v) + '%'; }
-function fmtPrice(v, sym) {
-  // Large indices: no decimals, dot separator
-  if (v > 1000) return fmtInt(Math.round(v));
-  if (v > 10) return '$' + fmt(v);
-  return fmt(v, 4); // FX pairs
+function fmtPrice(v) {
+  if (!v && v !== 0) return '—';
+  if (v >= 1000) return '$' + fmtInt(Math.round(v));
+  return '$' + fmt(v);
+}
+function fmtPriceFx(v) {
+  if (!v && v !== 0) return '—';
+  if (v < 10) return fmt(v, 4);
+  return fmt(v);
 }
 
 // ══════════════════════════════════════════════
@@ -748,7 +756,7 @@ function renderTop10(items) {
     const spark = makeSparkline(item.hist_5d, 48, 16);
     return `<tr${rc}>
     <td>${i + 1}</td>
-    <td>${item.name}</td>
+    <td>${item.name}${item.symbol ? ' (' + item.symbol + ')' : ''}</td>
     <td>${fmtPrice(item.price)}</td>
     <td class="${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)}</td>
     <td class="${pctClass(item.w1_pct)}">${fmtPct(item.w1_pct)}</td>
@@ -914,12 +922,11 @@ async function loadData() {
     // Currencies
     if (data.currencies) {
       const cards = document.querySelectorAll('.currency-card');
-      const pairs = ['EU', 'GU', 'DXY'];
       data.currencies.forEach(cur => {
         cards.forEach(card => {
           const pairEl = card.querySelector('.pair');
-          if (pairEl && pairs.some(p => pairEl.textContent.includes(p) && cur.name.includes(p))) {
-            card.querySelector('.cur-price').textContent = cur.price < 10 ? fmt(cur.price, 4) : fmt(cur.price);
+          if (pairEl && pairEl.textContent === cur.name) {
+            card.querySelector('.cur-price').textContent = fmtPriceFx(cur.price);
             const ch = card.querySelector('.cur-change');
             ch.textContent = fmtPct(cur.d1_pct);
             ch.className = 'cur-change ' + pctClass(cur.d1_pct);
