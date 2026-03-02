@@ -116,6 +116,13 @@ TICKERS = {
         "ECH":  "🇨🇱 Chile",
         "TUR":  "🇹🇷 Türkei",
     },
+    "watchlist": {
+        "ASM":   "ASM International",
+        "CCJ":   "Cameco",
+        "HL":    "Hecla Mining",
+        "RRX":   "Roper Technologies",
+        "SNDK":  "Western Digital",
+    },
 }
 
 
@@ -149,25 +156,55 @@ def get_sp500_tickers():
 
 def fetch_breadth_data():
     """Calculate S&P 500 breadth: % above SMA 20/50/200, A/D, New Highs/Lows."""
+    import pandas as pd
     print("\n📊 Berechne S&P 500 Breadth...")
-    print("  ⏳ Dauert 1-2 Minuten (500 Aktien)...")
 
     tickers = get_sp500_tickers()
     if not tickers:
         return None
 
     try:
-        data = yf.download(tickers, period="14mo", progress=False, threads=True)
-        if data.empty:
+        # Download in batches of 50 to avoid timeouts
+        batch_size = 50
+        all_frames = []
+
+        for i in range(0, len(tickers), batch_size):
+            batch = tickers[i:i + batch_size]
+            batch_num = i // batch_size + 1
+            total_batches = (len(tickers) + batch_size - 1) // batch_size
+            print(f"  → Batch {batch_num}/{total_batches} ({len(batch)} Ticker)...")
+            try:
+                raw = yf.download(batch, period="14mo", progress=False, threads=True)
+                if raw.empty:
+                    continue
+
+                # Handle MultiIndex: yfinance returns (Price, Ticker) columns
+                if isinstance(raw.columns, pd.MultiIndex):
+                    close_df = raw["Close"]
+                elif "Close" in raw.columns:
+                    # Single ticker case
+                    close_df = raw[["Close"]]
+                    close_df.columns = [batch[0]]
+                else:
+                    continue
+
+                all_frames.append(close_df)
+            except Exception as e:
+                print(f"    ⚠ Batch {batch_num} Fehler: {e}")
+                continue
+
+        if not all_frames:
+            print("  ⚠ Keine Daten geladen")
             return None
 
-        close = data["Close"]
-        valid = close.dropna(axis=1, thresh=200)
+        # Combine all batches
+        combined = pd.concat(all_frames, axis=1)
+        valid = combined.dropna(axis=1, thresh=200)
         n = len(valid.columns)
-        print(f"  → {n} Aktien mit ausreichend Daten")
+        print(f"  → {n} Aktien mit genug Daten")
 
-        if n < 300:
-            print(f"  ⚠ Zu wenig Aktien ({n})")
+        if n < 250:
+            print(f"  ⚠ Nur {n} Aktien — zu wenig (min. 250)")
             return None
 
         latest = valid.iloc[-1]
@@ -178,9 +215,9 @@ def fetch_breadth_data():
         sma50 = valid.rolling(50).mean().iloc[-1]
         sma200 = valid.rolling(200).mean().iloc[-1]
 
-        pct_20 = round((latest > sma20).sum() / n * 100, 1)
-        pct_50 = round((latest > sma50).sum() / n * 100, 1)
-        pct_200 = round((latest > sma200).sum() / n * 100, 1)
+        pct_20 = round(float((latest > sma20).sum()) / n * 100, 1)
+        pct_50 = round(float((latest > sma50).sum()) / n * 100, 1)
+        pct_200 = round(float((latest > sma200).sum()) / n * 100, 1)
 
         # Advance/Decline
         change = latest - prev
@@ -486,6 +523,7 @@ def generate_ai_summary(snapshot, briefing_type="morning"):
     commodities_info = json.dumps(snapshot.get("commodities", []), indent=2)
     currencies_info = json.dumps(snapshot.get("currencies", []), indent=2)
     fg_info = json.dumps(snapshot.get("fear_greed", {}), indent=2)
+    breadth_info = json.dumps(snapshot.get("breadth", {}), indent=2)
 
     now_str = datetime.now().strftime("%d. %b %Y")
 
@@ -512,6 +550,7 @@ VIX: {vix_info}
 Fear & Greed: {fg_info}
 Rohstoffe: {commodities_info}
 Währungen: {currencies_info}
+Breadth: {breadth_info}
 Datum: {now_str}"""
     else:
         prompt = f"""Du bist der KI-Analyst für das Yolo Dashboard (@Yolo_Investing).
@@ -540,13 +579,14 @@ VIX: {vix_info}
 Fear & Greed: {fg_info}
 Rohstoffe: {commodities_info}
 Währungen: {currencies_info}
+Breadth: {breadth_info}
 Datum: {now_str}"""
 
     try:
         print(f"  🤖 Claude API → {briefing_type}-Briefing...")
         message = client.messages.create(
-            model="claude-sonnet-4-5-20250514",
-            max_tokens=500,
+            model="claude-sonnet-4-5-20250929",
+            max_tokens=600,
             messages=[{"role": "user", "content": prompt}],
         )
         text = message.content[0].text
