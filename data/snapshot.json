@@ -25,65 +25,65 @@
   },
   "futures": [
     {
-      "price": 6817.0,
-      "d1_pct": -1.03,
-      "w1_pct": -1.26,
-      "hi52w_pct": -2.84,
-      "ytd_pct": -1.21,
+      "price": 6769.5,
+      "d1_pct": -1.72,
+      "w1_pct": -1.94,
+      "hi52w_pct": -3.52,
+      "ytd_pct": -1.9,
       "hist_5d": [
         6959.75,
         6920.0,
         6889.0,
         6888.25,
-        6817.0
+        6769.5
       ],
       "symbol": "ES=F",
       "name": "ES (S&P 500)"
     },
     {
-      "price": 24698.5,
-      "d1_pct": -1.31,
-      "w1_pct": -1.32,
-      "hi52w_pct": -5.96,
-      "ytd_pct": -2.71,
+      "price": 24468.25,
+      "d1_pct": -2.23,
+      "w1_pct": -2.24,
+      "hi52w_pct": -6.83,
+      "ytd_pct": -3.61,
       "hist_5d": [
         25382.0,
         25081.0,
         25004.75,
         25025.25,
-        24698.5
+        24468.25
       ],
       "symbol": "NQ=F",
       "name": "NQ (Nasdaq 100)"
     },
     {
-      "price": 48454.0,
-      "d1_pct": -1.0,
-      "w1_pct": -1.59,
-      "hi52w_pct": -3.62,
-      "ytd_pct": -0.33,
+      "price": 48150.0,
+      "d1_pct": -1.62,
+      "w1_pct": -2.21,
+      "hi52w_pct": -4.22,
+      "ytd_pct": -0.96,
       "hist_5d": [
         49534.0,
         49531.0,
         49000.0,
         48945.0,
-        48454.0
+        48150.0
       ],
       "symbol": "YM=F",
       "name": "YM (Dow Jones)"
     },
     {
-      "price": 2612.0,
-      "d1_pct": -1.73,
-      "w1_pct": -1.62,
-      "hi52w_pct": -4.35,
-      "ytd_pct": 3.55,
+      "price": 2587.6,
+      "d1_pct": -2.64,
+      "w1_pct": -2.54,
+      "hi52w_pct": -5.24,
+      "ytd_pct": 2.58,
       "hist_5d": [
         2667.7,
         2680.6,
         2634.7,
         2657.9,
-        2612.0
+        2587.6
       ],
       "symbol": "RTY=F",
       "name": "RTY (Russell 2000)"
@@ -91,65 +91,65 @@
   ],
   "europe": [
     {
-      "price": 24638.0,
-      "d1_pct": -2.56,
-      "w1_pct": -1.42,
-      "hi52w_pct": -3.08,
-      "ytd_pct": 0.4,
+      "price": 23817.11,
+      "d1_pct": -3.33,
+      "w1_pct": -4.68,
+      "hi52w_pct": -6.31,
+      "ytd_pct": -2.94,
       "hist_5d": [
-        24986.25,
         25175.94,
         25289.02,
         25284.26,
-        24638.0
+        24638.0,
+        23817.11
       ],
       "symbol": "^GDAXI",
       "name": "🇩🇪 DAX 40"
     },
     {
-      "price": 8394.32,
-      "d1_pct": -2.17,
-      "w1_pct": -1.21,
-      "hi52w_pct": -2.63,
-      "ytd_pct": 2.43,
+      "price": 8177.97,
+      "d1_pct": -2.58,
+      "w1_pct": -4.01,
+      "hi52w_pct": -5.14,
+      "ytd_pct": -0.21,
       "hist_5d": [
-        8519.21,
         8559.07,
         8620.93,
         8580.75,
-        8394.32
+        8394.32,
+        8177.97
       ],
       "symbol": "^FCHI",
       "name": "🇫🇷 CAC 40"
     },
     {
-      "price": 10780.1,
-      "d1_pct": -1.2,
-      "w1_pct": 0.89,
-      "hi52w_pct": -1.2,
-      "ytd_pct": 8.33,
+      "price": 10505.78,
+      "d1_pct": -2.54,
+      "w1_pct": -1.64,
+      "hi52w_pct": -3.71,
+      "ytd_pct": 5.57,
       "hist_5d": [
-        10680.6,
         10806.4,
         10846.7,
         10910.6,
-        10780.1
+        10780.1,
+        10505.78
       ],
       "symbol": "^FTSE",
       "name": "🇬🇧 FTSE 100"
     },
     {
-      "price": 5986.93,
-      "d1_pct": -2.47,
-      "w1_pct": -2.08,
-      "hi52w_pct": -3.02,
-      "ytd_pct": 1.07,
+      "price": 5800.28,
+      "d1_pct": -3.12,
+      "w1_pct": -5.17,
+      "hi52w_pct": -6.04,
+      "ytd_pct": -2.08,
       "hist_5d": [
-        6116.6,
         6173.32,
         6161.56,
         6138.41,
-        5986.93
+        5986.93,
+        5800.28
       ],
       "symbol": "^STOXX50E",
       "name": "🇪🇺 Euro Stoxx 50"
@@ -173,17 +173,17 @@
       "name": "🇯🇵 Nikkei 225"
     },
     {
-      "price": 25739.73,
-      "d1_pct": -1.23,
-      "w1_pct": -3.2,
-      "hi52w_pct": -7.97,
-      "ytd_pct": -2.27,
+      "price": 25768.08,
+      "d1_pct": -1.12,
+      "w1_pct": -3.09,
+      "hi52w_pct": -7.87,
+      "ytd_pct": -2.17,
       "hist_5d": [
         26765.72,
         26381.02,
         26630.54,
         26059.85,
-        25739.73
+        25768.08
       ],
       "symbol": "^HSI",
       "name": "🇭🇰 Hang Seng"
@@ -223,49 +223,49 @@
   ],
   "crypto": [
     {
-      "price": 68185.41,
-      "d1_pct": -0.86,
-      "w1_pct": 1.08,
-      "hi52w_pct": -45.34,
-      "ytd_pct": -23.16,
+      "price": 66538.7,
+      "d1_pct": -3.25,
+      "w1_pct": -1.36,
+      "hi52w_pct": -46.66,
+      "ytd_pct": -25.01,
       "hist_5d": [
         65881.8,
         66995.86,
         65738.1,
         68775.85,
-        68185.41
+        66538.7
       ],
       "symbol": "BTC-USD",
       "name": "Bitcoin (BTC)"
     },
     {
-      "price": 1995.46,
-      "d1_pct": -1.57,
-      "w1_pct": -1.55,
-      "hi52w_pct": -58.7,
-      "ytd_pct": -33.49,
+      "price": 1948.26,
+      "d1_pct": -3.9,
+      "w1_pct": -3.87,
+      "hi52w_pct": -59.67,
+      "ytd_pct": -35.07,
       "hist_5d": [
         1930.76,
         1965.05,
         1939.07,
         2027.27,
-        1995.46
+        1948.26
       ],
       "symbol": "ETH-USD",
       "name": "Ethereum (ETH)"
     },
     {
-      "price": 85.56,
-      "d1_pct": -1.24,
-      "w1_pct": -0.41,
-      "hi52w_pct": -65.45,
-      "ytd_pct": -32.51,
+      "price": 84.25,
+      "d1_pct": -2.75,
+      "w1_pct": -1.93,
+      "hi52w_pct": -65.98,
+      "ytd_pct": -33.54,
       "hist_5d": [
         81.95,
         84.37,
         83.58,
         86.63,
-        85.56
+        84.25
       ],
       "symbol": "SOL-USD",
       "name": "Solana (SOL)"
@@ -273,97 +273,97 @@
   ],
   "commodities": [
     {
-      "price": 5341.1,
-      "d1_pct": 0.88,
-      "w1_pct": 3.59,
-      "hi52w_pct": 0.0,
-      "ytd_pct": 23.8,
+      "price": 5288.7,
+      "d1_pct": -0.11,
+      "w1_pct": 2.58,
+      "hi52w_pct": -0.56,
+      "ytd_pct": 22.58,
       "hist_5d": [
         5206.4,
         5176.5,
         5230.5,
         5294.4,
-        5341.1
+        5288.7
       ],
       "symbol": "GC=F",
       "name": "Gold (XAU)"
     },
     {
-      "price": 87.04,
-      "d1_pct": -1.41,
-      "w1_pct": -0.48,
-      "hi52w_pct": -24.37,
-      "ytd_pct": 23.36,
+      "price": 84.57,
+      "d1_pct": -4.21,
+      "w1_pct": -3.31,
+      "hi52w_pct": -26.52,
+      "ytd_pct": 19.86,
       "hist_5d": [
         90.94,
         87.0,
         92.68,
         88.28,
-        87.04
+        84.57
       ],
       "symbol": "SI=F",
       "name": "Silber (XAG)"
     },
     {
-      "price": 73.82,
-      "d1_pct": 3.64,
-      "w1_pct": 12.48,
-      "hi52w_pct": -1.76,
-      "ytd_pct": 28.79,
+      "price": 75.5,
+      "d1_pct": 5.99,
+      "w1_pct": 15.04,
+      "hi52w_pct": 0.0,
+      "ytd_pct": 31.72,
       "hist_5d": [
         65.42,
         65.21,
         67.02,
         71.23,
-        73.82
+        75.5
       ],
       "symbol": "CL=F",
       "name": "WTI Crude"
     },
     {
-      "price": 80.94,
-      "d1_pct": 4.12,
-      "w1_pct": 14.37,
+      "price": 82.27,
+      "d1_pct": 5.83,
+      "w1_pct": 16.25,
       "hi52w_pct": 0.0,
-      "ytd_pct": 33.23,
+      "ytd_pct": 35.42,
       "hist_5d": [
         70.85,
         70.75,
         72.48,
         77.74,
-        80.94
+        82.27
       ],
       "symbol": "BZ=F",
       "name": "Brent Crude"
     },
     {
-      "price": 3.09,
-      "d1_pct": 4.43,
-      "w1_pct": 6.04,
-      "hi52w_pct": -58.57,
-      "ytd_pct": -14.57,
+      "price": 3.16,
+      "d1_pct": 6.89,
+      "w1_pct": 8.54,
+      "hi52w_pct": -57.59,
+      "ytd_pct": -12.55,
       "hist_5d": [
         2.97,
         2.83,
         2.86,
         2.96,
-        3.09
+        3.16
       ],
       "symbol": "NG=F",
       "name": "Erdgas"
     },
     {
-      "price": 5.94,
-      "d1_pct": 0.75,
-      "w1_pct": 0.26,
-      "hi52w_pct": -3.84,
-      "ytd_pct": 5.29,
+      "price": 5.79,
+      "d1_pct": -1.72,
+      "w1_pct": -2.19,
+      "hi52w_pct": -6.19,
+      "ytd_pct": 2.71,
       "hist_5d": [
         5.98,
         5.95,
         6.0,
         5.89,
-        5.94
+        5.79
       ],
       "symbol": "HG=F",
       "name": "Kupfer (HG)"
@@ -372,10 +372,10 @@
   "currencies": [
     {
       "price": 1.16,
-      "d1_pct": -0.95,
-      "w1_pct": -1.23,
-      "hi52w_pct": -3.07,
-      "ytd_pct": -0.87,
+      "d1_pct": -1.22,
+      "w1_pct": -1.51,
+      "hi52w_pct": -3.34,
+      "ytd_pct": -1.15,
       "hist_5d": [
         1.18,
         1.18,
@@ -388,10 +388,10 @@
     },
     {
       "price": 1.33,
-      "d1_pct": -0.53,
-      "w1_pct": -1.19,
-      "hi52w_pct": -3.54,
-      "ytd_pct": -1.02,
+      "d1_pct": -0.74,
+      "w1_pct": -1.41,
+      "hi52w_pct": -3.75,
+      "ytd_pct": -1.23,
       "hist_5d": [
         1.35,
         1.36,
@@ -403,17 +403,17 @@
       "name": "GBP/USD"
     },
     {
-      "price": 98.81,
-      "d1_pct": 0.44,
-      "w1_pct": 0.95,
-      "hi52w_pct": -7.44,
-      "ytd_pct": 0.4,
+      "price": 99.21,
+      "d1_pct": 0.85,
+      "w1_pct": 1.36,
+      "hi52w_pct": -7.06,
+      "ytd_pct": 0.81,
       "hist_5d": [
         97.7,
         97.79,
         97.61,
         98.38,
-        98.81
+        99.21
       ],
       "symbol": "DX-Y.NYB",
       "name": "DXY"
@@ -421,17 +421,17 @@
   ],
   "vix": [
     {
-      "price": 21.44,
-      "d1_pct": 7.96,
-      "w1_pct": 2.05,
-      "hi52w_pct": -59.03,
-      "ytd_pct": 47.76,
+      "price": 25.6,
+      "d1_pct": 19.4,
+      "w1_pct": 30.95,
+      "hi52w_pct": -51.08,
+      "ytd_pct": 76.43,
       "hist_5d": [
-        19.55,
         17.93,
         18.63,
         19.86,
-        21.44
+        21.44,
+        25.6
       ],
       "symbol": "^VIX",
       "name": "VIX",
@@ -1102,17 +1102,17 @@
   ],
   "watchlist": [
     {
-      "price": 704.6,
-      "d1_pct": -1.34,
-      "w1_pct": -0.96,
-      "hi52w_pct": -4.47,
-      "ytd_pct": 27.23,
+      "price": 676.0,
+      "d1_pct": -4.06,
+      "w1_pct": -5.8,
+      "hi52w_pct": -8.35,
+      "ytd_pct": 22.07,
       "hist_5d": [
-        717.6,
         737.6,
         707.0,
         714.2,
-        704.6
+        704.6,
+        676.0
       ],
       "symbol": "ASM.AS",
       "name": "ASM International"
@@ -1184,20 +1184,37 @@
   ],
   "top10": [
     {
-      "price": 80.94,
-      "d1_pct": 4.12,
-      "w1_pct": 14.37,
+      "price": 82.27,
+      "d1_pct": 5.83,
+      "w1_pct": 16.25,
       "hi52w_pct": 0.0,
-      "ytd_pct": 33.23,
+      "ytd_pct": 35.42,
       "hist_5d": [
         70.85,
         70.75,
         72.48,
         77.74,
-        80.94
+        82.27
       ],
       "symbol": "BZ=F",
       "name": "Brent Crude",
+      "category": "Rohstoff"
+    },
+    {
+      "price": 75.5,
+      "d1_pct": 5.99,
+      "w1_pct": 15.04,
+      "hi52w_pct": 0.0,
+      "ytd_pct": 31.72,
+      "hist_5d": [
+        65.42,
+        65.21,
+        67.02,
+        71.23,
+        75.5
+      ],
+      "symbol": "CL=F",
+      "name": "WTI Crude",
       "category": "Rohstoff"
     },
     {
@@ -1218,34 +1235,17 @@
       "category": "Thema"
     },
     {
-      "price": 73.82,
-      "d1_pct": 3.64,
-      "w1_pct": 12.48,
-      "hi52w_pct": -1.76,
-      "ytd_pct": 28.79,
-      "hist_5d": [
-        65.42,
-        65.21,
-        67.02,
-        71.23,
-        73.82
-      ],
-      "symbol": "CL=F",
-      "name": "WTI Crude",
-      "category": "Rohstoff"
-    },
-    {
-      "price": 3.09,
-      "d1_pct": 4.43,
-      "w1_pct": 6.04,
-      "hi52w_pct": -58.57,
-      "ytd_pct": -14.57,
+      "price": 3.16,
+      "d1_pct": 6.89,
+      "w1_pct": 8.54,
+      "hi52w_pct": -57.59,
+      "ytd_pct": -12.55,
       "hist_5d": [
         2.97,
         2.83,
         2.86,
         2.96,
-        3.09
+        3.16
       ],
       "symbol": "NG=F",
       "name": "Erdgas",
@@ -1366,12 +1366,12 @@
     "n_components": 99
   },
   "fear_greed": {
-    "score": 42,
+    "score": 35,
     "rating": "fear"
   },
   "put_call": 0.65,
   "ai_morning": {
-    "text": "Guten Morgen — hier dein Tagesbriefing.\n\n<strong>Futures rot, Europa blutet.</strong> ES -1,03%, NQ -1,31%, Russell sogar -1,73%. Asien überwiegend schwach. Europa noch härter getroffen: DAX -2,56%, CAC -2,17%. VIX springt auf 21,44 (+8%) — erhöhtes Nervositätslevel. Fear & Greed bei 42 (Fear-Modus).\n\n<strong>Marktregime: CHOP.</strong> SPY und QQQ beide im Seitwärtsmodus, alle MAs eng beieinander. SPY unter allen gleitenden Durchschnitten, QQQ ebenfalls schwach positioniert.\n\n<strong>Makro heute:</strong> Keine Major-Releases gelistet — ruhiger Datentag.\n\n<strong>Auf dem Radar:</strong> \n• <strong>Öl explodiert:</strong> Brent +4,12% auf ATH, WTI +3,64%. Geopolitik oder Supply-Schock? Inflationsgefahr steigt.\n• <strong>Gold auf Allzeithoch:</strong> 5.341 USD, Safe-Haven-Flucht läuft.\n• <strong>Dollar stark:</strong> DXY +0,44%, drückt EUR/USD auf 1,16.\n\nBreadth neutral (1:1 Ratio), aber nur 17 neue Highs bei 0 Lows — schwache Unterfütterung. Vorsicht bleibt angesagt.",
+    "text": "Guten Morgen — hier dein Tagesbriefing.\n\n<strong>Futures bluten weiter:</strong> ES -1,7%, NQ -2,2%, RTY brutal -2,6%. Europa im freien Fall – DAX -3,3%, Stoxx50 -3,1%. VIX springt auf <strong>25,6 (+19%)</strong> – erhöhte Panik-Zone. Beide Indizes in <strong>CHOP</strong>, SPY klebt unter allen MAs, QQQ 5% unter SMA50.\n\n<strong>Earnings heute:</strong> Keine Mega-Caps angesetzt. Ruhiger Tag auf der Earnings-Front.\n\n<strong>Makro-Kalender:</strong> Servicesektor-PMIs aus Europa am Vormittag, ansonsten dünn. Fokus liegt auf Marktbewegungen, nicht auf Daten.\n\n<strong>Auf dem Radar:</strong> \n• <strong>Öl explodiert:</strong> WTI +6% auf $75,50, Brent +5,8% – geopolitische Spannungen oder Supply-Schock?\n• Fear & Greed bei <strong>35 (Fear)</strong> – Stimmung kippt\n\nDollar fest (DXY +0,85%), EUR/USD bricht auf 1,16. Risk-off dominiert. Heute wird's volatil.",
     "timestamp": "03. Mar 2026 · 07:00 CET"
   },
   "ai_evening": {
@@ -1379,7 +1379,7 @@
     "timestamp": "02. Mar 2026 · 22:00 CET"
   },
   "meta": {
-    "updated_at": "2026-03-03T07:58:44.236260+00:00",
+    "updated_at": "2026-03-03T10:04:21.361179+00:00",
     "briefing_type": "morning",
     "source": "Yahoo Finance + CNN + McClellan berechnet"
   }
