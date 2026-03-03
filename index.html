@@ -102,17 +102,6 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .pw-box .pw-error { font-family: var(--mono-font); font-size: 11px; color: var(--negative); margin-top: 12px; min-height: 16px; }
 .pw-box .pw-hint { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 20px; }
 
-/* WATCHLIST */
-.watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-.watchlist-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
-.watchlist-card .wl-left { display: flex; flex-direction: column; }
-.watchlist-card .wl-ticker { font-family: var(--mono-font); font-size: 14px; font-weight: 500; letter-spacing: 2px; }
-.watchlist-card .wl-name { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 2px; }
-.watchlist-card .wl-right { text-align: right; display: flex; align-items: center; gap: 12px; }
-.watchlist-card .wl-price { font-family: var(--mono-font); font-size: 18px; font-weight: 300; }
-.watchlist-card .wl-change { font-family: var(--mono-font); font-size: 11px; }
-.watchlist-card .wl-pcts { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
-
 /* TOP 3 RANKED ROW HIGHLIGHTS */
 .data-table tbody tr.rank-1 { background: rgba(45,138,78,0.10); }
 .data-table tbody tr.rank-2 { background: rgba(45,138,78,0.06); }
@@ -417,21 +406,6 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </div>
   </div>
 
-  <!-- ═══ 03b · FOKUSLISTE ═══ -->
-  <div class="section fade-in">
-    <div class="section-header">
-      <span class="section-num">👁️</span>
-      <span class="section-title">Fokusliste</span>
-      <span class="section-sub">Watchlist · Aktuelle Kandidaten</span>
-    </div>
-    <div class="watchlist-grid" id="watchlist-grid">
-      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">ASM</div><div class="wl-name">ASM International</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
-      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">CCJ</div><div class="wl-name">Cameco</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
-      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">HL</div><div class="wl-name">Hecla Mining</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
-      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">RRX</div><div class="wl-name">Regal Rexnord</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
-      <div class="watchlist-card"><div class="wl-left"><div class="wl-ticker">SNDK</div><div class="wl-name">Sandisk (WDC)</div></div><div class="wl-right"><div><div class="wl-price">—</div><div class="wl-pcts"><span class="wl-change muted">Laden...</span></div></div></div></div>
-    </div>
-  </div>
 
   <!-- ═══ 04 · MARKTGESUNDHEIT ═══ -->
   <div class="section fade-in">
@@ -587,29 +561,17 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   <div class="section fade-in">
     <div class="section-header">
       <span class="section-num">09</span>
-      <span class="section-title">KI-Briefings</span>
-      <span class="section-sub">Claude AI · Morgens 07:00 & Abends 22:00 CET</span>
+      <span class="section-title">KI-Briefing</span>
+      <span class="section-sub">Claude AI · Premarket · 10:00 CET</span>
     </div>
 
-    <!-- Morgen-Briefing -->
-    <div class="ai-summary">
+    <div class="ai-summary" id="ai-briefing">
       <div class="ai-summary-header">
-        <div class="ai-badge"><span class="dot"></span> Morgen-Briefing</div>
-        <div class="ai-timestamp">01. Mär 2026 · 07:00 CET</div>
+        <div class="ai-badge"><span class="dot"></span> Premarket Briefing</div>
+        <div class="ai-timestamp">Laden...</div>
       </div>
       <div class="ai-summary-text">
-        <strong>Guten Morgen — hier dein Tagesbriefing.</strong> Die US-Futures deuten auf eine leicht positive Eröffnung hin: ES +0,3%, NQ +0,4%. Overnight-Session ruhig, asiatische Märkte gemischt — Nikkei -0,4%, Hang Seng +1,8% getrieben durch Tech-Stimulus-Hoffnungen in China. <strong>Earnings heute:</strong> Salesforce (CRM) nachbörslich — Analysten erwarten $2,28 EPS, Fokus auf AI-Revenue-Guidance. Costco (COST) vorbörslich — Konsumklima-Barometer. <strong>Makro-Kalender:</strong> ISM Manufacturing PMI um 16:00 CET — Konsens 49,8, ein Wert über 50 wäre das erste Mal seit Oktober in Expansionsterritorium. EU Inflationsdaten um 11:00 CET — erwartet 2,3% YoY. <strong>Auf dem Radar:</strong> Gold hält sich stabil nahe $2.648, Erdgas zeigt relative Stärke mit +3,8% auf Wochenbasis. DAX könnte heute erneut das ATH testen bei anhaltendem europäischem Kapitalzufluss.
-      </div>
-    </div>
-
-    <!-- Abend-Zusammenfassung -->
-    <div class="ai-summary">
-      <div class="ai-summary-header">
-        <div class="ai-badge"><span class="dot evening"></span> Tages-Zusammenfassung</div>
-        <div class="ai-timestamp">28. Feb 2026 · 22:00 CET</div>
-      </div>
-      <div class="ai-summary-text">
-        <strong>Bullisches Momentum intakt.</strong> Der S&P 500 schloss mit +0,42% und notiert weiterhin komfortabel über allen gleitenden Durchschnitten — Regime bleibt BULL. Die Marktbreite bestätigt: McClellan Oscillator bei +42,8 zeigt einen gesunden Breadth-Thrust, 68% der S&P-Komponenten über SMA50. <strong>DAX outperformt erneut</strong> mit +1,24% und nähert sich dem ATH auf nur -1,8% Distanz. <strong>Earnings-Highlights:</strong> NVIDIA (NVDA) übertraf die Erwartungen mit $5,82 EPS vs. $5,41 erwartet — Data-Center-Revenue +40% YoY, Aktie nachbörslich +4%. Dell (DELL) enttäuschte mit schwacher PC-Guidance, -8% after hours. <strong>Sektorrotation:</strong> Tech und Communication Services Wochengewinner, Basiskonsumgüter und Immobilien Schlusslichter. VIX bei 14,82 signalisiert geringe Angst. <strong>Rohstoffe:</strong> Silber +2,1% auf Wochenbasis sticht heraus, Gold stabil nahe ATH. Rohöl unter Druck wegen OPEC+-Unsicherheit. EU stabilisiert sich bei 1,0842 nach DXY-Schwäche. <strong>Warnsignal:</strong> Russell 2000 -0,42% auf Wochenbasis — fehlende Small-Cap-Beteiligung beobachten.
+        Briefing wird geladen...
       </div>
     </div>
   </div>
@@ -670,7 +632,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 
   <footer class="footer">
     <p>@YOLO_INVESTING · YOLO DASHBOARD</p>
-    <p style="margin-top:6px;">Morgen-Briefing 07:00 CET · Tages-Zusammenfassung 22:00 CET · Daten via GitHub Actions + Yahoo Finance · KI via Claude API</p>
+    <p style="margin-top:6px;">Premarket Briefing 10:00 CET · Daten via GitHub Actions + Yahoo Finance · KI via Claude API</p>
     <p style="margin-top:6px;opacity:0.5;">Daten dienen nur zur Information. Keine Anlageberatung.</p>
   </footer>
 </div>
@@ -948,70 +910,30 @@ async function loadData() {
       }
     }
 
-    // AI Summaries
-    if (data.ai_morning) {
-      const morningBox = document.querySelectorAll('.ai-summary')[0];
-      if (morningBox) {
-        morningBox.querySelector('.ai-summary-text').innerHTML = data.ai_morning.text;
-        morningBox.querySelector('.ai-timestamp').textContent = data.ai_morning.timestamp;
-      }
-    }
-    if (data.ai_evening) {
-      const eveningBox = document.querySelectorAll('.ai-summary')[1];
-      if (eveningBox) {
-        eveningBox.querySelector('.ai-summary-text').innerHTML = data.ai_evening.text;
-        eveningBox.querySelector('.ai-timestamp').textContent = data.ai_evening.timestamp;
+    // AI Briefing (single)
+    if (data.ai_briefing) {
+      const box = document.getElementById('ai-briefing');
+      if (box) {
+        box.querySelector('.ai-summary-text').innerHTML = data.ai_briefing.text;
+        box.querySelector('.ai-timestamp').textContent = data.ai_briefing.timestamp;
       }
     }
 
-    // Fallback: load manual briefings if AI data missing
-    if (!data.ai_morning || !data.ai_evening) {
+    // Fallback: manual briefings.json
+    if (!data.ai_briefing) {
       try {
         const br = await fetch('data/briefings.json');
         if (br.ok) {
           const manual = await br.json();
-          if (!data.ai_morning && manual.morning) {
-            const box = document.querySelectorAll('.ai-summary')[0];
+          if (manual.morning) {
+            const box = document.getElementById('ai-briefing');
             if (box) {
               box.querySelector('.ai-summary-text').innerHTML = manual.morning.text;
               box.querySelector('.ai-timestamp').textContent = manual.morning.timestamp;
             }
           }
-          if (!data.ai_evening && manual.evening) {
-            const box = document.querySelectorAll('.ai-summary')[1];
-            if (box) {
-              box.querySelector('.ai-summary-text').innerHTML = manual.evening.text;
-              box.querySelector('.ai-timestamp').textContent = manual.evening.timestamp;
-            }
-          }
         }
       } catch(e) { /* no manual briefings */ }
-    }
-
-    // ── FOKUSLISTE / WATCHLIST ──
-    if (data.watchlist && data.watchlist.length) {
-      const grid = document.getElementById('watchlist-grid');
-      if (grid) {
-        grid.innerHTML = data.watchlist.map(item => {
-          const spark = makeSparkline(item.hist_5d, 56, 20);
-          return `<div class="watchlist-card">
-            <div class="wl-left">
-              <div class="wl-ticker">${item.symbol}</div>
-              <div class="wl-name">${item.name}</div>
-            </div>
-            <div class="wl-right">
-              ${spark}
-              <div>
-                <div class="wl-price">${fmtPrice(item.price)}</div>
-                <div class="wl-pcts">
-                  <span class="wl-change ${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)} 1T</span>
-                  <span class="wl-change ${pctClass(item.w1_pct)}">${fmtPct(item.w1_pct)} 1W</span>
-                </div>
-              </div>
-            </div>
-          </div>`;
-        }).join('');
-      }
     }
 
   } catch (e) {
