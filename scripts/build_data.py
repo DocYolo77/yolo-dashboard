@@ -116,13 +116,6 @@ TICKERS = {
         "ECH":  "🇨🇱 Chile",
         "TUR":  "🇹🇷 Türkei",
     },
-    "watchlist": {
-        "ASM.AS": "ASM International",
-        "CCJ":    "Cameco",
-        "HL":     "Hecla Mining",
-        "RRX":    "Regal Rexnord",
-        "WDC":    "Sandisk (WDC)",
-    },
 }
 
 
@@ -520,11 +513,11 @@ def build_top10(all_data):
 
 
 # ─────────────────────────────────────────────
-# AI SUMMARY (optional — requires ANTHROPIC_API_KEY)
+# AI PREMARKET BRIEFING (requires ANTHROPIC_API_KEY)
 # ─────────────────────────────────────────────
 
-def generate_ai_summary(snapshot, briefing_type="morning"):
-    """Call Claude API to generate AI summary in German."""
+def generate_ai_briefing(snapshot):
+    """Call Claude API with web_search to generate Premarket Briefing with live news."""
     try:
         import anthropic
     except ImportError:
@@ -550,22 +543,28 @@ def generate_ai_summary(snapshot, briefing_type="morning"):
 
     now_str = datetime.now().strftime("%d. %b %Y")
 
-    if briefing_type == "morning":
-        prompt = f"""Du bist der KI-Analyst für das Yolo Dashboard (@Yolo_Investing).
-Schreibe ein prägnantes Morgen-Briefing (07:00 CET) auf Deutsch. Maximal 150 Wörter.
+    prompt = f"""Du bist der KI-Analyst für das Yolo Dashboard (@Yolo_Investing).
+Schreibe ein prägnantes Premarket-Briefing (10:00 CET) auf Deutsch. Maximal 200 Wörter.
+
+WICHTIG: Nutze zuerst das web_search Tool um folgendes zu recherchieren:
+1. Suche "stock market news today" — aktuelle Markt-Headlines
+2. Suche "earnings reports this week" — wichtige Earnings
+3. Suche "economic calendar today" — Makrodaten des Tages
+
+Dann schreibe das Briefing basierend auf den echten Daten UND den Suchergebnissen.
 
 Stil: Direkt, klar, keine Floskeln. Wie ein erfahrener Trader seinem Trading-Buddy schreibt.
-Beginne mit "Guten Morgen — hier dein Tagesbriefing."
+Beginne mit "Guten Morgen — hier dein Premarket Briefing."
 
-Inhalt:
-1. Overnight/Futures-Lage und asiatische Märkte
-2. Wichtige Earnings des Tages (recherchiere Mega-Cap Earnings dieser Woche)
-3. Makro-Kalender (wichtige Wirtschaftsdaten heute)
-4. "Auf dem Radar" — 1-2 auffällige Dinge
+Struktur:
+1. <strong>Overnight & Futures</strong> — Asien, EU-Eröffnung, US-Futures
+2. <strong>News des Tages</strong> — 2-3 marktrelevante Headlines (Geopolitik, Earnings, Makro)
+3. <strong>Makro-Kalender</strong> — Wirtschaftsdaten heute (Uhrzeiten in CET)
+4. <strong>Auf dem Radar</strong> — 1-2 auffällige Dinge aus den Daten
 
-Nutze <strong> Tags für Hervorhebungen.
+Nutze <strong> Tags für Hervorhebungen. Kein Markdown.
 
-Daten:
+Marktdaten:
 Regime: {regime_info}
 Futures: {futures_info}
 Europa: {europe_info}
@@ -574,40 +573,12 @@ Fear & Greed: {fg_info}
 Rohstoffe: {commodities_info}
 Währungen: {currencies_info}
 Breadth: {breadth_info}
-Datum: {now_str}"""
-    else:
-        prompt = f"""Du bist der KI-Analyst für das Yolo Dashboard (@Yolo_Investing).
-Schreibe eine prägnante Tages-Zusammenfassung (22:00 CET) auf Deutsch. Maximal 180 Wörter.
-
-Stil: Direkt, klar, analytisch. Wie ein erfahrener Trader den Tag zusammenfasst.
-Beginne mit einer fetten Headline die den Tag zusammenfasst.
-
-Inhalt:
-1. Tages-Performance und Regime-Status
-2. Marktbreite / Breadth (nutze die echten Zahlen)
-3. Earnings-Highlights des Tages
-4. Sektorrotation — Gewinner und Verlierer
-5. Rohstoffe & Währungen
-6. "Warnsignal" oder "Auf dem Radar"
-
-Nutze <strong> Tags für Hervorhebungen.
-
-Daten:
-Regime: {regime_info}
-Futures: {futures_info}
-Europa: {europe_info}
 Top Sektoren: {sectors_info}
 Top 10 Woche: {top10_info}
-VIX: {vix_info}
-Fear & Greed: {fg_info}
-Rohstoffe: {commodities_info}
-Währungen: {currencies_info}
-Breadth: {breadth_info}
 Datum: {now_str}"""
 
     try:
-        print(f"  🤖 Claude API → {briefing_type}-Briefing...")
-        # Try latest model, fall back to previous
+        print(f"  🤖 Claude API → Premarket-Briefing mit Web-Search...")
         models = ["claude-sonnet-4-5-20250514", "claude-sonnet-4-5-20250929"]
         text = None
         for model in models:
@@ -615,12 +586,20 @@ Datum: {now_str}"""
                 print(f"    → Versuche Model: {model}")
                 message = client.messages.create(
                     model=model,
-                    max_tokens=600,
+                    max_tokens=1024,
+                    tools=[{"type": "web_search_20250305", "name": "web_search"}],
                     messages=[{"role": "user", "content": prompt}],
                 )
-                text = message.content[0].text
-                print(f"  ✅ AI-Briefing generiert ({len(text)} Zeichen) mit {model}")
-                break
+                # Extract text from response (may include tool_use blocks)
+                text_parts = []
+                for block in message.content:
+                    if hasattr(block, 'text') and block.text:
+                        text_parts.append(block.text)
+                text = "\n".join(text_parts) if text_parts else None
+                if text:
+                    print(f"  ✅ Briefing generiert ({len(text)} Zeichen) mit {model}")
+                    print(f"    Stop reason: {message.stop_reason}")
+                    break
             except Exception as model_err:
                 print(f"    ⚠ Model {model} fehlgeschlagen: {model_err}")
                 continue
@@ -632,6 +611,7 @@ Datum: {now_str}"""
         return None
 
 
+
 # ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
@@ -639,16 +619,13 @@ Datum: {now_str}"""
 def main():
     parser = argparse.ArgumentParser(description="YOLO Dashboard Data Builder")
     parser.add_argument("--out-dir", default="data", help="Output directory")
-    parser.add_argument("--briefing", default=os.environ.get("BRIEFING_TYPE", "morning"),
-                        choices=["morning", "evening"], help="Which AI briefing to generate")
     args = parser.parse_args()
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print("=" * 60)
-    print(f"🚀 YOLO Dashboard — Data Builder v2")
-    print(f"   Briefing: {args.briefing}")
+    print(f"🚀 YOLO Dashboard — Data Builder v3")
     print(f"   Output: {out_dir}")
     print(f"   Zeit: {datetime.now().isoformat()}")
     print("=" * 60)
@@ -696,24 +673,13 @@ def main():
     if pc:
         snapshot["put_call"] = pc
 
-    # ═══ AI Summary ═══
-    # 10. Load existing to preserve the other briefing
-    existing = {}
-    snapshot_path = out_dir / "snapshot.json"
-    if snapshot_path.exists():
-        try:
-            with open(snapshot_path) as f:
-                existing = json.load(f)
-        except Exception:
-            pass
-
-    # Try Claude API first, fall back to manual briefings.json
+    # ═══ AI Premarket Briefing ═══
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     ai_text = None
 
     if api_key:
         print(f"\n🤖 ANTHROPIC_API_KEY vorhanden ({len(api_key)} Zeichen, beginnt mit {api_key[:8]}...)")
-        ai_text = generate_ai_summary(snapshot, args.briefing)
+        ai_text = generate_ai_briefing(snapshot)
     else:
         print("\n  ℹ Kein ANTHROPIC_API_KEY gesetzt — nutze manuelle Briefings")
         briefings_path = out_dir / "briefings.json"
@@ -721,38 +687,25 @@ def main():
             try:
                 with open(briefings_path, encoding="utf-8") as f:
                     manual = json.load(f)
-                key = args.briefing
-                if key in manual:
-                    ai_text = manual[key].get("text")
-                    print(f"  ✅ Manuelles {key}-Briefing geladen")
+                if "morning" in manual:
+                    ai_text = manual["morning"].get("text")
+                    print(f"  ✅ Manuelles Briefing geladen")
             except Exception as e:
                 print(f"  ⚠ Fehler bei briefings.json: {e}")
 
     now_str = datetime.now().strftime("%d. %b %Y")
-
-    if args.briefing == "morning":
-        snapshot["ai_morning"] = {
-            "text": ai_text or "Noch kein Briefing eingetragen.",
-            "timestamp": f"{now_str} · 07:00 CET",
-        }
-        if "ai_evening" in existing:
-            snapshot["ai_evening"] = existing["ai_evening"]
-    else:
-        snapshot["ai_evening"] = {
-            "text": ai_text or "Noch keine Zusammenfassung eingetragen.",
-            "timestamp": f"{now_str} · 22:00 CET",
-        }
-        if "ai_morning" in existing:
-            snapshot["ai_morning"] = existing["ai_morning"]
-
-    # 11. Metadata
-    snapshot["meta"] = {
-        "updated_at": datetime.now(timezone.utc).isoformat(),
-        "briefing_type": args.briefing,
-        "source": "Yahoo Finance + CNN + McClellan berechnet",
+    snapshot["ai_briefing"] = {
+        "text": ai_text or "Briefing wird generiert...",
+        "timestamp": f"{now_str} · 10:00 CET",
     }
 
-    # 12. Write output
+    # 10. Metadata
+    snapshot["meta"] = {
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "source": "Yahoo Finance + CNN + Claude AI + Web Search",
+    }
+
+    # 11. Write output
     with open(out_dir / "snapshot.json", "w", encoding="utf-8") as f:
         json.dump(snapshot, f, indent=2, ensure_ascii=False)
 
@@ -764,6 +717,8 @@ def main():
         print(f"   Fear & Greed: {fg['score']} ({fg['rating']})")
     if pc:
         print(f"   Put/Call: {pc}")
+    if ai_text:
+        print(f"   AI Briefing: {len(ai_text)} Zeichen")
     print("=" * 60)
 
 
