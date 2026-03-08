@@ -544,7 +544,7 @@ def generate_ai_briefing(snapshot):
     now_str = datetime.now().strftime("%d. %b %Y")
 
     prompt = f"""Du bist der KI-Analyst für das Yolo Dashboard (@Yolo_Investing).
-Schreibe ein prägnantes Premarket-Briefing (10:00 CET) auf Deutsch. Maximal 200 Wörter.
+Schreibe ein prägnantes Premarket-Briefing (07:00 CET) auf Deutsch. Maximal 200 Wörter.
 
 WICHTIG: Nutze zuerst das web_search Tool um folgendes zu recherchieren:
 1. Suche "stock market news today" — aktuelle Markt-Headlines
@@ -696,7 +696,7 @@ def main():
     now_str = datetime.now().strftime("%d. %b %Y")
     snapshot["ai_briefing"] = {
         "text": ai_text or "Briefing wird generiert...",
-        "timestamp": f"{now_str} · 10:00 CET",
+        "timestamp": f"{now_str} · 07:00 CET",
     }
 
     # 10. Metadata
