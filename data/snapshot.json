@@ -1,89 +1,89 @@
 {
   "regime": {
     "SPY": {
-      "price": 677.18,
+      "price": 676.33,
       "regime": "CHOP",
       "mas": {
-        "ema10": 681.06,
-        "ema20": 683.57,
-        "sma50": 687.59,
-        "sma100": 681.27,
-        "sma200": 655.08
+        "ema10": 680.2,
+        "ema20": 682.88,
+        "sma50": 687.31,
+        "sma100": 681.4,
+        "sma200": 655.57
       }
     },
     "QQQ": {
-      "price": 607.77,
+      "price": 607.69,
       "regime": "CHOP",
       "mas": {
-        "ema10": 606.89,
-        "ema20": 608.21,
-        "sma50": 614.64,
-        "sma100": 614.53,
-        "sma200": 588.86
+        "ema10": 607.03,
+        "ema20": 608.16,
+        "sma50": 614.32,
+        "sma100": 614.59,
+        "sma200": 589.33
       }
     }
   },
   "futures": [
     {
-      "price": 6797.25,
-      "d1_pct": 0.15,
-      "w1_pct": -1.15,
-      "hi52w_pct": -3.12,
-      "ytd_pct": -1.5,
+      "price": 6748.0,
+      "d1_pct": -0.46,
+      "w1_pct": -1.28,
+      "hi52w_pct": -3.83,
+      "ytd_pct": -2.21,
       "hist_5d": [
-        6835.25,
         6743.75,
         6801.0,
         6787.25,
-        6797.25
+        6779.5,
+        6748.0
       ],
       "symbol": "ES=F",
       "name": "ES (S&P 500)"
     },
     {
-      "price": 25011.75,
-      "d1_pct": 0.12,
-      "w1_pct": -0.46,
-      "hi52w_pct": -4.76,
-      "ytd_pct": -1.47,
+      "price": 24881.75,
+      "d1_pct": -0.41,
+      "w1_pct": -0.67,
+      "hi52w_pct": -5.26,
+      "ytd_pct": -1.98,
       "hist_5d": [
-        25049.5,
         24670.25,
         24991.0,
         24982.5,
-        25011.75
+        24983.5,
+        24881.75
       ],
       "symbol": "NQ=F",
       "name": "NQ (Nasdaq 100)"
     },
     {
-      "price": 47812.0,
-      "d1_pct": 0.14,
-      "w1_pct": -2.02,
-      "hi52w_pct": -4.9,
-      "ytd_pct": -1.65,
+      "price": 47174.0,
+      "d1_pct": -0.58,
+      "w1_pct": -1.69,
+      "hi52w_pct": -6.16,
+      "ytd_pct": -2.97,
       "hist_5d": [
-        47983.0,
         47517.0,
         47769.0,
         47745.0,
-        47812.0
+        47448.0,
+        47174.0
       ],
       "symbol": "YM=F",
       "name": "YM (Dow Jones)"
     },
     {
-      "price": 2552.7,
-      "d1_pct": 0.09,
-      "w1_pct": -3.22,
-      "hi52w_pct": -6.52,
-      "ytd_pct": 1.2,
+      "price": 2520.0,
+      "d1_pct": -0.98,
+      "w1_pct": -2.57,
+      "hi52w_pct": -7.72,
+      "ytd_pct": -0.1,
       "hist_5d": [
-        2586.4,
         2526.7,
         2553.9,
         2550.5,
-        2552.7
+        2545.0,
+        2520.0
       ],
       "symbol": "RTY=F",
       "name": "RTY (Russell 2000)"
@@ -91,65 +91,65 @@
   ],
   "europe": [
     {
-      "price": 23801.28,
-      "d1_pct": -0.7,
-      "w1_pct": -1.67,
-      "hi52w_pct": -6.37,
-      "ytd_pct": -3.01,
+      "price": 23654.1,
+      "d1_pct": 0.06,
+      "w1_pct": -0.68,
+      "hi52w_pct": -6.95,
+      "ytd_pct": -3.61,
       "hist_5d": [
-        23815.75,
         23591.03,
         23409.37,
         23968.63,
-        23801.28
+        23640.03,
+        23654.1
       ],
       "symbol": "^GDAXI",
       "name": "🇩🇪 DAX 40"
     },
     {
-      "price": 8030.88,
-      "d1_pct": -0.33,
-      "w1_pct": -1.68,
-      "hi52w_pct": -6.84,
-      "ytd_pct": -2.01,
+      "price": 8017.61,
+      "d1_pct": -0.3,
+      "w1_pct": -0.35,
+      "hi52w_pct": -7.0,
+      "ytd_pct": -2.17,
       "hist_5d": [
-        8045.8,
         7993.49,
         7915.36,
         8057.36,
-        8030.88
+        8041.81,
+        8017.61
       ],
       "symbol": "^FCHI",
       "name": "🇫🇷 CAC 40"
     },
     {
-      "price": 10353.55,
-      "d1_pct": -0.56,
-      "w1_pct": -2.03,
-      "hi52w_pct": -5.11,
-      "ytd_pct": 4.04,
+      "price": 10319.26,
+      "d1_pct": -0.33,
+      "w1_pct": -0.91,
+      "hi52w_pct": -5.42,
+      "ytd_pct": 3.7,
       "hist_5d": [
-        10413.9,
         10284.8,
         10249.5,
         10412.2,
-        10353.55
+        10353.8,
+        10319.26
       ],
       "symbol": "^FTSE",
       "name": "🇬🇧 FTSE 100"
     },
     {
-      "price": 5812.7,
-      "d1_pct": -0.42,
-      "w1_pct": -0.99,
-      "hi52w_pct": -5.84,
-      "ytd_pct": -1.87,
+      "price": 5773.0,
+      "d1_pct": -0.37,
+      "w1_pct": -0.17,
+      "hi52w_pct": -6.48,
+      "ytd_pct": -2.54,
       "hist_5d": [
-        5782.89,
         5719.9,
         5685.2,
         5837.17,
-        5812.7
+        5794.68,
+        5773.0
       ],
       "symbol": "^STOXX50E",
       "name": "🇪🇺 Euro Stoxx 50"
@@ -157,65 +157,65 @@
   ],
   "global": [
     {
-      "price": 55025.37,
-      "d1_pct": 1.43,
-      "w1_pct": 1.44,
-      "hi52w_pct": -6.5,
-      "ytd_pct": 6.16,
+      "price": 54452.96,
+      "d1_pct": -1.04,
+      "w1_pct": -1.49,
+      "hi52w_pct": -7.47,
+      "ytd_pct": 5.06,
       "hist_5d": [
-        55278.06,
         55620.84,
         52728.72,
         54248.39,
-        55025.37
+        55025.37,
+        54452.96
       ],
       "symbol": "^N225",
       "name": "🇯🇵 Nikkei 225"
     },
     {
-      "price": 25898.76,
-      "d1_pct": -0.24,
-      "w1_pct": 2.57,
-      "hi52w_pct": -7.4,
-      "ytd_pct": -1.67,
+      "price": 25716.76,
+      "d1_pct": -0.7,
+      "w1_pct": 1.56,
+      "hi52w_pct": -8.05,
+      "ytd_pct": -2.36,
       "hist_5d": [
-        25321.34,
         25757.29,
         25408.46,
         25959.9,
-        25898.76
+        25898.76,
+        25716.76
       ],
       "symbol": "^HSI",
       "name": "🇭🇰 Hang Seng"
     },
     {
-      "price": 4704.5,
-      "d1_pct": 0.64,
-      "w1_pct": 2.21,
-      "hi52w_pct": -1.8,
-      "ytd_pct": -0.28,
+      "price": 4687.56,
+      "d1_pct": -0.36,
+      "w1_pct": 0.86,
+      "hi52w_pct": -2.15,
+      "ytd_pct": -0.64,
       "hist_5d": [
-        4647.69,
         4660.44,
         4615.46,
         4674.76,
-        4704.5
+        4704.5,
+        4687.56
       ],
       "symbol": "000300.SS",
       "name": "🇨🇳 CSI 300"
     },
     {
-      "price": 8743.5,
-      "d1_pct": 0.59,
-      "w1_pct": -1.77,
-      "hi52w_pct": -4.95,
-      "ytd_pct": 0.18,
+      "price": 8629.0,
+      "d1_pct": -1.31,
+      "w1_pct": -3.48,
+      "hi52w_pct": -6.19,
+      "ytd_pct": -1.13,
       "hist_5d": [
-        8940.3,
         8851.0,
         8599.0,
         8692.6,
-        8743.5
+        8743.5,
+        8629.0
       ],
       "symbol": "^AXJO",
       "name": "🇦🇺 ASX 200"
@@ -223,49 +223,49 @@
   ],
   "crypto": [
     {
-      "price": 69612.9,
-      "d1_pct": -0.45,
-      "w1_pct": 2.17,
-      "hi52w_pct": -44.2,
-      "ytd_pct": -21.55,
+      "price": 70461.25,
+      "d1_pct": 0.37,
+      "w1_pct": 4.74,
+      "hi52w_pct": -43.52,
+      "ytd_pct": -20.59,
       "hist_5d": [
-        67272.59,
         65969.78,
         68402.38,
         69926.92,
-        69612.9
+        70204.88,
+        70461.25
       ],
       "symbol": "BTC-USD",
       "name": "Bitcoin (BTC)"
     },
     {
-      "price": 2028.46,
-      "d1_pct": -0.43,
-      "w1_pct": 2.51,
-      "hi52w_pct": -58.01,
-      "ytd_pct": -32.39,
+      "price": 2070.7,
+      "d1_pct": 0.93,
+      "w1_pct": 5.14,
+      "hi52w_pct": -57.14,
+      "ytd_pct": -30.99,
       "hist_5d": [
-        1969.46,
         1936.6,
         1992.94,
         2037.12,
-        2028.46
+        2051.57,
+        2070.7
       ],
       "symbol": "ETH-USD",
       "name": "Ethereum (ETH)"
     },
     {
-      "price": 85.17,
-      "d1_pct": -0.78,
-      "w1_pct": 0.57,
-      "hi52w_pct": -65.61,
-      "ytd_pct": -32.81,
+      "price": 86.77,
+      "d1_pct": 0.24,
+      "w1_pct": 4.32,
+      "hi52w_pct": -64.96,
+      "ytd_pct": -31.55,
       "hist_5d": [
-        83.18,
         81.62,
         84.94,
         85.84,
-        85.17
+        86.56,
+        86.77
       ],
       "symbol": "SOL-USD",
       "name": "Solana (SOL)"
@@ -273,97 +273,97 @@
   ],
   "commodities": [
     {
-      "price": 5194.4,
-      "d1_pct": -0.67,
-      "w1_pct": 1.45,
-      "hi52w_pct": -2.33,
-      "ytd_pct": 20.4,
+      "price": 5188.1,
+      "d1_pct": 0.4,
+      "w1_pct": 2.42,
+      "hi52w_pct": -2.45,
+      "ytd_pct": 20.25,
       "hist_5d": [
-        5065.3,
         5146.1,
         5091.5,
         5229.7,
-        5194.4
+        5167.4,
+        5188.1
       ],
       "symbol": "GC=F",
       "name": "Gold (XAU)"
     },
     {
-      "price": 86.69,
-      "d1_pct": -2.68,
-      "w1_pct": 4.92,
-      "hi52w_pct": -24.67,
-      "ytd_pct": 22.87,
+      "price": 87.37,
+      "d1_pct": 2.71,
+      "w1_pct": 6.96,
+      "hi52w_pct": -24.08,
+      "ytd_pct": 23.83,
       "hist_5d": [
-        81.69,
         83.82,
         84.03,
         89.08,
-        86.69
+        85.07,
+        87.37
       ],
       "symbol": "SI=F",
       "name": "Silber (XAG)"
     },
     {
-      "price": 85.44,
-      "d1_pct": 2.38,
-      "w1_pct": 14.44,
-      "hi52w_pct": -9.84,
-      "ytd_pct": 49.06,
+      "price": 91.1,
+      "d1_pct": 4.41,
+      "w1_pct": 12.46,
+      "hi52w_pct": -3.87,
+      "ytd_pct": 58.93,
       "hist_5d": [
-        81.01,
         90.9,
         94.77,
         83.45,
-        85.44
+        87.25,
+        91.1
       ],
       "symbol": "CL=F",
       "name": "WTI Crude"
     },
     {
-      "price": 86.03,
-      "d1_pct": -2.02,
-      "w1_pct": 5.69,
-      "hi52w_pct": -13.07,
-      "ytd_pct": 41.61,
+      "price": 92.97,
+      "d1_pct": 1.08,
+      "w1_pct": 8.85,
+      "hi52w_pct": -6.05,
+      "ytd_pct": 53.04,
       "hist_5d": [
-        85.41,
         92.69,
         98.96,
         87.8,
-        86.03
+        91.98,
+        92.97
       ],
       "symbol": "BZ=F",
       "name": "Brent Crude"
     },
     {
-      "price": 3.05,
-      "d1_pct": 1.13,
-      "w1_pct": 4.7,
-      "hi52w_pct": -59.06,
-      "ytd_pct": -15.59,
+      "price": 3.21,
+      "d1_pct": 0.0,
+      "w1_pct": 6.86,
+      "hi52w_pct": -56.98,
+      "ytd_pct": -11.3,
       "hist_5d": [
-        3.0,
         3.19,
         3.12,
         3.02,
-        3.05
+        3.21,
+        3.21
       ],
       "symbol": "NG=F",
       "name": "Erdgas"
     },
     {
-      "price": 5.87,
-      "d1_pct": -0.65,
-      "w1_pct": 0.18,
-      "hi52w_pct": -5.02,
-      "ytd_pct": 4.0,
+      "price": 5.89,
+      "d1_pct": 0.71,
+      "w1_pct": 2.33,
+      "hi52w_pct": -4.67,
+      "ytd_pct": 4.38,
       "hist_5d": [
-        5.75,
         5.76,
         5.8,
         5.9,
-        5.87
+        5.85,
+        5.89
       ],
       "symbol": "HG=F",
       "name": "Kupfer (HG)"
@@ -372,14 +372,14 @@
   "currencies": [
     {
       "price": 1.16,
-      "d1_pct": -0.08,
-      "w1_pct": -0.04,
-      "hi52w_pct": -3.41,
-      "ytd_pct": -1.22,
+      "d1_pct": -0.44,
+      "w1_pct": -0.64,
+      "hi52w_pct": -3.8,
+      "ytd_pct": -1.62,
       "hist_5d": [
         1.16,
-        1.16,
         1.15,
+        1.16,
         1.16,
         1.16
       ],
@@ -388,14 +388,14 @@
     },
     {
       "price": 1.34,
-      "d1_pct": 0.14,
-      "w1_pct": 0.67,
-      "hi52w_pct": -2.76,
-      "ytd_pct": -0.22,
+      "d1_pct": -0.19,
+      "w1_pct": 0.18,
+      "hi52w_pct": -3.12,
+      "ytd_pct": -0.59,
       "hist_5d": [
         1.34,
-        1.34,
         1.33,
+        1.34,
         1.34,
         1.34
       ],
@@ -403,17 +403,17 @@
       "name": "GBP/USD"
     },
     {
-      "price": 98.92,
-      "d1_pct": 0.09,
-      "w1_pct": 0.15,
-      "hi52w_pct": -5.38,
-      "ytd_pct": 0.51,
+      "price": 99.33,
+      "d1_pct": 0.1,
+      "w1_pct": 0.01,
+      "hi52w_pct": -4.99,
+      "ytd_pct": 0.92,
       "hist_5d": [
-        99.32,
         98.99,
         99.18,
         98.83,
-        98.92
+        99.23,
+        99.33
       ],
       "symbol": "DX-Y.NYB",
       "name": "DXY"
@@ -421,17 +421,17 @@
   ],
   "vix": [
     {
-      "price": 24.9,
-      "d1_pct": -0.12,
-      "w1_pct": 17.73,
-      "hi52w_pct": -52.42,
-      "ytd_pct": 71.61,
+      "price": 25.11,
+      "d1_pct": 3.63,
+      "w1_pct": 5.73,
+      "hi52w_pct": -52.02,
+      "ytd_pct": 73.05,
       "hist_5d": [
-        23.75,
         29.49,
         25.5,
         24.93,
-        24.9
+        24.23,
+        25.11
       ],
       "symbol": "^VIX",
       "name": "VIX",
@@ -440,177 +440,177 @@
   ],
   "sectors": [
     {
-      "price": 139.76,
-      "d1_pct": 0.0,
-      "w1_pct": 1.64,
-      "hi52w_pct": -7.95,
-      "ytd_pct": -3.15,
+      "price": 56.98,
+      "d1_pct": 2.48,
+      "w1_pct": 1.41,
+      "hi52w_pct": -0.11,
+      "ytd_pct": 24.82,
       "hist_5d": [
-        139.84,
-        140.18,
-        137.29,
-        139.76,
-        139.76
-      ],
-      "symbol": "XLK",
-      "name": "Technologie"
-    },
-    {
-      "price": 114.44,
-      "d1_pct": -0.13,
-      "w1_pct": 0.07,
-      "hi52w_pct": -8.1,
-      "ytd_pct": -3.3,
-      "hist_5d": [
-        116.39,
-        116.55,
-        114.44,
-        114.59,
-        114.44
-      ],
-      "symbol": "XLY",
-      "name": "Zyklisch Konsum"
-    },
-    {
-      "price": 117.38,
-      "d1_pct": -0.15,
-      "w1_pct": -0.49,
-      "hi52w_pct": -2.25,
-      "ytd_pct": 0.41,
-      "hist_5d": [
-        118.79,
-        118.44,
-        117.46,
-        117.56,
-        117.38
-      ],
-      "symbol": "XLC",
-      "name": "Kommunikation"
-    },
-    {
-      "price": 46.56,
-      "d1_pct": -0.62,
-      "w1_pct": -1.08,
-      "hi52w_pct": -2.45,
-      "ytd_pct": 7.83,
-      "hist_5d": [
-        47.27,
-        46.9,
-        46.74,
-        46.85,
-        46.56
-      ],
-      "symbol": "XLU",
-      "name": "Versorger"
-    },
-    {
-      "price": 55.6,
-      "d1_pct": -1.28,
-      "w1_pct": -1.63,
-      "hi52w_pct": -2.52,
-      "ytd_pct": 21.8,
-      "hist_5d": [
-        56.19,
         56.48,
         56.57,
         56.32,
-        55.6
+        55.6,
+        56.98
       ],
       "symbol": "XLE",
       "name": "Energie"
     },
     {
-      "price": 42.92,
-      "d1_pct": -0.14,
-      "w1_pct": -1.78,
-      "hi52w_pct": -2.32,
-      "ytd_pct": 6.29,
+      "price": 140.43,
+      "d1_pct": 0.48,
+      "w1_pct": 0.42,
+      "hi52w_pct": -7.51,
+      "ytd_pct": -2.68,
       "hist_5d": [
-        43.76,
-        43.34,
-        42.89,
-        42.98,
-        42.92
+        140.18,
+        137.29,
+        139.76,
+        139.76,
+        140.43
       ],
-      "symbol": "XLRE",
-      "name": "Immobilien"
+      "symbol": "XLK",
+      "name": "Technologie"
     },
     {
-      "price": 50.06,
-      "d1_pct": -0.54,
-      "w1_pct": -2.25,
-      "hi52w_pct": -11.24,
-      "ytd_pct": -8.87,
+      "price": 117.0,
+      "d1_pct": -0.32,
+      "w1_pct": -1.51,
+      "hi52w_pct": -2.56,
+      "ytd_pct": 0.09,
       "hist_5d": [
-        51.5,
-        51.23,
-        50.57,
-        50.33,
-        50.06
+        118.44,
+        117.46,
+        117.56,
+        117.38,
+        117.0
       ],
-      "symbol": "XLF",
-      "name": "Finanzen"
+      "symbol": "XLC",
+      "name": "Kommunikation"
     },
     {
-      "price": 153.15,
-      "d1_pct": -0.72,
-      "w1_pct": -2.29,
-      "hi52w_pct": -4.4,
-      "ytd_pct": -1.52,
+      "price": 114.14,
+      "d1_pct": -0.26,
+      "w1_pct": -1.93,
+      "hi52w_pct": -8.34,
+      "ytd_pct": -3.56,
       "hist_5d": [
-        157.05,
+        116.55,
+        114.44,
+        114.59,
+        114.44,
+        114.14
+      ],
+      "symbol": "XLY",
+      "name": "Zyklisch Konsum"
+    },
+    {
+      "price": 46.17,
+      "d1_pct": -0.84,
+      "w1_pct": -2.33,
+      "hi52w_pct": -3.27,
+      "ytd_pct": 6.92,
+      "hist_5d": [
+        46.9,
+        46.74,
+        46.85,
+        46.56,
+        46.17
+      ],
+      "symbol": "XLU",
+      "name": "Versorger"
+    },
+    {
+      "price": 152.85,
+      "d1_pct": -0.2,
+      "w1_pct": -2.67,
+      "hi52w_pct": -4.59,
+      "ytd_pct": -1.71,
+      "hist_5d": [
         153.91,
         152.7,
         154.26,
-        153.15
+        153.15,
+        152.85
       ],
       "symbol": "XLV",
       "name": "Gesundheit"
     },
     {
-      "price": 85.72,
-      "d1_pct": -0.29,
-      "w1_pct": -2.3,
-      "hi52w_pct": -4.77,
-      "ytd_pct": 10.34,
+      "price": 84.59,
+      "d1_pct": -1.32,
+      "w1_pct": -2.95,
+      "hi52w_pct": -6.02,
+      "ytd_pct": 8.88,
       "hist_5d": [
-        87.16,
         85.41,
         85.78,
         85.97,
-        85.72
+        85.72,
+        84.59
       ],
       "symbol": "XLP",
       "name": "Basiskons."
     },
     {
-      "price": 170.02,
-      "d1_pct": -0.54,
+      "price": 42.41,
+      "d1_pct": -1.19,
       "w1_pct": -3.09,
-      "hi52w_pct": -4.96,
-      "ytd_pct": 7.62,
+      "hi52w_pct": -3.48,
+      "ytd_pct": 5.03,
       "hist_5d": [
-        175.97,
+        43.34,
+        42.89,
+        42.98,
+        42.92,
+        42.41
+      ],
+      "symbol": "XLRE",
+      "name": "Immobilien"
+    },
+    {
+      "price": 49.64,
+      "d1_pct": -0.84,
+      "w1_pct": -3.61,
+      "hi52w_pct": -11.99,
+      "ytd_pct": -9.63,
+      "hist_5d": [
+        51.23,
+        50.57,
+        50.33,
+        50.06,
+        49.64
+      ],
+      "symbol": "XLF",
+      "name": "Finanzen"
+    },
+    {
+      "price": 169.49,
+      "d1_pct": -0.31,
+      "w1_pct": -3.68,
+      "hi52w_pct": -5.26,
+      "ytd_pct": 7.29,
+      "hist_5d": [
         172.06,
         169.94,
         170.94,
-        170.02
+        170.02,
+        169.49
       ],
       "symbol": "XLI",
       "name": "Industrie"
     },
     {
-      "price": 49.88,
-      "d1_pct": -0.22,
-      "w1_pct": -3.97,
-      "hi52w_pct": -6.98,
-      "ytd_pct": 8.15,
+      "price": 49.84,
+      "d1_pct": -0.08,
+      "w1_pct": -4.01,
+      "hi52w_pct": -7.05,
+      "ytd_pct": 8.07,
       "hist_5d": [
-        51.92,
         50.83,
         49.86,
         49.99,
-        49.88
+        49.88,
+        49.84
       ],
       "symbol": "XLB",
       "name": "Materialien"
@@ -618,321 +618,321 @@
   ],
   "themes": [
     {
-      "price": 80.09,
-      "d1_pct": 2.34,
-      "w1_pct": 7.24,
-      "hi52w_pct": -24.16,
-      "ytd_pct": 21.81,
+      "price": 77.91,
+      "d1_pct": -2.72,
+      "w1_pct": 3.41,
+      "hi52w_pct": -26.22,
+      "ytd_pct": 18.49,
       "hist_5d": [
-        75.34,
         74.27,
         75.94,
         78.26,
-        80.09
+        80.09,
+        77.91
       ],
       "symbol": "SLV",
       "name": "🥈 Silber (iShares)"
     },
     {
-      "price": 77.9,
-      "d1_pct": -0.42,
-      "w1_pct": 3.52,
-      "hi52w_pct": -12.57,
-      "ytd_pct": -1.75,
+      "price": 78.44,
+      "d1_pct": 0.69,
+      "w1_pct": 3.35,
+      "hi52w_pct": -11.97,
+      "ytd_pct": -1.07,
       "hist_5d": [
-        75.9,
         77.46,
         77.77,
         78.23,
-        77.9
+        77.9,
+        78.44
       ],
       "symbol": "HACK",
       "name": "🔒 Cybersecurity"
     },
     {
-      "price": 127.43,
-      "d1_pct": 0.24,
-      "w1_pct": 3.18,
-      "hi52w_pct": -3.15,
-      "ytd_pct": 4.86,
+      "price": 72.99,
+      "d1_pct": 1.35,
+      "w1_pct": 2.6,
+      "hi52w_pct": -5.32,
+      "ytd_pct": 10.14,
       "hist_5d": [
-        126.42,
-        123.9,
-        124.0,
-        127.12,
-        127.43
-      ],
-      "symbol": "XBI",
-      "name": "🧬 Biotech"
-    },
-    {
-      "price": 18.25,
-      "d1_pct": 1.61,
-      "w1_pct": 2.99,
-      "hi52w_pct": -4.9,
-      "ytd_pct": 6.73,
-      "hist_5d": [
-        18.09,
-        17.79,
-        17.43,
-        17.96,
-        18.25
-      ],
-      "symbol": "ICLN",
-      "name": "🌱 Clean Energy"
-    },
-    {
-      "price": 72.02,
-      "d1_pct": 0.83,
-      "w1_pct": 2.37,
-      "hi52w_pct": -6.58,
-      "ytd_pct": 8.68,
-      "hist_5d": [
-        71.14,
         69.14,
         68.97,
         71.43,
-        72.02
+        72.02,
+        72.99
       ],
       "symbol": "LIT",
       "name": "⛏️ Lithium & Batterie"
     },
     {
-      "price": 112.36,
-      "d1_pct": -1.15,
-      "w1_pct": 2.27,
-      "hi52w_pct": -21.68,
-      "ytd_pct": -12.06,
+      "price": 18.51,
+      "d1_pct": 1.42,
+      "w1_pct": 2.32,
+      "hi52w_pct": -3.54,
+      "ytd_pct": 8.25,
       "hist_5d": [
-        111.59,
+        17.79,
+        17.43,
+        17.96,
+        18.25,
+        18.51
+      ],
+      "symbol": "ICLN",
+      "name": "🌱 Clean Energy"
+    },
+    {
+      "price": 113.35,
+      "d1_pct": 0.88,
+      "w1_pct": 1.58,
+      "hi52w_pct": -20.99,
+      "ytd_pct": -11.29,
+      "hist_5d": [
         113.5,
         113.17,
         113.67,
-        112.36
+        112.36,
+        113.35
       ],
       "symbol": "SKYY",
       "name": "☁️ Cloud Computing"
     },
     {
-      "price": 50.02,
-      "d1_pct": 1.11,
-      "w1_pct": 2.02,
-      "hi52w_pct": -3.6,
-      "ytd_pct": 20.01,
+      "price": 49.86,
+      "d1_pct": -0.32,
+      "w1_pct": 0.97,
+      "hi52w_pct": -3.91,
+      "ytd_pct": 19.63,
       "hist_5d": [
-        49.38,
         48.83,
         49.57,
         49.47,
-        50.02
+        50.02,
+        49.86
       ],
       "symbol": "OUNZ",
       "name": "🥇 Gold (VanEck)"
     },
     {
-      "price": 96.49,
-      "d1_pct": 1.89,
-      "w1_pct": 1.64,
-      "hi52w_pct": -6.5,
-      "ytd_pct": 25.67,
+      "price": 401.03,
+      "d1_pct": 0.93,
+      "w1_pct": 0.48,
+      "hi52w_pct": -5.9,
+      "ytd_pct": 7.43,
       "hist_5d": [
-        97.86,
-        93.4,
-        92.53,
-        94.7,
-        96.49
-      ],
-      "symbol": "REMX",
-      "name": "🪨 Seltene Erden"
-    },
-    {
-      "price": 397.33,
-      "d1_pct": 0.75,
-      "w1_pct": 1.6,
-      "hi52w_pct": -6.77,
-      "ytd_pct": 6.44,
-      "hist_5d": [
-        399.1,
         395.35,
         380.56,
         394.37,
-        397.33
+        397.33,
+        401.03
       ],
       "symbol": "SMH",
       "name": "⚡ Halbleiter"
     },
     {
-      "price": 17.34,
-      "d1_pct": -0.34,
-      "w1_pct": 1.11,
-      "hi52w_pct": -23.21,
-      "ytd_pct": -0.34,
+      "price": 126.38,
+      "d1_pct": -0.82,
+      "w1_pct": -0.03,
+      "hi52w_pct": -3.94,
+      "ytd_pct": 4.0,
       "hist_5d": [
-        17.43,
-        16.96,
-        16.93,
-        17.4,
-        17.34
+        123.9,
+        124.0,
+        127.12,
+        127.43,
+        126.38
       ],
-      "symbol": "SPPP",
-      "name": "⚪ Platin & Palladium"
+      "symbol": "XBI",
+      "name": "🧬 Biotech"
     },
     {
-      "price": 26.88,
-      "d1_pct": 0.12,
-      "w1_pct": 1.04,
-      "hi52w_pct": -21.12,
-      "ytd_pct": -10.79,
+      "price": 82.73,
+      "d1_pct": 0.93,
+      "w1_pct": -0.6,
+      "hi52w_pct": -4.0,
+      "ytd_pct": 19.9,
       "hist_5d": [
-        26.88,
-        26.08,
-        26.11,
-        26.85,
-        26.88
-      ],
-      "symbol": "HERO",
-      "name": "🎮 Gaming & eSport"
-    },
-    {
-      "price": 29.85,
-      "d1_pct": -1.29,
-      "w1_pct": 0.07,
-      "hi52w_pct": -4.11,
-      "ytd_pct": 13.84,
-      "hist_5d": [
-        30.47,
-        29.64,
-        29.58,
-        30.24,
-        29.85
-      ],
-      "symbol": "IDNA",
-      "name": "🧬 Genomik & Immuno"
-    },
-    {
-      "price": 38.44,
-      "d1_pct": 1.34,
-      "w1_pct": -0.47,
-      "hi52w_pct": -7.33,
-      "ytd_pct": 10.27,
-      "hist_5d": [
-        39.26,
-        37.82,
-        36.76,
-        37.93,
-        38.44
-      ],
-      "symbol": "FFTY",
-      "name": "📈 IBD 50 Momentum"
-    },
-    {
-      "price": 81.97,
-      "d1_pct": 0.12,
-      "w1_pct": -1.5,
-      "hi52w_pct": -4.89,
-      "ytd_pct": 18.8,
-      "hist_5d": [
-        83.23,
         81.97,
         81.79,
         81.87,
-        81.97
+        81.97,
+        82.73
       ],
       "symbol": "NANR",
       "name": "🌍 Nat. Ressourcen"
     },
     {
-      "price": 138.94,
-      "d1_pct": 1.25,
-      "w1_pct": -1.61,
-      "hi52w_pct": -11.04,
-      "ytd_pct": 22.74,
+      "price": 26.67,
+      "d1_pct": -0.78,
+      "w1_pct": -0.77,
+      "hi52w_pct": -21.74,
+      "ytd_pct": -11.48,
       "hist_5d": [
-        142.49,
-        136.71,
-        136.17,
-        137.23,
-        138.94
+        26.08,
+        26.11,
+        26.85,
+        26.88,
+        26.67
       ],
-      "symbol": "GDXJ",
-      "name": "⛏️ Jr. Goldminen"
+      "symbol": "HERO",
+      "name": "🎮 Gaming & eSport"
     },
     {
-      "price": 36.28,
-      "d1_pct": 0.53,
-      "w1_pct": -1.68,
-      "hi52w_pct": -8.52,
-      "ytd_pct": -1.17,
+      "price": 96.92,
+      "d1_pct": 0.45,
+      "w1_pct": -0.96,
+      "hi52w_pct": -6.09,
+      "ytd_pct": 26.23,
       "hist_5d": [
-        37.13,
+        93.4,
+        92.53,
+        94.7,
+        96.49,
+        96.92
+      ],
+      "symbol": "REMX",
+      "name": "🪨 Seltene Erden"
+    },
+    {
+      "price": 29.96,
+      "d1_pct": 0.37,
+      "w1_pct": -1.67,
+      "hi52w_pct": -3.76,
+      "ytd_pct": 14.26,
+      "hist_5d": [
+        29.64,
+        29.58,
+        30.24,
+        29.85,
+        29.96
+      ],
+      "symbol": "IDNA",
+      "name": "🧬 Genomik & Immuno"
+    },
+    {
+      "price": 17.11,
+      "d1_pct": -1.33,
+      "w1_pct": -1.84,
+      "hi52w_pct": -24.22,
+      "ytd_pct": -1.67,
+      "hist_5d": [
+        16.96,
+        16.93,
+        17.4,
+        17.34,
+        17.11
+      ],
+      "symbol": "SPPP",
+      "name": "⚪ Platin & Palladium"
+    },
+    {
+      "price": 36.3,
+      "d1_pct": 0.06,
+      "w1_pct": -2.24,
+      "hi52w_pct": -8.47,
+      "ytd_pct": -1.12,
+      "hist_5d": [
         36.58,
         36.09,
         36.09,
-        36.28
+        36.28,
+        36.3
       ],
       "symbol": "BOTZ",
       "name": "🤖 KI & Robotik"
     },
     {
-      "price": 103.37,
-      "d1_pct": 0.91,
-      "w1_pct": -1.78,
-      "hi52w_pct": -10.76,
-      "ytd_pct": 20.58,
+      "price": 37.97,
+      "d1_pct": -1.22,
+      "w1_pct": -3.29,
+      "hi52w_pct": -8.46,
+      "ytd_pct": 8.92,
       "hist_5d": [
-        105.88,
-        101.82,
-        101.38,
-        102.44,
-        103.37
+        37.82,
+        36.76,
+        37.93,
+        38.44,
+        37.97
       ],
-      "symbol": "GDX",
-      "name": "🥇 Goldminen"
+      "symbol": "FFTY",
+      "name": "📈 IBD 50 Momentum"
     },
     {
-      "price": 27.93,
-      "d1_pct": -3.05,
-      "w1_pct": -3.92,
-      "hi52w_pct": -18.43,
-      "ytd_pct": -4.28,
+      "price": 51.98,
+      "d1_pct": -0.17,
+      "w1_pct": -4.24,
+      "hi52w_pct": -6.59,
+      "ytd_pct": 6.41,
       "hist_5d": [
-        29.51,
-        28.78,
-        28.12,
-        28.81,
-        27.93
-      ],
-      "symbol": "ARKG",
-      "name": "💊 Genomik"
-    },
-    {
-      "price": 52.07,
-      "d1_pct": -0.25,
-      "w1_pct": -4.04,
-      "hi52w_pct": -6.43,
-      "ytd_pct": 6.59,
-      "hist_5d": [
-        54.28,
         53.03,
         51.58,
         52.2,
-        52.07
+        52.07,
+        51.98
       ],
       "symbol": "PAVE",
       "name": "🏗️ Infrastruktur"
     },
     {
-      "price": 83.06,
-      "d1_pct": 1.0,
-      "w1_pct": -4.55,
-      "hi52w_pct": -13.21,
-      "ytd_pct": 13.69,
+      "price": 101.36,
+      "d1_pct": -1.94,
+      "w1_pct": -4.27,
+      "hi52w_pct": -12.5,
+      "ytd_pct": 18.23,
       "hist_5d": [
-        88.16,
+        101.82,
+        101.38,
+        102.44,
+        103.37,
+        101.36
+      ],
+      "symbol": "GDX",
+      "name": "🥇 Goldminen"
+    },
+    {
+      "price": 135.36,
+      "d1_pct": -2.58,
+      "w1_pct": -5.0,
+      "hi52w_pct": -13.34,
+      "ytd_pct": 19.58,
+      "hist_5d": [
+        136.71,
+        136.17,
+        137.23,
+        138.94,
+        135.36
+      ],
+      "symbol": "GDXJ",
+      "name": "⛏️ Jr. Goldminen"
+    },
+    {
+      "price": 27.67,
+      "d1_pct": -0.93,
+      "w1_pct": -6.24,
+      "hi52w_pct": -19.19,
+      "ytd_pct": -5.17,
+      "hist_5d": [
+        28.78,
+        28.12,
+        28.81,
+        27.93,
+        27.67
+      ],
+      "symbol": "ARKG",
+      "name": "💊 Genomik"
+    },
+    {
+      "price": 82.29,
+      "d1_pct": -0.93,
+      "w1_pct": -6.66,
+      "hi52w_pct": -14.01,
+      "ytd_pct": 12.63,
+      "hist_5d": [
         82.3,
         79.95,
         82.24,
-        83.06
+        83.06,
+        82.29
       ],
       "symbol": "COPX",
       "name": "🔶 Kupferminen"
@@ -940,360 +940,360 @@
   ],
   "countries": [
     {
-      "price": 58.7,
-      "d1_pct": 1.79,
-      "w1_pct": 3.16,
-      "hi52w_pct": -11.3,
-      "ytd_pct": -5.69,
+      "price": 89.77,
+      "d1_pct": 2.13,
+      "w1_pct": 2.21,
+      "hi52w_pct": -12.79,
+      "ytd_pct": -1.49,
       "hist_5d": [
-        57.13,
-        56.18,
-        56.72,
-        57.67,
-        58.7
-      ],
-      "symbol": "MCHI",
-      "name": "🇨🇳 China"
-    },
-    {
-      "price": 40.68,
-      "d1_pct": 2.39,
-      "w1_pct": 2.81,
-      "hi52w_pct": -14.12,
-      "ytd_pct": 0.77,
-      "hist_5d": [
-        40.31,
-        38.97,
-        38.99,
-        39.73,
-        40.68
-      ],
-      "symbol": "ECH",
-      "name": "🇨🇱 Chile"
-    },
-    {
-      "price": 37.53,
-      "d1_pct": 1.16,
-      "w1_pct": 1.93,
-      "hi52w_pct": -5.2,
-      "ytd_pct": 16.55,
-      "hist_5d": [
-        37.49,
-        36.36,
-        36.28,
-        37.1,
-        37.53
-      ],
-      "symbol": "EWZ",
-      "name": "🇧🇷 Brasilien"
-    },
-    {
-      "price": 87.9,
-      "d1_pct": 1.24,
-      "w1_pct": 1.88,
-      "hi52w_pct": -14.61,
-      "ytd_pct": -3.54,
-      "hist_5d": [
-        87.83,
         86.86,
         86.54,
         86.82,
-        87.9
+        87.9,
+        89.77
       ],
       "symbol": "ARGT",
       "name": "🇦🇷 Argentinien"
     },
     {
-      "price": 39.18,
-      "d1_pct": 1.14,
-      "w1_pct": 1.03,
-      "hi52w_pct": -7.62,
-      "ytd_pct": 12.2,
+      "price": 58.31,
+      "d1_pct": -0.66,
+      "w1_pct": 2.07,
+      "hi52w_pct": -11.89,
+      "ytd_pct": -6.31,
       "hist_5d": [
-        38.96,
+        56.18,
+        56.72,
+        57.67,
+        58.7,
+        58.31
+      ],
+      "symbol": "MCHI",
+      "name": "🇨🇳 China"
+    },
+    {
+      "price": 39.29,
+      "d1_pct": 0.28,
+      "w1_pct": 0.85,
+      "hi52w_pct": -7.36,
+      "ytd_pct": 12.51,
+      "hist_5d": [
         38.73,
         37.22,
         38.74,
-        39.18
+        39.18,
+        39.29
       ],
       "symbol": "TUR",
       "name": "🇹🇷 Türkei"
     },
     {
-      "price": 86.46,
-      "d1_pct": 0.96,
-      "w1_pct": -0.43,
-      "hi52w_pct": -7.99,
-      "ytd_pct": 6.31,
-      "hist_5d": [
-        88.59,
-        85.89,
-        84.77,
-        85.64,
-        86.46
-      ],
-      "symbol": "EWJ",
-      "name": "🇯🇵 Japan"
-    },
-    {
-      "price": 28.95,
-      "d1_pct": 0.31,
-      "w1_pct": -0.48,
-      "hi52w_pct": -4.01,
-      "ytd_pct": 9.37,
-      "hist_5d": [
-        29.35,
-        28.61,
-        28.33,
-        28.86,
-        28.95
-      ],
-      "symbol": "EWA",
-      "name": "🇦🇺 Australien"
-    },
-    {
-      "price": 49.93,
+      "price": 40.64,
       "d1_pct": -0.1,
-      "w1_pct": -0.58,
-      "hi52w_pct": -10.62,
-      "ytd_pct": -8.49,
+      "w1_pct": 0.82,
+      "hi52w_pct": -14.21,
+      "ytd_pct": 0.67,
       "hist_5d": [
-        50.27,
-        50.37,
-        49.99,
-        49.98,
-        49.93
+        38.97,
+        38.99,
+        39.73,
+        40.68,
+        40.64
       ],
-      "symbol": "INDA",
-      "name": "🇮🇳 Indien"
+      "symbol": "ECH",
+      "name": "🇨🇱 Chile"
     },
     {
-      "price": 27.69,
-      "d1_pct": 0.11,
-      "w1_pct": -0.61,
-      "hi52w_pct": -5.91,
-      "ytd_pct": -0.22,
+      "price": 71.91,
+      "d1_pct": 2.09,
+      "w1_pct": 0.4,
+      "hi52w_pct": -6.68,
+      "ytd_pct": 11.02,
       "hist_5d": [
-        27.77,
+        70.4,
+        69.52,
+        70.76,
+        70.44,
+        71.91
+      ],
+      "symbol": "EWT",
+      "name": "🇹🇼 Taiwan"
+    },
+    {
+      "price": 37.61,
+      "d1_pct": 0.21,
+      "w1_pct": 0.32,
+      "hi52w_pct": -5.0,
+      "ytd_pct": 16.8,
+      "hist_5d": [
+        36.36,
+        36.28,
+        37.1,
+        37.53,
+        37.61
+      ],
+      "symbol": "EWZ",
+      "name": "🇧🇷 Brasilien"
+    },
+    {
+      "price": 27.78,
+      "d1_pct": 0.33,
+      "w1_pct": 0.04,
+      "hi52w_pct": -5.61,
+      "ytd_pct": 0.11,
+      "hist_5d": [
         27.26,
         27.26,
         27.66,
-        27.69
+        27.69,
+        27.78
       ],
       "symbol": "EWS",
       "name": "🇸🇬 Singapur"
     },
     {
-      "price": 46.41,
-      "d1_pct": 0.26,
-      "w1_pct": -0.75,
-      "hi52w_pct": -4.66,
-      "ytd_pct": 4.39,
+      "price": 67.01,
+      "d1_pct": -0.33,
+      "w1_pct": -0.42,
+      "hi52w_pct": -10.71,
+      "ytd_pct": 11.85,
       "hist_5d": [
-        47.24,
-        46.24,
-        46.02,
-        46.29,
-        46.41
+        66.74,
+        65.69,
+        66.74,
+        67.23,
+        67.01
       ],
-      "symbol": "EWU",
-      "name": "🇬🇧 UK"
+      "symbol": "THD",
+      "name": "🇹🇭 Thailand"
+    },
+    {
+      "price": 132.85,
+      "d1_pct": 1.96,
+      "w1_pct": -1.13,
+      "hi52w_pct": -12.23,
+      "ytd_pct": 29.96,
+      "hist_5d": [
+        125.74,
+        126.73,
+        133.89,
+        130.3,
+        132.85
+      ],
+      "symbol": "EWY",
+      "name": "🇰🇷 Südkorea"
+    },
+    {
+      "price": 29.0,
+      "d1_pct": 0.17,
+      "w1_pct": -1.19,
+      "hi52w_pct": -3.85,
+      "ytd_pct": 9.56,
+      "hist_5d": [
+        28.61,
+        28.33,
+        28.86,
+        28.95,
+        29.0
+      ],
+      "symbol": "EWA",
+      "name": "🇦🇺 Australien"
     }
   ],
   "top10": [
     {
-      "price": 85.44,
-      "d1_pct": 2.38,
-      "w1_pct": 14.44,
-      "hi52w_pct": -9.84,
-      "ytd_pct": 49.06,
+      "price": 91.1,
+      "d1_pct": 4.41,
+      "w1_pct": 12.46,
+      "hi52w_pct": -3.87,
+      "ytd_pct": 58.93,
       "hist_5d": [
-        81.01,
         90.9,
         94.77,
         83.45,
-        85.44
+        87.25,
+        91.1
       ],
       "symbol": "CL=F",
       "name": "WTI Crude",
       "category": "Rohstoff"
     },
     {
-      "price": 80.09,
-      "d1_pct": 2.34,
-      "w1_pct": 7.24,
-      "hi52w_pct": -24.16,
-      "ytd_pct": 21.81,
+      "price": 92.97,
+      "d1_pct": 1.08,
+      "w1_pct": 8.85,
+      "hi52w_pct": -6.05,
+      "ytd_pct": 53.04,
       "hist_5d": [
-        75.34,
-        74.27,
-        75.94,
-        78.26,
-        80.09
-      ],
-      "symbol": "SLV",
-      "name": "🥈 Silber (iShares)",
-      "category": "Thema"
-    },
-    {
-      "price": 86.03,
-      "d1_pct": -2.02,
-      "w1_pct": 5.69,
-      "hi52w_pct": -13.07,
-      "ytd_pct": 41.61,
-      "hist_5d": [
-        85.41,
         92.69,
         98.96,
         87.8,
-        86.03
+        91.98,
+        92.97
       ],
       "symbol": "BZ=F",
       "name": "Brent Crude",
       "category": "Rohstoff"
     },
     {
-      "price": 86.69,
-      "d1_pct": -2.68,
-      "w1_pct": 4.92,
-      "hi52w_pct": -24.67,
-      "ytd_pct": 22.87,
+      "price": 87.37,
+      "d1_pct": 2.71,
+      "w1_pct": 6.96,
+      "hi52w_pct": -24.08,
+      "ytd_pct": 23.83,
       "hist_5d": [
-        81.69,
         83.82,
         84.03,
         89.08,
-        86.69
+        85.07,
+        87.37
       ],
       "symbol": "SI=F",
       "name": "Silber (XAG)",
       "category": "Rohstoff"
     },
     {
-      "price": 3.05,
-      "d1_pct": 1.13,
-      "w1_pct": 4.7,
-      "hi52w_pct": -59.06,
-      "ytd_pct": -15.59,
+      "price": 3.21,
+      "d1_pct": 0.0,
+      "w1_pct": 6.86,
+      "hi52w_pct": -56.98,
+      "ytd_pct": -11.3,
       "hist_5d": [
-        3.0,
         3.19,
         3.12,
         3.02,
-        3.05
+        3.21,
+        3.21
       ],
       "symbol": "NG=F",
       "name": "Erdgas",
       "category": "Rohstoff"
     },
     {
-      "price": 77.9,
-      "d1_pct": -0.42,
-      "w1_pct": 3.52,
-      "hi52w_pct": -12.57,
-      "ytd_pct": -1.75,
+      "price": 2070.7,
+      "d1_pct": 0.93,
+      "w1_pct": 5.14,
+      "hi52w_pct": -57.14,
+      "ytd_pct": -30.99,
       "hist_5d": [
-        75.9,
+        1936.6,
+        1992.94,
+        2037.12,
+        2051.57,
+        2070.7
+      ],
+      "symbol": "ETH-USD",
+      "name": "Ethereum (ETH)",
+      "category": "Krypto"
+    },
+    {
+      "price": 70461.25,
+      "d1_pct": 0.37,
+      "w1_pct": 4.74,
+      "hi52w_pct": -43.52,
+      "ytd_pct": -20.59,
+      "hist_5d": [
+        65969.78,
+        68402.38,
+        69926.92,
+        70204.88,
+        70461.25
+      ],
+      "symbol": "BTC-USD",
+      "name": "Bitcoin (BTC)",
+      "category": "Krypto"
+    },
+    {
+      "price": 86.77,
+      "d1_pct": 0.24,
+      "w1_pct": 4.32,
+      "hi52w_pct": -64.96,
+      "ytd_pct": -31.55,
+      "hist_5d": [
+        81.62,
+        84.94,
+        85.84,
+        86.56,
+        86.77
+      ],
+      "symbol": "SOL-USD",
+      "name": "Solana (SOL)",
+      "category": "Krypto"
+    },
+    {
+      "price": 77.91,
+      "d1_pct": -2.72,
+      "w1_pct": 3.41,
+      "hi52w_pct": -26.22,
+      "ytd_pct": 18.49,
+      "hist_5d": [
+        74.27,
+        75.94,
+        78.26,
+        80.09,
+        77.91
+      ],
+      "symbol": "SLV",
+      "name": "🥈 Silber (iShares)",
+      "category": "Thema"
+    },
+    {
+      "price": 78.44,
+      "d1_pct": 0.69,
+      "w1_pct": 3.35,
+      "hi52w_pct": -11.97,
+      "ytd_pct": -1.07,
+      "hist_5d": [
         77.46,
         77.77,
         78.23,
-        77.9
+        77.9,
+        78.44
       ],
       "symbol": "HACK",
       "name": "🔒 Cybersecurity",
       "category": "Thema"
     },
     {
-      "price": 127.43,
-      "d1_pct": 0.24,
-      "w1_pct": 3.18,
-      "hi52w_pct": -3.15,
-      "ytd_pct": 4.86,
+      "price": 72.99,
+      "d1_pct": 1.35,
+      "w1_pct": 2.6,
+      "hi52w_pct": -5.32,
+      "ytd_pct": 10.14,
       "hist_5d": [
-        126.42,
-        123.9,
-        124.0,
-        127.12,
-        127.43
+        69.14,
+        68.97,
+        71.43,
+        72.02,
+        72.99
       ],
-      "symbol": "XBI",
-      "name": "🧬 Biotech",
+      "symbol": "LIT",
+      "name": "⛏️ Lithium & Batterie",
       "category": "Thema"
-    },
-    {
-      "price": 58.7,
-      "d1_pct": 1.79,
-      "w1_pct": 3.16,
-      "hi52w_pct": -11.3,
-      "ytd_pct": -5.69,
-      "hist_5d": [
-        57.13,
-        56.18,
-        56.72,
-        57.67,
-        58.7
-      ],
-      "symbol": "MCHI",
-      "name": "🇨🇳 China",
-      "category": "Land"
-    },
-    {
-      "price": 18.25,
-      "d1_pct": 1.61,
-      "w1_pct": 2.99,
-      "hi52w_pct": -4.9,
-      "ytd_pct": 6.73,
-      "hist_5d": [
-        18.09,
-        17.79,
-        17.43,
-        17.96,
-        18.25
-      ],
-      "symbol": "ICLN",
-      "name": "🌱 Clean Energy",
-      "category": "Thema"
-    },
-    {
-      "price": 40.68,
-      "d1_pct": 2.39,
-      "w1_pct": 2.81,
-      "hi52w_pct": -14.12,
-      "ytd_pct": 0.77,
-      "hist_5d": [
-        40.31,
-        38.97,
-        38.99,
-        39.73,
-        40.68
-      ],
-      "symbol": "ECH",
-      "name": "🇨🇱 Chile",
-      "category": "Land"
     }
   ],
   "breadth": {
-    "pct_above_sma20": 31.3,
-    "pct_above_sma50": 43.4,
+    "pct_above_sma20": 33.3,
+    "pct_above_sma50": 45.5,
     "pct_above_sma200": 58.6,
-    "advance_decline_ratio": 0.6,
-    "advancers": 37,
-    "decliners": 62,
-    "new_highs": 1,
+    "advance_decline_ratio": 0.57,
+    "advancers": 36,
+    "decliners": 63,
+    "new_highs": 2,
     "new_lows": 1,
     "n_components": 99
   },
   "fear_greed": {
-    "score": 26,
-    "rating": "fear"
+    "score": 24,
+    "rating": "extreme fear"
   },
   "put_call": 0.65,
   "ai_briefing": {
-    "text": "Guten Morgen — hier dein Premarket Briefing.\n\n<strong>Overnight & Futures</strong>\n\nUS-Futures leicht im Plus nach volatiler Session\n — ES +0,15%, NQ +0,12%, Russell hakt bei -3,2% Wochenminus. Europas Börsen schwächer: DAX -0,7%, CAC -0,33%, FTSE -0,56%. Asien gemischt. \nÖl deutlich gefallen: Brent und WTI ~29% unter Hochs von $119 nach G7-Meldungen\n.\n\n<strong>News des Tages</strong>\n\nHeute kommt der entscheidende CPI für Februar (erwartet: +2,4% YoY)\n — wichtigstes Macro-Event der Woche. \nTrump deutete Ende des Iran-Konflikts an: \"Wir erreichen große Fortschritte bei unserem militärischen Ziel\"\n, aber \nCBS berichtet über mögliche Minen-Verlegung in Hormus-Straße\n. \nOracle schlug Earnings deutlich: $1,79 EPS vs. $1,70 erwartet, $17,19B Revenue; Guidance auf $90B angehoben\n.\n\n<strong>Makro-Kalender</strong>\n\n14:30 Uhr CET: US CPI Februar (Kernindikator für Fed-Politik)\n. Sonst ruhiger Datentag.\n\n<strong>Auf dem Radar</strong>\nSPY/QQQ beide im CHOP-Regime, unter allen wichtigen MAs gefangen. VIX bei 24,9 (erhöht, aber runter von 29+). \nIEA-Ölfreigabe könnte 12 von 15,4M Barrel/Tag Störung ausgleichen, $7 Preisrückgang möglich\n. Breadth schwach: nur 31% über SMA20. Öl-Volatilität bleibt der Taktgeber.",
-    "timestamp": "11. Mar 2026 · 07:00 CET"
+    "text": "Guten Morgen — hier dein Premarket Briefing.\n\n<strong>Overnight & Futures</strong> — \nAsien fiel am Donnerstag, da Ölpreise weiter stiegen trotz angekündigter Notfall-Freigabe von Rohölreserven\n. EU-Märkte handeln gemischt: DAX +0,06%, CAC -0,30%. US-Futures rot: ES -0,46%, NQ -0,41%. \nBrent-Öl erreichte $100/Barrel\n, WTI bei $91. VIX bei 25,11 (erhöht, +3,63%). Fear & Greed Index: 24 (Extreme Fear).\n\n<strong>News des Tages</strong> — \nUS-Iran-Krieg dominiert weiter: Investoren bleiben wachsam wegen der Auswirkungen auf Ölpreise\n. \nDrei Schiffe kamen am Mittwochmorgen in der Straße von Hormus unter Beschuss\n. \nKatars größte LNG-Anlage seit Tagen nach Drohnenangriffen geschlossen\n. \nOracle-Earnings schlugen Erwartungen\n. \nNio zeigte ersten Quartalsgewinn, Aktie trotzdem -3,86%\n.\n\n<strong>Makro-Kalender</strong> — Heute ruhiger Tag, keine Major-Releases erwartet. Gestern: CPI-Daten im Rahmen der Erwartungen. Fokus bleibt auf Öl-Entwicklung und geopolitischer Lage.\n\n<strong>Auf dem Radar</strong> — Energie-Sektor führt (XLE +2,48% gestern). Öl-Rally: WTI +12,46% Woche, Brent +8,85%. Rohstoffe dominieren Top-Performer. Market Breadth schwach: nur 33% über SMA20, Advance/Decline 0,57. CHOP-Regime bei SPY/QQQ — Range-Markt, beide unter wichtigen MAs.",
+    "timestamp": "12. Mar 2026 · 07:00 CET"
   },
   "meta": {
-    "updated_at": "2026-03-11T11:07:52.969446+00:00",
+    "updated_at": "2026-03-12T11:07:26.195512+00:00",
     "source": "Yahoo Finance + CNN + Claude AI + Web Search"
   }
 }
