@@ -949,7 +949,7 @@ loadData();
   // SHA-256 hash of current password — change monthly
   // To generate: echo -n "YourPassword" | sha256sum
   // Current: "yolo2026" → update this hash each month
-  const PW_HASH = 'd42d6339de95627f9e1521c63beebebef8a48235d61e276c264533893c3e5cf5'; // "mondrakete"
+  const PW_HASH = '98dc60f33a25552d56f5d5f5b042e8ad6bdde6db0f822909b6025ee9dd4a48be'; // "affenbaum"
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
