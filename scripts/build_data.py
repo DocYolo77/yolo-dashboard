@@ -346,10 +346,18 @@ def fetch_qqq_breadth():
         ema39 = rana.ewm(span=39, adjust=False).mean()
         mco = ema19 - ema39
 
+        # Normalized MCO (Z-Score) — 200-day rolling mean & std
+        mco_clean = mco.dropna()
+        mco_mean = mco_clean.rolling(200, min_periods=80).mean()
+        mco_std = mco_clean.rolling(200, min_periods=80).std()
+        mco_zscore = (mco_clean - mco_mean) / mco_std
+
         # McClellan Summation Index = cumulative sum of MCO
         summation = mco.cumsum()
-        # Normalize summation (start at 0 from beginning of data)
         summation = summation - summation.iloc[40]  # offset to ignore initial EMA warmup
+
+        # 5-day EMA of Summation Index
+        summation_ema5 = summation.ewm(span=5, adjust=False).mean()
 
         # Daily H/L Oscillator (new 20-day highs - new 20-day lows per day)
         rolling_hi = valid.rolling(20).max()
@@ -358,15 +366,19 @@ def fetch_qqq_breadth():
         new_lo_daily = (valid <= rolling_lo).sum(axis=1)
         hl_osc = new_hi_daily - new_lo_daily
 
-        # Keep last 80 trading days for charts
-        history_days = 80
+        # Keep last 120 trading days for charts (more context for normalized chart)
+        history_days = 120
         mco_hist = mco.dropna().iloc[-history_days:]
+        mco_z_hist = mco_zscore.dropna().iloc[-history_days:]
         sum_hist = summation.dropna().iloc[-history_days:]
+        sum_ema5_hist = summation_ema5.dropna().iloc[-history_days:]
         hl_hist = hl_osc.dropna().iloc[-history_days:]
 
         # Current values
         mco_current = round(float(mco_hist.iloc[-1]), 2)
+        mco_z_current = round(float(mco_z_hist.iloc[-1]), 2) if len(mco_z_hist) else 0.0
         sum_current = round(float(sum_hist.iloc[-1]), 1)
+        sum_ema5_current = round(float(sum_ema5_hist.iloc[-1]), 1) if len(sum_ema5_hist) else 0.0
         hl_current = int(hl_hist.iloc[-1])
         new_hi_now = int(new_hi_daily.iloc[-1])
         new_lo_now = int(new_lo_daily.iloc[-1])
@@ -375,16 +387,20 @@ def fetch_qqq_breadth():
         def fmt_hist(s, decimals=2):
             return [round(float(x), decimals) for x in s.tolist()]
 
-        print(f"  ✅ MCO: {mco_current} | Summation: {sum_current} | H/L: {hl_current} ({new_hi_now}H/{new_lo_now}L)")
+        print(f"  ✅ MCO: {mco_current} ({mco_z_current:+.2f}σ) | Summation: {sum_current} | EMA5: {sum_ema5_current} | H/L: {hl_current} ({new_hi_now}H/{new_lo_now}L)")
 
         return {
             "mco": mco_current,
+            "mco_zscore": mco_z_current,
             "summation": sum_current,
+            "summation_ema5": sum_ema5_current,
             "hl_osc": hl_current,
             "new_highs": new_hi_now,
             "new_lows": new_lo_now,
             "mco_history": fmt_hist(mco_hist, 2),
+            "mco_zscore_history": fmt_hist(mco_z_hist, 2),
             "summation_history": fmt_hist(sum_hist, 1),
+            "summation_ema5_history": fmt_hist(sum_ema5_hist, 1),
             "hl_history": [int(x) for x in hl_hist.tolist()],
             "n_components": n,
         }
