@@ -126,7 +126,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 
 /* QQQ Breadth Charts */
 .qqq-card .bc-value { font-size: 28px; margin: 4px 0 8px 0; }
-.qqq-chart { width: 100%; height: 50px; margin: 6px 0; }
+.qqq-chart { width: 100%; height: 60px; margin: 6px 0; }
 .qqq-chart svg { width: 100%; height: 100%; display: block; }
 .breadth-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 16px; text-align: center; }
 .breadth-card .bc-label { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
@@ -469,10 +469,10 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       <div style="font-family:var(--mono-font);font-size:10px;color:var(--ink-muted);letter-spacing:2px;margin-bottom:10px;">▼ QQQ BREADTH (NDX 100)</div>
       <div class="breadth-grid" style="grid-template-columns:repeat(3,1fr);">
         <div class="breadth-card qqq-card" id="mco-card">
-          <div class="bc-label">McClellan Oscillator</div>
+          <div class="bc-label">McClellan Oszillator (Normalisiert)</div>
           <div class="bc-value">—</div>
           <div class="qqq-chart" id="mco-chart"></div>
-          <div class="bc-sub">19/39 EMA · Ratio-Adjusted</div>
+          <div class="bc-sub">Z-Score · ±3σ Extremzone</div>
         </div>
         <div class="breadth-card qqq-card" id="sum-card">
           <div class="bc-label">Summation Index</div>
@@ -915,7 +915,7 @@ async function loadData() {
     if (data.qqq_breadth) {
       const q = data.qqq_breadth;
 
-      // Bar chart for MCO (positive=green, negative=red)
+      // Bar chart for raw values around zero (used for H/L)
       function barChart(data, w, h) {
         if (!data || data.length < 2) return '';
         const max = Math.max(...data.map(Math.abs)) || 1;
@@ -934,37 +934,89 @@ async function loadData() {
         </svg>`;
       }
 
-      // Line chart for Summation Index
-      function lineChart(data, w, h) {
+      // Normalized MCO chart with ±2σ, ±3σ bands (TradingView-style)
+      function normalizedMcoChart(data, w, h) {
         if (!data || data.length < 2) return '';
-        const min = Math.min(...data), max = Math.max(...data);
-        const range = (max - min) || 1;
-        const pts = data.map((v, i) => {
-          const x = (i / (data.length - 1)) * w;
-          const y = h - ((v - min) / range) * h;
-          return `${x.toFixed(1)},${y.toFixed(1)}`;
-        }).join(' ');
-        const up = data[data.length - 1] >= data[0];
-        const col = up ? 'var(--positive)' : 'var(--negative)';
+        const scaleMax = Math.max(3.5, Math.max(...data.map(Math.abs)) * 1.05);
+        const yFor = v => h / 2 - (v / scaleMax) * (h / 2);
+        const bw = w / data.length;
+        const zero = h / 2;
+
+        // Bars (positive=green, negative=red)
+        const bars = data.map((v, i) => {
+          const x = i * bw;
+          const y0 = zero;
+          const y1 = yFor(v);
+          const col = v >= 0 ? 'var(--positive)' : 'var(--negative)';
+          return `<rect x="${x.toFixed(1)}" y="${Math.min(y0, y1).toFixed(1)}" width="${(bw - 0.5).toFixed(1)}" height="${Math.abs(y1 - y0).toFixed(1)}" fill="${col}" opacity="0.85"/>`;
+        }).join('');
+
+        // ±σ band lines
+        const band = (sigma, color, dash) =>
+          `<line x1="0" y1="${yFor(sigma).toFixed(1)}" x2="${w}" y2="${yFor(sigma).toFixed(1)}" stroke="${color}" stroke-width="0.5" stroke-dasharray="${dash}" opacity="0.6"/>`;
+
         return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-          <polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          ${band(3, 'var(--negative)', '3,2')}
+          ${band(2, 'var(--ink-muted)', '2,2')}
+          ${band(0, 'var(--ink-muted)', '0')}
+          ${band(-2, 'var(--ink-muted)', '2,2')}
+          ${band(-3, 'var(--positive)', '3,2')}
+          ${bars}
+          <text x="2" y="9" font-size="7" fill="var(--negative)" opacity="0.7">+3σ</text>
+          <text x="2" y="${(h - 2).toFixed(1)}" font-size="7" fill="var(--positive)" opacity="0.7">-3σ</text>
         </svg>`;
       }
 
-      // McClellan Oscillator
-      const mcoCard = document.getElementById('mco-card');
-      if (mcoCard) {
-        mcoCard.querySelector('.bc-value').textContent = q.mco >= 0 ? '+' + q.mco.toLocaleString('de-DE') : q.mco.toLocaleString('de-DE');
-        mcoCard.querySelector('.bc-value').style.color = q.mco >= 0 ? 'var(--positive)' : 'var(--negative)';
-        if (q.mco_history) document.getElementById('mco-chart').innerHTML = barChart(q.mco_history, 200, 50);
+      // Dual-line chart: Summation + 5-EMA overlay
+      function dualLineChart(d1, d2, w, h) {
+        if (!d1 || d1.length < 2) return '';
+        const all = d2 ? d1.concat(d2) : d1;
+        const min = Math.min(...all), max = Math.max(...all);
+        const range = (max - min) || 1;
+        const pts = arr => arr.map((v, i) => {
+          const x = (i / (arr.length - 1)) * w;
+          const y = h - ((v - min) / range) * h;
+          return `${x.toFixed(1)},${y.toFixed(1)}`;
+        }).join(' ');
+
+        const up = d1[d1.length - 1] >= d1[0];
+        const col1 = up ? 'var(--positive)' : 'var(--negative)';
+        let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+          <polyline points="${pts(d1)}" fill="none" stroke="${col1}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+        if (d2) {
+          svg += `<polyline points="${pts(d2)}" fill="none" stroke="#d4a017" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>`;
+        }
+        svg += `</svg>`;
+        return svg;
       }
 
-      // Summation Index
+      // McClellan Oscillator (Normalized)
+      const mcoCard = document.getElementById('mco-card');
+      if (mcoCard) {
+        const z = q.mco_zscore;
+        const zStr = (z >= 0 ? '+' : '') + z.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + 'σ';
+        const rawStr = q.mco >= 0 ? '+' + q.mco.toLocaleString('de-DE') : q.mco.toLocaleString('de-DE');
+        mcoCard.querySelector('.bc-value').innerHTML = zStr + ' <span style="font-size:12px;color:var(--ink-muted);">(' + rawStr + ')</span>';
+        // Color code: extreme = red/green flash
+        const absZ = Math.abs(z);
+        let col = 'var(--ink)';
+        if (absZ >= 3) col = z >= 0 ? 'var(--positive)' : 'var(--negative)';
+        else if (absZ >= 2) col = z >= 0 ? 'var(--positive)' : 'var(--negative)';
+        else col = 'var(--ink-muted)';
+        mcoCard.querySelector('.bc-value').style.color = col;
+        mcoCard.querySelector('.bc-sub').textContent = absZ >= 3 ? 'EXTREM · ' + (z >= 0 ? 'Überkauft' : 'Überverkauft') : (absZ >= 2 ? 'Erhöht' : 'Neutral');
+        const hist = q.mco_zscore_history || q.mco_history;
+        if (hist) document.getElementById('mco-chart').innerHTML = normalizedMcoChart(hist, 200, 60);
+      }
+
+      // Summation Index with 5-EMA
       const sumCard = document.getElementById('sum-card');
       if (sumCard) {
         sumCard.querySelector('.bc-value').textContent = q.summation >= 0 ? '+' + Math.round(q.summation).toLocaleString('de-DE') : Math.round(q.summation).toLocaleString('de-DE');
         sumCard.querySelector('.bc-value').style.color = q.summation >= 0 ? 'var(--positive)' : 'var(--negative)';
-        if (q.summation_history) document.getElementById('sum-chart').innerHTML = lineChart(q.summation_history, 200, 50);
+        const above = q.summation > q.summation_ema5;
+        sumCard.querySelector('.bc-sub').innerHTML = 'Kumulierter McClellan · <span style="color:#d4a017;">EMA5: ' + Math.round(q.summation_ema5).toLocaleString('de-DE') + '</span> ' + (above ? '↑' : '↓');
+        if (q.summation_history) document.getElementById('sum-chart').innerHTML = dualLineChart(q.summation_history, q.summation_ema5_history, 200, 60);
       }
 
       // H/L Oscillator
@@ -973,7 +1025,7 @@ async function loadData() {
         hlCard.querySelector('.bc-value').textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + ' (' + q.new_highs + 'H/' + q.new_lows + 'L)';
         hlCard.querySelector('.bc-value').style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
         hlCard.querySelector('.bc-value').style.fontSize = '20px';
-        if (q.hl_history) document.getElementById('hlosc-chart').innerHTML = barChart(q.hl_history, 200, 50);
+        if (q.hl_history) document.getElementById('hlosc-chart').innerHTML = barChart(q.hl_history, 200, 60);
       }
     }
 
