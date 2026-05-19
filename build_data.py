@@ -1,0 +1,858 @@
+#!/usr/bin/env python3
+"""
+YOLO Dashboard — Data Builder v2
+Fetches market data via yfinance, calculates regime/MAs/breadth,
+scrapes CNN Fear & Greed, computes McClellan, calls Claude API (optional).
+Outputs data/snapshot.json
+"""
+
+import json
+import os
+import sys
+import argparse
+from datetime import datetime, timezone
+from pathlib import Path
+
+import yfinance as yf
+import requests
+
+# ─────────────────────────────────────────────
+# TICKER CONFIGURATION
+# ─────────────────────────────────────────────
+
+TICKERS = {
+    "futures": {
+        "ES=F":  "ES (S&P 500)",
+        "NQ=F":  "NQ (Nasdaq 100)",
+        "YM=F":  "YM (Dow Jones)",
+        "RTY=F": "RTY (Russell 2000)",
+    },
+    "europe": {
+        "^GDAXI": "🇩🇪 DAX 40",
+        "^FCHI":  "🇫🇷 CAC 40",
+        "^FTSE":  "🇬🇧 FTSE 100",
+        "^STOXX50E": "🇪🇺 Euro Stoxx 50",
+    },
+    "global": {
+        "^N225":  "🇯🇵 Nikkei 225",
+        "^HSI":   "🇭🇰 Hang Seng",
+        "000300.SS": "🇨🇳 CSI 300",
+        "^AXJO":  "🇦🇺 ASX 200",
+    },
+    "crypto": {
+        "BTC-USD": "Bitcoin (BTC)",
+        "ETH-USD": "Ethereum (ETH)",
+        "SOL-USD": "Solana (SOL)",
+    },
+    "commodities": {
+        "GC=F":  "Gold (XAU)",
+        "SI=F":  "Silber (XAG)",
+        "CL=F":  "WTI Crude",
+        "BZ=F":  "Brent Crude",
+        "NG=F":  "Erdgas",
+        "HG=F":  "Kupfer (HG)",
+    },
+    "currencies": {
+        "EURUSD=X": "EUR/USD",
+        "GBPUSD=X": "GBP/USD",
+        "DX-Y.NYB": "DXY",
+    },
+    "vix": {
+        "^VIX": "VIX",
+    },
+    "regime": {
+        "SPY": "SPY",
+        "QQQ": "QQQ",
+    },
+    "sectors": {
+        "XLK":  "Technologie",
+        "XLC":  "Kommunikation",
+        "XLI":  "Industrie",
+        "XLF":  "Finanzen",
+        "XLV":  "Gesundheit",
+        "XLY":  "Zyklisch Konsum",
+        "XLB":  "Materialien",
+        "XLE":  "Energie",
+        "XLU":  "Versorger",
+        "XLRE": "Immobilien",
+        "XLP":  "Basiskons.",
+    },
+    "themes": {
+        "BOTZ": "🤖 KI & Robotik",
+        "SKYY": "☁️ Cloud Computing",
+        "HACK": "🔒 Cybersecurity",
+        "SMH":  "⚡ Halbleiter",
+        "XBI":  "🧬 Biotech",
+        "ICLN": "🌱 Clean Energy",
+        "PAVE": "🏗️ Infrastruktur",
+        "ARKG": "💊 Genomik",
+        "HERO": "🎮 Gaming & eSport",
+        "LIT":  "⛏️ Lithium & Batterie",
+        "REMX": "🪨 Seltene Erden",
+        "SLV":  "🥈 Silber (iShares)",
+        "GDXJ": "⛏️ Jr. Goldminen",
+        "GDX":  "🥇 Goldminen",
+        "COPX": "🔶 Kupferminen",
+        "NANR": "🌍 Nat. Ressourcen",
+        "OUNZ": "🥇 Gold (VanEck)",
+        "SPPP": "⚪ Platin & Palladium",
+        "FFTY": "📈 IBD 50 Momentum",
+        "IDNA": "🧬 Genomik & Immuno",
+    },
+    "countries": {
+        "ARGT": "🇦🇷 Argentinien",
+        "INDA": "🇮🇳 Indien",
+        "EWY":  "🇰🇷 Südkorea",
+        "EWZ":  "🇧🇷 Brasilien",
+        "EWG":  "🇩🇪 Deutschland",
+        "EWJ":  "🇯🇵 Japan",
+        "EWU":  "🇬🇧 UK",
+        "MCHI": "🇨🇳 China",
+        "EWQ":  "🇫🇷 Frankreich",
+        "EWA":  "🇦🇺 Australien",
+        "EWT":  "🇹🇼 Taiwan",
+        "EWS":  "🇸🇬 Singapur",
+        "THD":  "🇹🇭 Thailand",
+        "ECH":  "🇨🇱 Chile",
+        "TUR":  "🇹🇷 Türkei",
+    },
+}
+
+
+# ─────────────────────────────────────────────
+# S&P 500 BREADTH (% above SMAs, A/D, New Hi/Lo)
+# ─────────────────────────────────────────────
+
+def get_sp500_tickers():
+    """Get S&P 500 ticker list from Wikipedia."""
+    try:
+        print("  → Lade S&P 500 Komponentenliste...")
+        import re
+        url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+        resp = requests.get(url, timeout=15)
+        tickers = []
+        rows = resp.text.split('<tr>')
+        for row in rows[2:]:
+            cells = row.split('<td>')
+            if len(cells) > 1:
+                match = re.search(r'>([A-Z]{1,5})</a>', cells[1])
+                if match:
+                    tickers.append(match.group(1).replace('.', '-'))
+        if len(tickers) > 400:
+            print(f"  ✅ {len(tickers)} Ticker geladen")
+            return tickers
+        return None
+    except Exception as e:
+        print(f"  ⚠ Ticker-Liste Fehler: {e}")
+        return None
+
+
+def fetch_breadth_data():
+    """Calculate S&P 500 breadth: % above SMA 20/50/200, A/D, New Highs/Lows."""
+    import pandas as pd
+    print("\n📊 Berechne S&P 500 Breadth...")
+
+    tickers = get_sp500_tickers()
+
+    # Fallback: top 100 S&P 500 components by weight
+    if not tickers or len(tickers) < 100:
+        print("  → Wikipedia fehlgeschlagen, nutze Fallback-Liste (100 Ticker)...")
+        tickers = [
+            "AAPL","MSFT","NVDA","AMZN","GOOGL","META","BRK-B","AVGO","LLY","JPM",
+            "TSLA","UNH","XOM","V","MA","PG","COST","JNJ","HD","ABBV",
+            "WMT","NFLX","BAC","KO","MRK","CRM","CVX","ORCL","AMD","PEP",
+            "TMO","ACN","LIN","MCD","CSCO","ADBE","ABT","PM","WFC","GE",
+            "IBM","ISRG","DHR","TXN","CAT","QCOM","INTU","NOW","MS","AMGN",
+            "VZ","AMAT","GS","NEE","PFE","BLK","T","BKNG","LOW","RTX",
+            "UNP","DE","SPGI","AXP","SYK","HON","SCHW","COP","PLD","MDLZ",
+            "LRCX","BA","CB","ADI","VRTX","C","MMC","GILD","BX","ADP",
+            "PANW","REGN","KLAC","CME","SO","MU","FI","DUK","ICE","SHW",
+            "CL","CDNS","BMY","SNPS","EOG","MCO","WM","PH","PYPL","TGT",
+        ]
+
+    try:
+        batch_size = 50
+        all_frames = []
+
+        for i in range(0, len(tickers), batch_size):
+            batch = tickers[i:i + batch_size]
+            batch_num = i // batch_size + 1
+            total_batches = (len(tickers) + batch_size - 1) // batch_size
+            print(f"  → Batch {batch_num}/{total_batches} ({len(batch)} Ticker)...")
+            try:
+                raw = yf.download(batch, period="14mo", progress=False, threads=True)
+                if raw.empty:
+                    print(f"    ⚠ Batch {batch_num} leer")
+                    continue
+
+                print(f"    Cols type: {type(raw.columns).__name__}, shape: {raw.shape}")
+                if isinstance(raw.columns, pd.MultiIndex):
+                    print(f"    MultiIndex levels: {raw.columns.names}")
+                    # Try both orientations: (Price, Ticker) and (Ticker, Price)
+                    if "Close" in raw.columns.get_level_values(0):
+                        close_df = raw["Close"]
+                    elif "Close" in raw.columns.get_level_values(1):
+                        close_df = raw.xs("Close", level=1, axis=1)
+                    else:
+                        print(f"    ⚠ 'Close' nicht gefunden in MultiIndex")
+                        continue
+                elif "Close" in raw.columns:
+                    close_df = raw[["Close"]]
+                    close_df.columns = [batch[0]]
+                else:
+                    print(f"    ⚠ Unbekanntes Spaltenformat: {raw.columns[:5].tolist()}")
+                    continue
+
+                print(f"    ✅ {len(close_df.columns)} Close-Spalten extrahiert")
+                all_frames.append(close_df)
+            except Exception as e:
+                print(f"    ⚠ Batch {batch_num} Fehler: {e}")
+                import traceback
+                traceback.print_exc()
+                continue
+
+        if not all_frames:
+            print("  ⚠ Keine Daten geladen")
+            return None
+
+        combined = pd.concat(all_frames, axis=1)
+        # Remove duplicate columns
+        combined = combined.loc[:, ~combined.columns.duplicated()]
+        valid = combined.dropna(axis=1, thresh=200)
+        n = len(valid.columns)
+        print(f"  → {n} Aktien mit genug Daten (min. 80)")
+
+        if n < 80:
+            print(f"  ⚠ Nur {n} Aktien — nicht genug")
+            return None
+
+        latest = valid.iloc[-1]
+        prev = valid.iloc[-2]
+
+        sma20 = valid.rolling(20).mean().iloc[-1]
+        sma50 = valid.rolling(50).mean().iloc[-1]
+        sma200 = valid.rolling(200).mean().iloc[-1]
+
+        pct_20 = round(float((latest > sma20).sum()) / n * 100, 1)
+        pct_50 = round(float((latest > sma50).sum()) / n * 100, 1)
+        pct_200 = round(float((latest > sma200).sum()) / n * 100, 1)
+
+        change = latest - prev
+        adv = int((change > 0).sum())
+        dec = int((change < 0).sum())
+        ad_ratio = round(adv / max(dec, 1), 2)
+
+        hi52 = valid.rolling(252, min_periods=200).max().iloc[-1]
+        lo52 = valid.rolling(252, min_periods=200).min().iloc[-1]
+        new_hi = int((latest >= hi52 * 0.995).sum())
+        new_lo = int((latest <= lo52 * 1.005).sum())
+
+        print(f"  ✅ SMA20: {pct_20}% | SMA50: {pct_50}% | SMA200: {pct_200}%")
+        print(f"  ✅ A/D: {adv}/{dec} = {ad_ratio} | Hochs/Tiefs: {new_hi}/{new_lo}")
+
+        return {
+            "pct_above_sma20": pct_20,
+            "pct_above_sma50": pct_50,
+            "pct_above_sma200": pct_200,
+            "advance_decline_ratio": ad_ratio,
+            "advancers": adv,
+            "decliners": dec,
+            "new_highs": new_hi,
+            "new_lows": new_lo,
+            "n_components": n,
+        }
+    except Exception as e:
+        print(f"  ⚠ Breadth Fehler: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
+
+
+# ─────────────────────────────────────────────
+# QQQ (NDX 100) McClellan + Summation + H/L Oscillator
+# ─────────────────────────────────────────────
+
+NDX100_TICKERS = [
+    "AAPL","MSFT","NVDA","AMZN","META","GOOGL","GOOG","AVGO","TSLA","COST",
+    "NFLX","TMUS","ASML","PEP","CSCO","LIN","ADBE","AMD","ISRG","QCOM",
+    "TXN","INTU","BKNG","CMCSA","AMGN","HON","AMAT","PANW","ADP","VRTX",
+    "GILD","ADI","MU","LRCX","SBUX","MELI","KLAC","REGN","INTC","CDNS",
+    "PYPL","CRWD","SNPS","CTAS","MAR","ORLY","MDLZ","CEG","ABNB","FTNT",
+    "DASH","CSX","MNST","ADSK","WDAY","PCAR","ROP","CHTR","NXPI","AEP",
+    "PAYX","ROST","FANG","KDP","ODFL","FAST","BKR","KHC","EA","DDOG",
+    "VRSK","EXC","CTSH","XEL","GEHC","TTWO","CCEP","CSGP","AZN","TEAM",
+    "IDXX","ANSS","ZS","ON","CDW","BIIB","DXCM","WBD","MDB","TTD",
+    "ARM","MRVL","PLTR","APP","AXON","LULU","MSTR","SMCI","GFS","ILMN",
+]
+
+
+def fetch_qqq_breadth():
+    """Calculate QQQ (NDX 100) McClellan Oscillator, Summation Index, H/L Oscillator with history."""
+    import pandas as pd
+    import numpy as np
+    print("\n📈 Berechne QQQ Breadth (McClellan + Summation + H/L)...")
+
+    try:
+        # Download all NDX 100 in two batches
+        all_frames = []
+        for i in range(0, len(NDX100_TICKERS), 50):
+            batch = NDX100_TICKERS[i:i + 50]
+            print(f"  → Batch {i // 50 + 1}/2 ({len(batch)} Ticker)...")
+            try:
+                raw = yf.download(batch, period="14mo", progress=False, threads=True)
+                if raw.empty:
+                    continue
+                if isinstance(raw.columns, pd.MultiIndex):
+                    if "Close" in raw.columns.get_level_values(0):
+                        close_df = raw["Close"]
+                    elif "Close" in raw.columns.get_level_values(1):
+                        close_df = raw.xs("Close", level=1, axis=1)
+                    else:
+                        continue
+                elif "Close" in raw.columns:
+                    close_df = raw[["Close"]]
+                    close_df.columns = [batch[0]]
+                else:
+                    continue
+                all_frames.append(close_df)
+            except Exception as e:
+                print(f"    ⚠ Batch Fehler: {e}")
+                continue
+
+        if not all_frames:
+            return None
+
+        combined = pd.concat(all_frames, axis=1)
+        combined = combined.loc[:, ~combined.columns.duplicated()]
+        valid = combined.dropna(axis=1, thresh=200)
+        n = len(valid.columns)
+        print(f"  → {n} QQQ-Komponenten")
+
+        if n < 60:
+            print(f"  ⚠ Nur {n} Aktien — zu wenig für QQQ Breadth")
+            return None
+
+        # Daily change → advances/declines per day
+        change = valid.diff()
+        adv_daily = (change > 0).sum(axis=1)
+        dec_daily = (change < 0).sum(axis=1)
+
+        # Ratio-Adjusted Net Advances (RANA)
+        total = adv_daily + dec_daily
+        rana = ((adv_daily - dec_daily) / total.replace(0, 1)) * 1000
+
+        # McClellan Oscillator = 19-day EMA(RANA) - 39-day EMA(RANA)
+        ema19 = rana.ewm(span=19, adjust=False).mean()
+        ema39 = rana.ewm(span=39, adjust=False).mean()
+        mco = ema19 - ema39
+
+        # McClellan Summation Index = cumulative sum of MCO
+        summation = mco.cumsum()
+        # Normalize summation (start at 0 from beginning of data)
+        summation = summation - summation.iloc[40]  # offset to ignore initial EMA warmup
+
+        # Daily H/L Oscillator (new 20-day highs - new 20-day lows per day)
+        rolling_hi = valid.rolling(20).max()
+        rolling_lo = valid.rolling(20).min()
+        new_hi_daily = (valid >= rolling_hi).sum(axis=1)
+        new_lo_daily = (valid <= rolling_lo).sum(axis=1)
+        hl_osc = new_hi_daily - new_lo_daily
+
+        # Keep last 80 trading days for charts
+        history_days = 80
+        mco_hist = mco.dropna().iloc[-history_days:]
+        sum_hist = summation.dropna().iloc[-history_days:]
+        hl_hist = hl_osc.dropna().iloc[-history_days:]
+
+        # Current values
+        mco_current = round(float(mco_hist.iloc[-1]), 2)
+        sum_current = round(float(sum_hist.iloc[-1]), 1)
+        hl_current = int(hl_hist.iloc[-1])
+        new_hi_now = int(new_hi_daily.iloc[-1])
+        new_lo_now = int(new_lo_daily.iloc[-1])
+
+        # Format history for JSON
+        def fmt_hist(s, decimals=2):
+            return [round(float(x), decimals) for x in s.tolist()]
+
+        print(f"  ✅ MCO: {mco_current} | Summation: {sum_current} | H/L: {hl_current} ({new_hi_now}H/{new_lo_now}L)")
+
+        return {
+            "mco": mco_current,
+            "summation": sum_current,
+            "hl_osc": hl_current,
+            "new_highs": new_hi_now,
+            "new_lows": new_lo_now,
+            "mco_history": fmt_hist(mco_hist, 2),
+            "summation_history": fmt_hist(sum_hist, 1),
+            "hl_history": [int(x) for x in hl_hist.tolist()],
+            "n_components": n,
+        }
+    except Exception as e:
+        print(f"  ⚠ QQQ Breadth Fehler: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
+
+
+# ─────────────────────────────────────────────
+# CNN FEAR & GREED INDEX
+# ─────────────────────────────────────────────
+
+def fetch_fear_greed():
+    """Fetch CNN Fear & Greed Index from their API."""
+    print("\n😱 Lade CNN Fear & Greed Index...")
+    try:
+        url = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+        }
+        resp = requests.get(url, headers=headers, timeout=10)
+        if resp.status_code == 200:
+            data = resp.json()
+            score = data.get("fear_and_greed", {}).get("score", None)
+            rating = data.get("fear_and_greed", {}).get("rating", "")
+
+            if score is not None:
+                score = round(score)
+                # Translate rating to German
+                rating_map = {
+                    "Extreme Fear": "Extreme Angst",
+                    "Fear": "Angst",
+                    "Neutral": "Neutral",
+                    "Greed": "Gier",
+                    "Extreme Greed": "Extreme Gier",
+                }
+                rating_de = rating_map.get(rating, rating)
+                print(f"  ✅ Fear & Greed: {score} ({rating_de})")
+                return {"score": score, "rating": rating_de}
+
+        print(f"  ⚠ Fear & Greed API Status: {resp.status_code}")
+        return None
+    except Exception as e:
+        print(f"  ⚠ Fear & Greed Fehler: {e}")
+        return None
+
+
+# ─────────────────────────────────────────────
+# PUT/CALL RATIO
+# ─────────────────────────────────────────────
+
+def fetch_put_call():
+    """Fetch CBOE Equity Put/Call ratio from their public CSV."""
+    print("\n📞 Lade Put/Call Ratio (CBOE)...")
+    try:
+        # CBOE publishes historical equity put/call as CSV
+        url = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/equitypc.csv"
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+        }
+        resp = requests.get(url, headers=headers, timeout=15)
+        if resp.status_code == 200:
+            lines = resp.text.strip().split('\n')
+            # Find last data line (skip headers and blank lines)
+            for line in reversed(lines):
+                parts = line.strip().split(',')
+                if len(parts) >= 5:
+                    try:
+                        ratio = float(parts[4])  # P/C Ratio is the 5th column
+                        date = parts[0]
+                        print(f"  ✅ CBOE Equity Put/Call: {ratio} (Datum: {date})")
+                        return ratio
+                    except (ValueError, IndexError):
+                        continue
+
+        # Fallback: total put/call ratio
+        url2 = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/totalpc.csv"
+        resp2 = requests.get(url2, headers=headers, timeout=15)
+        if resp2.status_code == 200:
+            lines = resp2.text.strip().split('\n')
+            for line in reversed(lines):
+                parts = line.strip().split(',')
+                if len(parts) >= 5:
+                    try:
+                        ratio = float(parts[4])
+                        print(f"  ✅ CBOE Total Put/Call: {ratio} (Fallback)")
+                        return ratio
+                    except (ValueError, IndexError):
+                        continue
+
+        print("  ⚠ CBOE CSV nicht verfügbar")
+        return None
+    except Exception as e:
+        print(f"  ⚠ Put/Call Fehler: {e}")
+        return None
+
+
+# ─────────────────────────────────────────────
+# CORE MARKET DATA FUNCTIONS
+# ─────────────────────────────────────────────
+
+def fetch_ticker_data(symbol, period="1y"):
+    """Fetch historical data for a single ticker."""
+    try:
+        tk = yf.Ticker(symbol)
+        hist = tk.history(period=period)
+        if hist.empty:
+            return None
+        return hist
+    except Exception as e:
+        print(f"  ⚠ Fehler bei {symbol}: {e}")
+        return None
+
+
+def calc_metrics(hist):
+    """Calculate 1D%, 1W%, 52W High%, YTD%, hist_5d from historical data."""
+    if hist is None or len(hist) < 2:
+        return None
+
+    close = hist["Close"]
+    current = close.iloc[-1]
+
+    prev = close.iloc[-2] if len(close) >= 2 else current
+    d1_pct = ((current - prev) / prev) * 100
+
+    w1_close = close.iloc[-6] if len(close) >= 6 else close.iloc[0]
+    w1_pct = ((current - w1_close) / w1_close) * 100
+
+    high_52w = close.max()
+    hi_pct = ((current - high_52w) / high_52w) * 100
+
+    year_start = hist[hist.index.year == datetime.now().year]
+    if len(year_start) > 0:
+        ytd_start = year_start["Close"].iloc[0]
+        ytd_pct = ((current - ytd_start) / ytd_start) * 100
+    else:
+        ytd_pct = 0.0
+
+    # Last 5 trading days for sparkline
+    hist_5d = close.iloc[-5:].tolist() if len(close) >= 5 else close.tolist()
+    hist_5d = [round(float(x), 2) for x in hist_5d]
+
+    return {
+        "price": round(current, 2),
+        "d1_pct": round(d1_pct, 2),
+        "w1_pct": round(w1_pct, 2),
+        "hi52w_pct": round(hi_pct, 2),
+        "ytd_pct": round(ytd_pct, 2),
+        "hist_5d": hist_5d,
+    }
+
+
+def calc_moving_averages(hist):
+    """Calculate EMA10, EMA20, SMA50, SMA100, SMA200."""
+    if hist is None or len(hist) < 50:
+        return None
+
+    close = hist["Close"]
+    result = {}
+
+    for label, n, is_ema in [("ema10", 10, True), ("ema20", 20, True),
+                              ("sma50", 50, False), ("sma100", 100, False),
+                              ("sma200", 200, False)]:
+        if len(close) >= n:
+            val = close.ewm(span=n).mean().iloc[-1] if is_ema else close.rolling(n).mean().iloc[-1]
+            result[label] = round(val, 2)
+
+    return result if result else None
+
+
+def determine_regime(price, mas):
+    """BULL / CHOP / BEAR based on MA positions."""
+    if mas is None:
+        return "UNKNOWN"
+
+    above_ema10 = price > mas.get("ema10", 0)
+    above_ema20 = price > mas.get("ema20", 0)
+    above_sma200 = price > mas.get("sma200", 0)
+
+    if above_ema10 and above_ema20:
+        return "BULL"
+    elif above_sma200:
+        return "CHOP"
+    else:
+        return "BEAR"
+
+
+def fetch_category(category_name, tickers_dict):
+    """Fetch data for an entire category of tickers."""
+    print(f"\n📊 Lade {category_name}...")
+    results = []
+    for symbol, name in tickers_dict.items():
+        print(f"  → {symbol} ({name})")
+        hist = fetch_ticker_data(symbol)
+        metrics = calc_metrics(hist)
+        if metrics:
+            metrics["symbol"] = symbol
+            metrics["name"] = name
+            results.append(metrics)
+    return results
+
+
+def fetch_regime_data():
+    """Fetch SPY and QQQ with moving averages for regime detection."""
+    print("\n🎯 Lade Regime-Daten (SPY/QQQ)...")
+    regime = {}
+    for symbol in ["SPY", "QQQ"]:
+        print(f"  → {symbol}")
+        hist = fetch_ticker_data(symbol)
+        if hist is not None and len(hist) > 0:
+            price = round(hist["Close"].iloc[-1], 2)
+            mas = calc_moving_averages(hist)
+            r = determine_regime(price, mas)
+            regime[symbol] = {
+                "price": price,
+                "regime": r,
+                "mas": mas,
+            }
+    return regime
+
+
+def get_vix_zone(vix_val):
+    """Classify VIX into zones."""
+    if vix_val < 15:
+        return "NIEDRIG"
+    elif vix_val < 20:
+        return "NORMAL"
+    elif vix_val < 30:
+        return "ERHÖHT"
+    else:
+        return "HOCH"
+
+
+def build_top10(all_data):
+    """Build Top 10 weekly performance across all categories."""
+    combined = []
+    cat_map = {
+        "sectors": "Sektor",
+        "themes": "Thema",
+        "countries": "Land",
+        "commodities": "Rohstoff",
+        "crypto": "Krypto",
+    }
+    for cat_key, cat_label in cat_map.items():
+        if cat_key in all_data:
+            for item in all_data[cat_key]:
+                combined.append({**item, "category": cat_label})
+
+    combined.sort(key=lambda x: x.get("w1_pct", -999), reverse=True)
+    return combined[:10]
+
+
+# ─────────────────────────────────────────────
+# AI PREMARKET BRIEFING (requires ANTHROPIC_API_KEY)
+# ─────────────────────────────────────────────
+
+def generate_ai_briefing(snapshot):
+    """Call Claude API with web_search to generate Premarket Briefing with live news."""
+    try:
+        import anthropic
+    except ImportError:
+        print("  ⚠ anthropic Paket nicht installiert")
+        return None
+
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        return None
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    regime_info = json.dumps(snapshot.get("regime", {}), indent=2)
+    vix_info = json.dumps(snapshot.get("vix", []), indent=2)
+    futures_info = json.dumps(snapshot.get("futures", []), indent=2)
+    europe_info = json.dumps(snapshot.get("europe", []), indent=2)
+    sectors_info = json.dumps(snapshot.get("sectors", [])[:5], indent=2)
+    top10_info = json.dumps(snapshot.get("top10", []), indent=2)
+    commodities_info = json.dumps(snapshot.get("commodities", []), indent=2)
+    currencies_info = json.dumps(snapshot.get("currencies", []), indent=2)
+    fg_info = json.dumps(snapshot.get("fear_greed", {}), indent=2)
+    breadth_info = json.dumps(snapshot.get("breadth", {}), indent=2)
+
+    now_str = datetime.now().strftime("%d. %b %Y")
+
+    prompt = f"""Du bist der KI-Analyst für das Yolo Dashboard (@Yolo_Investing).
+Schreibe ein prägnantes Premarket-Briefing (07:00 CET) auf Deutsch. Maximal 200 Wörter.
+
+WICHTIG: Nutze zuerst das web_search Tool um folgendes zu recherchieren:
+1. Suche "stock market news today" — aktuelle Markt-Headlines
+2. Suche "earnings reports this week" — wichtige Earnings
+3. Suche "economic calendar today" — Makrodaten des Tages
+
+Dann schreibe das Briefing basierend auf den echten Daten UND den Suchergebnissen.
+
+Stil: Direkt, klar, keine Floskeln. Wie ein erfahrener Trader seinem Trading-Buddy schreibt.
+Beginne mit "Guten Morgen — hier dein Premarket Briefing."
+
+Struktur:
+1. <strong>Overnight & Futures</strong> — Asien, EU-Eröffnung, US-Futures
+2. <strong>News des Tages</strong> — 2-3 marktrelevante Headlines (Geopolitik, Earnings, Makro)
+3. <strong>Makro-Kalender</strong> — Wirtschaftsdaten heute (Uhrzeiten in CET)
+4. <strong>Auf dem Radar</strong> — 1-2 auffällige Dinge aus den Daten
+
+Nutze <strong> Tags für Hervorhebungen. Kein Markdown.
+
+Marktdaten:
+Regime: {regime_info}
+Futures: {futures_info}
+Europa: {europe_info}
+VIX: {vix_info}
+Fear & Greed: {fg_info}
+Rohstoffe: {commodities_info}
+Währungen: {currencies_info}
+Breadth: {breadth_info}
+Top Sektoren: {sectors_info}
+Top 10 Woche: {top10_info}
+Datum: {now_str}"""
+
+    try:
+        print(f"  🤖 Claude API → Premarket-Briefing mit Web-Search...")
+        models = ["claude-sonnet-4-5-20250514", "claude-sonnet-4-5-20250929"]
+        text = None
+        for model in models:
+            try:
+                print(f"    → Versuche Model: {model}")
+                message = client.messages.create(
+                    model=model,
+                    max_tokens=1024,
+                    tools=[{"type": "web_search_20250305", "name": "web_search"}],
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                # Extract text from response (may include tool_use blocks)
+                text_parts = []
+                for block in message.content:
+                    if hasattr(block, 'text') and block.text:
+                        text_parts.append(block.text)
+                text = "\n".join(text_parts) if text_parts else None
+                if text:
+                    print(f"  ✅ Briefing generiert ({len(text)} Zeichen) mit {model}")
+                    print(f"    Stop reason: {message.stop_reason}")
+                    break
+            except Exception as model_err:
+                print(f"    ⚠ Model {model} fehlgeschlagen: {model_err}")
+                continue
+        return text
+    except Exception as e:
+        print(f"  ⚠ Claude API Fehler: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
+
+
+
+# ─────────────────────────────────────────────
+# MAIN
+# ─────────────────────────────────────────────
+
+def main():
+    parser = argparse.ArgumentParser(description="YOLO Dashboard Data Builder")
+    parser.add_argument("--out-dir", default="data", help="Output directory")
+    args = parser.parse_args()
+
+    out_dir = Path(args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    print("=" * 60)
+    print(f"🚀 YOLO Dashboard — Data Builder v3")
+    print(f"   Output: {out_dir}")
+    print(f"   Zeit: {datetime.now().isoformat()}")
+    print("=" * 60)
+
+    snapshot = {}
+
+    # 1. Regime
+    snapshot["regime"] = fetch_regime_data()
+
+    # 2. All categories
+    for cat_key, cat_tickers in TICKERS.items():
+        if cat_key == "regime":
+            continue
+        snapshot[cat_key] = fetch_category(cat_key, cat_tickers)
+
+    # 3. Sort sectors, themes, countries by 1W%
+    for key in ["sectors", "themes", "countries"]:
+        if key in snapshot:
+            snapshot[key].sort(key=lambda x: x.get("w1_pct", -999), reverse=True)
+
+    # 4. Countries: keep only top 10
+    if "countries" in snapshot:
+        snapshot["countries"] = snapshot["countries"][:10]
+
+    # 5. VIX zone
+    if snapshot.get("vix") and len(snapshot["vix"]) > 0:
+        vix_val = snapshot["vix"][0].get("price", 0)
+        snapshot["vix"][0]["zone"] = get_vix_zone(vix_val)
+
+    # 6. Top 10 weekly
+    snapshot["top10"] = build_top10(snapshot)
+
+    # 7. S&P 500 Breadth
+    breadth = fetch_breadth_data()
+    if breadth:
+        snapshot["breadth"] = breadth
+
+    # 7b. QQQ McClellan + Summation + H/L
+    qqq_br = fetch_qqq_breadth()
+    if qqq_br:
+        snapshot["qqq_breadth"] = qqq_br
+
+    # 8. CNN Fear & Greed
+    fg = fetch_fear_greed()
+    if fg:
+        snapshot["fear_greed"] = fg
+
+    # 9. Put/Call Ratio (CBOE)
+    pc = fetch_put_call()
+    if pc:
+        snapshot["put_call"] = pc
+
+    # ═══ AI Premarket Briefing ═══
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    ai_text = None
+
+    if api_key:
+        print(f"\n🤖 ANTHROPIC_API_KEY vorhanden ({len(api_key)} Zeichen, beginnt mit {api_key[:8]}...)")
+        ai_text = generate_ai_briefing(snapshot)
+    else:
+        print("\n  ℹ Kein ANTHROPIC_API_KEY gesetzt — nutze manuelle Briefings")
+        briefings_path = out_dir / "briefings.json"
+        if briefings_path.exists():
+            try:
+                with open(briefings_path, encoding="utf-8") as f:
+                    manual = json.load(f)
+                if "morning" in manual:
+                    ai_text = manual["morning"].get("text")
+                    print(f"  ✅ Manuelles Briefing geladen")
+            except Exception as e:
+                print(f"  ⚠ Fehler bei briefings.json: {e}")
+
+    now_str = datetime.now().strftime("%d. %b %Y")
+    snapshot["ai_briefing"] = {
+        "text": ai_text or "Briefing wird generiert...",
+        "timestamp": f"{now_str} · 07:00 CET",
+    }
+
+    # 10. Metadata
+    snapshot["meta"] = {
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "source": "Yahoo Finance + CNN + Claude AI + Web Search",
+    }
+
+    # 11. Write output
+    with open(out_dir / "snapshot.json", "w", encoding="utf-8") as f:
+        json.dump(snapshot, f, indent=2, ensure_ascii=False)
+
+    print(f"\n✅ Snapshot geschrieben → {out_dir / 'snapshot.json'}")
+    print(f"   Kategorien: {len(snapshot) - 1}")
+    if breadth:
+        print(f"   Breadth: {breadth['n_components']} Aktien | SMA200: {breadth['pct_above_sma200']}%")
+    if fg:
+        print(f"   Fear & Greed: {fg['score']} ({fg['rating']})")
+    if pc:
+        print(f"   Put/Call: {pc}")
+    if ai_text:
+        print(f"   AI Briefing: {len(ai_text)} Zeichen")
+    print("=" * 60)
+
+
+if __name__ == "__main__":
+    main()

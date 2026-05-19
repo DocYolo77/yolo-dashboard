@@ -123,6 +123,11 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .vix-zone.high { background: var(--negative-bg); color: var(--negative); }
 
 .breadth-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+
+/* QQQ Breadth Charts */
+.qqq-card .bc-value { font-size: 28px; margin: 4px 0 8px 0; }
+.qqq-chart { width: 100%; height: 50px; margin: 6px 0; }
+.qqq-chart svg { width: 100%; height: 100%; display: block; }
 .breadth-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 16px; text-align: center; }
 .breadth-card .bc-label { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
 .breadth-card .bc-value { font-family: var(--mono-font); font-size: 24px; font-weight: 400; }
@@ -243,7 +248,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       </div>
     </div>
     <div class="track-records">
-      <a href="https://docs.google.com/spreadsheets/d/14zUwPJt7z9iwRPCU32SXeamqhJMuP9tJOsnqyfmp0Xg/edit?usp=sharing" class="track-link" target="_blank">Track Record Stocks <span class="arrow">↗</span></a>
+      <a href="https://docs.google.com/spreadsheets/d/1tYQuhw312-yHe5rdwIpUDF9dHZYhwhiNKT1e86Y5RWk/edit?usp=sharing" class="track-link" target="_blank">Track Record Stocks <span class="arrow">↗</span></a>
       <a href="https://docs.google.com/spreadsheets/d/1einl__1lG8TABYqRZtHs62auoDGCvnABLltgIXMBFT4/edit?usp=sharing" class="track-link" target="_blank">Track Record Cryptos <span class="arrow">↗</span></a>
       <a href="https://docs.google.com/spreadsheets/d/1SzaqcIoO8OPJSZkh_gTczKrn_hvVC0lj1R2YMrXlg14/edit?usp=sharing" class="track-link" target="_blank">Track Record TradFi <span class="arrow">↗</span></a>
     </div>
@@ -456,6 +461,31 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
         <div class="bc-label">Neue Hochs / Tiefs</div>
         <div class="bc-value">—</div>
         <div class="bc-sub">S&P 500 · 52W</div>
+      </div>
+    </div>
+
+    <!-- QQQ McClellan + Summation + H/L Oscillator -->
+    <div style="margin-top:20px;">
+      <div style="font-family:var(--mono-font);font-size:10px;color:var(--ink-muted);letter-spacing:2px;margin-bottom:10px;">▼ QQQ BREADTH (NDX 100)</div>
+      <div class="breadth-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="breadth-card qqq-card" id="mco-card">
+          <div class="bc-label">McClellan Oscillator</div>
+          <div class="bc-value">—</div>
+          <div class="qqq-chart" id="mco-chart"></div>
+          <div class="bc-sub">19/39 EMA · Ratio-Adjusted</div>
+        </div>
+        <div class="breadth-card qqq-card" id="sum-card">
+          <div class="bc-label">Summation Index</div>
+          <div class="bc-value">—</div>
+          <div class="qqq-chart" id="sum-chart"></div>
+          <div class="bc-sub">Kumulierter McClellan</div>
+        </div>
+        <div class="breadth-card qqq-card" id="hlosc-card">
+          <div class="bc-label">High/Low Oszillator</div>
+          <div class="bc-value">—</div>
+          <div class="qqq-chart" id="hlosc-chart"></div>
+          <div class="bc-sub">20-Tage Hochs / Tiefs</div>
+        </div>
       </div>
     </div>
   </div>
@@ -881,6 +911,72 @@ async function loadData() {
       if (b.new_highs !== undefined) setCard('hilo-card', b.new_highs + ' / ' + b.new_lows, 'S&P 500 · 52W', b.new_highs > b.new_lows);
     }
 
+    // ── QQQ BREADTH (McClellan + Summation + H/L Oscillator) ──
+    if (data.qqq_breadth) {
+      const q = data.qqq_breadth;
+
+      // Bar chart for MCO (positive=green, negative=red)
+      function barChart(data, w, h) {
+        if (!data || data.length < 2) return '';
+        const max = Math.max(...data.map(Math.abs)) || 1;
+        const zero = h / 2;
+        const bw = w / data.length;
+        const bars = data.map((v, i) => {
+          const x = i * bw;
+          const barH = Math.abs(v) / max * (h / 2 - 1);
+          const y = v >= 0 ? zero - barH : zero;
+          const col = v >= 0 ? 'var(--positive)' : 'var(--negative)';
+          return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${(bw - 0.5).toFixed(1)}" height="${barH.toFixed(1)}" fill="${col}"/>`;
+        }).join('');
+        return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+          <line x1="0" y1="${zero}" x2="${w}" y2="${zero}" stroke="var(--ink-muted)" stroke-width="0.3" stroke-dasharray="2,2"/>
+          ${bars}
+        </svg>`;
+      }
+
+      // Line chart for Summation Index
+      function lineChart(data, w, h) {
+        if (!data || data.length < 2) return '';
+        const min = Math.min(...data), max = Math.max(...data);
+        const range = (max - min) || 1;
+        const pts = data.map((v, i) => {
+          const x = (i / (data.length - 1)) * w;
+          const y = h - ((v - min) / range) * h;
+          return `${x.toFixed(1)},${y.toFixed(1)}`;
+        }).join(' ');
+        const up = data[data.length - 1] >= data[0];
+        const col = up ? 'var(--positive)' : 'var(--negative)';
+        return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+          <polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+      }
+
+      // McClellan Oscillator
+      const mcoCard = document.getElementById('mco-card');
+      if (mcoCard) {
+        mcoCard.querySelector('.bc-value').textContent = q.mco >= 0 ? '+' + q.mco.toLocaleString('de-DE') : q.mco.toLocaleString('de-DE');
+        mcoCard.querySelector('.bc-value').style.color = q.mco >= 0 ? 'var(--positive)' : 'var(--negative)';
+        if (q.mco_history) document.getElementById('mco-chart').innerHTML = barChart(q.mco_history, 200, 50);
+      }
+
+      // Summation Index
+      const sumCard = document.getElementById('sum-card');
+      if (sumCard) {
+        sumCard.querySelector('.bc-value').textContent = q.summation >= 0 ? '+' + Math.round(q.summation).toLocaleString('de-DE') : Math.round(q.summation).toLocaleString('de-DE');
+        sumCard.querySelector('.bc-value').style.color = q.summation >= 0 ? 'var(--positive)' : 'var(--negative)';
+        if (q.summation_history) document.getElementById('sum-chart').innerHTML = lineChart(q.summation_history, 200, 50);
+      }
+
+      // H/L Oscillator
+      const hlCard = document.getElementById('hlosc-card');
+      if (hlCard) {
+        hlCard.querySelector('.bc-value').textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + ' (' + q.new_highs + 'H/' + q.new_lows + 'L)';
+        hlCard.querySelector('.bc-value').style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
+        hlCard.querySelector('.bc-value').style.fontSize = '20px';
+        if (q.hl_history) document.getElementById('hlosc-chart').innerHTML = barChart(q.hl_history, 200, 50);
+      }
+    }
+
     // Currencies
     if (data.currencies) {
       const cards = document.querySelectorAll('.currency-card');
@@ -949,7 +1045,7 @@ loadData();
   // SHA-256 hash of current password — change monthly
   // To generate: echo -n "YourPassword" | sha256sum
   // Current: "yolo2026" → update this hash each month
-  const PW_HASH = '98dc60f33a25552d56f5d5f5b042e8ad6bdde6db0f822909b6025ee9dd4a48be'; // "affenbaum"
+  const PW_HASH = '5b9d639c316d59216b8c82e7d27426c1abb7b95daee2f4daf4ae8b9339a16422'; // "yolo2026"
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
