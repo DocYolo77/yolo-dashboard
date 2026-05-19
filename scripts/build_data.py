@@ -269,6 +269,133 @@ def fetch_breadth_data():
 
 
 # ─────────────────────────────────────────────
+# QQQ (NDX 100) McClellan + Summation + H/L Oscillator
+# ─────────────────────────────────────────────
+
+NDX100_TICKERS = [
+    "AAPL","MSFT","NVDA","AMZN","META","GOOGL","GOOG","AVGO","TSLA","COST",
+    "NFLX","TMUS","ASML","PEP","CSCO","LIN","ADBE","AMD","ISRG","QCOM",
+    "TXN","INTU","BKNG","CMCSA","AMGN","HON","AMAT","PANW","ADP","VRTX",
+    "GILD","ADI","MU","LRCX","SBUX","MELI","KLAC","REGN","INTC","CDNS",
+    "PYPL","CRWD","SNPS","CTAS","MAR","ORLY","MDLZ","CEG","ABNB","FTNT",
+    "DASH","CSX","MNST","ADSK","WDAY","PCAR","ROP","CHTR","NXPI","AEP",
+    "PAYX","ROST","FANG","KDP","ODFL","FAST","BKR","KHC","EA","DDOG",
+    "VRSK","EXC","CTSH","XEL","GEHC","TTWO","CCEP","CSGP","AZN","TEAM",
+    "IDXX","ANSS","ZS","ON","CDW","BIIB","DXCM","WBD","MDB","TTD",
+    "ARM","MRVL","PLTR","APP","AXON","LULU","MSTR","SMCI","GFS","ILMN",
+]
+
+
+def fetch_qqq_breadth():
+    """Calculate QQQ (NDX 100) McClellan Oscillator, Summation Index, H/L Oscillator with history."""
+    import pandas as pd
+    import numpy as np
+    print("\n📈 Berechne QQQ Breadth (McClellan + Summation + H/L)...")
+
+    try:
+        # Download all NDX 100 in two batches
+        all_frames = []
+        for i in range(0, len(NDX100_TICKERS), 50):
+            batch = NDX100_TICKERS[i:i + 50]
+            print(f"  → Batch {i // 50 + 1}/2 ({len(batch)} Ticker)...")
+            try:
+                raw = yf.download(batch, period="14mo", progress=False, threads=True)
+                if raw.empty:
+                    continue
+                if isinstance(raw.columns, pd.MultiIndex):
+                    if "Close" in raw.columns.get_level_values(0):
+                        close_df = raw["Close"]
+                    elif "Close" in raw.columns.get_level_values(1):
+                        close_df = raw.xs("Close", level=1, axis=1)
+                    else:
+                        continue
+                elif "Close" in raw.columns:
+                    close_df = raw[["Close"]]
+                    close_df.columns = [batch[0]]
+                else:
+                    continue
+                all_frames.append(close_df)
+            except Exception as e:
+                print(f"    ⚠ Batch Fehler: {e}")
+                continue
+
+        if not all_frames:
+            return None
+
+        combined = pd.concat(all_frames, axis=1)
+        combined = combined.loc[:, ~combined.columns.duplicated()]
+        valid = combined.dropna(axis=1, thresh=200)
+        n = len(valid.columns)
+        print(f"  → {n} QQQ-Komponenten")
+
+        if n < 60:
+            print(f"  ⚠ Nur {n} Aktien — zu wenig für QQQ Breadth")
+            return None
+
+        # Daily change → advances/declines per day
+        change = valid.diff()
+        adv_daily = (change > 0).sum(axis=1)
+        dec_daily = (change < 0).sum(axis=1)
+
+        # Ratio-Adjusted Net Advances (RANA)
+        total = adv_daily + dec_daily
+        rana = ((adv_daily - dec_daily) / total.replace(0, 1)) * 1000
+
+        # McClellan Oscillator = 19-day EMA(RANA) - 39-day EMA(RANA)
+        ema19 = rana.ewm(span=19, adjust=False).mean()
+        ema39 = rana.ewm(span=39, adjust=False).mean()
+        mco = ema19 - ema39
+
+        # McClellan Summation Index = cumulative sum of MCO
+        summation = mco.cumsum()
+        # Normalize summation (start at 0 from beginning of data)
+        summation = summation - summation.iloc[40]  # offset to ignore initial EMA warmup
+
+        # Daily H/L Oscillator (new 20-day highs - new 20-day lows per day)
+        rolling_hi = valid.rolling(20).max()
+        rolling_lo = valid.rolling(20).min()
+        new_hi_daily = (valid >= rolling_hi).sum(axis=1)
+        new_lo_daily = (valid <= rolling_lo).sum(axis=1)
+        hl_osc = new_hi_daily - new_lo_daily
+
+        # Keep last 80 trading days for charts
+        history_days = 80
+        mco_hist = mco.dropna().iloc[-history_days:]
+        sum_hist = summation.dropna().iloc[-history_days:]
+        hl_hist = hl_osc.dropna().iloc[-history_days:]
+
+        # Current values
+        mco_current = round(float(mco_hist.iloc[-1]), 2)
+        sum_current = round(float(sum_hist.iloc[-1]), 1)
+        hl_current = int(hl_hist.iloc[-1])
+        new_hi_now = int(new_hi_daily.iloc[-1])
+        new_lo_now = int(new_lo_daily.iloc[-1])
+
+        # Format history for JSON
+        def fmt_hist(s, decimals=2):
+            return [round(float(x), decimals) for x in s.tolist()]
+
+        print(f"  ✅ MCO: {mco_current} | Summation: {sum_current} | H/L: {hl_current} ({new_hi_now}H/{new_lo_now}L)")
+
+        return {
+            "mco": mco_current,
+            "summation": sum_current,
+            "hl_osc": hl_current,
+            "new_highs": new_hi_now,
+            "new_lows": new_lo_now,
+            "mco_history": fmt_hist(mco_hist, 2),
+            "summation_history": fmt_hist(sum_hist, 1),
+            "hl_history": [int(x) for x in hl_hist.tolist()],
+            "n_components": n,
+        }
+    except Exception as e:
+        print(f"  ⚠ QQQ Breadth Fehler: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
+
+
+# ─────────────────────────────────────────────
 # CNN FEAR & GREED INDEX
 # ─────────────────────────────────────────────
 
@@ -662,6 +789,11 @@ def main():
     breadth = fetch_breadth_data()
     if breadth:
         snapshot["breadth"] = breadth
+
+    # 7b. QQQ McClellan + Summation + H/L
+    qqq_br = fetch_qqq_breadth()
+    if qqq_br:
+        snapshot["qqq_breadth"] = qqq_br
 
     # 8. CNN Fear & Greed
     fg = fetch_fear_greed()
