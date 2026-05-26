@@ -25,65 +25,65 @@
   },
   "futures": [
     {
-      "price": 7491.0,
-      "d1_pct": 0.0,
-      "w1_pct": 0.88,
-      "hi52w_pct": -0.46,
-      "ytd_pct": 8.56,
+      "price": 7541.0,
+      "d1_pct": 0.67,
+      "w1_pct": 1.55,
+      "hi52w_pct": 0.0,
+      "ytd_pct": 9.28,
       "hist_5d": [
         7378.0,
         7451.75,
         7466.0,
         7491.0,
-        7491.0
+        7541.0
       ],
       "symbol": "ES=F",
       "name": "ES (S&P 500)"
     },
     {
-      "price": 29558.75,
-      "d1_pct": 0.0,
-      "w1_pct": 1.59,
-      "hi52w_pct": -0.43,
-      "ytd_pct": 16.44,
+      "price": 29865.0,
+      "d1_pct": 1.04,
+      "w1_pct": 2.64,
+      "hi52w_pct": 0.0,
+      "ytd_pct": 17.65,
       "hist_5d": [
         28924.25,
         29390.5,
         29447.25,
         29558.75,
-        29558.75
+        29865.0
       ],
       "symbol": "NQ=F",
       "name": "NQ (Nasdaq 100)"
     },
     {
-      "price": 50662.0,
-      "d1_pct": 0.0,
-      "w1_pct": 1.8,
+      "price": 50881.0,
+      "d1_pct": 0.43,
+      "w1_pct": 2.24,
       "hi52w_pct": 0.0,
-      "ytd_pct": 4.21,
+      "ytd_pct": 4.66,
       "hist_5d": [
         49459.0,
         50094.0,
         50379.0,
         50662.0,
-        50662.0
+        50881.0
       ],
       "symbol": "YM=F",
       "name": "YM (Dow Jones)"
     },
     {
-      "price": 2872.1,
-      "d1_pct": 0.0,
-      "w1_pct": 3.21,
-      "hi52w_pct": -0.8,
-      "ytd_pct": 13.86,
+      "price": 2902.3,
+      "d1_pct": 1.05,
+      "w1_pct": 4.3,
+      "hi52w_pct": 0.0,
+      "ytd_pct": 15.06,
       "hist_5d": [
         2753.2,
         2821.0,
         2847.3,
         2872.1,
-        2872.1
+        2902.3
       ],
       "symbol": "RTY=F",
       "name": "RTY (Russell 2000)"
@@ -91,65 +91,65 @@
   ],
   "europe": [
     {
-      "price": 25278.16,
-      "d1_pct": 1.57,
-      "w1_pct": 3.99,
-      "hi52w_pct": -0.56,
-      "ytd_pct": 3.01,
+      "price": 25235.11,
+      "d1_pct": -0.61,
+      "w1_pct": 3.42,
+      "hi52w_pct": -0.73,
+      "ytd_pct": 2.84,
       "hist_5d": [
-        24400.65,
         24737.24,
         24606.77,
         24888.56,
-        25278.16
+        25389.1,
+        25235.11
       ],
       "symbol": "^GDAXI",
       "name": "🇩🇪 DAX 40"
     },
     {
-      "price": 8259.28,
-      "d1_pct": 1.77,
-      "w1_pct": 3.4,
-      "hi52w_pct": -4.2,
-      "ytd_pct": 0.78,
+      "price": 8170.96,
+      "d1_pct": -1.06,
+      "w1_pct": 2.37,
+      "hi52w_pct": -5.22,
+      "ytd_pct": -0.3,
       "hist_5d": [
-        7981.76,
         8117.42,
         8086.0,
         8115.75,
-        8259.28
+        8258.26,
+        8170.96
       ],
       "symbol": "^FCHI",
       "name": "🇫🇷 CAC 40"
     },
     {
-      "price": 10466.3,
-      "d1_pct": 0.22,
-      "w1_pct": 2.66,
-      "hi52w_pct": -4.07,
-      "ytd_pct": 5.18,
+      "price": 10528.43,
+      "d1_pct": 0.59,
+      "w1_pct": 1.98,
+      "hi52w_pct": -3.5,
+      "ytd_pct": 5.8,
       "hist_5d": [
-        10323.8,
         10330.6,
         10432.3,
         10443.5,
-        10466.3
+        10466.3,
+        10528.43
       ],
       "symbol": "^FTSE",
       "name": "🇬🇧 FTSE 100"
     },
     {
-      "price": 6120.36,
-      "d1_pct": 1.68,
-      "w1_pct": 4.64,
-      "hi52w_pct": -0.86,
-      "ytd_pct": 3.32,
+      "price": 6085.47,
+      "d1_pct": 1.1,
+      "w1_pct": 4.04,
+      "hi52w_pct": -1.42,
+      "ytd_pct": 2.73,
       "hist_5d": [
         5851.16,
         5976.07,
         5960.32,
         6019.45,
-        6120.36
+        6085.47
       ],
       "symbol": "^STOXX50E",
       "name": "🇪🇺 Euro Stoxx 50"
@@ -157,65 +157,65 @@
   ],
   "global": [
     {
-      "price": 65158.19,
-      "d1_pct": 2.87,
-      "w1_pct": 7.14,
-      "hi52w_pct": 0.0,
-      "ytd_pct": 25.71,
+      "price": 64996.09,
+      "d1_pct": -0.25,
+      "w1_pct": 7.34,
+      "hi52w_pct": -0.25,
+      "ytd_pct": 25.4,
       "hist_5d": [
-        60550.59,
         59804.41,
         61684.14,
         63339.07,
-        65158.19
+        65158.19,
+        64996.09
       ],
       "symbol": "^N225",
       "name": "🇯🇵 Nikkei 225"
     },
     {
-      "price": 25606.03,
-      "d1_pct": 0.86,
-      "w1_pct": -1.37,
-      "hi52w_pct": -8.45,
-      "ytd_pct": -2.78,
+      "price": 25599.45,
+      "d1_pct": -0.03,
+      "w1_pct": -0.29,
+      "hi52w_pct": -8.47,
+      "ytd_pct": -2.81,
       "hist_5d": [
-        25675.18,
         25797.85,
         25651.12,
         25386.52,
-        25606.03
+        25606.03,
+        25599.45
       ],
       "symbol": "^HSI",
       "name": "🇭🇰 Hang Seng"
     },
     {
-      "price": 4921.6,
-      "d1_pct": 1.58,
-      "w1_pct": 1.82,
-      "hi52w_pct": -1.54,
-      "ytd_pct": 4.32,
+      "price": 4947.85,
+      "d1_pct": 0.53,
+      "w1_pct": 1.96,
+      "hi52w_pct": -1.01,
+      "ytd_pct": 4.88,
       "hist_5d": [
-        4852.88,
         4850.7,
         4783.1,
         4845.1,
-        4921.6
+        4921.6,
+        4947.85
       ],
       "symbol": "000300.SS",
       "name": "🇨🇳 CSI 300"
     },
     {
-      "price": 8692.0,
-      "d1_pct": 0.4,
-      "w1_pct": 2.2,
-      "hi52w_pct": -5.51,
-      "ytd_pct": -0.41,
+      "price": 8657.8,
+      "d1_pct": -0.39,
+      "w1_pct": 0.62,
+      "hi52w_pct": -5.88,
+      "ytd_pct": -0.8,
       "hist_5d": [
-        8604.7,
         8496.6,
         8621.7,
         8657.0,
-        8692.0
+        8692.0,
+        8657.8
       ],
       "symbol": "^AXJO",
       "name": "🇦🇺 ASX 200"
@@ -223,49 +223,49 @@
   ],
   "crypto": [
     {
-      "price": 77336.26,
-      "d1_pct": 0.46,
-      "w1_pct": -0.16,
-      "hi52w_pct": -38.01,
-      "ytd_pct": -12.84,
+      "price": 76890.02,
+      "d1_pct": -0.5,
+      "w1_pct": -0.84,
+      "hi52w_pct": -38.37,
+      "ytd_pct": -13.35,
       "hist_5d": [
-        77539.17,
         75488.24,
         76673.37,
         76981.12,
-        77336.26
+        77279.93,
+        76890.02
       ],
       "symbol": "BTC-USD",
       "name": "Bitcoin (BTC)"
     },
     {
-      "price": 2116.1,
-      "d1_pct": 0.86,
-      "w1_pct": -0.51,
-      "hi52w_pct": -56.2,
-      "ytd_pct": -29.47,
+      "price": 2112.79,
+      "d1_pct": 0.07,
+      "w1_pct": -0.87,
+      "hi52w_pct": -56.27,
+      "ytd_pct": -29.58,
       "hist_5d": [
-        2131.41,
         2064.64,
         2115.95,
         2097.99,
-        2116.1
+        2111.37,
+        2112.79
       ],
       "symbol": "ETH-USD",
       "name": "Ethereum (ETH)"
     },
     {
-      "price": 85.91,
-      "d1_pct": 0.77,
-      "w1_pct": -0.15,
-      "hi52w_pct": -65.31,
-      "ytd_pct": -32.23,
+      "price": 85.11,
+      "d1_pct": 0.12,
+      "w1_pct": -2.35,
+      "hi52w_pct": -65.63,
+      "ytd_pct": -32.86,
       "hist_5d": [
-        87.16,
         84.31,
         85.66,
         85.25,
-        85.91
+        85.01,
+        85.11
       ],
       "symbol": "SOL-USD",
       "name": "Solana (SOL)"
@@ -273,91 +273,91 @@
   ],
   "commodities": [
     {
-      "price": 4523.2,
-      "d1_pct": 0.05,
-      "w1_pct": -0.64,
-      "hi52w_pct": -14.95,
-      "ytd_pct": 4.84,
+      "price": 4531.6,
+      "d1_pct": 0.23,
+      "w1_pct": -0.46,
+      "hi52w_pct": -14.79,
+      "ytd_pct": 5.03,
       "hist_5d": [
         4506.3,
         4531.3,
         4539.8,
         4521.0,
-        4523.2
+        4531.6
       ],
       "symbol": "GC=F",
       "name": "Gold (XAU)"
     },
     {
-      "price": 76.2,
-      "d1_pct": 0.4,
-      "w1_pct": -1.13,
-      "hi52w_pct": -33.79,
-      "ytd_pct": 8.0,
+      "price": 76.53,
+      "d1_pct": 0.83,
+      "w1_pct": -0.71,
+      "hi52w_pct": -33.5,
+      "ytd_pct": 8.46,
       "hist_5d": [
         74.83,
         75.85,
         76.41,
         75.89,
-        76.2
+        76.53
       ],
       "symbol": "SI=F",
       "name": "Silber (XAG)"
     },
     {
-      "price": 96.6,
-      "d1_pct": 0.0,
-      "w1_pct": -11.1,
-      "hi52w_pct": -14.48,
-      "ytd_pct": 68.53,
+      "price": 92.39,
+      "d1_pct": -4.36,
+      "w1_pct": -14.97,
+      "hi52w_pct": -18.2,
+      "ytd_pct": 61.18,
       "hist_5d": [
         107.77,
         98.26,
         96.35,
         96.6,
-        96.6
+        92.39
       ],
       "symbol": "CL=F",
       "name": "WTI Crude"
     },
     {
-      "price": 100.21,
-      "d1_pct": -3.22,
-      "w1_pct": -10.61,
-      "hi52w_pct": -15.33,
-      "ytd_pct": 64.95,
+      "price": 95.96,
+      "d1_pct": -7.32,
+      "w1_pct": -14.4,
+      "hi52w_pct": -18.92,
+      "ytd_pct": 57.96,
       "hist_5d": [
         111.28,
         105.02,
         102.58,
         103.54,
-        100.21
+        95.96
       ],
       "symbol": "BZ=F",
       "name": "Brent Crude"
     },
     {
-      "price": 3.02,
-      "d1_pct": 3.92,
-      "w1_pct": -0.1,
-      "hi52w_pct": -59.5,
-      "ytd_pct": -16.5,
+      "price": 3.09,
+      "d1_pct": 6.33,
+      "w1_pct": 2.22,
+      "hi52w_pct": -58.57,
+      "ytd_pct": -14.57,
       "hist_5d": [
         3.11,
         3.0,
         3.02,
         2.91,
-        3.02
+        3.09
       ],
       "symbol": "NG=F",
       "name": "Erdgas"
     },
     {
       "price": 6.38,
-      "d1_pct": 0.58,
-      "w1_pct": 1.71,
-      "hi52w_pct": -3.87,
-      "ytd_pct": 13.1,
+      "d1_pct": 0.57,
+      "w1_pct": 1.69,
+      "hi52w_pct": -3.88,
+      "ytd_pct": 13.09,
       "hist_5d": [
         6.16,
         6.29,
@@ -372,12 +372,12 @@
   "currencies": [
     {
       "price": 1.16,
-      "d1_pct": 0.22,
-      "w1_pct": 0.28,
-      "hi52w_pct": -3.09,
-      "ytd_pct": -0.88,
+      "d1_pct": 0.03,
+      "w1_pct": -0.08,
+      "hi52w_pct": -3.1,
+      "ytd_pct": -0.89,
       "hist_5d": [
-        1.17,
+        1.16,
         1.16,
         1.16,
         1.16,
@@ -388,32 +388,32 @@
     },
     {
       "price": 1.35,
-      "d1_pct": 0.51,
-      "w1_pct": 1.44,
-      "hi52w_pct": -2.35,
-      "ytd_pct": 0.2,
+      "d1_pct": -0.01,
+      "w1_pct": 0.36,
+      "hi52w_pct": -2.49,
+      "ytd_pct": 0.05,
       "hist_5d": [
         1.34,
         1.34,
         1.34,
-        1.34,
+        1.35,
         1.35
       ],
       "symbol": "GBPUSD=X",
       "name": "GBP/USD"
     },
     {
-      "price": 98.97,
-      "d1_pct": -0.35,
-      "w1_pct": -0.0,
-      "hi52w_pct": -1.53,
-      "ytd_pct": 0.56,
+      "price": 99.03,
+      "d1_pct": -0.29,
+      "w1_pct": 0.06,
+      "hi52w_pct": -1.47,
+      "ytd_pct": 0.62,
       "hist_5d": [
         99.3,
         99.11,
         99.19,
         99.32,
-        98.97
+        99.03
       ],
       "symbol": "DX-Y.NYB",
       "name": "DXY"
@@ -421,17 +421,17 @@
   ],
   "vix": [
     {
-      "price": 16.63,
-      "d1_pct": -0.42,
-      "w1_pct": -6.68,
-      "hi52w_pct": -46.44,
-      "ytd_pct": 14.61,
+      "price": 16.67,
+      "d1_pct": 0.48,
+      "w1_pct": -7.7,
+      "hi52w_pct": -46.31,
+      "ytd_pct": 14.89,
       "hist_5d": [
-        18.06,
         17.44,
         16.76,
         16.7,
-        16.63
+        16.59,
+        16.67
       ],
       "symbol": "^VIX",
       "name": "VIX",
@@ -1909,11 +1909,11 @@
   },
   "put_call": 0.65,
   "ai_briefing": {
-    "text": "Guten Morgen — hier dein Premarket Briefing.\n\n<strong>Overnight & Futures</strong>\n\nEuropa läuft stark – EU-Indizes auf Höchststand seit März 2 dank US-Iran-Gesprächen\n. \nUS-Märkte heute wegen Memorial Day geschlossen\n. ES Future unverändert bei 7491, NQ bei 29.559. DAX +1,57% auf 25.278, Euro Stoxx 50 +1,68%. VIX beruhigt bei 16,63 (-0,42%). <strong>Bullisches Setup</strong> bleibt intakt – SPY über allen gleitenden Durchschnitten, QQQ auf neuem ATH-Kurs.\n\n<strong>News des Tages</strong>\n\nUS und Iran einig über breite Prinzipien eines Deals\n – Hoffnung auf Entspannung im Strait of Hormuz treibt Risikoappetit. \nOpenAI-Gründer Sam Altman gewinnt gegen Elon Musks Klage\n – juristische Hürden aus dem Weg. \nHealthcare beste Sektorperformance diese Woche mit +3%, Utilities und REITs ebenfalls +3%\n.\n\n<strong>Makro-Kalender</strong>\n\nDonnerstag: PCE, Personal Income/Spending und Durable Goods Orders\n – die wichtigen Makrodaten kommen erst später in der Woche. Heute ruhig wegen US-Feiertag.\n\n<strong>Auf dem Radar</strong>\n\nDiese Woche: Salesforce (CRM) Mittwoch nach Börsenschluss, Dollar Tree (DLTR) Donnerstag vorbörslich\n. Öl weiter unter Druck: WTI -11% Wochenminus auf 96,60 $. Breadth solid mit 61% über SMA20. <strong>Halbleiter, Genomik und Taiwan führen die Wochenperformance an</strong>.",
-    "timestamp": "25. May 2026 · 07:00 CET"
+    "text": "Guten Morgen — hier dein Premarket Briefing.\n\n<strong>Overnight & Futures</strong>\n\nUS-Futures im Plus nach Memorial Day: Nasdaq +1%, S&P 500 +0,6%, Dow +0,5%\n. \nNikkei 225 knackt erstmals 65.000 Punkte auf Hoffnung einer Iran-Deal\n. Europa gemischt: DAX -0,61%, Euro Stoxx 50 +1,1%. \nÖl bricht nach Trump-Kommentaren ein: WTI -4% auf 92$\n — passt zu deinen Daten (WTI: -4,36%). VIX bei 16,67 bleibt entspannt.\n\n<strong>News des Tages</strong>\n\nTrump sagt, Iran-Gespräche verlaufen \"gut\" — warnt aber vor Offensiv-Option bei Scheitern\n. \nTrotzdem neue US-Angriffe auf Iran, Friedensdeal-Hoffnung schwindet\n. Markt ignoriert's bisher. \nEarnings-Woche: Tech & Retail im Fokus, Software-Aktien unter Beobachtung wegen möglicher KI-Disruption\n. \nSalesforce (CRM) berichtet Mittwoch nach Close\n, \nDollar Tree (DLTR) Donnerstag vor Open\n.\n\n<strong>Makro-Kalender</strong>\nHeute: \nUS-Märkte geschlossen wegen Memorial Day\n. \nDonnerstag: PCE, Personal Income/Spending, Durable Goods Orders\n — das wird der Tag der Woche.\n\n<strong>Auf dem Radar</strong>\nBullen-Regime intakt: SPY 7% über SMA200, beide QQQ/SPY auf ATH. Öl-Crash (WTI: -14,97% Woche) dreht Energiesektor — Achtung bei XLE. \nHedge Funds verdoppeln AI-Wetten, flüchten aus Software\n. Taiwan ETF (EWT) +6% Weekly — Chip-Euphorie.",
+    "timestamp": "26. May 2026 · 07:00 CET"
   },
   "meta": {
-    "updated_at": "2026-05-25T12:31:31.458520+00:00",
+    "updated_at": "2026-05-26T10:27:36.391629+00:00",
     "source": "Yahoo Finance + CNN + Claude AI + Web Search"
   }
 }
