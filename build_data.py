@@ -346,10 +346,20 @@ def fetch_qqq_breadth():
         ema39 = rana.ewm(span=39, adjust=False).mean()
         mco = ema19 - ema39
 
+        # Normalized MCO (Z-Score) — 200-day rolling mean & std
+        mco_clean = mco.dropna()
+        mco_mean = mco_clean.rolling(200, min_periods=80).mean()
+        mco_std = mco_clean.rolling(200, min_periods=80).std()
+        mco_zscore = (mco_clean - mco_mean) / mco_std
+
         # McClellan Summation Index = cumulative sum of MCO
         summation = mco.cumsum()
-        # Normalize summation (start at 0 from beginning of data)
         summation = summation - summation.iloc[40]  # offset to ignore initial EMA warmup
+
+        # 5-day EMA of Summation Index (kept for backward compatibility)
+        summation_ema5 = summation.ewm(span=5, adjust=False).mean()
+        # 10-day EMA of Summation Index (NEW — primary signal line)
+        summation_ema10 = summation.ewm(span=10, adjust=False).mean()
 
         # Daily H/L Oscillator (new 20-day highs - new 20-day lows per day)
         rolling_hi = valid.rolling(20).max()
@@ -358,34 +368,54 @@ def fetch_qqq_breadth():
         new_lo_daily = (valid <= rolling_lo).sum(axis=1)
         hl_osc = new_hi_daily - new_lo_daily
 
-        # Keep last 80 trading days for charts
-        history_days = 80
+        # % above SMA20 over time for NDX 100 (historical)
+        sma20_ts = valid.rolling(20).mean()
+        pct_above_sma20_ts = ((valid > sma20_ts).sum(axis=1) / n * 100).dropna()
+
+        # Keep last 120 trading days for charts (more context for normalized chart)
+        history_days = 120
         mco_hist = mco.dropna().iloc[-history_days:]
+        mco_z_hist = mco_zscore.dropna().iloc[-history_days:]
         sum_hist = summation.dropna().iloc[-history_days:]
+        sum_ema5_hist = summation_ema5.dropna().iloc[-history_days:]
+        sum_ema10_hist = summation_ema10.dropna().iloc[-history_days:]
         hl_hist = hl_osc.dropna().iloc[-history_days:]
+        pct_sma20_hist = pct_above_sma20_ts.iloc[-history_days:]
 
         # Current values
         mco_current = round(float(mco_hist.iloc[-1]), 2)
+        mco_z_current = round(float(mco_z_hist.iloc[-1]), 2) if len(mco_z_hist) else 0.0
         sum_current = round(float(sum_hist.iloc[-1]), 1)
+        sum_ema5_current = round(float(sum_ema5_hist.iloc[-1]), 1) if len(sum_ema5_hist) else 0.0
+        sum_ema10_current = round(float(sum_ema10_hist.iloc[-1]), 1) if len(sum_ema10_hist) else 0.0
         hl_current = int(hl_hist.iloc[-1])
         new_hi_now = int(new_hi_daily.iloc[-1])
         new_lo_now = int(new_lo_daily.iloc[-1])
+        pct_sma20_now = round(float(pct_sma20_hist.iloc[-1]), 1) if len(pct_sma20_hist) else 0.0
 
         # Format history for JSON
         def fmt_hist(s, decimals=2):
             return [round(float(x), decimals) for x in s.tolist()]
 
-        print(f"  ✅ MCO: {mco_current} | Summation: {sum_current} | H/L: {hl_current} ({new_hi_now}H/{new_lo_now}L)")
+        print(f"  ✅ MCO: {mco_current} ({mco_z_current:+.2f}σ) | Summation: {sum_current} | EMA10: {sum_ema10_current} | H/L: {hl_current} ({new_hi_now}H/{new_lo_now}L) | NDX%>SMA20: {pct_sma20_now}%")
 
         return {
             "mco": mco_current,
+            "mco_zscore": mco_z_current,
             "summation": sum_current,
+            "summation_ema5": sum_ema5_current,
+            "summation_ema10": sum_ema10_current,
             "hl_osc": hl_current,
             "new_highs": new_hi_now,
             "new_lows": new_lo_now,
+            "pct_above_sma20_ndx": pct_sma20_now,
             "mco_history": fmt_hist(mco_hist, 2),
+            "mco_zscore_history": fmt_hist(mco_z_hist, 2),
             "summation_history": fmt_hist(sum_hist, 1),
+            "summation_ema5_history": fmt_hist(sum_ema5_hist, 1),
+            "summation_ema10_history": fmt_hist(sum_ema10_hist, 1),
             "hl_history": [int(x) for x in hl_hist.tolist()],
+            "pct_above_sma20_ndx_history": fmt_hist(pct_sma20_hist, 1),
             "n_components": n,
         }
     except Exception as e:
@@ -439,48 +469,51 @@ def fetch_fear_greed():
 # ─────────────────────────────────────────────
 
 def fetch_put_call():
-    """Fetch CBOE Equity Put/Call ratio from their public CSV."""
-    print("\n📞 Lade Put/Call Ratio (CBOE)...")
+    """Fetch live Put/Call ratio from CNN Fear & Greed API (put_call_options component)."""
+    print("\n📞 Lade Put/Call Ratio (CNN)...")
     try:
-        # CBOE publishes historical equity put/call as CSV
-        url = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/equitypc.csv"
+        url = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
         headers = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
         }
-        resp = requests.get(url, headers=headers, timeout=15)
+        resp = requests.get(url, headers=headers, timeout=10)
         if resp.status_code == 200:
-            lines = resp.text.strip().split('\n')
-            # Find last data line (skip headers and blank lines)
-            for line in reversed(lines):
-                parts = line.strip().split(',')
-                if len(parts) >= 5:
-                    try:
-                        ratio = float(parts[4])  # P/C Ratio is the 5th column
-                        date = parts[0]
-                        print(f"  ✅ CBOE Equity Put/Call: {ratio} (Datum: {date})")
+            data = resp.json()
+            # CNN provides 5-day average put/call ratio via fear & greed components
+            pc_data = data.get("put_call_options", {})
+            if pc_data:
+                # Latest value from time series
+                series = pc_data.get("data", [])
+                if series:
+                    latest = series[-1]
+                    ratio = latest.get("y") or latest.get("x")
+                    if ratio is not None:
+                        ratio = round(float(ratio), 2)
+                        ts = latest.get("x", "")
+                        # Parse timestamp if present
+                        try:
+                            from datetime import datetime as dt
+                            if isinstance(ts, (int, float)):
+                                date_str = dt.fromtimestamp(ts / 1000).strftime("%d.%m.%Y")
+                            else:
+                                date_str = "live"
+                        except Exception:
+                            date_str = "live"
+                        print(f"  ✅ Put/Call Ratio: {ratio} (Datum: {date_str})")
                         return ratio
-                    except (ValueError, IndexError):
-                        continue
 
-        # Fallback: total put/call ratio
-        url2 = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/totalpc.csv"
-        resp2 = requests.get(url2, headers=headers, timeout=15)
-        if resp2.status_code == 200:
-            lines = resp2.text.strip().split('\n')
-            for line in reversed(lines):
-                parts = line.strip().split(',')
-                if len(parts) >= 5:
-                    try:
-                        ratio = float(parts[4])
-                        print(f"  ✅ CBOE Total Put/Call: {ratio} (Fallback)")
-                        return ratio
-                    except (ValueError, IndexError):
-                        continue
+                # Direct score field as fallback
+                score = pc_data.get("score")
+                if score is not None:
+                    print(f"  ✅ Put/Call Score (CNN normalized): {score}")
+                    return round(float(score), 2)
 
-        print("  ⚠ CBOE CSV nicht verfügbar")
+        print(f"  ⚠ Put/Call CNN API Status: {resp.status_code}")
         return None
     except Exception as e:
         print(f"  ⚠ Put/Call Fehler: {e}")
+        import traceback
+        traceback.print_exc()
         return None
 
 
@@ -706,7 +739,7 @@ Datum: {now_str}"""
 
     try:
         print(f"  🤖 Claude API → Premarket-Briefing mit Web-Search...")
-        models = ["claude-sonnet-4-5-20250514", "claude-sonnet-4-5-20250929"]
+        models = ["claude-sonnet-4-5-20250929"]
         text = None
         for model in models:
             try:
