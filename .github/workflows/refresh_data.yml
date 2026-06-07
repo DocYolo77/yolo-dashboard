@@ -1,9 +1,10 @@
 name: Refresh Dashboard Data
 
 on:
-  # Premarket Briefing: 09:00 UTC = 10:00 CET
+  # Premarket Briefing: 06:00 UTC = 07:00 CET (Winter) / 05:00 UTC = 07:00 CEST (Sommer)
   schedule:
-    - cron: '0 9 * * 1-5'   # Mo-Fr 10:00 CET
+    - cron: '0 5 * * 1-5'   # Mo-Fr 07:00 CEST (Sommerzeit)
+    - cron: '0 6 * * 1-5'   # Mo-Fr 07:00 CET  (Winterzeit)
 
   # Manual trigger
   workflow_dispatch:
