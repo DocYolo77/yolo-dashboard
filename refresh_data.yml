@@ -1,0 +1,38 @@
+name: Refresh Dashboard Data
+
+on:
+  schedule:
+    - cron: '0 5 * * 1-5'   # Mo-Fr 07:00 CEST (Sommerzeit)
+    - cron: '0 6 * * 1-5'   # Mo-Fr 07:00 CET  (Winterzeit)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build dashboard data
+        timeout-minutes: 15
+        run: python scripts/build_data.py --out-dir data
+
+      - name: Commit and push data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "📊 Update dashboard data ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+          git push

@@ -248,14 +248,14 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       </div>
     </div>
     <div class="track-records">
-      <a href="https://docs.google.com/spreadsheets/d/14zUwPJt7z9iwRPCU32SXeamqhJMuP9tJOsnqyfmp0Xg/edit?usp=sharing" class="track-link" target="_blank">Track Record Stocks <span class="arrow">↗</span></a>
+      <a href="https://docs.google.com/spreadsheets/d/1tYQuhw312-yHe5rdwIpUDF9dHZYhwhiNKT1e86Y5RWk/edit?usp=sharing" class="track-link" target="_blank">Track Record Stocks <span class="arrow">↗</span></a>
       <a href="https://docs.google.com/spreadsheets/d/1einl__1lG8TABYqRZtHs62auoDGCvnABLltgIXMBFT4/edit?usp=sharing" class="track-link" target="_blank">Track Record Cryptos <span class="arrow">↗</span></a>
       <a href="https://docs.google.com/spreadsheets/d/1SzaqcIoO8OPJSZkh_gTczKrn_hvVC0lj1R2YMrXlg14/edit?usp=sharing" class="track-link" target="_blank">Track Record TradFi <span class="arrow">↗</span></a>
     </div>
     <div class="track-records" style="margin-top:8px;">
       <a href="https://www.patreon.com/posts/157373966?collection=276036" class="track-link" target="_blank">Tradingsystem: Aktien <span class="arrow">↗</span></a>
       <a href="https://www.patreon.com/posts/135634675?collection=301379" class="track-link" target="_blank">Tradingsystem: Forex / Indices / Kryptos <span class="arrow">↗</span></a>
-      <a href="https://www.patreon.com/posts/meine-aktien-160360471?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_creator&utm_content=join_link" class="track-link" target="_blank">Aktuelle Indikatoren für Aktien <span class="arrow">↗</span></a>
+      <a href="#" class="track-link" target="_blank" style="opacity:0.6;cursor:not-allowed;" onclick="event.preventDefault();">Aktuelle Indikatoren für Aktien <span class="arrow">↗</span></a>
     </div>
     <div class="quote-bar">
       <blockquote>"The hardest thing to do; sit and do nothing. That is why you need to get a hobby."</blockquote>
@@ -417,85 +417,54 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </div>
 
 
-  <!-- ═══ 04 · MARKTGESUNDHEIT ═══ -->
+  <!-- ═══ 04 · QQQ - MARKTLAGE ═══ -->
   <div class="section fade-in">
     <div class="section-header">
       <span class="section-num">04</span>
-      <span class="section-title">Marktgesundheit</span>
-      <span class="section-sub">S&P 500 Breadth · Sentiment · Volatilität</span>
-    </div>
-    <div class="breadth-grid" style="grid-template-columns:repeat(2,1fr);">
-      <div class="breadth-card" id="fg-card">
-        <div class="bc-label">Fear & Greed Index</div>
-        <div class="bc-value" style="color:var(--neutral)">—</div>
-        <div class="bc-sub">CNN · Laden...</div>
-      </div>
-      <div class="breadth-card" id="vix-health-card">
-        <div class="bc-label">VIX</div>
-        <div class="bc-value">—</div>
-        <div class="bc-sub">CBOE Volatility Index</div>
-      </div>
-    </div>
-    <div class="breadth-grid" style="grid-template-columns:repeat(3,1fr);">
-      <div class="breadth-card" id="sma20-card">
-        <div class="bc-label">% über SMA 20</div>
-        <div class="bc-value">—</div>
-        <div class="bc-sub">S&P 500 Komponenten</div>
-      </div>
-      <div class="breadth-card" id="sma50-card">
-        <div class="bc-label">% über SMA 50</div>
-        <div class="bc-value">—</div>
-        <div class="bc-sub">S&P 500 Komponenten</div>
-      </div>
-      <div class="breadth-card" id="sma200-card">
-        <div class="bc-label">% über SMA 200</div>
-        <div class="bc-value">—</div>
-        <div class="bc-sub">S&P 500 Komponenten</div>
-      </div>
+      <span class="section-title">QQQ &mdash; Marktlage</span>
+      <span class="section-sub">NDX 100 Breadth &middot; McClellan &middot; Moving Averages</span>
     </div>
 
-    <!-- NDX 100 % above SMA 20 (historical chart) -->
-    <div style="margin-top:20px;">
-      <div style="font-family:var(--mono-font);font-size:10px;color:var(--ink-muted);letter-spacing:2px;margin-bottom:10px;">▼ NDX 100 · % AKTIEN ÜBER SMA 20</div>
-      <div class="breadth-card qqq-card" id="ndx-pct20-card" style="padding:20px 24px;">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-          <div>
-            <div class="bc-label">Anteil über 20-Tage-Linie</div>
-            <div class="bc-value" style="font-size:32px;margin-top:4px;">—</div>
-          </div>
-          <div style="text-align:right;font-family:var(--mono-font);font-size:10px;color:var(--ink-muted);">
-            <div>Überkauft &gt; 80%</div>
-            <div>Überverkauft &lt; 20%</div>
-          </div>
+    <!-- MCSI + MCO (normalized, TradingView style) -->
+    <div class="breadth-card qqq-card" id="mcsi-card" style="padding:20px 24px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;">
+        <div class="bc-label">McClellan Summation Index (Normalisiert)</div>
+        <div style="font-family:var(--mono-font);font-size:11px;">
+          <span style="color:#2f7ed8;">MCSI (z) <b id="mcsi-val">&mdash;</b></span>
+          <span style="color:#d4a017;margin-left:10px;">10 SMA <b id="mcsi-sma-val">&mdash;</b></span>
         </div>
-        <div class="qqq-chart" id="ndx-pct20-chart" style="height:120px;margin-top:12px;"></div>
-        <div class="bc-sub" style="text-align:center;">NDX 100 Komponenten · 120 Handelstage</div>
       </div>
+      <div class="qqq-chart" id="mcsi-chart" style="height:190px;margin-top:10px;"></div>
     </div>
 
-    <!-- QQQ McClellan + Summation + H/L Oscillator -->
-    <div style="margin-top:20px;">
-      <div style="font-family:var(--mono-font);font-size:10px;color:var(--ink-muted);letter-spacing:2px;margin-bottom:10px;">▼ QQQ BREADTH (NDX 100)</div>
-      <div class="breadth-grid" style="grid-template-columns:repeat(3,1fr);">
-        <div class="breadth-card qqq-card" id="mco-card">
-          <div class="bc-label">McClellan Oszillator (Normalisiert)</div>
-          <div class="bc-value">—</div>
-          <div class="qqq-chart" id="mco-chart"></div>
-          <div class="bc-sub">Z-Score · 19/39 EMA Ratio-Adjusted</div>
-        </div>
-        <div class="breadth-card qqq-card" id="sum-card">
-          <div class="bc-label">Summation Index</div>
-          <div class="bc-value">—</div>
-          <div class="qqq-chart" id="sum-chart"></div>
-          <div class="bc-sub">Kumulierter McClellan · EMA 10</div>
-        </div>
-        <div class="breadth-card qqq-card" id="hlosc-card">
-          <div class="bc-label">High/Low Oszillator</div>
-          <div class="bc-value">—</div>
-          <div class="qqq-chart" id="hlosc-chart"></div>
-          <div class="bc-sub">20-Tage Hochs / Tiefs</div>
+    <div class="breadth-card qqq-card" id="mco-card" style="padding:20px 24px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;">
+        <div class="bc-label">McClellan Oszillator (Normalisiert)</div>
+        <div style="font-family:var(--mono-font);font-size:11px;">
+          <span style="color:var(--ink-muted);">MCO (z) <b id="mco-val">&mdash;</b></span>
         </div>
       </div>
+      <div class="qqq-chart" id="mco-chart" style="height:190px;margin-top:10px;"></div>
+    </div>
+
+    <!-- % Stocks Above Key Moving Averages -->
+    <div class="breadth-card qqq-card" id="kma-card" style="padding:20px 24px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+        <div class="bc-label">% Aktien &uuml;ber wichtigen Durchschnitten</div>
+        <div style="font-family:var(--mono-font);font-size:10px;display:flex;gap:10px;flex-wrap:wrap;" id="kma-legend"></div>
+      </div>
+      <div class="qqq-chart" id="kma-chart" style="height:230px;margin-top:10px;"></div>
+      <div class="bc-sub" style="text-align:center;">NDX 100 Komponenten &middot; 120 Handelstage &middot; OB 75 / OS 25</div>
+    </div>
+
+    <!-- High/Low Oscillator -->
+    <div class="breadth-card qqq-card" id="hlosc-card" style="padding:20px 24px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;">
+        <div class="bc-label">High/Low Oszillator</div>
+        <div class="bc-value" style="font-size:18px;margin:0;">&mdash;</div>
+      </div>
+      <div class="qqq-chart" id="hlosc-chart" style="height:150px;margin-top:10px;"></div>
+      <div class="bc-sub" style="text-align:center;">Neue 20-Tage Hochs minus Tiefs</div>
     </div>
   </div>
 
@@ -594,25 +563,6 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
         <tr><td>10</td><td>Silber (XAG)</td><td>$31,42</td><td class="pos">+0,68%</td><td class="pos" style="font-weight:700;">+2,14%</td><td><span class="cat-tag rohstoff">Rohstoff</span></td></tr>
       </tbody>
     </table>
-  </div>
-
-  <!-- ═══ 09 · KI-ZUSAMMENFASSUNGEN ═══ -->
-  <div class="section fade-in">
-    <div class="section-header">
-      <span class="section-num">09</span>
-      <span class="section-title">KI-Briefing</span>
-      <span class="section-sub">Claude AI · Premarket · 07:00 CET</span>
-    </div>
-
-    <div class="ai-summary" id="ai-briefing">
-      <div class="ai-summary-header">
-        <div class="ai-badge"><span class="dot"></span> Premarket Briefing</div>
-        <div class="ai-timestamp">Laden...</div>
-      </div>
-      <div class="ai-summary-text">
-        Briefing wird geladen...
-      </div>
-    </div>
   </div>
 
   <!-- ═══ 10 · TRADERECHNER ═══ -->
@@ -874,193 +824,152 @@ async function loadData() {
       }
     });
 
-    // ── MARKTGESUNDHEIT ──
-    // Fear & Greed — INVERSE color logic: low (fear) = green/good, high (greed) = red/bad
-    if (data.fear_greed) {
-      const card = document.getElementById('fg-card');
-      if (card) {
-        const s = data.fear_greed.score;
-        card.querySelector('.bc-value').textContent = s;
-        // ≤30 = green (Fear = good buying opportunity), ≥70 = red (Greed = caution)
-        let col = 'var(--neutral)';
-        if (s <= 30) col = 'var(--positive)';      // Extreme Fear / Fear → grün
-        else if (s <= 45) col = '#7a9a6e';          // mild fear → light green
-        else if (s <= 55) col = 'var(--neutral)';   // neutral
-        else if (s < 70) col = '#c23a3a';           // mild greed → light red
-        else col = 'var(--negative)';                // Greed / Extreme Greed → rot
-        card.querySelector('.bc-value').style.color = col;
-        card.querySelector('.bc-sub').textContent = 'CNN · ' + data.fear_greed.rating;
-      }
-    }
-    // VIX
-    if (data.vix && data.vix[0]) {
-      const card = document.getElementById('vix-health-card');
-      if (card) {
-        const v = data.vix[0];
-        card.querySelector('.bc-value').textContent = fmt(v.price);
-        const zone = v.zone || (v.price < 15 ? 'NIEDRIG' : v.price < 20 ? 'NORMAL' : v.price < 30 ? 'ERHÖHT' : 'HOCH');
-        card.querySelector('.bc-value').style.color = v.price < 20 ? 'var(--positive)' : v.price < 30 ? 'var(--neutral)' : 'var(--negative)';
-        card.querySelector('.bc-sub').textContent = zone + ' · ' + fmtPct(v.d1_pct) + ' 1T';
-      }
-    }
-    // Breadth (S&P 500 % above SMAs only)
-    if (data.breadth) {
-      const b = data.breadth;
-      const setCard = (id, val, sub, threshold) => {
-        const c = document.getElementById(id);
-        if (!c) return;
-        c.querySelector('.bc-value').textContent = val;
-        if (sub) c.querySelector('.bc-sub').textContent = sub;
-        if (threshold !== undefined) c.querySelector('.bc-value').style.color = threshold ? 'var(--positive)' : 'var(--negative)';
-      };
-      if (b.pct_above_sma20 !== undefined) setCard('sma20-card', b.pct_above_sma20 + '%', 'S&P 500 Komponenten', b.pct_above_sma20 >= 50);
-      if (b.pct_above_sma50 !== undefined) setCard('sma50-card', b.pct_above_sma50 + '%', 'S&P 500 Komponenten', b.pct_above_sma50 >= 50);
-      if (b.pct_above_sma200 !== undefined) setCard('sma200-card', b.pct_above_sma200 + '%', 'S&P 500 Komponenten', b.pct_above_sma200 >= 50);
-    }
-
-    // ── QQQ BREADTH (McClellan + Summation + H/L Oscillator) ──
+    // ── QQQ MARKTLAGE (McClellan normalized, KMA, H/L) ──
     if (data.qqq_breadth) {
       const q = data.qqq_breadth;
+      const PAD_L = 6, PAD_R = 52;
 
-      // Bar chart for raw values around zero (used for H/L)
-      function barChart(data, w, h) {
-        if (!data || data.length < 2) return '';
-        const max = Math.max(...data.map(Math.abs)) || 1;
-        const zero = h / 2;
-        const bw = w / data.length;
-        const bars = data.map((v, i) => {
-          const x = i * bw;
-          const barH = Math.abs(v) / max * (h / 2 - 1);
-          const y = v >= 0 ? zero - barH : zero;
-          const col = v >= 0 ? 'var(--positive)' : 'var(--negative)';
-          return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${(bw - 0.5).toFixed(1)}" height="${barH.toFixed(1)}" fill="${col}"/>`;
-        }).join('');
-        return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-          <line x1="0" y1="${zero}" x2="${w}" y2="${zero}" stroke="var(--ink-muted)" stroke-width="0.3" stroke-dasharray="2,2"/>
-          ${bars}
-        </svg>`;
-      }
+      // Sigma-scaled chart: fixed +2.5 .. -2.5 band with labelled levels
+      function sigmaChart(series, w, h, opts) {
+        opts = opts || {};
+        const s1 = series[0];
+        if (!s1 || s1.length < 2) return '';
+        const inner = w - PAD_L - PAD_R;
+        const LIM = 2.6;
+        const clamp = v => Math.max(-LIM, Math.min(LIM, v));
+        const yFor = v => h / 2 - (clamp(v) / LIM) * (h / 2 - 8);
+        const xFor = (i, len) => PAD_L + (i / (len - 1)) * inner;
 
-      // Normalized MCO chart — bars around zero, no sigma bands
-      function normalizedMcoChart(data, w, h) {
-        if (!data || data.length < 2) return '';
-        const scaleMax = Math.max(...data.map(Math.abs)) * 1.05 || 1;
-        const yFor = v => h / 2 - (v / scaleMax) * (h / 2);
-        const bw = w / data.length;
-        const zero = h / 2;
+        const levels = [
+          { v: 2,  col: '#d64545', label: '2\u03c3',  val: '2.00',  solid: true },
+          { v: 1,  col: '#d64545', label: '1\u03c3',  val: '1.00',  solid: false },
+          { v: 0,  col: '#999',    label: '',      val: '0.00',  solid: false },
+          { v: -1, col: '#2d8a4e', label: '-1\u03c3', val: '-1.00', solid: false },
+          { v: -2, col: '#2d8a4e', label: '-2\u03c3', val: '-2.00', solid: true },
+        ];
 
-        const bars = data.map((v, i) => {
-          const x = i * bw;
-          const y0 = zero;
-          const y1 = yFor(v);
-          const col = v >= 0 ? 'var(--positive)' : 'var(--negative)';
-          return `<rect x="${x.toFixed(1)}" y="${Math.min(y0, y1).toFixed(1)}" width="${(bw - 0.5).toFixed(1)}" height="${Math.abs(y1 - y0).toFixed(1)}" fill="${col}" opacity="0.85"/>`;
-        }).join('');
+        let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="overflow:visible;">`;
+        levels.forEach(L => {
+          const y = yFor(L.v).toFixed(1);
+          svg += `<line x1="${PAD_L}" y1="${y}" x2="${PAD_L + inner}" y2="${y}" stroke="${L.col}" stroke-width="${L.solid ? 1 : 0.7}" ${L.solid ? '' : 'stroke-dasharray="3,3"'} opacity="${L.v === 0 ? 0.35 : 0.75}"/>`;
+          if (L.label) {
+            svg += `<rect x="${PAD_L + inner + 2}" y="${(+y - 6).toFixed(1)}" width="20" height="12" fill="${L.col}" rx="1"/>`;
+            svg += `<text x="${PAD_L + inner + 12}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="#fff" text-anchor="middle" font-family="monospace">${L.label}</text>`;
+          }
+          svg += `<text x="${PAD_L + inner + 26}" y="${(+y + 3).toFixed(1)}" font-size="8.5" fill="var(--ink-muted)" font-family="monospace">${L.val}</text>`;
+        });
 
-        return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-          <line x1="0" y1="${zero}" x2="${w}" y2="${zero}" stroke="var(--ink-muted)" stroke-width="0.4" opacity="0.5"/>
-          ${bars}
-        </svg>`;
-      }
-
-      // Dual-line chart: Summation + EMA overlay
-      function dualLineChart(d1, d2, w, h) {
-        if (!d1 || d1.length < 2) return '';
-        const all = d2 ? d1.concat(d2) : d1;
-        const min = Math.min(...all), max = Math.max(...all);
-        const range = (max - min) || 1;
-        const pts = arr => arr.map((v, i) => {
-          const x = (i / (arr.length - 1)) * w;
-          const y = h - ((v - min) / range) * h;
-          return `${x.toFixed(1)},${y.toFixed(1)}`;
-        }).join(' ');
-
-        const up = d1[d1.length - 1] >= d1[0];
-        const col1 = up ? 'var(--positive)' : 'var(--negative)';
-        let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-          <polyline points="${pts(d1)}" fill="none" stroke="${col1}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`;
-        if (d2) {
-          svg += `<polyline points="${pts(d2)}" fill="none" stroke="#d4a017" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>`;
-        }
+        series.forEach(cfg => {
+          const arr = cfg.data || cfg;
+          const col = cfg.color || 'var(--ink-muted)';
+          const wid = cfg.width || 1.6;
+          const dash = cfg.dash ? `stroke-dasharray="${cfg.dash}"` : '';
+          if (!arr || arr.length < 2) return;
+          const pts = arr.map((v, i) => `${xFor(i, arr.length).toFixed(1)},${yFor(v).toFixed(1)}`).join(' ');
+          svg += `<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="${wid}" ${dash} stroke-linecap="round" stroke-linejoin="round"/>`;
+        });
         svg += `</svg>`;
         return svg;
       }
 
-      // % above SMA line chart with OB (80) / OS (20) reference zones
-      function pctLineChart(data, w, h) {
+      // % above MA multi-line chart with OB/OS
+      function kmaChart(seriesList, w, h) {
+        const inner = w - PAD_L - PAD_R;
+        const yFor = v => h - 10 - ((v - 15) / (105 - 15)) * (h - 20);
+        const xFor = (i, len) => PAD_L + (i / (len - 1)) * inner;
+        let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="overflow:visible;">`;
+
+        [105, 90, 75, 60, 45, 30, 25, 20].forEach(g => {
+          const y = yFor(g).toFixed(1);
+          const isBand = (g === 75 || g === 25);
+          svg += `<line x1="${PAD_L}" y1="${y}" x2="${PAD_L + inner}" y2="${y}" stroke="${isBand ? (g === 75 ? '#d64545' : '#2d8a4e') : 'var(--ink-muted)'}" stroke-width="${isBand ? 1.2 : 0.3}" opacity="${isBand ? 0.85 : 0.18}"/>`;
+          if (isBand) {
+            const lbl = g === 75 ? 'OB' : 'OS';
+            const c = g === 75 ? '#d64545' : '#2d8a4e';
+            svg += `<rect x="${PAD_L + inner + 2}" y="${(+y - 6).toFixed(1)}" width="18" height="12" fill="${c}" rx="1"/>`;
+            svg += `<text x="${PAD_L + inner + 11}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="#fff" text-anchor="middle" font-family="monospace">${lbl}</text>`;
+          }
+          svg += `<text x="${PAD_L + inner + (isBand ? 23 : 3)}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" opacity="0.8">${g.toFixed(0)}</text>`;
+        });
+
+        seriesList.forEach(cfg => {
+          if (!cfg.data || cfg.data.length < 2) return;
+          const pts = cfg.data.map((v, i) => `${xFor(i, cfg.data.length).toFixed(1)},${yFor(v).toFixed(1)}`).join(' ');
+          svg += `<polyline points="${pts}" fill="none" stroke="${cfg.color}" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>`;
+        });
+        svg += `</svg>`;
+        return svg;
+      }
+
+      // H/L bar chart
+      function hlBarChart(data, w, h) {
         if (!data || data.length < 2) return '';
-        const min = 0, max = 100;
-        const yFor = v => h - ((v - min) / (max - min)) * h;
-        const pts = data.map((v, i) => {
-          const x = (i / (data.length - 1)) * w;
-          return `${x.toFixed(1)},${yFor(v).toFixed(1)}`;
-        }).join(' ');
+        const inner = w - PAD_L - PAD_R;
+        const max = Math.max(...data.map(Math.abs)) || 1;
+        const zero = h / 2;
+        const bw = inner / data.length;
+        const bars = data.map((v, i) => {
+          const x = PAD_L + i * bw;
+          const bh = Math.abs(v) / max * (h / 2 - 4);
+          const y = v >= 0 ? zero - bh : zero;
+          const col = v >= 0 ? 'var(--positive)' : 'var(--negative)';
+          return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${Math.max(bw - 0.6, 0.8).toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}" opacity="0.85"/>`;
+        }).join('');
         return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-          <rect x="0" y="${yFor(80).toFixed(1)}" width="${w}" height="${(yFor(0) - yFor(80)).toFixed(1)}" fill="none"/>
-          <rect x="0" y="0" width="${w}" height="${yFor(80).toFixed(1)}" fill="var(--negative)" opacity="0.06"/>
-          <rect x="0" y="${yFor(20).toFixed(1)}" width="${w}" height="${(h - yFor(20)).toFixed(1)}" fill="var(--positive)" opacity="0.06"/>
-          <line x1="0" y1="${yFor(80).toFixed(1)}" x2="${w}" y2="${yFor(80).toFixed(1)}" stroke="var(--negative)" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
-          <line x1="0" y1="${yFor(50).toFixed(1)}" x2="${w}" y2="${yFor(50).toFixed(1)}" stroke="var(--ink-muted)" stroke-width="0.4" stroke-dasharray="2,3" opacity="0.4"/>
-          <line x1="0" y1="${yFor(20).toFixed(1)}" x2="${w}" y2="${yFor(20).toFixed(1)}" stroke="var(--positive)" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
-          <polyline points="${pts}" fill="none" stroke="#6b46c1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <text x="${w - 30}" y="${(yFor(80) - 3).toFixed(1)}" font-size="9" fill="var(--negative)" opacity="0.7">OB 80</text>
-          <text x="${w - 30}" y="${(yFor(20) + 11).toFixed(1)}" font-size="9" fill="var(--positive)" opacity="0.7">OS 20</text>
+          <line x1="${PAD_L}" y1="${zero}" x2="${PAD_L + inner}" y2="${zero}" stroke="var(--ink-muted)" stroke-width="0.5" opacity="0.5"/>
+          ${bars}
         </svg>`;
       }
 
-      // McClellan Oscillator (Normalized)
-      const mcoCard = document.getElementById('mco-card');
-      if (mcoCard) {
-        const z = q.mco_zscore;
-        const zStr = (z >= 0 ? '+' : '') + z.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + 'σ';
-        const rawStr = q.mco >= 0 ? '+' + q.mco.toLocaleString('de-DE') : q.mco.toLocaleString('de-DE');
-        mcoCard.querySelector('.bc-value').innerHTML = zStr + ' <span style="font-size:12px;color:var(--ink-muted);">(' + rawStr + ')</span>';
-        // Color code: extreme = red/green flash
-        const absZ = Math.abs(z);
-        let col = 'var(--ink)';
-        if (absZ >= 3) col = z >= 0 ? 'var(--positive)' : 'var(--negative)';
-        else if (absZ >= 2) col = z >= 0 ? 'var(--positive)' : 'var(--negative)';
-        else col = 'var(--ink-muted)';
-        mcoCard.querySelector('.bc-value').style.color = col;
-        mcoCard.querySelector('.bc-sub').textContent = absZ >= 3 ? 'EXTREM · ' + (z >= 0 ? 'Überkauft' : 'Überverkauft') : (absZ >= 2 ? 'Erhöht' : 'Neutral');
-        const hist = q.mco_zscore_history || q.mco_history;
-        if (hist) document.getElementById('mco-chart').innerHTML = normalizedMcoChart(hist, 400, 120);
+      const nf2 = v => (v >= 0 ? '' : '') + v.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+      // MCSI normalized + 10 SMA
+      if (q.summation_zscore_history) {
+        document.getElementById('mcsi-chart').innerHTML = sigmaChart([
+          { data: q.summation_zscore_history, color: '#2f7ed8', width: 2 },
+          { data: q.summation_zscore_sma10_history, color: '#d4a017', width: 1.3, dash: '3,2' },
+        ], 760, 190);
+        const mv = document.getElementById('mcsi-val');
+        const sv = document.getElementById('mcsi-sma-val');
+        if (mv && q.summation_zscore !== undefined) mv.textContent = nf2(q.summation_zscore);
+        if (sv && q.summation_zscore_sma10 !== undefined) sv.textContent = nf2(q.summation_zscore_sma10);
       }
 
-      // Summation Index with 10-EMA
-      const sumCard = document.getElementById('sum-card');
-      if (sumCard) {
-        sumCard.querySelector('.bc-value').textContent = q.summation >= 0 ? '+' + Math.round(q.summation).toLocaleString('de-DE') : Math.round(q.summation).toLocaleString('de-DE');
-        sumCard.querySelector('.bc-value').style.color = q.summation >= 0 ? 'var(--positive)' : 'var(--negative)';
-        const ema10val = q.summation_ema10 !== undefined ? q.summation_ema10 : q.summation_ema5;
-        const ema10hist = q.summation_ema10_history || q.summation_ema5_history;
-        const above = q.summation > (ema10val || 0);
-        sumCard.querySelector('.bc-sub').innerHTML = 'Kumulierter McClellan · <span style="color:#d4a017;">EMA10: ' + Math.round(ema10val || 0).toLocaleString('de-DE') + '</span> ' + (above ? '↑' : '↓');
-        if (q.summation_history) document.getElementById('sum-chart').innerHTML = dualLineChart(q.summation_history, ema10hist, 400, 120);
+      // MCO normalized
+      if (q.mco_zscore_history) {
+        document.getElementById('mco-chart').innerHTML = sigmaChart([
+          { data: q.mco_zscore_history, color: '#6b6b6b', width: 1.6 },
+        ], 760, 190);
+        const el = document.getElementById('mco-val');
+        if (el && q.mco_zscore !== undefined) el.textContent = nf2(q.mco_zscore);
       }
 
-      // H/L Oscillator
-      const hlCard = document.getElementById('hlosc-card');
-      if (hlCard) {
-        hlCard.querySelector('.bc-value').textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + ' (' + q.new_highs + 'H/' + q.new_lows + 'L)';
-        hlCard.querySelector('.bc-value').style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
-        hlCard.querySelector('.bc-value').style.fontSize = '20px';
-        if (q.hl_history) document.getElementById('hlosc-chart').innerHTML = barChart(q.hl_history, 400, 120);
-      }
-
-      // NDX % above SMA 20 historical chart
-      const ndxCard = document.getElementById('ndx-pct20-card');
-      if (ndxCard && q.pct_above_sma20_ndx !== undefined) {
-        const v = q.pct_above_sma20_ndx;
-        ndxCard.querySelector('.bc-value').textContent = v + '%';
-        let col = 'var(--neutral)';
-        if (v >= 80) col = 'var(--negative)';        // overbought
-        else if (v <= 20) col = 'var(--positive)';   // oversold (buying opp)
-        else col = v >= 50 ? 'var(--positive)' : '#c23a3a';
-        ndxCard.querySelector('.bc-value').style.color = col;
-        if (q.pct_above_sma20_ndx_history) {
-          document.getElementById('ndx-pct20-chart').innerHTML = pctLineChart(q.pct_above_sma20_ndx_history, 600, 120);
+      // % above key moving averages
+      if (q.kma_history) {
+        const defs = [
+          { key: 'sma5',   label: '% > 5 SMA',   color: '#6b6b6b' },
+          { key: 'ema10',  label: '% > 10 EMA',  color: '#7b5ea7' },
+          { key: 'ema21',  label: '% > 21 EMA',  color: '#2f7ed8' },
+          { key: 'sma50',  label: '% > 50 SMA',  color: '#d4a017' },
+          { key: 'sma200', label: '% > 200 SMA', color: '#d6407f' },
+        ];
+        const series = defs.filter(d => q.kma_history[d.key]).map(d => ({ data: q.kma_history[d.key], color: d.color }));
+        document.getElementById('kma-chart').innerHTML = kmaChart(series, 900, 230);
+        const legend = document.getElementById('kma-legend');
+        if (legend && q.kma_now) {
+          legend.innerHTML = defs.filter(d => q.kma_now[d.key] !== undefined).map(d =>
+            `<span style="color:${d.color};">${d.label} <b>${q.kma_now[d.key].toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b></span>`
+          ).join('');
         }
+      }
+
+      // High/Low Oscillator
+      const hlCard = document.getElementById('hlosc-card');
+      if (hlCard && q.hl_history) {
+        const v = hlCard.querySelector('.bc-value');
+        v.textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + '  (' + q.new_highs + 'H / ' + q.new_lows + 'L)';
+        v.style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
+        document.getElementById('hlosc-chart').innerHTML = hlBarChart(q.hl_history, 760, 150);
       }
     }
 
@@ -1093,32 +1002,6 @@ async function loadData() {
       }
     }
 
-    // AI Briefing (single)
-    if (data.ai_briefing) {
-      const box = document.getElementById('ai-briefing');
-      if (box) {
-        box.querySelector('.ai-summary-text').innerHTML = data.ai_briefing.text;
-        box.querySelector('.ai-timestamp').textContent = data.ai_briefing.timestamp;
-      }
-    }
-
-    // Fallback: manual briefings.json
-    if (!data.ai_briefing) {
-      try {
-        const br = await fetch('data/briefings.json');
-        if (br.ok) {
-          const manual = await br.json();
-          if (manual.morning) {
-            const box = document.getElementById('ai-briefing');
-            if (box) {
-              box.querySelector('.ai-summary-text').innerHTML = manual.morning.text;
-              box.querySelector('.ai-timestamp').textContent = manual.morning.timestamp;
-            }
-          }
-        }
-      } catch(e) { /* no manual briefings */ }
-    }
-
   } catch (e) {
     console.log('Platzhalterdaten aktiv — snapshot.json nicht gefunden.');
   }
@@ -1132,7 +1015,7 @@ loadData();
   // SHA-256 hash of current password — change monthly
   // To generate: echo -n "YourPassword" | sha256sum
   // Current: "yolo2026" → update this hash each month
-  const PW_HASH = 'a36cc6ebbd613b0cb07382ed3ba9364b8ab4af1cb7913c65af2bd7e48a05c573'; // "weltmeister"
+  const PW_HASH = '5b9d639c316d59216b8c82e7d27426c1abb7b95daee2f4daf4ae8b9339a16422'; // "yolo2026"
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
