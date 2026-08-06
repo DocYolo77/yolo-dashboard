@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-YOLO Dashboard — Data Builder v2
+YOLO Dashboard — Data Builder v4
 Fetches market data via yfinance, calculates regime/MAs/breadth,
-scrapes CNN Fear & Greed, computes McClellan, calls Claude API (optional).
+scrapes CNN Fear & Greed, computes McClellan Oscillator/Summation Index
+and % above key moving averages for NDX 100.
 Outputs data/snapshot.json
 """
 
@@ -356,8 +357,17 @@ def fetch_qqq_breadth():
         summation = mco.cumsum()
         summation = summation - summation.iloc[40]  # offset to ignore initial EMA warmup
 
-        # 5-day EMA of Summation Index
+        # Normalized MCSI (Z-Score) — same 200-day rolling window as MCO
+        sum_clean = summation.dropna()
+        sum_mean = sum_clean.rolling(200, min_periods=80).mean()
+        sum_std = sum_clean.rolling(200, min_periods=80).std()
+        sum_zscore = (sum_clean - sum_mean) / sum_std
+        # 10-period SMA of the normalized MCSI (signal line, like TradingView)
+        sum_z_sma10 = sum_zscore.rolling(10).mean()
+
+        # Raw EMAs kept for reference
         summation_ema5 = summation.ewm(span=5, adjust=False).mean()
+        summation_ema10 = summation.ewm(span=10, adjust=False).mean()
 
         # Daily H/L Oscillator (new 20-day highs - new 20-day lows per day)
         rolling_hi = valid.rolling(20).max()
@@ -366,19 +376,38 @@ def fetch_qqq_breadth():
         new_lo_daily = (valid <= rolling_lo).sum(axis=1)
         hl_osc = new_hi_daily - new_lo_daily
 
-        # Keep last 120 trading days for charts (more context for normalized chart)
+        # % of stocks above KEY moving averages (time series)
+        kma_defs = {
+            "sma5":   valid.rolling(5).mean(),
+            "ema10":  valid.ewm(span=10, adjust=False).mean(),
+            "sma20":  valid.rolling(20).mean(),
+            "ema21":  valid.ewm(span=21, adjust=False).mean(),
+            "sma50":  valid.rolling(50).mean(),
+            "sma200": valid.rolling(200).mean(),
+        }
+        kma_series = {}
+        for label, ma in kma_defs.items():
+            kma_series[label] = ((valid > ma).sum(axis=1) / n * 100).dropna()
+
+        # Keep last 120 trading days for charts
         history_days = 120
         mco_hist = mco.dropna().iloc[-history_days:]
         mco_z_hist = mco_zscore.dropna().iloc[-history_days:]
         sum_hist = summation.dropna().iloc[-history_days:]
+        sum_z_hist = sum_zscore.dropna().iloc[-history_days:]
+        sum_z_sma10_hist = sum_z_sma10.dropna().iloc[-history_days:]
         sum_ema5_hist = summation_ema5.dropna().iloc[-history_days:]
+        sum_ema10_hist = summation_ema10.dropna().iloc[-history_days:]
         hl_hist = hl_osc.dropna().iloc[-history_days:]
 
         # Current values
         mco_current = round(float(mco_hist.iloc[-1]), 2)
         mco_z_current = round(float(mco_z_hist.iloc[-1]), 2) if len(mco_z_hist) else 0.0
         sum_current = round(float(sum_hist.iloc[-1]), 1)
+        sum_z_current = round(float(sum_z_hist.iloc[-1]), 2) if len(sum_z_hist) else 0.0
+        sum_z_sma10_current = round(float(sum_z_sma10_hist.iloc[-1]), 2) if len(sum_z_sma10_hist) else 0.0
         sum_ema5_current = round(float(sum_ema5_hist.iloc[-1]), 1) if len(sum_ema5_hist) else 0.0
+        sum_ema10_current = round(float(sum_ema10_hist.iloc[-1]), 1) if len(sum_ema10_hist) else 0.0
         hl_current = int(hl_hist.iloc[-1])
         new_hi_now = int(new_hi_daily.iloc[-1])
         new_lo_now = int(new_lo_daily.iloc[-1])
@@ -387,21 +416,40 @@ def fetch_qqq_breadth():
         def fmt_hist(s, decimals=2):
             return [round(float(x), decimals) for x in s.tolist()]
 
-        print(f"  ✅ MCO: {mco_current} ({mco_z_current:+.2f}σ) | Summation: {sum_current} | EMA5: {sum_ema5_current} | H/L: {hl_current} ({new_hi_now}H/{new_lo_now}L)")
+        # Build KMA current + history payload
+        kma_now = {}
+        kma_hist = {}
+        for label, series in kma_series.items():
+            s = series.iloc[-history_days:]
+            kma_now[label] = round(float(s.iloc[-1]), 1) if len(s) else 0.0
+            kma_hist[label] = fmt_hist(s, 1)
+
+        print(f"  ✅ MCO: {mco_current} ({mco_z_current:+.2f}σ) | MCSI: {sum_current} ({sum_z_current:+.2f}σ) | H/L: {hl_current} ({new_hi_now}H/{new_lo_now}L)")
+        print(f"  ✅ %>MA — 5SMA: {kma_now.get('sma5')}% | 10EMA: {kma_now.get('ema10')}% | 21EMA: {kma_now.get('ema21')}% | 50SMA: {kma_now.get('sma50')}% | 200SMA: {kma_now.get('sma200')}%")
 
         return {
             "mco": mco_current,
             "mco_zscore": mco_z_current,
             "summation": sum_current,
+            "summation_zscore": sum_z_current,
+            "summation_zscore_sma10": sum_z_sma10_current,
             "summation_ema5": sum_ema5_current,
+            "summation_ema10": sum_ema10_current,
             "hl_osc": hl_current,
             "new_highs": new_hi_now,
             "new_lows": new_lo_now,
+            "pct_above_sma20_ndx": kma_now.get("sma20", 0.0),
+            "kma_now": kma_now,
             "mco_history": fmt_hist(mco_hist, 2),
             "mco_zscore_history": fmt_hist(mco_z_hist, 2),
             "summation_history": fmt_hist(sum_hist, 1),
+            "summation_zscore_history": fmt_hist(sum_z_hist, 2),
+            "summation_zscore_sma10_history": fmt_hist(sum_z_sma10_hist, 2),
             "summation_ema5_history": fmt_hist(sum_ema5_hist, 1),
+            "summation_ema10_history": fmt_hist(sum_ema10_hist, 1),
             "hl_history": [int(x) for x in hl_hist.tolist()],
+            "pct_above_sma20_ndx_history": kma_hist.get("sma20", []),
+            "kma_history": kma_hist,
             "n_components": n,
         }
     except Exception as e:
@@ -455,48 +503,51 @@ def fetch_fear_greed():
 # ─────────────────────────────────────────────
 
 def fetch_put_call():
-    """Fetch CBOE Equity Put/Call ratio from their public CSV."""
-    print("\n📞 Lade Put/Call Ratio (CBOE)...")
+    """Fetch live Put/Call ratio from CNN Fear & Greed API (put_call_options component)."""
+    print("\n📞 Lade Put/Call Ratio (CNN)...")
     try:
-        # CBOE publishes historical equity put/call as CSV
-        url = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/equitypc.csv"
+        url = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
         headers = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
         }
-        resp = requests.get(url, headers=headers, timeout=15)
+        resp = requests.get(url, headers=headers, timeout=10)
         if resp.status_code == 200:
-            lines = resp.text.strip().split('\n')
-            # Find last data line (skip headers and blank lines)
-            for line in reversed(lines):
-                parts = line.strip().split(',')
-                if len(parts) >= 5:
-                    try:
-                        ratio = float(parts[4])  # P/C Ratio is the 5th column
-                        date = parts[0]
-                        print(f"  ✅ CBOE Equity Put/Call: {ratio} (Datum: {date})")
+            data = resp.json()
+            # CNN provides 5-day average put/call ratio via fear & greed components
+            pc_data = data.get("put_call_options", {})
+            if pc_data:
+                # Latest value from time series
+                series = pc_data.get("data", [])
+                if series:
+                    latest = series[-1]
+                    ratio = latest.get("y") or latest.get("x")
+                    if ratio is not None:
+                        ratio = round(float(ratio), 2)
+                        ts = latest.get("x", "")
+                        # Parse timestamp if present
+                        try:
+                            from datetime import datetime as dt
+                            if isinstance(ts, (int, float)):
+                                date_str = dt.fromtimestamp(ts / 1000).strftime("%d.%m.%Y")
+                            else:
+                                date_str = "live"
+                        except Exception:
+                            date_str = "live"
+                        print(f"  ✅ Put/Call Ratio: {ratio} (Datum: {date_str})")
                         return ratio
-                    except (ValueError, IndexError):
-                        continue
 
-        # Fallback: total put/call ratio
-        url2 = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/totalpc.csv"
-        resp2 = requests.get(url2, headers=headers, timeout=15)
-        if resp2.status_code == 200:
-            lines = resp2.text.strip().split('\n')
-            for line in reversed(lines):
-                parts = line.strip().split(',')
-                if len(parts) >= 5:
-                    try:
-                        ratio = float(parts[4])
-                        print(f"  ✅ CBOE Total Put/Call: {ratio} (Fallback)")
-                        return ratio
-                    except (ValueError, IndexError):
-                        continue
+                # Direct score field as fallback
+                score = pc_data.get("score")
+                if score is not None:
+                    print(f"  ✅ Put/Call Score (CNN normalized): {score}")
+                    return round(float(score), 2)
 
-        print("  ⚠ CBOE CSV nicht verfügbar")
+        print(f"  ⚠ Put/Call CNN API Status: {resp.status_code}")
         return None
     except Exception as e:
         print(f"  ⚠ Put/Call Fehler: {e}")
+        import traceback
+        traceback.print_exc()
         return None
 
 
@@ -655,104 +706,6 @@ def build_top10(all_data):
     return combined[:10]
 
 
-# ─────────────────────────────────────────────
-# AI PREMARKET BRIEFING (requires ANTHROPIC_API_KEY)
-# ─────────────────────────────────────────────
-
-def generate_ai_briefing(snapshot):
-    """Call Claude API with web_search to generate Premarket Briefing with live news."""
-    try:
-        import anthropic
-    except ImportError:
-        print("  ⚠ anthropic Paket nicht installiert")
-        return None
-
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        return None
-
-    client = anthropic.Anthropic(api_key=api_key)
-
-    regime_info = json.dumps(snapshot.get("regime", {}), indent=2)
-    vix_info = json.dumps(snapshot.get("vix", []), indent=2)
-    futures_info = json.dumps(snapshot.get("futures", []), indent=2)
-    europe_info = json.dumps(snapshot.get("europe", []), indent=2)
-    sectors_info = json.dumps(snapshot.get("sectors", [])[:5], indent=2)
-    top10_info = json.dumps(snapshot.get("top10", []), indent=2)
-    commodities_info = json.dumps(snapshot.get("commodities", []), indent=2)
-    currencies_info = json.dumps(snapshot.get("currencies", []), indent=2)
-    fg_info = json.dumps(snapshot.get("fear_greed", {}), indent=2)
-    breadth_info = json.dumps(snapshot.get("breadth", {}), indent=2)
-
-    now_str = datetime.now().strftime("%d. %b %Y")
-
-    prompt = f"""Du bist der KI-Analyst für das Yolo Dashboard (@Yolo_Investing).
-Schreibe ein prägnantes Premarket-Briefing (07:00 CET) auf Deutsch. Maximal 200 Wörter.
-
-WICHTIG: Nutze zuerst das web_search Tool um folgendes zu recherchieren:
-1. Suche "stock market news today" — aktuelle Markt-Headlines
-2. Suche "earnings reports this week" — wichtige Earnings
-3. Suche "economic calendar today" — Makrodaten des Tages
-
-Dann schreibe das Briefing basierend auf den echten Daten UND den Suchergebnissen.
-
-Stil: Direkt, klar, keine Floskeln. Wie ein erfahrener Trader seinem Trading-Buddy schreibt.
-Beginne mit "Guten Morgen — hier dein Premarket Briefing."
-
-Struktur:
-1. <strong>Overnight & Futures</strong> — Asien, EU-Eröffnung, US-Futures
-2. <strong>News des Tages</strong> — 2-3 marktrelevante Headlines (Geopolitik, Earnings, Makro)
-3. <strong>Makro-Kalender</strong> — Wirtschaftsdaten heute (Uhrzeiten in CET)
-4. <strong>Auf dem Radar</strong> — 1-2 auffällige Dinge aus den Daten
-
-Nutze <strong> Tags für Hervorhebungen. Kein Markdown.
-
-Marktdaten:
-Regime: {regime_info}
-Futures: {futures_info}
-Europa: {europe_info}
-VIX: {vix_info}
-Fear & Greed: {fg_info}
-Rohstoffe: {commodities_info}
-Währungen: {currencies_info}
-Breadth: {breadth_info}
-Top Sektoren: {sectors_info}
-Top 10 Woche: {top10_info}
-Datum: {now_str}"""
-
-    try:
-        print(f"  🤖 Claude API → Premarket-Briefing mit Web-Search...")
-        models = ["claude-sonnet-4-5-20250514", "claude-sonnet-4-5-20250929"]
-        text = None
-        for model in models:
-            try:
-                print(f"    → Versuche Model: {model}")
-                message = client.messages.create(
-                    model=model,
-                    max_tokens=1024,
-                    tools=[{"type": "web_search_20250305", "name": "web_search"}],
-                    messages=[{"role": "user", "content": prompt}],
-                )
-                # Extract text from response (may include tool_use blocks)
-                text_parts = []
-                for block in message.content:
-                    if hasattr(block, 'text') and block.text:
-                        text_parts.append(block.text)
-                text = "\n".join(text_parts) if text_parts else None
-                if text:
-                    print(f"  ✅ Briefing generiert ({len(text)} Zeichen) mit {model}")
-                    print(f"    Stop reason: {message.stop_reason}")
-                    break
-            except Exception as model_err:
-                print(f"    ⚠ Model {model} fehlgeschlagen: {model_err}")
-                continue
-        return text
-    except Exception as e:
-        print(f"  ⚠ Claude API Fehler: {e}")
-        import traceback
-        traceback.print_exc()
-        return None
-
 
 
 # ─────────────────────────────────────────────
@@ -821,36 +774,10 @@ def main():
     if pc:
         snapshot["put_call"] = pc
 
-    # ═══ AI Premarket Briefing ═══
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    ai_text = None
-
-    if api_key:
-        print(f"\n🤖 ANTHROPIC_API_KEY vorhanden ({len(api_key)} Zeichen, beginnt mit {api_key[:8]}...)")
-        ai_text = generate_ai_briefing(snapshot)
-    else:
-        print("\n  ℹ Kein ANTHROPIC_API_KEY gesetzt — nutze manuelle Briefings")
-        briefings_path = out_dir / "briefings.json"
-        if briefings_path.exists():
-            try:
-                with open(briefings_path, encoding="utf-8") as f:
-                    manual = json.load(f)
-                if "morning" in manual:
-                    ai_text = manual["morning"].get("text")
-                    print(f"  ✅ Manuelles Briefing geladen")
-            except Exception as e:
-                print(f"  ⚠ Fehler bei briefings.json: {e}")
-
-    now_str = datetime.now().strftime("%d. %b %Y")
-    snapshot["ai_briefing"] = {
-        "text": ai_text or "Briefing wird generiert...",
-        "timestamp": f"{now_str} · 07:00 CET",
-    }
-
     # 10. Metadata
     snapshot["meta"] = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
-        "source": "Yahoo Finance + CNN + Claude AI + Web Search",
+        "source": "Yahoo Finance + CNN",
     }
 
     # 11. Write output
@@ -865,8 +792,6 @@ def main():
         print(f"   Fear & Greed: {fg['score']} ({fg['rating']})")
     if pc:
         print(f"   Put/Call: {pc}")
-    if ai_text:
-        print(f"   AI Briefing: {len(ai_text)} Zeichen")
     print("=" * 60)
 
 
