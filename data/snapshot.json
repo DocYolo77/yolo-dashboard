@@ -25,65 +25,65 @@
   },
   "futures": [
     {
-      "price": 7732.25,
-      "d1_pct": -0.03,
-      "w1_pct": 2.83,
-      "hi52w_pct": -0.43,
-      "ytd_pct": 12.05,
+      "price": 7735.0,
+      "d1_pct": 0.0,
+      "w1_pct": 2.87,
+      "hi52w_pct": -0.39,
+      "ytd_pct": 12.09,
       "hist_5d": [
         7628.25,
         7765.5,
         7749.5,
         7734.75,
-        7732.25
+        7735.0
       ],
       "symbol": "ES=F",
       "name": "ES (S&P 500)"
     },
     {
-      "price": 29528.0,
-      "d1_pct": 0.13,
-      "w1_pct": 3.96,
-      "hi52w_pct": -3.86,
-      "ytd_pct": 16.32,
+      "price": 29540.0,
+      "d1_pct": 0.18,
+      "w1_pct": 4.0,
+      "hi52w_pct": -3.82,
+      "ytd_pct": 16.37,
       "hist_5d": [
         28891.75,
         29863.5,
         29615.0,
         29488.25,
-        29528.0
+        29540.0
       ],
       "symbol": "NQ=F",
       "name": "NQ (Nasdaq 100)"
     },
     {
-      "price": 53910.0,
-      "d1_pct": -0.19,
-      "w1_pct": 2.42,
-      "hi52w_pct": -1.07,
-      "ytd_pct": 10.89,
+      "price": 53946.0,
+      "d1_pct": -0.12,
+      "w1_pct": 2.49,
+      "hi52w_pct": -1.01,
+      "ytd_pct": 10.96,
       "hist_5d": [
         53334.0,
         54268.0,
         54494.0,
         54013.0,
-        53910.0
+        53946.0
       ],
       "symbol": "YM=F",
       "name": "YM (Dow Jones)"
     },
     {
-      "price": 3005.9,
-      "d1_pct": -0.11,
-      "w1_pct": 2.31,
-      "hi52w_pct": -1.3,
-      "ytd_pct": 19.16,
+      "price": 3007.3,
+      "d1_pct": -0.06,
+      "w1_pct": 2.36,
+      "hi52w_pct": -1.26,
+      "ytd_pct": 19.22,
       "hist_5d": [
         2989.3,
         3044.7,
         3025.4,
         3009.1,
-        3005.9
+        3007.3
       ],
       "symbol": "RTY=F",
       "name": "RTY (Russell 2000)"
@@ -157,65 +157,65 @@
   ],
   "global": [
     {
-      "price": 65512.05,
-      "d1_pct": -0.26,
-      "w1_pct": 1.79,
-      "hi52w_pct": -9.47,
-      "ytd_pct": 26.39,
+      "price": 65606.71,
+      "d1_pct": -0.12,
+      "w1_pct": 1.93,
+      "hi52w_pct": -9.34,
+      "ytd_pct": 26.57,
       "hist_5d": [
         63754.9,
         63957.53,
         66300.44,
         65683.26,
-        65512.05
+        65606.71
       ],
       "symbol": "^N225",
       "name": "🇯🇵 Nikkei 225"
     },
     {
-      "price": 25568.18,
-      "d1_pct": 0.15,
-      "w1_pct": -1.22,
-      "hi52w_pct": -8.58,
-      "ytd_pct": -2.92,
+      "price": 25614.84,
+      "d1_pct": 0.33,
+      "w1_pct": -1.04,
+      "hi52w_pct": -8.41,
+      "ytd_pct": -2.75,
       "hist_5d": [
         26009.4,
         25852.92,
         25915.82,
         25530.28,
-        25568.18
+        25614.84
       ],
       "symbol": "^HSI",
       "name": "🇭🇰 Hang Seng"
     },
     {
-      "price": 4698.22,
-      "d1_pct": 3.73,
-      "w1_pct": 0.06,
-      "hi52w_pct": -7.14,
-      "ytd_pct": -0.41,
+      "price": 4690.92,
+      "d1_pct": 3.57,
+      "w1_pct": -0.1,
+      "hi52w_pct": -7.29,
+      "ytd_pct": -0.57,
       "hist_5d": [
         4796.5,
         4786.78,
         4698.44,
         4529.1,
-        4698.22
+        4690.92
       ],
       "symbol": "000300.SS",
       "name": "🇨🇳 CSI 300"
     },
     {
-      "price": 9264.5,
-      "d1_pct": -0.08,
-      "w1_pct": 3.2,
-      "hi52w_pct": -0.08,
-      "ytd_pct": 6.15,
+      "price": 9263.6,
+      "d1_pct": -0.09,
+      "w1_pct": 3.19,
+      "hi52w_pct": -0.09,
+      "ytd_pct": 6.14,
       "hist_5d": [
         9019.3,
         9145.8,
         9227.8,
         9271.6,
-        9264.5
+        9263.6
       ],
       "symbol": "^AXJO",
       "name": "🇦🇺 ASX 200"
@@ -223,49 +223,49 @@
   ],
   "crypto": [
     {
-      "price": 64305.3,
-      "d1_pct": -0.45,
-      "w1_pct": 2.46,
-      "hi52w_pct": -48.45,
-      "ytd_pct": -27.53,
+      "price": 64215.18,
+      "d1_pct": -0.59,
+      "w1_pct": 2.31,
+      "hi52w_pct": -48.53,
+      "ytd_pct": -27.63,
       "hist_5d": [
         63482.0,
         63460.9,
         64055.95,
         64597.5,
-        64305.3
+        64215.18
       ],
       "symbol": "BTC-USD",
       "name": "Bitcoin (BTC)"
     },
     {
-      "price": 1900.21,
-      "d1_pct": -0.33,
-      "w1_pct": 3.08,
-      "hi52w_pct": -60.67,
-      "ytd_pct": -36.67,
+      "price": 1901.64,
+      "d1_pct": -0.26,
+      "w1_pct": 3.16,
+      "hi52w_pct": -60.64,
+      "ytd_pct": -36.62,
       "hist_5d": [
         1882.52,
         1858.26,
         1868.39,
         1906.53,
-        1900.21
+        1901.64
       ],
       "symbol": "ETH-USD",
       "name": "Ethereum (ETH)"
     },
     {
-      "price": 72.84,
-      "d1_pct": -1.52,
-      "w1_pct": 1.35,
-      "hi52w_pct": -70.59,
-      "ytd_pct": -42.54,
+      "price": 72.71,
+      "d1_pct": -1.69,
+      "w1_pct": 1.17,
+      "hi52w_pct": -70.64,
+      "ytd_pct": -42.64,
       "hist_5d": [
         73.45,
         73.47,
         73.72,
         73.96,
-        72.84
+        72.71
       ],
       "symbol": "SOL-USD",
       "name": "Solana (SOL)"
@@ -273,91 +273,91 @@
   ],
   "commodities": [
     {
-      "price": 4339.6,
-      "d1_pct": 2.3,
-      "w1_pct": 7.17,
-      "hi52w_pct": -18.4,
-      "ytd_pct": 0.58,
+      "price": 4351.4,
+      "d1_pct": 2.58,
+      "w1_pct": 7.47,
+      "hi52w_pct": -18.18,
+      "ytd_pct": 0.86,
       "hist_5d": [
         4033.7,
         4095.4,
         4245.8,
         4242.0,
-        4339.6
+        4351.4
       ],
       "symbol": "GC=F",
       "name": "Gold (XAU)"
     },
     {
-      "price": 62.97,
-      "d1_pct": 2.48,
-      "w1_pct": 9.33,
-      "hi52w_pct": -45.29,
-      "ytd_pct": -10.76,
+      "price": 63.95,
+      "d1_pct": 4.09,
+      "w1_pct": 11.04,
+      "hi52w_pct": -44.43,
+      "ytd_pct": -9.36,
       "hist_5d": [
         57.67,
         60.06,
         62.1,
         61.44,
-        62.97
+        63.95
       ],
       "symbol": "SI=F",
       "name": "Silber (XAG)"
     },
     {
-      "price": 78.12,
-      "d1_pct": 1.07,
-      "w1_pct": -7.74,
-      "hi52w_pct": -30.84,
-      "ytd_pct": 36.29,
+      "price": 77.97,
+      "d1_pct": 0.88,
+      "w1_pct": -7.91,
+      "hi52w_pct": -30.97,
+      "ytd_pct": 36.03,
       "hist_5d": [
         80.34,
         75.77,
         75.22,
         77.29,
-        78.12
+        77.97
       ],
       "symbol": "CL=F",
       "name": "WTI Crude"
     },
     {
-      "price": 83.64,
-      "d1_pct": 1.39,
-      "w1_pct": -7.19,
-      "hi52w_pct": -29.33,
-      "ytd_pct": 37.68,
+      "price": 83.49,
+      "d1_pct": 1.21,
+      "w1_pct": -7.36,
+      "hi52w_pct": -29.46,
+      "ytd_pct": 37.43,
       "hist_5d": [
         83.77,
         79.36,
         79.45,
         82.49,
-        83.64
+        83.49
       ],
       "symbol": "BZ=F",
       "name": "Brent Crude"
     },
     {
-      "price": 2.65,
-      "d1_pct": 0.3,
-      "w1_pct": -3.6,
-      "hi52w_pct": -64.5,
-      "ytd_pct": -26.81,
+      "price": 2.66,
+      "d1_pct": 0.95,
+      "w1_pct": -2.99,
+      "hi52w_pct": -64.28,
+      "ytd_pct": -26.34,
       "hist_5d": [
         2.78,
         2.68,
         2.69,
         2.64,
-        2.65
+        2.66
       ],
       "symbol": "NG=F",
       "name": "Erdgas"
     },
     {
       "price": 6.74,
-      "d1_pct": 0.81,
-      "w1_pct": 4.74,
+      "d1_pct": 0.83,
+      "w1_pct": 4.76,
       "hi52w_pct": 0.0,
-      "ytd_pct": 19.52,
+      "ytd_pct": 19.55,
       "hist_5d": [
         6.51,
         6.62,
@@ -372,10 +372,10 @@
   "currencies": [
     {
       "price": 1.15,
-      "d1_pct": -0.27,
-      "w1_pct": 0.02,
-      "hi52w_pct": -4.09,
-      "ytd_pct": -1.91,
+      "d1_pct": -0.29,
+      "w1_pct": -0.0,
+      "hi52w_pct": -4.11,
+      "ytd_pct": -1.93,
       "hist_5d": [
         1.15,
         1.15,
@@ -388,10 +388,10 @@
     },
     {
       "price": 1.35,
-      "d1_pct": -0.12,
+      "d1_pct": -0.13,
       "w1_pct": -0.06,
-      "hi52w_pct": -2.69,
-      "ytd_pct": -0.15,
+      "hi52w_pct": -2.7,
+      "ytd_pct": -0.16,
       "hist_5d": [
         1.35,
         1.34,
@@ -1102,6 +1102,23 @@
   ],
   "top10": [
     {
+      "price": 63.95,
+      "d1_pct": 4.09,
+      "w1_pct": 11.04,
+      "hi52w_pct": -44.43,
+      "ytd_pct": -9.36,
+      "hist_5d": [
+        57.67,
+        60.06,
+        62.1,
+        61.44,
+        63.95
+      ],
+      "symbol": "SI=F",
+      "name": "Silber (XAG)",
+      "category": "Rohstoff"
+    },
+    {
       "price": 73.42,
       "d1_pct": 1.32,
       "w1_pct": 10.49,
@@ -1134,23 +1151,6 @@
       "symbol": "GDXJ",
       "name": "⛏️ Jr. Goldminen",
       "category": "Thema"
-    },
-    {
-      "price": 62.97,
-      "d1_pct": 2.48,
-      "w1_pct": 9.33,
-      "hi52w_pct": -45.29,
-      "ytd_pct": -10.76,
-      "hist_5d": [
-        57.67,
-        60.06,
-        62.1,
-        61.44,
-        62.97
-      ],
-      "symbol": "SI=F",
-      "name": "Silber (XAG)",
-      "category": "Rohstoff"
     },
     {
       "price": 83.92,
@@ -1221,6 +1221,23 @@
       "category": "Thema"
     },
     {
+      "price": 4351.4,
+      "d1_pct": 2.58,
+      "w1_pct": 7.47,
+      "hi52w_pct": -18.18,
+      "ytd_pct": 0.86,
+      "hist_5d": [
+        4033.7,
+        4095.4,
+        4245.8,
+        4242.0,
+        4351.4
+      ],
+      "symbol": "GC=F",
+      "name": "Gold (XAU)",
+      "category": "Rohstoff"
+    },
+    {
       "price": 113.19,
       "d1_pct": -1.27,
       "w1_pct": 7.27,
@@ -1236,23 +1253,6 @@
       "symbol": "HACK",
       "name": "🔒 Cybersecurity",
       "category": "Thema"
-    },
-    {
-      "price": 4339.6,
-      "d1_pct": 2.3,
-      "w1_pct": 7.17,
-      "hi52w_pct": -18.4,
-      "ytd_pct": 0.58,
-      "hist_5d": [
-        4033.7,
-        4095.4,
-        4245.8,
-        4242.0,
-        4339.6
-      ],
-      "symbol": "GC=F",
-      "name": "Gold (XAU)",
-      "category": "Rohstoff"
     },
     {
       "price": 571.48,
@@ -3143,7 +3143,7 @@
   },
   "put_call": 0.71,
   "meta": {
-    "updated_at": "2026-08-07T06:11:05.661163+00:00",
+    "updated_at": "2026-08-07T07:02:40.691335+00:00",
     "source": "Yahoo Finance + CNN"
   }
 }
