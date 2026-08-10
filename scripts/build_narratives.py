@@ -1,0 +1,292 @@
+#!/usr/bin/env python3
+"""
+YOLO Dashboard — Narratives/Baskets Builder
+Fetches daily grouped OHLC from the Massive API for a curated set of trading
+days, computes per-ticker performance + basket-level Strength/Thrust/
+Leadership/Breadth scores for the 1D/1W/1M horizons, and writes
+data/narratives.json.
+
+Score definitions (first pass, expected to be iterated):
+  Strength   — basket's cumulative return over the horizon (median of member
+               daily returns compounded across the window).
+  Thrust     — EMA(short) - EMA(long) of the basket's daily median-return
+               series; measures fresh acceleration rather than raw level.
+  Leadership — share of basket members ranking in the top quintile of the
+               tracked universe for that horizon, saturating once ~5 members
+               qualify so many leaders score higher than one outlier.
+  Breadth    — % of members positive, median member return, % of members
+               beating a horizon-scaled "significant move" threshold.
+
+"Tracked universe" = the curated ticker set in data/narratives_map.json
+(NOT the full US market) — leadership/percentile ranks are relative to this
+momentum-relevant universe.
+"""
+
+import json
+import os
+import sys
+import argparse
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+import requests
+import pandas as pd
+import numpy as np
+
+MASSIVE_BASE = "https://api.massive.com"
+
+HORIZONS = {
+    "1d": {"window": 1, "thrust_short": 2, "thrust_long": 5, "sig_threshold": 2.0},
+    "1w": {"window": 5, "thrust_short": 5, "thrust_long": 15, "sig_threshold": 5.0},
+    "1m": {"window": 21, "thrust_short": 10, "thrust_long": 25, "sig_threshold": 10.0},
+}
+
+TRADING_DAYS_NEEDED = 35   # buffer above the 21-day 1M window for EMA warmup
+MAX_CALENDAR_LOOKBACK = 70  # safety cap so weekends/holidays can't loop forever
+MIN_RESULTS_FOR_TRADING_DAY = 1000  # grouped-daily returns ~12k rows on a real session
+
+
+def massive_get(path, params=None, retries=3):
+    key = os.environ.get("MASSIVE_API_KEY")
+    if not key:
+        print("FATAL: MASSIVE_API_KEY nicht gesetzt.", file=sys.stderr)
+        sys.exit(1)
+    headers = {"Authorization": f"Bearer {key}"}
+    url = f"{MASSIVE_BASE}{path}"
+    last_err = None
+    for attempt in range(retries):
+        try:
+            resp = requests.get(url, headers=headers, params=params, timeout=30)
+            if resp.status_code == 200:
+                return resp.json()
+            last_err = f"HTTP {resp.status_code}: {resp.text[:200]}"
+        except requests.RequestException as e:
+            last_err = str(e)
+    print(f"  ⚠ Request fehlgeschlagen ({path}): {last_err}", file=sys.stderr)
+    return None
+
+
+def load_taxonomy(path):
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    narratives = data["narratives"]
+    universe = sorted({t for n in narratives for t in n["tickers"]})
+    return narratives, universe
+
+
+def fetch_grouped_history(universe_set):
+    """Walk backward day by day, collecting grouped-daily closes for tickers
+    in our curated universe until we have enough trading days."""
+    print(f"\n📊 Lade Grouped-Daily-OHLC (Ziel: {TRADING_DAYS_NEEDED} Handelstage)...")
+    per_ticker = {t: {} for t in universe_set}
+    trading_days = []
+    day = datetime.now(timezone.utc).date()
+    calendar_checked = 0
+
+    while len(trading_days) < TRADING_DAYS_NEEDED and calendar_checked < MAX_CALENDAR_LOOKBACK:
+        date_str = day.isoformat()
+        data = massive_get(f"/v2/aggs/grouped/locale/us/market/stocks/{date_str}")
+        calendar_checked += 1
+        day -= timedelta(days=1)
+
+        if not data or data.get("resultsCount", 0) < MIN_RESULTS_FOR_TRADING_DAY:
+            continue
+
+        trading_days.append(date_str)
+        for row in data.get("results", []):
+            sym = row.get("T")
+            if sym in per_ticker:
+                per_ticker[sym][date_str] = row.get("c")
+        print(f"  → {date_str}: {data['resultsCount']} Ticker (Handelstag {len(trading_days)}/{TRADING_DAYS_NEEDED})")
+
+    trading_days.sort()  # oldest → newest
+    print(f"  ✅ {len(trading_days)} Handelstage geladen ({calendar_checked} Kalendertage geprüft)")
+    return per_ticker, trading_days
+
+
+def build_price_frame(per_ticker, trading_days):
+    """DataFrame: index=trading_days (asc), columns=tickers, values=close."""
+    df = pd.DataFrame(index=trading_days, columns=sorted(per_ticker.keys()), dtype=float)
+    for sym, series in per_ticker.items():
+        for date_str, close in series.items():
+            if date_str in df.index:
+                df.at[date_str, sym] = close
+    return df
+
+
+def calc_ticker_metrics(prices):
+    """prices: DataFrame (dates asc x tickers). Returns per-ticker dict."""
+    daily_ret = prices.pct_change() * 100  # % daily returns per ticker
+
+    out = {}
+    for sym in prices.columns:
+        s = prices[sym].dropna()
+        if len(s) < 2:
+            continue
+        last = s.iloc[-1]
+
+        def pct_ago(n):
+            if len(s) > n:
+                base = s.iloc[-1 - n]
+                return round(float((last - base) / base * 100), 2) if base else None
+            return None
+
+        hist_1w = [round(float(x), 2) for x in s.iloc[-6:].tolist()]
+        hist_1m = [round(float(x), 2) for x in s.iloc[-22:].tolist()]
+
+        out[sym] = {
+            "symbol": sym,
+            "price": round(float(last), 2),
+            "d1_pct": pct_ago(1),
+            "w1_pct": pct_ago(5),
+            "m1_pct": pct_ago(21),
+            "hist_1w": hist_1w,
+            "hist_1m": hist_1m,
+        }
+    return out, daily_ret
+
+
+def percentile_ranks(ticker_metrics, field):
+    """Return {symbol: percentile 0-100} across the tracked universe for a field."""
+    vals = {sym: m[field] for sym, m in ticker_metrics.items() if m.get(field) is not None}
+    if not vals:
+        return {}
+    ordered = sorted(vals.items(), key=lambda kv: kv[1])
+    n = len(ordered)
+    ranks = {}
+    for i, (sym, _) in enumerate(ordered):
+        ranks[sym] = round((i + 1) / n * 100, 1)
+    return ranks
+
+
+def basket_daily_return_series(daily_ret, members):
+    """Median daily % return of basket members, per trading day."""
+    cols = [m for m in members if m in daily_ret.columns]
+    if not cols:
+        return pd.Series(dtype=float)
+    return daily_ret[cols].median(axis=1, skipna=True)
+
+
+def calc_basket_scores(members, ticker_metrics, daily_ret, pct_field_by_horizon, percentiles_by_horizon):
+    scores = {}
+    basket_ret_series = basket_daily_return_series(daily_ret, members)
+
+    for h, cfg in HORIZONS.items():
+        pct_field = pct_field_by_horizon[h]
+        member_vals = [ticker_metrics[m][pct_field] for m in members
+                       if m in ticker_metrics and ticker_metrics[m].get(pct_field) is not None]
+
+        # Strength — compounded basket return over the window
+        window_ret = basket_ret_series.iloc[-cfg["window"]:] / 100.0
+        if len(window_ret) > 0:
+            strength = round((float(np.prod(1 + window_ret.fillna(0))) - 1) * 100, 2)
+        else:
+            strength = None
+
+        # Thrust — EMA(short) - EMA(long) of the basket daily-return series
+        if len(basket_ret_series.dropna()) >= cfg["thrust_long"]:
+            ema_short = basket_ret_series.ewm(span=cfg["thrust_short"], adjust=False).mean()
+            ema_long = basket_ret_series.ewm(span=cfg["thrust_long"], adjust=False).mean()
+            thrust = round(float(ema_short.iloc[-1] - ema_long.iloc[-1]), 2)
+        else:
+            thrust = None
+
+        # Leadership — share of members in top quintile of tracked universe, saturating at ~5
+        ranks = percentiles_by_horizon[h]
+        top_quintile = [m for m in members if ranks.get(m, 0) >= 80]
+        leadership = round(min(len(top_quintile) / min(len(members), 5), 1.0) * 100, 1)
+
+        # Breadth — % positive, median, % beating a horizon-scaled significant-move threshold
+        if member_vals:
+            pct_positive = round(sum(1 for v in member_vals if v > 0) / len(member_vals) * 100, 1)
+            median_pct = round(float(np.median(member_vals)), 2)
+            pct_significant = round(sum(1 for v in member_vals if v >= cfg["sig_threshold"]) / len(member_vals) * 100, 1)
+        else:
+            pct_positive = median_pct = pct_significant = None
+
+        scores[h] = {
+            "strength": strength,
+            "thrust": thrust,
+            "leadership": leadership,
+            "breadth": {
+                "pct_positive": pct_positive,
+                "median_pct": median_pct,
+                "pct_significant": pct_significant,
+                "n_members": len(member_vals),
+            },
+        }
+    return scores
+
+
+def main():
+    parser = argparse.ArgumentParser(description="YOLO Dashboard Narratives Builder")
+    parser.add_argument("--out-dir", default="data", help="Output directory")
+    parser.add_argument("--taxonomy", default="data/narratives_map.json", help="Path to taxonomy JSON")
+    args = parser.parse_args()
+
+    out_dir = Path(args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    print("=" * 60)
+    print("🚀 YOLO Dashboard — Narratives Builder")
+    print(f"   Zeit: {datetime.now().isoformat()}")
+    print("=" * 60)
+
+    narratives, universe = load_taxonomy(args.taxonomy)
+    print(f"\n📋 Taxonomie: {len(narratives)} Narrative, {len(universe)} eindeutige Ticker")
+
+    per_ticker, trading_days = fetch_grouped_history(set(universe))
+    if len(trading_days) < 10:
+        print("FATAL: Zu wenige Handelstage geladen, breche ab.", file=sys.stderr)
+        sys.exit(1)
+
+    prices = build_price_frame(per_ticker, trading_days)
+    ticker_metrics, daily_ret = calc_ticker_metrics(prices)
+    print(f"  ✅ Metriken für {len(ticker_metrics)}/{len(universe)} Ticker berechnet")
+
+    pct_field_by_horizon = {"1d": "d1_pct", "1w": "w1_pct", "1m": "m1_pct"}
+    percentiles_by_horizon = {h: percentile_ranks(ticker_metrics, f) for h, f in pct_field_by_horizon.items()}
+
+    for sym, m in ticker_metrics.items():
+        m["percentile_1d"] = percentiles_by_horizon["1d"].get(sym)
+        m["percentile_1w"] = percentiles_by_horizon["1w"].get(sym)
+        m["percentile_1m"] = percentiles_by_horizon["1m"].get(sym)
+
+    output_narratives = []
+    for n in narratives:
+        members = [t for t in n["tickers"] if t in ticker_metrics]
+        if not members:
+            print(f"  ⚠ {n['name']}: keine Daten für Mitglieder, übersprungen")
+            continue
+        scores = calc_basket_scores(members, ticker_metrics, daily_ret, pct_field_by_horizon, percentiles_by_horizon)
+        output_narratives.append({
+            "id": n["id"],
+            "name": n["name"],
+            "n_members": len(members),
+            "scores": scores,
+            "members": [ticker_metrics[m] for m in members],
+        })
+        print(f"  ✅ {n['name']}: {len(members)} Ticker | 1D Strength {scores['1d']['strength']} | "
+              f"1W Strength {scores['1w']['strength']} | 1M Strength {scores['1m']['strength']}")
+
+    output = {
+        "meta": {
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "source": "Massive (api.massive.com)",
+            "trading_days_used": len(trading_days),
+            "date_range": [trading_days[0], trading_days[-1]] if trading_days else None,
+            "universe_size": len(universe),
+        },
+        "narratives": output_narratives,
+    }
+
+    with open(out_dir / "narratives.json", "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+
+    print(f"\n✅ Narratives geschrieben → {out_dir / 'narratives.json'}")
+    print(f"   Narrative: {len(output_narratives)} | Ticker gesamt: {len(ticker_metrics)}")
+    print("=" * 60)
+
+
+if __name__ == "__main__":
+    main()
