@@ -1,0 +1,95 @@
+{
+  "_comment": "Kuratierte Narrative-/Basket-Taxonomie. Ticker koennen mehreren Narrativen angehoeren (Multi-Membership), z.B. NVDA in Semiconductors + AI Infrastructure + Data Center. Manuell gepflegt, SIC-Codes dienen nur als Vorschlag/Validierung, nicht als Automatismus.",
+  "narratives": [
+    {
+      "id": "memory_storage",
+      "name": "Memory / Storage",
+      "tickers": ["SNDK", "WDC", "STX", "NTAP"]
+    },
+    {
+      "id": "semiconductors",
+      "name": "Semiconductors",
+      "tickers": ["MU", "NVDA", "AMD", "INTC", "TXN", "QCOM", "AVGO", "ON", "MCHP", "ADI", "MRVL", "LRCX", "KLAC", "AMAT", "ASML", "ARM", "NXPI", "SWKS"]
+    },
+    {
+      "id": "photonics_optical",
+      "name": "Semiconductors / Photonics",
+      "tickers": ["COHR", "LITE", "AXTI", "WOLF", "ONTO"]
+    },
+    {
+      "id": "ai_infrastructure",
+      "name": "AI Infrastructure",
+      "tickers": ["NVDA", "AVGO", "MRVL", "AMD", "SMCI", "VRT", "ARM", "DELL", "HPE", "CRDO"]
+    },
+    {
+      "id": "data_center",
+      "name": "Data Center",
+      "tickers": ["DLR", "EQIX", "VRT", "SMCI", "DELL", "HPE", "NTAP", "CBRS"]
+    },
+    {
+      "id": "networking",
+      "name": "Networking",
+      "tickers": ["CSCO", "ANET", "EXTR", "CIEN", "NOK", "FFIV"]
+    },
+    {
+      "id": "cybersecurity",
+      "name": "Cybersecurity",
+      "tickers": ["CRWD", "PANW", "ZS", "FTNT", "S", "OKTA", "TENB", "NET"]
+    },
+    {
+      "id": "software_saas",
+      "name": "Software / SaaS",
+      "tickers": ["CRM", "NOW", "WDAY", "TEAM", "TWLO", "DDOG", "SNOW", "MDB", "HUBS", "ADBE", "SPT", "FIVN"]
+    },
+    {
+      "id": "space",
+      "name": "Space",
+      "tickers": ["RKLB", "LUNR", "ASTS", "RDW", "PL", "SPCE"]
+    },
+    {
+      "id": "nuclear",
+      "name": "Nuclear",
+      "tickers": ["SMR", "OKLO", "CEG", "VST", "NNE", "GEV"]
+    },
+    {
+      "id": "uranium",
+      "name": "Uranium",
+      "tickers": ["CCJ", "UEC", "DNN", "UUUU", "LEU"]
+    },
+    {
+      "id": "defense_aerospace",
+      "name": "Defense / Aerospace",
+      "tickers": ["LMT", "RTX", "NOC", "GD", "LHX", "BA", "HII", "AVAV", "KTOS"]
+    },
+    {
+      "id": "fintech",
+      "name": "Fintech",
+      "tickers": ["XYZ", "PYPL", "SOFI", "AFRM", "UPST", "COIN", "HOOD"]
+    },
+    {
+      "id": "biotech",
+      "name": "Biotech",
+      "tickers": ["VRTX", "REGN", "MRNA", "BIIB", "ILMN", "CRSP", "NTLA"]
+    },
+    {
+      "id": "quantum_computing",
+      "name": "Quantum Computing",
+      "tickers": ["IONQ", "RGTI", "QBTS", "QUBT"]
+    },
+    {
+      "id": "ev_battery",
+      "name": "EV / Battery",
+      "tickers": ["TSLA", "RIVN", "LCID", "ALB", "SQM"]
+    },
+    {
+      "id": "solar_clean_energy",
+      "name": "Solar / Clean Energy",
+      "tickers": ["FSLR", "ENPH", "SEDG", "RUN"]
+    },
+    {
+      "id": "robotics_automation",
+      "name": "Robotics / Automation",
+      "tickers": ["ISRG", "ROK", "PATH", "SYM"]
+    }
+  ]
+}
