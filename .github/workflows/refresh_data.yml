@@ -34,6 +34,12 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/build_data.py --out-dir data
 
+      - name: Build narratives data
+        timeout-minutes: 15
+        env:
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+        run: python scripts/build_narratives.py --out-dir data
+
       - name: Commit and push data
         run: |
           git config user.name "github-actions[bot]"
