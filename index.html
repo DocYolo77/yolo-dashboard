@@ -5,26 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YOLO Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --sand: #f5ede1;
-  --sand-dark: #e8ddd0;
-  --sand-darker: #d4c8b8;
-  --ink: #2a2520;
-  --ink-light: #5a5248;
-  --ink-muted: #8a8078;
-  --positive: #2d8a4e;
-  --positive-bg: rgba(45,138,78,0.08);
-  --negative: #c23a3a;
-  --negative-bg: rgba(194,58,58,0.08);
-  --neutral: #b8860b;
-  --neutral-bg: rgba(184,134,11,0.1);
-  --card-bg: rgba(255,255,255,0.45);
-  --card-border: rgba(42,37,32,0.08);
-  --header-font: 'Instrument Serif', Georgia, serif;
+  --sand: #0a0a0c;
+  --sand-dark: #111114;
+  --sand-darker: #1e1e22;
+  --ink: #ededf0;
+  --ink-light: #b4b4bc;
+  --ink-muted: #77777f;
+  --positive: #3ddc73;
+  --positive-bg: rgba(61,220,115,0.10);
+  --negative: #f0605c;
+  --negative-bg: rgba(240,96,92,0.10);
+  --neutral: #e0a83e;
+  --neutral-bg: rgba(224,168,62,0.10);
+  --card-bg: rgba(255,255,255,0.035);
+  --card-border: rgba(255,255,255,0.09);
+  --header-font: 'Inter', -apple-system, sans-serif;
   --mono-font: 'DM Mono', 'Courier New', monospace;
-  --body-font: 'DM Sans', -apple-system, sans-serif;
+  --body-font: 'Inter', -apple-system, sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--sand); color: var(--ink); font-family: var(--body-font); font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
@@ -33,7 +33,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 
 .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--card-border); }
 .hero-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
-.hero-brand h1 { font-family: var(--header-font); font-size: 42px; font-weight: 400; letter-spacing: -0.5px; line-height: 1; }
+.hero-brand h1 { font-family: var(--header-font); font-size: 42px; font-weight: 700; letter-spacing: -1px; line-height: 1; }
 .hero-brand .subtitle { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); letter-spacing: 1.5px; margin-top: 6px; }
 .hero-clock { text-align: right; }
 .hero-clock .time { font-family: var(--mono-font); font-size: 28px; font-weight: 300; letter-spacing: 1px; }
@@ -50,7 +50,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .section { padding: 40px 0 20px; }
 .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); flex-wrap: wrap; }
 .section-num { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); letter-spacing: 1px; }
-.section-title { font-family: var(--header-font); font-size: 28px; font-weight: 400; }
+.section-title { font-family: var(--header-font); font-size: 28px; font-weight: 600; letter-spacing: -0.5px; }
 .section-sub { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 1.5px; text-transform: uppercase; }
 
 .regime-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
@@ -63,13 +63,13 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .regime-badge.bear { background: var(--negative); color: #fff; }
 .regime-price { font-family: var(--mono-font); font-size: 20px; }
 .ma-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-.ma-item { text-align: center; padding: 8px 4px; border-radius: 2px; background: rgba(0,0,0,0.03); }
+.ma-item { text-align: center; padding: 8px 4px; border-radius: 2px; background: rgba(255,255,255,0.04); }
 .ma-item .ma-label { font-family: var(--mono-font); font-size: 9px; color: var(--ink-muted); letter-spacing: 1px; text-transform: uppercase; }
 .ma-item .ma-value { font-family: var(--mono-font); font-size: 12px; font-weight: 500; margin-top: 2px; }
 .ma-item.above .ma-value { color: var(--positive); }
 .ma-item.below .ma-value { color: var(--negative); }
 .ma-item .ma-status { font-size: 8px; margin-top: 1px; }
-.regime-legend { background: rgba(0,0,0,0.02); border-radius: 2px; padding: 12px 16px; font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 0.5px; line-height: 1.8; margin-top: 8px; }
+.regime-legend { background: rgba(255,255,255,0.03); border-radius: 2px; padding: 12px 16px; font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 0.5px; line-height: 1.8; margin-top: 8px; }
 
 .table-section { margin-bottom: 8px; }
 .table-toggle { display: flex; align-items: center; gap: 8px; padding: 12px 0; cursor: pointer; user-select: none; border: none; background: none; width: 100%; text-align: left; font-family: var(--mono-font); font-size: 12px; font-weight: 500; color: var(--ink); letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--card-border); }
@@ -79,10 +79,10 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .data-table thead th { font-family: var(--mono-font); font-size: 9px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); padding: 10px 12px; text-align: right; border-bottom: 1px solid var(--card-border); }
 .data-table thead th:first-child { text-align: left; }
 .data-table thead th:nth-child(2) { text-align: left; }
-.data-table tbody td { font-family: var(--mono-font); font-size: 12px; padding: 8px 12px; text-align: right; border-bottom: 1px solid rgba(0,0,0,0.03); }
+.data-table tbody td { font-family: var(--mono-font); font-size: 12px; padding: 8px 12px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .data-table tbody td:first-child { text-align: left; font-weight: 500; color: var(--ink); }
 .data-table tbody td:nth-child(2) { text-align: left; font-weight: 500; color: var(--ink); }
-.data-table tbody tr:hover { background: rgba(0,0,0,0.02); }
+.data-table tbody tr:hover { background: rgba(255,255,255,0.04); }
 .pos { color: var(--positive); }
 .neg { color: var(--negative); }
 .muted { color: var(--ink-muted); }
@@ -177,7 +177,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .stops-table { width: 100%; border-collapse: collapse; }
 .stops-table th { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--card-border); }
 .stops-table th:first-child { text-align: left; }
-.stops-table td { font-family: var(--mono-font); font-size: 12px; padding: 8px 10px; text-align: right; border-bottom: 1px solid rgba(0,0,0,0.03); }
+.stops-table td { font-family: var(--mono-font); font-size: 12px; padding: 8px 10px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .stops-table td:first-child { text-align: left; font-weight: 500; }
 .rr-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 16px; }
 .rr-item { text-align: center; padding: 10px 4px; background: var(--sand); border-radius: 2px; }
@@ -191,9 +191,48 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 /* Category tag in Top 10 */
 .cat-tag { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 10px; letter-spacing: 0.5px; }
 .cat-tag.land { background: rgba(45,138,78,0.06); color: var(--positive); }
-.cat-tag.thema { background: rgba(100,80,200,0.06); color: #6450c8; }
-.cat-tag.sektor { background: rgba(184,134,11,0.08); color: var(--neutral); }
-.cat-tag.rohstoff { background: rgba(194,58,58,0.06); color: #b85c30; }
+.cat-tag.thema { background: rgba(154,134,232,0.10); color: #9a86e8; }
+.cat-tag.sektor { background: rgba(224,168,62,0.10); color: var(--neutral); }
+.cat-tag.rohstoff { background: rgba(226,146,92,0.10); color: #e2925c; }
+
+/* NARRATIVES / BASKETS */
+.narrative-controls { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+.nc-group { display: flex; align-items: center; gap: 10px; }
+.nc-label { font-family: var(--mono-font); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); }
+.nc-toggle { display: flex; gap: 4px; background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 3px; padding: 3px; }
+.nc-btn { font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.5px; padding: 6px 12px; border: none; background: transparent; color: var(--ink-muted); border-radius: 2px; cursor: pointer; transition: all 0.15s; }
+.nc-btn:hover { color: var(--ink); }
+.nc-btn.active { background: var(--ink); color: var(--sand); }
+.nc-meta { margin-left: auto; font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); }
+
+.narrative-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.narrative-empty { grid-column: 1/-1; padding: 40px; text-align: center; font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); }
+
+.narrative-card { border: 1px solid var(--card-border); border-radius: 4px; padding: 16px 18px; cursor: pointer; transition: border-color 0.15s; background: var(--card-bg); }
+.narrative-card:hover { border-color: rgba(255,255,255,0.22); }
+.narrative-card.expanded { border-color: var(--ink-light); }
+.nc-card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.nc-card-name { font-family: var(--header-font); font-size: 15px; font-weight: 600; }
+.nc-card-rank { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); }
+.nc-card-score { font-family: var(--mono-font); font-size: 26px; font-weight: 400; margin-top: 6px; }
+.nc-card-stats { display: flex; gap: 12px; margin-top: 10px; font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); flex-wrap: wrap; }
+.nc-card-stats b { color: var(--ink-light); font-weight: 500; }
+.nc-card-members { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 8px; }
+
+.narrative-detail { grid-column: 1/-1; border: 1px solid var(--card-border); border-radius: 4px; padding: 16px 20px 20px; margin-top: -2px; background: var(--sand-dark); overflow-x: auto; }
+.nd-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+.nd-title { font-family: var(--header-font); font-size: 16px; font-weight: 600; }
+.nd-close { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); cursor: pointer; letter-spacing: 1px; text-transform: uppercase; }
+.nd-close:hover { color: var(--ink); }
+.member-table { width: 100%; border-collapse: collapse; min-width: 620px; }
+.member-table th { font-family: var(--mono-font); font-size: 9px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-muted); padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--card-border); cursor: pointer; user-select: none; white-space: nowrap; }
+.member-table th:first-child, .member-table th:nth-child(2) { text-align: left; }
+.member-table th.sorted { color: var(--ink); }
+.member-table th .sort-arrow { opacity: 0.5; margin-left: 3px; }
+.member-table td { font-family: var(--mono-font); font-size: 12px; padding: 7px 10px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.member-table td:first-child, .member-table td:nth-child(2) { text-align: left; }
+.member-table td:first-child { font-weight: 600; }
+.member-table tbody tr:hover { background: rgba(255,255,255,0.03); }
 
 @media (max-width: 900px) {
   .hero-top { flex-direction: column; gap: 16px; }
@@ -203,6 +242,8 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   .rr-grid { grid-template-columns: repeat(3, 1fr); }
   .breadth-grid { grid-template-columns: repeat(2, 1fr); }
   .track-records { flex-direction: column; }
+  .narrative-grid { grid-template-columns: 1fr; }
+  .nc-meta { margin-left: 0; }
 }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
@@ -333,7 +374,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       <table class="data-table">
         <thead><tr><th>Index</th><th>Kurs</th><th>1T%</th><th>1W%</th><th>52W Hoch%</th><th>YTD%</th><th>5D</th></tr></thead>
         <tbody>
-          <tr style="background:rgba(0,0,0,0.03);font-weight:600;"><td>🇩🇪 DAX 40</td><td>22.457</td><td class="pos">+1,24%</td><td class="pos">+2,31%</td><td class="muted">-1,8%</td><td class="pos">+14,2%</td></tr>
+          <tr style="background:rgba(255,255,255,0.05);font-weight:600;"><td>🇩🇪 DAX 40</td><td>22.457</td><td class="pos">+1,24%</td><td class="pos">+2,31%</td><td class="muted">-1,8%</td><td class="pos">+14,2%</td></tr>
           <tr><td>🇫🇷 CAC 40</td><td>7.892</td><td class="pos">+0,34%</td><td class="pos">+0,88%</td><td class="muted">-5,2%</td><td class="pos">+6,8%</td></tr>
           <tr><td>🇬🇧 FTSE 100</td><td>8.142</td><td class="pos">+0,18%</td><td class="pos">+0,62%</td><td class="muted">-3,4%</td><td class="pos">+8,4%</td></tr>
           <tr><td>🇪🇺 Euro Stoxx 50</td><td>4.982</td><td class="pos">+0,52%</td><td class="pos">+1,42%</td><td class="muted">-2,8%</td><td class="pos">+10,2%</td></tr>
@@ -565,6 +606,40 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </table>
   </div>
 
+  <!-- ═══ 09 · NARRATIVES / BASKETS ═══ -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <span class="section-title">Narratives</span>
+      <span class="section-sub">Handelbare Marktbaskets · Momentum-Ranking</span>
+    </div>
+
+    <div class="narrative-controls">
+      <div class="nc-group">
+        <span class="nc-label">Zeithorizont</span>
+        <div class="nc-toggle" id="horizonToggle">
+          <button class="nc-btn active" data-horizon="1d">1D</button>
+          <button class="nc-btn" data-horizon="1w">1W</button>
+          <button class="nc-btn" data-horizon="1m">1M</button>
+        </div>
+      </div>
+      <div class="nc-group">
+        <span class="nc-label">Score</span>
+        <div class="nc-toggle" id="scoreToggle">
+          <button class="nc-btn active" data-score="strength">Strength</button>
+          <button class="nc-btn" data-score="thrust">Thrust</button>
+          <button class="nc-btn" data-score="leadership">Leadership</button>
+          <button class="nc-btn" data-score="breadth">Breadth</button>
+        </div>
+      </div>
+      <div class="nc-meta" id="narrativeMeta"></div>
+    </div>
+
+    <div class="narrative-grid" id="narrativeGrid">
+      <div class="narrative-empty">Lade Narrative-Daten…</div>
+    </div>
+  </div>
+
   <!-- ═══ 10 · TRADERECHNER ═══ -->
   <div class="section fade-in">
     <div class="section-header">
@@ -786,7 +861,7 @@ async function loadData() {
               let rows = data[key].map(item => {
                 const isDax = item.name && item.name.includes('DAX');
                 const spark = makeSparkline(item.hist_5d, 48, 16);
-                return `<tr ${isDax ? 'style="background:rgba(0,0,0,0.03);font-weight:600;"' : ''}>
+                return `<tr ${isDax ? 'style="background:rgba(255,255,255,0.05);font-weight:600;"' : ''}>
                   <td>${item.name}</td>
                   <td>${fmtPrice(item.price)}</td>
                   <td class="${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)}</td>
@@ -841,11 +916,11 @@ async function loadData() {
         const xFor = (i, len) => PAD_L + (i / (len - 1)) * inner;
 
         const levels = [
-          { v: 2,  col: '#d64545', label: '2\u03c3',  val: '2.00',  solid: true },
-          { v: 1,  col: '#d64545', label: '1\u03c3',  val: '1.00',  solid: false },
+          { v: 2,  col: '#f0605c', label: '2\u03c3',  val: '2.00',  solid: true },
+          { v: 1,  col: '#f0605c', label: '1\u03c3',  val: '1.00',  solid: false },
           { v: 0,  col: '#999',    label: '',      val: '0.00',  solid: false },
-          { v: -1, col: '#2d8a4e', label: '-1\u03c3', val: '-1.00', solid: false },
-          { v: -2, col: '#2d8a4e', label: '-2\u03c3', val: '-2.00', solid: true },
+          { v: -1, col: '#3ddc73', label: '-1\u03c3', val: '-1.00', solid: false },
+          { v: -2, col: '#3ddc73', label: '-2\u03c3', val: '-2.00', solid: true },
         ];
 
         let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="overflow:visible;">`;
@@ -882,10 +957,10 @@ async function loadData() {
         [105, 90, 75, 60, 45, 30, 25, 20].forEach(g => {
           const y = yFor(g).toFixed(1);
           const isBand = (g === 75 || g === 25);
-          svg += `<line x1="${PAD_L}" y1="${y}" x2="${PAD_L + inner}" y2="${y}" stroke="${isBand ? (g === 75 ? '#d64545' : '#2d8a4e') : 'var(--ink-muted)'}" stroke-width="${isBand ? 1.2 : 0.3}" opacity="${isBand ? 0.85 : 0.18}"/>`;
+          svg += `<line x1="${PAD_L}" y1="${y}" x2="${PAD_L + inner}" y2="${y}" stroke="${isBand ? (g === 75 ? '#f0605c' : '#3ddc73') : 'var(--ink-muted)'}" stroke-width="${isBand ? 1.2 : 0.3}" opacity="${isBand ? 0.85 : 0.18}"/>`;
           if (isBand) {
             const lbl = g === 75 ? 'OB' : 'OS';
-            const c = g === 75 ? '#d64545' : '#2d8a4e';
+            const c = g === 75 ? '#f0605c' : '#3ddc73';
             svg += `<rect x="${PAD_L + inner + 2}" y="${(+y - 6).toFixed(1)}" width="18" height="12" fill="${c}" rx="1"/>`;
             svg += `<text x="${PAD_L + inner + 11}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="#fff" text-anchor="middle" font-family="monospace">${lbl}</text>`;
           }
@@ -938,7 +1013,7 @@ async function loadData() {
       // MCO normalized
       if (q.mco_zscore_history) {
         document.getElementById('mco-chart').innerHTML = sigmaChart([
-          { data: q.mco_zscore_history, color: '#6b6b6b', width: 1.6 },
+          { data: q.mco_zscore_history, color: '#9a9aa2', width: 1.6 },
         ], 760, 190);
         const el = document.getElementById('mco-val');
         if (el && q.mco_zscore !== undefined) el.textContent = nf2(q.mco_zscore);
@@ -947,8 +1022,8 @@ async function loadData() {
       // % above key moving averages
       if (q.kma_history) {
         const defs = [
-          { key: 'sma5',   label: '% > 5 SMA',   color: '#6b6b6b' },
-          { key: 'ema10',  label: '% > 10 EMA',  color: '#7b5ea7' },
+          { key: 'sma5',   label: '% > 5 SMA',   color: '#9a9aa2' },
+          { key: 'ema10',  label: '% > 10 EMA',  color: '#9b7fc9' },
           { key: 'ema21',  label: '% > 21 EMA',  color: '#2f7ed8' },
           { key: 'sma50',  label: '% > 50 SMA',  color: '#d4a017' },
           { key: 'sma200', label: '% > 200 SMA', color: '#d6407f' },
@@ -1007,6 +1082,182 @@ async function loadData() {
   }
 }
 loadData();
+
+// ══════════════════════════════════════════════
+// NARRATIVES / BASKETS
+// ══════════════════════════════════════════════
+let narrativesRaw = null;
+let ncHorizon = '1d';
+let ncScore = 'strength';
+let ncExpandedId = null;
+let ncMemberSort = { field: 'd1_pct', dir: 'desc' };
+
+const MEMBER_COLUMNS = [
+  { key: 'symbol', label: 'Ticker', sortable: true },
+  { key: 'price',  label: 'Kurs', sortable: true },
+  { key: 'd1_pct', label: '1D%', sortable: true },
+  { key: 'w1_pct', label: '1W%', sortable: true },
+  { key: 'm1_pct', label: '1M%', sortable: true },
+  { key: 'rs',     label: 'RS', sortable: true },
+  { key: 'spark',  label: 'Verlauf', sortable: false },
+];
+
+async function loadNarratives() {
+  try {
+    const r = await fetch('data/narratives.json');
+    if (!r.ok) { console.log('narratives.json nicht gefunden.'); return; }
+    narrativesRaw = await r.json();
+    const meta = document.getElementById('narrativeMeta');
+    if (meta && narrativesRaw.meta) {
+      const dt = new Date(narrativesRaw.meta.updated_at);
+      const dtStr = dt.toLocaleString('de-DE', { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+      meta.textContent = `${narrativesRaw.meta.universe_size} Ticker · ${narrativesRaw.narratives.length} Narrative · Stand ${dtStr}`;
+    }
+    renderNarrativeGrid();
+  } catch (e) {
+    console.log('Narratives-Daten konnten nicht geladen werden:', e);
+  }
+}
+
+function ncScoreValue(narrative, horizon, score) {
+  const s = narrative.scores && narrative.scores[horizon];
+  if (!s) return null;
+  if (score === 'breadth') return s.breadth ? s.breadth.pct_positive : null;
+  return s[score];
+}
+
+function ncFmtScore(v, score) {
+  if (v === null || v === undefined) return '—';
+  const sign = v >= 0 ? '+' : '';
+  return score === 'thrust' ? sign + v.toFixed(2) : sign + v.toFixed(1) + '%';
+}
+
+// Farbintensität basiert auf dem Perzentilrang innerhalb der aktuell angezeigten
+// Narrative (nicht auf der absoluten Performance) — so bleibt die Skala über
+// verschiedene Scores/Zeithorizonte hinweg konsistent vergleichbar.
+function ncGreenShade(rankPct) {
+  if (rankPct >= 0.90) return 'rgba(61,220,115,0.30)';
+  if (rankPct >= 0.75) return 'rgba(61,220,115,0.20)';
+  if (rankPct >= 0.55) return 'rgba(61,220,115,0.12)';
+  if (rankPct >= 0.35) return 'rgba(61,220,115,0.06)';
+  return 'transparent';
+}
+
+function ncSortMembers(members) {
+  const { field, dir } = ncMemberSort;
+  const mul = dir === 'asc' ? 1 : -1;
+  return members.slice().sort((a, b) => {
+    if (field === 'symbol') return mul * String(a.symbol).localeCompare(String(b.symbol));
+    const av = (a[field] === null || a[field] === undefined) ? -Infinity : a[field];
+    const bv = (b[field] === null || b[field] === undefined) ? -Infinity : b[field];
+    return mul * (av - bv);
+  });
+}
+
+function renderNarrativeDetail(narrative) {
+  const members = narrative.members.map(m => ({ ...m, rs: m['percentile_' + ncHorizon] }));
+  const sorted = ncSortMembers(members);
+  const sparkField = ncHorizon === '1m' ? 'hist_1m' : 'hist_1w';
+
+  const rows = sorted.map(m => `
+    <tr>
+      <td>${m.symbol}</td>
+      <td>${fmtPrice(m.price)}</td>
+      <td class="${pctClass(m.d1_pct)}">${fmtPct(m.d1_pct)}</td>
+      <td class="${pctClass(m.w1_pct)}">${fmtPct(m.w1_pct)}</td>
+      <td class="${pctClass(m.m1_pct)}">${fmtPct(m.m1_pct)}</td>
+      <td class="muted">${(m.rs !== undefined && m.rs !== null) ? m.rs.toFixed(0) : '—'}</td>
+      <td>${makeSparkline(m[sparkField], 64, 20)}</td>
+    </tr>`).join('');
+
+  const headers = MEMBER_COLUMNS.map(col => {
+    const isSorted = ncMemberSort.field === col.key;
+    const arrow = isSorted ? (ncMemberSort.dir === 'asc' ? '▲' : '▼') : '';
+    const click = col.sortable ? `onclick="ncSortBy('${col.key}')"` : '';
+    return `<th class="${isSorted ? 'sorted' : ''}" ${click}>${col.label}${arrow ? ` <span class="sort-arrow">${arrow}</span>` : ''}</th>`;
+  }).join('');
+
+  return `<div class="narrative-detail">
+    <div class="nd-header">
+      <span class="nd-title">${narrative.name} · ${narrative.n_members} Ticker</span>
+      <span class="nd-close" onclick="ncToggleCard('${narrative.id}')">Schließen ✕</span>
+    </div>
+    <table class="member-table">
+      <thead><tr>${headers}</tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+
+function renderNarrativeGrid() {
+  if (!narrativesRaw) return;
+  const grid = document.getElementById('narrativeGrid');
+  const list = narrativesRaw.narratives.slice();
+  list.sort((a, b) => (ncScoreValue(b, ncHorizon, ncScore) ?? -999) - (ncScoreValue(a, ncHorizon, ncScore) ?? -999));
+  const total = list.length;
+
+  const html = list.map((narrative, i) => {
+    const val = ncScoreValue(narrative, ncHorizon, ncScore);
+    const rankPct = total > 1 ? 1 - (i / (total - 1)) : 1;
+    const bg = ncGreenShade(rankPct);
+    const s = narrative.scores[ncHorizon] || {};
+    const breadth = s.breadth || {};
+    const isExpanded = narrative.id === ncExpandedId;
+
+    let card = `<div class="narrative-card${isExpanded ? ' expanded' : ''}" style="background:${bg};" onclick="ncToggleCard('${narrative.id}')">
+      <div class="nc-card-top">
+        <span class="nc-card-name">${narrative.name}</span>
+        <span class="nc-card-rank">#${i + 1}</span>
+      </div>
+      <div class="nc-card-score ${(val ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(val, ncScore)}</div>
+      <div class="nc-card-stats">
+        <span>Breadth <b>${breadth.pct_positive != null ? breadth.pct_positive.toFixed(0) + '%' : '—'}</b></span>
+        <span>Leader <b>${s.leadership != null ? s.leadership.toFixed(0) + '%' : '—'}</b></span>
+        <span>Thrust <b>${s.thrust != null ? (s.thrust >= 0 ? '+' : '') + s.thrust.toFixed(2) : '—'}</b></span>
+      </div>
+      <div class="nc-card-members">${narrative.n_members} Ticker</div>
+    </div>`;
+
+    if (isExpanded) card += renderNarrativeDetail(narrative);
+    return card;
+  }).join('');
+
+  grid.innerHTML = html || '<div class="narrative-empty">Keine Narrative gefunden.</div>';
+}
+
+function ncToggleCard(id) {
+  ncExpandedId = (ncExpandedId === id) ? null : id;
+  ncMemberSort = { field: 'd1_pct', dir: 'desc' };
+  renderNarrativeGrid();
+}
+
+function ncSortBy(field) {
+  if (ncMemberSort.field === field) {
+    ncMemberSort.dir = ncMemberSort.dir === 'asc' ? 'desc' : 'asc';
+  } else {
+    ncMemberSort = { field, dir: field === 'symbol' ? 'asc' : 'desc' };
+  }
+  renderNarrativeGrid();
+}
+
+const NC_HORIZON_PCT_FIELD = { '1d': 'd1_pct', '1w': 'w1_pct', '1m': 'm1_pct' };
+document.getElementById('horizonToggle').addEventListener('click', (e) => {
+  const btn = e.target.closest('.nc-btn');
+  if (!btn) return;
+  ncHorizon = btn.dataset.horizon;
+  document.querySelectorAll('#horizonToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
+  ncMemberSort = { field: NC_HORIZON_PCT_FIELD[ncHorizon], dir: 'desc' };
+  renderNarrativeGrid();
+});
+document.getElementById('scoreToggle').addEventListener('click', (e) => {
+  const btn = e.target.closest('.nc-btn');
+  if (!btn) return;
+  ncScore = btn.dataset.score;
+  document.querySelectorAll('#scoreToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
+  renderNarrativeGrid();
+});
+
+loadNarratives();
 
 // ══════════════════════════════════════════════
 // PASSWORD PROTECTION
