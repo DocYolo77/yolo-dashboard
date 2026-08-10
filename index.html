@@ -234,6 +234,14 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .member-table td:first-child { font-weight: 600; }
 .member-table tbody tr:hover { background: rgba(255,255,255,0.03); }
 
+.nc-info { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--ink-muted); color: var(--ink-muted); font-family: var(--mono-font); font-size: 10px; cursor: help; user-select: none; }
+.nc-info:hover, .nc-info:focus, .nc-info.open { color: var(--ink); border-color: var(--ink-light); outline: none; }
+.nc-info-popup { display: none; position: absolute; top: 24px; left: 0; width: 340px; max-width: 80vw; z-index: 20; background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 4px; padding: 14px 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); cursor: default; }
+.nc-info:hover .nc-info-popup, .nc-info:focus .nc-info-popup, .nc-info.open .nc-info-popup { display: block; }
+.nc-info-popup dt { font-family: var(--mono-font); font-size: 10px; font-weight: 600; letter-spacing: 0.5px; color: var(--ink); text-transform: uppercase; margin-top: 10px; }
+.nc-info-popup dt:first-child { margin-top: 0; }
+.nc-info-popup dd { font-size: 11px; line-height: 1.5; color: var(--ink-light); margin: 3px 0 0; }
+
 @media (max-width: 900px) {
   .hero-top { flex-direction: column; gap: 16px; }
   .regime-grid, .mcclellan-grid, .sizer-grid { grid-template-columns: 1fr; }
@@ -612,6 +620,18 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       <span class="section-num">09</span>
       <span class="section-title">Narratives</span>
       <span class="section-sub">Handelbare Marktbaskets · Momentum-Ranking</span>
+      <span class="nc-info" id="narrativeInfo" tabindex="0">ⓘ
+        <dl class="nc-info-popup">
+          <dt>Strength</dt>
+          <dd>Kumulierte (compoundete) Rendite des Baskets über den Zeitraum, aus dem Median der täglichen Mitglieder-Renditen.</dd>
+          <dt>Thrust</dt>
+          <dd>EMA(kurz) − EMA(lang) der täglichen Basket-Rendite. Misst Beschleunigung, nicht Niveau — zieht der Basket gerade frisch an?</dd>
+          <dt>Leadership</dt>
+          <dd>Anteil der Mitglieder im Top-Quintil des gesamten Ticker-Universums für diesen Horizont, gesättigt bei ~5 Mitgliedern.</dd>
+          <dt>Breadth</dt>
+          <dd>Wie breit die Bewegung getragen wird: % positive Mitglieder, Median-Rendite, % über einer horizontabhängigen Signifikanz-Schwelle.</dd>
+        </dl>
+      </span>
     </div>
 
     <div class="narrative-controls">
@@ -1258,6 +1278,17 @@ document.getElementById('scoreToggle').addEventListener('click', (e) => {
 });
 
 loadNarratives();
+
+const narrativeInfoIcon = document.getElementById('narrativeInfo');
+if (narrativeInfoIcon) {
+  narrativeInfoIcon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    narrativeInfoIcon.classList.toggle('open');
+  });
+  document.addEventListener('click', (e) => {
+    if (!narrativeInfoIcon.contains(e.target)) narrativeInfoIcon.classList.remove('open');
+  });
+}
 
 // ══════════════════════════════════════════════
 // PASSWORD PROTECTION
