@@ -364,6 +364,11 @@ def fetch_qqq_breadth():
         def fmt_hist(s, decimals=2):
             return [round(float(x), decimals) for x in s.tolist()]
 
+        def fmt_dates(s):
+            """German short date labels (DD.MM.) for chart x-axes, aligned
+            1:1 with the corresponding _history array (same index)."""
+            return [d.strftime("%d.%m.") for d in s.index]
+
         # Build KMA current + history payload
         kma_now = {}
         kma_hist = {}
@@ -390,14 +395,18 @@ def fetch_qqq_breadth():
             "kma_now": kma_now,
             "mco_history": fmt_hist(mco_hist, 2),
             "mco_zscore_history": fmt_hist(mco_z_hist, 2),
+            "mco_zscore_dates": fmt_dates(mco_z_hist),
             "summation_history": fmt_hist(sum_hist, 1),
             "summation_zscore_history": fmt_hist(sum_z_hist, 2),
+            "summation_zscore_dates": fmt_dates(sum_z_hist),
             "summation_zscore_sma10_history": fmt_hist(sum_z_sma10_hist, 2),
             "summation_ema5_history": fmt_hist(sum_ema5_hist, 1),
             "summation_ema10_history": fmt_hist(sum_ema10_hist, 1),
             "hl_history": [int(x) for x in hl_hist.tolist()],
+            "hl_dates": fmt_dates(hl_hist),
             "pct_above_sma20_ndx_history": kma_hist.get("sma20", []),
             "kma_history": kma_hist,
+            "kma_dates": fmt_dates(kma_series["sma20"].iloc[-history_days:]),
             "n_components": n,
         }
     except Exception as e:

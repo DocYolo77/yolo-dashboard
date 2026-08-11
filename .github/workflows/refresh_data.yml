@@ -1,10 +1,14 @@
 name: Refresh Dashboard Data
 
 on:
-  # Premarket Briefing: 06:00 UTC = 07:00 CET (Winter) / 05:00 UTC = 07:00 CEST (Sommer)
+  # Nachbörslich, direkt nach NYSE-Handelsschluss: 16:05 America/New_York.
+  # Zwei Cron-Einträge, da GitHub Actions keine Zeitzonen mit DST kennt —
+  # beide laufen ganzjährig; der jeweils "falsche" Lauf (Markt zu diesem
+  # Zeitpunkt noch nicht/schon länger geschlossen) ist unkritisch, da der
+  # Build idempotent ist (kein Diff → kein Commit).
   schedule:
-    - cron: '0 5 * * 1-5'   # Mo-Fr 07:00 CEST (Sommerzeit)
-    - cron: '0 6 * * 1-5'   # Mo-Fr 07:00 CET  (Winterzeit)
+    - cron: '5 20 * * 1-5'   # Mo-Fr 16:05 EDT (Sommerzeit, UTC-4)
+    - cron: '5 21 * * 1-5'   # Mo-Fr 16:05 EST (Winterzeit, UTC-5)
 
   # Manual trigger
   workflow_dispatch:

@@ -123,6 +123,16 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .qqq-card .bc-value { font-size: 28px; margin: 4px 0 8px 0; }
 .qqq-chart { width: 100%; height: 120px; margin: 10px 0; }
 .qqq-chart svg { width: 100%; height: 100%; display: block; }
+.qqq-card .bc-label-row { display: flex; align-items: center; gap: 6px; }
+.qqq-card .bc-label { font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--ink-light); margin-bottom: 0; }
+.chart-info { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; border-radius: 50%; border: 1px solid var(--ink-muted); color: var(--ink-muted); font-family: var(--mono-font); font-size: 9px; cursor: help; user-select: none; flex-shrink: 0; }
+.chart-info:hover, .chart-info:focus, .chart-info.open { color: var(--ink); border-color: var(--ink-light); outline: none; }
+.chart-info-popup { display: none; position: absolute; top: 22px; left: 0; width: 300px; max-width: 80vw; z-index: 20; background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 4px; padding: 12px 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); cursor: default; font-family: var(--body-font); font-size: 11px; line-height: 1.6; color: var(--ink-light); text-transform: none; letter-spacing: normal; font-weight: 400; }
+.chart-info:hover .chart-info-popup, .chart-info:focus .chart-info-popup, .chart-info.open .chart-info-popup { display: block; }
+.chart-toolbar { display: flex; justify-content: flex-end; margin-top: 8px; }
+.kma-legend-item { color: var(--kma-color, var(--ink-muted)); cursor: pointer; user-select: none; transition: opacity 0.15s; }
+.kma-legend-item:hover { opacity: 0.75; }
+.kma-legend-item.off { opacity: 0.3; text-decoration: line-through; }
 .breadth-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 16px; text-align: center; }
 .breadth-card .bc-label { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
 .breadth-card .bc-value { font-family: var(--mono-font); font-size: 24px; font-weight: 400; }
@@ -471,44 +481,92 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 
     <!-- MCSI + MCO (normalized, TradingView style) -->
     <div class="breadth-card qqq-card" id="mcsi-card" style="padding:20px 24px;margin-bottom:14px;">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;">
-        <div class="bc-label">McClellan Summation Index (Normalisiert)</div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+        <div class="bc-label-row">
+          <span class="bc-label">McClellan Summation Index (Normalisiert)</span>
+          <span class="chart-info" tabindex="0">ⓘ
+            <div class="chart-info-popup">Kumulierte Summe des McClellan Oszillators, als Z-Score über ein 200-Tage-Fenster normalisiert. Zeigt den mittelfristigen Trend der Marktbreite (NDX 100). &gt;+2&sigma; gilt als überkauft, &lt;-2&sigma; als überverkauft. Die gelbe Linie ist die 10-Tage-SMA als Signallinie.</div>
+          </span>
+        </div>
         <div style="font-family:var(--mono-font);font-size:11px;">
           <span style="color:#2f7ed8;">MCSI (z) <b id="mcsi-val">&mdash;</b></span>
           <span style="color:#d4a017;margin-left:10px;">10 SMA <b id="mcsi-sma-val">&mdash;</b></span>
         </div>
       </div>
       <div class="qqq-chart" id="mcsi-chart" style="height:190px;margin-top:10px;"></div>
+      <div class="chart-toolbar">
+        <div class="nc-toggle" id="mcsiRangeToggle">
+          <button class="nc-btn" data-range="21" onclick="setQqqRange('mcsi','21',this)">1M</button>
+          <button class="nc-btn" data-range="63" onclick="setQqqRange('mcsi','63',this)">3M</button>
+          <button class="nc-btn active" data-range="all" onclick="setQqqRange('mcsi','all',this)">Alle</button>
+        </div>
+      </div>
     </div>
 
     <div class="breadth-card qqq-card" id="mco-card" style="padding:20px 24px;margin-bottom:14px;">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;">
-        <div class="bc-label">McClellan Oszillator (Normalisiert)</div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+        <div class="bc-label-row">
+          <span class="bc-label">McClellan Oszillator (Normalisiert)</span>
+          <span class="chart-info" tabindex="0">ⓘ
+            <div class="chart-info-popup">Differenz aus 19-Tage- und 39-Tage-EMA der Advance/Decline-Linie (NDX 100), als Z-Score normalisiert. Misst kurzfristige Beschleunigung/Verlangsamung der Marktbreite — reagiert schneller als die Summation Index (MCSI).</div>
+          </span>
+        </div>
         <div style="font-family:var(--mono-font);font-size:11px;">
           <span style="color:var(--ink-muted);">MCO (z) <b id="mco-val">&mdash;</b></span>
         </div>
       </div>
       <div class="qqq-chart" id="mco-chart" style="height:190px;margin-top:10px;"></div>
+      <div class="chart-toolbar">
+        <div class="nc-toggle" id="mcoRangeToggle">
+          <button class="nc-btn" data-range="21" onclick="setQqqRange('mco','21',this)">1M</button>
+          <button class="nc-btn" data-range="63" onclick="setQqqRange('mco','63',this)">3M</button>
+          <button class="nc-btn active" data-range="all" onclick="setQqqRange('mco','all',this)">Alle</button>
+        </div>
+      </div>
     </div>
 
     <!-- % Stocks Above Key Moving Averages -->
     <div class="breadth-card qqq-card" id="kma-card" style="padding:20px 24px;margin-bottom:14px;">
       <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
-        <div class="bc-label">% Aktien &uuml;ber wichtigen Durchschnitten</div>
+        <div class="bc-label-row">
+          <span class="bc-label">% Aktien &uuml;ber wichtigen Durchschnitten</span>
+          <span class="chart-info" tabindex="0">ⓘ
+            <div class="chart-info-popup">Anteil der NDX-100-Komponenten, deren Kurs über der jeweiligen gleitenden Durchschnittslinie notiert. Klassischer Breadth-Indikator: &gt;75% gilt als überkauft (OB), &lt;25% als überverkauft (OS). Über die Legende lassen sich einzelne Linien ein-/ausblenden.</div>
+          </span>
+        </div>
         <div style="font-family:var(--mono-font);font-size:10px;display:flex;gap:10px;flex-wrap:wrap;" id="kma-legend"></div>
       </div>
       <div class="qqq-chart" id="kma-chart" style="height:230px;margin-top:10px;"></div>
-      <div class="bc-sub" style="text-align:center;">NDX 100 Komponenten &middot; 120 Handelstage &middot; OB 75 / OS 25</div>
+      <div class="chart-toolbar" style="justify-content:space-between;align-items:center;">
+        <div class="bc-sub" style="margin-top:0;">NDX 100 Komponenten &middot; 120 Handelstage &middot; OB 75 / OS 25</div>
+        <div class="nc-toggle" id="kmaRangeToggle">
+          <button class="nc-btn" data-range="21" onclick="setQqqRange('kma','21',this)">1M</button>
+          <button class="nc-btn" data-range="63" onclick="setQqqRange('kma','63',this)">3M</button>
+          <button class="nc-btn active" data-range="all" onclick="setQqqRange('kma','all',this)">Alle</button>
+        </div>
+      </div>
     </div>
 
     <!-- High/Low Oscillator -->
     <div class="breadth-card qqq-card" id="hlosc-card" style="padding:20px 24px;">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;">
-        <div class="bc-label">High/Low Oszillator</div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+        <div class="bc-label-row">
+          <span class="bc-label">High/Low Oszillator</span>
+          <span class="chart-info" tabindex="0">ⓘ
+            <div class="chart-info-popup">Neue 20-Tage-Hochs minus neue 20-Tage-Tiefs unter den NDX-100-Komponenten, pro Handelstag. Positive Werte = mehr Aktien erreichen neue Hochs als Tiefs (breite Stärke), negative Werte umgekehrt.</div>
+          </span>
+        </div>
         <div class="bc-value" style="font-size:18px;margin:0;">&mdash;</div>
       </div>
       <div class="qqq-chart" id="hlosc-chart" style="height:150px;margin-top:10px;"></div>
-      <div class="bc-sub" style="text-align:center;">Neue 20-Tage Hochs minus Tiefs</div>
+      <div class="chart-toolbar" style="justify-content:space-between;align-items:center;">
+        <div class="bc-sub" style="margin-top:0;">Neue 20-Tage Hochs minus Tiefs</div>
+        <div class="nc-toggle" id="hlRangeToggle">
+          <button class="nc-btn" data-range="21" onclick="setQqqRange('hl','21',this)">1M</button>
+          <button class="nc-btn" data-range="63" onclick="setQqqRange('hl','63',this)">3M</button>
+          <button class="nc-btn active" data-range="all" onclick="setQqqRange('hl','all',this)">Alle</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -711,6 +769,233 @@ function renderRegime(data) {
 }
 
 // ══════════════════════════════════════════════
+// QQQ MARKTLAGE CHARTS (McClellan normalized, KMA, H/L)
+// ══════════════════════════════════════════════
+let qqqRaw = null;
+let qqqRange = { mcsi: 'all', mco: 'all', kma: 'all', hl: 'all' };
+let kmaVisible = { sma5: true, ema10: true, ema21: true, sma50: true, sma200: true };
+const QQQ_PAD_L = 6, QQQ_PAD_R = 52, QQQ_PAD_BOTTOM = 14;
+
+function qqqSlice(arr, key) {
+  const r = qqqRange[key];
+  if (!arr || r === 'all') return arr;
+  return arr.slice(-r);
+}
+
+function qqqXAxis(dates, len, xFor, h) {
+  if (!dates || !dates.length || len < 2) return '';
+  const nTicks = Math.min(6, len);
+  let out = '';
+  for (let i = 0; i < nTicks; i++) {
+    const idx = Math.round(i * (len - 1) / (nTicks - 1));
+    if (dates[idx] === undefined) continue;
+    const x = xFor(idx, len);
+    out += `<text x="${x.toFixed(1)}" y="${h - 3}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="middle" opacity="0.7">${dates[idx]}</text>`;
+  }
+  return out;
+}
+
+// Sigma-scaled chart: fixed +2.5 .. -2.5 band with labelled levels
+function sigmaChart(series, w, h, dates) {
+  const s1 = series[0];
+  if (!s1 || !s1.data || s1.data.length < 2) return '';
+  const inner = w - QQQ_PAD_L - QQQ_PAD_R;
+  const plotH = h - QQQ_PAD_BOTTOM;
+  const LIM = 2.6;
+  const clamp = v => Math.max(-LIM, Math.min(LIM, v));
+  const yFor = v => plotH / 2 - (clamp(v) / LIM) * (plotH / 2 - 8);
+  const xFor = (i, len) => QQQ_PAD_L + (i / (len - 1)) * inner;
+
+  const levels = [
+    { v: 2,  col: '#f0605c', label: '2σ',  val: '2.00',  solid: true },
+    { v: 1,  col: '#f0605c', label: '1σ',  val: '1.00',  solid: false },
+    { v: 0,  col: '#999',    label: '',      val: '0.00',  solid: false },
+    { v: -1, col: '#3ddc73', label: '-1σ', val: '-1.00', solid: false },
+    { v: -2, col: '#3ddc73', label: '-2σ', val: '-2.00', solid: true },
+  ];
+
+  let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="overflow:visible;">`;
+  levels.forEach(L => {
+    const y = yFor(L.v).toFixed(1);
+    svg += `<line x1="${QQQ_PAD_L}" y1="${y}" x2="${QQQ_PAD_L + inner}" y2="${y}" stroke="${L.col}" stroke-width="${L.solid ? 1 : 0.7}" ${L.solid ? '' : 'stroke-dasharray="3,3"'} opacity="${L.v === 0 ? 0.35 : 0.75}"/>`;
+    if (L.label) {
+      svg += `<rect x="${QQQ_PAD_L + inner + 2}" y="${(+y - 6).toFixed(1)}" width="20" height="12" fill="${L.col}" rx="1"/>`;
+      svg += `<text x="${QQQ_PAD_L + inner + 12}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="#fff" text-anchor="middle" font-family="monospace">${L.label}</text>`;
+    }
+    svg += `<text x="${QQQ_PAD_L + inner + 26}" y="${(+y + 3).toFixed(1)}" font-size="8.5" fill="var(--ink-muted)" font-family="monospace">${L.val}</text>`;
+  });
+
+  let len = 0;
+  series.forEach(cfg => {
+    const arr = cfg.data;
+    const col = cfg.color || 'var(--ink-muted)';
+    const wid = cfg.width || 1.6;
+    const dash = cfg.dash ? `stroke-dasharray="${cfg.dash}"` : '';
+    if (!arr || arr.length < 2) return;
+    len = Math.max(len, arr.length);
+    const pts = arr.map((v, i) => `${xFor(i, arr.length).toFixed(1)},${yFor(v).toFixed(1)}`).join(' ');
+    svg += `<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="${wid}" ${dash} stroke-linecap="round" stroke-linejoin="round"/>`;
+  });
+  svg += qqqXAxis(dates, len, xFor, h);
+  svg += `</svg>`;
+  return svg;
+}
+
+// % above MA multi-line chart with OB/OS
+function kmaChart(seriesList, w, h, dates) {
+  const inner = w - QQQ_PAD_L - QQQ_PAD_R;
+  const plotH = h - QQQ_PAD_BOTTOM;
+  const yFor = v => plotH - 10 - ((v - 15) / (105 - 15)) * (plotH - 20);
+  const xFor = (i, len) => QQQ_PAD_L + (i / (len - 1)) * inner;
+  let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="overflow:visible;">`;
+
+  [105, 90, 75, 60, 45, 30, 25, 20].forEach(g => {
+    const y = yFor(g).toFixed(1);
+    const isBand = (g === 75 || g === 25);
+    svg += `<line x1="${QQQ_PAD_L}" y1="${y}" x2="${QQQ_PAD_L + inner}" y2="${y}" stroke="${isBand ? (g === 75 ? '#f0605c' : '#3ddc73') : 'var(--ink-muted)'}" stroke-width="${isBand ? 1.2 : 0.3}" opacity="${isBand ? 0.85 : 0.18}"/>`;
+    if (isBand) {
+      const lbl = g === 75 ? 'OB' : 'OS';
+      const c = g === 75 ? '#f0605c' : '#3ddc73';
+      svg += `<rect x="${QQQ_PAD_L + inner + 2}" y="${(+y - 6).toFixed(1)}" width="18" height="12" fill="${c}" rx="1"/>`;
+      svg += `<text x="${QQQ_PAD_L + inner + 11}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="#fff" text-anchor="middle" font-family="monospace">${lbl}</text>`;
+    }
+    svg += `<text x="${QQQ_PAD_L + inner + (isBand ? 23 : 3)}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" opacity="0.8">${g.toFixed(0)}</text>`;
+  });
+
+  let len = 0;
+  seriesList.forEach(cfg => {
+    if (!cfg.data || cfg.data.length < 2) return;
+    len = Math.max(len, cfg.data.length);
+    const pts = cfg.data.map((v, i) => `${xFor(i, cfg.data.length).toFixed(1)},${yFor(v).toFixed(1)}`).join(' ');
+    svg += `<polyline points="${pts}" fill="none" stroke="${cfg.color}" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>`;
+  });
+  svg += qqqXAxis(dates, len, xFor, h);
+  svg += `</svg>`;
+  return svg;
+}
+
+// H/L bar chart
+function hlBarChart(data, w, h, dates) {
+  if (!data || data.length < 2) return '';
+  const inner = w - QQQ_PAD_L - QQQ_PAD_R;
+  const plotH = h - QQQ_PAD_BOTTOM;
+  const max = Math.max(...data.map(Math.abs)) || 1;
+  const zero = plotH / 2;
+  const bw = inner / data.length;
+  const xFor = (i, len) => QQQ_PAD_L + i * (inner / len) + (inner / len) / 2;
+  const bars = data.map((v, i) => {
+    const x = QQQ_PAD_L + i * bw;
+    const bh = Math.abs(v) / max * (plotH / 2 - 4);
+    const y = v >= 0 ? zero - bh : zero;
+    const col = v >= 0 ? 'var(--positive)' : 'var(--negative)';
+    return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${Math.max(bw - 0.6, 0.8).toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}" opacity="0.85"/>`;
+  }).join('');
+  const axis = qqqXAxis(dates, data.length, xFor, h);
+  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <line x1="${QQQ_PAD_L}" y1="${zero}" x2="${QQQ_PAD_L + inner}" y2="${zero}" stroke="var(--ink-muted)" stroke-width="0.5" opacity="0.5"/>
+    ${bars}
+    ${axis}
+  </svg>`;
+}
+
+const qqqNf2 = v => v.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+function renderMcsi() {
+  const q = qqqRaw;
+  if (!q || !q.summation_zscore_history) return;
+  const hist = qqqSlice(q.summation_zscore_history, 'mcsi');
+  const sma = qqqSlice(q.summation_zscore_sma10_history, 'mcsi');
+  const dates = qqqSlice(q.summation_zscore_dates, 'mcsi');
+  document.getElementById('mcsi-chart').innerHTML = sigmaChart([
+    { data: hist, color: '#2f7ed8', width: 2 },
+    { data: sma, color: '#d4a017', width: 1.3, dash: '3,2' },
+  ], 760, 190, dates);
+  const mv = document.getElementById('mcsi-val');
+  const sv = document.getElementById('mcsi-sma-val');
+  if (mv && q.summation_zscore !== undefined) mv.textContent = qqqNf2(q.summation_zscore);
+  if (sv && q.summation_zscore_sma10 !== undefined) sv.textContent = qqqNf2(q.summation_zscore_sma10);
+}
+
+function renderMco() {
+  const q = qqqRaw;
+  if (!q || !q.mco_zscore_history) return;
+  const hist = qqqSlice(q.mco_zscore_history, 'mco');
+  const dates = qqqSlice(q.mco_zscore_dates, 'mco');
+  document.getElementById('mco-chart').innerHTML = sigmaChart([
+    { data: hist, color: '#9a9aa2', width: 1.6 },
+  ], 760, 190, dates);
+  const el = document.getElementById('mco-val');
+  if (el && q.mco_zscore !== undefined) el.textContent = qqqNf2(q.mco_zscore);
+}
+
+const KMA_DEFS = [
+  { key: 'sma5',   label: '% > 5 SMA',   color: '#9a9aa2' },
+  { key: 'ema10',  label: '% > 10 EMA',  color: '#9b7fc9' },
+  { key: 'ema21',  label: '% > 21 EMA',  color: '#2f7ed8' },
+  { key: 'sma50',  label: '% > 50 SMA',  color: '#d4a017' },
+  { key: 'sma200', label: '% > 200 SMA', color: '#d6407f' },
+];
+
+function renderKma() {
+  const q = qqqRaw;
+  if (!q || !q.kma_history) return;
+  const dates = qqqSlice(q.kma_dates, 'kma');
+  const series = KMA_DEFS
+    .filter(d => kmaVisible[d.key] && q.kma_history[d.key])
+    .map(d => ({ data: qqqSlice(q.kma_history[d.key], 'kma'), color: d.color }));
+  document.getElementById('kma-chart').innerHTML = kmaChart(series, 900, 230, dates);
+  const legend = document.getElementById('kma-legend');
+  if (legend && q.kma_now) {
+    legend.innerHTML = KMA_DEFS.filter(d => q.kma_now[d.key] !== undefined).map(d => {
+      const on = kmaVisible[d.key];
+      return `<span class="kma-legend-item${on ? '' : ' off'}" style="--kma-color:${d.color};" onclick="toggleKmaSeries('${d.key}')">${d.label} <b>${qqqNf2(q.kma_now[d.key])}</b></span>`;
+    }).join('');
+  }
+}
+
+function renderHl() {
+  const q = qqqRaw;
+  const hlCard = document.getElementById('hlosc-card');
+  if (!hlCard || !q || !q.hl_history) return;
+  const v = hlCard.querySelector('.bc-value');
+  v.textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + '  (' + q.new_highs + 'H / ' + q.new_lows + 'L)';
+  v.style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
+  const hist = qqqSlice(q.hl_history, 'hl');
+  const dates = qqqSlice(q.hl_dates, 'hl');
+  document.getElementById('hlosc-chart').innerHTML = hlBarChart(hist, 760, 150, dates);
+}
+
+function setQqqRange(key, range, btn) {
+  qqqRange[key] = range === 'all' ? 'all' : parseInt(range, 10);
+  const toggle = document.getElementById(key + 'RangeToggle');
+  if (toggle) toggle.querySelectorAll('.nc-btn').forEach(b => b.classList.toggle('active', b === btn));
+  if (key === 'mcsi') renderMcsi();
+  else if (key === 'mco') renderMco();
+  else if (key === 'kma') renderKma();
+  else if (key === 'hl') renderHl();
+}
+
+function toggleKmaSeries(key) {
+  kmaVisible[key] = !kmaVisible[key];
+  renderKma();
+}
+
+// Info-icon popups (click/tap to open, click outside to close) — shared by
+// all .chart-info icons across the QQQ blocks.
+document.querySelectorAll('.chart-info').forEach(icon => {
+  icon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.querySelectorAll('.chart-info.open').forEach(o => { if (o !== icon) o.classList.remove('open'); });
+    icon.classList.toggle('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  document.querySelectorAll('.chart-info.open').forEach(icon => {
+    if (!icon.contains(e.target)) icon.classList.remove('open');
+  });
+});
+
+// ══════════════════════════════════════════════
 // LOAD DATA FROM snapshot.json
 // ══════════════════════════════════════════════
 async function loadData() {
@@ -763,151 +1048,11 @@ async function loadData() {
 
     // ── QQQ MARKTLAGE (McClellan normalized, KMA, H/L) ──
     if (data.qqq_breadth) {
-      const q = data.qqq_breadth;
-      const PAD_L = 6, PAD_R = 52;
-
-      // Sigma-scaled chart: fixed +2.5 .. -2.5 band with labelled levels
-      function sigmaChart(series, w, h, opts) {
-        opts = opts || {};
-        const s1 = series[0];
-        if (!s1 || s1.length < 2) return '';
-        const inner = w - PAD_L - PAD_R;
-        const LIM = 2.6;
-        const clamp = v => Math.max(-LIM, Math.min(LIM, v));
-        const yFor = v => h / 2 - (clamp(v) / LIM) * (h / 2 - 8);
-        const xFor = (i, len) => PAD_L + (i / (len - 1)) * inner;
-
-        const levels = [
-          { v: 2,  col: '#f0605c', label: '2\u03c3',  val: '2.00',  solid: true },
-          { v: 1,  col: '#f0605c', label: '1\u03c3',  val: '1.00',  solid: false },
-          { v: 0,  col: '#999',    label: '',      val: '0.00',  solid: false },
-          { v: -1, col: '#3ddc73', label: '-1\u03c3', val: '-1.00', solid: false },
-          { v: -2, col: '#3ddc73', label: '-2\u03c3', val: '-2.00', solid: true },
-        ];
-
-        let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="overflow:visible;">`;
-        levels.forEach(L => {
-          const y = yFor(L.v).toFixed(1);
-          svg += `<line x1="${PAD_L}" y1="${y}" x2="${PAD_L + inner}" y2="${y}" stroke="${L.col}" stroke-width="${L.solid ? 1 : 0.7}" ${L.solid ? '' : 'stroke-dasharray="3,3"'} opacity="${L.v === 0 ? 0.35 : 0.75}"/>`;
-          if (L.label) {
-            svg += `<rect x="${PAD_L + inner + 2}" y="${(+y - 6).toFixed(1)}" width="20" height="12" fill="${L.col}" rx="1"/>`;
-            svg += `<text x="${PAD_L + inner + 12}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="#fff" text-anchor="middle" font-family="monospace">${L.label}</text>`;
-          }
-          svg += `<text x="${PAD_L + inner + 26}" y="${(+y + 3).toFixed(1)}" font-size="8.5" fill="var(--ink-muted)" font-family="monospace">${L.val}</text>`;
-        });
-
-        series.forEach(cfg => {
-          const arr = cfg.data || cfg;
-          const col = cfg.color || 'var(--ink-muted)';
-          const wid = cfg.width || 1.6;
-          const dash = cfg.dash ? `stroke-dasharray="${cfg.dash}"` : '';
-          if (!arr || arr.length < 2) return;
-          const pts = arr.map((v, i) => `${xFor(i, arr.length).toFixed(1)},${yFor(v).toFixed(1)}`).join(' ');
-          svg += `<polyline points="${pts}" fill="none" stroke="${col}" stroke-width="${wid}" ${dash} stroke-linecap="round" stroke-linejoin="round"/>`;
-        });
-        svg += `</svg>`;
-        return svg;
-      }
-
-      // % above MA multi-line chart with OB/OS
-      function kmaChart(seriesList, w, h) {
-        const inner = w - PAD_L - PAD_R;
-        const yFor = v => h - 10 - ((v - 15) / (105 - 15)) * (h - 20);
-        const xFor = (i, len) => PAD_L + (i / (len - 1)) * inner;
-        let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="overflow:visible;">`;
-
-        [105, 90, 75, 60, 45, 30, 25, 20].forEach(g => {
-          const y = yFor(g).toFixed(1);
-          const isBand = (g === 75 || g === 25);
-          svg += `<line x1="${PAD_L}" y1="${y}" x2="${PAD_L + inner}" y2="${y}" stroke="${isBand ? (g === 75 ? '#f0605c' : '#3ddc73') : 'var(--ink-muted)'}" stroke-width="${isBand ? 1.2 : 0.3}" opacity="${isBand ? 0.85 : 0.18}"/>`;
-          if (isBand) {
-            const lbl = g === 75 ? 'OB' : 'OS';
-            const c = g === 75 ? '#f0605c' : '#3ddc73';
-            svg += `<rect x="${PAD_L + inner + 2}" y="${(+y - 6).toFixed(1)}" width="18" height="12" fill="${c}" rx="1"/>`;
-            svg += `<text x="${PAD_L + inner + 11}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="#fff" text-anchor="middle" font-family="monospace">${lbl}</text>`;
-          }
-          svg += `<text x="${PAD_L + inner + (isBand ? 23 : 3)}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" opacity="0.8">${g.toFixed(0)}</text>`;
-        });
-
-        seriesList.forEach(cfg => {
-          if (!cfg.data || cfg.data.length < 2) return;
-          const pts = cfg.data.map((v, i) => `${xFor(i, cfg.data.length).toFixed(1)},${yFor(v).toFixed(1)}`).join(' ');
-          svg += `<polyline points="${pts}" fill="none" stroke="${cfg.color}" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>`;
-        });
-        svg += `</svg>`;
-        return svg;
-      }
-
-      // H/L bar chart
-      function hlBarChart(data, w, h) {
-        if (!data || data.length < 2) return '';
-        const inner = w - PAD_L - PAD_R;
-        const max = Math.max(...data.map(Math.abs)) || 1;
-        const zero = h / 2;
-        const bw = inner / data.length;
-        const bars = data.map((v, i) => {
-          const x = PAD_L + i * bw;
-          const bh = Math.abs(v) / max * (h / 2 - 4);
-          const y = v >= 0 ? zero - bh : zero;
-          const col = v >= 0 ? 'var(--positive)' : 'var(--negative)';
-          return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${Math.max(bw - 0.6, 0.8).toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}" opacity="0.85"/>`;
-        }).join('');
-        return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-          <line x1="${PAD_L}" y1="${zero}" x2="${PAD_L + inner}" y2="${zero}" stroke="var(--ink-muted)" stroke-width="0.5" opacity="0.5"/>
-          ${bars}
-        </svg>`;
-      }
-
-      const nf2 = v => (v >= 0 ? '' : '') + v.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-
-      // MCSI normalized + 10 SMA
-      if (q.summation_zscore_history) {
-        document.getElementById('mcsi-chart').innerHTML = sigmaChart([
-          { data: q.summation_zscore_history, color: '#2f7ed8', width: 2 },
-          { data: q.summation_zscore_sma10_history, color: '#d4a017', width: 1.3, dash: '3,2' },
-        ], 760, 190);
-        const mv = document.getElementById('mcsi-val');
-        const sv = document.getElementById('mcsi-sma-val');
-        if (mv && q.summation_zscore !== undefined) mv.textContent = nf2(q.summation_zscore);
-        if (sv && q.summation_zscore_sma10 !== undefined) sv.textContent = nf2(q.summation_zscore_sma10);
-      }
-
-      // MCO normalized
-      if (q.mco_zscore_history) {
-        document.getElementById('mco-chart').innerHTML = sigmaChart([
-          { data: q.mco_zscore_history, color: '#9a9aa2', width: 1.6 },
-        ], 760, 190);
-        const el = document.getElementById('mco-val');
-        if (el && q.mco_zscore !== undefined) el.textContent = nf2(q.mco_zscore);
-      }
-
-      // % above key moving averages
-      if (q.kma_history) {
-        const defs = [
-          { key: 'sma5',   label: '% > 5 SMA',   color: '#9a9aa2' },
-          { key: 'ema10',  label: '% > 10 EMA',  color: '#9b7fc9' },
-          { key: 'ema21',  label: '% > 21 EMA',  color: '#2f7ed8' },
-          { key: 'sma50',  label: '% > 50 SMA',  color: '#d4a017' },
-          { key: 'sma200', label: '% > 200 SMA', color: '#d6407f' },
-        ];
-        const series = defs.filter(d => q.kma_history[d.key]).map(d => ({ data: q.kma_history[d.key], color: d.color }));
-        document.getElementById('kma-chart').innerHTML = kmaChart(series, 900, 230);
-        const legend = document.getElementById('kma-legend');
-        if (legend && q.kma_now) {
-          legend.innerHTML = defs.filter(d => q.kma_now[d.key] !== undefined).map(d =>
-            `<span style="color:${d.color};">${d.label} <b>${q.kma_now[d.key].toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b></span>`
-          ).join('');
-        }
-      }
-
-      // High/Low Oscillator
-      const hlCard = document.getElementById('hlosc-card');
-      if (hlCard && q.hl_history) {
-        const v = hlCard.querySelector('.bc-value');
-        v.textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + '  (' + q.new_highs + 'H / ' + q.new_lows + 'L)';
-        v.style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
-        document.getElementById('hlosc-chart').innerHTML = hlBarChart(q.hl_history, 760, 150);
-      }
+      qqqRaw = data.qqq_breadth;
+      renderMcsi();
+      renderMco();
+      renderKma();
+      renderHl();
     }
 
     // Currencies
