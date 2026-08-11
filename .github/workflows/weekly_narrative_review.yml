@@ -1,13 +1,18 @@
 name: Weekly Narrative Review
 
 # Semantic/taxonomy review — logically separate from the daily quantitative
-# build (refresh_data.yml). Runs AFTER the daily job so it reads a same-day
-# data/market_features.json from main rather than recomputing it (real
-# API-budget consideration: recomputing the full-market feature set twice a
-# day would double the Massive API load for no benefit).
+# build (refresh_data.yml). Runs Saturday morning (not Monday) so new/changed
+# narratives are visible ahead of the coming trading week, not on the Monday
+# open. The daily job only runs Mo-Fr, so this reads Friday's (not same-day)
+# data/market_features.json from main — still fresh enough (one trading day
+# old), and deliberately NOT recomputed here to avoid a second full-market
+# Massive fetch just for this.
+# Note: single fixed UTC time, not DST-adjusted like the daily dual-cron —
+# this drifts by 1h between CET/CEST across the year, which is fine for a
+# "Saturday morning" weekly job (no market open to time against).
 on:
   schedule:
-    - cron: '0 8 * * 1'   # Montags 08:00 UTC, nach dem Mo 05:00/06:00 UTC Daily-Run
+    - cron: '0 7 * * 6'   # Samstags 07:00 UTC (~08:00 CET / ~09:00 CEST)
   workflow_dispatch:
 
 concurrency:
