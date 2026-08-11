@@ -1,25 +1,45 @@
 #!/usr/bin/env python3
 """
 YOLO Dashboard — Narratives/Baskets Builder
-Fetches daily grouped OHLC from the Massive API for a curated set of trading
-days, computes per-ticker performance + basket-level Strength/Thrust/
+Fetches daily grouped OHLC from the Massive API for the narrative-taxonomy
+ticker set, computes per-ticker performance + basket-level Strength/Thrust/
 Leadership/Breadth scores for the 1D/1W/1M horizons, and writes
 data/narratives.json.
 
-Score definitions (first pass, expected to be iterated):
+Score definitions (Strength/Thrust/Breadth unchanged since the first pass —
+see point 24 of the Full-Market Narrative Engine spec: existing formulas are
+not changed without a documented reason):
   Strength   — basket's cumulative return over the horizon (median of member
                daily returns compounded across the window).
   Thrust     — EMA(short) - EMA(long) of the basket's daily median-return
                series; measures fresh acceleration rather than raw level.
-  Leadership — share of basket members ranking in the top quintile of the
-               tracked universe for that horizon, saturating once ~5 members
-               qualify so many leaders score higher than one outlier.
+  Leadership — share of basket members ranking in the top quintile for that
+               horizon, saturating once ~5 members qualify so many leaders
+               score higher than one outlier. CHANGED: the percentile rank
+               now comes from data/market_features.json, i.e. the Full-
+               Market RS (rank against the whole eligible US stock universe)
+               instead of the curated narrative-taxonomy ticker set. This is
+               the one formula change in this file, and it is the one the
+               spec explicitly asked for.
   Breadth    — % of members positive, median member return, % of members
-               beating a horizon-scaled "significant move" threshold.
+               beating a horizon-scaled "significant move" threshold —
+               computed over ALL members currently carried for the basket
+               (not just winners, no survivorship/strength pre-selection).
 
-"Tracked universe" = the curated ticker set in data/narratives_map.json
-(NOT the full US market) — leadership/percentile ranks are relative to this
-momentum-relevant universe.
+Taxonomy source: data/taxonomy/narratives.json (Source of Truth, migrated
+from the legacy data/narratives_map.json — see scripts/migrate_taxonomy.py).
+Falls back to the legacy file with a warning if the new one is not present,
+so this script stays independently runnable (e.g. for local testing).
+
+Price history for Strength/Thrust is still fetched here directly (own
+grouped-daily walk-back over just the taxonomy universe), NOT read from
+market_features.json: the basket aggregates need the full daily-return
+*time series* across the window, which market_features.json deliberately
+does not persist per ticker (that would multiply its size by the lookback
+window for no other consumer — see the Full-Market Feature Engine's
+payload-size reasoning in the technical report). Re-fetching a ~35-trading-
+day window for ~100-300 taxonomy tickers is a small, bounded cost, separate
+from the market-wide walk in build_market_features.py.
 """
 
 import json
@@ -66,12 +86,46 @@ def massive_get(path, params=None, retries=3):
     return None
 
 
-def load_taxonomy(path):
-    with open(path, "r", encoding="utf-8") as f:
+def load_taxonomy(path, legacy_path="data/narratives_map.json"):
+    """Reads the structured Source of Truth (data/taxonomy/narratives.json:
+    tickers as {SYMBOL: {role, confidence, ...}}). Falls back to the legacy
+    flat-list format (data/narratives_map.json: tickers as [SYMBOL, ...])
+    with a warning if the new file isn't present yet."""
+    p = Path(path)
+    if not p.exists():
+        print(f"  ⚠ {path} nicht gefunden, falle zurueck auf Legacy-Taxonomie {legacy_path}", file=sys.stderr)
+        p = Path(legacy_path)
+
+    with open(p, "r", encoding="utf-8") as f:
         data = json.load(f)
-    narratives = data["narratives"]
+
+    narratives = []
+    for n in data["narratives"]:
+        tickers = n["tickers"]
+        member_list = sorted(tickers.keys()) if isinstance(tickers, dict) else list(tickers)
+        narratives.append({
+            "id": n["id"],
+            "name": n["name"],
+            "status": n.get("status", "active"),
+            "tickers": member_list,
+        })
     universe = sorted({t for n in narratives for t in n["tickers"]})
     return narratives, universe
+
+
+def load_market_features(path):
+    """Full-Market feature set from build_market_features.py. Returns None
+    (with a warning) if not present, so this script degrades gracefully to
+    curated-universe percentiles instead of crashing — e.g. for local runs
+    that only exercise the narrative builder on its own."""
+    p = Path(path)
+    if not p.exists():
+        print(f"  ⚠ {path} nicht gefunden — Leadership/RS fallen zurueck auf das kuratierte "
+              "Taxonomie-Universum statt Full-Market (Full-Market-Migration nicht aktiv fuer diesen Lauf)",
+              file=sys.stderr)
+        return None
+    with open(p, "r", encoding="utf-8") as f:
+        return json.load(f)["tickers"]
 
 
 def fetch_grouped_history(universe_set):
@@ -191,9 +245,11 @@ def calc_basket_scores(members, ticker_metrics, daily_ret, pct_field_by_horizon,
         else:
             thrust = None
 
-        # Leadership — share of members in top quintile of tracked universe, saturating at ~5
+        # Leadership — share of members in top quintile, saturating at ~5.
+        # `percentiles_by_horizon[h]` is Full-Market RS when market_features.json
+        # was available (see main()), else the curated-universe fallback.
         ranks = percentiles_by_horizon[h]
-        top_quintile = [m for m in members if ranks.get(m, 0) >= 80]
+        top_quintile = [m for m in members if (ranks.get(m) or 0) >= 80]
         leadership = round(min(len(top_quintile) / min(len(members), 5), 1.0) * 100, 1)
 
         # Breadth — % positive, median, % beating a horizon-scaled significant-move threshold
@@ -221,7 +277,9 @@ def calc_basket_scores(members, ticker_metrics, daily_ret, pct_field_by_horizon,
 def main():
     parser = argparse.ArgumentParser(description="YOLO Dashboard Narratives Builder")
     parser.add_argument("--out-dir", default="data", help="Output directory")
-    parser.add_argument("--taxonomy", default="data/narratives_map.json", help="Path to taxonomy JSON")
+    parser.add_argument("--taxonomy", default="data/taxonomy/narratives.json", help="Path to taxonomy JSON")
+    parser.add_argument("--market-features", default="data/market_features.json",
+                         help="Path to Full-Market Feature Engine output (Leadership/RS/EMA/ATR source)")
     args = parser.parse_args()
 
     out_dir = Path(args.out_dir)
@@ -244,13 +302,32 @@ def main():
     ticker_metrics, daily_ret = calc_ticker_metrics(prices)
     print(f"  ✅ Metriken für {len(ticker_metrics)}/{len(universe)} Ticker berechnet")
 
+    market_features = load_market_features(args.market_features)
     pct_field_by_horizon = {"1d": "d1_pct", "1w": "w1_pct", "1m": "m1_pct"}
-    percentiles_by_horizon = {h: percentile_ranks(ticker_metrics, f) for h, f in pct_field_by_horizon.items()}
+    mf_rs_field_by_horizon = {"1d": "rs_percentile_1d", "1w": "rs_percentile_1w", "1m": "rs_percentile_1m"}
+
+    if market_features is not None:
+        # Full-Market RS: percentile against the whole eligible US stock
+        # universe (point 24 — the one required Leadership formula change).
+        percentiles_by_horizon = {
+            h: {sym: market_features[sym].get(mf_field) for sym in universe if sym in market_features}
+            for h, mf_field in mf_rs_field_by_horizon.items()
+        }
+    else:
+        # Fallback: percentile against just the curated taxonomy universe
+        # (pre-migration behaviour), so this script still works standalone.
+        percentiles_by_horizon = {h: percentile_ranks(ticker_metrics, f) for h, f in pct_field_by_horizon.items()}
 
     for sym, m in ticker_metrics.items():
         m["percentile_1d"] = percentiles_by_horizon["1d"].get(sym)
         m["percentile_1w"] = percentiles_by_horizon["1w"].get(sym)
         m["percentile_1m"] = percentiles_by_horizon["1m"].get(sym)
+        mf = (market_features or {}).get(sym, {})
+        m["ema10_distance_pct"] = mf.get("ema10_distance_pct")
+        m["ema20_distance_pct"] = mf.get("ema20_distance_pct")
+        m["atr"] = mf.get("atr")
+        m["atr_extension"] = mf.get("atr_extension")
+        m["eligible"] = mf.get("eligible")
 
     output_narratives = []
     for n in narratives:
@@ -262,6 +339,7 @@ def main():
         output_narratives.append({
             "id": n["id"],
             "name": n["name"],
+            "status": n.get("status", "active"),
             "n_members": len(members),
             "scores": scores,
             "members": [ticker_metrics[m] for m in members],

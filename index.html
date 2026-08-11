@@ -102,11 +102,6 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .pw-box .pw-error { font-family: var(--mono-font); font-size: 11px; color: var(--negative); margin-top: 12px; min-height: 16px; }
 .pw-box .pw-hint { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 20px; }
 
-/* TOP 3 RANKED ROW HIGHLIGHTS */
-.data-table tbody tr.rank-1 { background: rgba(45,138,78,0.10); }
-.data-table tbody tr.rank-2 { background: rgba(45,138,78,0.06); }
-.data-table tbody tr.rank-3 { background: rgba(45,138,78,0.03); }
-
 .currency-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
 .currency-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
 .currency-card .pair { font-family: var(--mono-font); font-size: 16px; font-weight: 500; letter-spacing: 2px; }
@@ -188,13 +183,6 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--card-border); margin-top: 40px; }
 .footer p { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 1px; }
 
-/* Category tag in Top 10 */
-.cat-tag { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 10px; letter-spacing: 0.5px; }
-.cat-tag.land { background: rgba(45,138,78,0.06); color: var(--positive); }
-.cat-tag.thema { background: rgba(154,134,232,0.10); color: #9a86e8; }
-.cat-tag.sektor { background: rgba(224,168,62,0.10); color: var(--neutral); }
-.cat-tag.rohstoff { background: rgba(226,146,92,0.10); color: #e2925c; }
-
 /* NARRATIVES / BASKETS */
 .narrative-controls { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
 .nc-group { display: flex; align-items: center; gap: 10px; }
@@ -233,6 +221,13 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .member-table td:first-child, .member-table td:nth-child(2) { text-align: left; }
 .member-table td:first-child { font-weight: 600; }
 .member-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+.nd-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.nd-copy-btn { font-family: var(--mono-font); font-size: 10px; letter-spacing: 0.5px; padding: 6px 12px; border: 1px solid var(--card-border); background: transparent; color: var(--ink-muted); border-radius: 3px; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+.nd-copy-btn:hover { color: var(--ink); border-color: var(--ink-muted); }
+/* ATR Extension > Schwelle: nur Ticker-Badge/Zellwert markieren, NIE die
+   ganze Zeile — Gruen bleibt ausschliesslich Strength-/Performance-Semantik. */
+.atr-ext-badge { display: inline-block; font-size: 9px; font-family: var(--mono-font); color: #e2925c; background: rgba(226,146,92,0.12); border-radius: 2px; padding: 1px 5px; margin-left: 4px; letter-spacing: 0.3px; }
+.atr-ext-warn { color: #e2925c !important; font-weight: 600; }
 
 .nc-info { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--ink-muted); color: var(--ink-muted); font-family: var(--mono-font); font-size: 10px; cursor: help; user-select: none; }
 .nc-info:hover, .nc-info:focus, .nc-info.open { color: var(--ink); border-color: var(--ink-light); outline: none; }
@@ -517,103 +512,6 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </div>
   </div>
 
-  <!-- ═══ 05 · LÄNDER-ETFs ═══ -->
-  <div class="section fade-in">
-    <div class="section-header">
-      <span class="section-num">05</span>
-      <span class="section-title">Länder-ETFs</span>
-      <span class="section-sub">Top 10 nach Wochenperformance</span>
-    </div>
-    <table class="data-table">
-      <thead><tr><th>#</th><th>Land / ETF</th><th>Kurs</th><th>1T%</th><th>1W%</th><th>52W Hoch%</th><th>YTD%</th><th>5D</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>🇦🇷 Argentinien (ARGT)</td><td>$58,42</td><td class="pos">+2,84%</td><td class="pos">+6,42%</td><td class="muted">-8,2%</td><td class="pos">+42,1%</td></tr>
-        <tr><td>2</td><td>🇮🇳 Indien (INDA)</td><td>$52,18</td><td class="pos">+1,42%</td><td class="pos">+4,82%</td><td class="muted">-6,4%</td><td class="pos">+18,2%</td></tr>
-        <tr><td>3</td><td>🇰🇷 Südkorea (EWY)</td><td>$62,84</td><td class="pos">+1,28%</td><td class="pos">+3,92%</td><td class="muted">-12,1%</td><td class="pos">+8,4%</td></tr>
-        <tr><td>4</td><td>🇧🇷 Brasilien (EWZ)</td><td>$32,48</td><td class="pos">+0,98%</td><td class="pos">+3,42%</td><td class="muted">-18,4%</td><td class="neg">-4,2%</td></tr>
-        <tr><td>5</td><td>🇩🇪 Deutschland (EWG)</td><td>$34,82</td><td class="pos">+1,12%</td><td class="pos">+2,88%</td><td class="muted">-2,8%</td><td class="pos">+14,8%</td></tr>
-        <tr><td>6</td><td>🇯🇵 Japan (EWJ)</td><td>$68,42</td><td class="pos">+0,42%</td><td class="pos">+2,24%</td><td class="muted">-5,2%</td><td class="pos">+12,1%</td></tr>
-        <tr><td>7</td><td>🇬🇧 UK (EWU)</td><td>$36,18</td><td class="pos">+0,28%</td><td class="pos">+1,84%</td><td class="muted">-4,1%</td><td class="pos">+8,2%</td></tr>
-        <tr><td>8</td><td>🇨🇳 China (MCHI)</td><td>$48,92</td><td class="neg">-0,42%</td><td class="pos">+1,42%</td><td class="muted">-22,4%</td><td class="pos">+18,4%</td></tr>
-        <tr><td>9</td><td>🇫🇷 Frankreich (EWQ)</td><td>$38,24</td><td class="pos">+0,34%</td><td class="pos">+1,18%</td><td class="muted">-6,8%</td><td class="pos">+4,2%</td></tr>
-        <tr><td>10</td><td>🇦🇺 Australien (EWA)</td><td>$24,82</td><td class="neg">-0,18%</td><td class="pos">+0,82%</td><td class="muted">-8,4%</td><td class="pos">+6,1%</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ═══ 06 · SEKTOR-ETFs ═══ -->
-  <div class="section fade-in">
-    <div class="section-header">
-      <span class="section-num">06</span>
-      <span class="section-title">Sektor-ETFs</span>
-      <span class="section-sub">S&P 500 Sektoren · Sortiert nach 1W</span>
-    </div>
-    <table class="data-table">
-      <thead><tr><th>#</th><th>Sektor / ETF</th><th>Kurs</th><th>1T%</th><th>1W%</th><th>52W Hoch%</th><th>YTD%</th><th>5D</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>Technologie (XLK)</td><td>$228,42</td><td class="pos">+0,82%</td><td class="pos">+2,84%</td><td class="muted">-3,2%</td><td class="pos">+28,4%</td></tr>
-        <tr><td>2</td><td>Kommunikation (XLC)</td><td>$92,18</td><td class="pos">+0,64%</td><td class="pos">+2,42%</td><td class="muted">-4,1%</td><td class="pos">+32,1%</td></tr>
-        <tr><td>3</td><td>Industrie (XLI)</td><td>$128,42</td><td class="pos">+0,48%</td><td class="pos">+1,92%</td><td class="muted">-2,8%</td><td class="pos">+18,2%</td></tr>
-        <tr><td>4</td><td>Finanzen (XLF)</td><td>$44,82</td><td class="pos">+0,38%</td><td class="pos">+1,68%</td><td class="muted">-1,4%</td><td class="pos">+22,4%</td></tr>
-        <tr><td>5</td><td>Gesundheit (XLV)</td><td>$148,24</td><td class="pos">+0,22%</td><td class="pos">+1,24%</td><td class="muted">-6,8%</td><td class="pos">+4,8%</td></tr>
-        <tr><td>6</td><td>Zyklisch Konsum (XLY)</td><td>$198,42</td><td class="pos">+0,52%</td><td class="pos">+0,98%</td><td class="muted">-5,4%</td><td class="pos">+14,2%</td></tr>
-        <tr><td>7</td><td>Materialien (XLB)</td><td>$88,12</td><td class="neg">-0,18%</td><td class="pos">+0,64%</td><td class="muted">-8,2%</td><td class="pos">+6,4%</td></tr>
-        <tr><td>8</td><td>Energie (XLE)</td><td>$92,48</td><td class="neg">-0,42%</td><td class="pos">+0,42%</td><td class="muted">-12,4%</td><td class="neg">-2,8%</td></tr>
-        <tr><td>9</td><td>Versorger (XLU)</td><td>$72,82</td><td class="pos">+0,12%</td><td class="neg">-0,24%</td><td class="muted">-4,2%</td><td class="pos">+18,4%</td></tr>
-        <tr><td>10</td><td>Immobilien (XLRE)</td><td>$42,18</td><td class="neg">-0,28%</td><td class="neg">-0,62%</td><td class="muted">-14,2%</td><td class="neg">-1,4%</td></tr>
-        <tr><td>11</td><td>Basiskons. (XLP)</td><td>$78,42</td><td class="neg">-0,08%</td><td class="neg">-0,84%</td><td class="muted">-3,8%</td><td class="pos">+8,2%</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ═══ 07 · THEMEN-ETFs ═══ -->
-  <div class="section fade-in">
-    <div class="section-header">
-      <span class="section-num">07</span>
-      <span class="section-title">Themen-ETFs</span>
-      <span class="section-sub">Top 10 Themen nach 1W</span>
-    </div>
-    <table class="data-table">
-      <thead><tr><th>#</th><th>Thema / ETF</th><th>Kurs</th><th>1T%</th><th>1W%</th><th>52W Hoch%</th><th>YTD%</th><th>5D</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>🤖 KI & Robotik (BOTZ)</td><td>$38,42</td><td class="pos">+1,82%</td><td class="pos">+5,42%</td><td class="muted">-8,2%</td><td class="pos">+42,1%</td></tr>
-        <tr><td>2</td><td>☁️ Cloud Computing (SKYY)</td><td>$28,18</td><td class="pos">+1,24%</td><td class="pos">+4,18%</td><td class="muted">-12,4%</td><td class="pos">+28,4%</td></tr>
-        <tr><td>3</td><td>🔒 Cybersecurity (HACK)</td><td>$62,84</td><td class="pos">+0,92%</td><td class="pos">+3,42%</td><td class="muted">-4,8%</td><td class="pos">+24,2%</td></tr>
-        <tr><td>4</td><td>⚡ Halbleiter (SMH)</td><td>$248,42</td><td class="pos">+1,42%</td><td class="pos">+3,12%</td><td class="muted">-6,2%</td><td class="pos">+38,4%</td></tr>
-        <tr><td>5</td><td>🧬 Biotech (XBI)</td><td>$98,42</td><td class="pos">+0,82%</td><td class="pos">+2,84%</td><td class="muted">-14,8%</td><td class="pos">+8,2%</td></tr>
-        <tr><td>6</td><td>🌱 Clean Energy (ICLN)</td><td>$14,82</td><td class="pos">+1,12%</td><td class="pos">+2,42%</td><td class="muted">-32,1%</td><td class="neg">-12,4%</td></tr>
-        <tr><td>7</td><td>🏗️ Infrastruktur (PAVE)</td><td>$42,18</td><td class="pos">+0,48%</td><td class="pos">+1,82%</td><td class="muted">-3,4%</td><td class="pos">+18,2%</td></tr>
-        <tr><td>8</td><td>💊 Genomik (ARKG)</td><td>$22,42</td><td class="pos">+0,64%</td><td class="pos">+1,42%</td><td class="muted">-28,4%</td><td class="neg">-4,8%</td></tr>
-        <tr><td>9</td><td>🎮 Gaming & eSport (HERO)</td><td>$28,82</td><td class="neg">-0,18%</td><td class="pos">+0,92%</td><td class="muted">-8,4%</td><td class="pos">+12,8%</td></tr>
-        <tr><td>10</td><td>⛏️ Lithium & Batterie (LIT)</td><td>$42,18</td><td class="neg">-0,42%</td><td class="pos">+0,48%</td><td class="muted">-42,1%</td><td class="neg">-18,2%</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ═══ 08 · TOP 10 DER WOCHE ═══ -->
-  <div class="section fade-in">
-    <div class="section-header">
-      <span class="section-num">08</span>
-      <span class="section-title">Top 10 der Woche</span>
-      <span class="section-sub">Beste Wochenperformance · ETFs, Rohstoffe & Krypto</span>
-    </div>
-    <table class="data-table">
-      <thead><tr><th>#</th><th>Asset / Ticker</th><th>Kurs</th><th>1T%</th><th>1W%</th><th>Kategorie</th><th>5D</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>Solana (SOL)</td><td>$198,40</td><td class="pos">+3,42%</td><td class="pos" style="font-weight:700;">+8,12%</td><td><span class="cat-tag rohstoff">Krypto</span></td></tr>
-        <tr><td>2</td><td>🇦🇷 ARGT — Argentinien</td><td>$58,42</td><td class="pos">+2,84%</td><td class="pos" style="font-weight:700;">+6,42%</td><td><span class="cat-tag land">Land</span></td></tr>
-        <tr><td>3</td><td>Ethereum (ETH)</td><td>$3.420</td><td class="pos">+2,14%</td><td class="pos" style="font-weight:700;">+5,82%</td><td><span class="cat-tag rohstoff">Krypto</span></td></tr>
-        <tr><td>4</td><td>🤖 BOTZ — KI & Robotik</td><td>$38,42</td><td class="pos">+1,82%</td><td class="pos" style="font-weight:700;">+5,42%</td><td><span class="cat-tag thema">Thema</span></td></tr>
-        <tr><td>5</td><td>🇮🇳 INDA — Indien</td><td>$52,18</td><td class="pos">+1,42%</td><td class="pos" style="font-weight:700;">+4,82%</td><td><span class="cat-tag land">Land</span></td></tr>
-        <tr><td>6</td><td>Bitcoin (BTC)</td><td>$97.420</td><td class="pos">+1,82%</td><td class="pos" style="font-weight:700;">+4,21%</td><td><span class="cat-tag rohstoff">Krypto</span></td></tr>
-        <tr><td>7</td><td>☁️ SKYY — Cloud</td><td>$28,18</td><td class="pos">+1,24%</td><td class="pos" style="font-weight:700;">+4,18%</td><td><span class="cat-tag thema">Thema</span></td></tr>
-        <tr><td>8</td><td>Erdgas</td><td>$3,12</td><td class="pos">+1,42%</td><td class="pos" style="font-weight:700;">+3,82%</td><td><span class="cat-tag rohstoff">Rohstoff</span></td></tr>
-        <tr><td>9</td><td>🇰🇷 EWY — Südkorea</td><td>$62,84</td><td class="pos">+1,28%</td><td class="pos" style="font-weight:700;">+3,92%</td><td><span class="cat-tag land">Land</span></td></tr>
-        <tr><td>10</td><td>Silber (XAG)</td><td>$31,42</td><td class="pos">+0,68%</td><td class="pos" style="font-weight:700;">+2,14%</td><td><span class="cat-tag rohstoff">Rohstoff</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-
   <!-- ═══ 09 · NARRATIVES / BASKETS ═══ -->
   <div class="section fade-in">
     <div class="section-header">
@@ -627,7 +525,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
           <dt>Thrust</dt>
           <dd>EMA(kurz) − EMA(lang) der täglichen Basket-Rendite. Misst Beschleunigung, nicht Niveau — zieht der Basket gerade frisch an?</dd>
           <dt>Leadership</dt>
-          <dd>Anteil der Mitglieder im Top-Quintil des gesamten Ticker-Universums für diesen Horizont, gesättigt bei ~5 Mitgliedern.</dd>
+          <dd>Anteil der Mitglieder im Top-Quintil des gesamten eligiblen US-Aktienuniversums (Full-Market RS) für diesen Horizont, gesättigt bei ~5 Mitgliedern.</dd>
           <dt>Breadth</dt>
           <dd>Wie breit die Bewegung getragen wird: % positive Mitglieder, Median-Rendite, % über einer horizontabhängigen Signifikanz-Schwelle.</dd>
         </dl>
@@ -777,41 +675,6 @@ function makeSparkline(data, w, h) {
   return `<span class="sparkline"><svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
 }
 
-function renderRows(items, includeRank = false) {
-  return items.map((item, i) => {
-    const rank = includeRank ? `<td>${i + 1}</td>` : '';
-    const rc = includeRank && i < 3 ? ` class="rank-${i + 1}"` : '';
-    const spark = makeSparkline(item.hist_5d, 48, 16);
-    return `<tr${rc}>
-      ${rank}
-      <td>${item.name} ${item.symbol ? '(' + item.symbol + ')' : ''}</td>
-      <td>${fmtPrice(item.price)}</td>
-      <td class="${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)}</td>
-      <td class="${pctClass(item.w1_pct)}">${fmtPct(item.w1_pct)}</td>
-      <td class="muted">${fmtPct(item.hi52w_pct)}</td>
-      <td class="${pctClass(item.ytd_pct)}">${fmtPct(item.ytd_pct)}</td>
-      <td>${spark}</td>
-    </tr>`;
-  }).join('');
-}
-
-function renderTop10(items) {
-  const catColors = { Land: 'land', Thema: 'thema', Sektor: 'sektor', Rohstoff: 'rohstoff', Krypto: 'rohstoff' };
-  return items.map((item, i) => {
-    const rc = i < 3 ? ` class="rank-${i + 1}"` : '';
-    const spark = makeSparkline(item.hist_5d, 48, 16);
-    return `<tr${rc}>
-    <td>${i + 1}</td>
-    <td>${item.name}${item.symbol ? ' (' + item.symbol + ')' : ''}</td>
-    <td>${fmtPrice(item.price)}</td>
-    <td class="${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)}</td>
-    <td class="${pctClass(item.w1_pct)}">${fmtPct(item.w1_pct)}</td>
-    <td><span class="cat-tag ${catColors[item.category] || ''}">${item.category}</span></td>
-    <td>${spark}</td>
-  </tr>`;
-  }).join('');
-}
-
 // ══════════════════════════════════════════════
 // RENDER REGIME CARDS
 // ══════════════════════════════════════════════
@@ -895,27 +758,6 @@ async function loadData() {
             }
           }
         }
-      }
-    });
-
-    // Ranked tables (sectors, themes, countries)
-    const rankedTables = document.querySelectorAll('.section');
-    rankedTables.forEach(section => {
-      const title = section.querySelector('.section-title');
-      if (!title) return;
-      const t = title.textContent;
-      let items = null;
-      if (t.includes('Länder') && data.countries) items = data.countries;
-      if (t.includes('Sektor') && data.sectors) items = data.sectors;
-      if (t.includes('Themen') && data.themes) items = data.themes;
-      if (t.includes('Top 10') && data.top10) {
-        const tbody = section.querySelector('tbody');
-        if (tbody) tbody.innerHTML = renderTop10(data.top10);
-        return;
-      }
-      if (items) {
-        const tbody = section.querySelector('tbody');
-        if (tbody) tbody.innerHTML = renderRows(items, true);
       }
     });
 
@@ -1111,6 +953,21 @@ let ncHorizon = '1d';
 let ncScore = 'strength';
 let ncExpandedId = null;
 let ncMemberSort = { field: 'd1_pct', dir: 'desc' };
+let ncEmaFilter = 'all'; // 'all' | 'ema10' | 'ema20' | 'either'
+
+// Fallback-Defaults, falls config/narrative_engine.json (noch) nicht geladen
+// werden konnte — Werte werden von dort ueberschrieben (Punkt 21: "Die 4-%-
+// Grenze aus zentraler Konfiguration lesen").
+let engineConfig = { dashboard: { ema_proximity_threshold_pct: 4.0, atr_extension_warning_threshold: 5.0 } };
+
+async function loadEngineConfig() {
+  try {
+    const r = await fetch('config/narrative_engine.json');
+    if (r.ok) engineConfig = await r.json();
+  } catch (e) {
+    console.log('config/narrative_engine.json nicht geladen, nutze Defaults:', e);
+  }
+}
 
 const MEMBER_COLUMNS = [
   { key: 'symbol', label: 'Ticker', sortable: true },
@@ -1119,8 +976,24 @@ const MEMBER_COLUMNS = [
   { key: 'w1_pct', label: '1W%', sortable: true },
   { key: 'm1_pct', label: '1M%', sortable: true },
   { key: 'rs',     label: 'RS', sortable: true },
+  { key: 'ema10_distance_pct', label: 'EMA10', sortable: true },
+  { key: 'ema20_distance_pct', label: 'EMA20', sortable: true },
+  { key: 'atr_extension', label: 'ATR Ext', sortable: true },
   { key: 'spark',  label: 'Verlauf', sortable: false },
 ];
+
+// "Near EMA10/EMA20" — Punkt 21: abs(Close/EMA - 1) <= Schwelle. Members
+// speichern ema10_distance_pct/ema20_distance_pct bereits als
+// (Close-EMA)/EMA*100, das ist exakt abs(Close/EMA-1)*100.
+function ncEmaFilterMembers(members) {
+  const threshold = engineConfig.dashboard.ema_proximity_threshold_pct;
+  const near10 = m => m.ema10_distance_pct !== null && m.ema10_distance_pct !== undefined && Math.abs(m.ema10_distance_pct) <= threshold;
+  const near20 = m => m.ema20_distance_pct !== null && m.ema20_distance_pct !== undefined && Math.abs(m.ema20_distance_pct) <= threshold;
+  if (ncEmaFilter === 'ema10') return members.filter(near10);
+  if (ncEmaFilter === 'ema20') return members.filter(near20);
+  if (ncEmaFilter === 'either') return members.filter(m => near10(m) || near20(m));
+  return members;
+}
 
 async function loadNarratives() {
   try {
@@ -1174,21 +1047,50 @@ function ncSortMembers(members) {
   });
 }
 
-function renderNarrativeDetail(narrative) {
-  const members = narrative.members.map(m => ({ ...m, rs: m['percentile_' + ncHorizon] }));
-  const sorted = ncSortMembers(members);
-  const sparkField = ncHorizon === '1m' ? 'hist_1m' : 'hist_1w';
+function ncFmtDist(v) {
+  if (v === null || v === undefined) return '—';
+  const sign = v >= 0 ? '+' : '';
+  return sign + v.toFixed(1) + '%';
+}
 
-  const rows = sorted.map(m => `
+// Einzige Quelle fuer "was ist gerade sichtbar, in welcher Reihenfolge" —
+// wird sowohl vom Rendering als auch vom Copy-Button genutzt, damit beide
+// garantiert dieselbe Liste sehen (Punkt 22: Copy respektiert EMA-Filter +
+// Sortierung, aber die Sortierung aendert nur die Reihenfolge, nie die
+// Membership).
+function ncVisibleSortedMembers(narrative) {
+  const allMembers = narrative.members.map(m => ({ ...m, rs: m['percentile_' + ncHorizon] }));
+  const visible = ncEmaFilterMembers(allMembers);
+  return ncSortMembers(visible);
+}
+
+function renderNarrativeDetail(narrative) {
+  const sorted = ncVisibleSortedMembers(narrative);
+  const sparkField = ncHorizon === '1m' ? 'hist_1m' : 'hist_1w';
+  const atrThreshold = engineConfig.dashboard.atr_extension_warning_threshold;
+
+  const rows = sorted.map(m => {
+    const extended = m.atr_extension !== null && m.atr_extension !== undefined && m.atr_extension > atrThreshold;
+    // Grün bleibt ausschliesslich Strength-/Performance-Semantik (Punkt 20) —
+    // die ATR-Extension-Warnung markiert nur den Ticker-Namen/Wert als
+    // Badge, nicht die ganze Zeile.
+    const tickerCell = extended
+      ? `${m.symbol} <span class="atr-ext-badge" title="ATR Extension ${m.atr_extension.toFixed(1)} > ${atrThreshold}">⚠ ${m.atr_extension.toFixed(1)}</span>`
+      : m.symbol;
+    return `
     <tr>
-      <td>${m.symbol}</td>
+      <td>${tickerCell}</td>
       <td>${fmtPrice(m.price)}</td>
       <td class="${pctClass(m.d1_pct)}">${fmtPct(m.d1_pct)}</td>
       <td class="${pctClass(m.w1_pct)}">${fmtPct(m.w1_pct)}</td>
       <td class="${pctClass(m.m1_pct)}">${fmtPct(m.m1_pct)}</td>
       <td class="muted">${(m.rs !== undefined && m.rs !== null) ? m.rs.toFixed(0) : '—'}</td>
+      <td class="muted">${ncFmtDist(m.ema10_distance_pct)}</td>
+      <td class="muted">${ncFmtDist(m.ema20_distance_pct)}</td>
+      <td class="${extended ? 'atr-ext-warn' : 'muted'}">${(m.atr_extension !== null && m.atr_extension !== undefined) ? m.atr_extension.toFixed(1) : '—'}</td>
       <td>${makeSparkline(m[sparkField], 64, 20)}</td>
-    </tr>`).join('');
+    </tr>`;
+  }).join('');
 
   const headers = MEMBER_COLUMNS.map(col => {
     const isSorted = ncMemberSort.field === col.key;
@@ -1197,16 +1099,52 @@ function renderNarrativeDetail(narrative) {
     return `<th class="${isSorted ? 'sorted' : ''}" ${click}>${col.label}${arrow ? ` <span class="sort-arrow">${arrow}</span>` : ''}</th>`;
   }).join('');
 
+  const emaFilters = [
+    { key: 'all', label: 'All' },
+    { key: 'ema10', label: 'Near EMA10' },
+    { key: 'ema20', label: 'Near EMA20' },
+    { key: 'either', label: 'Near EMA10 or EMA20' },
+  ];
+  const emaFilterButtons = emaFilters.map(f =>
+    `<button class="nc-btn${ncEmaFilter === f.key ? ' active' : ''}" onclick="ncSetEmaFilter('${narrative.id}', '${f.key}')">${f.label}</button>`
+  ).join('');
+
   return `<div class="narrative-detail">
     <div class="nd-header">
-      <span class="nd-title">${narrative.name} · ${narrative.n_members} Ticker</span>
+      <span class="nd-title">${narrative.name} · ${sorted.length}/${narrative.n_members} Ticker</span>
       <span class="nd-close" onclick="ncToggleCard('${narrative.id}')">Schließen ✕</span>
+    </div>
+    <div class="nd-toolbar">
+      <div class="nc-toggle">${emaFilterButtons}</div>
+      <button class="nd-copy-btn" onclick="ncCopyVisibleTickers('${narrative.id}', this)">Copy Tickers</button>
     </div>
     <table class="member-table">
       <thead><tr>${headers}</tr></thead>
       <tbody>${rows}</tbody>
     </table>
   </div>`;
+}
+
+function ncSetEmaFilter(narrativeId, filter) {
+  ncEmaFilter = filter;
+  renderNarrativeGrid();
+}
+
+// Kopiert exakt die aktuell (nach EMA-Filter + Sortierung) sichtbaren Ticker,
+// kommasepariert, z.B. "SNDK,WDC,STX" (Punkt 22). Die Membership selbst ist
+// von der Sortierung unberührt — nur die Reihenfolge des Outputs.
+function ncCopyVisibleTickers(narrativeId, btn) {
+  const narrative = narrativesRaw.narratives.find(n => n.id === narrativeId);
+  if (!narrative) return;
+  const visible = ncVisibleSortedMembers(narrative);
+  const text = visible.map(m => m.symbol).join(',');
+  navigator.clipboard.writeText(text).then(() => {
+    if (btn) {
+      const original = btn.textContent;
+      btn.textContent = `Kopiert (${visible.length})`;
+      setTimeout(() => { btn.textContent = original; }, 1500);
+    }
+  }).catch(e => console.log('Clipboard-Fehler:', e));
 }
 
 function renderNarrativeGrid() {
@@ -1248,6 +1186,7 @@ function renderNarrativeGrid() {
 function ncToggleCard(id) {
   ncExpandedId = (ncExpandedId === id) ? null : id;
   ncMemberSort = { field: 'd1_pct', dir: 'desc' };
+  ncEmaFilter = 'all';
   renderNarrativeGrid();
 }
 
@@ -1277,7 +1216,7 @@ document.getElementById('scoreToggle').addEventListener('click', (e) => {
   renderNarrativeGrid();
 });
 
-loadNarratives();
+loadEngineConfig().then(loadNarratives);
 
 const narrativeInfoIcon = document.getElementById('narrativeInfo');
 if (narrativeInfoIcon) {

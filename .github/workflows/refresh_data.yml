@@ -34,11 +34,17 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/build_data.py --out-dir data
 
+      - name: Build full-market features (universe/ADR/RS/EMA/ATR)
+        timeout-minutes: 20
+        env:
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+        run: python scripts/build_market_features.py --out-dir data
+
       - name: Build narratives data
         timeout-minutes: 15
         env:
           MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
-        run: python scripts/build_narratives.py --out-dir data
+        run: python scripts/build_narratives.py --out-dir data --market-features data/market_features.json
 
       - name: Commit and push data
         run: |

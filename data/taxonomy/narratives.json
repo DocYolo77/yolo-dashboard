@@ -1,0 +1,1048 @@
+{
+  "_comment": "Source of Truth fuer Narrative-Klassifikation und Memberships. Enthaelt KEINE taeglich wechselnden Strength-/Thrust-Werte (die liegen in data/narratives.json). Wird durch akzeptierte Weekly-Review-PRs veraendert (data/taxonomy/proposals/*.json), nie direkt vom LLM ueberschrieben.",
+  "schema_version": 1,
+  "migrated_from": "data/narratives_map.json",
+  "migrated_at": "2026-08-11",
+  "narratives": [
+    {
+      "id": "memory_storage",
+      "name": "Memory / Storage",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "SNDK": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "WDC": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "STX": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NTAP": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "semiconductors",
+      "name": "Semiconductors",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "MU": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NVDA": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "AMD": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "INTC": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "TXN": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "QCOM": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "AVGO": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ON": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "MCHP": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ADI": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "MRVL": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "LRCX": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "KLAC": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "AMAT": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ASML": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ARM": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NXPI": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SWKS": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "photonics_optical",
+      "name": "Semiconductors / Photonics",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "COHR": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "LITE": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "AXTI": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "WOLF": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ONTO": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "ai_infrastructure",
+      "name": "AI Infrastructure",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "NVDA": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "AVGO": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "MRVL": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "AMD": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SMCI": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "VRT": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ARM": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "DELL": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "HPE": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "CRDO": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "data_center",
+      "name": "Data Center",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "DLR": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "EQIX": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "VRT": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SMCI": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "DELL": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "HPE": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NTAP": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "CBRS": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "networking",
+      "name": "Networking",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "CSCO": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ANET": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "EXTR": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "CIEN": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NOK": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "FFIV": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "cybersecurity",
+      "name": "Cybersecurity",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "CRWD": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "PANW": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ZS": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "FTNT": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "S": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "OKTA": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "TENB": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NET": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "software_saas",
+      "name": "Software / SaaS",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "CRM": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NOW": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "WDAY": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "TEAM": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "TWLO": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "DDOG": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SNOW": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "MDB": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "HUBS": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ADBE": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SPT": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "FIVN": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "space",
+      "name": "Space",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "RKLB": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "LUNR": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ASTS": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "RDW": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "PL": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SPCE": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "nuclear",
+      "name": "Nuclear",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "SMR": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "OKLO": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "CEG": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "VST": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NNE": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "GEV": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "uranium",
+      "name": "Uranium",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "CCJ": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "UEC": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "DNN": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "UUUU": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "LEU": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "defense_aerospace",
+      "name": "Defense / Aerospace",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "LMT": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "RTX": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NOC": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "GD": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "LHX": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "BA": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "HII": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "AVAV": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "KTOS": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "fintech",
+      "name": "Fintech",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "XYZ": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "PYPL": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SOFI": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "AFRM": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "UPST": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "COIN": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "HOOD": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "biotech",
+      "name": "Biotech",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "VRTX": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "REGN": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "MRNA": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "BIIB": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ILMN": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "CRSP": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NTLA": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "quantum_computing",
+      "name": "Quantum Computing",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "IONQ": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "RGTI": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "QBTS": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "QUBT": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "ev_battery",
+      "name": "EV / Battery",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "TSLA": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "RIVN": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "LCID": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ALB": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SQM": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "solar_clean_energy",
+      "name": "Solar / Clean Energy",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "FSLR": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ENPH": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SEDG": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "RUN": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "robotics_automation",
+      "name": "Robotics / Automation",
+      "status": "active",
+      "classification_hint": null,
+      "tickers": {
+        "ISRG": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ROK": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "PATH": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SYM": {
+          "role": "core",
+          "confidence": 85,
+          "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    }
+  ]
+}
