@@ -71,6 +71,15 @@ Für JEDE Änderung ist semantic_evidence (wirtschaftliche Begründung) und reas
 PFLICHT. CREATE-Vorschläge müssen quantitative_evidence.members (Liste mit ticker/role/
 rs_percentile_1w/rs_percentile_1m), quantitative_evidence.breadth_pct und
 quantitative_evidence.thrust enthalten — nutze dafür exakt die mitgelieferten Zahlen.
+
+WICHTIG zu Zahlenfeldern (confidence, quantitative_evidence.thrust,
+quantitative_evidence.breadth_pct, rs_percentile_1w, rs_percentile_1m): Diese Felder
+MÜSSEN reine Zahlen sein (z.B. 0.42, 65, 90) — NIEMALS Beschreibungen, Sätze oder Text
+wie "positive across all members". Wenn du für ein Zahlenfeld keinen konkreten Wert aus
+den mitgelieferten Daten ableiten kannst, lass die betroffene Änderung lieber komplett weg,
+statt einen Text anstelle einer Zahl einzusetzen — ein einziges falsches Zahlenfeld lässt
+den kompletten Change Set fehlschlagen und blockiert auch alle anderen, an sich gültigen
+Änderungen in diesem Review.
 """
 
 
