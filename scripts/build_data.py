@@ -65,58 +65,6 @@ TICKERS = {
         "SPY": "SPY",
         "QQQ": "QQQ",
     },
-    "sectors": {
-        "XLK":  "Technologie",
-        "XLC":  "Kommunikation",
-        "XLI":  "Industrie",
-        "XLF":  "Finanzen",
-        "XLV":  "Gesundheit",
-        "XLY":  "Zyklisch Konsum",
-        "XLB":  "Materialien",
-        "XLE":  "Energie",
-        "XLU":  "Versorger",
-        "XLRE": "Immobilien",
-        "XLP":  "Basiskons.",
-    },
-    "themes": {
-        "BOTZ": "🤖 KI & Robotik",
-        "SKYY": "☁️ Cloud Computing",
-        "HACK": "🔒 Cybersecurity",
-        "SMH":  "⚡ Halbleiter",
-        "XBI":  "🧬 Biotech",
-        "ICLN": "🌱 Clean Energy",
-        "PAVE": "🏗️ Infrastruktur",
-        "ARKG": "💊 Genomik",
-        "HERO": "🎮 Gaming & eSport",
-        "LIT":  "⛏️ Lithium & Batterie",
-        "REMX": "🪨 Seltene Erden",
-        "SLV":  "🥈 Silber (iShares)",
-        "GDXJ": "⛏️ Jr. Goldminen",
-        "GDX":  "🥇 Goldminen",
-        "COPX": "🔶 Kupferminen",
-        "NANR": "🌍 Nat. Ressourcen",
-        "OUNZ": "🥇 Gold (VanEck)",
-        "SPPP": "⚪ Platin & Palladium",
-        "FFTY": "📈 IBD 50 Momentum",
-        "IDNA": "🧬 Genomik & Immuno",
-    },
-    "countries": {
-        "ARGT": "🇦🇷 Argentinien",
-        "INDA": "🇮🇳 Indien",
-        "EWY":  "🇰🇷 Südkorea",
-        "EWZ":  "🇧🇷 Brasilien",
-        "EWG":  "🇩🇪 Deutschland",
-        "EWJ":  "🇯🇵 Japan",
-        "EWU":  "🇬🇧 UK",
-        "MCHI": "🇨🇳 China",
-        "EWQ":  "🇫🇷 Frankreich",
-        "EWA":  "🇦🇺 Australien",
-        "EWT":  "🇹🇼 Taiwan",
-        "EWS":  "🇸🇬 Singapur",
-        "THD":  "🇹🇭 Thailand",
-        "ECH":  "🇨🇱 Chile",
-        "TUR":  "🇹🇷 Türkei",
-    },
 }
 
 
@@ -687,27 +635,6 @@ def get_vix_zone(vix_val):
         return "HOCH"
 
 
-def build_top10(all_data):
-    """Build Top 10 weekly performance across all categories."""
-    combined = []
-    cat_map = {
-        "sectors": "Sektor",
-        "themes": "Thema",
-        "countries": "Land",
-        "commodities": "Rohstoff",
-        "crypto": "Krypto",
-    }
-    for cat_key, cat_label in cat_map.items():
-        if cat_key in all_data:
-            for item in all_data[cat_key]:
-                combined.append({**item, "category": cat_label})
-
-    combined.sort(key=lambda x: x.get("w1_pct", -999), reverse=True)
-    return combined[:10]
-
-
-
-
 # ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
@@ -737,24 +664,12 @@ def main():
             continue
         snapshot[cat_key] = fetch_category(cat_key, cat_tickers)
 
-    # 3. Sort sectors, themes, countries by 1W%
-    for key in ["sectors", "themes", "countries"]:
-        if key in snapshot:
-            snapshot[key].sort(key=lambda x: x.get("w1_pct", -999), reverse=True)
-
-    # 4. Countries: keep only top 10
-    if "countries" in snapshot:
-        snapshot["countries"] = snapshot["countries"][:10]
-
-    # 5. VIX zone
+    # 3. VIX zone
     if snapshot.get("vix") and len(snapshot["vix"]) > 0:
         vix_val = snapshot["vix"][0].get("price", 0)
         snapshot["vix"][0]["zone"] = get_vix_zone(vix_val)
 
-    # 6. Top 10 weekly
-    snapshot["top10"] = build_top10(snapshot)
-
-    # 7. S&P 500 Breadth
+    # 4. S&P 500 Breadth
     breadth = fetch_breadth_data()
     if breadth:
         snapshot["breadth"] = breadth

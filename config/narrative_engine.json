@@ -1,0 +1,34 @@
+{
+  "_comment": "Zentrale Konfiguration der Full-Market Narrative Engine. Version-1-Startparameter — Werte hier aendern statt in Python/JS hart zu kodieren. Wird von scripts/build_market_reference.py, scripts/build_market_features.py, scripts/build_narratives.py, scripts/validate_narrative_proposal.py, scripts/review_narratives.py sowie von index.html (per fetch) gelesen.",
+  "version": 1,
+  "universe": {
+    "adr_lookback_sessions": 20,
+    "adr_minimum_pct": 4.0,
+    "market_cap_minimum_usd": 1000000000,
+    "stocks_only": true,
+    "excluded_types": ["ETF", "ETN", "ETS", "FUND", "PFD", "WARRANT", "RIGHT", "UNIT", "INDEX"],
+    "_excluded_types_note": "Massive/Polygon-kompatible Ticker-Type-Codes (GET /v3/reference/tickers/types). CS und ADR-Varianten (ADRC/ADRP/ADRR/ADRW) gelten als reguläre Equity und werden NICHT ausgeschlossen, sofern kein anderer Grund vorliegt."
+  },
+  "discovery": {
+    "rs_candidate_percentile": 80,
+    "thrust_candidate_percentile": 85
+  },
+  "create": {
+    "minimum_members": 4,
+    "minimum_core_members": 3,
+    "minimum_share_rs80_pct": 60,
+    "minimum_count_rs90": 2,
+    "minimum_breadth_pct": 60,
+    "positive_thrust_required": true,
+    "overlap_warning_threshold_pct": 70
+  },
+  "membership": {
+    "core_confidence_minimum": 85,
+    "secondary_confidence_minimum": 70,
+    "remove_confirmation_reviews": 2
+  },
+  "dashboard": {
+    "ema_proximity_threshold_pct": 4.0,
+    "atr_extension_warning_threshold": 5.0
+  }
+}

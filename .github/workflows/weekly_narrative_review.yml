@@ -1,0 +1,76 @@
+name: Weekly Narrative Review
+
+# Semantic/taxonomy review — logically separate from the daily quantitative
+# build (refresh_data.yml). Runs AFTER the daily job so it reads a same-day
+# data/market_features.json from main rather than recomputing it (real
+# API-budget consideration: recomputing the full-market feature set twice a
+# day would double the Massive API load for no benefit).
+on:
+  schedule:
+    - cron: '0 8 * * 1'   # Montags 08:00 UTC, nach dem Mo 05:00/06:00 UTC Daily-Run
+  workflow_dispatch:
+
+concurrency:
+  group: weekly-narrative-review
+  cancel-in-progress: false   # niemals zwei Reviews gleichzeitig; neue Runs warten statt einen laufenden abzubrechen
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Refresh market reference types (weekly, bulk, cheap)
+        timeout-minutes: 15
+        env:
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+        run: python scripts/build_market_reference.py types
+
+      - name: Weekly AI narrative review (discovery + maintenance + validate + apply)
+        id: review
+        timeout-minutes: 20
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/review_narratives.py
+
+      - name: Create Pull Request
+        if: success()
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "🧭 Weekly narrative review"
+          branch: narrative-review/weekly-update
+          delete-branch: true
+          title: "Weekly Narrative Review — ${{ github.run_id }}"
+          body: |
+            Automatisch erzeugter Vorschlag aus dem wöchentlichen Narrative Review.
+
+            - Enthält: `data/taxonomy/narratives.json` (angewendete CREATE/ADD/bestätigte REMOVE/STATUS_CHANGE),
+              `data/taxonomy/history/*.json` (Snapshot), `data/taxonomy/proposals/*.json` (vollständiger Change Set inkl. Begründungen,
+              Overlap-Warnungen und zurückgestellter Vorschläge wie MERGE_PROPOSAL/SPLIT_PROPOSAL oder unbestätigte REMOVEs).
+            - **Kein Auto-Merge.** CREATE, REMOVE, MERGE_PROPOSAL und SPLIT_PROPOSAL erfordern immer eine menschliche Prüfung
+              vor dem Merge — siehe `data/taxonomy/proposals/` für die vollständige Begründung jeder Änderung.
+          labels: narrative-review, needs-human-review
+
+# ─────────────────────────────────────────────
+# Manuelle Repository-Einstellung (muss einmalig von einem Menschen gesetzt
+# werden, kann nicht per Workflow erzwungen werden):
+#   Settings → Actions → General → Workflow permissions →
+#   "Allow GitHub Actions to create and approve pull requests" aktivieren.
+# Ohne diese Einstellung schlägt der "Create Pull Request"-Schritt mit einem
+# klaren Berechtigungsfehler fehl (kein unsicherer Workaround wie ein PAT
+# mit weiterreichenden Rechten wird stattdessen verwendet).
+# ─────────────────────────────────────────────
