@@ -37,9 +37,19 @@ market_features.json: the basket aggregates need the full daily-return
 *time series* across the window, which market_features.json deliberately
 does not persist per ticker (that would multiply its size by the lookback
 window for no other consumer — see the Full-Market Feature Engine's
-payload-size reasoning in the technical report). Re-fetching a ~35-trading-
+payload-size reasoning in the technical report). Re-fetching a ~55-trading-
 day window for ~100-300 taxonomy tickers is a small, bounded cost, separate
 from the market-wide walk in build_market_features.py.
+
+Benchmark RS history (dashboard "Benchmark" subsection under Narratives):
+SPY is folded into the same grouped-daily walk (zero extra API calls — the
+grouped-daily response already contains the whole market per day) purely as
+the comparison series, then popped back out of ticker_metrics so it never
+appears as a narrative member or pollutes the percentile-fallback pool. See
+compute_narrative_rs_history() for the basket-vs-SPY cumulative-return
+calculation and data/narratives.json's "rs_history" key for the output
+shape (one shared "dates" array + per-narrative value lists — checked
+against real narrative counts, this is a few KB, not worth a separate file).
 """
 
 import json
@@ -61,8 +71,10 @@ HORIZONS = {
     "1m": {"window": 21, "thrust_short": 10, "thrust_long": 25, "sig_threshold": 10.0},
 }
 
-TRADING_DAYS_NEEDED = 35   # buffer above the 21-day 1M window for EMA warmup
-MAX_CALENDAR_LOOKBACK = 70  # safety cap so weekends/holidays can't loop forever
+TRADING_DAYS_NEEDED = 55   # 50 trading days (~10 weeks) for the Benchmark RS
+                            # history chart + buffer above the 21-day 1M window
+MAX_CALENDAR_LOOKBACK = 90  # safety cap so weekends/holidays can't loop forever
+RS_HISTORY_LOOKBACK_DAYS = 50  # ~10 trading weeks, matches the Benchmark chart
 MIN_RESULTS_FOR_TRADING_DAY = 1000  # grouped-daily returns ~12k rows on a real session
 
 
@@ -221,6 +233,48 @@ def basket_daily_return_series(daily_ret, members):
     return daily_ret[cols].median(axis=1, skipna=True)
 
 
+def compute_narrative_rs_history(narratives, daily_ret, trading_days, lookback_days=RS_HISTORY_LOOKBACK_DAYS):
+    """Basket-vs-SPY relative-strength time series per narrative, for the
+    dashboard's 'Benchmark' comparison chart. Same basket daily-return series
+    as Strength/Thrust (basket_daily_return_series), compounded from the
+    start of the lookback window; relative strength = compounded basket
+    return minus compounded SPY return, in percentage points, so SPY is
+    always the flat 0% baseline the chart draws as a dashed line. Returns
+    None (with a warning) if SPY wasn't in the fetched universe or has too
+    little history — the frontend degrades to an empty-state message rather
+    than crashing, matching load_market_features' graceful-fallback pattern."""
+    if "SPY" not in daily_ret.columns:
+        print("  ⚠ SPY nicht in den geladenen Kursdaten enthalten — Benchmark-RS-Historie übersprungen", file=sys.stderr)
+        return None
+
+    window_dates = trading_days[-lookback_days:]
+    spy_ret = daily_ret["SPY"].reindex(window_dates)
+    if spy_ret.dropna().shape[0] < 10:
+        print("  ⚠ Zu wenig SPY-Historie für Benchmark-RS-Historie — übersprungen", file=sys.stderr)
+        return None
+    spy_cum = (1 + spy_ret.fillna(0) / 100).cumprod() - 1
+
+    series_by_narrative = {}
+    for n in narratives:
+        members = [t for t in n["tickers"] if t in daily_ret.columns]
+        if not members:
+            continue
+        basket_ret = basket_daily_return_series(daily_ret, members).reindex(window_dates)
+        if basket_ret.dropna().shape[0] < 10:
+            continue
+        basket_cum = (1 + basket_ret.fillna(0) / 100).cumprod() - 1
+        relative = (basket_cum - spy_cum) * 100
+        series_by_narrative[n["id"]] = [round(float(v), 2) for v in relative.tolist()]
+
+    dates_fmt = [datetime.strptime(d, "%Y-%m-%d").strftime("%d.%m.") for d in window_dates]
+    return {
+        "benchmark": "SPY",
+        "lookback_trading_days": len(window_dates),
+        "dates": dates_fmt,
+        "narratives": series_by_narrative,
+    }
+
+
 def calc_basket_scores(members, ticker_metrics, daily_ret, pct_field_by_horizon, percentiles_by_horizon):
     scores = {}
     basket_ret_series = basket_daily_return_series(daily_ret, members)
@@ -293,13 +347,20 @@ def main():
     narratives, universe = load_taxonomy(args.taxonomy)
     print(f"\n📋 Taxonomie: {len(narratives)} Narrative, {len(universe)} eindeutige Ticker")
 
-    per_ticker, trading_days = fetch_grouped_history(set(universe))
+    # SPY wird mit demselben marktweiten Grouped-Daily-Call mitgeholt (keine
+    # Zusatzkosten) — dient ausschliesslich als Benchmark fuer die RS-Historie
+    # unten, ist aber selbst kein Narrative-Mitglied und wird aus
+    # ticker_metrics wieder entfernt, damit es die bestehende Perzentil-
+    # Fallback-Logik (percentile_ranks(ticker_metrics, ...) ohne Full-Market-
+    # Daten) nicht verunreinigt.
+    per_ticker, trading_days = fetch_grouped_history(set(universe) | {"SPY"})
     if len(trading_days) < 10:
         print("FATAL: Zu wenige Handelstage geladen, breche ab.", file=sys.stderr)
         sys.exit(1)
 
     prices = build_price_frame(per_ticker, trading_days)
     ticker_metrics, daily_ret = calc_ticker_metrics(prices)
+    ticker_metrics.pop("SPY", None)
     print(f"  ✅ Metriken für {len(ticker_metrics)}/{len(universe)} Ticker berechnet")
 
     market_features = load_market_features(args.market_features)
@@ -347,6 +408,11 @@ def main():
         print(f"  ✅ {n['name']}: {len(members)} Ticker | 1D Strength {scores['1d']['strength']} | "
               f"1W Strength {scores['1w']['strength']} | 1M Strength {scores['1m']['strength']}")
 
+    rs_history = compute_narrative_rs_history(narratives, daily_ret, trading_days)
+    if rs_history is not None:
+        print(f"  ✅ Benchmark-RS-Historie: {len(rs_history['narratives'])} Narrative x "
+              f"{rs_history['lookback_trading_days']} Handelstage vs. SPY")
+
     output = {
         "meta": {
             "updated_at": datetime.now(timezone.utc).isoformat(),
@@ -356,6 +422,7 @@ def main():
             "universe_size": len(universe),
         },
         "narratives": output_narratives,
+        "rs_history": rs_history,
     }
 
     with open(out_dir / "narratives.json", "w", encoding="utf-8") as f:

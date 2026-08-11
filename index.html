@@ -247,6 +247,21 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .nc-info-popup dt:first-child { margin-top: 0; }
 .nc-info-popup dd { font-size: 11px; line-height: 1.5; color: var(--ink-light); margin: 3px 0 0; }
 
+/* BENCHMARK (Untersektion von Narratives) */
+.benchmark-section { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--card-border); }
+.benchmark-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.benchmark-title { font-family: var(--header-font); font-size: 18px; font-weight: 600; }
+.bm-pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.bm-pill { font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.3px; padding: 6px 12px; border: 1px solid var(--card-border); background: transparent; color: var(--ink-muted); border-radius: 3px; cursor: pointer; transition: all 0.15s; }
+.bm-pill:hover { color: var(--ink); border-color: var(--ink-muted); }
+.bm-pill.active { background: var(--ink); color: var(--sand); border-color: var(--ink); }
+.benchmark-chart-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px; }
+.bm-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-family: var(--mono-font); font-size: 11px; }
+.bm-legend-item { display: flex; align-items: center; gap: 6px; color: var(--ink-light); }
+.bm-legend-item b { color: var(--ink); font-weight: 500; }
+.bm-swatch { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.bm-empty { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); padding: 30px 0; text-align: center; }
+
 @media (max-width: 900px) {
   .hero-top { flex-direction: column; gap: 16px; }
   .regime-grid, .mcclellan-grid, .sizer-grid { grid-template-columns: 1fr; }
@@ -609,10 +624,31 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
         </div>
       </div>
       <div class="nc-meta" id="narrativeMeta"></div>
+      <button class="nd-copy-btn" id="momentumCopyBtn" onclick="ncCopyMomentumTickers(this)" title="Kopiert alle eindeutigen Ticker aus allen Narrativen, die nahe EMA10 oder EMA20 sind (Schwelle aus config/narrative_engine.json) und nicht ATR-extended.">📋 Momentum-Ticker kopieren</button>
     </div>
 
     <div class="narrative-grid" id="narrativeGrid">
       <div class="narrative-empty">Lade Narrative-Daten…</div>
+    </div>
+
+    <div class="benchmark-section">
+      <div class="benchmark-header">
+        <span class="benchmark-title">Benchmark</span>
+        <span class="section-sub">Relative Stärke ausgewählter Narrative vs. S&amp;P 500</span>
+        <span class="nc-info" id="benchmarkInfo" tabindex="0">ⓘ
+          <dl class="nc-info-popup">
+            <dt>Relative Stärke</dt>
+            <dd>Kumulierte Basket-Rendite (Median der taeglichen Mitglieder-Renditen, kompoundiert über den Zeitraum) minus kumulierte S&amp;P-500-Rendite über denselben Zeitraum. Die gestrichelte Nulllinie ist der S&amp;P 500 selbst.</dd>
+            <dt>Zeitraum</dt>
+            <dd>Die letzten ~10 Handelswochen (50 Handelstage).</dd>
+          </dl>
+        </span>
+      </div>
+      <div class="bm-pill-row" id="benchmarkPills"></div>
+      <div class="benchmark-chart-wrap">
+        <div id="benchmarkChart"></div>
+        <div class="bm-legend" id="benchmarkLegend"></div>
+      </div>
     </div>
   </div>
 
@@ -1099,6 +1135,8 @@ let ncScore = 'strength';
 let ncExpandedId = null;
 let ncMemberSort = { field: 'd1_pct', dir: 'desc' };
 let ncEmaFilter = 'all'; // 'all' | 'ema10' | 'ema20' | 'either'
+let ncBenchmarkSelected = new Set(); // Narrative-IDs im Benchmark-Vergleichschart
+const BENCHMARK_COLORS = ['#2f7ed8', '#3ddc73', '#d4a017', '#d6407f', '#9b7fc9', '#e2925c', '#4fd6d2', '#f0605c'];
 
 // Fallback-Defaults, falls config/narrative_engine.json (noch) nicht geladen
 // werden konnte — Werte werden von dort ueberschrieben (Punkt 21: "Die 4-%-
@@ -1130,13 +1168,24 @@ const MEMBER_COLUMNS = [
 // "Near EMA10/EMA20" — Punkt 21: abs(Close/EMA - 1) <= Schwelle. Members
 // speichern ema10_distance_pct/ema20_distance_pct bereits als
 // (Close-EMA)/EMA*100, das ist exakt abs(Close/EMA-1)*100.
+// Geteilt zwischen dem Detail-Filter unten und dem globalen
+// "Momentum-Ticker kopieren"-Button, damit beide exakt dieselbe Definition
+// von "nahe EMA" bzw. "nicht ATR-extended" verwenden.
+function ncNearEma10(m, threshold) {
+  return m.ema10_distance_pct !== null && m.ema10_distance_pct !== undefined && Math.abs(m.ema10_distance_pct) <= threshold;
+}
+function ncNearEma20(m, threshold) {
+  return m.ema20_distance_pct !== null && m.ema20_distance_pct !== undefined && Math.abs(m.ema20_distance_pct) <= threshold;
+}
+function ncIsAtrExtended(m, atrThreshold) {
+  return m.atr_extension !== null && m.atr_extension !== undefined && m.atr_extension > atrThreshold;
+}
+
 function ncEmaFilterMembers(members) {
   const threshold = engineConfig.dashboard.ema_proximity_threshold_pct;
-  const near10 = m => m.ema10_distance_pct !== null && m.ema10_distance_pct !== undefined && Math.abs(m.ema10_distance_pct) <= threshold;
-  const near20 = m => m.ema20_distance_pct !== null && m.ema20_distance_pct !== undefined && Math.abs(m.ema20_distance_pct) <= threshold;
-  if (ncEmaFilter === 'ema10') return members.filter(near10);
-  if (ncEmaFilter === 'ema20') return members.filter(near20);
-  if (ncEmaFilter === 'either') return members.filter(m => near10(m) || near20(m));
+  if (ncEmaFilter === 'ema10') return members.filter(m => ncNearEma10(m, threshold));
+  if (ncEmaFilter === 'ema20') return members.filter(m => ncNearEma20(m, threshold));
+  if (ncEmaFilter === 'either') return members.filter(m => ncNearEma10(m, threshold) || ncNearEma20(m, threshold));
   return members;
 }
 
@@ -1152,6 +1201,17 @@ async function loadNarratives() {
       meta.textContent = `${narrativesRaw.meta.universe_size} Ticker · ${narrativesRaw.narratives.length} Narrative · Stand ${dtStr}`;
     }
     renderNarrativeGrid();
+
+    // Default-Auswahl: das aktuell (1D Strength) fuehrende Narrative, damit
+    // der Benchmark-Chart beim ersten Laden nicht leer ist — bleibt danach
+    // vollstaendig manuell ueber die Pills steuerbar.
+    if (narrativesRaw.rs_history && ncBenchmarkSelected.size === 0) {
+      const top = narrativesRaw.narratives.slice()
+        .sort((a, b) => (ncScoreValue(b, '1d', 'strength') ?? -999) - (ncScoreValue(a, '1d', 'strength') ?? -999))[0];
+      if (top && narrativesRaw.rs_history.narratives[top.id]) ncBenchmarkSelected.add(top.id);
+    }
+    renderBenchmarkPills();
+    renderBenchmarkChart();
   } catch (e) {
     console.log('Narratives-Daten konnten nicht geladen werden:', e);
   }
@@ -1215,7 +1275,7 @@ function renderNarrativeDetail(narrative) {
   const atrThreshold = engineConfig.dashboard.atr_extension_warning_threshold;
 
   const rows = sorted.map(m => {
-    const extended = m.atr_extension !== null && m.atr_extension !== undefined && m.atr_extension > atrThreshold;
+    const extended = ncIsAtrExtended(m, atrThreshold);
     // Grün bleibt ausschliesslich Strength-/Performance-Semantik (Punkt 20) —
     // die ATR-Extension-Warnung markiert nur den Ticker-Namen/Wert als
     // Badge, nicht die ganze Zeile.
@@ -1292,6 +1352,135 @@ function ncCopyVisibleTickers(narrativeId, btn) {
   }).catch(e => console.log('Clipboard-Fehler:', e));
 }
 
+// Sammelt ueber ALLE aktuell geladenen Narrative (dieser Bereich ist als
+// Ganzes das Momentum-Ranking) jeden Ticker, der nahe EMA10 oder EMA20 ist
+// UND nicht ATR-extended, dedupliziert (ein Ticker in mehreren Narrativen
+// erscheint nur einmal). Als eigene pure Funktion extrahiert — einzige
+// Quelle fuer den globalen Copy-Button, testbar ohne Clipboard/DOM.
+function ncMomentumTickerList(data, emaThreshold, atrThreshold) {
+  const seen = new Set();
+  data.narratives.forEach(n => {
+    n.members.forEach(m => {
+      const nearEma = ncNearEma10(m, emaThreshold) || ncNearEma20(m, emaThreshold);
+      if (nearEma && !ncIsAtrExtended(m, atrThreshold)) seen.add(m.symbol);
+    });
+  });
+  return Array.from(seen).sort();
+}
+
+function ncCopyMomentumTickers(btn) {
+  if (!narrativesRaw) return;
+  const list = ncMomentumTickerList(
+    narrativesRaw,
+    engineConfig.dashboard.ema_proximity_threshold_pct,
+    engineConfig.dashboard.atr_extension_warning_threshold
+  );
+  navigator.clipboard.writeText(list.join(',')).then(() => {
+    if (btn) {
+      const original = btn.textContent;
+      btn.textContent = `Kopiert (${list.length})`;
+      setTimeout(() => { btn.textContent = original; }, 1500);
+    }
+  }).catch(e => console.log('Clipboard-Fehler:', e));
+}
+
+// ── BENCHMARK (Untersektion): Multi-Select-Narrative vs. S&P 500 ──
+// Datenquelle: narrativesRaw.rs_history (siehe build_narratives.py
+// compute_narrative_rs_history) — geteiltes "dates"-Array + pro Narrative
+// eine relative-Staerke-Zeitreihe in Prozentpunkten ggue. SPY, SPY selbst
+// ist implizit die 0%-Linie.
+
+function renderBenchmarkPills() {
+  const el = document.getElementById('benchmarkPills');
+  if (!el || !narrativesRaw) return;
+  const hasHistory = id => narrativesRaw.rs_history && narrativesRaw.rs_history.narratives[id];
+  el.innerHTML = narrativesRaw.narratives.map(n => {
+    const active = ncBenchmarkSelected.has(n.id);
+    const disabled = !hasHistory(n.id);
+    return `<button class="bm-pill${active ? ' active' : ''}" ${disabled ? 'disabled title="Keine Benchmark-Historie fuer dieses Narrative"' : ''} onclick="ncToggleBenchmark('${n.id}')">${active ? '✓ ' : ''}${n.name}</button>`;
+  }).join('');
+}
+
+function ncToggleBenchmark(id) {
+  if (ncBenchmarkSelected.has(id)) ncBenchmarkSelected.delete(id);
+  else ncBenchmarkSelected.add(id);
+  renderBenchmarkPills();
+  renderBenchmarkChart();
+}
+
+// Liniendiagramm im selben handgerollten SVG-Stil wie die QQQ-Charts —
+// nutzt das dort definierte qqqXAxis() fuer die Datumsbeschriftung wieder
+// (bereits generisch: nimmt dates/xFor/h als Parameter, nichts QQQ-Spezifisches).
+function benchmarkLineChart(seriesList, dates, w, h) {
+  const padL = 34, padR = 10, padBottom = 14;
+  const inner = w - padL - padR;
+  const plotH = h - padBottom;
+  const len = dates.length;
+  if (len < 2) return '';
+
+  let allVals = [0];
+  seriesList.forEach(s => s.data.forEach(v => { if (v !== null && v !== undefined && !Number.isNaN(v)) allVals.push(v); }));
+  const maxAbs = Math.max(...allVals.map(Math.abs), 1) * 1.15;
+  const yFor = v => plotH / 2 - (v / maxAbs) * (plotH / 2 - 8);
+  const xFor = (i, l) => padL + (i / (l - 1)) * inner;
+
+  let svg = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="overflow:visible;">`;
+  const steps = 3;
+  for (let i = -steps; i <= steps; i++) {
+    const v = (maxAbs / steps) * i;
+    const y = yFor(v).toFixed(1);
+    const isZero = i === 0;
+    svg += `<line x1="${padL}" y1="${y}" x2="${padL + inner}" y2="${y}" stroke="${isZero ? 'var(--ink-muted)' : 'var(--card-border)'}" stroke-width="${isZero ? 1 : 0.6}" ${isZero ? 'stroke-dasharray="4,3"' : ''} opacity="${isZero ? 0.6 : 0.5}"/>`;
+    svg += `<text x="${padL - 5}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">${v >= 0 ? '+' : ''}${v.toFixed(0)}%</text>`;
+  }
+  svg += `<text x="${padL + inner}" y="${(+yFor(0) - 4).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">S&amp;P 500</text>`;
+
+  seriesList.forEach(s => {
+    const segs = [];
+    let cur = [];
+    s.data.forEach((v, i) => {
+      if (v === null || v === undefined || Number.isNaN(v)) {
+        if (cur.length) { segs.push(cur); cur = []; }
+        return;
+      }
+      cur.push(`${xFor(i, len).toFixed(1)},${yFor(v).toFixed(1)}`);
+    });
+    if (cur.length) segs.push(cur);
+    segs.forEach(seg => {
+      svg += `<polyline points="${seg.join(' ')}" fill="none" stroke="${s.color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
+    });
+  });
+  svg += qqqXAxis(dates, len, xFor, h);
+  svg += `</svg>`;
+  return svg;
+}
+
+function renderBenchmarkChart() {
+  const chartEl = document.getElementById('benchmarkChart');
+  const legendEl = document.getElementById('benchmarkLegend');
+  if (!chartEl || !legendEl || !narrativesRaw) return;
+  const rs = narrativesRaw.rs_history;
+  if (!rs) {
+    chartEl.innerHTML = '<div class="bm-empty">Keine Benchmark-Historie verfügbar.</div>';
+    legendEl.innerHTML = '';
+    return;
+  }
+  const selected = Array.from(ncBenchmarkSelected).filter(id => rs.narratives[id]);
+  if (!selected.length) {
+    chartEl.innerHTML = '<div class="bm-empty">Narrative oben auswählen, um die relative Stärke ggü. dem S&amp;P 500 zu vergleichen.</div>';
+    legendEl.innerHTML = '';
+    return;
+  }
+  const seriesList = selected.map((id, i) => ({ id, color: BENCHMARK_COLORS[i % BENCHMARK_COLORS.length], data: rs.narratives[id] }));
+  chartEl.innerHTML = benchmarkLineChart(seriesList, rs.dates, 900, 260);
+  legendEl.innerHTML = seriesList.map(s => {
+    const n = narrativesRaw.narratives.find(x => x.id === s.id);
+    const last = s.data[s.data.length - 1];
+    const lastStr = (last === null || last === undefined) ? '—' : `${last >= 0 ? '+' : ''}${last.toFixed(1)}%`;
+    return `<span class="bm-legend-item"><span class="bm-swatch" style="background:${s.color};"></span>${n ? n.name : s.id} <b>${lastStr}</b></span>`;
+  }).join('');
+}
+
 function renderNarrativeGrid() {
   if (!narrativesRaw) return;
   const grid = document.getElementById('narrativeGrid');
@@ -1363,16 +1552,18 @@ document.getElementById('scoreToggle').addEventListener('click', (e) => {
 
 loadEngineConfig().then(loadNarratives);
 
-const narrativeInfoIcon = document.getElementById('narrativeInfo');
-if (narrativeInfoIcon) {
-  narrativeInfoIcon.addEventListener('click', (e) => {
+document.querySelectorAll('.nc-info').forEach(icon => {
+  icon.addEventListener('click', (e) => {
     e.stopPropagation();
-    narrativeInfoIcon.classList.toggle('open');
+    document.querySelectorAll('.nc-info.open').forEach(o => { if (o !== icon) o.classList.remove('open'); });
+    icon.classList.toggle('open');
   });
-  document.addEventListener('click', (e) => {
-    if (!narrativeInfoIcon.contains(e.target)) narrativeInfoIcon.classList.remove('open');
+});
+document.addEventListener('click', (e) => {
+  document.querySelectorAll('.nc-info.open').forEach(icon => {
+    if (!icon.contains(e.target)) icon.classList.remove('open');
   });
-}
+});
 
 // ══════════════════════════════════════════════
 // PASSWORD PROTECTION
