@@ -213,6 +213,44 @@ def test_create_meeting_all_thresholds_accepted(config, taxonomy):
     assert result.ok, result.errors
 
 
+def test_create_stringified_numbers_from_llm_are_coerced_not_crashed(config, taxonomy):
+    # Regression: first real weekly-review run against the Anthropic API
+    # returned quantitative_evidence fields as strings (e.g. thrust: "0.5")
+    # even though the tool schema declares them as numbers. The validator
+    # must coerce/validate cleanly instead of raising a raw TypeError.
+    members = [
+        {"ticker": "A", "role": "core", "rs_percentile_1w": "95", "rs_percentile_1m": "95"},
+        {"ticker": "B", "role": "core", "rs_percentile_1w": "92", "rs_percentile_1m": "92"},
+        {"ticker": "C", "role": "core", "rs_percentile_1w": "85", "rs_percentile_1m": "85"},
+        {"ticker": "D", "role": "secondary", "rs_percentile_1w": "60", "rs_percentile_1m": "60"},
+    ]
+    change = _create_change(members, breadth="65", thrust="0.5")
+    result = validate_proposal(base_proposal([change]), taxonomy, config)
+    assert result.ok, result.errors  # stringified-but-valid numbers must still pass
+
+
+def test_create_non_numeric_thrust_rejected_cleanly(config, taxonomy):
+    members = [
+        {"ticker": "A", "role": "core", "rs_percentile_1w": 95, "rs_percentile_1m": 95},
+        {"ticker": "B", "role": "core", "rs_percentile_1w": 92, "rs_percentile_1m": 92},
+        {"ticker": "C", "role": "core", "rs_percentile_1w": 85, "rs_percentile_1m": 85},
+        {"ticker": "D", "role": "secondary", "rs_percentile_1w": 60, "rs_percentile_1m": 60},
+    ]
+    change = _create_change(members, thrust="strongly positive")  # not parseable as a number
+    result = validate_proposal(base_proposal([change]), taxonomy, config)
+    assert not result.ok  # rejected as a validation error, not an unhandled exception
+    assert any("Thrust" in e for e in result.errors)
+
+
+def test_add_stringified_confidence_from_llm_is_coerced(config, taxonomy):
+    change = {
+        "action": "ADD", "narrative": "semiconductors", "ticker": "TXN",
+        "role": "core", "confidence": "85", "semantic_evidence": "core driver", "reason": "core fit",
+    }
+    result = validate_proposal(base_proposal([change]), taxonomy, config)
+    assert result.ok, result.errors
+
+
 def test_create_insufficient_rs90_count_rejected(config, taxonomy):
     members = [
         {"ticker": "A", "role": "core", "rs_percentile_1w": 95, "rs_percentile_1m": 95},

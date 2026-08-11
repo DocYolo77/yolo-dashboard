@@ -84,6 +84,25 @@ def _narrative_by_id(taxonomy, nid):
     return None
 
 
+def _as_number(v):
+    """LLM tool-call output sometimes stringifies numbers (e.g. thrust: "0.42"
+    instead of 0.42) even though the tool schema declares them as numbers —
+    observed in production on the first real weekly-review run. Treat a
+    non-numeric value the same as missing rather than crashing the whole
+    validation run on a raw TypeError (fail-closed on the specific field,
+    not on the entire proposal)."""
+    if v is None:
+        return None
+    if isinstance(v, bool):
+        return None
+    if isinstance(v, (int, float)):
+        return v
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
 def _overlap_ratio(proposed_tickers, existing_tickers):
     proposed = set(proposed_tickers)
     if not proposed:
@@ -184,20 +203,22 @@ def validate_proposal(proposal, taxonomy, config, known_tickers=None, proposal_h
             core_members = [m for m in members if m.get("role") == "core"]
             if len(core_members) < create_cfg["minimum_core_members"]:
                 result.err(idx, f"CREATE: nur {len(core_members)} Core-Mitglieder, benötigt >= {create_cfg['minimum_core_members']}")
-            rs_hits = [m for m in members if (m.get("rs_percentile_1w") or 0) >= 80 or (m.get("rs_percentile_1m") or 0) >= 80]
+            rs1w = [_as_number(m.get("rs_percentile_1w")) for m in members]
+            rs1m = [_as_number(m.get("rs_percentile_1m")) for m in members]
+            rs_hits = [i for i in range(len(members)) if (rs1w[i] or 0) >= 80 or (rs1m[i] or 0) >= 80]
             share_rs80 = (len(rs_hits) / len(members) * 100) if members else 0
             if share_rs80 < create_cfg["minimum_share_rs80_pct"]:
                 result.err(idx, f"CREATE: nur {share_rs80:.0f}% der Mitglieder mit RS>=80, benötigt >= {create_cfg['minimum_share_rs80_pct']}%")
-            rs90_count = sum(1 for m in members if (m.get("rs_percentile_1w") or 0) >= 90 or (m.get("rs_percentile_1m") or 0) >= 90)
+            rs90_count = sum(1 for i in range(len(members)) if (rs1w[i] or 0) >= 90 or (rs1m[i] or 0) >= 90)
             if rs90_count < create_cfg["minimum_count_rs90"]:
                 result.err(idx, f"CREATE: nur {rs90_count} Mitglieder mit RS>=90, benötigt >= {create_cfg['minimum_count_rs90']}")
             evidence = change.get("quantitative_evidence") or {}
-            breadth = evidence.get("breadth_pct")
+            breadth = _as_number(evidence.get("breadth_pct"))
             if breadth is None or breadth < create_cfg["minimum_breadth_pct"]:
-                result.err(idx, f"CREATE: Breadth {breadth} < benötigt {create_cfg['minimum_breadth_pct']}%")
-            thrust = evidence.get("thrust")
+                result.err(idx, f"CREATE: Breadth {evidence.get('breadth_pct')!r} < benötigt {create_cfg['minimum_breadth_pct']}%")
+            thrust = _as_number(evidence.get("thrust"))
             if create_cfg["positive_thrust_required"] and (thrust is None or thrust <= 0):
-                result.err(idx, f"CREATE: Thrust {thrust} ist nicht positiv")
+                result.err(idx, f"CREATE: Thrust {evidence.get('thrust')!r} ist nicht positiv oder keine gültige Zahl")
 
             proposed_tickers = {m["ticker"] for m in members if m.get("ticker")}
             ratio, overlap_with = _overlap_ratio(proposed_tickers, existing_ticker_sets)
@@ -216,11 +237,11 @@ def validate_proposal(proposal, taxonomy, config, known_tickers=None, proposal_h
             if not change.get("ticker"):
                 result.err(idx, "ADD benötigt ticker")
             role = change.get("role")
-            confidence = change.get("confidence")
+            confidence = _as_number(change.get("confidence"))
             if role == "core" and (confidence is None or confidence < membership_cfg["core_confidence_minimum"]):
-                result.err(idx, f"ADD core: confidence {confidence} < {membership_cfg['core_confidence_minimum']}")
+                result.err(idx, f"ADD core: confidence {change.get('confidence')!r} < {membership_cfg['core_confidence_minimum']}")
             elif role == "secondary" and (confidence is None or confidence < membership_cfg["secondary_confidence_minimum"]):
-                result.err(idx, f"ADD secondary: confidence {confidence} < {membership_cfg['secondary_confidence_minimum']}")
+                result.err(idx, f"ADD secondary: confidence {change.get('confidence')!r} < {membership_cfg['secondary_confidence_minimum']}")
             elif role not in VALID_ROLES:
                 result.err(idx, "ADD benötigt eine gültige role (core/secondary)")
 
