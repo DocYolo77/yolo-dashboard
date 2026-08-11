@@ -562,6 +562,55 @@
           "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
           "added_at": "2026-08-11",
           "last_reviewed_at": "2026-08-11"
+        },
+        "FSLY": {
+          "role": "secondary",
+          "confidence": 72,
+          "reason": "Cloud-Software-Unternehmen mit starkem Momentum passt thematisch zu Software/SaaS.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "APPN": {
+          "role": "secondary",
+          "confidence": 72,
+          "reason": "SaaS-Plattformunternehmen mit hohem RS-Momentum.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "PLTR": {
+          "role": "secondary",
+          "confidence": 75,
+          "reason": "Software-Plattformunternehmen mit starkem Momentum passt zu Software/SaaS.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "U": {
+          "role": "secondary",
+          "confidence": 70,
+          "reason": "Software-Unternehmen mit relevantem, aber nicht dominantem Bezug zum Narrative.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "AMPL": {
+          "role": "secondary",
+          "confidence": 70,
+          "reason": "SaaS-Analytics-Anbieter mit ausreichendem Momentum für secondary-Mitgliedschaft.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "GTLB": {
+          "role": "secondary",
+          "confidence": 70,
+          "reason": "DevOps-SaaS-Anbieter mit passendem Geschäftsmodell.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "SHOP": {
+          "role": "secondary",
+          "confidence": 75,
+          "reason": "E-Commerce-SaaS-Plattform mit hohem Momentum.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
         }
       }
     },
@@ -610,6 +659,13 @@
           "role": "core",
           "confidence": 85,
           "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "VOYG": {
+          "role": "secondary",
+          "confidence": 70,
+          "reason": "Space-Vehicle-Zulieferer mit hoher RS-Performance.",
           "added_at": "2026-08-11",
           "last_reviewed_at": "2026-08-11"
         }
@@ -705,6 +761,13 @@
           "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
           "added_at": "2026-08-11",
           "last_reviewed_at": "2026-08-11"
+        },
+        "UROY": {
+          "role": "secondary",
+          "confidence": 70,
+          "reason": "Uran-Royalty-Unternehmen mit direktem thematischem Bezug zum Uranium-Narrative.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
         }
       }
     },
@@ -774,6 +837,27 @@
           "role": "core",
           "confidence": 85,
           "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "VOYG": {
+          "role": "secondary",
+          "confidence": 72,
+          "reason": "Space-/Missile-Zulieferer mit sehr hohem Momentum, passt zu Defense/Aerospace.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "ACHR": {
+          "role": "secondary",
+          "confidence": 72,
+          "reason": "Aerospace/eVTOL-Hersteller mit starkem Momentum.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "KRMN": {
+          "role": "secondary",
+          "confidence": 70,
+          "reason": "Defense-Zulieferer (Aircraft/Missile Parts) mit relevantem Momentum.",
           "added_at": "2026-08-11",
           "last_reviewed_at": "2026-08-11"
         }
@@ -1039,6 +1123,63 @@
           "role": "core",
           "confidence": 85,
           "reason": "Migrated from legacy narratives_map.json (manual curation, pre-engine)",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        }
+      }
+    },
+    {
+      "id": "gold___precious_metals_miners",
+      "name": "Gold / Precious Metals Miners",
+      "status": "emerging",
+      "classification_hint": "Eine Gruppe von Gold-/Silberminen- und Edelmetall-Explorern zeigt gleichzeitig sehr hohes RS-Momentum (1w und 1m im hohen 90er-Perzentilbereich), getrieben von steigenden Goldpreisen. Alle Mitglieder sind laut SIC-Klassifikation direkt in Gold/Silver Ore Mining oder eng verwandten Commodity-Segmenten tätig, was ein eigenständiges, wirtschaftlich kohärentes Narrative rechtfertigt, das in der bestehenden Taxonomie fehlt.",
+      "tickers": {
+        "BTG": {
+          "role": "core",
+          "confidence": 70,
+          "reason": "Neues kohärentes Narrative für Gold-/Edelmetallminen mit breiter, starker RS-Performance.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "HYMC": {
+          "role": "core",
+          "confidence": 70,
+          "reason": "Neues kohärentes Narrative für Gold-/Edelmetallminen mit breiter, starker RS-Performance.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "NG": {
+          "role": "core",
+          "confidence": 70,
+          "reason": "Neues kohärentes Narrative für Gold-/Edelmetallminen mit breiter, starker RS-Performance.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "PPTA": {
+          "role": "core",
+          "confidence": 70,
+          "reason": "Neues kohärentes Narrative für Gold-/Edelmetallminen mit breiter, starker RS-Performance.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "EGO": {
+          "role": "secondary",
+          "confidence": 70,
+          "reason": "Neues kohärentes Narrative für Gold-/Edelmetallminen mit breiter, starker RS-Performance.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "IAG": {
+          "role": "secondary",
+          "confidence": 70,
+          "reason": "Neues kohärentes Narrative für Gold-/Edelmetallminen mit breiter, starker RS-Performance.",
+          "added_at": "2026-08-11",
+          "last_reviewed_at": "2026-08-11"
+        },
+        "IAUX": {
+          "role": "secondary",
+          "confidence": 70,
+          "reason": "Neues kohärentes Narrative für Gold-/Edelmetallminen mit breiter, starker RS-Performance.",
           "added_at": "2026-08-11",
           "last_reviewed_at": "2026-08-11"
         }

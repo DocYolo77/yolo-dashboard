@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated_at": "2026-08-11T07:09:48.985059+00:00",
+    "updated_at": "2026-08-11T09:21:25.741064+00:00",
     "source": "Massive /v3/reference/tickers (bulk, market=stocks, active=true)",
     "n_tickers": 13080
   },
@@ -4533,6 +4533,12 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "APOLLO COMMERCIAL REAL ESTATE FINANCE, INC.",
+      "locale": "us"
+    },
+    "ARIA": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Aria Opportunities ETF",
       "locale": "us"
     },
     "ARIS": {
@@ -24437,12 +24443,6 @@
       "name": "Federated Hermes Short Duration Corporate ETF",
       "locale": "us"
     },
-    "FCT": {
-      "type": "FUND",
-      "primary_exchange": "XNYS",
-      "name": "First Trust Senior Floating Rate Income Fund II",
-      "locale": "us"
-    },
     "FCTE": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -25125,6 +25125,12 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "Fidelity Fundamental Large Cap Value ETF",
+      "locale": "us"
+    },
+    "FFLX": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "First Trust Flexible Income ETF",
       "locale": "us"
     },
     "FFND": {
@@ -28451,6 +28457,12 @@
       "name": "Pacer Global Cash Cows Dividend ETF",
       "locale": "us"
     },
+    "GCPB": {
+      "type": "ETF",
+      "primary_exchange": "XNYS",
+      "name": "Goldman Sachs Core Plus Bond ETF",
+      "locale": "us"
+    },
     "GCSH": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -29265,6 +29277,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Gilat Satellite Networks Ltd",
+      "locale": "us"
+    },
+    "GINC": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Goldman Sachs Income ETF",
       "locale": "us"
     },
     "GIND": {
@@ -38445,12 +38463,6 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "Joby Aviation, Inc.",
-      "locale": "us"
-    },
-    "JOBY.WS": {
-      "type": "WARRANT",
-      "primary_exchange": "XNYS",
-      "name": "Joby Aviation, Inc.  Redeemable Warrants, each whole warrant exercisable for one share of Common Stock at an exercise price of $11.50",
       "locale": "us"
     },
     "JOE": {
@@ -47991,18 +48003,6 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "Virtus Newfleet Multi-Sector Bond ETF",
-      "locale": "us"
-    },
-    "NFLU": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "T-Rex 2X Long NFLX Daily Target ETF",
-      "locale": "us"
-    },
-    "NFLW": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "Roundhill NFLX WeeklyPay ETF",
       "locale": "us"
     },
     "NFLX": {
@@ -57611,7 +57611,7 @@
       "name": "Alpha Architect U.S. Quantitative Value ETF",
       "locale": "us"
     },
-    "QVC": {
+    "QVCG": {
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "QVC Group, Inc. Common Stock",
@@ -65561,12 +65561,6 @@
       "name": "Surrozen, Inc. Common",
       "locale": "us"
     },
-    "SRZNW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "Surrozen, Inc. Warrant",
-      "locale": "us"
-    },
     "SSAC": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -66081,12 +66075,6 @@
       "type": "PFD",
       "primary_exchange": "XNAS",
       "name": "Star Equity Holdings, Inc. 10% Series A Cumulative Perpetual Preferred Stock",
-      "locale": "us"
-    },
-    "STRS": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Stratus Properties Inc",
       "locale": "us"
     },
     "STRT": {
@@ -75245,10 +75233,22 @@
       "name": "Worksport, Ltd. Common Stock",
       "locale": "us"
     },
+    "WLCO": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Wilco 63 Corporation Class A Ordinary Shares",
+      "locale": "us"
+    },
     "WLCOU": {
       "type": "UNIT",
       "primary_exchange": "XNAS",
       "name": "Wilco 63 Corporation Units",
+      "locale": "us"
+    },
+    "WLCOW": {
+      "type": "WARRANT",
+      "primary_exchange": "XNAS",
+      "name": "Wilco 63 Corporation Warrant",
       "locale": "us"
     },
     "WLDN": {

@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-11",
+  "review_type": "weekly",
+  "changes": [
+    {
+      "action": "ADD",
+      "narrative": "software_saas",
+      "ticker": "FSLY",
+      "role": "secondary",
+      "confidence": 72,
+      "semantic_evidence": "FSLY (Fastly) ist ein Edge-Cloud/CDN-Softwareanbieter (SIC: Prepackaged Software), wirtschaftlich vergleichbar mit anderen Cloud-Infrastruktur/SaaS-Namen im Narrative. Starkes RS-Momentum (1w 94.5, 1m 98.0).",
+      "reason": "Cloud-Software-Unternehmen mit starkem Momentum passt thematisch zu Software/SaaS.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "software_saas",
+      "ticker": "APPN",
+      "role": "secondary",
+      "confidence": 72,
+      "semantic_evidence": "Appian (APPN) ist ein Prepackaged-Software-Anbieter (Low-Code/Prozessautomatisierung-Plattform), wirtschaftlich analog zu bestehenden SaaS-Mitgliedern. RS 1w 97.1 / 1m 97.9.",
+      "reason": "SaaS-Plattformunternehmen mit hohem RS-Momentum.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "software_saas",
+      "ticker": "PLTR",
+      "role": "secondary",
+      "confidence": 75,
+      "semantic_evidence": "Palantir (PLTR) klassifiziert unter Prepackaged Software; Enterprise-Datenanalyse-Plattform mit SaaS-artigem Geschäftsmodell. RS 1w 98.7 / 1m 97.7.",
+      "reason": "Software-Plattformunternehmen mit starkem Momentum passt zu Software/SaaS.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "software_saas",
+      "ticker": "U",
+      "role": "secondary",
+      "confidence": 70,
+      "semantic_evidence": "Unity Software (U) ist Prepackaged-Software (Entwicklungsplattform), thematisch im SaaS/Software-Segment. RS 1w 97.2 / 1m 97.8.",
+      "reason": "Software-Unternehmen mit relevantem, aber nicht dominantem Bezug zum Narrative.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "software_saas",
+      "ticker": "AMPL",
+      "role": "secondary",
+      "confidence": 70,
+      "semantic_evidence": "Amplitude (AMPL) ist ein Prepackaged-Software-Analytics-SaaS-Anbieter. RS 1w 97.0 / 1m 96.5.",
+      "reason": "SaaS-Analytics-Anbieter mit ausreichendem Momentum für secondary-Mitgliedschaft.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "software_saas",
+      "ticker": "GTLB",
+      "role": "secondary",
+      "confidence": 70,
+      "semantic_evidence": "GitLab (GTLB) ist Prepackaged Software (DevOps-Plattform als SaaS), wirtschaftlich vergleichbar zu bestehenden Mitgliedern wie TEAM, DDOG.",
+      "reason": "DevOps-SaaS-Anbieter mit passendem Geschäftsmodell.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "software_saas",
+      "ticker": "SHOP",
+      "role": "secondary",
+      "confidence": 75,
+      "semantic_evidence": "Shopify (SHOP) klassifiziert als Prepackaged Software, E-Commerce-SaaS-Plattform mit starkem RS (1w 98.0 / 1m 94.2).",
+      "reason": "E-Commerce-SaaS-Plattform mit hohem Momentum.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "defense_aerospace",
+      "ticker": "VOYG",
+      "role": "secondary",
+      "confidence": 72,
+      "semantic_evidence": "Voyager Technologies (VOYG) klassifiziert unter Guided Missiles & Space Vehicles & Parts - direkte Überschneidung mit Defense/Aerospace/Space-Zulieferketten. RS 1w 99.4 / 1m 97.6.",
+      "reason": "Space-/Missile-Zulieferer mit sehr hohem Momentum, passt zu Defense/Aerospace.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "space",
+      "ticker": "VOYG",
+      "role": "secondary",
+      "confidence": 70,
+      "semantic_evidence": "SIC-Klassifikation Guided Missiles & Space Vehicles & Parts entspricht direkt dem Space-Narrative-Fokus. Starkes Momentum (RS 1w 99.4 / 1m 97.6).",
+      "reason": "Space-Vehicle-Zulieferer mit hoher RS-Performance.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "defense_aerospace",
+      "ticker": "ACHR",
+      "role": "secondary",
+      "confidence": 72,
+      "semantic_evidence": "Archer Aviation (ACHR) klassifiziert als Aircraft (eVTOL), wirtschaftlich im erweiterten Aerospace-Segment. RS 1w 97.3 / 1m 96.3.",
+      "reason": "Aerospace/eVTOL-Hersteller mit starkem Momentum.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "defense_aerospace",
+      "ticker": "KRMN",
+      "role": "secondary",
+      "confidence": 70,
+      "semantic_evidence": "Karman Holdings (KRMN) klassifiziert als Aircraft Parts & Auxiliary Equipment - Zulieferer für Missile/Defense-Systeme. RS 1w 95.8 / 1m 93.3.",
+      "reason": "Defense-Zulieferer (Aircraft/Missile Parts) mit relevantem Momentum.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "uranium",
+      "ticker": "UROY",
+      "role": "secondary",
+      "confidence": 70,
+      "semantic_evidence": "Uranium Royalty Corp (UROY) ist ein reiner Uran-Royalty-/Streaming-Player, wirtschaftlich direkt an den Uranpreis gekoppelt wie bestehende Uranium-Mitglieder. RS 1w 94.7 / 1m 98.7.",
+      "reason": "Uran-Royalty-Unternehmen mit direktem thematischem Bezug zum Uranium-Narrative.",
+      "human_review_required": false
+    },
+    {
+      "action": "CREATE",
+      "narrative_name": "Gold / Precious Metals Miners",
+      "semantic_evidence": "Eine Gruppe von Gold-/Silberminen- und Edelmetall-Explorern zeigt gleichzeitig sehr hohes RS-Momentum (1w und 1m im hohen 90er-Perzentilbereich), getrieben von steigenden Goldpreisen. Alle Mitglieder sind laut SIC-Klassifikation direkt in Gold/Silver Ore Mining oder eng verwandten Commodity-Segmenten tätig, was ein eigenständiges, wirtschaftlich kohärentes Narrative rechtfertigt, das in der bestehenden Taxonomie fehlt.",
+      "reason": "Neues kohärentes Narrative für Gold-/Edelmetallminen mit breiter, starker RS-Performance.",
+      "quantitative_evidence": {
+        "members": [
+          {
+            "ticker": "BTG",
+            "role": "core",
+            "rs_percentile_1w": 97.8,
+            "rs_percentile_1m": 96.0
+          },
+          {
+            "ticker": "HYMC",
+            "role": "core",
+            "rs_percentile_1w": 97.9,
+            "rs_percentile_1m": 94.6
+          },
+          {
+            "ticker": "NG",
+            "role": "core",
+            "rs_percentile_1w": 97.1,
+            "rs_percentile_1m": 94.7
+          },
+          {
+            "ticker": "PPTA",
+            "role": "core",
+            "rs_percentile_1w": 97.6,
+            "rs_percentile_1m": 94.8
+          },
+          {
+            "ticker": "EGO",
+            "role": "secondary",
+            "rs_percentile_1w": 95.1,
+            "rs_percentile_1m": 95.2
+          },
+          {
+            "ticker": "IAG",
+            "role": "secondary",
+            "rs_percentile_1w": 96.3,
+            "rs_percentile_1m": 91.0
+          },
+          {
+            "ticker": "IAUX",
+            "role": "secondary",
+            "rs_percentile_1w": 96.8,
+            "rs_percentile_1m": 91.8
+          }
+        ],
+        "breadth_pct": 100,
+        "thrust": 1.0
+      },
+      "human_review_required": true,
+      "overlap_pct": 0.0,
+      "overlap_with": null,
+      "overlap_warning": false
+    },
+    {
+      "action": "REMOVE",
+      "narrative": "defense_aerospace",
+      "ticker": "BA",
+      "remove_reason_code": "other_fundamental",
+      "confidence": 90,
+      "semantic_evidence": "Boeing ist primär ein kommerzieller Flugzeughersteller mit Defense-Anteil, aber die Zuordnung war ursprünglich korrekt eingestuft - kein Beleg für Fehlklassifizierung vorhanden. Kein REMOVE gerechtfertigt.",
+      "reason": "Kein REMOVE - Rückzug dieses Vorschlags, da keine sachliche Fehlzuordnung vorliegt.",
+      "human_review_required": true,
+      "actionable": false
+    }
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "changes[13]: REMOVE: erste Meldung, noch keine zweite aufeinanderfolgende Weekly-Review-Bestätigung und kein Notfall-Grund — wird als 'pending second review' markiert, nicht sofort anwendbar"
+    ]
+  }
+}
