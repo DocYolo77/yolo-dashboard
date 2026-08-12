@@ -174,8 +174,23 @@ def test_resolve_narrative_reference_existing_id_reused_without_new_flag():
     assert (resolved_id, created, err) == ("semiconductors", False, None)
 
 
-def test_resolve_narrative_reference_errors_on_unknown_id_without_new_flag():
-    resolved_id, created, err = r.resolve_narrative_reference("ghost_narrative", False, None, None, {}, {})
+def test_resolve_narrative_reference_heals_unknown_id_without_new_flag_using_id_as_fallback_name():
+    # Observed in the first real Full-Universe run: the LLM referenced
+    # 'healthcare_services' without is_new=true when the catalog actually
+    # had 'healthcare_services_facilities' -- a confident classification
+    # with an id-matching slip, not a missing one. Must NOT error; heals as
+    # an implicit new narrative instead of discarding the classification.
+    catalog_by_id, catalog_by_norm = {}, {}
+    resolved_id, created, err = r.resolve_narrative_reference(
+        "healthcare_services", False, None, None, catalog_by_id, catalog_by_norm)
+    assert err is None
+    assert created is True
+    assert resolved_id in catalog_by_id
+    assert catalog_by_id[resolved_id]["name"] == "Healthcare Services"
+
+
+def test_resolve_narrative_reference_errors_only_when_truly_nothing_to_work_with():
+    resolved_id, created, err = r.resolve_narrative_reference(None, False, None, None, {}, {})
     assert resolved_id is None
     assert err is not None
 
@@ -217,12 +232,17 @@ def test_parse_classification_result_tolerates_stringified_number():
     assert result["primary_confidence"] == 90.0
 
 
-def test_parse_classification_result_rejects_new_without_name():
+def test_parse_classification_result_tolerates_is_new_without_name():
+    # Observed in the first real Full-Universe run (OSCR): primary_is_new=true
+    # with primary_new_name missing. Parsing must NOT reject this -- the
+    # downstream resolver derives a fallback name from primary_narrative_id.
     result, err = r.parse_classification_result(
-        {"ticker": "AAA", "primary_narrative_id": "x", "primary_is_new": True, "primary_confidence": 90},
+        {"ticker": "AAA", "primary_narrative_id": "x", "primary_is_new": True,
+         "primary_confidence": 90, "reasoning": "y"},
         valid_tickers={"AAA"})
-    assert result is None
-    assert "primary_new_name" in err
+    assert err is None
+    assert result["primary_new_name"] is None
+    assert result["primary_is_new"] is True
 
 
 def test_parse_classification_result_skips_malformed_secondary_without_failing_whole_row():
@@ -236,10 +256,26 @@ def test_parse_classification_result_skips_malformed_secondary_without_failing_w
     assert result["secondary_narratives"][0]["narrative_id"] == "n3"
 
 
-def test_apply_classification_result_reports_error_without_partial_write_on_bad_primary():
+def test_apply_classification_result_heals_unresolvable_primary_id_instead_of_discarding():
+    # 'ghost' isn't in the catalog and is_new wasn't set -- resolve_narrative_reference
+    # heals this (see its dedicated tests) rather than erroring, so a
+    # confident-but-slightly-mismatched classification isn't thrown away.
     taxonomy_by_id = {}
     catalog_by_id, catalog_by_norm = {}, {}
     result = {"ticker": "AAA", "primary_narrative_id": "ghost", "primary_is_new": False,
+              "primary_new_name": None, "primary_new_definition": None, "primary_confidence": 90,
+              "secondary_narratives": [], "reasoning": "x"}
+    errors = r.apply_classification_result(taxonomy_by_id, catalog_by_id, catalog_by_norm,
+                                            result, MEMBERSHIP_CFG, max_secondary=2,
+                                            today="2026-08-12", source="daily_reconciliation")
+    assert errors == []
+    assert "AAA" in next(iter(taxonomy_by_id.values()))["tickers"]
+
+
+def test_apply_classification_result_reports_error_without_partial_write_when_truly_unresolvable():
+    taxonomy_by_id = {}
+    catalog_by_id, catalog_by_norm = {}, {}
+    result = {"ticker": "AAA", "primary_narrative_id": None, "primary_is_new": False,
               "primary_new_name": None, "primary_new_definition": None, "primary_confidence": 90,
               "secondary_narratives": [], "reasoning": "x"}
     errors = r.apply_classification_result(taxonomy_by_id, catalog_by_id, catalog_by_norm,

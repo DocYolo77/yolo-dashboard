@@ -298,7 +298,20 @@ def resolve_narrative_reference(narrative_id, is_new, new_name, new_definition, 
     Dedup happens BEFORE trusting is_new — even if the LLM claims a
     narrative is new, a near-identical name already in the catalog wins
     (case/punctuation-insensitive match), so two batches proposing
-    "Regional Banks" and "regional-banks" land on the same id."""
+    "Regional Banks" and "regional-banks" land on the same id.
+
+    An unresolvable reference (narrative_id not in the catalog, is_new not
+    set) does NOT error out — observed in the first real Full-Universe run:
+    the LLM occasionally echoes a catalog id back slightly mangled/
+    abbreviated (e.g. 'healthcare_services' for the catalog's
+    'healthcare_services_facilities') without flagging it as new. That is a
+    confident classification with an id-matching slip, not a missing
+    classification (point 15's fail-closed rule is about NO classification
+    being produced, not about exact id fidelity) — so it's healed as an
+    implicit new narrative using the reference itself as a fallback name.
+    Any resulting near-duplicate is still caught by
+    find_duplicate_narrative_names for human follow-up in the weekly
+    review, same safety net as a genuine LLM-proposed new narrative."""
     if narrative_id and narrative_id in catalog_by_id and not is_new:
         return narrative_id, False, None
 
@@ -311,14 +324,13 @@ def resolve_narrative_reference(narrative_id, is_new, new_name, new_definition, 
     if narrative_id in catalog_by_id:
         return narrative_id, False, None
 
-    if not is_new:
-        return None, False, f"narrative_id '{narrative_id}' unbekannt und primary_is_new/is_new nicht gesetzt"
-    if not new_name:
-        return None, False, "is_new=true aber new_name fehlt"
+    fallback_name = new_name or (narrative_id.replace("_", " ").replace("-", " ").strip().title() if narrative_id else None)
+    if not fallback_name:
+        return None, False, "weder narrative_id noch new_name vorhanden — keine Klassifikation ableitbar"
 
-    new_id = unique_narrative_id(slugify_narrative_id(new_name), set(catalog_by_id.keys()))
-    catalog_by_id[new_id] = {"name": new_name, "classification_hint": new_definition}
-    catalog_by_norm_name[normalize_narrative_name(new_name)] = new_id
+    new_id = unique_narrative_id(slugify_narrative_id(fallback_name), set(catalog_by_id.keys()))
+    catalog_by_id[new_id] = {"name": fallback_name, "classification_hint": new_definition}
+    catalog_by_norm_name[normalize_narrative_name(fallback_name)] = new_id
     return new_id, True, None
 
 
@@ -406,8 +418,11 @@ def parse_classification_result(raw, valid_tickers):
     primary_confidence = _as_number(raw.get("primary_confidence"))
     if primary_confidence is None:
         return None, f"{ticker}: primary_confidence ist keine gueltige Zahl"
-    if raw.get("primary_is_new") and not raw.get("primary_new_name"):
-        return None, f"{ticker}: primary_is_new=true aber primary_new_name fehlt"
+    # NOTE: primary_is_new=true with a missing primary_new_name is
+    # deliberately NOT rejected here — resolve_narrative_reference derives a
+    # fallback name from primary_narrative_id itself (point 15 is about a
+    # ticker ending up with NO classification, not about the LLM's is_new/
+    # new_name bookkeeping being perfectly filled in every field).
 
     secondaries = []
     for s in (raw.get("secondary_narratives") or []):
@@ -415,8 +430,6 @@ def parse_classification_result(raw, valid_tickers):
         nid = s.get("narrative_id")
         if not nid or conf is None:
             continue  # skip malformed secondary entries individually, don't fail the whole ticker
-        if s.get("is_new") and not s.get("new_name"):
-            continue
         secondaries.append({
             "narrative_id": nid, "is_new": bool(s.get("is_new")),
             "new_name": s.get("new_name"), "new_definition": s.get("new_definition"),
