@@ -1,221 +1,914 @@
 {
   "date": "2026-08-12",
   "market_regime": {
-    "score": 52.2,
+    "score": 52.0,
     "state": "SELECTIVE"
   },
   "qqq_health": {
-    "score": 68.5,
-    "base_state": "MIXED",
+    "score": 72.0,
+    "base_state": "HEALTHY",
     "modifiers": [],
     "extended": false
   },
   "narratives": {
     "memory_storage": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 37.0,
-      "trend_participation": 25.0,
-      "structural_leadership_pct": 0.0,
+      "structural_score": 34.1,
+      "trend_participation": 16.7,
+      "structural_leadership_pct": 16.7,
       "momentum_modifier": "ACCELERATING",
-      "rank": 10,
+      "rank": 50,
       "fading_streak": 1,
-      "dormant_streak": 0,
+      "dormant_streak": 1,
       "mature_streak": 0
     },
     "semiconductors": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 22.3,
-      "trend_participation": 5.6,
-      "structural_leadership_pct": 0.0,
-      "momentum_modifier": null,
-      "rank": 17,
+      "structural_score": 25.8,
+      "trend_participation": 6.6,
+      "structural_leadership_pct": 3.3,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 63,
       "fading_streak": 1,
       "dormant_streak": 2,
       "mature_streak": 0
     },
     "photonics_optical": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 38.3,
-      "trend_participation": 20.0,
-      "structural_leadership_pct": 0.0,
+      "structural_score": 30.9,
+      "trend_participation": 10.5,
+      "structural_leadership_pct": 10.5,
       "momentum_modifier": "ACCELERATING",
-      "rank": 9,
+      "rank": 55,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "ai_infrastructure": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 54.3,
-      "trend_participation": 30.0,
-      "structural_leadership_pct": 37.5,
+      "structural_score": 27.5,
+      "trend_participation": 15.4,
+      "structural_leadership_pct": 12.8,
       "momentum_modifier": "ACCELERATING",
-      "rank": 4,
+      "rank": 61,
       "fading_streak": 0,
-      "dormant_streak": 0,
+      "dormant_streak": 1,
       "mature_streak": 0
     },
     "data_center": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 62.2,
-      "trend_participation": 42.9,
-      "structural_leadership_pct": 50.0,
+      "structural_score": 21.3,
+      "trend_participation": 11.4,
+      "structural_leadership_pct": 11.4,
       "momentum_modifier": "ACCELERATING",
-      "rank": 3,
-      "fading_streak": 0,
-      "dormant_streak": 0,
+      "rank": 67,
+      "fading_streak": 1,
+      "dormant_streak": 1,
       "mature_streak": 0
     },
     "networking": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 43.4,
-      "trend_participation": 50.0,
-      "structural_leadership_pct": 0.0,
+      "structural_score": 31.9,
+      "trend_participation": 18.8,
+      "structural_leadership_pct": 6.2,
       "momentum_modifier": "ACCELERATING",
-      "rank": 7,
+      "rank": 52,
       "fading_streak": 1,
-      "dormant_streak": 0,
+      "dormant_streak": 2,
       "mature_streak": 0
     },
     "cybersecurity": {
-      "lifecycle_state": "ACTIVE",
-      "structural_score": 77.7,
-      "trend_participation": 100.0,
-      "structural_leadership_pct": 37.5,
-      "momentum_modifier": null,
-      "rank": 2,
-      "fading_streak": 0,
-      "dormant_streak": 0,
-      "mature_streak": 0
-    },
-    "software_saas": {
-      "lifecycle_state": "ACTIVE",
-      "structural_score": 81.1,
-      "trend_participation": 94.7,
-      "structural_leadership_pct": 41.2,
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 68.3,
+      "trend_participation": 80.8,
+      "structural_leadership_pct": 19.2,
       "momentum_modifier": "COOLING",
-      "rank": 1,
+      "rank": 5,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 1
     },
+    "software_saas": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 62.3,
+      "trend_participation": 65.1,
+      "structural_leadership_pct": 12.7,
+      "momentum_modifier": null,
+      "rank": 11,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
     "space": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 34.0,
-      "trend_participation": 0.0,
-      "structural_leadership_pct": 16.7,
-      "momentum_modifier": null,
-      "rank": 12,
+      "structural_score": 31.2,
+      "trend_participation": 15.4,
+      "structural_leadership_pct": 15.4,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 54,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "nuclear": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 20.3,
-      "trend_participation": 0.0,
+      "structural_score": 22.2,
+      "trend_participation": 11.1,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 18,
+      "rank": 65,
       "fading_streak": 1,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "uranium": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 25.8,
+      "structural_score": 28.5,
       "trend_participation": 0.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 15,
+      "rank": 58,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "defense_aerospace": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 45.2,
-      "trend_participation": 25.0,
-      "structural_leadership_pct": 20.0,
+      "structural_score": 52.0,
+      "trend_participation": 39.1,
+      "structural_leadership_pct": 15.2,
       "momentum_modifier": null,
-      "rank": 6,
+      "rank": 22,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "fintech": {
       "lifecycle_state": "FADING",
-      "structural_score": 31.0,
-      "trend_participation": 42.9,
-      "structural_leadership_pct": 0.0,
+      "structural_score": 37.7,
+      "trend_participation": 37.2,
+      "structural_leadership_pct": 7.0,
       "momentum_modifier": null,
-      "rank": 13,
+      "rank": 45,
       "fading_streak": 2,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "biotech": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 54.3,
-      "trend_participation": 71.4,
-      "structural_leadership_pct": 0.0,
+      "structural_score": 55.6,
+      "trend_participation": 62.9,
+      "structural_leadership_pct": 28.8,
       "momentum_modifier": null,
-      "rank": 5,
+      "rank": 19,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "quantum_computing": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 25.8,
+      "structural_score": 23.9,
       "trend_participation": 0.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 14,
+      "rank": 64,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "ev_battery": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 25.5,
-      "trend_participation": 20.0,
+      "structural_score": 16.7,
+      "trend_participation": 11.8,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 16,
+      "rank": 72,
       "fading_streak": 1,
-      "dormant_streak": 1,
+      "dormant_streak": 0,
       "mature_streak": 0
     },
     "solar_clean_energy": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 10.8,
-      "trend_participation": 0.0,
+      "structural_score": 13.5,
+      "trend_participation": 10.5,
       "structural_leadership_pct": 0.0,
-      "momentum_modifier": null,
-      "rank": 19,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 75,
       "fading_streak": 1,
       "dormant_streak": 2,
       "mature_streak": 0
     },
     "robotics_automation": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 39.5,
-      "trend_participation": 25.0,
-      "structural_leadership_pct": 0.0,
+      "structural_score": 58.8,
+      "trend_participation": 47.4,
+      "structural_leadership_pct": 21.1,
       "momentum_modifier": null,
-      "rank": 8,
-      "fading_streak": 1,
+      "rank": 14,
+      "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "gold___precious_metals_miners": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 36.7,
+      "structural_score": 30.6,
+      "trend_participation": 2.9,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 56,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "hvac_climate_control_equipment": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 9.9,
+      "trend_participation": 7.7,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 79,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "auto_parts_retail": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 28.9,
+      "trend_participation": 20.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 57,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "healthcare_services_facilities": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 56.9,
+      "trend_participation": 61.5,
+      "structural_leadership_pct": 7.7,
+      "momentum_modifier": null,
+      "rank": 17,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "grocery_food_retail": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 50.2,
+      "trend_participation": 33.3,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 25,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "it_services_consulting": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 51.7,
+      "trend_participation": 56.7,
+      "structural_leadership_pct": 10.0,
+      "momentum_modifier": null,
+      "rank": 23,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "ip_licensing": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 36.4,
+      "trend_participation": 20.0,
+      "structural_leadership_pct": 20.0,
+      "momentum_modifier": null,
+      "rank": 47,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "automotive_parts_components_supplier": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 43.1,
+      "trend_participation": 41.2,
+      "structural_leadership_pct": 11.8,
+      "momentum_modifier": null,
+      "rank": 36,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "industrial_specialty_vehicle_machinery": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 40.1,
+      "trend_participation": 41.4,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 40,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "airlines": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 44.5,
+      "trend_participation": 28.6,
+      "structural_leadership_pct": 14.3,
+      "momentum_modifier": null,
+      "rank": 30,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "oil_gas_services_equipment": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 46.5,
+      "trend_participation": 36.8,
+      "structural_leadership_pct": 13.2,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 27,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "healthcare_services": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 21.3,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 68,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "agriculture_agribusiness": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 16.3,
       "trend_participation": 14.3,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 11,
+      "rank": 74,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "construction_engineering_services": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 27.1,
+      "trend_participation": 21.4,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 62,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "e_commerce_platform": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 43.6,
+      "trend_participation": 50.0,
+      "structural_leadership_pct": 4.2,
+      "momentum_modifier": null,
+      "rank": 35,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "industrial_machinery": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 17.3,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 71,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "airline": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 12.2,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 77,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "tungsten_critical_metals_mining": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 13.4,
+      "trend_participation": 10.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 76,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "metal_packaging_beverage_cans": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 44.2,
+      "trend_participation": 66.7,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 33,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "movie_theater_exhibition": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 35.0,
+      "trend_participation": 40.0,
+      "structural_leadership_pct": 40.0,
+      "momentum_modifier": null,
+      "rank": 48,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "healthcare_staffing_workforce_solutions": {
+      "lifecycle_state": "ACTIVE",
+      "structural_score": 66.1,
+      "trend_participation": 71.4,
+      "structural_leadership_pct": 14.3,
+      "momentum_modifier": "COOLING",
+      "rank": 9,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 1
+    },
+    "coal_mining": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 16.6,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 73,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "professional_financial_advisory_services": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 58.6,
+      "trend_participation": 71.4,
+      "structural_leadership_pct": 7.1,
+      "momentum_modifier": null,
+      "rank": 15,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "apparel_retail": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 39.0,
+      "trend_participation": 43.8,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 41,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "medical_devices": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 60.1,
+      "trend_participation": 58.1,
+      "structural_leadership_pct": 19.4,
+      "momentum_modifier": null,
+      "rank": 12,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "adtech_digital_advertising_platform": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 41.7,
+      "trend_participation": 46.2,
+      "structural_leadership_pct": 30.8,
+      "momentum_modifier": null,
+      "rank": 38,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "adtech_platform": {
+      "lifecycle_state": "ACTIVE",
+      "structural_score": 99.8,
+      "trend_participation": 100.0,
+      "structural_leadership_pct": 100.0,
+      "momentum_modifier": "COOLING",
+      "rank": 1,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 1
+    },
+    "trucking_freight_logistics": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 32.0,
+      "trend_participation": 20.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 51,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "alternative_asset_management": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 38.6,
+      "trend_participation": 46.2,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 43,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "home_furnishings_retail": {
+      "lifecycle_state": "ACTIVE",
+      "structural_score": 73.1,
+      "trend_participation": 100.0,
+      "structural_leadership_pct": 12.5,
+      "momentum_modifier": "COOLING",
+      "rank": 3,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 1
+    },
+    "specialty_property_casualty_insurance": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 63.8,
+      "trend_participation": 91.7,
+      "structural_leadership_pct": 8.3,
+      "momentum_modifier": null,
+      "rank": 10,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "telecom_spectrum_private_wireless_infrastructure": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 51.1,
+      "trend_participation": 25.0,
+      "structural_leadership_pct": 25.0,
+      "momentum_modifier": null,
+      "rank": 24,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "specialty_metals_advanced_materials": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 46.9,
+      "trend_participation": 27.3,
+      "structural_leadership_pct": 18.2,
+      "momentum_modifier": null,
+      "rank": 26,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "life_sciences_tools_consumables": {
+      "lifecycle_state": "ACTIVE",
+      "structural_score": 66.8,
+      "trend_participation": 74.1,
+      "structural_leadership_pct": 18.5,
+      "momentum_modifier": "COOLING",
+      "rank": 7,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 1
+    },
+    "banking_financial_services": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 38.0,
+      "trend_participation": 45.0,
+      "structural_leadership_pct": 5.0,
+      "momentum_modifier": null,
+      "rank": 44,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "building_products_materials_distribution": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 43.1,
+      "trend_participation": 57.1,
+      "structural_leadership_pct": 4.8,
+      "momentum_modifier": null,
+      "rank": 37,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "secure_logistics_cash_management_services": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 67.5,
+      "trend_participation": 100.0,
+      "structural_leadership_pct": 33.3,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 6,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "electronic_components_manufacturing": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 44.4,
+      "trend_participation": 36.7,
+      "structural_leadership_pct": 10.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 31,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "diversified_restaurant_insurance_holding_company": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 57.0,
+      "trend_participation": 100.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 16,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "specialty_pharmaceuticals": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 52.5,
+      "trend_participation": 45.0,
+      "structural_leadership_pct": 20.0,
+      "momentum_modifier": null,
+      "rank": 21,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "crypto_mining_digital_asset_treasury": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 9.2,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 80,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "branded_nutrition_consumer_packaged_goods": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 45.1,
+      "trend_participation": 58.3,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 29,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "crypto_mining_treasury": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 66.3,
+      "trend_participation": 50.0,
+      "structural_leadership_pct": 50.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 8,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "fast_casual_restaurant_chains": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 31.3,
+      "trend_participation": 40.0,
+      "structural_leadership_pct": 20.0,
+      "momentum_modifier": null,
+      "rank": 53,
+      "fading_streak": 0,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "cava_fast_casual_dining": {
+      "lifecycle_state": "ACTIVE",
+      "structural_score": 76.8,
+      "trend_participation": 100.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "COOLING",
+      "rank": 2,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 1
+    },
+    "specialty_chemicals": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 27.8,
+      "trend_participation": 22.7,
+      "structural_leadership_pct": 4.5,
+      "momentum_modifier": null,
+      "rank": 60,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "power_generation_utilities": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 18.9,
+      "trend_participation": 19.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 70,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "telecom_cable_broadband_services": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 28.2,
+      "trend_participation": 15.4,
+      "structural_leadership_pct": 7.7,
+      "momentum_modifier": null,
+      "rank": 59,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "commercial_printing_mass_customization": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 53.0,
+      "trend_participation": 50.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 20,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "homebuilders": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 44.4,
+      "trend_participation": 40.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 32,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "online_gaming_sports_betting": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 20.2,
+      "trend_participation": 16.7,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 69,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "insurtech_digital_insurance_distribution": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 6.1,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 82,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "ridesharing_mobility_platform": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 40.5,
+      "trend_participation": 50.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 39,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "education_content_publishing": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 10.8,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 78,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "financial_exchange_marketplace_operator": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 56.0,
+      "trend_participation": 50.0,
+      "structural_leadership_pct": 25.0,
+      "momentum_modifier": null,
+      "rank": 18,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "online_travel_booking_platform": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 59.7,
+      "trend_participation": 66.7,
+      "structural_leadership_pct": 33.3,
+      "momentum_modifier": null,
+      "rank": 13,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "media_entertainment_conglomerate": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 36.9,
+      "trend_participation": 25.0,
+      "structural_leadership_pct": 25.0,
+      "momentum_modifier": null,
+      "rank": 46,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "connected_fitness_platform": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 38.8,
+      "trend_participation": 50.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 42,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "online_gaming_virtual_world_platform": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 6.8,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 81,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "social_media_platform": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 21.4,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 66,
+      "fading_streak": 1,
+      "dormant_streak": 1,
+      "mature_streak": 0
+    },
+    "hotel_lodging_reit": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 45.4,
+      "trend_participation": 33.3,
+      "structural_leadership_pct": 33.3,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 28,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "off_price_thrift_retail": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 44.1,
+      "trend_participation": 50.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 34,
+      "fading_streak": 1,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "packaging_paperboard_manufacturing": {
+      "lifecycle_state": "ACTIVE",
+      "structural_score": 70.8,
+      "trend_participation": 100.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "COOLING",
+      "rank": 4,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 1
+    },
+    "copper_base_metals_mining": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 34.5,
+      "trend_participation": 33.3,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 49,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
@@ -228,7 +921,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "photonics_optical"
+      ],
       "rs_1w": 57.5
     },
     "AAON": {
@@ -237,7 +932,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "hvac_climate_control_equipment"
+      ],
       "rs_1w": 9.8
     },
     "AAP": {
@@ -246,7 +943,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "auto_parts_retail"
+      ],
       "rs_1w": 5.7
     },
     "AAUC": {
@@ -272,7 +971,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "ai_infrastructure",
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 84.2
     },
@@ -290,7 +992,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "healthcare_services_facilities"
+      ],
       "laggard_narratives": [],
       "rs_1w": 27.6
     },
@@ -367,7 +1071,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ip_licensing"
+      ],
       "rs_1w": 16.5
     },
     "ADNT": {
@@ -376,7 +1082,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "automotive_parts_components_supplier"
+      ],
       "rs_1w": 9.5
     },
     "ADPT": {
@@ -384,7 +1092,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 55.4
     },
@@ -459,7 +1169,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
       "rs_1w": 83.4
     },
     "AGIO": {
@@ -504,7 +1216,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "construction_engineering_services"
+      ],
       "rs_1w": 28.6
     },
     "AGYS": {
@@ -531,7 +1245,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure"
+      ],
       "rs_1w": 58.1
     },
     "AIN": {
@@ -603,7 +1319,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "airline"
+      ],
       "rs_1w": 2.8
     },
     "ALHC": {
@@ -621,7 +1339,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "airlines"
+      ],
       "rs_1w": 8.8
     },
     "ALKT": {
@@ -657,7 +1377,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 17.4
     },
     "ALNT": {
@@ -665,7 +1387,11 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "defense_aerospace",
+        "robotics_automation",
+        "automotive_parts_components_supplier"
+      ],
       "laggard_narratives": [],
       "rs_1w": 96.7
     },
@@ -684,7 +1410,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 48.2
     },
     "AMAT": {
@@ -702,7 +1430,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "semiconductors",
+        "ai_infrastructure"
+      ],
       "rs_1w": 51.3
     },
     "AMBP": {
@@ -728,7 +1459,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "movie_theater_exhibition"
+      ],
       "laggard_narratives": [],
       "rs_1w": 12.8
     },
@@ -783,7 +1516,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ev_battery"
+      ],
       "rs_1w": 68.1
     },
     "AMR": {
@@ -792,7 +1527,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "coal_mining"
+      ],
       "rs_1w": 66.5
     },
     "AMRC": {
@@ -819,7 +1556,11 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "space",
+        "defense_aerospace",
+        "construction_engineering_services"
+      ],
       "rs_1w": 17.7
     },
     "ANAB": {
@@ -845,7 +1586,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "professional_financial_advisory_services"
+      ],
       "laggard_narratives": [],
       "rs_1w": 42.2
     },
@@ -909,7 +1652,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "adtech_digital_advertising_platform"
+      ],
       "rs_1w": 1.2
     },
     "APPF": {
@@ -935,7 +1680,10 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "ip_licensing",
+        "adtech_platform"
+      ],
       "laggard_narratives": [],
       "rs_1w": 20.1
     },
@@ -954,7 +1702,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "healthcare_services_facilities"
+      ],
       "rs_1w": 24.3
     },
     "ARES": {
@@ -990,7 +1740,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "cybersecurity",
+        "software_saas"
+      ],
       "rs_1w": 6.7
     },
     "ARM": {
@@ -1008,7 +1761,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 23.4
     },
     "ARWR": {
@@ -1034,7 +1789,10 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "defense_aerospace",
+        "automotive_parts_components_supplier"
+      ],
       "laggard_narratives": [],
       "rs_1w": 29.6
     },
@@ -1080,7 +1838,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "industrial_specialty_vehicle_machinery"
+      ],
       "rs_1w": 16.3
     },
     "ASTH": {
@@ -1089,7 +1849,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "healthcare_services_facilities"
+      ],
       "rs_1w": 29.0
     },
     "ASTS": {
@@ -1118,7 +1880,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "medical_devices"
+      ],
       "rs_1w": 26.1
     },
     "ATEN": {
@@ -1144,7 +1908,10 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "defense_aerospace",
+        "specialty_metals_advanced_materials"
+      ],
       "laggard_narratives": [],
       "rs_1w": 90.4
     },
@@ -1199,7 +1966,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "robotics_automation"
+      ],
       "rs_1w": 41.1
     },
     "AVAV": {
@@ -1319,7 +2089,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "medical_devices"
+      ],
       "laggard_narratives": [],
       "rs_1w": 29.8
     },
@@ -1347,7 +2119,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "banking_financial_services"
+      ],
       "rs_1w": 11.8
     },
     "BCAX": {
@@ -1374,7 +2148,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "trucking_freight_logistics",
+        "secure_logistics_cash_management_services"
+      ],
       "rs_1w": 33.5
     },
     "BCRX": {
@@ -1401,7 +2178,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 39.0
     },
     "BELFA": {
@@ -1410,7 +2189,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "networking",
+        "electronic_components_manufacturing"
+      ],
       "rs_1w": 48.1
     },
     "BELFB": {
@@ -1419,7 +2201,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "networking",
+        "electronic_components_manufacturing"
+      ],
       "rs_1w": 43.0
     },
     "BETA": {
@@ -1436,7 +2221,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "medical_devices"
+      ],
       "laggard_narratives": [],
       "rs_1w": 84.6
     },
@@ -1446,7 +2233,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_property_casualty_insurance"
+      ],
       "rs_1w": 23.0
     },
     "BH.A": {
@@ -1455,7 +2244,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_property_casualty_insurance",
+        "diversified_restaurant_insurance_holding_company"
+      ],
       "rs_1w": 20.3
     },
     "BHC": {
@@ -1464,7 +2256,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "medical_devices"
+      ],
       "rs_1w": 29.1
     },
     "BHE": {
@@ -1518,7 +2312,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 10.1
     },
     "BLBD": {
@@ -1527,7 +2323,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ev_battery",
+        "industrial_specialty_vehicle_machinery"
+      ],
       "rs_1w": 4.0
     },
     "BLDR": {
@@ -1536,7 +2335,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "building_products_materials_distribution"
+      ],
       "rs_1w": 15.6
     },
     "BLKB": {
@@ -1545,7 +2346,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 20.9
     },
     "BLLN": {
@@ -1581,7 +2384,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "banking_financial_services"
+      ],
       "rs_1w": 8.2
     },
     "BMI": {
@@ -1590,7 +2395,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "industrial_specialty_vehicle_machinery"
+      ],
       "rs_1w": 15.5
     },
     "BMNR": {
@@ -1607,7 +2415,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "home_furnishings_retail"
+      ],
       "laggard_narratives": [],
       "rs_1w": 22.7
     },
@@ -1626,7 +2436,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "rs_1w": 38.9
     },
     "BRAI": {
@@ -1635,7 +2447,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 38.0
     },
     "BRBR": {
@@ -1644,7 +2458,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "branded_nutrition_consumer_packaged_goods"
+      ],
       "rs_1w": 8.0
     },
     "BRKR": {
@@ -1671,7 +2487,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "construction_engineering_services"
+      ],
       "rs_1w": 33.6
     },
     "BTDR": {
@@ -1734,7 +2553,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
       "rs_1w": 69.5
     },
     "BVS": {
@@ -1742,7 +2563,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "medical_devices"
+      ],
       "laggard_narratives": [],
       "rs_1w": 7.6
     },
@@ -1823,7 +2646,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "cava_fast_casual_dining"
+      ],
       "laggard_narratives": [],
       "rs_1w": 25.4
     },
@@ -1869,7 +2694,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "construction_engineering_services"
+      ],
       "rs_1w": 0.2
     },
     "CDRE": {
@@ -1887,7 +2714,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
       "rs_1w": 21.8
     },
     "CE": {
@@ -1914,7 +2743,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 24.7
     },
     "CELH": {
@@ -1923,7 +2754,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "branded_nutrition_consumer_packaged_goods"
+      ],
       "rs_1w": 14.0
     },
     "CENX": {
@@ -1977,7 +2810,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "robotics_automation"
+      ],
       "rs_1w": 5.5
     },
     "CGON": {
@@ -1994,7 +2829,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "grocery_food_retail"
+      ],
       "laggard_narratives": [],
       "rs_1w": 40.2
     },
@@ -2013,7 +2850,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "telecom_cable_broadband_services"
+      ],
       "rs_1w": 31.9
     },
     "CHYM": {
@@ -2049,7 +2888,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "cybersecurity",
+        "software_saas"
+      ],
       "rs_1w": 36.6
     },
     "CLDX": {
@@ -2067,7 +2909,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_metals_advanced_materials"
+      ],
       "rs_1w": 23.1
     },
     "CLMT": {
@@ -2075,7 +2919,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "laggard_narratives": [],
       "rs_1w": 93.2
     },
@@ -2112,7 +2958,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "life_sciences_tools_consumables"
+      ],
       "rs_1w": 23.2
     },
     "CMP": {
@@ -2121,7 +2970,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "agriculture_agribusiness"
+      ],
       "rs_1w": 5.6
     },
     "CMPR": {
@@ -2130,7 +2981,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform",
+        "commercial_printing_mass_customization"
+      ],
       "rs_1w": 17.2
     },
     "CMPS": {
@@ -2184,7 +3038,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
       "rs_1w": 21.0
     },
     "COAG": {
@@ -2192,7 +3048,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 61.7
     },
@@ -2211,7 +3069,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 8.9
     },
     "COHR": {
@@ -2255,7 +3115,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "specialty_pharmaceuticals"
+      ],
       "laggard_narratives": [],
       "rs_1w": 51.6
     },
@@ -2274,7 +3136,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "branded_nutrition_consumer_packaged_goods"
+      ],
       "rs_1w": 23.9
     },
     "COUR": {
@@ -2283,7 +3147,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 21.3
     },
     "CPRI": {
@@ -2301,7 +3167,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "professional_financial_advisory_services"
+      ],
       "rs_1w": 16.9
     },
     "CRCL": {
@@ -2355,7 +3223,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "tungsten_critical_metals_mining"
+      ],
       "rs_1w": 41.6
     },
     "CROX": {
@@ -2381,7 +3251,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "electronic_components_manufacturing"
+      ],
       "laggard_narratives": [],
       "rs_1w": 90.3
     },
@@ -2492,7 +3364,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "healthcare_services_facilities"
+      ],
       "rs_1w": 30.3
     },
     "CW": {
@@ -2510,7 +3384,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "professional_financial_advisory_services"
+      ],
       "rs_1w": 24.8
     },
     "CXM": {
@@ -2537,7 +3413,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "automotive_parts_components_supplier"
+      ],
       "rs_1w": 21.9
     },
     "DAN": {
@@ -2582,7 +3460,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting",
+        "banking_financial_services"
+      ],
       "rs_1w": 9.4
     },
     "DCH": {
@@ -2639,7 +3520,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "professional_financial_advisory_services"
+      ],
       "rs_1w": 16.4
     },
     "DFTX": {
@@ -2647,7 +3531,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 28.4
     },
@@ -2665,7 +3551,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "solar_clean_energy",
+        "oil_gas_services_equipment"
+      ],
       "laggard_narratives": [],
       "rs_1w": 63.8
     },
@@ -2684,7 +3573,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 5.3
     },
     "DK": {
@@ -2692,7 +3583,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "laggard_narratives": [],
       "rs_1w": 78.2
     },
@@ -2737,7 +3630,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 26.8
     },
@@ -2774,7 +3669,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "automotive_parts_components_supplier"
+      ],
       "rs_1w": 13.9
     },
     "DRS": {
@@ -2783,7 +3680,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace"
+      ],
       "rs_1w": 41.4
     },
     "DRTS": {
@@ -2791,7 +3690,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech",
+        "medical_devices"
+      ],
       "laggard_narratives": [],
       "rs_1w": 51.8
     },
@@ -2819,7 +3721,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 25.8
     },
     "DXC": {
@@ -2828,7 +3732,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
       "rs_1w": 18.6
     },
     "DXPE": {
@@ -2854,7 +3760,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 56.8
     },
@@ -2891,7 +3799,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "power_generation_utilities"
+      ],
       "rs_1w": 8.5
     },
     "EFOR": {
@@ -2929,9 +3839,7 @@
       "constructive_reset_narratives": [
         "gold___precious_metals_miners"
       ],
-      "laggard_narratives": [
-        "gold___precious_metals_miners"
-      ],
+      "laggard_narratives": [],
       "rs_1w": 84.3
     },
     "ELAN": {
@@ -2940,7 +3848,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_pharmaceuticals"
+      ],
       "rs_1w": 3.5
     },
     "ELE": {
@@ -2966,7 +3876,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 36.4
     },
@@ -2976,7 +3888,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "tungsten_critical_metals_mining"
+      ],
       "rs_1w": 3.3
     },
     "ENOV": {
@@ -3039,7 +3953,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
       "rs_1w": 8.3
     },
     "EPC": {
@@ -3074,7 +3990,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 44.2
     },
@@ -3102,7 +4020,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "industrial_specialty_vehicle_machinery"
+      ],
       "rs_1w": 13.8
     },
     "ESI": {
@@ -3165,7 +4085,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 2.7
     },
     "EWTX": {
@@ -3219,7 +4141,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "apparel_retail"
+      ],
       "rs_1w": 5.2
     },
     "EYPT": {
@@ -3245,7 +4169,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "software_saas",
+        "it_services_consulting"
+      ],
       "laggard_narratives": [],
       "rs_1w": 49.4
     },
@@ -3255,7 +4182,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "building_products_materials_distribution"
+      ],
       "rs_1w": 11.0
     },
     "FBRX": {
@@ -3291,7 +4220,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "fintech"
+      ],
       "rs_1w": 15.7
     },
     "FIG": {
@@ -3300,7 +4232,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 4.1
     },
     "FIGR": {
@@ -3365,7 +4299,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "branded_nutrition_consumer_packaged_goods"
+      ],
       "rs_1w": 21.5
     },
     "FLR": {
@@ -3401,7 +4337,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_chemicals"
+      ],
       "rs_1w": 15.8
     },
     "FN": {
@@ -3419,7 +4357,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "home_furnishings_retail",
+        "building_products_materials_distribution"
+      ],
       "rs_1w": 14.3
     },
     "FORM": {
@@ -3511,7 +4452,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace"
+      ],
       "rs_1w": 49.1
     },
     "FTK": {
@@ -3567,7 +4510,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 29.3
     },
     "GDRX": {
@@ -3585,7 +4530,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "data_center"
+      ],
       "rs_1w": 37.6
     },
     "GENB": {
@@ -3594,7 +4541,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure",
+        "biotech"
+      ],
       "rs_1w": 38.8
     },
     "GENI": {
@@ -3656,7 +4606,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 56.1
     },
@@ -3720,7 +4672,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "apparel_retail"
+      ],
       "rs_1w": 5.1
     },
     "GPCR": {
@@ -3738,7 +4692,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "alternative_asset_management"
+      ],
       "rs_1w": 10.2
     },
     "GPI": {
@@ -3765,7 +4721,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "agriculture_agribusiness",
+        "specialty_chemicals"
+      ],
       "rs_1w": 13.3
     },
     "GRAL": {
@@ -3774,7 +4733,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech",
+        "life_sciences_tools_consumables"
+      ],
       "rs_1w": 34.6
     },
     "GRC": {
@@ -3792,7 +4754,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "healthcare_services_facilities",
+        "specialty_pharmaceuticals"
+      ],
       "rs_1w": 27.8
     },
     "GRND": {
@@ -3801,7 +4766,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 9.2
     },
     "GRPN": {
@@ -3828,7 +4795,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "auto_parts_retail",
+        "automotive_parts_components_supplier"
+      ],
       "rs_1w": 4.6
     },
     "GTES": {
@@ -3837,7 +4807,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "automotive_parts_components_supplier",
+        "industrial_specialty_vehicle_machinery"
+      ],
       "rs_1w": 17.9
     },
     "GTLB": {
@@ -3882,7 +4855,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "homebuilders"
+      ],
       "rs_1w": 14.1
     },
     "HIMS": {
@@ -3891,7 +4866,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "healthcare_services_facilities",
+        "specialty_pharmaceuticals"
+      ],
       "rs_1w": 15.4
     },
     "HIMX": {
@@ -3909,7 +4887,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
       "rs_1w": 80.7
     },
     "HLIT": {
@@ -3935,7 +4915,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "software_saas",
+        "healthcare_services_facilities"
+      ],
       "laggard_narratives": [],
       "rs_1w": 80.8
     },
@@ -3974,7 +4957,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "electronic_components_manufacturing"
+      ],
       "laggard_narratives": [],
       "rs_1w": 38.7
     },
@@ -4057,7 +5042,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "banking_financial_services"
+      ],
       "laggard_narratives": [],
       "rs_1w": 65.2
     },
@@ -4127,9 +5114,7 @@
       "constructive_reset_narratives": [
         "gold___precious_metals_miners"
       ],
-      "laggard_narratives": [
-        "gold___precious_metals_miners"
-      ],
+      "laggard_narratives": [],
       "rs_1w": 90.9
     },
     "IBP": {
@@ -4165,7 +5150,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech",
+        "life_sciences_tools_consumables"
+      ],
       "rs_1w": 42.7
     },
     "IE": {
@@ -4174,7 +5162,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners",
+        "tungsten_critical_metals_mining"
+      ],
       "rs_1w": 55.5
     },
     "IESC": {
@@ -4230,7 +5221,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 40.4
     },
     "INBX": {
@@ -4275,7 +5268,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure",
+        "it_services_consulting"
+      ],
       "rs_1w": 9.6
     },
     "INSP": {
@@ -4284,7 +5280,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "medical_devices"
+      ],
       "rs_1w": 25.5
     },
     "INTA": {
@@ -4311,7 +5309,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "fintech",
+        "banking_financial_services"
+      ],
       "rs_1w": 9.1
     },
     "INTU": {
@@ -4374,7 +5375,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "photonics_optical"
+      ],
       "rs_1w": 16.8
     },
     "IQ": {
@@ -4410,7 +5413,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "medical_devices"
+      ],
       "rs_1w": 29.9
     },
     "IT": {
@@ -4428,7 +5433,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "electronic_components_manufacturing",
+        "power_generation_utilities"
+      ],
       "rs_1w": 26.0
     },
     "IVA": {
@@ -4437,7 +5445,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 48.8
     },
     "JBIO": {
@@ -4473,7 +5483,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ev_battery"
+      ],
       "rs_1w": 63.6
     },
     "KAI": {
@@ -4509,7 +5521,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
       "rs_1w": 11.6
     },
     "KEEL": {
@@ -4526,7 +5540,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "healthcare_staffing_workforce_solutions"
+      ],
       "laggard_narratives": [],
       "rs_1w": 27.1
     },
@@ -4554,7 +5570,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
       "rs_1w": 12.4
     },
     "KLIC": {
@@ -4590,7 +5608,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "industrial_specialty_vehicle_machinery"
+      ],
       "rs_1w": 6.0
     },
     "KMTS": {
@@ -4617,7 +5637,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "construction_engineering_services"
+      ],
       "rs_1w": 37.5
     },
     "KNSA": {
@@ -4625,7 +5647,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 48.3
     },
@@ -4644,7 +5668,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "rs_1w": 69.6
     },
     "KRMN": {
@@ -4693,7 +5719,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 10.6
     },
     "KWR": {
@@ -4702,7 +5730,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_chemicals"
+      ],
       "rs_1w": 35.4
     },
     "KYMR": {
@@ -4728,7 +5758,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "auto_parts_retail"
+      ],
       "laggard_narratives": [],
       "rs_1w": 49.0
     },
@@ -4756,7 +5788,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "alternative_asset_management"
+      ],
       "rs_1w": 37.7
     },
     "LB": {
@@ -4774,7 +5808,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "telecom_cable_broadband_services"
+      ],
       "rs_1w": 32.3
     },
     "LBRDK": {
@@ -4783,7 +5819,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "telecom_cable_broadband_services"
+      ],
       "rs_1w": 33.2
     },
     "LBRT": {
@@ -4800,7 +5838,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 39.3
     },
@@ -4849,7 +5889,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "healthcare_services_facilities"
+      ],
       "laggard_narratives": [],
       "rs_1w": 86.3
     },
@@ -4859,7 +5901,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "semiconductors",
+        "electronic_components_manufacturing"
+      ],
       "rs_1w": 44.7
     },
     "LGIH": {
@@ -4868,7 +5913,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "homebuilders"
+      ],
       "rs_1w": 9.7
     },
     "LGN": {
@@ -4886,7 +5933,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 2.2
     },
     "LIFE": {
@@ -4958,7 +6007,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "insurtech_digital_insurance_distribution"
+      ],
       "rs_1w": 43.5
     },
     "LMRI": {
@@ -4976,7 +6027,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace",
+        "automotive_parts_components_supplier"
+      ],
       "rs_1w": 18.8
     },
     "LOMA": {
@@ -4985,7 +6039,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "building_products_materials_distribution"
+      ],
       "rs_1w": 6.4
     },
     "LPG": {
@@ -5020,7 +6076,10 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech",
+        "specialty_pharmaceuticals"
+      ],
       "laggard_narratives": [],
       "rs_1w": 24.0
     },
@@ -5039,7 +6098,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 16.1
     },
     "LSCC": {
@@ -5101,7 +6162,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 26.2
     },
@@ -5111,7 +6174,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ridesharing_mobility_platform"
+      ],
       "rs_1w": 52.0
     },
     "MAAS": {
@@ -5119,7 +6184,10 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "fintech",
+        "banking_financial_services"
+      ],
       "laggard_narratives": [],
       "rs_1w": 81.6
     },
@@ -5146,7 +6214,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 25.3
     },
@@ -5174,7 +6244,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 34.0
     },
     "MBC": {
@@ -5200,7 +6272,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 36.8
     },
@@ -5228,7 +6302,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "space"
+      ],
       "rs_1w": 55.8
     },
     "MDB": {
@@ -5300,7 +6376,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "banking_financial_services",
+        "financial_exchange_marketplace_operator"
+      ],
       "rs_1w": 12.6
     },
     "MIR": {
@@ -5309,7 +6388,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "nuclear",
+        "life_sciences_tools_consumables"
+      ],
       "rs_1w": 32.9
     },
     "MIRM": {
@@ -5372,7 +6454,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure",
+        "software_saas"
+      ],
       "rs_1w": 13.6
     },
     "MNKD": {
@@ -5381,7 +6466,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech",
+        "specialty_pharmaceuticals"
+      ],
       "rs_1w": 19.7
     },
     "MOD": {
@@ -5480,7 +6568,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 26.7
     },
     "MTRN": {
@@ -5525,7 +6615,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
       "rs_1w": 31.4
     },
     "MWH": {
@@ -5551,7 +6643,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "specialty_chemicals"
+      ],
       "laggard_narratives": [],
       "rs_1w": 11.7
     },
@@ -5570,7 +6664,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 44.6
     },
     "NAVN": {
@@ -5578,7 +6674,10 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "software_saas",
+        "online_travel_booking_platform"
+      ],
       "laggard_narratives": [],
       "rs_1w": 64.3
     },
@@ -5615,7 +6714,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "fintech"
+      ],
       "rs_1w": 26.5
     },
     "NEO": {
@@ -5623,7 +6725,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "healthcare_services_facilities",
+        "life_sciences_tools_consumables"
+      ],
       "laggard_narratives": [],
       "rs_1w": 66.7
     },
@@ -5727,7 +6832,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "cybersecurity",
+        "software_saas"
+      ],
       "rs_1w": 36.5
     },
     "NIQ": {
@@ -5808,7 +6916,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_property_casualty_insurance"
+      ],
       "rs_1w": 19.5
     },
     "NPKI": {
@@ -5979,7 +7089,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "uranium"
+      ],
       "rs_1w": 73.6
     },
     "NXPI": {
@@ -6026,7 +7138,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "metal_packaging_beverage_cans"
+      ],
       "rs_1w": 13.1
     },
     "OII": {
@@ -6034,7 +7148,11 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "defense_aerospace",
+        "robotics_automation",
+        "oil_gas_services_equipment"
+      ],
       "laggard_narratives": [],
       "rs_1w": 66.9
     },
@@ -6064,7 +7182,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 8.6
     },
     "OLN": {
@@ -6073,7 +7193,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace"
+      ],
       "rs_1w": 39.9
     },
     "OMCL": {
@@ -6082,7 +7204,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "medical_devices"
+      ],
       "rs_1w": 31.7
     },
     "OMDA": {
@@ -6127,7 +7252,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform"
+      ],
       "rs_1w": 14.7
     },
     "OPK": {
@@ -6145,7 +7272,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "alternative_asset_management"
+      ],
       "rs_1w": 35.2
     },
     "ORCL": {
@@ -6154,7 +7283,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure"
+      ],
       "rs_1w": 59.2
     },
     "ORIC": {
@@ -6171,7 +7302,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 80.6
     },
@@ -6180,7 +7313,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "fintech",
+        "healthcare_services_facilities"
+      ],
       "laggard_narratives": [],
       "rs_1w": 22.6
     },
@@ -6234,7 +7370,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "laggard_narratives": [],
       "rs_1w": 74.8
     },
@@ -6279,7 +7417,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "laggard_narratives": [],
       "rs_1w": 89.1
     },
@@ -6288,7 +7428,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "laggard_narratives": [],
       "rs_1w": 35.9
     },
@@ -6343,7 +7485,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 37.2
     },
     "PENG": {
@@ -6360,7 +7504,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 37.0
     },
@@ -6406,7 +7552,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
       "rs_1w": 2.0
     },
     "PII": {
@@ -6415,7 +7563,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "industrial_specialty_vehicle_machinery"
+      ],
       "rs_1w": 13.4
     },
     "PL": {
@@ -6424,9 +7574,7 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [
-        "space"
-      ],
+      "laggard_narratives": [],
       "rs_1w": 80.3
     },
     "PLAB": {
@@ -6444,7 +7592,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform"
+      ],
       "rs_1w": 11.5
     },
     "PLOW": {
@@ -6453,7 +7603,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "industrial_specialty_vehicle_machinery"
+      ],
       "rs_1w": 10.9
     },
     "PLPC": {
@@ -6480,7 +7632,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "online_gaming_sports_betting"
+      ],
       "rs_1w": 0.5
     },
     "PLTR": {
@@ -6507,7 +7661,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
       "rs_1w": 13.2
     },
     "PLXS": {
@@ -6581,9 +7737,7 @@
       "constructive_reset_narratives": [
         "gold___precious_metals_miners"
       ],
-      "laggard_narratives": [
-        "gold___precious_metals_miners"
-      ],
+      "laggard_narratives": [],
       "rs_1w": 88.0
     },
     "PRAX": {
@@ -6628,7 +7782,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_pharmaceuticals"
+      ],
       "rs_1w": 12.1
     },
     "PRIM": {
@@ -6637,7 +7793,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "construction_engineering_services"
+      ],
       "rs_1w": 33.1
     },
     "PRKS": {
@@ -6673,7 +7831,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "healthcare_services_facilities"
+      ],
       "rs_1w": 8.1
     },
     "PS": {
@@ -6700,7 +7861,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace",
+        "construction_engineering_services"
+      ],
       "rs_1w": 34.1
     },
     "PSNL": {
@@ -6708,7 +7872,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech",
+        "life_sciences_tools_consumables"
+      ],
       "laggard_narratives": [],
       "rs_1w": 62.4
     },
@@ -6718,7 +7885,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ev_battery"
+      ],
       "rs_1w": 13.5
     },
     "PTC": {
@@ -6754,7 +7923,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "connected_fitness_platform"
+      ],
       "rs_1w": 3.6
     },
     "PTRN": {
@@ -6817,7 +7988,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "education_content_publishing"
+      ],
       "rs_1w": 7.2
     },
     "Q": {
@@ -6846,7 +8019,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
       "rs_1w": 59.3
     },
     "QLYS": {
@@ -6891,9 +8066,7 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [
-        "quantum_computing"
-      ],
+      "laggard_narratives": [],
       "rs_1w": 39.4
     },
     "QURE": {
@@ -6901,7 +8074,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 53.6
     },
@@ -6911,7 +8086,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "building_products_materials_distribution"
+      ],
       "rs_1w": 14.4
     },
     "RAL": {
@@ -7021,7 +8198,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform"
+      ],
       "rs_1w": 10.4
     },
     "RELY": {
@@ -7038,7 +8217,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 98.7
     },
@@ -7066,7 +8247,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "hvac_climate_control_equipment",
+        "electronic_components_manufacturing"
+      ],
       "rs_1w": 7.0
     },
     "RGC": {
@@ -7102,7 +8286,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "home_furnishings_retail"
+      ],
       "rs_1w": 11.2
     },
     "RHI": {
@@ -7110,7 +8296,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "it_services_consulting",
+        "healthcare_staffing_workforce_solutions"
+      ],
       "laggard_narratives": [],
       "rs_1w": 46.7
     },
@@ -7120,7 +8309,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "alternative_asset_management"
+      ],
       "rs_1w": 34.9
     },
     "RIG": {
@@ -7147,7 +8338,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ev_battery"
+      ],
       "rs_1w": 60.6
     },
     "RJET": {
@@ -7165,9 +8358,7 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [
-        "space"
-      ],
+      "laggard_narratives": [],
       "rs_1w": 80.1
     },
     "RKT": {
@@ -7184,7 +8375,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 52.5
     },
@@ -7230,7 +8423,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "solar_clean_energy",
+        "building_products_materials_distribution"
+      ],
       "rs_1w": 6.1
     },
     "ROG": {
@@ -7248,7 +8444,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "industrial_specialty_vehicle_machinery",
+        "electronic_components_manufacturing"
+      ],
       "rs_1w": 14.5
     },
     "RSI": {
@@ -7286,7 +8485,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform"
+      ],
       "rs_1w": 15.3
     },
     "RVMD": {
@@ -7294,7 +8495,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 68.3
     },
@@ -7313,7 +8516,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure"
+      ],
       "rs_1w": 62.2
     },
     "RXT": {
@@ -7331,7 +8536,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_property_casualty_insurance",
+        "banking_financial_services"
+      ],
       "rs_1w": 11.3
     },
     "RYTM": {
@@ -7358,7 +8566,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure"
+      ],
       "rs_1w": 51.0
     },
     "S": {
@@ -7385,7 +8595,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "auto_parts_retail"
+      ],
       "rs_1w": 12.0
     },
     "SAIA": {
@@ -7430,7 +8642,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "media_entertainment_conglomerate"
+      ],
       "rs_1w": 34.7
     },
     "SBH": {
@@ -7502,7 +8716,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "grocery_food_retail"
+      ],
       "rs_1w": 33.7
     },
     "SGML": {
@@ -7520,7 +8736,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "healthcare_services_facilities"
+      ],
       "rs_1w": 25.9
     },
     "SHAK": {
@@ -7576,7 +8794,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
       "rs_1w": 62.8
     },
     "SIMO": {
@@ -7621,7 +8841,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
       "rs_1w": 82.8
     },
     "SKY": {
@@ -7647,7 +8869,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 32.4
     },
@@ -7657,7 +8881,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
       "rs_1w": 51.7
     },
     "SLVM": {
@@ -7693,7 +8919,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "agriculture_agribusiness",
+        "specialty_chemicals"
+      ],
       "rs_1w": 12.2
     },
     "SMMT": {
@@ -7794,7 +9023,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
       "rs_1w": 26.3
     },
     "SOLS": {
@@ -7803,7 +9034,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "hvac_climate_control_equipment",
+        "specialty_chemicals"
+      ],
       "rs_1w": 35.3
     },
     "SONO": {
@@ -7829,7 +9063,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "space"
+      ],
       "laggard_narratives": [],
       "rs_1w": 98.8
     },
@@ -7865,7 +9101,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 67.0
     },
@@ -7929,7 +9167,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "alternative_asset_management"
+      ],
       "rs_1w": 25.0
     },
     "STGW": {
@@ -7983,7 +9223,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform",
+        "online_gaming_virtual_world_platform"
+      ],
       "rs_1w": 7.3
     },
     "STVN": {
@@ -8055,7 +9298,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "packaging_paperboard_manufacturing"
+      ],
       "rs_1w": 40.3
     },
     "SWKS": {
@@ -8103,7 +9348,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 40.6
     },
@@ -8158,7 +9405,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "healthcare_services_facilities"
+      ],
       "rs_1w": 21.6
     },
     "TDTH": {
@@ -8167,7 +9417,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
       "rs_1w": 6.9
     },
     "TDW": {
@@ -8185,7 +9437,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "solar_clean_energy"
+      ],
       "rs_1w": 23.3
     },
     "TEAM": {
@@ -8223,7 +9477,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "telecom_cable_broadband_services"
+      ],
       "rs_1w": 28.7
     },
     "TER": {
@@ -8259,7 +9515,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "building_products_materials_distribution"
+      ],
       "rs_1w": 5.8
     },
     "TGS": {
@@ -8268,7 +9526,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "power_generation_utilities"
+      ],
       "rs_1w": 18.7
     },
     "TGTX": {
@@ -8286,7 +9546,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "hotel_lodging_reit"
+      ],
       "rs_1w": 69.2
     },
     "THRM": {
@@ -8357,7 +9619,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "it_services_consulting"
+      ],
       "laggard_narratives": [],
       "rs_1w": 19.4
     },
@@ -8375,7 +9639,10 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "fintech",
+        "financial_exchange_marketplace_operator"
+      ],
       "laggard_narratives": [],
       "rs_1w": 89.4
     },
@@ -8403,7 +9670,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "oil_gas_services_equipment",
+        "agriculture_agribusiness"
+      ],
       "rs_1w": 11.1
     },
     "TRAX": {
@@ -8439,7 +9709,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "online_travel_booking_platform"
+      ],
       "rs_1w": 1.3
     },
     "TRN": {
@@ -8502,7 +9774,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 29.4
     },
     "TTAN": {
@@ -8529,7 +9803,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "rs_1w": 61.6
     },
     "TTMI": {
@@ -8546,7 +9822,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech",
+        "specialty_pharmaceuticals"
+      ],
       "laggard_narratives": [],
       "rs_1w": 34.8
     },
@@ -8566,7 +9845,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "life_sciences_tools_consumables"
+      ],
       "laggard_narratives": [],
       "rs_1w": 72.7
     },
@@ -8612,7 +9893,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "apparel_retail"
+      ],
       "rs_1w": 1.5
     },
     "UAA": {
@@ -8621,7 +9904,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "apparel_retail"
+      ],
       "rs_1w": 1.4
     },
     "UAMY": {
@@ -8630,7 +9915,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners",
+        "tungsten_critical_metals_mining"
+      ],
       "rs_1w": 2.4
     },
     "UCTT": {
@@ -8704,7 +9992,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform"
+      ],
       "rs_1w": 4.9
     },
     "URGN": {
@@ -8740,7 +10030,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
       "rs_1w": 80.4
     },
     "USPH": {
@@ -8775,7 +10067,9 @@
       "leader_age_days": 1,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "hotel_lodging_reit"
+      ],
       "laggard_narratives": [],
       "rs_1w": 91.3
     },
@@ -8785,7 +10079,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "life_sciences_tools_consumables"
+      ],
       "rs_1w": 39.8
     },
     "VECO": {
@@ -8803,7 +10099,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 46.8
     },
     "VERX": {
@@ -8866,7 +10164,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "biotech"
+      ],
       "rs_1w": 30.9
     },
     "VKTX": {
@@ -8884,7 +10184,11 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "uranium",
+        "gold___precious_metals_miners",
+        "copper_base_metals_mining"
+      ],
       "rs_1w": 59.6
     },
     "VNET": {
@@ -8901,7 +10205,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 37.4
     },
@@ -8931,7 +10237,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "cybersecurity",
+        "software_saas"
+      ],
       "laggard_narratives": [],
       "rs_1w": 27.7
     },
@@ -8985,7 +10294,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "secure_logistics_cash_management_services"
+      ],
       "laggard_narratives": [],
       "rs_1w": 67.3
     },
@@ -8995,7 +10306,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace"
+      ],
       "rs_1w": 52.8
     },
     "VYX": {
@@ -9004,7 +10317,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "it_services_consulting"
+      ],
       "rs_1w": 3.4
     },
     "VZLA": {
@@ -9013,7 +10329,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
       "rs_1w": 75.2
     },
     "W": {
@@ -9040,7 +10358,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "rs_1w": 22.1
     },
     "WBTN": {
@@ -9049,7 +10369,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "social_media_platform"
+      ],
       "rs_1w": 17.1
     },
     "WD": {
@@ -9058,7 +10380,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "professional_financial_advisory_services",
+        "banking_financial_services"
+      ],
       "rs_1w": 2.9
     },
     "WDAY": {
@@ -9103,7 +10428,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "oil_gas_services_equipment"
+      ],
       "rs_1w": 72.5
     },
     "WGS": {
@@ -9121,7 +10448,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "hvac_climate_control_equipment"
+      ],
       "rs_1w": 14.6
     },
     "WINA": {
@@ -9130,7 +10459,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "off_price_thrift_retail"
+      ],
       "rs_1w": 34.5
     },
     "WING": {
@@ -9193,7 +10524,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "healthcare_services_facilities",
+        "apparel_retail"
+      ],
       "rs_1w": 4.8
     },
     "WRD": {
@@ -9202,7 +10536,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "robotics_automation",
+        "ridesharing_mobility_platform"
+      ],
       "rs_1w": 40.1
     },
     "WS": {
@@ -9220,7 +10557,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "industrial_specialty_vehicle_machinery"
+      ],
       "rs_1w": 4.4
     },
     "WT": {
@@ -9247,7 +10586,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
       "rs_1w": 21.1
     },
     "WULF": {
@@ -9283,7 +10624,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas",
+        "robotics_automation"
+      ],
       "rs_1w": 40.9
     },
     "XNCR": {
@@ -9301,7 +10645,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "photonics_optical",
+        "quantum_computing"
+      ],
       "rs_1w": 10.3
     },
     "XPEL": {
@@ -9310,7 +10657,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "specialty_chemicals"
+      ],
       "rs_1w": 26.4
     },
     "XPRO": {
@@ -9328,7 +10677,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "medical_devices"
+      ],
       "rs_1w": 3.0
     },
     "XXI": {
@@ -9346,7 +10697,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 30.7
     },
     "YELP": {
@@ -9355,7 +10708,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "social_media_platform"
+      ],
       "rs_1w": 7.4
     },
     "YOU": {
@@ -9364,7 +10719,10 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "cybersecurity",
+        "software_saas"
+      ],
       "rs_1w": 3.7
     },
     "YSS": {
@@ -9382,7 +10740,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 9.9
     },
     "ZBIO": {
@@ -9390,7 +10750,9 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "biotech"
+      ],
       "laggard_narratives": [],
       "rs_1w": 33.9
     },
@@ -9408,7 +10770,10 @@
       "leader_age_days": 0,
       "exit_streak": 0,
       "extended": false,
-      "constructive_reset_narratives": [],
+      "constructive_reset_narratives": [
+        "software_saas",
+        "adtech_digital_advertising_platform"
+      ],
       "laggard_narratives": [],
       "rs_1w": 66.0
     },
@@ -9418,7 +10783,9 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
       "rs_1w": 7.9
     },
     "ZLAB": {
