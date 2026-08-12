@@ -1,0 +1,6183 @@
+{
+  "created_at": "2026-08-12",
+  "exact_duplicate_names_before": {
+    "airline": [
+      "airlines",
+      "airline"
+    ]
+  },
+  "near_duplicate_candidates_before": [
+    {
+      "narrative_a": "healthcare_services_facilities",
+      "narrative_b": "healthcare_services",
+      "similarity": 0.6667
+    },
+    {
+      "narrative_a": "crypto_mining_digital_asset_treasury",
+      "narrative_b": "crypto_mining_treasury",
+      "similarity": 0.6
+    },
+    {
+      "narrative_a": "semiconductors",
+      "narrative_b": "photonics_optical",
+      "similarity": 0.5
+    },
+    {
+      "narrative_a": "industrial_specialty_vehicle_machinery",
+      "narrative_b": "industrial_machinery",
+      "similarity": 0.5
+    },
+    {
+      "narrative_a": "adtech_digital_advertising_platform",
+      "narrative_b": "adtech_platform",
+      "similarity": 0.5
+    }
+  ],
+  "merged": [
+    {
+      "into": "airlines",
+      "merged_from": [
+        "airline"
+      ],
+      "normalized_name": "airline",
+      "name": "Airlines"
+    }
+  ],
+  "near_duplicate_candidates_remaining": [
+    {
+      "narrative_a": "healthcare_services_facilities",
+      "narrative_b": "healthcare_services",
+      "similarity": 0.6667
+    },
+    {
+      "narrative_a": "crypto_mining_digital_asset_treasury",
+      "narrative_b": "crypto_mining_treasury",
+      "similarity": 0.6
+    },
+    {
+      "narrative_a": "semiconductors",
+      "narrative_b": "photonics_optical",
+      "similarity": 0.5
+    },
+    {
+      "narrative_a": "industrial_specialty_vehicle_machinery",
+      "narrative_b": "industrial_machinery",
+      "similarity": 0.5
+    },
+    {
+      "narrative_a": "adtech_digital_advertising_platform",
+      "narrative_b": "adtech_platform",
+      "similarity": 0.5
+    }
+  ],
+  "id_derived_name_candidates": [
+    "auto_parts_retail",
+    "airlines",
+    "healthcare_services",
+    "industrial_machinery",
+    "movie_theater_exhibition",
+    "coal_mining",
+    "apparel_retail",
+    "medical_devices",
+    "adtech_platform",
+    "alternative_asset_management",
+    "home_furnishings_retail",
+    "electronic_components_manufacturing",
+    "specialty_pharmaceuticals",
+    "crypto_mining_treasury",
+    "fast_casual_restaurant_chains",
+    "cava_fast_casual_dining",
+    "specialty_chemicals",
+    "homebuilders",
+    "insurtech_digital_insurance_distribution",
+    "online_travel_booking_platform",
+    "connected_fitness_platform",
+    "social_media_platform"
+  ],
+  "low_confidence_memberships": {
+    "primary_below_minimum": [
+      {
+        "narrative_id": "memory_storage",
+        "ticker": "P",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "HIMX",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "ICHR",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "MKSI",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "UCTT",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "GLW",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "BBAI",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "PENG",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "CIFR",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "CORZ",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "DOCN",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "WULF",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "DGII",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "HLIT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "VIAV",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "ARLO",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "CLBT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "ACVA",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "BRAI",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "CERT",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "CLVT",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "COMP",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "CSGP",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "DAO",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "DFIN",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "DJT",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "FICO",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "GDDY",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "GRND",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "GTM",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "GWRE",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "HNGE",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "KARO",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "LIF",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "LRN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "OMCL",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "OMDA",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "PDFS",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "PRCH",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "SDGR",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "SPOT",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "TEM",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "VIA",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "VYX",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "YOU",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "Z",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "ZG",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "ARXS",
+        "confidence": 68
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "AXON",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "CDRE",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "FTAI",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "UMAC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "VSEC",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "VVX",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "ARX",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "BLSH",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "EZPW",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "FCFS",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "GDRX",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "LIFE",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "LMND",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "MAAS",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "OSCR",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "RKT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "IBRX",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "BETA",
+        "confidence": 62
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "JOBY",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "LAC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "LAR",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "AMRC",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "AMSC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "BE",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "FCEL",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "PLUG",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "AEVA",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "AUR",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "MBLY",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "NOVT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "OUST",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "WRD",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "XMTR",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "AGQ",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "HBM",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "HL",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "HSLV",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "SLSR",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "VMET",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "CSW",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "GNRC",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "MOD",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "POWL",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "WHR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "auto_parts_retail",
+        "ticker": "CAR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "auto_parts_retail",
+        "ticker": "DORM",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "auto_parts_retail",
+        "ticker": "DRVN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "auto_parts_retail",
+        "ticker": "GPI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "auto_parts_retail",
+        "ticker": "LAD",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "auto_parts_retail",
+        "ticker": "POOL",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "auto_parts_retail",
+        "ticker": "SAH",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "auto_parts_retail",
+        "ticker": "XPEL",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "CLOV",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "CNC",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "CVSA",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "GRDN",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "HIMS",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "NHP",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "grocery_food_retail",
+        "ticker": "CHEF",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "DBD",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "EFOR",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "FA",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "HURN",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "MGRT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "NIQ",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "TNET",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "ALNT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "GT",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "GTES",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "BMI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "DXPE",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "EQPT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "ESAB",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "ETN",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "GHM",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "GRC",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "HOG",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "HRI",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "KAI",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "KMT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "NPKI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "NPO",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "RRX",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "SXI",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "TNC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "TRN",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "WSC",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "airlines",
+        "ticker": "LIND",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "airlines",
+        "ticker": "WLFC",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "CLMT",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "CRK",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "CVI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "DINO",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "DK",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "KOS",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "LPG",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "NEXT",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "NGL",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "PARR",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "PBF",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "PBT",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "SM",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "TALO",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "CMP",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "CNH",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "GPRE",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "LB",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "SMG",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "TPL",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "BW",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "CECO",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "IESC",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "TIC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "CRCT",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "DASH",
+        "confidence": 68
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "EXPE",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "GRPN",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "IQ",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "OPEN",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "PLBL",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "RZLV",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "UPWK",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "industrial_machinery",
+        "ticker": "AIN",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "tungsten_critical_metals_mining",
+        "ticker": "ERO",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "tungsten_critical_metals_mining",
+        "ticker": "IE",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "tungsten_critical_metals_mining",
+        "ticker": "NEXA",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "tungsten_critical_metals_mining",
+        "ticker": "UAMY",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "metal_packaging_beverage_cans",
+        "ticker": "GPK",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "metal_packaging_beverage_cans",
+        "ticker": "OI",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "movie_theater_exhibition",
+        "ticker": "FUN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "movie_theater_exhibition",
+        "ticker": "LION",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "movie_theater_exhibition",
+        "ticker": "PRKS",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "healthcare_staffing_workforce_solutions",
+        "ticker": "KFRC",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "healthcare_staffing_workforce_solutions",
+        "ticker": "LINC",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "healthcare_staffing_workforce_solutions",
+        "ticker": "MAN",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "healthcare_staffing_workforce_solutions",
+        "ticker": "NSP",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "healthcare_staffing_workforce_solutions",
+        "ticker": "RHI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "CWK",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "EFX",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "HRB",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "IT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "TRI",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "TRU",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "EYE",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "GOLF",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "KSS",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "SBH",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "HTFL",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "IART",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "MDLN",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "adtech_digital_advertising_platform",
+        "ticker": "EVC",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "adtech_digital_advertising_platform",
+        "ticker": "STGW",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "adtech_digital_advertising_platform",
+        "ticker": "YELP",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "trucking_freight_logistics",
+        "ticker": "HUBG",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "alternative_asset_management",
+        "ticker": "ASST",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "alternative_asset_management",
+        "ticker": "GPGI",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "alternative_asset_management",
+        "ticker": "HLNE",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "alternative_asset_management",
+        "ticker": "RHLD",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "alternative_asset_management",
+        "ticker": "WT",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "home_furnishings_retail",
+        "ticker": "MBC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "home_furnishings_retail",
+        "ticker": "SN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "BWIN",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "NP",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "TRUP",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "telecom_spectrum_private_wireless_infrastructure",
+        "ticker": "NN",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "telecom_spectrum_private_wireless_infrastructure",
+        "ticker": "ONDS",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "telecom_spectrum_private_wireless_infrastructure",
+        "ticker": "VSAT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "specialty_metals_advanced_materials",
+        "ticker": "RYZ",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "specialty_metals_advanced_materials",
+        "ticker": "SID",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "BLLN",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "GRAL",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "ICLR",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "NEO",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "NEOG",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "PSNL",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "ECPG",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "ERIE",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "GSHD",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "HUM",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "MOH",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "OPY",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "RYAN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "SNEX",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "WD",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "IBP",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "IP",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "LOMA",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "PLPC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "secure_logistics_cash_management_services",
+        "ticker": "CXW",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "secure_logistics_cash_management_services",
+        "ticker": "VSTS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "CLS",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "CRSR",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "FLEX",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "HPQ",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "ITRI",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "JBL",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "LPL",
+        "confidence": 62
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "NVT",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "PI",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "PLXS",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "RAL",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "ZBRA",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "diversified_restaurant_insurance_holding_company",
+        "ticker": "BH",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "diversified_restaurant_insurance_holding_company",
+        "ticker": "BH.A",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "diversified_restaurant_insurance_holding_company",
+        "ticker": "NMAX",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "HRMY",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "HROW",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "OPK",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "TVTX",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "crypto_mining_digital_asset_treasury",
+        "ticker": "GLXY",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "crypto_mining_digital_asset_treasury",
+        "ticker": "HUT",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "BRBR",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "COTY",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "ELF",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "ENR",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "EPC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "NWL",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "SENEA",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "TPB",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "crypto_mining_treasury",
+        "ticker": "BVC",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "fast_casual_restaurant_chains",
+        "ticker": "EAT",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "fast_casual_restaurant_chains",
+        "ticker": "WEN",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "cava_fast_casual_dining",
+        "ticker": "CBRL",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "HUN",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "MYE",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "ODC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "PCT",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "SLVM",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "VG",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "commercial_printing_mass_customization",
+        "ticker": "PRLB",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "homebuilders",
+        "ticker": "HBNB",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "online_gaming_sports_betting",
+        "ticker": "PLTK",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "online_gaming_sports_betting",
+        "ticker": "SRAD",
+        "confidence": 65
+      },
+      {
+        "narrative_id": "financial_exchange_marketplace_operator",
+        "ticker": "MRX",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "financial_exchange_marketplace_operator",
+        "ticker": "TOP",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "media_entertainment_conglomerate",
+        "ticker": "PSKY",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "media_entertainment_conglomerate",
+        "ticker": "TDAY",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "connected_fitness_platform",
+        "ticker": "PTON",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "connected_fitness_platform",
+        "ticker": "SONO",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "online_gaming_virtual_world_platform",
+        "ticker": "RBLX",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "social_media_platform",
+        "ticker": "RDDT",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "social_media_platform",
+        "ticker": "WBTN",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "hotel_lodging_reit",
+        "ticker": "VAC",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "copper_base_metals_mining",
+        "ticker": "TMC",
+        "confidence": 55
+      }
+    ],
+    "secondary_below_minimum_removed": [
+      {
+        "narrative_id": "memory_storage",
+        "ticker": "PENG",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "ALAB",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "CEVA",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "LFUS",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "OUST",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "PDFS",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "PI",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "Q",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "SIMO",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "AEVA",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "ALMR",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "HIMX",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "MTSI",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "NVMI",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "VIAV",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "XNDU",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "ABSI",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "AEIS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "AI",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "AMBA",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "AMBQ",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "AMKR",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "CAMT",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "CIFR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "FRMI",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "GENB",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "INOD",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "IREN",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "KEEL",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "MNDY",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "MPWR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "ORCL",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "POET",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "PONY",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "RMBS",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "RXRX",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "RZLV",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "SOUN",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "TEM",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "ai_infrastructure",
+        "ticker": "WULF",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "AAOI",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "AKAM",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "ALAB",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "BE",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "BLZE",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "BTDR",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "CLS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "CLSK",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "CRWV",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "FPS",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "GLW",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "GLXY",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "HUT",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "MARA",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "ORCL",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "PENG",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "POET",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "RIOT",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "RXT",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "AAOI",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "ATEN",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "BELFA",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "BELFB",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "MXL",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "ONDS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "SMTC",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "AKAM",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "BAH",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "EFOR",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "ESTC",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "FROG",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "NICE",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "WK",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "YOU",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "ARLO",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "ARX",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "AUR",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "AXON",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "BBAI",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "BKSY",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "BMI",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "CALX",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "CLBT",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "CLOV",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "DASH",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "DOCN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "FA",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "HTFL",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "MBLY",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "MSTR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "NIQ",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "P",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "PAY",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "PRVA",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "QLYS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "QTWO",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "RBRK",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "SAIL",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "SRAD",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "TDOC",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "TRI",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "VRNS",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "XMTR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "ZETA",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "space",
+        "ticker": "AMTM",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "space",
+        "ticker": "MOG.A",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "space",
+        "ticker": "YSS",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "nuclear",
+        "ticker": "GHM",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "nuclear",
+        "ticker": "TLN",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "uranium",
+        "ticker": "VMET",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "AIN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "ALNT",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "AMTM",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "ATI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "BBAI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "BETA",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "BHE",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "FLY",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "GHM",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "ICHR",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "JOBY",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "LASR",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "MDA",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "OII",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "OLN",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "ONDS",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "PLXS",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "PSN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "SANM",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "TTMI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "VSAT",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "WLFC",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "ASST",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "CCC",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "FICO",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "INTU",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "NCNO",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "RZLV",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "SBET",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "TOP",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "WT",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "GRAL",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "HRMY",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "ICLR",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "LQDA",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "MIRM",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "MNKD",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "PSNL",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "RYTM",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "SDGR",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "TVTX",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "BLBD",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "DAN",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "NVTS",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "PLUG",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "TMC",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "CECO",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "DINO",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "GNRC",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "ROCK",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "ALNT",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "AXON",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "AZTA",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "OII",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "PRCT",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "RCAT",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "TER",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "UMAC",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "IE",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "SII",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "UAMY",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "BW",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "LGN",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "SOLS",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "auto_parts_retail",
+        "ticker": "GT",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "AMN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "AORT",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "CDNA",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "DOCS",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "FTRE",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "GDRX",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "GH",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "HNGE",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "NEO",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "NTRA",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "OMDA",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "OSCR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "VCYT",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "WGS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "WRBY",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "CACI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "GDDY",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "IT",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "RHI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "STGW",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "TIC",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "VVX",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "VYX",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ip_licensing",
+        "ticker": "APPS",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "ip_licensing",
+        "ticker": "LWLG",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "ip_licensing",
+        "ticker": "RMBS",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "ARXS",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "DORM",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "LOAR",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "MBLY",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "MOD",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "NPO",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "WS",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "AMSC",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "CNH",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "GTES",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "SPXC",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "NPKI",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "TPL",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "VG",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "BRAI",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "ODC",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "SENEA",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "TALO",
+        "confidence": 0
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "AMRC",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "BSY",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "FIX",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "KNF",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "MWH",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "PCOR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "VSEC",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "BVC",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "CMPR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "COMP",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "CSGP",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "MMYT",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "W",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "tungsten_critical_metals_mining",
+        "ticker": "ASM",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "tungsten_critical_metals_mining",
+        "ticker": "USAR",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "healthcare_staffing_workforce_solutions",
+        "ticker": "PAYC",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "ATLC",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "DFIN",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "HURN",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "WD",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "LUXE",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "RVLV",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "BHC",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "DRTS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "NOVT",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "OMCL",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "adtech_digital_advertising_platform",
+        "ticker": "GENI",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "adtech_digital_advertising_platform",
+        "ticker": "GRPN",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "adtech_digital_advertising_platform",
+        "ticker": "KVYO",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "adtech_digital_advertising_platform",
+        "ticker": "TDAY",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "trucking_freight_logistics",
+        "ticker": "AUR",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "trucking_freight_logistics",
+        "ticker": "BCO",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "trucking_freight_logistics",
+        "ticker": "DSGX",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "trucking_freight_logistics",
+        "ticker": "NGL",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "alternative_asset_management",
+        "ticker": "GLXY",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "alternative_asset_management",
+        "ticker": "LAZ",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "alternative_asset_management",
+        "ticker": "OPY",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "home_furnishings_retail",
+        "ticker": "KSS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "BH",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "BH.A",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "GWRE",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "PRCH",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "RYAN",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "XZO",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "specialty_metals_advanced_materials",
+        "ticker": "MP",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "CERT",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "CLVT",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "MDLN",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "MIR",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "OPK",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "SDGR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "TEM",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "DBD",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "EFX",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "INTR",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "LU",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "MAAS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "MIAX",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "MRX",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "RKT",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "CSW",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "FND",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "IESC",
+        "confidence": 15
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "MBC",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "DGII",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "FN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "GLW",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "MRCY",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "REZI",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "RRX",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "SXI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "GKOS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "GRDN",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "HIMS",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "NAMS",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "crypto_mining_digital_asset_treasury",
+        "ticker": "CIFR",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "crypto_mining_digital_asset_treasury",
+        "ticker": "CORZ",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "crypto_mining_digital_asset_treasury",
+        "ticker": "IREN",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "crypto_mining_digital_asset_treasury",
+        "ticker": "WULF",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "ENTG",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "FMC",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "FTK",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "GPRE",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "MKSI",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "ROG",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "SMG",
+        "confidence": 45
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "XPEL",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "CTRI",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "EOSE",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "ETN",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "FCEL",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "FLNC",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "FPS",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "FRMI",
+        "confidence": 55
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "ITRI",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "KEEL",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "MYRG",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "NEXT",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "POWL",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "PWR",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "SEI",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "WLDN",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "telecom_cable_broadband_services",
+        "ticker": "DY",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "telecom_cable_broadband_services",
+        "ticker": "HLIT",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "telecom_cable_broadband_services",
+        "ticker": "MTZ",
+        "confidence": 25
+      },
+      {
+        "narrative_id": "telecom_cable_broadband_services",
+        "ticker": "NRG",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "telecom_cable_broadband_services",
+        "ticker": "PLPC",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "homebuilders",
+        "ticker": "IBP",
+        "confidence": 20
+      },
+      {
+        "narrative_id": "insurtech_digital_insurance_distribution",
+        "ticker": "LMND",
+        "confidence": 60
+      },
+      {
+        "narrative_id": "ridesharing_mobility_platform",
+        "ticker": "VIA",
+        "confidence": 50
+      },
+      {
+        "narrative_id": "ridesharing_mobility_platform",
+        "ticker": "WRD",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "education_content_publishing",
+        "ticker": "WBTN",
+        "confidence": 30
+      },
+      {
+        "narrative_id": "financial_exchange_marketplace_operator",
+        "ticker": "SNEX",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "online_travel_booking_platform",
+        "ticker": "NAVN",
+        "confidence": 40
+      },
+      {
+        "narrative_id": "online_gaming_virtual_world_platform",
+        "ticker": "STUB",
+        "confidence": 5
+      },
+      {
+        "narrative_id": "social_media_platform",
+        "ticker": "YELP",
+        "confidence": 35
+      },
+      {
+        "narrative_id": "copper_base_metals_mining",
+        "ticker": "VMET",
+        "confidence": 40
+      }
+    ],
+    "primary_70_to_84": [
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "AEIS",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "AIP",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "CAMT",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "COHU",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "ENTG",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "FORM",
+        "confidence": 78
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "KLIC",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "NVMI",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "PLAB",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "RMBS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "TER",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "semiconductors",
+        "ticker": "VECO",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "FN",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "LASR",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "LWLG",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "photonics_optical",
+        "ticker": "POET",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "FRMI",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "IREN",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "KEEL",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "NBIS",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "data_center",
+        "ticker": "SHAZ",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "AKAM",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "networking",
+        "ticker": "CALX",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "ATEN",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "BB",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "RBRK",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "cybersecurity",
+        "ticker": "RDWR",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "FSLY",
+        "confidence": 72
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "APPN",
+        "confidence": 72
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "PLTR",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "U",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "AMPL",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "GTLB",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "SHOP",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "AI",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "BAND",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "BLKB",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "BLZE",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "BRZE",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "BSY",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "CCC",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "COUR",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "DOCS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "DSGX",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "IOT",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "NICE",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "PAYC",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "PTC",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "SOUN",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "WAY",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "software_saas",
+        "ticker": "XZO",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "space",
+        "ticker": "BKSY",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "nuclear",
+        "ticker": "MIR",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "uranium",
+        "ticker": "UROY",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "VOYG",
+        "confidence": 72
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "ACHR",
+        "confidence": 72
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "KRMN",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "CACI",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "CW",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "DCO",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "LOAR",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "RCAT",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "defense_aerospace",
+        "ticker": "YSS",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "ALKT",
+        "confidence": 78
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "ATLC",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "BULL",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "CRCL",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "FIGR",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "INTR",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "LU",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "PAY",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "QTWO",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "RELY",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "fintech",
+        "ticker": "WU",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "ABSI",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "ADPT",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "AKTS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "ALMR",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "CMPS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "DRTS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "GENB",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "GHRS",
+        "confidence": 82
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "GLUE",
+        "confidence": 82
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "GPCR",
+        "confidence": 82
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "KNSA",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "KOD",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "LBRX",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "LEGN",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "MANE",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "MDGL",
+        "confidence": 82
+      },
+      {
+        "narrative_id": "biotech",
+        "ticker": "RGC",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "EOSE",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "ev_battery",
+        "ticker": "SGML",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "FLNC",
+        "confidence": 72
+      },
+      {
+        "narrative_id": "solar_clean_energy",
+        "ticker": "MWH",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "ATS",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "robotics_automation",
+        "ticker": "CGNX",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "BTG",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "HYMC",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "NG",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "PPTA",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "EGO",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "IAG",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "IAUX",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "ELE",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "NEWP",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "gold___precious_metals_miners",
+        "ticker": "VZLA",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "AAON",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "FIX",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "REZI",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "hvac_climate_control_equipment",
+        "ticker": "SPXC",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "ASTH",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "BKD",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "BTSG",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "INNV",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "LFST",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "LMRI",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "NHC",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "NUTX",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "PACS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "PRVA",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "RDNT",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "SNDA",
+        "confidence": 82
+      },
+      {
+        "narrative_id": "healthcare_services_facilities",
+        "ticker": "TDOC",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "BAH",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "CDW",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "EXLS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "INOD",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "PLUS",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "RXT",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "it_services_consulting",
+        "ticker": "TDTH",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "ip_licensing",
+        "ticker": "ADEA",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "CYD",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "automotive_parts_components_supplier",
+        "ticker": "VGNT",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "AEBI",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "BLBD",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "PII",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "industrial_specialty_vehicle_machinery",
+        "ticker": "PLOW",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "BORR",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "FTK",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "KGS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "OII",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "SEI",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "oil_gas_services_equipment",
+        "ticker": "WBI",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "healthcare_services",
+        "ticker": "AGL",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "healthcare_services",
+        "ticker": "ALHC",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "FMC",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "agriculture_agribusiness",
+        "ticker": "MOS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "AGX",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "AMTM",
+        "confidence": 82
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "CDNL",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "CTRI",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "DY",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "LGN",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "MYRG",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "PRIM",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "PSN",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "construction_engineering_services",
+        "ticker": "PWR",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "AHG",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "CVNA",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "GCT",
+        "confidence": 78
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "LUXE",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "PTRN",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "REAL",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "RERE",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "e_commerce_platform",
+        "ticker": "STUB",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "tungsten_critical_metals_mining",
+        "ticker": "CRML",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "tungsten_critical_metals_mining",
+        "ticker": "EMAT",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "tungsten_critical_metals_mining",
+        "ticker": "MP",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "movie_theater_exhibition",
+        "ticker": "IMAX",
+        "confidence": 78
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "ANDG",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "professional_financial_advisory_services",
+        "ticker": "LAZ",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "BIRK",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "BOOT",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "CPRI",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "CROX",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "FIGS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "apparel_retail",
+        "ticker": "WRBY",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "BFLY",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "BVS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "GKOS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "KMTS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "PLSE",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "medical_devices",
+        "ticker": "XRAY",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "adtech_digital_advertising_platform",
+        "ticker": "QNST",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "adtech_digital_advertising_platform",
+        "ticker": "ZETA",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "adtech_platform",
+        "ticker": "APPS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "trucking_freight_logistics",
+        "ticker": "CHRW",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "home_furnishings_retail",
+        "ticker": "FND",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "home_furnishings_retail",
+        "ticker": "W",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "specialty_property_casualty_insurance",
+        "ticker": "KMPR",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "telecom_spectrum_private_wireless_infrastructure",
+        "ticker": "ATEX",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "specialty_metals_advanced_materials",
+        "ticker": "ATI",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "specialty_metals_advanced_materials",
+        "ticker": "CENX",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "specialty_metals_advanced_materials",
+        "ticker": "CLF",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "specialty_metals_advanced_materials",
+        "ticker": "KALU",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "specialty_metals_advanced_materials",
+        "ticker": "USAR",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "specialty_metals_advanced_materials",
+        "ticker": "WS",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "AVTR",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "AZTA",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "CAI",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "CDNA",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "FTRE",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "GH",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "NTRA",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "TWST",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "VCYT",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "life_sciences_tools_consumables",
+        "ticker": "WGS",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "banking_financial_services",
+        "ticker": "BBAR",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "BCC",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "FBIN",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "KNF",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "NWPX",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "RMIX",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "ROCK",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "building_products_materials_distribution",
+        "ticker": "TGLS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "secure_logistics_cash_management_services",
+        "ticker": "BCO",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "BELFA",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "BELFB",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "BHE",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "FPS",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "KN",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "LFUS",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "ROG",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "SANM",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "TTMI",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "electronic_components_manufacturing",
+        "ticker": "VICR",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "BHC",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "ELAN",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "LQDA",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "MIRM",
+        "confidence": 72
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "MNKD",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "PRGO",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "specialty_pharmaceuticals",
+        "ticker": "RYTM",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "crypto_mining_digital_asset_treasury",
+        "ticker": "BMNR",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "crypto_mining_digital_asset_treasury",
+        "ticker": "SBET",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "CELH",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "FLO",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "branded_nutrition_consumer_packaged_goods",
+        "ticker": "FRPT",
+        "confidence": 72
+      },
+      {
+        "narrative_id": "crypto_mining_treasury",
+        "ticker": "BTDR",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "fast_casual_restaurant_chains",
+        "ticker": "CAVA",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "CC",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "CE",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "OLN",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "PRM",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "specialty_chemicals",
+        "ticker": "Q",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "CEPU",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "power_generation_utilities",
+        "ticker": "TGS",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "telecom_cable_broadband_services",
+        "ticker": "CHTR",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "telecom_cable_broadband_services",
+        "ticker": "LILA",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "telecom_cable_broadband_services",
+        "ticker": "UNIT",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "commercial_printing_mass_customization",
+        "ticker": "CMPR",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "homebuilders",
+        "ticker": "SKY",
+        "confidence": 82
+      },
+      {
+        "narrative_id": "online_gaming_sports_betting",
+        "ticker": "GENI",
+        "confidence": 82
+      },
+      {
+        "narrative_id": "ridesharing_mobility_platform",
+        "ticker": "PONY",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "education_content_publishing",
+        "ticker": "MH",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "education_content_publishing",
+        "ticker": "PRDO",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "education_content_publishing",
+        "ticker": "PXED",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "education_content_publishing",
+        "ticker": "UTI",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "media_entertainment_conglomerate",
+        "ticker": "SBGI",
+        "confidence": 75
+      },
+      {
+        "narrative_id": "media_entertainment_conglomerate",
+        "ticker": "SPHR",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "social_media_platform",
+        "ticker": "RUM",
+        "confidence": 80
+      },
+      {
+        "narrative_id": "hotel_lodging_reit",
+        "ticker": "TH",
+        "confidence": 70
+      },
+      {
+        "narrative_id": "off_price_thrift_retail",
+        "ticker": "WINA",
+        "confidence": 75
+      }
+    ],
+    "primary_85_plus_count": 492
+  },
+  "reclassified_tickers": [
+    "AAP",
+    "ACVA",
+    "AERO",
+    "AEVA",
+    "AGL",
+    "AGQ",
+    "AIN",
+    "ALGT",
+    "ALHC",
+    "ALK",
+    "ALNT",
+    "AMC",
+    "AMR",
+    "AMRC",
+    "AMSC",
+    "ANF",
+    "AORT",
+    "APPS",
+    "ARES",
+    "ARHS",
+    "ARLO",
+    "ARX",
+    "ARXS",
+    "ASST",
+    "ATEC",
+    "ATRC",
+    "AUR",
+    "AXGN",
+    "AXON",
+    "BAX",
+    "BBAI",
+    "BE",
+    "BELFA",
+    "BELFB",
+    "BETA",
+    "BFLY",
+    "BH",
+    "BH.A",
+    "BHC",
+    "BHE",
+    "BIRK",
+    "BLLN",
+    "BLSH",
+    "BMI",
+    "BOBS",
+    "BOOT",
+    "BRAI",
+    "BRBR",
+    "BTDR",
+    "BTU",
+    "BVC",
+    "BVS",
+    "BW",
+    "BWIN",
+    "CAR",
+    "CAVA",
+    "CBRL",
+    "CC",
+    "CDRE",
+    "CE",
+    "CECO",
+    "CERT",
+    "CHEF",
+    "CIFR",
+    "CLBT",
+    "CLMT",
+    "CLOV",
+    "CLS",
+    "CLVT",
+    "CMP",
+    "CNC",
+    "CNH",
+    "CNMD",
+    "COMP",
+    "CORT",
+    "CORZ",
+    "COTY",
+    "CPRI",
+    "CRCT",
+    "CRI",
+    "CRK",
+    "CROX",
+    "CRSR",
+    "CSGP",
+    "CSW",
+    "CVI",
+    "CVSA",
+    "CWK",
+    "CXW",
+    "DAO",
+    "DASH",
+    "DBD",
+    "DFH",
+    "DFIN",
+    "DGII",
+    "DINO",
+    "DJT",
+    "DK",
+    "DOCN",
+    "DORM",
+    "DRVN",
+    "DXPE",
+    "EAT",
+    "ECPG",
+    "EFOR",
+    "EFX",
+    "ELAN",
+    "ELF",
+    "ENOV",
+    "ENR",
+    "EPC",
+    "EQPT",
+    "ERIE",
+    "ERO",
+    "ESAB",
+    "ESI",
+    "ESTA",
+    "ETN",
+    "ETON",
+    "EVC",
+    "EXPE",
+    "EYE",
+    "EZPW",
+    "FA",
+    "FCEL",
+    "FCFS",
+    "FICO",
+    "FIGS",
+    "FLEX",
+    "FND",
+    "FPS",
+    "FTAI",
+    "FUN",
+    "GDDY",
+    "GDRX",
+    "GHM",
+    "GKOS",
+    "GLW",
+    "GLXY",
+    "GNRC",
+    "GOLF",
+    "GPGI",
+    "GPI",
+    "GPK",
+    "GPRE",
+    "GRAL",
+    "GRC",
+    "GRDN",
+    "GRND",
+    "GRPN",
+    "GSHD",
+    "GT",
+    "GTES",
+    "GTM",
+    "GWRE",
+    "HBM",
+    "HBNB",
+    "HIMS",
+    "HIMX",
+    "HL",
+    "HLIT",
+    "HLNE",
+    "HNGE",
+    "HOG",
+    "HPQ",
+    "HRB",
+    "HRI",
+    "HRMY",
+    "HROW",
+    "HSLV",
+    "HTFL",
+    "HUBG",
+    "HUM",
+    "HUN",
+    "HURN",
+    "HUT",
+    "IART",
+    "IBP",
+    "IBRX",
+    "ICHR",
+    "ICLR",
+    "IE",
+    "IESC",
+    "IMAX",
+    "INDV",
+    "INSP",
+    "IP",
+    "IQ",
+    "IRTC",
+    "IT",
+    "ITRI",
+    "JBL",
+    "JBLU",
+    "JOBY",
+    "KAI",
+    "KARO",
+    "KFRC",
+    "KMT",
+    "KMTS",
+    "KN",
+    "KOS",
+    "KSS",
+    "KWR",
+    "LAC",
+    "LAD",
+    "LAR",
+    "LB",
+    "LFUS",
+    "LGIH",
+    "LIF",
+    "LIFE",
+    "LINC",
+    "LIND",
+    "LION",
+    "LMAT",
+    "LMND",
+    "LOMA",
+    "LPG",
+    "LPL",
+    "LQDA",
+    "LRN",
+    "MAAS",
+    "MAN",
+    "MBC",
+    "MBLY",
+    "MDLN",
+    "MGRT",
+    "MIRM",
+    "MKSI",
+    "MMED",
+    "MMYT",
+    "MNKD",
+    "MOD",
+    "MOH",
+    "MRX",
+    "MYE",
+    "NEO",
+    "NEOG",
+    "NEXA",
+    "NEXT",
+    "NGL",
+    "NHP",
+    "NIQ",
+    "NMAX",
+    "NN",
+    "NOVT",
+    "NP",
+    "NPKI",
+    "NPO",
+    "NSP",
+    "NVCR",
+    "NVT",
+    "NWL",
+    "ODC",
+    "OI",
+    "OLN",
+    "OMCL",
+    "OMDA",
+    "ONDS",
+    "OPEN",
+    "OPK",
+    "OPY",
+    "OSCR",
+    "OUST",
+    "OWL",
+    "P",
+    "PARR",
+    "PBF",
+    "PBT",
+    "PCT",
+    "PDFS",
+    "PENG",
+    "PI",
+    "PLBL",
+    "PLPC",
+    "PLSE",
+    "PLTK",
+    "PLUG",
+    "PLXS",
+    "PODD",
+    "POOL",
+    "POWL",
+    "PRCH",
+    "PRCT",
+    "PRGO",
+    "PRKS",
+    "PRLB",
+    "PRM",
+    "PS",
+    "PSKY",
+    "PSNL",
+    "PTON",
+    "Q",
+    "RAL",
+    "RBLX",
+    "RDDT",
+    "RH",
+    "RHI",
+    "RHLD",
+    "RJET",
+    "RKT",
+    "ROG",
+    "RRX",
+    "RUM",
+    "RYAN",
+    "RYTM",
+    "RYZ",
+    "RZLV",
+    "SAH",
+    "SANM",
+    "SBH",
+    "SDGR",
+    "SENEA",
+    "SHAK",
+    "SID",
+    "SII",
+    "SKY",
+    "SLSR",
+    "SLVM",
+    "SM",
+    "SMG",
+    "SN",
+    "SNAP",
+    "SNEX",
+    "SOLS",
+    "SONO",
+    "SPOT",
+    "SRAD",
+    "STAA",
+    "STEP",
+    "STGW",
+    "SUPN",
+    "SXI",
+    "TALO",
+    "TARS",
+    "TDAY",
+    "TEM",
+    "TIC",
+    "TMC",
+    "TMDX",
+    "TNC",
+    "TNDM",
+    "TNET",
+    "TOP",
+    "TPB",
+    "TPL",
+    "TRI",
+    "TRIP",
+    "TRN",
+    "TROX",
+    "TRU",
+    "TRUP",
+    "TTMI",
+    "TVTX",
+    "UA",
+    "UAA",
+    "UAMY",
+    "UCTT",
+    "ULCC",
+    "UMAC",
+    "UPWK",
+    "VAC",
+    "VG",
+    "VIA",
+    "VIAV",
+    "VICR",
+    "VMET",
+    "VSAT",
+    "VSEC",
+    "VSH",
+    "VSTS",
+    "VVX",
+    "VYX",
+    "W",
+    "WBTN",
+    "WD",
+    "WEN",
+    "WHR",
+    "WING",
+    "WLFC",
+    "WRBY",
+    "WRD",
+    "WSC",
+    "WT",
+    "WULF",
+    "XMTR",
+    "XPEL",
+    "XRAY",
+    "YELP",
+    "YOU",
+    "Z",
+    "ZBRA",
+    "ZG"
+  ],
+  "reclassified_applied_count": 137,
+  "unresolved_after_retries": [
+    {
+      "ticker": "AEVA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "AGQ",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "AIN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ALNT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "AMRC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "AMSC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ARLO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ARX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ARXS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ASST",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "AUR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "AXON",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BBAI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BETA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BLLN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BLSH",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BMI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BRAI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BVC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BW",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BWIN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CAR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CBRL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CDRE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CECO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CERT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CHEF",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CIFR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CLBT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CLMT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CLOV",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CLS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CLVT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CMP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CNC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "COMP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "COTY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CRCT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CRK",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CRSR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CSGP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CSW",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CVI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CVSA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CWK",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CXW",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DAO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DASH",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DBD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DFIN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DGII",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DINO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DJT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DK",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DOCN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DORM",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DRVN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DXPE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "EAT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ECPG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "EFOR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "EFX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ELF",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ENR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "EPC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "EQPT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ERIE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ESAB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ETN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "EVC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "EYE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "EZPW",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FCEL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FCFS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FICO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FLEX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FTAI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FUN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GDRX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GHM",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GLW",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GLXY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GNRC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GOLF",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GPGI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GPI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GPRE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GRAL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GRC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GRDN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GRND",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GRPN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GSHD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GTES",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HBNB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HIMS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HLIT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HNGE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HOG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HPQ",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HRB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HRI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HSLV",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HTFL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HUM",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HURN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ICHR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ICLR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "IE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "IESC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "IQ",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "IT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ITRI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "JBL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "JOBY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "KAI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "KARO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "KFRC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "KOS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "KSS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LAC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LAD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LAR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LIF",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LINC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LIND",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LION",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LOMA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LPG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LPL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MAAS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MAN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MBC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MBLY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MDLN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MGRT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MKSI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MOD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MOH",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MRX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MYE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NEO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NEOG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NEXA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NEXT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NGL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NHP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NIQ",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NMAX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NOVT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NPKI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NPO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NSP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NVT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NWL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ODC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OMCL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OMDA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ONDS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OPEN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OPK",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OPY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OSCR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OUST",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "P",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PARR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PBF",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PBT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PCT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PDFS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PENG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PLBL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PLPC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PLTK",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PLUG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PLXS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "POOL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "POWL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PRCH",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PRKS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PRLB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PSNL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RAL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RHI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RHLD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RKT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RYAN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RYZ",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RZLV",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SAH",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SBH",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SDGR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SENEA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SID",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SLSR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SLVM",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SM",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SMG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SNEX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SONO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SPOT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SRAD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "STGW",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SXI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TALO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TDAY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TEM",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TIC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TMC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TNC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TNET",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TOP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TPB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TPL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TRI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TRN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TRU",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TRUP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TVTX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "UAMY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "UCTT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "UMAC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "UPWK",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VAC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VIAV",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VMET",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VSAT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VSEC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VSTS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VVX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VYX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WBTN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WHR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WLFC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WRD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WSC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WULF",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "XMTR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "XPEL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "YELP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "YOU",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "Z",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ZBRA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ZG",
+      "reason": "low_confidence_primary"
+    }
+  ],
+  "classification_errors": [
+    "Retry-Runde 1 Batch (SN..WHR): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+  ],
+  "pruned_empty_narratives": [
+    "cava_fast_casual_dining"
+  ],
+  "undersized_narratives": [
+    {
+      "id": "memory_storage",
+      "name": "Memory / Storage",
+      "eligible_member_count": 4
+    },
+    {
+      "id": "robotics_automation",
+      "name": "Robotics / Automation",
+      "eligible_member_count": 4
+    },
+    {
+      "id": "agriculture_agribusiness",
+      "name": "Agriculture / Agribusiness",
+      "eligible_member_count": 4
+    },
+    {
+      "id": "tungsten_critical_metals_mining",
+      "name": "Tungsten / Critical Metals Mining",
+      "eligible_member_count": 4
+    },
+    {
+      "id": "professional_financial_advisory_services",
+      "name": "Professional / Financial Advisory Services",
+      "eligible_member_count": 4
+    },
+    {
+      "id": "fast_casual_restaurant_chains",
+      "name": "Fast Casual Restaurant Chains",
+      "eligible_member_count": 4
+    },
+    {
+      "id": "online_gaming_sports_betting",
+      "name": "Online Gaming / Sports Betting",
+      "eligible_member_count": 4
+    },
+    {
+      "id": "specialty_property_casualty_insurance",
+      "name": "Specialty Property & Casualty Insurance",
+      "eligible_member_count": 3
+    },
+    {
+      "id": "banking_financial_services",
+      "name": "Banking / Financial Services",
+      "eligible_member_count": 3
+    },
+    {
+      "id": "homebuilders",
+      "name": "Homebuilders",
+      "eligible_member_count": 3
+    },
+    {
+      "id": "online_travel_booking_platform",
+      "name": "Online Travel Booking Platform",
+      "eligible_member_count": 3
+    },
+    {
+      "id": "media_entertainment_conglomerate",
+      "name": "Media & Entertainment Conglomerate",
+      "eligible_member_count": 3
+    },
+    {
+      "id": "social_media_platform",
+      "name": "Social Media Platform",
+      "eligible_member_count": 3
+    },
+    {
+      "id": "packaging_paperboard_manufacturing",
+      "name": "Packaging / Paperboard Manufacturing",
+      "eligible_member_count": 3
+    },
+    {
+      "id": "copper_base_metals_mining",
+      "name": "Copper / Base Metals Mining",
+      "eligible_member_count": 3
+    },
+    {
+      "id": "grocery_food_retail",
+      "name": "Grocery / Food Retail",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "ip_licensing",
+      "name": "IP Licensing",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "healthcare_services",
+      "name": "Healthcare Services",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "industrial_machinery",
+      "name": "Industrial Machinery",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "movie_theater_exhibition",
+      "name": "Movie Theater Exhibition",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "coal_mining",
+      "name": "Coal Mining",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "diversified_restaurant_insurance_holding_company",
+      "name": "Diversified Restaurant/Insurance Holding Company",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "insurtech_digital_insurance_distribution",
+      "name": "Insurtech Digital Insurance Distribution",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "ridesharing_mobility_platform",
+      "name": "Ridesharing / Mobility Platform",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "hotel_lodging_reit",
+      "name": "Hotel / Lodging REIT",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "off_price_thrift_retail",
+      "name": "Off-Price / Thrift Retail",
+      "eligible_member_count": 2
+    },
+    {
+      "id": "auto_parts_retail",
+      "name": "Auto Parts Retail",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "metal_packaging_beverage_cans",
+      "name": "Metal Packaging / Beverage Cans",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "healthcare_staffing_workforce_solutions",
+      "name": "Healthcare Staffing / Workforce Solutions",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "adtech_platform",
+      "name": "Adtech Platform",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "telecom_spectrum_private_wireless_infrastructure",
+      "name": "Telecom Spectrum / Private Wireless Infrastructure",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "secure_logistics_cash_management_services",
+      "name": "Secure Logistics / Cash Management Services",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "crypto_mining_treasury",
+      "name": "Crypto Mining Treasury",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "commercial_printing_mass_customization",
+      "name": "Commercial Printing / Mass Customization",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "financial_exchange_marketplace_operator",
+      "name": "Financial Exchange / Marketplace Operator",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "connected_fitness_platform",
+      "name": "Connected Fitness Platform",
+      "eligible_member_count": 1
+    },
+    {
+      "id": "online_gaming_virtual_world_platform",
+      "name": "Online Gaming / Virtual World Platform",
+      "eligible_member_count": 1
+    }
+  ],
+  "active_narrative_count": 43,
+  "undersized_narrative_count": 37
+}
