@@ -53,23 +53,6 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .section-title { font-family: var(--header-font); font-size: 28px; font-weight: 600; letter-spacing: -0.5px; }
 .section-sub { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 1.5px; text-transform: uppercase; }
 
-.regime-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-.regime-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 24px; backdrop-filter: blur(10px); }
-.regime-card .ticker-name { font-family: var(--mono-font); font-size: 13px; font-weight: 500; letter-spacing: 2px; margin-bottom: 12px; }
-.regime-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-.regime-badge { display: inline-block; padding: 6px 16px; border-radius: 2px; font-family: var(--mono-font); font-size: 13px; font-weight: 500; letter-spacing: 2px; }
-.regime-badge.bull { background: var(--positive); color: #fff; }
-.regime-badge.chop { background: var(--neutral); color: #fff; }
-.regime-badge.bear { background: var(--negative); color: #fff; }
-.regime-price { font-family: var(--mono-font); font-size: 20px; }
-.ma-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-.ma-item { text-align: center; padding: 8px 4px; border-radius: 2px; background: rgba(255,255,255,0.04); }
-.ma-item .ma-label { font-family: var(--mono-font); font-size: 9px; color: var(--ink-muted); letter-spacing: 1px; text-transform: uppercase; }
-.ma-item .ma-value { font-family: var(--mono-font); font-size: 12px; font-weight: 500; margin-top: 2px; }
-.ma-item.above .ma-value { color: var(--positive); }
-.ma-item.below .ma-value { color: var(--negative); }
-.ma-item .ma-status { font-size: 8px; margin-top: 1px; }
-.regime-legend { background: rgba(255,255,255,0.03); border-radius: 2px; padding: 12px 16px; font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 0.5px; line-height: 1.8; margin-top: 8px; }
 
 .table-section { margin-bottom: 8px; }
 .table-toggle { display: flex; align-items: center; gap: 8px; padding: 12px 0; cursor: pointer; user-select: none; border: none; background: none; width: 100%; text-align: left; font-family: var(--mono-font); font-size: 12px; font-weight: 500; color: var(--ink); letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--card-border); }
@@ -102,22 +85,10 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .pw-box .pw-error { font-family: var(--mono-font); font-size: 11px; color: var(--negative); margin-top: 12px; min-height: 16px; }
 .pw-box .pw-hint { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 20px; }
 
-.currency-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
-.currency-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
-.currency-card .pair { font-family: var(--mono-font); font-size: 16px; font-weight: 500; letter-spacing: 2px; }
-.currency-card .cur-price { font-family: var(--mono-font); font-size: 22px; font-weight: 300; }
-.currency-card .cur-change { font-family: var(--mono-font); font-size: 12px; margin-top: 2px; text-align: right; }
-
-.vix-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
-.vix-left .vix-label { font-family: var(--mono-font); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-muted); }
-.vix-left .vix-val { font-family: var(--mono-font); font-size: 36px; font-weight: 300; }
-.vix-right { text-align: right; }
 .vix-zone { display: inline-block; padding: 4px 12px; border-radius: 2px; font-family: var(--mono-font); font-size: 11px; letter-spacing: 1px; }
 .vix-zone.low { background: var(--positive-bg); color: var(--positive); }
 .vix-zone.elevated { background: var(--neutral-bg); color: var(--neutral); }
 .vix-zone.high { background: var(--negative-bg); color: var(--negative); }
-
-.breadth-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
 
 /* QQQ Breadth Charts */
 .qqq-card .bc-value { font-size: 28px; margin: 4px 0 8px 0; }
@@ -262,13 +233,109 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .bm-swatch { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
 .bm-empty { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); padding: 30px 0; text-align: center; }
 
+/* EXECUTIVE SUMMARY (Punkt 01 Überblick) */
+.exec-summary { margin-bottom: 28px; }
+.exec-tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.exec-tile { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 16px 18px; }
+.exec-tile-label { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
+.exec-tile-value { font-family: var(--mono-font); font-size: 26px; font-weight: 400; }
+.exec-tile-sub { font-family: var(--mono-font); font-size: 10px; color: var(--ink-light); margin-top: 4px; }
+.exec-changed { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 18px 20px; }
+.exec-changed-title { font-family: var(--header-font); font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+.exec-changed-list { display: flex; flex-direction: column; gap: 8px; }
+.exec-changed-empty { font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); }
+.exec-event { display: flex; align-items: baseline; gap: 8px; font-family: var(--mono-font); font-size: 11px; flex-wrap: wrap; }
+.exec-event-tag { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; background: rgba(255,255,255,0.08); color: var(--ink-light); flex-shrink: 0; }
+.exec-event-text { color: var(--ink-light); }
+.exec-changed-more { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 10px; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+
+/* MOMENTUM MARKET REGIME (Punkt 02) */
+.regime-score-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 28px; }
+.regime-score-main { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.regime-score-value { font-family: var(--mono-font); font-size: 48px; font-weight: 300; }
+.regime-score-state { font-family: var(--header-font); font-size: 16px; font-weight: 600; padding: 6px 16px; border-radius: 2px; background: rgba(255,255,255,0.06); }
+.regime-score-state.state-strong-offensive, .regime-score-state.state-offensive { background: var(--positive-bg); color: var(--positive); }
+.regime-score-state.state-selective { background: var(--neutral-bg); color: var(--neutral); }
+.regime-score-state.state-defensive, .regime-score-state.state-risk-off { background: var(--negative-bg); color: var(--negative); }
+.regime-score-delta { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); }
+.regime-components { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.regime-component { display: grid; grid-template-columns: 100px 1fr 56px; align-items: center; gap: 12px; }
+.rc-label { font-family: var(--mono-font); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-muted); }
+.rc-bar-track { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+.rc-bar { height: 100%; background: var(--ink-light); border-radius: 3px; transition: width 0.3s; }
+.rc-value { font-family: var(--mono-font); font-size: 12px; text-align: right; color: var(--ink-light); }
+.regime-meta-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 16px; border-top: 1px solid var(--card-border); font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); }
+.regime-meta-row b { color: var(--ink-light); font-weight: 500; }
+.vix-label-inline { color: var(--ink-muted); margin-right: 4px; }
+.regime-vix-context { display: flex; align-items: center; gap: 8px; }
+
+/* QQQ HEALTH (Punkt 03) */
+.qqq-health-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 28px; margin-bottom: 20px; display: grid; grid-template-columns: 220px 1fr; gap: 28px; }
+.qqq-health-main { display: flex; flex-direction: column; gap: 8px; }
+.qqq-health-value { font-family: var(--mono-font); font-size: 48px; font-weight: 300; }
+.qqq-health-state { font-family: var(--header-font); font-size: 16px; font-weight: 600; }
+.qqq-health-state.state-healthy { color: var(--positive); }
+.qqq-health-state.state-mixed { color: var(--neutral); }
+.qqq-health-state.state-fragile, .qqq-health-state.state-risk-off { color: var(--negative); }
+.qqq-health-modifiers { display: flex; gap: 6px; flex-wrap: wrap; }
+.qqq-health-modifier-badge { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; background: rgba(255,255,255,0.08); color: var(--ink-light); }
+.qqq-health-modifier-badge.extended { background: rgba(226,146,92,0.15); color: #e2925c; }
+.qqq-health-modifier-badge.repairing { background: rgba(61,220,115,0.15); color: var(--positive); }
+.qqq-health-modifier-badge.narrowing, .qqq-health-modifier-badge.deteriorating { background: rgba(224,168,62,0.15); color: var(--neutral); }
+.qqq-health-delta { font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); }
+.qqq-price-structure { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; align-content: start; }
+.qps-item { background: var(--sand); border-radius: 2px; padding: 10px; text-align: center; }
+.qps-label { font-family: var(--mono-font); font-size: 9px; color: var(--ink-muted); letter-spacing: 0.5px; text-transform: uppercase; }
+.qps-value { font-family: var(--mono-font); font-size: 13px; margin-top: 3px; }
+.qps-flags { grid-column: span 2; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; background: transparent; padding: 0; }
+.qps-flag { font-family: var(--mono-font); font-size: 9px; padding: 3px 6px; border-radius: 2px; }
+.qps-flag.yes { background: var(--positive-bg); color: var(--positive); }
+.qps-flag.no { background: rgba(255,255,255,0.05); color: var(--ink-muted); }
+
+/* NARRATIVE CARD — Lifecycle/Momentum-Score/Rank (Punkt 19) */
+.nc-lifecycle-badge { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; margin-top: 6px; display: inline-block; }
+.nc-lifecycle-badge.emerging { background: rgba(61,220,115,0.15); color: var(--positive); }
+.nc-lifecycle-badge.active { background: rgba(47,126,216,0.15); color: #2f7ed8; }
+.nc-lifecycle-badge.mature { background: rgba(212,160,23,0.15); color: #d4a017; }
+.nc-lifecycle-badge.fading { background: rgba(226,146,92,0.15); color: #e2925c; }
+.nc-lifecycle-badge.dormant, .nc-lifecycle-badge.neutral { background: rgba(255,255,255,0.05); color: var(--ink-muted); }
+.nc-momentum-score { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 6px; }
+.nc-rank-change { font-size: 9px; margin-left: 4px; }
+.nc-rank-change.up { color: var(--positive); }
+.nc-rank-change.down { color: var(--negative); }
+.nc-opp-summary { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; font-family: var(--mono-font); font-size: 9px; color: var(--ink-muted); }
+
+/* OPPORTUNITIES (Punkt 05) */
+.opp-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 16px; background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 3px; padding: 3px; }
+.opp-tab { font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.3px; padding: 8px 14px; border: none; background: transparent; color: var(--ink-muted); border-radius: 2px; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 6px; }
+.opp-tab:hover { color: var(--ink); }
+.opp-tab.active { background: var(--ink); color: var(--sand); }
+.opp-tab-count { font-size: 9px; opacity: 0.7; }
+.opp-filters { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 18px; }
+.opp-filter-group { display: flex; flex-direction: column; gap: 4px; }
+.opp-filter-group label { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-muted); }
+.opp-filter-group select, .opp-filter-group input[type=number] { font-family: var(--mono-font); font-size: 12px; padding: 6px 10px; background: var(--sand); border: 1px solid var(--sand-darker); border-radius: 2px; color: var(--ink); outline: none; width: 120px; }
+.opp-filter-group select:focus, .opp-filter-group input:focus { border-color: var(--ink); }
+.opp-filter-checkbox label { display: flex; align-items: center; gap: 6px; font-size: 11px; text-transform: none; letter-spacing: normal; color: var(--ink-light); white-space: nowrap; }
+.opp-table-wrap { overflow-x: auto; }
+.opp-table { min-width: 940px; }
+.opp-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+.opp-badge { font-family: var(--mono-font); font-size: 8.5px; letter-spacing: 0.3px; padding: 2px 6px; border-radius: 2px; white-space: nowrap; }
+.opp-badge.fresh { background: rgba(61,220,115,0.18); color: var(--positive); }
+.opp-badge.leader { background: rgba(47,126,216,0.15); color: #2f7ed8; }
+.opp-badge.near-ema { background: rgba(255,255,255,0.06); color: var(--ink-light); }
+.opp-badge.extended { background: rgba(226,146,92,0.15); color: #e2925c; }
+.opp-badge.reset { background: rgba(155,127,201,0.18); color: #9b7fc9; }
+.opp-badge.laggard { background: rgba(240,96,92,0.12); color: var(--negative); }
+.opp-narr-tag { font-family: var(--mono-font); font-size: 9px; padding: 1px 6px; border-radius: 2px; background: rgba(255,255,255,0.05); color: var(--ink-muted); white-space: nowrap; margin: 1px; display: inline-block; }
+
 @media (max-width: 900px) {
   .hero-top { flex-direction: column; gap: 16px; }
-  .regime-grid, .mcclellan-grid, .sizer-grid { grid-template-columns: 1fr; }
-  .currency-row { grid-template-columns: 1fr; }
-  .ma-grid { grid-template-columns: repeat(3, 1fr); }
+  .mcclellan-grid, .sizer-grid { grid-template-columns: 1fr; }
   .rr-grid { grid-template-columns: repeat(3, 1fr); }
-  .breadth-grid { grid-template-columns: repeat(2, 1fr); }
+  .qqq-price-structure { grid-template-columns: repeat(3, 1fr); }
+  .exec-tiles { grid-template-columns: repeat(2, 1fr); }
+  .opp-filters { flex-direction: column; align-items: stretch; }
   .track-records { flex-direction: column; }
   .narrative-grid { grid-template-columns: 1fr; }
   .nc-meta { margin-left: 0; }
@@ -332,56 +399,41 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </div>
   </header>
 
-  <!-- ═══ 01 · MARKTREGIME ═══ -->
+  <!-- ═══ 01 · ÜBERBLICK ═══ -->
   <div class="section fade-in">
     <div class="section-header">
       <span class="section-num">01</span>
-      <span class="section-title">Marktregime</span>
-      <span class="section-sub">SPY & QQQ vs. gleitende Durchschnitte</span>
-    </div>
-    <div class="regime-grid">
-      <div class="regime-card">
-        <div class="ticker-name">SPY · S&P 500 ETF</div>
-        <div class="regime-top">
-          <div class="regime-badge bull" id="spyRegime">BULL</div>
-          <div class="regime-price" id="spyPrice">$593,72</div>
-        </div>
-        <div class="ma-grid">
-          <div class="ma-item above"><div class="ma-label">EMA10</div><div class="ma-value">589,20</div><div class="ma-status">▲</div></div>
-          <div class="ma-item above"><div class="ma-label">EMA20</div><div class="ma-value">585,40</div><div class="ma-status">▲</div></div>
-          <div class="ma-item above"><div class="ma-label">SMA50</div><div class="ma-value">578,10</div><div class="ma-status">▲</div></div>
-          <div class="ma-item above"><div class="ma-label">SMA100</div><div class="ma-value">572,50</div><div class="ma-status">▲</div></div>
-          <div class="ma-item above"><div class="ma-label">SMA200</div><div class="ma-value">558,30</div><div class="ma-status">▲</div></div>
-        </div>
-      </div>
-      <div class="regime-card">
-        <div class="ticker-name">QQQ · Nasdaq 100 ETF</div>
-        <div class="regime-top">
-          <div class="regime-badge bull" id="qqqRegime">BULL</div>
-          <div class="regime-price" id="qqqPrice">$517,84</div>
-        </div>
-        <div class="ma-grid">
-          <div class="ma-item above"><div class="ma-label">EMA10</div><div class="ma-value">513,60</div><div class="ma-status">▲</div></div>
-          <div class="ma-item above"><div class="ma-label">EMA20</div><div class="ma-value">509,20</div><div class="ma-status">▲</div></div>
-          <div class="ma-item above"><div class="ma-label">SMA50</div><div class="ma-value">500,80</div><div class="ma-status">▲</div></div>
-          <div class="ma-item above"><div class="ma-label">SMA100</div><div class="ma-value">492,40</div><div class="ma-status">▲</div></div>
-          <div class="ma-item above"><div class="ma-label">SMA200</div><div class="ma-value">478,50</div><div class="ma-status">▲</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="regime-legend">
-      <span class="pos">● BULL</span> — Kurs über EMA10 & EMA20 &nbsp;│&nbsp;
-      <span style="color:var(--neutral)">● CHOP</span> — Unter EMA10/EMA20, aber über SMA200 &nbsp;│&nbsp;
-      <span class="neg">● BEAR</span> — Kurs unter SMA200
-    </div>
-  </div>
-
-  <!-- ═══ 02 · ÜBERBLICK ═══ -->
-  <div class="section fade-in">
-    <div class="section-header">
-      <span class="section-num">02</span>
       <span class="section-title">Überblick</span>
-      <span class="section-sub">Tagesschluss · Sortiert nach Kategorie</span>
+      <span class="section-sub">Tagesschluss · Was hat sich verändert?</span>
+    </div>
+
+    <div class="exec-summary" id="execSummary">
+      <div class="exec-tiles" id="execTiles">
+        <div class="exec-tile">
+          <div class="exec-tile-label">Momentum Market Regime</div>
+          <div class="exec-tile-value" id="execRegimeValue">—</div>
+          <div class="exec-tile-sub" id="execRegimeState">Lädt…</div>
+        </div>
+        <div class="exec-tile">
+          <div class="exec-tile-label">QQQ Health</div>
+          <div class="exec-tile-value" id="execQqqValue">—</div>
+          <div class="exec-tile-sub" id="execQqqState">Lädt…</div>
+        </div>
+        <div class="exec-tile">
+          <div class="exec-tile-label">Narratives</div>
+          <div class="exec-tile-value" id="execNarrValue">—</div>
+          <div class="exec-tile-sub" id="execNarrState">Emerging · Active · Fading</div>
+        </div>
+        <div class="exec-tile">
+          <div class="exec-tile-label">Opportunities</div>
+          <div class="exec-tile-value" id="execOppValue">—</div>
+          <div class="exec-tile-sub" id="execOppState">Fresh · Leaders · Resets · Extended</div>
+        </div>
+      </div>
+      <div class="exec-changed" id="execChanged">
+        <div class="exec-changed-title">Was hat sich verändert?</div>
+        <div class="exec-changed-list" id="execChangedList">Lädt…</div>
+      </div>
     </div>
 
     <div class="table-section">
@@ -451,56 +503,104 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </div>
   </div>
 
-  <!-- ═══ 03 · WÄHRUNGEN ═══ -->
+  <!-- ═══ 02 · MOMENTUM MARKET REGIME ═══ -->
   <div class="section fade-in">
     <div class="section-header">
-      <span class="section-num">03</span>
-      <span class="section-title">Währungen</span>
-      <span class="section-sub">FX Majors · VIX</span>
+      <span class="section-num">02</span>
+      <span class="section-title">Momentum Market Regime</span>
+      <span class="section-sub">Wie produktiv ist das Umfeld für Momentum-Aktien?</span>
+      <span class="nc-info" id="regimeInfo" tabindex="0">ⓘ
+        <dl class="nc-info-popup">
+          <dt>Momentum Market Regime</dt>
+          <dd>Kombiniert Marktbreite, Momentum und die Beteiligung starker Narratives im handelbaren Momentum-Universum zu einer Einschätzung des aktuellen Umfelds.</dd>
+          <dt>Breadth</dt>
+          <dd>Wie viele Aktien im eligiblen Universum notieren über ihren wichtigsten gleitenden Durchschnitten.</dd>
+          <dt>Momentum</dt>
+          <dd>Wie viele Aktien zeigen positive kurz- und mittelfristige Renditen und frische Beschleunigung.</dd>
+          <dt>Narratives</dt>
+          <dd>Wie viele Narrative gerade positiv performen, beschleunigen und breit getragen werden.</dd>
+        </dl>
+      </span>
     </div>
-    <div class="currency-row">
-      <div class="currency-card">
-        <div><span class="pair">EUR/USD</span></div>
-        <div><div class="cur-price">1,0842</div><div class="cur-change pos">+0,18%</div></div>
+
+    <div class="regime-score-card">
+      <div class="regime-score-main">
+        <div class="regime-score-value" id="regimeScoreValue">—</div>
+        <div class="regime-score-state" id="regimeScoreState">Lädt…</div>
+        <div class="regime-score-delta" id="regimeScoreDelta"></div>
       </div>
-      <div class="currency-card">
-        <div><span class="pair">GBP/USD</span></div>
-        <div><div class="cur-price">1,2654</div><div class="cur-change neg">-0,12%</div></div>
+      <div class="regime-components" id="regimeComponents">
+        <div class="regime-component">
+          <div class="rc-label">Breadth</div>
+          <div class="rc-bar-track"><div class="rc-bar" id="regimeBreadthBar" style="width:0%;"></div></div>
+          <div class="rc-value" id="regimeBreadthValue">—</div>
+        </div>
+        <div class="regime-component">
+          <div class="rc-label">Momentum</div>
+          <div class="rc-bar-track"><div class="rc-bar" id="regimeMomentumBar" style="width:0%;"></div></div>
+          <div class="rc-value" id="regimeMomentumValue">—</div>
+        </div>
+        <div class="regime-component">
+          <div class="rc-label">Narratives</div>
+          <div class="rc-bar-track"><div class="rc-bar" id="regimeNarrativeBar" style="width:0%;"></div></div>
+          <div class="rc-value" id="regimeNarrativeValue">—</div>
+        </div>
       </div>
-      <div class="currency-card">
-        <div><span class="pair">DXY</span></div>
-        <div><div class="cur-price">104,32</div><div class="cur-change neg">-0,22%</div></div>
-      </div>
-    </div>
-    <div class="vix-card">
-      <div class="vix-left">
-        <div class="vix-label">CBOE Volatility Index · VIX</div>
-        <div class="vix-val">14,82</div>
-      </div>
-      <div class="vix-right">
-        <div class="vix-zone low">NIEDRIG</div>
-        <div style="font-family:var(--mono-font);font-size:11px;color:var(--ink-muted);margin-top:8px;"><span class="neg">-3,2%</span> · 1T</div>
-        <div style="font-family:var(--mono-font);font-size:10px;color:var(--ink-muted);margin-top:4px;">&lt;15 Niedrig · 15–20 Normal · 20–30 Erhöht · &gt;30 Hoch</div>
+      <div class="regime-meta-row">
+        <span>Eligible Universe <b id="regimeUniverseSize">—</b></span>
+        <span class="regime-vix-context">
+          <span class="vix-label-inline">VIX</span> <b id="regimeVixVal">—</b>
+          <span class="vix-zone low" id="regimeVixZone">—</span>
+        </span>
       </div>
     </div>
   </div>
 
 
-  <!-- ═══ 04 · QQQ - MARKTLAGE ═══ -->
+  <!-- ═══ 03 · QQQ HEALTH ═══ -->
   <div class="section fade-in">
     <div class="section-header">
-      <span class="section-num">04</span>
-      <span class="section-title">QQQ &mdash; Marktlage</span>
-      <span class="section-sub">NDX 100 Breadth &middot; McClellan &middot; Moving Averages</span>
+      <span class="section-num">03</span>
+      <span class="section-title">QQQ Health</span>
+      <span class="section-sub">Trend &middot; NDX 100 Breadth &middot; McClellan</span>
+      <span class="nc-info" id="qqqHealthInfo" tabindex="0">ⓘ
+        <dl class="nc-info-popup">
+          <dt>QQQ Health</dt>
+          <dd>Bündelt Trend, Marktbreite und interne Nasdaq-Dynamik zu einem Gesamtbild der QQQ-Gesundheit.</dd>
+          <dt>Modifier</dt>
+          <dd>Zusatzhinweise zum Grundzustand: EXTENDED (weit von der Basis gelaufen), NARROWING (Breite lässt bei intaktem Trend nach), DETERIORATING (Trend + Breite verschlechtern sich), REPAIRING (Erholung nach schwacher Phase).</dd>
+        </dl>
+      </span>
+    </div>
+
+    <div class="qqq-health-card">
+      <div class="qqq-health-main">
+        <div class="qqq-health-value" id="qqqHealthValue">—</div>
+        <div class="qqq-health-state" id="qqqHealthState">Lädt…</div>
+        <div class="qqq-health-modifiers" id="qqqHealthModifiers"></div>
+        <div class="qqq-health-delta" id="qqqHealthDelta"></div>
+      </div>
+      <div class="qqq-price-structure" id="qqqPriceStructure">
+        <div class="qps-item"><div class="qps-label">Close</div><div class="qps-value" id="qpsClose">—</div></div>
+        <div class="qps-item"><div class="qps-label">EMA10</div><div class="qps-value" id="qpsEma10">—</div></div>
+        <div class="qps-item"><div class="qps-label">EMA20</div><div class="qps-value" id="qpsEma20">—</div></div>
+        <div class="qps-item"><div class="qps-label">SMA50</div><div class="qps-value" id="qpsSma50">—</div></div>
+        <div class="qps-item"><div class="qps-label">SMA200</div><div class="qps-value" id="qpsSma200">—</div></div>
+        <div class="qps-item"><div class="qps-label">Dist. EMA10</div><div class="qps-value" id="qpsDistEma10">—</div></div>
+        <div class="qps-item"><div class="qps-label">Dist. EMA20</div><div class="qps-value" id="qpsDistEma20">—</div></div>
+        <div class="qps-item"><div class="qps-label">ATR14</div><div class="qps-value" id="qpsAtr14">—</div></div>
+        <div class="qps-item"><div class="qps-label">ATR Extension</div><div class="qps-value" id="qpsAtrExt">—</div></div>
+        <div class="qps-item qps-flags" id="qpsFlags"></div>
+      </div>
     </div>
 
     <!-- MCSI + MCO (normalized, TradingView style) -->
     <div class="breadth-card qqq-card" id="mcsi-card" style="padding:20px 24px;margin-bottom:14px;">
       <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
         <div class="bc-label-row">
-          <span class="bc-label">McClellan Summation Index (Normalisiert)</span>
+          <span class="bc-label">McClellan Summation Index</span>
           <span class="chart-info" tabindex="0">ⓘ
-            <div class="chart-info-popup">Kumulierte Summe des McClellan Oszillators, als Z-Score über ein 200-Tage-Fenster normalisiert. Zeigt den mittelfristigen Trend der Marktbreite (NDX 100). &gt;+2&sigma; gilt als überkauft, &lt;-2&sigma; als überverkauft. Die gelbe Linie ist die 10-Tage-SMA als Signallinie.</div>
+            <div class="chart-info-popup">Zeigt den mittelfristigen Trend der Marktbreite im Nasdaq 100. Die gestrichelten Linien markieren statistische Extrembereiche, kein festes Kauf-/Verkaufssignal. Die gelbe Linie ist die 10-Tage-SMA als Signallinie.</div>
           </span>
         </div>
         <div style="font-family:var(--mono-font);font-size:11px;">
@@ -521,9 +621,9 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     <div class="breadth-card qqq-card" id="mco-card" style="padding:20px 24px;margin-bottom:14px;">
       <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
         <div class="bc-label-row">
-          <span class="bc-label">McClellan Oszillator (Normalisiert)</span>
+          <span class="bc-label">McClellan Oszillator</span>
           <span class="chart-info" tabindex="0">ⓘ
-            <div class="chart-info-popup">Differenz aus 19-Tage- und 39-Tage-EMA der Advance/Decline-Linie (NDX 100), als Z-Score normalisiert. Misst kurzfristige Beschleunigung/Verlangsamung der Marktbreite — reagiert schneller als die Summation Index (MCSI).</div>
+            <div class="chart-info-popup">Misst die kurzfristige Beschleunigung oder Abschwächung der Marktbreite im Nasdaq 100 — reagiert schneller als die Summation Index (MCSI). Die gestrichelten Linien markieren statistische Extrembereiche.</div>
           </span>
         </div>
         <div style="font-family:var(--mono-font);font-size:11px;">
@@ -546,14 +646,14 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
         <div class="bc-label-row">
           <span class="bc-label">% Aktien &uuml;ber wichtigen Durchschnitten</span>
           <span class="chart-info" tabindex="0">ⓘ
-            <div class="chart-info-popup">Anteil der NDX-100-Komponenten, deren Kurs über der jeweiligen gleitenden Durchschnittslinie notiert. Klassischer Breadth-Indikator: &gt;75% gilt als überkauft (OB), &lt;25% als überverkauft (OS). Über die Legende lassen sich einzelne Linien ein-/ausblenden.</div>
+            <div class="chart-info-popup">Zeigt, wie viele Nasdaq-100-Aktien oberhalb wichtiger Trenddurchschnitte notieren. Die gestrichelten Linien sind visuelle Referenzzonen, keine feste Kauf-/Verkaufsgrenze. Über die Legende lassen sich einzelne Linien ein-/ausblenden.</div>
           </span>
         </div>
         <div style="font-family:var(--mono-font);font-size:10px;display:flex;gap:10px;flex-wrap:wrap;" id="kma-legend"></div>
       </div>
       <div class="qqq-chart" id="kma-chart" style="height:230px;margin-top:10px;"></div>
       <div class="chart-toolbar" style="justify-content:space-between;align-items:center;">
-        <div class="bc-sub" style="margin-top:0;">NDX 100 Komponenten &middot; 120 Handelstage &middot; OB 75 / OS 25</div>
+        <div class="bc-sub" style="margin-top:0;">NDX 100 Komponenten &middot; 120 Handelstage</div>
         <div class="nc-toggle" id="kmaRangeToggle">
           <button class="nc-btn" data-range="21" onclick="setQqqRange('kma','21',this)">1M</button>
           <button class="nc-btn" data-range="63" onclick="setQqqRange('kma','63',this)">3M</button>
@@ -568,7 +668,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
         <div class="bc-label-row">
           <span class="bc-label">High/Low Oszillator</span>
           <span class="chart-info" tabindex="0">ⓘ
-            <div class="chart-info-popup">Neue 20-Tage-Hochs minus neue 20-Tage-Tiefs unter den NDX-100-Komponenten, pro Handelstag. Positive Werte = mehr Aktien erreichen neue Hochs als Tiefs (breite Stärke), negative Werte umgekehrt.</div>
+            <div class="chart-info-popup">Vergleicht neue kurzfristige Hochs mit neuen kurzfristigen Tiefs im Nasdaq 100 und zeigt, ob Leadership breit getragen wird.</div>
           </span>
         </div>
         <div class="bc-value" style="font-size:18px;margin:0;">&mdash;</div>
@@ -585,22 +685,26 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </div>
   </div>
 
-  <!-- ═══ 09 · NARRATIVES / BASKETS ═══ -->
+  <!-- ═══ 04 · NARRATIVES / BASKETS ═══ -->
   <div class="section fade-in">
     <div class="section-header">
-      <span class="section-num">09</span>
+      <span class="section-num">04</span>
       <span class="section-title">Narratives</span>
-      <span class="section-sub">Handelbare Marktbaskets · Momentum-Ranking</span>
+      <span class="section-sub">Wo konzentriert sich Leadership?</span>
       <span class="nc-info" id="narrativeInfo" tabindex="0">ⓘ
         <dl class="nc-info-popup">
+          <dt>Momentum Score</dt>
+          <dd>Kombiniert Kursstärke, Beschleunigung, Leadership und Breite eines Narratives zu einer Rangzahl.</dd>
+          <dt>Lifecycle</dt>
+          <dd>Emerging (entsteht gerade), Active (etabliert), Mature (reif, Momentum lässt nach), Fading (verliert Momentum), Dormant (ruht).</dd>
           <dt>Strength</dt>
-          <dd>Kumulierte (compoundete) Rendite des Baskets über den Zeitraum, aus dem Median der täglichen Mitglieder-Renditen.</dd>
+          <dd>Zeigt, wie stark sich ein Narrative zuletzt bewegt hat.</dd>
           <dt>Thrust</dt>
-          <dd>EMA(kurz) − EMA(lang) der täglichen Basket-Rendite. Misst Beschleunigung, nicht Niveau — zieht der Basket gerade frisch an?</dd>
+          <dd>Misst, ob das Momentum eines Narratives gerade beschleunigt oder nachlässt.</dd>
           <dt>Leadership</dt>
-          <dd>Anteil der Mitglieder im Top-Quintil des gesamten eligiblen US-Aktienuniversums (Full-Market RS) für diesen Horizont, gesättigt bei ~5 Mitgliedern.</dd>
+          <dd>Zeigt, wie viele Mitglieder relativ zum Gesamtmarkt echte Stärke zeigen.</dd>
           <dt>Breadth</dt>
-          <dd>Wie breit die Bewegung getragen wird: % positive Mitglieder, Median-Rendite, % über einer horizontabhängigen Signifikanz-Schwelle.</dd>
+          <dd>Zeigt, wie breit die Bewegung innerhalb des Narratives getragen wird.</dd>
         </dl>
       </span>
     </div>
@@ -652,10 +756,76 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </div>
   </div>
 
-  <!-- ═══ 10 · TRADERECHNER ═══ -->
+  <!-- ═══ 05 · OPPORTUNITIES ═══ -->
   <div class="section fade-in">
     <div class="section-header">
-      <span class="section-num">10</span>
+      <span class="section-num">05</span>
+      <span class="section-title">Opportunities</span>
+      <span class="section-sub">Welche Aktien führen, konsolidieren oder hinken hinterher?</span>
+      <span class="nc-info" id="opportunityInfo" tabindex="0">ⓘ
+        <dl class="nc-info-popup">
+          <dt>Leadership Score</dt>
+          <dd>Kombiniert relative Stärke über kurze und mittlere Momentum-Zeiträume.</dd>
+          <dt>Fresh Leader</dt>
+          <dd>Eine Aktie, die erst vor kurzem in die Gruppe der führenden Momentum-Aktien aufgestiegen ist.</dd>
+          <dt>Constructive Reset</dt>
+          <dd>Ein Leader, der durch Pullback oder Konsolidierung wieder näher an seine kurzfristige Trendstruktur zurückgekehrt ist.</dd>
+          <dt>Extended</dt>
+          <dd>Eine starke Aktie, die bereits deutlich von ihrer mittelfristigen Basis weggelaufen ist.</dd>
+          <dt>Laggard</dt>
+          <dd>Ein Mitglied eines starken Narratives, das innerhalb dieses Narratives deutlich hinterherhinkt.</dd>
+        </dl>
+      </span>
+    </div>
+
+    <div class="opp-tabs" id="oppTabs">
+      <button class="opp-tab active" data-tab="all" onclick="oppSetTab('all')">All <span class="opp-tab-count" id="oppCountAll">0</span></button>
+      <button class="opp-tab" data-tab="fresh" onclick="oppSetTab('fresh')">Fresh Leaders <span class="opp-tab-count" id="oppCountFresh">0</span></button>
+      <button class="opp-tab" data-tab="leaders" onclick="oppSetTab('leaders')">Leaders <span class="opp-tab-count" id="oppCountLeaders">0</span></button>
+      <button class="opp-tab" data-tab="reset" onclick="oppSetTab('reset')">Constructive Reset <span class="opp-tab-count" id="oppCountReset">0</span></button>
+      <button class="opp-tab" data-tab="extended" onclick="oppSetTab('extended')">Extended <span class="opp-tab-count" id="oppCountExtended">0</span></button>
+      <button class="opp-tab" data-tab="laggards" onclick="oppSetTab('laggards')">Laggards <span class="opp-tab-count" id="oppCountLaggards">0</span></button>
+    </div>
+
+    <div class="opp-filters">
+      <div class="opp-filter-group">
+        <label>Narrative</label>
+        <select id="oppFilterNarrative" onchange="oppRender()"><option value="">Alle</option></select>
+      </div>
+      <div class="opp-filter-group">
+        <label>Min. RS 1W</label>
+        <input type="number" id="oppFilterRs" placeholder="—" min="0" max="100" oninput="oppRender()">
+      </div>
+      <div class="opp-filter-group">
+        <label>Min. Thrust% 1W</label>
+        <input type="number" id="oppFilterThrust" placeholder="—" min="0" max="100" oninput="oppRender()">
+      </div>
+      <div class="opp-filter-group">
+        <label>Max. ATR Ext.</label>
+        <input type="number" id="oppFilterAtr" placeholder="—" step="0.5" oninput="oppRender()">
+      </div>
+      <div class="opp-filter-group">
+        <label>Min. Market Cap ($Mrd)</label>
+        <input type="number" id="oppFilterCap" placeholder="—" min="0" step="0.5" oninput="oppRender()">
+      </div>
+      <div class="opp-filter-group opp-filter-checkbox">
+        <label><input type="checkbox" id="oppFilterNearEma" onchange="oppRender()"> Near EMAs</label>
+      </div>
+      <button class="nd-copy-btn" id="oppCopyBtn" onclick="oppCopyVisibleTickers(this)">Copy visible tickers</button>
+    </div>
+
+    <div class="opp-table-wrap">
+      <table class="member-table opp-table" id="oppTable">
+        <thead><tr id="oppTableHead"></tr></thead>
+        <tbody id="oppTableBody"><tr><td class="narrative-empty">Lade Opportunities…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ 06 · TRADERECHNER ═══ -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">06</span>
       <span class="section-title">Traderechner</span>
       <span class="section-sub">Risikobasiert · 2-Stop-System</span>
     </div>
@@ -708,7 +878,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 
   <footer class="footer">
     <p>@YOLO_INVESTING · YOLO DASHBOARD</p>
-    <p style="margin-top:6px;">Premarket Briefing 07:00 CET · Daten via GitHub Actions + Yahoo Finance · KI via Claude API</p>
+    <p style="margin-top:6px;">Update täglich 16:05 New York (nachbörslich) · Daten via GitHub Actions + Yahoo Finance + Massive · KI via Claude API</p>
     <p style="margin-top:6px;opacity:0.5;">Daten dienen nur zur Information. Keine Anlageberatung.</p>
   </footer>
 </div>
@@ -746,11 +916,6 @@ function fmtPrice(v) {
   if (v >= 1000) return '$' + fmtInt(Math.round(v));
   return '$' + fmt(v);
 }
-function fmtPriceFx(v) {
-  if (!v && v !== 0) return '—';
-  if (v < 10) return fmt(v, 4);
-  return fmt(v);
-}
 
 // ══════════════════════════════════════════════
 // RENDER TABLE ROWS FROM DATA
@@ -767,41 +932,6 @@ function makeSparkline(data, w, h) {
   const up = data[data.length - 1] >= data[0];
   const col = up ? 'var(--positive)' : 'var(--negative)';
   return `<span class="sparkline"><svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
-}
-
-// ══════════════════════════════════════════════
-// RENDER REGIME CARDS
-// ══════════════════════════════════════════════
-function renderRegime(data) {
-  if (!data) return;
-  ['SPY', 'QQQ'].forEach(sym => {
-    const d = data[sym];
-    if (!d) return;
-    const el = sym === 'SPY' ? 'spy' : 'qqq';
-    const badge = document.getElementById(el + 'Regime');
-    const price = document.getElementById(el + 'Price');
-    if (badge) {
-      badge.textContent = d.regime;
-      badge.className = 'regime-badge ' + d.regime.toLowerCase();
-    }
-    if (price) price.textContent = '$' + fmt(d.price);
-    // Update MA values
-    if (d.mas) {
-      const card = badge.closest('.regime-card');
-      const maItems = card.querySelectorAll('.ma-item');
-      const maKeys = ['ema10', 'ema20', 'sma50', 'sma100', 'sma200'];
-      maItems.forEach((item, i) => {
-        const key = maKeys[i];
-        const val = d.mas[key];
-        if (val !== undefined) {
-          item.querySelector('.ma-value').textContent = fmt(val);
-          const above = d.price > val;
-          item.className = 'ma-item ' + (above ? 'above' : 'below');
-          item.querySelector('.ma-status').textContent = above ? '▲' : '▼';
-        }
-      });
-    }
-  });
 }
 
 // ══════════════════════════════════════════════
@@ -890,7 +1020,7 @@ function kmaChart(seriesList, w, h, dates) {
     const isBand = (g === 75 || g === 25);
     svg += `<line x1="${QQQ_PAD_L}" y1="${y}" x2="${QQQ_PAD_L + inner}" y2="${y}" stroke="${isBand ? (g === 75 ? '#f0605c' : '#3ddc73') : 'var(--ink-muted)'}" stroke-width="${isBand ? 1.2 : 0.3}" opacity="${isBand ? 0.85 : 0.18}"/>`;
     if (isBand) {
-      const lbl = g === 75 ? 'OB' : 'OS';
+      const lbl = g === 75 ? '▲' : '▼';
       const c = g === 75 ? '#f0605c' : '#3ddc73';
       svg += `<rect x="${QQQ_PAD_L + inner + 2}" y="${(+y - 6).toFixed(1)}" width="18" height="12" fill="${c}" rx="1"/>`;
       svg += `<text x="${QQQ_PAD_L + inner + 11}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="#fff" text-anchor="middle" font-family="monospace">${lbl}</text>`;
@@ -1041,9 +1171,6 @@ async function loadData() {
     const data = await r.json();
     console.log('✅ Dashboard-Daten geladen:', data.meta);
 
-    // Regime
-    if (data.regime) renderRegime(data.regime);
-
     // Tables — find by toggle button text and replace tbody
     const tableMap = {
       'futures': 'US Index Futures',
@@ -1091,40 +1218,399 @@ async function loadData() {
       renderHl();
     }
 
-    // Currencies
-    if (data.currencies) {
-      const cards = document.querySelectorAll('.currency-card');
-      data.currencies.forEach(cur => {
-        cards.forEach(card => {
-          const pairEl = card.querySelector('.pair');
-          if (pairEl && pairEl.textContent === cur.name) {
-            card.querySelector('.cur-price').textContent = fmtPriceFx(cur.price);
-            const ch = card.querySelector('.cur-change');
-            ch.textContent = fmtPct(cur.d1_pct);
-            ch.className = 'cur-change ' + pctClass(cur.d1_pct);
-          }
-        });
-      });
-    }
-
-    // VIX
-    if (data.vix && data.vix[0]) {
-      const v = data.vix[0];
-      const vixVal = document.querySelector('.vix-val');
-      if (vixVal) vixVal.textContent = fmt(v.price);
-      const zone = document.querySelector('.vix-zone');
-      if (zone && v.zone) {
-        zone.textContent = v.zone;
-        const zoneMap = { 'NIEDRIG': 'low', 'NORMAL': 'low', 'ERHÖHT': 'elevated', 'HOCH': 'high' };
-        zone.className = 'vix-zone ' + (zoneMap[v.zone] || 'low');
-      }
-    }
-
   } catch (e) {
     console.log('Platzhalterdaten aktiv — snapshot.json nicht gefunden.');
   }
 }
 loadData();
+
+// ══════════════════════════════════════════════
+// V1 DASHBOARD STATE — Market Regime / QQQ Health / Executive Summary /
+// Opportunities. Single Source of Truth is data/dashboard_state.json,
+// produced by scripts/build_dashboard_states.py — this frontend only
+// renders, filters, sorts and copies; it never recomputes a score or a
+// state (point 39 of the V1 spec).
+// ══════════════════════════════════════════════
+let dashboardState = null;
+
+const REGIME_STATE_CLASS = {
+  'STRONG OFFENSIVE': 'state-strong-offensive', 'OFFENSIVE': 'state-offensive',
+  'SELECTIVE': 'state-selective', 'DEFENSIVE': 'state-defensive', 'RISK OFF': 'state-risk-off',
+};
+const QQQ_HEALTH_STATE_CLASS = {
+  'HEALTHY': 'state-healthy', 'MIXED': 'state-mixed', 'FRAGILE': 'state-fragile', 'RISK OFF': 'state-risk-off',
+};
+const QQQ_MODIFIER_CLASS = {
+  'EXTENDED': 'extended', 'NARROWING': 'narrowing', 'DETERIORATING': 'deteriorating', 'REPAIRING': 'repairing',
+};
+
+function setRegimeComponent(barId, valId, score) {
+  const bar = document.getElementById(barId);
+  const val = document.getElementById(valId);
+  if (bar) bar.style.width = (score != null ? Math.max(0, Math.min(100, score)) : 0) + '%';
+  if (val) val.textContent = score != null ? score.toFixed(1) : '—';
+}
+
+function renderMarketRegime() {
+  if (!dashboardState) return;
+  const mr = dashboardState.market_regime;
+  const valEl = document.getElementById('regimeScoreValue');
+  const stateEl = document.getElementById('regimeScoreState');
+  const deltaEl = document.getElementById('regimeScoreDelta');
+  if (valEl) valEl.textContent = mr.score != null ? mr.score.toFixed(1) : '—';
+  if (stateEl) {
+    stateEl.textContent = mr.state;
+    stateEl.className = 'regime-score-state ' + (REGIME_STATE_CLASS[mr.state] || '');
+  }
+  if (deltaEl) deltaEl.textContent = mr.score_delta != null ? `${mr.score_delta >= 0 ? '+' : ''}${mr.score_delta.toFixed(1)} vs. Vortag` : '';
+
+  const comps = mr.components || {};
+  setRegimeComponent('regimeBreadthBar', 'regimeBreadthValue', comps.breadth && comps.breadth.score);
+  setRegimeComponent('regimeMomentumBar', 'regimeMomentumValue', comps.momentum && comps.momentum.score);
+  setRegimeComponent('regimeNarrativeBar', 'regimeNarrativeValue', comps.narrative_environment && comps.narrative_environment.score);
+
+  const univEl = document.getElementById('regimeUniverseSize');
+  if (univEl) univEl.textContent = mr.eligible_universe_size != null ? mr.eligible_universe_size.toLocaleString('de-DE') : '—';
+
+  const vix = mr.vix;
+  if (vix) {
+    const vixValEl = document.getElementById('regimeVixVal');
+    const vixZoneEl = document.getElementById('regimeVixZone');
+    if (vixValEl && vix.price != null) vixValEl.textContent = fmt(vix.price);
+    if (vixZoneEl && vix.zone) {
+      vixZoneEl.textContent = vix.zone;
+      const zoneMap = { 'NIEDRIG': 'low', 'NORMAL': 'low', 'ERHÖHT': 'elevated', 'HOCH': 'high' };
+      vixZoneEl.className = 'vix-zone ' + (zoneMap[vix.zone] || 'low');
+    }
+  }
+}
+
+function renderQqqHealth() {
+  if (!dashboardState) return;
+  const qh = dashboardState.qqq_health;
+  const valEl = document.getElementById('qqqHealthValue');
+  const stateEl = document.getElementById('qqqHealthState');
+  const modEl = document.getElementById('qqqHealthModifiers');
+  const deltaEl = document.getElementById('qqqHealthDelta');
+  if (valEl) valEl.textContent = qh.score != null ? qh.score.toFixed(1) : '—';
+  if (stateEl) {
+    stateEl.textContent = qh.base_state;
+    stateEl.className = 'qqq-health-state ' + (QQQ_HEALTH_STATE_CLASS[qh.base_state] || '');
+  }
+  if (modEl) modEl.innerHTML = (qh.modifiers || []).map(m => `<span class="qqq-health-modifier-badge ${QQQ_MODIFIER_CLASS[m] || ''}">${m}</span>`).join('');
+  if (deltaEl) deltaEl.textContent = qh.score_delta != null ? `${qh.score_delta >= 0 ? '+' : ''}${qh.score_delta.toFixed(1)} vs. Vortag` : '';
+
+  const ps = qh.price_structure || {};
+  const setQps = (id, v, isPrice) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = v == null ? '—' : (isPrice ? fmtPrice(v) : v);
+  };
+  setQps('qpsClose', ps.close, true);
+  setQps('qpsEma10', ps.ema10, true);
+  setQps('qpsEma20', ps.ema20, true);
+  setQps('qpsSma50', ps.sma50, true);
+  setQps('qpsSma200', ps.sma200, true);
+  setQps('qpsAtr14', ps.atr14, true);
+  const distEma10El = document.getElementById('qpsDistEma10');
+  const distEma20El = document.getElementById('qpsDistEma20');
+  const atrExtEl = document.getElementById('qpsAtrExt');
+  if (distEma10El) distEma10El.textContent = ps.dist_ema10_pct != null ? fmtPct(ps.dist_ema10_pct) : '—';
+  if (distEma20El) distEma20El.textContent = ps.dist_ema20_pct != null ? fmtPct(ps.dist_ema20_pct) : '—';
+  if (atrExtEl) atrExtEl.textContent = ps.atr_extension != null ? ps.atr_extension.toFixed(1) : '—';
+
+  const flags = [
+    ['EMA10&gt;EMA20', ps.ema10_above_ema20], ['Close&gt;EMA10', ps.close_above_ema10],
+    ['Close&gt;EMA20', ps.close_above_ema20], ['Close&gt;SMA50', ps.close_above_sma50], ['Close&gt;SMA200', ps.close_above_sma200],
+  ];
+  const flagsEl = document.getElementById('qpsFlags');
+  if (flagsEl) flagsEl.innerHTML = flags.map(([label, v]) => `<span class="qps-flag ${v ? 'yes' : 'no'}">${label} ${v ? '✓' : '✗'}</span>`).join('');
+}
+
+const CHANGE_EVENT_LABELS = {
+  state_change: e => `Market Regime: ${e.from} → ${e.to}`,
+  score_change: e => `Market Regime Score: ${e.from} → ${e.to}`,
+  base_state_change: e => `QQQ Health: ${e.from} → ${e.to}`,
+  modifier_gained: e => `QQQ Health: +${e.modifier}`,
+  modifier_lost: e => `QQQ Health: −${e.modifier}`,
+  new_emerging: e => `${e.narrative_name}: neu Emerging`,
+  new_active: e => `${e.narrative_name}: neu Active`,
+  new_fading: e => `${e.narrative_name}: neu Fading`,
+  rank_improved: e => `${e.narrative_name}: Rank #${e.from_rank} → #${e.to_rank}`,
+  score_surge: e => `${e.narrative_name}: Score ${e.from_score} → ${e.to_score}`,
+  new_leader: e => `${e.symbol}: neuer Leader`,
+  new_fresh_leader: e => `${e.symbol}: neuer Fresh Leader`,
+  leadership_lost: e => `${e.symbol}: Leadership verloren`,
+  new_constructive_reset: e => `${e.symbol}: Constructive Reset`,
+  new_extended: e => `${e.symbol}: neu Extended`,
+  extension_ended: e => `${e.symbol}: Extension beendet`,
+};
+const CHANGE_EVENT_TAG = { market_regime: 'REGIME', qqq_health: 'QQQ', narrative: 'NARRATIVE', stock: 'STOCK' };
+
+function renderExecSummary() {
+  if (!dashboardState) return;
+  const mr = dashboardState.market_regime, qh = dashboardState.qqq_health;
+  const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+  setText('execRegimeValue', mr.score != null ? mr.score.toFixed(0) : '—');
+  setText('execRegimeState', mr.state);
+  setText('execQqqValue', qh.score != null ? qh.score.toFixed(0) : '—');
+  setText('execQqqState', qh.base_state + (qh.modifiers && qh.modifiers.length ? ' · ' + qh.modifiers.join(' · ') : ''));
+
+  const lc = (dashboardState.narratives && dashboardState.narratives.lifecycle_counts) || {};
+  setText('execNarrValue', `${lc.EMERGING || 0}/${lc.ACTIVE || 0}/${lc.FADING || 0}`);
+  setText('execNarrState', `Emerging ${lc.EMERGING || 0} · Active ${lc.ACTIVE || 0} · Fading ${lc.FADING || 0}`);
+
+  const oc = (dashboardState.opportunities && dashboardState.opportunities.counts) || {};
+  setText('execOppValue', `${oc.fresh_leaders || 0}/${oc.leaders || 0}/${oc.constructive_resets || 0}/${oc.extended || 0}`);
+  setText('execOppState', `Fresh ${oc.fresh_leaders || 0} · Leaders ${oc.leaders || 0} · Resets ${oc.constructive_resets || 0} · Extended ${oc.extended || 0}`);
+
+  const wc = dashboardState.what_changed || {};
+  const listEl = document.getElementById('execChangedList');
+  if (!listEl) return;
+  if (wc.first_run) {
+    listEl.innerHTML = '<div class="exec-changed-empty">Erster Lauf — Vergleich ab dem nächsten Handelstag verfügbar.</div>';
+    return;
+  }
+  if (!wc.events || !wc.events.length) {
+    listEl.innerHTML = '<div class="exec-changed-empty">Keine wesentlichen Änderungen seit dem letzten Handelstag.</div>';
+    return;
+  }
+  const MAX_SHOWN = 6;
+  const shown = wc.events.slice(0, MAX_SHOWN);
+  listEl.innerHTML = shown.map(e => {
+    const fn = CHANGE_EVENT_LABELS[e.type];
+    const text = fn ? fn(e) : e.type;
+    const tag = CHANGE_EVENT_TAG[e.category] || e.category;
+    return `<div class="exec-event"><span class="exec-event-tag">${tag}</span><span class="exec-event-text">${text}</span></div>`;
+  }).join('') + (wc.events.length > MAX_SHOWN ? `<div class="exec-changed-more">+ ${wc.events.length - MAX_SHOWN} weitere Änderungen</div>` : '');
+}
+
+// ── Narrative-Card-Erweiterungen (Lifecycle/Score/Rank, Opportunity-Summary) ──
+function ncLifecycleData(narrativeId) {
+  return (dashboardState && dashboardState.narratives && dashboardState.narratives.items)
+    ? dashboardState.narratives.items[narrativeId] : null;
+}
+function ncOpportunitySummary(narrativeId) {
+  if (!dashboardState) return null;
+  const items = dashboardState.opportunities.items.filter(it => it.narratives.includes(narrativeId));
+  return {
+    leaders: items.filter(it => it.quality_state === 'leader' || it.quality_state === 'fresh_leader').length,
+    fresh: items.filter(it => it.quality_state === 'fresh_leader').length,
+    resets: items.filter(it => it.constructive_reset_narratives.includes(narrativeId)).length,
+    extended: items.filter(it => it.extended).length,
+  };
+}
+
+// ── Narrative Detail View: zusaetzlicher State-Filter (Punkt 32), kombinierbar mit EMA-Filter ──
+let ncStateFilter = 'all'; // 'all' | 'fresh_leader' | 'leader' | 'constructive_reset' | 'extended' | 'laggard'
+
+function ncMemberOpportunityState(narrativeId, symbol) {
+  if (!dashboardState) return null;
+  return dashboardState.opportunities.items.find(it => it.symbol === symbol && it.narratives.includes(narrativeId)) || null;
+}
+function ncStateFilterMembers(members, narrativeId) {
+  if (ncStateFilter === 'all') return members;
+  return members.filter(m => {
+    const op = ncMemberOpportunityState(narrativeId, m.symbol);
+    if (!op) return false;
+    if (ncStateFilter === 'fresh_leader') return op.quality_state === 'fresh_leader';
+    if (ncStateFilter === 'leader') return op.quality_state === 'leader' || op.quality_state === 'fresh_leader';
+    if (ncStateFilter === 'constructive_reset') return op.constructive_reset_narratives.includes(narrativeId);
+    if (ncStateFilter === 'extended') return op.extended;
+    if (ncStateFilter === 'laggard') return op.laggard_narratives.includes(narrativeId);
+    return true;
+  });
+}
+function ncSetStateFilter(narrativeId, filter) {
+  ncStateFilter = filter;
+  renderNarrativeGrid();
+}
+
+// ══════════════════════════════════════════════
+// OPPORTUNITIES (Punkt 20-31)
+// ══════════════════════════════════════════════
+let oppTab = 'all';
+let oppSortState = { field: 'leadership_score', dir: 'desc' };
+
+const OPP_COLUMNS = [
+  { key: 'symbol', label: 'Ticker', sortable: true },
+  { key: 'narratives', label: 'Narrative(s)', sortable: false },
+  { key: 'quality_state', label: 'Quality', sortable: true },
+  { key: 'badges', label: 'Badges', sortable: false },
+  { key: 'leadership_score', label: 'Leadership', sortable: true },
+  { key: 'rs_1w', label: 'RS 1W', sortable: true },
+  { key: 'rs_1m', label: 'RS 1M', sortable: true },
+  { key: 'thrust_percentile_1d', label: 'Thrust% 1D', sortable: true },
+  { key: 'thrust_percentile_1w', label: 'Thrust% 1W', sortable: true },
+  { key: 'ema10_distance_pct', label: 'EMA10', sortable: true },
+  { key: 'ema20_distance_pct', label: 'EMA20', sortable: true },
+  { key: 'atr_extension', label: 'ATR Ext', sortable: true },
+  { key: 'w1_pct', label: '1W%', sortable: true },
+  { key: 'm1_pct', label: '1M%', sortable: true },
+];
+
+function oppTabFilter(item, tab) {
+  if (tab === 'all') return true;
+  if (tab === 'fresh') return item.quality_state === 'fresh_leader';
+  if (tab === 'leaders') return item.quality_state === 'leader' || item.quality_state === 'fresh_leader';
+  if (tab === 'reset') return item.constructive_reset_narratives.length > 0;
+  if (tab === 'extended') return item.extended;
+  if (tab === 'laggards') return item.laggard_narratives.length > 0;
+  return true;
+}
+
+function oppApplyFilters(items) {
+  const narrativeFilter = document.getElementById('oppFilterNarrative').value;
+  const rsMin = parseFloat(document.getElementById('oppFilterRs').value);
+  const thrustMin = parseFloat(document.getElementById('oppFilterThrust').value);
+  const atrMax = parseFloat(document.getElementById('oppFilterAtr').value);
+  const capMinB = parseFloat(document.getElementById('oppFilterCap').value);
+  const nearEmaOnly = document.getElementById('oppFilterNearEma').checked;
+
+  return items.filter(it => {
+    if (narrativeFilter && !it.narratives.includes(narrativeFilter)) return false;
+    if (!Number.isNaN(rsMin) && (it.rs_1w == null || it.rs_1w < rsMin)) return false;
+    if (!Number.isNaN(thrustMin) && (it.thrust_percentile_1w == null || it.thrust_percentile_1w < thrustMin)) return false;
+    if (!Number.isNaN(atrMax) && (it.atr_extension == null || it.atr_extension > atrMax)) return false;
+    if (!Number.isNaN(capMinB) && (it.market_cap == null || it.market_cap < capMinB * 1e9)) return false;
+    if (nearEmaOnly && !it.near_emas) return false;
+    return true;
+  });
+}
+
+function oppSortItems(items) {
+  const { field, dir } = oppSortState;
+  const mul = dir === 'asc' ? 1 : -1;
+  return items.slice().sort((a, b) => {
+    if (field === 'symbol' || field === 'quality_state') return mul * String(a[field]).localeCompare(String(b[field]));
+    const av = a[field] == null ? -Infinity : a[field];
+    const bv = b[field] == null ? -Infinity : b[field];
+    return mul * (av - bv);
+  });
+}
+
+function oppVisibleSortedItems() {
+  if (!dashboardState) return [];
+  const tabFiltered = dashboardState.opportunities.items.filter(it => oppTabFilter(it, oppTab));
+  const filtered = oppApplyFilters(tabFiltered);
+  return oppSortItems(filtered);
+}
+
+function oppBadgesHtml(item) {
+  const badges = [];
+  if (item.quality_state === 'fresh_leader') badges.push('<span class="opp-badge fresh">FRESH</span>');
+  else if (item.quality_state === 'leader') badges.push('<span class="opp-badge leader">LEADER</span>');
+  if (item.near_emas) badges.push('<span class="opp-badge near-ema">NEAR EMA</span>');
+  if (item.extended) badges.push('<span class="opp-badge extended">EXTENDED</span>');
+  if (item.constructive_reset_narratives.length) badges.push('<span class="opp-badge reset">RESET</span>');
+  if (item.laggard_narratives.length) badges.push('<span class="opp-badge laggard">LAGGARD</span>');
+  return `<div class="opp-badges">${badges.join('')}</div>`;
+}
+function oppNarrativeName(nid) {
+  const n = narrativesRaw && narrativesRaw.narratives.find(x => x.id === nid);
+  return n ? n.name : nid;
+}
+function oppNarrativeTagsHtml(item) {
+  return item.narratives.map(nid => `<span class="opp-narr-tag">${oppNarrativeName(nid)}</span>`).join('');
+}
+function oppFmtNum(v, decimals) { return v == null ? '—' : v.toFixed(decimals); }
+function oppFmtPctSigned(v) { return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
+const QUALITY_LABEL = { fresh_leader: 'Fresh Leader', leader: 'Leader', neutral: 'Neutral' };
+
+function oppRender() {
+  if (!dashboardState) return;
+  const counts = dashboardState.opportunities.counts || {};
+  const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+  setText('oppCountAll', dashboardState.opportunities.items.length);
+  setText('oppCountFresh', counts.fresh_leaders || 0);
+  setText('oppCountLeaders', counts.leaders || 0);
+  setText('oppCountReset', counts.constructive_resets || 0);
+  setText('oppCountExtended', counts.extended || 0);
+  setText('oppCountLaggards', counts.laggards || 0);
+
+  const visible = oppVisibleSortedItems();
+
+  const headHtml = OPP_COLUMNS.map(col => {
+    const isSorted = oppSortState.field === col.key;
+    const arrow = isSorted ? (oppSortState.dir === 'asc' ? '▲' : '▼') : '';
+    const click = col.sortable ? `onclick="oppSortBy('${col.key}')"` : '';
+    return `<th class="${isSorted ? 'sorted' : ''}" ${click}>${col.label}${arrow ? ` <span class="sort-arrow">${arrow}</span>` : ''}</th>`;
+  }).join('');
+  const headEl = document.getElementById('oppTableHead');
+  if (headEl) headEl.innerHTML = headHtml;
+
+  const rows = visible.map(it => `
+    <tr>
+      <td><b>${it.symbol}</b></td>
+      <td>${oppNarrativeTagsHtml(it)}</td>
+      <td class="muted">${QUALITY_LABEL[it.quality_state] || it.quality_state}</td>
+      <td>${oppBadgesHtml(it)}</td>
+      <td class="muted">${oppFmtNum(it.leadership_score, 1)}</td>
+      <td class="muted">${oppFmtNum(it.rs_1w, 1)}</td>
+      <td class="muted">${oppFmtNum(it.rs_1m, 1)}</td>
+      <td class="muted">${oppFmtNum(it.thrust_percentile_1d, 1)}</td>
+      <td class="muted">${oppFmtNum(it.thrust_percentile_1w, 1)}</td>
+      <td class="muted">${oppFmtPctSigned(it.ema10_distance_pct)}</td>
+      <td class="muted">${oppFmtPctSigned(it.ema20_distance_pct)}</td>
+      <td class="${it.extended ? 'atr-ext-warn' : 'muted'}">${oppFmtNum(it.atr_extension, 1)}</td>
+      <td class="${pctClass(it.w1_pct)}">${fmtPct(it.w1_pct)}</td>
+      <td class="${pctClass(it.m1_pct)}">${fmtPct(it.m1_pct)}</td>
+    </tr>`).join('');
+  const bodyEl = document.getElementById('oppTableBody');
+  if (bodyEl) bodyEl.innerHTML = rows || `<tr><td colspan="${OPP_COLUMNS.length}" class="narrative-empty">Keine Treffer für die aktuellen Filter.</td></tr>`;
+}
+
+function oppSetTab(tab) {
+  oppTab = tab;
+  document.querySelectorAll('.opp-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  oppRender();
+}
+
+function oppSortBy(field) {
+  if (oppSortState.field === field) oppSortState.dir = oppSortState.dir === 'asc' ? 'desc' : 'asc';
+  else oppSortState = { field, dir: field === 'symbol' || field === 'quality_state' ? 'asc' : 'desc' };
+  oppRender();
+}
+
+// Kopiert exakt die aktuell sichtbaren Ticker (Tab + Filter + Sortierung),
+// dedupliziert, kommasepariert — analog zur Narrative-Copy-Funktion (Punkt 31).
+function oppCopyVisibleTickers(btn) {
+  const visible = oppVisibleSortedItems();
+  const symbols = [...new Set(visible.map(it => it.symbol))];
+  navigator.clipboard.writeText(symbols.join(',')).then(() => {
+    if (btn) {
+      const original = btn.textContent;
+      btn.textContent = `Kopiert (${symbols.length})`;
+      setTimeout(() => { btn.textContent = original; }, 1500);
+    }
+  }).catch(e => console.log('Clipboard-Fehler:', e));
+}
+
+function populateOppNarrativeFilter() {
+  const sel = document.getElementById('oppFilterNarrative');
+  if (!sel || !narrativesRaw) return;
+  const current = sel.value;
+  const options = narrativesRaw.narratives.slice().sort((a, b) => a.name.localeCompare(b.name))
+    .map(n => `<option value="${n.id}">${n.name}</option>`).join('');
+  sel.innerHTML = '<option value="">Alle</option>' + options;
+  sel.value = current;
+}
+
+async function loadDashboardState() {
+  try {
+    const r = await fetch('data/dashboard_state.json');
+    if (!r.ok) { console.log('dashboard_state.json nicht gefunden.'); return; }
+    dashboardState = await r.json();
+    renderExecSummary();
+    renderMarketRegime();
+    renderQqqHealth();
+    populateOppNarrativeFilter();
+    oppRender();
+    if (narrativesRaw) renderNarrativeGrid();
+  } catch (e) {
+    console.log('dashboard_state.json konnte nicht geladen werden:', e);
+  }
+}
+loadDashboardState();
 
 // ══════════════════════════════════════════════
 // NARRATIVES / BASKETS
@@ -1212,6 +1698,8 @@ async function loadNarratives() {
     }
     renderBenchmarkPills();
     renderBenchmarkChart();
+    populateOppNarrativeFilter();
+    if (dashboardState) oppRender();  // narrative names weren't available yet if this loaded first
   } catch (e) {
     console.log('Narratives-Daten konnten nicht geladen werden:', e);
   }
@@ -1261,11 +1749,13 @@ function ncFmtDist(v) {
 // Einzige Quelle fuer "was ist gerade sichtbar, in welcher Reihenfolge" —
 // wird sowohl vom Rendering als auch vom Copy-Button genutzt, damit beide
 // garantiert dieselbe Liste sehen (Punkt 22: Copy respektiert EMA-Filter +
-// Sortierung, aber die Sortierung aendert nur die Reihenfolge, nie die
-// Membership).
+// State-Filter + Sortierung, aber die Sortierung aendert nur die
+// Reihenfolge, nie die Membership. Punkt 32: EMA- und State-Filter sind
+// kombinierbar).
 function ncVisibleSortedMembers(narrative) {
   const allMembers = narrative.members.map(m => ({ ...m, rs: m['percentile_' + ncHorizon] }));
-  const visible = ncEmaFilterMembers(allMembers);
+  const emaFiltered = ncEmaFilterMembers(allMembers);
+  const visible = ncStateFilterMembers(emaFiltered, narrative.id);
   return ncSortMembers(visible);
 }
 
@@ -1314,6 +1804,15 @@ function renderNarrativeDetail(narrative) {
     `<button class="nc-btn${ncEmaFilter === f.key ? ' active' : ''}" onclick="ncSetEmaFilter('${narrative.id}', '${f.key}')">${f.label}</button>`
   ).join('');
 
+  const stateFilters = [
+    { key: 'all', label: 'All' }, { key: 'fresh_leader', label: 'Fresh Leader' },
+    { key: 'leader', label: 'Leader' }, { key: 'constructive_reset', label: 'Constructive Reset' },
+    { key: 'extended', label: 'Extended' }, { key: 'laggard', label: 'Laggard' },
+  ];
+  const stateFilterButtons = stateFilters.map(f =>
+    `<button class="nc-btn${ncStateFilter === f.key ? ' active' : ''}" onclick="ncSetStateFilter('${narrative.id}', '${f.key}')">${f.label}</button>`
+  ).join('');
+
   return `<div class="narrative-detail">
     <div class="nd-header">
       <span class="nd-title">${narrative.name} · ${sorted.length}/${narrative.n_members} Ticker</span>
@@ -1321,6 +1820,7 @@ function renderNarrativeDetail(narrative) {
     </div>
     <div class="nd-toolbar">
       <div class="nc-toggle">${emaFilterButtons}</div>
+      <div class="nc-toggle">${stateFilterButtons}</div>
       <button class="nd-copy-btn" onclick="ncCopyVisibleTickers('${narrative.id}', this)">Copy Tickers</button>
     </div>
     <table class="member-table">
@@ -1495,12 +1995,19 @@ function renderNarrativeGrid() {
     const s = narrative.scores[ncHorizon] || {};
     const breadth = s.breadth || {};
     const isExpanded = narrative.id === ncExpandedId;
+    const lc = ncLifecycleData(narrative.id);
+    const lifecycleHtml = lc ? `
+      <span class="nc-lifecycle-badge ${lc.lifecycle_state.toLowerCase()}">${lc.lifecycle_state}</span>
+      <div class="nc-momentum-score">Score <b>${lc.momentum_score != null ? lc.momentum_score.toFixed(0) : '—'}</b>${lc.rank != null ? ` &middot; Rank #${lc.rank}` : ''}${lc.rank_delta ? `<span class="nc-rank-change ${lc.rank_delta > 0 ? 'up' : 'down'}">${lc.rank_delta > 0 ? '▲' : '▼'}${Math.abs(lc.rank_delta)}</span>` : ''}</div>` : '';
+    const opp = ncOpportunitySummary(narrative.id);
+    const oppSummaryHtml = opp ? `<div class="nc-opp-summary"><span>${opp.leaders} Leaders</span><span>${opp.fresh} Fresh</span><span>${opp.resets} Resets</span><span>${opp.extended} Extended</span></div>` : '';
 
     let card = `<div class="narrative-card${isExpanded ? ' expanded' : ''}" style="background:${bg};" onclick="ncToggleCard('${narrative.id}')">
       <div class="nc-card-top">
         <span class="nc-card-name">${narrative.name}</span>
         <span class="nc-card-rank">#${i + 1}</span>
       </div>
+      ${lifecycleHtml}
       <div class="nc-card-score ${(val ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(val, ncScore)}</div>
       <div class="nc-card-stats">
         <span>Breadth <b>${breadth.pct_positive != null ? breadth.pct_positive.toFixed(0) + '%' : '—'}</b></span>
@@ -1508,6 +2015,7 @@ function renderNarrativeGrid() {
         <span>Thrust <b>${s.thrust != null ? (s.thrust >= 0 ? '+' : '') + s.thrust.toFixed(2) : '—'}</b></span>
       </div>
       <div class="nc-card-members">${narrative.n_members} Ticker</div>
+      ${oppSummaryHtml}
     </div>`;
 
     if (isExpanded) card += renderNarrativeDetail(narrative);
@@ -1521,6 +2029,7 @@ function ncToggleCard(id) {
   ncExpandedId = (ncExpandedId === id) ? null : id;
   ncMemberSort = { field: 'd1_pct', dir: 'desc' };
   ncEmaFilter = 'all';
+  ncStateFilter = 'all';
   renderNarrativeGrid();
 }
 

@@ -1,6 +1,8 @@
 {
-  "_comment": "Zentrale Konfiguration der Full-Market Narrative Engine. Version-1-Startparameter — Werte hier aendern statt in Python/JS hart zu kodieren. Wird von scripts/build_market_reference.py, scripts/build_market_features.py, scripts/build_narratives.py, scripts/validate_narrative_proposal.py, scripts/review_narratives.py sowie von index.html (per fetch) gelesen.",
-  "version": 1,
+  "_comment": "Zentrale Konfiguration der YOLO Dashboard Engine (Full-Market Narrative Engine + V1 Top-down Momentum Operating System). Version-1-Startparameter — Werte hier aendern statt in Python/JS hart zu kodieren. Wird von scripts/build_market_reference.py, scripts/build_market_features.py, scripts/build_narratives.py, scripts/build_dashboard_states.py, scripts/validate_narrative_proposal.py, scripts/review_narratives.py sowie von index.html (per fetch) gelesen.",
+  "version": 2,
+  "dashboard_state_version": "v1",
+  "_v1_note": "Alle Gewichte/Schwellen unter *_v1 sind V1-Startparameter, keine empirisch kalibrierten Werte. Eine separate YOLO Calibration Engine wird sie spaeter (2023-2024 Calibration, 2025 Validation, 2026 Out-of-Sample) ueberpruefen. Aenderung nur hier, kein Architekturumbau noetig.",
   "universe": {
     "adr_lookback_sessions": 20,
     "adr_minimum_pct": 4.0,
@@ -30,5 +32,74 @@
   "dashboard": {
     "ema_proximity_threshold_pct": 4.0,
     "atr_extension_warning_threshold": 5.0
+  },
+  "market_regime_v1": {
+    "_comment": "Momentum Market Regime Score (0-100), berechnet ueber das eligible YOLO Stock Universe. Punkt 6-9 der V1-Spec.",
+    "breadth_component_weights": { "pct_above_ema10": 0.40, "pct_above_ema20": 0.35, "pct_above_sma50": 0.25 },
+    "final_weights": { "breadth": 0.40, "momentum": 0.30, "narrative_environment": 0.30 },
+    "state_thresholds": [
+      { "min": 80, "state": "STRONG OFFENSIVE" },
+      { "min": 65, "state": "OFFENSIVE" },
+      { "min": 45, "state": "SELECTIVE" },
+      { "min": 30, "state": "DEFENSIVE" },
+      { "min": 0, "state": "RISK OFF" }
+    ],
+    "notable_score_delta": 8
+  },
+  "qqq_health_v1": {
+    "_comment": "QQQ Health Score (0-100) + Base State + Modifier. Punkt 10-15 der V1-Spec.",
+    "trend_points": { "close_above_ema10": 25, "close_above_ema20": 25, "ema10_above_ema20": 20, "close_above_sma50": 15, "close_above_sma200": 15 },
+    "breadth_component_weights": { "ema10": 0.25, "ema21": 0.35, "sma50": 0.25, "sma200": 0.15 },
+    "mcsi_weights": { "level": 0.70, "trend": 0.30 },
+    "final_weights": { "trend": 0.25, "breadth": 0.30, "mco": 0.20, "mcsi": 0.15, "high_low": 0.10 },
+    "high_low_lookback_days": 120,
+    "base_state_thresholds": [
+      { "min": 70, "state": "HEALTHY" },
+      { "min": 55, "state": "MIXED" },
+      { "min": 40, "state": "FRAGILE" },
+      { "min": 0, "state": "RISK OFF" }
+    ],
+    "modifiers": {
+      "extended_atr_extension_enter": 5.0,
+      "extended_atr_extension_exit": 4.5,
+      "delta_lookback_days_short": 3,
+      "delta_lookback_days_medium": 5,
+      "narrowing_min_conditions": 2,
+      "narrowing_breadth_delta_pp": -5.0,
+      "deteriorating_min_conditions": 2,
+      "repairing_min_conditions": 3,
+      "repairing_breadth_delta_pp": 5.0
+    },
+    "notable_score_delta": 8
+  },
+  "narrative_lifecycle_v1": {
+    "_comment": "Quantitativer lifecycle_state pro Narrative (getrennt von der semantischen Weekly-AI-Taxonomie). Punkt 17-18 der V1-Spec.",
+    "score_weights": { "strength_percentile": 0.30, "thrust_percentile": 0.30, "leadership": 0.25, "breadth_pct_positive": 0.15 },
+    "emerging": { "thrust_percentile_1w_min": 75, "leadership_1w_min": 40, "breadth_pct_positive_1w_min": 60, "leadership_delta5d_positive_required": true },
+    "active": { "strength_1w_min": 0, "thrust_1w_min": 0, "leadership_1w_min": 40, "breadth_pct_positive_1w_min": 55 },
+    "mature": { "strength_1m_min": 0, "leadership_1m_min": 40, "thrust_1w_max": 0, "breadth_pct_positive_1w_min": 50 },
+    "fading": { "thrust_1w_max": 0, "breadth_pct_positive_1w_max": 50, "leadership_delta5d_max": -10, "confirm_days": 2 },
+    "dormant": { "strength_1m_max": 0, "leadership_1m_max": 20, "breadth_pct_positive_1m_max": 40, "confirm_days": 5 },
+    "priority": ["DORMANT", "EMERGING", "FADING", "MATURE", "ACTIVE", "NEUTRAL"]
+  },
+  "opportunity_v1": {
+    "_comment": "Stock Leadership Score + Quality/Location/Narrative-Opportunity States. Punkt 20-28 der V1-Spec.",
+    "leadership_weights": { "rs_1w": 0.60, "rs_1m": 0.40 },
+    "leader_entry": { "leadership_score_min": 85, "rs_1w_min": 80 },
+    "leader_exit": { "leadership_score_max": 80, "rs_1w_max": 75, "confirm_days": 2 },
+    "fresh_leader": { "entry_window_days": 3, "rs_1w_delta3d_min": 8, "thrust_percentile_1d_min": 85, "thrust_percentile_1w_min": 80, "duration_days": 3 },
+    "near_emas": { "distance_pct": 4.0, "max_below_ema20_pct": -2.0 },
+    "extended": { "enter": 5.0, "exit": 4.5 },
+    "constructive_reset": { "max_below_ema20_pct": -2.0, "qualifying_lifecycles": ["EMERGING", "ACTIVE", "MATURE"] },
+    "laggard": { "leadership_score_max": 60, "bottom_pct_of_narrative": 40, "thrust_percentile_1d_max": 80, "thrust_percentile_1w_max": 80, "exit_leadership_score_min": 65 }
+  },
+  "change_detection": {
+    "_comment": "Schwellen fuer 'What Changed?' Event-Erkennung. Punkt 33-37 der V1-Spec.",
+    "narrative_rank_improve_min": 3,
+    "narrative_score_delta_min": 10
+  },
+  "history": {
+    "daily_dir": "data/history/daily",
+    "retention_days": 45
   }
 }

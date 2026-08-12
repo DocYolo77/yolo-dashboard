@@ -14,7 +14,8 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from build_market_features import (  # noqa: E402
-    calc_ticker_features, calc_true_range, compute_eligibility, type_eligible_universe,
+    calc_ticker_features, calc_true_range, compute_eligibility, compute_eligible_universe,
+    eligible_percentile_ranks, type_eligible_universe,
 )
 from build_narratives import percentile_ranks  # noqa: E402
 
@@ -196,3 +197,52 @@ def test_percentile_ranks_full_market_vs_curated_universe_differ():
     # -> this is exactly the Leadership migration point 24 is about.
     assert curated_ranks["NVDA"] == 100.0
     assert full_ranks["NVDA"] < 100.0
+
+
+# ── Full-Market RS fix: eligible-first percentile ordering (V1, point 7) ──
+
+def test_eligible_universe_excludes_low_adr_and_low_market_cap():
+    u_cfg = {"adr_minimum_pct": 4.0, "market_cap_minimum_usd": 1_000_000_000}
+    features = {
+        "BIG_HIGH_ADR": {"adr20": 6.0},   # eligible
+        "BIG_LOW_ADR":  {"adr20": 2.0},   # ADR too low
+        "SMALL_HIGH_ADR": {"adr20": 6.0},  # market cap too low
+        "NO_CAP_DATA":  {"adr20": 6.0},   # market cap unknown -> not eligible-by-default
+    }
+    market_caps = {
+        "BIG_HIGH_ADR": 5_000_000_000,
+        "BIG_LOW_ADR": 5_000_000_000,
+        "SMALL_HIGH_ADR": 500_000_000,
+        "NO_CAP_DATA": None,
+    }
+    eligible = compute_eligible_universe(features, market_caps, u_cfg)
+    assert eligible == {
+        "BIG_HIGH_ADR": True,
+        "BIG_LOW_ADR": False,
+        "SMALL_HIGH_ADR": False,
+        "NO_CAP_DATA": False,
+    }
+
+
+def test_non_eligible_stock_does_not_influence_rs_percentile_of_eligible_stocks():
+    # A non-eligible micro-cap with an extreme return must NOT drag the
+    # percentile scale for eligible stocks — the old bug ranked against
+    # every ticker with a computable feature, this one included.
+    features = {
+        "ELIGIBLE_A": {"pct": 5.0},
+        "ELIGIBLE_B": {"pct": 10.0},
+        "NOT_ELIGIBLE_MOONSHOT": {"pct": 500.0},  # would dominate the top rank if included
+    }
+    eligible_by_symbol = {"ELIGIBLE_A": True, "ELIGIBLE_B": True, "NOT_ELIGIBLE_MOONSHOT": False}
+    ranks = eligible_percentile_ranks(features, eligible_by_symbol, "pct")
+    assert "NOT_ELIGIBLE_MOONSHOT" not in ranks  # excluded, not ranked at the bottom either
+    assert ranks["ELIGIBLE_B"] == 100.0  # top of the ELIGIBLE-only pool
+    assert ranks["ELIGIBLE_A"] < ranks["ELIGIBLE_B"]
+
+
+def test_eligible_percentile_ranks_matches_plain_percentile_ranks_on_eligible_subset():
+    features = {"A": {"pct": 1.0}, "B": {"pct": 5.0}, "C": {"pct": 9.0}}
+    eligible_by_symbol = {"A": True, "B": True, "C": False}
+    got = eligible_percentile_ranks(features, eligible_by_symbol, "pct")
+    expected = percentile_ranks({"A": {"pct": 1.0}, "B": {"pct": 5.0}}, "pct")
+    assert got == expected

@@ -29,8 +29,20 @@ Design notes (see also the technical report handed to the user):
                        function whose output is literally labelled
                        "EMA10"/"EMA20" on the dashboard today.
     * RS percentile -> build_narratives.percentile_ranks(), unchanged,
-                       just fed the full eligible universe instead of the
-                       118-ticker curated set.
+                       just fed the eligible universe instead of the
+                       118-ticker curated set. CORRECTED (V1 dashboard
+                       rebuild, point 7): percentile_ranks() is now called
+                       AFTER eligibility (ADR20 + market cap) is resolved,
+                       and only on the eligible subset — previously it
+                       ranked against every ticker with a computable price
+                       feature (~5x larger pool, includes sub-$1B/low-ADR
+                       names), which understated true Full-Market RS for
+                       eligible names. Same fix applies to Thrust
+                       percentiles (thrust_percentile_1d/1w/1m, new fields
+                       needed by the Opportunity Engine's Fresh Leader
+                       rule). Non-eligible tickers get percentile = None,
+                       not 0 — they are excluded from ranking, not ranked
+                       at the bottom.
     * Thrust         -> same EMA(short)-EMA(long)-of-daily-return-series
                        shape as build_narratives.calc_basket_scores' basket
                        Thrust, applied to a single ticker's own daily return
@@ -270,6 +282,24 @@ def compute_eligibility(adr20, market_cap, universe_cfg):
     return bool(adr_ok and cap_ok)
 
 
+def compute_eligible_universe(features, market_cap_by_symbol, universe_cfg):
+    """Resolve eligibility for every ticker with a computed feature set.
+    MUST run before any percentile ranking (V1 rebuild point 7 fix):
+    RS/Thrust percentiles are only meaningful when ranked against tickers
+    that actually pass the Universe Filter, not against every ticker that
+    merely has enough price history to compute a feature."""
+    return {sym: compute_eligibility(f["adr20"], market_cap_by_symbol.get(sym), universe_cfg)
+            for sym, f in features.items()}
+
+
+def eligible_percentile_ranks(features, eligible_by_symbol, field):
+    """percentile_ranks() restricted to the eligible subset (point 7 fix).
+    Non-eligible tickers are excluded from the ranking pool entirely — they
+    get no percentile (None downstream), not a 0/bottom-of-market rank."""
+    eligible_features = {sym: f for sym, f in features.items() if eligible_by_symbol.get(sym)}
+    return percentile_ranks(eligible_features, field)
+
+
 # ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
@@ -322,43 +352,65 @@ def main():
     enrich_cache_path = taxonomy_dir / "market_reference_cache.json"
     enrich_cache = ref.enrich_candidates(adr_candidates, enrich_cache_path, max_calls=args.max_enrich_calls)
 
-    # RS percentiles across the FULL eligible (type-filtered) universe —
-    # this is the "Full-Market RS" the Leadership score migrates to.
-    pct_field_by_horizon = {"1d": "d1_pct", "1w": "w1_pct", "1m": "m1_pct"}
-    percentiles_by_horizon = {h: percentile_ranks(features, f) for h, f in pct_field_by_horizon.items()}
-
-    thrust_by_horizon = {}
-    for h, hcfg in HORIZONS.items():
-        thrust_by_horizon[h] = {
-            sym: calc_thrust(daily_ret, sym, hcfg["thrust_short"], hcfg["thrust_long"])
-            for sym in features
-        }
-
-    thrust_percentiles = {}
-    for h in HORIZONS:
-        vals = {sym: v for sym, v in thrust_by_horizon[h].items() if v is not None}
-        thrust_percentiles[h] = percentile_ranks({s: {"_t": v} for s, v in vals.items()}, "_t")
-
-    rs_pct = cfg["discovery"]["rs_candidate_percentile"]
-    thrust_pct = cfg["discovery"]["thrust_candidate_percentile"]
-
-    output_tickers = {}
-    n_eligible = 0
+    # market_cap resolved for every ticker with features (needed by
+    # compute_eligible_universe below; falls back to shares*close when the
+    # overview endpoint didn't return market_cap directly).
+    market_cap_by_symbol = {}
     for sym, f in features.items():
         overview = enrich_cache.get(sym, {})
         shares = overview.get("share_class_shares_outstanding") or overview.get("weighted_shares_outstanding")
         market_cap = overview.get("market_cap")
         if market_cap is None and shares:
             market_cap = round(shares * f["close"], 2)
+        market_cap_by_symbol[sym] = market_cap
 
-        eligible = compute_eligibility(f["adr20"], market_cap, u_cfg)
-        if eligible:
-            n_eligible += 1
+    # Eligibility MUST be resolved BEFORE any percentile ranking (point 7
+    # fix) — see compute_eligible_universe()/eligible_percentile_ranks().
+    eligible_by_symbol = compute_eligible_universe(features, market_cap_by_symbol, u_cfg)
+    n_eligible = sum(1 for v in eligible_by_symbol.values() if v)
+    print(f"  ✅ {n_eligible}/{len(features)} Ticker eligible (ADR{u_cfg['adr_lookback_sessions']} > "
+          f"{u_cfg['adr_minimum_pct']}% UND Market Cap >= ${u_cfg['market_cap_minimum_usd']:,.0f}) — "
+          f"RS-/Thrust-Perzentile werden NUR gegen dieses Subset berechnet")
+
+    # RS percentiles across the eligible universe ONLY — this is the
+    # "Full-Market RS" the Leadership score (and everything downstream:
+    # Discovery Candidates, Market Regime Momentum, Opportunities) relies
+    # on. Non-eligible tickers get rs_percentile_* = None: not ranked, never
+    # silently treated as 0 (would misrepresent them as market-bottom).
+    pct_field_by_horizon = {"1d": "d1_pct", "1w": "w1_pct", "1m": "m1_pct"}
+    percentiles_by_horizon = {h: eligible_percentile_ranks(features, eligible_by_symbol, f)
+                               for h, f in pct_field_by_horizon.items()}
+
+    thrust_by_horizon = {}
+    for h, hcfg in HORIZONS.items():
+        # Raw Thrust value computed for every ticker with features (used for
+        # display/discovery even outside the eligible set); only the
+        # PERCENTILE ranking below is restricted to the eligible universe.
+        thrust_by_horizon[h] = {
+            sym: calc_thrust(daily_ret, sym, hcfg["thrust_short"], hcfg["thrust_long"])
+            for sym in features
+        }
+
+    # Thrust percentiles: same eligible-only ranking rule as RS (point 7).
+    thrust_percentiles = {}
+    for h in HORIZONS:
+        thrust_features = {sym: {"_t": v} for sym, v in thrust_by_horizon[h].items() if v is not None}
+        thrust_percentiles[h] = eligible_percentile_ranks(thrust_features, eligible_by_symbol, "_t")
+
+    rs_pct = cfg["discovery"]["rs_candidate_percentile"]
+    thrust_pct = cfg["discovery"]["thrust_candidate_percentile"]
+
+    output_tickers = {}
+    for sym, f in features.items():
+        eligible = eligible_by_symbol[sym]
+        market_cap = market_cap_by_symbol[sym]
+        overview = enrich_cache.get(sym, {})
 
         rs_1w = percentiles_by_horizon["1w"].get(sym)
         rs_1m = percentiles_by_horizon["1m"].get(sym)
         thrust_1d_pct = thrust_percentiles["1d"].get(sym)
         thrust_1w_pct = thrust_percentiles["1w"].get(sym)
+        thrust_1m_pct = thrust_percentiles["1m"].get(sym)
 
         discovery_candidate = bool(
             (rs_1w is not None and rs_1w >= rs_pct) or
@@ -377,6 +429,9 @@ def main():
             "thrust_1d": thrust_by_horizon["1d"].get(sym),
             "thrust_1w": thrust_by_horizon["1w"].get(sym),
             "thrust_1m": thrust_by_horizon["1m"].get(sym),
+            "thrust_percentile_1d": thrust_1d_pct,
+            "thrust_percentile_1w": thrust_1w_pct,
+            "thrust_percentile_1m": thrust_1m_pct,
             "sic_code": overview.get("sic_code"),
             "sic_description": overview.get("sic_description"),
             "discovery_candidate": discovery_candidate and eligible,

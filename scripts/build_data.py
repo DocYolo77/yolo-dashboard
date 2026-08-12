@@ -1,10 +1,22 @@
 #!/usr/bin/env python3
 """
-YOLO Dashboard — Data Builder v4
-Fetches market data via yfinance, calculates regime/MAs/breadth,
-scrapes CNN Fear & Greed, computes McClellan Oscillator/Summation Index
-and % above key moving averages for NDX 100.
+YOLO Dashboard — Data Builder v5
+Fetches market data via yfinance: SPY/QQQ regime (MAs + ATR/ATR-Extension,
+feeds QQQ Health), index/crypto/commodity tables, VIX, CNN Fear & Greed,
+McClellan Oscillator/Summation Index and % above key moving averages for
+NDX 100 (feeds QQQ Health breadth).
 Outputs data/snapshot.json
+
+V1 dashboard rebuild changes:
+- Waehrungssektion (EUR/USD, GBP/USD, DXY) entfernt — VIX zieht in die neue
+  Momentum-Market-Regime-Sektion um, ist dort aber weiterhin nur Kontext,
+  kein gewichteter Score-Bestandteil (siehe scripts/build_dashboard_states.py).
+- Die alte S&P-500-Breadth-Berechnung (get_sp500_tickers/fetch_breadth_data,
+  Wikipedia-Scrape + ~100-500-Ticker-yfinance-Download) wurde entfernt: sie
+  wurde im Frontend nie konsumiert und ist durch den neuen, eligible-
+  Universe-basierten Market Breadth Score (aus data/market_features.json,
+  siehe build_dashboard_states.py) vollstaendig ersetzt. Spart taeglich
+  einen teuren Fetch.
 """
 
 import json
@@ -16,6 +28,9 @@ from pathlib import Path
 
 import yfinance as yf
 import requests
+
+sys.path.insert(0, str(Path(__file__).parent))
+from build_market_features import calc_true_range  # noqa: E402  (reuse canonical ATR formula, one definition repo-wide)
 
 # ─────────────────────────────────────────────
 # TICKER CONFIGURATION
@@ -53,11 +68,6 @@ TICKERS = {
         "NG=F":  "Erdgas",
         "HG=F":  "Kupfer (HG)",
     },
-    "currencies": {
-        "EURUSD=X": "EUR/USD",
-        "GBPUSD=X": "GBP/USD",
-        "DX-Y.NYB": "DXY",
-    },
     "vix": {
         "^VIX": "VIX",
     },
@@ -66,155 +76,6 @@ TICKERS = {
         "QQQ": "QQQ",
     },
 }
-
-
-# ─────────────────────────────────────────────
-# S&P 500 BREADTH (% above SMAs, A/D, New Hi/Lo)
-# ─────────────────────────────────────────────
-
-def get_sp500_tickers():
-    """Get S&P 500 ticker list from Wikipedia."""
-    try:
-        print("  → Lade S&P 500 Komponentenliste...")
-        import re
-        url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
-        resp = requests.get(url, timeout=15)
-        tickers = []
-        rows = resp.text.split('<tr>')
-        for row in rows[2:]:
-            cells = row.split('<td>')
-            if len(cells) > 1:
-                match = re.search(r'>([A-Z]{1,5})</a>', cells[1])
-                if match:
-                    tickers.append(match.group(1).replace('.', '-'))
-        if len(tickers) > 400:
-            print(f"  ✅ {len(tickers)} Ticker geladen")
-            return tickers
-        return None
-    except Exception as e:
-        print(f"  ⚠ Ticker-Liste Fehler: {e}")
-        return None
-
-
-def fetch_breadth_data():
-    """Calculate S&P 500 breadth: % above SMA 20/50/200, A/D, New Highs/Lows."""
-    import pandas as pd
-    print("\n📊 Berechne S&P 500 Breadth...")
-
-    tickers = get_sp500_tickers()
-
-    # Fallback: top 100 S&P 500 components by weight
-    if not tickers or len(tickers) < 100:
-        print("  → Wikipedia fehlgeschlagen, nutze Fallback-Liste (100 Ticker)...")
-        tickers = [
-            "AAPL","MSFT","NVDA","AMZN","GOOGL","META","BRK-B","AVGO","LLY","JPM",
-            "TSLA","UNH","XOM","V","MA","PG","COST","JNJ","HD","ABBV",
-            "WMT","NFLX","BAC","KO","MRK","CRM","CVX","ORCL","AMD","PEP",
-            "TMO","ACN","LIN","MCD","CSCO","ADBE","ABT","PM","WFC","GE",
-            "IBM","ISRG","DHR","TXN","CAT","QCOM","INTU","NOW","MS","AMGN",
-            "VZ","AMAT","GS","NEE","PFE","BLK","T","BKNG","LOW","RTX",
-            "UNP","DE","SPGI","AXP","SYK","HON","SCHW","COP","PLD","MDLZ",
-            "LRCX","BA","CB","ADI","VRTX","C","MMC","GILD","BX","ADP",
-            "PANW","REGN","KLAC","CME","SO","MU","FI","DUK","ICE","SHW",
-            "CL","CDNS","BMY","SNPS","EOG","MCO","WM","PH","PYPL","TGT",
-        ]
-
-    try:
-        batch_size = 50
-        all_frames = []
-
-        for i in range(0, len(tickers), batch_size):
-            batch = tickers[i:i + batch_size]
-            batch_num = i // batch_size + 1
-            total_batches = (len(tickers) + batch_size - 1) // batch_size
-            print(f"  → Batch {batch_num}/{total_batches} ({len(batch)} Ticker)...")
-            try:
-                raw = yf.download(batch, period="14mo", progress=False, threads=True)
-                if raw.empty:
-                    print(f"    ⚠ Batch {batch_num} leer")
-                    continue
-
-                print(f"    Cols type: {type(raw.columns).__name__}, shape: {raw.shape}")
-                if isinstance(raw.columns, pd.MultiIndex):
-                    print(f"    MultiIndex levels: {raw.columns.names}")
-                    # Try both orientations: (Price, Ticker) and (Ticker, Price)
-                    if "Close" in raw.columns.get_level_values(0):
-                        close_df = raw["Close"]
-                    elif "Close" in raw.columns.get_level_values(1):
-                        close_df = raw.xs("Close", level=1, axis=1)
-                    else:
-                        print(f"    ⚠ 'Close' nicht gefunden in MultiIndex")
-                        continue
-                elif "Close" in raw.columns:
-                    close_df = raw[["Close"]]
-                    close_df.columns = [batch[0]]
-                else:
-                    print(f"    ⚠ Unbekanntes Spaltenformat: {raw.columns[:5].tolist()}")
-                    continue
-
-                print(f"    ✅ {len(close_df.columns)} Close-Spalten extrahiert")
-                all_frames.append(close_df)
-            except Exception as e:
-                print(f"    ⚠ Batch {batch_num} Fehler: {e}")
-                import traceback
-                traceback.print_exc()
-                continue
-
-        if not all_frames:
-            print("  ⚠ Keine Daten geladen")
-            return None
-
-        combined = pd.concat(all_frames, axis=1)
-        # Remove duplicate columns
-        combined = combined.loc[:, ~combined.columns.duplicated()]
-        valid = combined.dropna(axis=1, thresh=200)
-        n = len(valid.columns)
-        print(f"  → {n} Aktien mit genug Daten (min. 80)")
-
-        if n < 80:
-            print(f"  ⚠ Nur {n} Aktien — nicht genug")
-            return None
-
-        latest = valid.iloc[-1]
-        prev = valid.iloc[-2]
-
-        sma20 = valid.rolling(20).mean().iloc[-1]
-        sma50 = valid.rolling(50).mean().iloc[-1]
-        sma200 = valid.rolling(200).mean().iloc[-1]
-
-        pct_20 = round(float((latest > sma20).sum()) / n * 100, 1)
-        pct_50 = round(float((latest > sma50).sum()) / n * 100, 1)
-        pct_200 = round(float((latest > sma200).sum()) / n * 100, 1)
-
-        change = latest - prev
-        adv = int((change > 0).sum())
-        dec = int((change < 0).sum())
-        ad_ratio = round(adv / max(dec, 1), 2)
-
-        hi52 = valid.rolling(252, min_periods=200).max().iloc[-1]
-        lo52 = valid.rolling(252, min_periods=200).min().iloc[-1]
-        new_hi = int((latest >= hi52 * 0.995).sum())
-        new_lo = int((latest <= lo52 * 1.005).sum())
-
-        print(f"  ✅ SMA20: {pct_20}% | SMA50: {pct_50}% | SMA200: {pct_200}%")
-        print(f"  ✅ A/D: {adv}/{dec} = {ad_ratio} | Hochs/Tiefs: {new_hi}/{new_lo}")
-
-        return {
-            "pct_above_sma20": pct_20,
-            "pct_above_sma50": pct_50,
-            "pct_above_sma200": pct_200,
-            "advance_decline_ratio": ad_ratio,
-            "advancers": adv,
-            "decliners": dec,
-            "new_highs": new_hi,
-            "new_lows": new_lo,
-            "n_components": n,
-        }
-    except Exception as e:
-        print(f"  ⚠ Breadth Fehler: {e}")
-        import traceback
-        traceback.print_exc()
-        return None
 
 
 # ─────────────────────────────────────────────
@@ -613,8 +474,40 @@ def fetch_category(category_name, tickers_dict):
     return results
 
 
+def calc_atr_extension(hist):
+    """QQQ Health price structure (V1 rebuild, point 11) — ATR14/ATR%/ATR
+    Extension for SPY/QQQ. Reuses calc_true_range() imported from
+    build_market_features.py so there is exactly one ATR definition
+    repo-wide (True Range, simple 14-day mean, no Wilder smoothing;
+    Extension = %Gain-from-SMA50 / ATR%). Returns (atr14, atr_pct,
+    atr_extension), any of which may be None if there isn't enough history."""
+    close = hist["Close"]
+    if len(close) < 51:
+        return None, None, None
+    tr = calc_true_range(hist["High"], hist["Low"], close)
+    tr_valid = tr.dropna()
+    if tr_valid.shape[0] < 14:
+        return None, None, None
+    atr14 = float(tr_valid.iloc[-14:].mean())
+    if atr14 <= 0:
+        return None, None, None
+
+    last = float(close.iloc[-1])
+    sma50 = close.rolling(50).mean().iloc[-1]
+    atr_pct = round(atr14 / last * 100.0, 3)
+    if sma50 is None or sma50 != sma50:  # NaN check (NaN != NaN is True) without importing numpy here
+        return round(atr14, 4), atr_pct, None
+    sma50 = float(sma50)
+    if sma50 <= 0:
+        return round(atr14, 4), atr_pct, None
+    gain_from_sma50_pct = (last - sma50) / sma50 * 100.0
+    atr_extension = round(gain_from_sma50_pct / atr_pct, 2) if atr_pct > 0 else None
+    return round(atr14, 4), atr_pct, atr_extension
+
+
 def fetch_regime_data():
-    """Fetch SPY and QQQ with moving averages for regime detection."""
+    """Fetch SPY and QQQ with moving averages for regime detection, plus
+    ATR/ATR-Extension (feeds the QQQ Health price-structure block)."""
     print("\n🎯 Lade Regime-Daten (SPY/QQQ)...")
     regime = {}
     for symbol in ["SPY", "QQQ"]:
@@ -624,10 +517,14 @@ def fetch_regime_data():
             price = round(hist["Close"].iloc[-1], 2)
             mas = calc_moving_averages(hist)
             r = determine_regime(price, mas)
+            atr14, atr_pct, atr_extension = calc_atr_extension(hist)
             regime[symbol] = {
                 "price": price,
                 "regime": r,
                 "mas": mas,
+                "atr14": atr14,
+                "atr_pct": atr_pct,
+                "atr_extension": atr_extension,
             }
     return regime
 
@@ -678,12 +575,7 @@ def main():
         vix_val = snapshot["vix"][0].get("price", 0)
         snapshot["vix"][0]["zone"] = get_vix_zone(vix_val)
 
-    # 4. S&P 500 Breadth
-    breadth = fetch_breadth_data()
-    if breadth:
-        snapshot["breadth"] = breadth
-
-    # 7b. QQQ McClellan + Summation + H/L
+    # 4. QQQ McClellan + Summation + H/L
     qqq_br = fetch_qqq_breadth()
     if qqq_br:
         snapshot["qqq_breadth"] = qqq_br
@@ -710,8 +602,6 @@ def main():
 
     print(f"\n✅ Snapshot geschrieben → {out_dir / 'snapshot.json'}")
     print(f"   Kategorien: {len(snapshot) - 1}")
-    if breadth:
-        print(f"   Breadth: {breadth['n_components']} Aktien | SMA200: {breadth['pct_above_sma200']}%")
     if fg:
         print(f"   Fear & Greed: {fg['score']} ({fg['rating']})")
     if pc:

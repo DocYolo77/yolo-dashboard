@@ -35,21 +35,52 @@ const ncNearEma20Src = extractFunction(html, 'ncNearEma20');
 const ncIsAtrExtendedSrc = extractFunction(html, 'ncIsAtrExtended');
 const ncEmaFilterMembersSrc = extractFunction(html, 'ncEmaFilterMembers');
 const ncSortMembersSrc = extractFunction(html, 'ncSortMembers');
+const ncMemberOpportunityStateSrc = extractFunction(html, 'ncMemberOpportunityState');
+const ncStateFilterMembersSrc = extractFunction(html, 'ncStateFilterMembers');
 const ncVisibleSortedMembersSrc = extractFunction(html, 'ncVisibleSortedMembers');
 const ncMomentumTickerListSrc = extractFunction(html, 'ncMomentumTickerList');
+const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
+const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
+const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
+const oppVisibleSortedItemsSrc = extractFunction(html, 'oppVisibleSortedItems');
 
 const sandbox = {
   ncEmaFilter: 'all',
+  ncStateFilter: 'all',
   ncHorizon: '1d',
   engineConfig: { dashboard: { ema_proximity_threshold_pct: 4.0, atr_extension_warning_threshold: 5.0 } },
   ncMemberSort: { field: 'd1_pct', dir: 'desc' },
+  dashboardState: null,
+  oppTab: 'all',
+  oppSortState: { field: 'leadership_score', dir: 'desc' },
+  // Minimal DOM stub for the Opportunities filter inputs — oppApplyFilters
+  // reads these directly via getElementById, same as the real page.
+  document: {
+    _elements: {},
+    getElementById(id) {
+      if (!this._elements[id]) this._elements[id] = { value: '', checked: false };
+      return this._elements[id];
+    },
+  },
   console,
 };
 vm.createContext(sandbox);
 vm.runInContext(
-  `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncIsAtrExtendedSrc}\n${ncEmaFilterMembersSrc}\n${ncSortMembersSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}`,
+  `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncIsAtrExtendedSrc}\n${ncEmaFilterMembersSrc}\n${ncSortMembersSrc}\n` +
+  `${ncMemberOpportunityStateSrc}\n${ncStateFilterMembersSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n` +
+  `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}`,
   sandbox
 );
+
+function setOppFilterInputs(overrides) {
+  const defaults = {
+    oppFilterNarrative: '', oppFilterRs: '', oppFilterThrust: '', oppFilterAtr: '', oppFilterCap: '',
+  };
+  const values = Object.assign({}, defaults, overrides);
+  Object.entries(values).forEach(([id, value]) => { sandbox.document._elements[id] = { value }; });
+  sandbox.document._elements.oppFilterNearEma = { checked: !!(overrides && overrides.oppFilterNearEma) };
+}
+setOppFilterInputs({});
 
 function makeMembers() {
   return [
@@ -140,4 +171,147 @@ test('ncMomentumTickerList: near-EMA + not-ATR-extended across all narratives, d
   // needs re-materializing into the host realm first, same as the other
   // tests' `.map()` calls implicitly do for their host-created inputs.
   assert.deepEqual(Array.from(list), ['NEAR_OK', 'NEAR_OK2']); // sorted, deduplicated, NEAR_EXT and FAR excluded
+});
+
+// ── Narrative Detail View: EMA-Filter + State-Filter kombinierbar (Punkt 32) ──
+
+function makeStateFilterFixture() {
+  const members = [
+    { symbol: 'AAA', ema10_distance_pct: 1.0, ema20_distance_pct: 1.0 },  // near EMA
+    { symbol: 'BBB', ema10_distance_pct: 1.0, ema20_distance_pct: 1.0 },  // near EMA
+    { symbol: 'CCC', ema10_distance_pct: 9.0, ema20_distance_pct: 9.0 },  // NOT near EMA
+  ];
+  const narrative = { id: 'n1', members: members.map(m => ({ ...m, percentile_1d: 50 })), n_members: 3 };
+  const dashboardState = {
+    opportunities: {
+      items: [
+        { symbol: 'AAA', narratives: ['n1'], quality_state: 'leader', constructive_reset_narratives: ['n1'], laggard_narratives: [], extended: false },
+        { symbol: 'BBB', narratives: ['n1'], quality_state: 'neutral', constructive_reset_narratives: [], laggard_narratives: ['n1'], extended: true },
+        { symbol: 'CCC', narratives: ['n1'], quality_state: 'leader', constructive_reset_narratives: ['n1'], laggard_narratives: [], extended: false },
+      ],
+    },
+  };
+  return { narrative, dashboardState };
+}
+
+test('ncVisibleSortedMembers: State-Filter allein (Leader) matcht ueber alle Mitglieder', () => {
+  const { narrative, dashboardState } = makeStateFilterFixture();
+  sandbox.ncEmaFilter = 'all';
+  sandbox.ncStateFilter = 'leader';
+  sandbox.dashboardState = dashboardState;
+  const out = vm.runInContext('ncVisibleSortedMembers(narrative)', Object.assign(sandbox, { narrative }));
+  assert.deepEqual(Array.from(out).map(m => m.symbol).sort(), ['AAA', 'CCC']); // BBB is neutral
+});
+
+test('ncVisibleSortedMembers: EMA-Filter + State-Filter kombiniert (Near EMA + Constructive Reset)', () => {
+  const { narrative, dashboardState } = makeStateFilterFixture();
+  sandbox.ncEmaFilter = 'either';       // AAA, BBB near EMA; CCC excluded
+  sandbox.ncStateFilter = 'constructive_reset';  // AAA, CCC have the reset; BBB does not
+  sandbox.dashboardState = dashboardState;
+  const out = vm.runInContext('ncVisibleSortedMembers(narrative)', Object.assign(sandbox, { narrative }));
+  // Intersection of both filters: only AAA satisfies both.
+  assert.deepEqual(Array.from(out).map(m => m.symbol), ['AAA']);
+  sandbox.ncEmaFilter = 'all';
+  sandbox.ncStateFilter = 'all';
+  sandbox.dashboardState = null;
+});
+
+// ── Opportunities: Tabs, Filter, Sortierung, Copy (Punkt 30-31) ────────
+
+function makeOppItems() {
+  return [
+    { symbol: 'MU', narratives: ['memory'], quality_state: 'fresh_leader', near_emas: true, extended: false,
+      constructive_reset_narratives: ['memory'], laggard_narratives: [], leadership_score: 92, rs_1w: 90, rs_1m: 88,
+      thrust_percentile_1d: 90, thrust_percentile_1w: 85, ema10_distance_pct: 1.0, ema20_distance_pct: 2.0,
+      atr_extension: 3.0, w1_pct: 8.0, m1_pct: 20.0, market_cap: 120e9 },
+    { symbol: 'VRT', narratives: ['ai_infra'], quality_state: 'leader', near_emas: false, extended: true,
+      constructive_reset_narratives: [], laggard_narratives: [], leadership_score: 88, rs_1w: 85, rs_1m: 80,
+      thrust_percentile_1d: 60, thrust_percentile_1w: 55, ema10_distance_pct: 12.0, ema20_distance_pct: 15.0,
+      atr_extension: 6.5, w1_pct: 15.0, m1_pct: 30.0, market_cap: 40e9 },
+    { symbol: 'SNDK', narratives: ['memory'], quality_state: 'neutral', near_emas: true, extended: false,
+      constructive_reset_narratives: [], laggard_narratives: ['memory'], leadership_score: 40, rs_1w: 35, rs_1m: 30,
+      thrust_percentile_1d: 20, thrust_percentile_1w: 25, ema10_distance_pct: -1.5, ema20_distance_pct: -1.0,
+      atr_extension: 1.0, w1_pct: -3.0, m1_pct: -5.0, market_cap: 8e9 },
+  ];
+}
+
+test('oppTabFilter: all/fresh/leaders/reset/extended/laggards', () => {
+  const items = makeOppItems();
+  const bySymbol = tab => vm.runInContext('items.filter(it => oppTabFilter(it, tab))', Object.assign(sandbox, { items, tab })).map(it => it.symbol);
+  assert.deepEqual(bySymbol('all'), ['MU', 'VRT', 'SNDK']);
+  assert.deepEqual(bySymbol('fresh'), ['MU']);
+  assert.deepEqual(bySymbol('leaders'), ['MU', 'VRT']); // fresh_leader counts as leader-like too
+  assert.deepEqual(bySymbol('reset'), ['MU']);
+  assert.deepEqual(bySymbol('extended'), ['VRT']);
+  assert.deepEqual(bySymbol('laggards'), ['SNDK']);
+});
+
+test('oppApplyFilters: Narrative-Filter', () => {
+  setOppFilterInputs({ oppFilterNarrative: 'memory' });
+  const items = makeOppItems();
+  const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'SNDK']);
+  setOppFilterInputs({});
+});
+
+test('oppApplyFilters: Min RS1W', () => {
+  setOppFilterInputs({ oppFilterRs: '80' });
+  const items = makeOppItems();
+  const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'VRT']);
+  setOppFilterInputs({});
+});
+
+test('oppApplyFilters: Max ATR Extension', () => {
+  setOppFilterInputs({ oppFilterAtr: '5' });
+  const items = makeOppItems();
+  const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'SNDK']); // VRT's 6.5 excluded
+  setOppFilterInputs({});
+});
+
+test('oppApplyFilters: Min Market Cap ($Mrd)', () => {
+  setOppFilterInputs({ oppFilterCap: '50' }); // $50bn minimum
+  const items = makeOppItems();
+  const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(out).map(it => it.symbol), ['MU']); // only 120bn qualifies
+  setOppFilterInputs({});
+});
+
+test('oppApplyFilters: Near EMAs checkbox', () => {
+  setOppFilterInputs({ oppFilterNearEma: true });
+  const items = makeOppItems();
+  const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'SNDK']);
+  setOppFilterInputs({});
+});
+
+test('oppSortItems: numeric field descending/ascending', () => {
+  const items = makeOppItems();
+  sandbox.oppSortState = { field: 'leadership_score', dir: 'desc' };
+  const desc = vm.runInContext('oppSortItems(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(desc).map(it => it.symbol), ['MU', 'VRT', 'SNDK']);
+  sandbox.oppSortState = { field: 'leadership_score', dir: 'asc' };
+  const asc = vm.runInContext('oppSortItems(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(asc).map(it => it.symbol), ['SNDK', 'VRT', 'MU']);
+});
+
+test('oppVisibleSortedItems: combines tab + filters + sort into one visible/copyable list', () => {
+  sandbox.dashboardState = { opportunities: { items: makeOppItems() } };
+  sandbox.oppTab = 'all';
+  sandbox.oppSortState = { field: 'symbol', dir: 'asc' };
+  setOppFilterInputs({ oppFilterNearEma: true }); // MU + SNDK only
+  const visible = vm.runInContext('oppVisibleSortedItems()', sandbox);
+  const symbols = Array.from(visible).map(it => it.symbol);
+  assert.deepEqual(symbols, ['MU', 'SNDK']); // near-EMA filter applied, alphabetically sorted
+  // No duplicates even if a stock were double-counted upstream (Copy-Funktion dedupliziert zusaetzlich).
+  assert.deepEqual([...new Set(symbols)], symbols);
+  setOppFilterInputs({});
+  sandbox.dashboardState = null;
+});
+
+test('oppVisibleSortedItems: empty dashboardState degrades gracefully to empty list', () => {
+  sandbox.dashboardState = null;
+  const visible = vm.runInContext('oppVisibleSortedItems()', sandbox);
+  assert.deepEqual(Array.from(visible), []);
 });

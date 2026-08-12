@@ -50,6 +50,14 @@ jobs:
           MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
         run: python scripts/build_narratives.py --out-dir data --market-features data/market_features.json
 
+      - name: Build V1 dashboard states (Market Regime/QQQ Health/Lifecycle/Opportunities)
+        timeout-minutes: 5
+        run: python scripts/build_dashboard_states.py --out-dir data
+
+      - name: Sanity-check computed data (pytest)
+        timeout-minutes: 5
+        run: pip install -r requirements-dev.txt && python -m pytest tests/ -q
+
       - name: Commit and push data
         run: |
           git config user.name "github-actions[bot]"
