@@ -269,7 +269,36 @@ def test_apply_classification_result_heals_unresolvable_primary_id_instead_of_di
                                             result, MEMBERSHIP_CFG, max_secondary=2,
                                             today="2026-08-12", source="daily_reconciliation")
     assert errors == []
-    assert "AAA" in next(iter(taxonomy_by_id.values()))["tickers"]
+    created_narrative = next(iter(taxonomy_by_id.values()))
+    assert "AAA" in created_narrative["tickers"]
+    # Regression: apply_classification_result must read the RESOLVED name back
+    # from catalog_by_id (set by resolve_narrative_reference's healing fallback),
+    # not the raw (here None) result["primary_new_name"] -- otherwise the
+    # taxonomy ends up with "name": None, which crashes build_dashboard_states.py's
+    # narrative ranking sort (str/NoneType comparison) downstream.
+    assert created_narrative["name"] is not None
+    assert created_narrative["name"] == catalog_by_id[created_narrative["id"]]["name"]
+
+
+def test_apply_classification_result_heals_secondary_new_narrative_name_too():
+    # Same regression as the primary case above, but for a secondary
+    # narrative created with is_new=True and no new_name supplied.
+    taxonomy_by_id = {}
+    catalog_by_id, catalog_by_norm = {}, {}
+    result = {"ticker": "AAA", "primary_narrative_id": "primary_ghost", "primary_is_new": True,
+              "primary_new_name": "Primary Ghost", "primary_new_definition": "x", "primary_confidence": 90,
+              "secondary_narratives": [
+                  {"narrative_id": "sec_ghost", "is_new": True, "new_name": None,
+                   "new_definition": "x", "confidence": 80},
+              ], "reasoning": "x"}
+    errors = r.apply_classification_result(taxonomy_by_id, catalog_by_id, catalog_by_norm,
+                                            result, MEMBERSHIP_CFG, max_secondary=2,
+                                            today="2026-08-12", source="daily_reconciliation")
+    assert errors == []
+    secondary_entries = [n for n in taxonomy_by_id.values() if n["name"] != "Primary Ghost"]
+    assert len(secondary_entries) == 1
+    assert secondary_entries[0]["name"] is not None
+    assert secondary_entries[0]["name"] == catalog_by_id[secondary_entries[0]["id"]]["name"]
 
 
 def test_apply_classification_result_reports_error_without_partial_write_when_truly_unresolvable():

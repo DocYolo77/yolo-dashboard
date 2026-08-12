@@ -1199,7 +1199,7 @@ def main():
 
     # Rank by Structural Score (None sorts last), stable tie-break by name.
     ranked = sorted(narratives, key=lambda n: (
-        -(n["narrative_structural_score"] if n["narrative_structural_score"] is not None else -1), n["name"]))
+        -(n["narrative_structural_score"] if n["narrative_structural_score"] is not None else -1), n["name"] or ""))
     rank_by_id = {n["id"]: i + 1 for i, n in enumerate(ranked)}
 
     narrative_items = {}

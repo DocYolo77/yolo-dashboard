@@ -465,7 +465,7 @@ def apply_classification_result(taxonomy_by_id, catalog_by_id, catalog_by_norm_n
         return errors
     if created:
         taxonomy_by_id[primary_id] = {
-            "id": primary_id, "name": result["primary_new_name"], "status": "emerging",
+            "id": primary_id, "name": catalog_by_id[primary_id]["name"], "status": "emerging",
             "classification_hint": result["primary_new_definition"],
             "created_at": today, "created_reason": f"Full-Universe classification ({source})",
             "tickers": {},
@@ -493,7 +493,7 @@ def apply_classification_result(taxonomy_by_id, catalog_by_id, catalog_by_norm_n
             continue  # a narrative can't be both primary and secondary for the same ticker
         if sec_created:
             taxonomy_by_id[sec_id] = {
-                "id": sec_id, "name": s["new_name"], "status": "emerging",
+                "id": sec_id, "name": catalog_by_id[sec_id]["name"], "status": "emerging",
                 "classification_hint": s["new_definition"],
                 "created_at": today, "created_reason": f"Full-Universe classification ({source})",
                 "tickers": {},
