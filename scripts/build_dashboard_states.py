@@ -47,6 +47,7 @@ import argparse
 import json
 import math
 import sys
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -812,6 +813,37 @@ def calc_laggard_state_v1_1(was_laggard, structural_rs, thrust_pct_1d, thrust_pc
 
 
 # ─────────────────────────────────────────────
+# FULL-UNIVERSE: Primary/Secondary Narrative context for Opportunities
+# (spec point 11: narrative context on every opportunity row, NEVER a gate
+# on quality-state logic — the quality-state functions above take no
+# narrative input at all, by construction.)
+# ─────────────────────────────────────────────
+
+def build_narrative_membership_index(narratives):
+    """{symbol: {"primary_id":, "primary_name":, "secondary_ids": [...],
+    "secondary_names": [...], "all_ids": [...]}} from build_narratives.py's
+    output (each member dict already carries assignment_priority — see
+    build_narratives.py's load_taxonomy/main). A symbol with no resolvable
+    assignment_priority on any of its memberships (e.g. legacy/degraded
+    data) contributes to all_ids but not primary/secondary — degrades
+    gracefully rather than guessing."""
+    idx = defaultdict(lambda: {"primary_id": None, "primary_name": None,
+                                "secondary_ids": [], "secondary_names": [], "all_ids": []})
+    for n in narratives:
+        for m in n["members"]:
+            entry = idx[m["symbol"]]
+            entry["all_ids"].append(n["id"])
+            priority = m.get("assignment_priority")
+            if priority == "primary":
+                entry["primary_id"] = n["id"]
+                entry["primary_name"] = n["name"]
+            elif priority == "secondary":
+                entry["secondary_ids"].append(n["id"])
+                entry["secondary_names"].append(n["name"])
+    return idx
+
+
+# ─────────────────────────────────────────────
 # CHANGE DETECTION (point 33-37)
 # ─────────────────────────────────────────────
 
@@ -988,6 +1020,13 @@ def print_sanity_check_report(opportunity_items, narrative_report_rows):
         print(f"  #{row['rank']:<3} {row['name']:<30} Score {row['structural_score']!s:>6} | "
               f"{row['lifecycle_state']:<10} | {(row['momentum_modifier'] or '-'):<13} | "
               f"Trend Participation {row['trend_participation']}")
+
+    # Full-Universe spec point 27: how well the Full-Universe classification
+    # actually reaches the Opportunity Engine's eligible universe.
+    n_with_primary = sum(1 for it in opportunity_items if it.get("primary_narrative_id"))
+    link_coverage_pct = round(n_with_primary / len(opportunity_items) * 100, 1) if opportunity_items else 100.0
+    print(f"\nOPPORTUNITY LINK: {len(opportunity_items)} Opportunity Rows | "
+          f"{n_with_primary} mit Primary Narrative | Coverage {link_coverage_pct}%")
     print("=" * 60)
 
 
@@ -1224,6 +1263,7 @@ def main():
     for n in narratives:
         for m in n["members"]:
             memberships.setdefault(m["symbol"], []).append(n["id"])
+    narrative_membership_idx = build_narrative_membership_index(narratives)
 
     bottom_members_by_narrative = {n["id"]: narrative_bottom_pct_members(n, op_cfg["laggard"]["bottom_pct_of_narrative"]) for n in narratives}
 
@@ -1273,8 +1313,19 @@ def main():
             if calc_laggard_state_v1_1(was_laggard, structural_rs, thrust_pct_1d, thrust_pct_1w, in_bottom, op_cfg):
                 laggard_narratives.append(nid)
 
+        narr_ctx = narrative_membership_idx.get(symbol) or {
+            "primary_id": None, "primary_name": None, "secondary_ids": [], "secondary_names": [], "all_ids": [],
+        }
         item = {
             "symbol": symbol, "narratives": narrative_ids,
+            # Full-Universe spec point 11: narrative context on every
+            # Opportunity row — purely informational, never a gate on
+            # quality_state/near_emas/extended/etc above (all already
+            # computed before this point, from market_features + hysteresis
+            # only).
+            "narrative_ids": narrative_ids,
+            "primary_narrative_id": narr_ctx["primary_id"], "primary_narrative_name": narr_ctx["primary_name"],
+            "secondary_narrative_ids": narr_ctx["secondary_ids"], "secondary_narrative_names": narr_ctx["secondary_names"],
             "quality_state": quality_state, "near_emas": near_emas, "extended": stock_extended,
             "constructive_reset_narratives": cr_narratives, "laggard_narratives": laggard_narratives,
             "structural_rs": structural_rs, "trend_strength": trend_strength,

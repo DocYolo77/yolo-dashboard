@@ -72,16 +72,81 @@ CHANGE_SET_TOOL_SCHEMA = {
 }
 
 
+# Full-Universe semantic classification (scripts/reconcile_narrative_universe.py,
+# NOT the weekly review): assigns exactly one PRIMARY narrative and up to
+# `max_secondary_narratives` SECONDARY narratives per ticker, from ONLY
+# fundamental/semantic information (company name, SIC, description) plus the
+# existing narrative catalog. Deliberately a separate tool schema/function
+# from propose_narrative_changes above — the weekly-review Change-Set
+# contract is untouched by this addition. The schema's `description` and the
+# caller's system prompt both forbid momentum/RS/thrust/price-performance
+# reasoning (Full-Universe spec point 16) — this call never receives that
+# data in the first place, so it structurally cannot leak in.
+CLASSIFY_TICKERS_TOOL_SCHEMA = {
+    "name": "classify_tickers",
+    "description": (
+        "Classify each given ticker into exactly one PRIMARY economic narrative and "
+        "optionally a small number of SECONDARY narratives, using ONLY the fundamental/"
+        "semantic information provided (company name, SIC code/description, company "
+        "description) plus the existing narrative catalog. NEVER reason about momentum, "
+        "relative strength, thrust, or price performance — none of that is provided to "
+        "you, and a classification must not depend on it."
+    ),
+    "input_schema": {
+        "type": "object",
+        "required": ["classifications"],
+        "properties": {
+            "classifications": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": ["ticker", "primary_narrative_id", "primary_confidence", "reasoning"],
+                    "properties": {
+                        "ticker": {"type": "string"},
+                        "primary_narrative_id": {
+                            "type": "string",
+                            "description": "Existing narrative id from the catalog. If truly none fits, "
+                                            "invent a new stable snake_case id AND set primary_is_new=true "
+                                            "with primary_new_name/primary_new_definition.",
+                        },
+                        "primary_is_new": {"type": "boolean"},
+                        "primary_new_name": {"type": "string"},
+                        "primary_new_definition": {
+                            "type": "string",
+                            "description": "Required if primary_is_new: 1-2 sentence economic/business-model definition.",
+                        },
+                        "primary_confidence": {"type": "number"},
+                        "secondary_narratives": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": ["narrative_id", "confidence"],
+                                "properties": {
+                                    "narrative_id": {"type": "string"},
+                                    "is_new": {"type": "boolean"},
+                                    "new_name": {"type": "string"},
+                                    "new_definition": {"type": "string"},
+                                    "confidence": {"type": "number"},
+                                },
+                            },
+                        },
+                        "reasoning": {"type": "string"},
+                    },
+                },
+            },
+        },
+    },
+}
+
+
 class LLMError(RuntimeError):
     pass
 
 
-def generate_proposal_changes(system_prompt, user_prompt, model=None, max_tokens=8000):
-    """Calls the configured LLM provider and returns the raw `changes` list
-    from the forced tool call. Raises LLMError on any failure — callers
-    must NOT fall back to treating a failed call as "no changes"; a failed
-    weekly review should stop the workflow, not silently produce an empty
-    (misleadingly "clean") proposal."""
+def _call_tool(system_prompt, user_prompt, tool_schema, tool_name, result_key, model, max_tokens):
+    """Shared HTTP/tool-use plumbing behind generate_proposal_changes and
+    generate_ticker_classifications — one place to get retries/error-shape
+    right for every LLM-backed call in this pipeline."""
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         raise LLMError("ANTHROPIC_API_KEY nicht gesetzt")
@@ -96,8 +161,8 @@ def generate_proposal_changes(system_prompt, user_prompt, model=None, max_tokens
         "max_tokens": max_tokens,
         "system": system_prompt,
         "messages": [{"role": "user", "content": user_prompt}],
-        "tools": [CHANGE_SET_TOOL_SCHEMA],
-        "tool_choice": {"type": "tool", "name": "propose_narrative_changes"},
+        "tools": [tool_schema],
+        "tool_choice": {"type": "tool", "name": tool_name},
     }
 
     try:
@@ -110,14 +175,33 @@ def generate_proposal_changes(system_prompt, user_prompt, model=None, max_tokens
 
     data = resp.json()
     for block in data.get("content", []):
-        if block.get("type") == "tool_use" and block.get("name") == "propose_narrative_changes":
-            changes = block.get("input", {}).get("changes")
-            if not isinstance(changes, list):
-                raise LLMError("Tool-Antwort enthält kein 'changes'-Array")
-            return changes
+        if block.get("type") == "tool_use" and block.get("name") == tool_name:
+            result = block.get("input", {}).get(result_key)
+            if not isinstance(result, list):
+                raise LLMError(f"Tool-Antwort enthält kein '{result_key}'-Array")
+            return result
 
-    raise LLMError("Keine tool_use-Antwort mit propose_narrative_changes erhalten "
-                    f"(stop_reason={data.get('stop_reason')})")
+    raise LLMError(f"Keine tool_use-Antwort mit {tool_name} erhalten (stop_reason={data.get('stop_reason')})")
+
+
+def generate_proposal_changes(system_prompt, user_prompt, model=None, max_tokens=8000):
+    """Calls the configured LLM provider and returns the raw `changes` list
+    from the forced tool call. Raises LLMError on any failure — callers
+    must NOT fall back to treating a failed call as "no changes"; a failed
+    weekly review should stop the workflow, not silently produce an empty
+    (misleadingly "clean") proposal."""
+    return _call_tool(system_prompt, user_prompt, CHANGE_SET_TOOL_SCHEMA,
+                       "propose_narrative_changes", "changes", model, max_tokens)
+
+
+def generate_ticker_classifications(system_prompt, user_prompt, model=None, max_tokens=8000):
+    """Calls the configured LLM provider and returns the raw `classifications`
+    list from the forced classify_tickers tool call (Full-Universe semantic
+    classification — see scripts/reconcile_narrative_universe.py). Raises
+    LLMError on any failure; callers must fail the batch/run rather than
+    silently publishing an unclassified ticker (Full-Universe spec point 15)."""
+    return _call_tool(system_prompt, user_prompt, CLASSIFY_TICKERS_TOOL_SCHEMA,
+                       "classify_tickers", "classifications", model, max_tokens)
 
 
 if __name__ == "__main__":

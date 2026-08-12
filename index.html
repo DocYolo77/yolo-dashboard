@@ -307,7 +307,11 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .nc-modifier-badge { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; margin-top: 6px; margin-left: 6px; display: inline-block; }
 .nc-modifier-badge.accelerating { background: rgba(61,220,115,0.15); color: var(--positive); }
 .nc-modifier-badge.cooling { background: rgba(47,126,216,0.12); color: #6ea8dc; }
-.nc-opp-summary { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; font-family: var(--mono-font); font-size: 9px; color: var(--ink-muted); }
+.nc-opp-summary { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; padding: 4px; border-radius: 3px; font-family: var(--mono-font); font-size: 9px; color: var(--ink-muted); cursor: pointer; transition: background 0.15s; }
+.nc-opp-summary:hover { background: rgba(255,255,255,0.05); }
+.nc-opp-summary:hover .nc-opp-jump { color: var(--ink-light); }
+.nc-opp-eligible { color: var(--ink-light); font-weight: 600; }
+.nc-opp-jump { margin-left: auto; opacity: 0.7; }
 
 /* OPPORTUNITIES (Punkt 05) */
 .opp-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 16px; background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 3px; padding: 3px; }
@@ -333,6 +337,8 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .opp-badge.reset { background: rgba(155,127,201,0.18); color: #9b7fc9; }
 .opp-badge.laggard { background: rgba(240,96,92,0.12); color: var(--negative); }
 .opp-narr-tag { font-family: var(--mono-font); font-size: 9px; padding: 1px 6px; border-radius: 2px; background: rgba(255,255,255,0.05); color: var(--ink-muted); white-space: nowrap; margin: 1px; display: inline-block; }
+.opp-narr-tag.primary { background: rgba(47,126,216,0.15); color: #2f7ed8; font-weight: 600; }
+.opp-narr-tag.secondary { background: rgba(255,255,255,0.04); color: var(--ink-muted); }
 
 @media (max-width: 900px) {
   .hero-top { flex-direction: column; gap: 16px; }
@@ -762,7 +768,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </div>
 
   <!-- ═══ 05 · OPPORTUNITIES ═══ -->
-  <div class="section fade-in">
+  <div class="section fade-in" id="opportunitiesSection">
     <div class="section-header">
       <span class="section-num">05</span>
       <span class="section-title">Opportunities</span>
@@ -785,6 +791,8 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
           <dd>Eine starke Aktie, die bereits deutlich von ihrer mittelfristigen Basis weggelaufen ist.</dd>
           <dt>Laggard</dt>
           <dd>Ein strukturell schwaches Mitglied eines Narratives, das innerhalb dieses Narratives deutlich hinterherhinkt.</dd>
+          <dt>Primary / Secondary Narrative</dt>
+          <dd>Jede eligible Aktie hat genau ein Primary Narrative (wirtschaftlich wichtigste Klassifikation) und optional bis zu zwei Secondary Narratives (materielles Zusatz-Exposure). Rein informativ — kein Filter für Leader/Fresh/Recent/Reset/Extended/Laggard.</dd>
         </dl>
       </span>
     </div>
@@ -1416,14 +1424,32 @@ function ncLifecycleData(narrativeId) {
 }
 function ncOpportunitySummary(narrativeId) {
   if (!dashboardState) return null;
+  // dashboardState.opportunities.items is already restricted to the
+  // eligible universe (build_dashboard_states.py only emits eligible
+  // tickers), so items.length here IS "eligible members of this narrative"
+  // (Full-Universe spec point 12).
   const items = dashboardState.opportunities.items.filter(it => it.narratives.includes(narrativeId));
   return {
+    eligible: items.length,
     leaders: items.filter(it => it.quality_state === 'leader' || it.quality_state === 'fresh_leader').length,
     fresh: items.filter(it => it.quality_state === 'fresh_leader').length,
     recent: items.filter(it => it.quality_state === 'recent_leader').length,
     resets: items.filter(it => it.constructive_reset_narratives.includes(narrativeId)).length,
     extended: items.filter(it => it.extended).length,
+    laggards: items.filter(it => it.laggard_narratives.includes(narrativeId)).length,
   };
+}
+
+// Full-Universe spec point 12: Narrative Card -> Opportunities, narrative
+// pre-filtered. Point 13 wants this combinable with the existing State
+// tabs — this only sets the Narrative filter, existing oppTab/oppSortState
+// stay whatever they already were (no hidden reset of user's other choices).
+function ncJumpToOpportunities(narrativeId, event) {
+  if (event) event.stopPropagation(); // don't also trigger the card's own onclick (ncToggleCard)
+  const sel = document.getElementById('oppFilterNarrative');
+  if (sel) { sel.value = narrativeId; oppRender(); }
+  const section = document.getElementById('opportunitiesSection');
+  if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // ── Narrative Detail View: zusaetzlicher State-Filter (Punkt 32), kombinierbar mit EMA-Filter ──
@@ -1459,7 +1485,8 @@ let oppSortState = { field: 'structural_rs', dir: 'desc' };
 
 const OPP_COLUMNS = [
   { key: 'symbol', label: 'Ticker', sortable: true },
-  { key: 'narratives', label: 'Narrative(s)', sortable: false },
+  { key: 'primary_narrative_name', label: 'Primary Narrative', sortable: true },
+  { key: 'secondary_narrative_names', label: 'Secondary Narratives', sortable: false },
   { key: 'quality_state', label: 'Quality', sortable: true },
   { key: 'badges', label: 'Badges', sortable: false },
   { key: 'structural_rs', label: 'Structural RS', sortable: true },
@@ -1514,7 +1541,8 @@ function oppSortItems(items) {
   const { field, dir } = oppSortState;
   const mul = dir === 'asc' ? 1 : -1;
   return items.slice().sort((a, b) => {
-    if (field === 'symbol' || field === 'quality_state') return mul * String(a[field]).localeCompare(String(b[field]));
+    if (field === 'symbol' || field === 'quality_state' || field === 'primary_narrative_name')
+      return mul * String(a[field] || '').localeCompare(String(b[field] || ''));
     const av = a[field] == null ? -Infinity : a[field];
     const bv = b[field] == null ? -Infinity : b[field];
     return mul * (av - bv);
@@ -1539,12 +1567,13 @@ function oppBadgesHtml(item) {
   if (item.laggard_narratives.length) badges.push('<span class="opp-badge laggard">LAGGARD</span>');
   return `<div class="opp-badges">${badges.join('')}</div>`;
 }
-function oppNarrativeName(nid) {
-  const n = narrativesRaw && narrativesRaw.narratives.find(x => x.id === nid);
-  return n ? n.name : nid;
+function oppPrimaryNarrativeHtml(item) {
+  return item.primary_narrative_name
+    ? `<span class="opp-narr-tag primary">${item.primary_narrative_name}</span>` : '<span class="muted">—</span>';
 }
-function oppNarrativeTagsHtml(item) {
-  return item.narratives.map(nid => `<span class="opp-narr-tag">${oppNarrativeName(nid)}</span>`).join('');
+function oppSecondaryNarrativeHtml(item) {
+  const names = item.secondary_narrative_names || [];
+  return names.length ? names.map(name => `<span class="opp-narr-tag secondary">${name}</span>`).join('') : '<span class="muted">—</span>';
 }
 function oppFmtNum(v, decimals) { return v == null ? '—' : v.toFixed(decimals); }
 function oppFmtPctSigned(v) { return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
@@ -1576,7 +1605,8 @@ function oppRender() {
   const rows = visible.map(it => `
     <tr>
       <td><b>${it.symbol}</b></td>
-      <td>${oppNarrativeTagsHtml(it)}</td>
+      <td>${oppPrimaryNarrativeHtml(it)}</td>
+      <td>${oppSecondaryNarrativeHtml(it)}</td>
       <td class="muted">${QUALITY_LABEL[it.quality_state] || it.quality_state}</td>
       <td>${oppBadgesHtml(it)}</td>
       <td class="muted">${oppFmtNum(it.structural_rs, 1)}</td>
@@ -2047,7 +2077,16 @@ function renderNarrativeGrid() {
       <div class="nc-momentum-score">Structural Score <b>${lc.structural_score != null ? lc.structural_score.toFixed(0) : '—'}</b>${lc.rank != null ? ` &middot; Rank #${lc.rank}` : ''}${lc.rank_delta ? `<span class="nc-rank-change ${lc.rank_delta > 0 ? 'up' : 'down'}">${lc.rank_delta > 0 ? '▲' : '▼'}${Math.abs(lc.rank_delta)}</span>` : ''}</div>
       <div class="nc-trend-participation">Trend Participation <b>${lc.trend_participation != null ? lc.trend_participation.toFixed(0) + '%' : '—'}</b></div>` : '';
     const opp = ncOpportunitySummary(narrative.id);
-    const oppSummaryHtml = opp ? `<div class="nc-opp-summary"><span>${opp.leaders} Leaders</span><span>${opp.fresh} Fresh</span><span>${opp.recent} Recent</span><span>${opp.resets} Resets</span><span>${opp.extended} Extended</span></div>` : '';
+    // Full-Universe spec point 12: eligible-member count + Opportunity-state
+    // counts, click jumps into Opportunities pre-filtered on this narrative
+    // (point 13, combinable there with the existing state tabs/filters —
+    // ncJumpToOpportunities only sets the narrative filter, nothing else).
+    const oppSummaryHtml = opp ? `<div class="nc-opp-summary" onclick="ncJumpToOpportunities('${narrative.id}', event)" title="Opportunities gefiltert auf ${narrative.name} anzeigen">
+      <span class="nc-opp-eligible">${opp.eligible} eligible</span>
+      <span>${opp.leaders} Leaders</span><span>${opp.fresh} Fresh</span><span>${opp.recent} Recent</span>
+      <span>${opp.resets} Resets</span><span>${opp.extended} Extended</span>${opp.laggards ? `<span>${opp.laggards} Laggards</span>` : ''}
+      <span class="nc-opp-jump">Opportunities →</span>
+    </div>` : '';
 
     let card = `<div class="narrative-card${isExpanded ? ' expanded' : ''}" style="background:${bg};" onclick="ncToggleCard('${narrative.id}')">
       <div class="nc-card-top">

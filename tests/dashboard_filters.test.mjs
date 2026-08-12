@@ -43,6 +43,7 @@ const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
 const oppVisibleSortedItemsSrc = extractFunction(html, 'oppVisibleSortedItems');
+const ncJumpToOpportunitiesSrc = extractFunction(html, 'ncJumpToOpportunities');
 
 const sandbox = {
   ncEmaFilter: 'all',
@@ -53,12 +54,20 @@ const sandbox = {
   dashboardState: null,
   oppTab: 'all',
   oppSortState: { field: 'leadership_score', dir: 'desc' },
+  // oppRender is a spy here (not the real, DOM-heavy implementation) — this
+  // sandbox only cares whether ncJumpToOpportunities calls it, not what it
+  // renders (oppApplyFilters/oppTabFilter above are the ones tested against
+  // the real logic).
+  oppRenderCallCount: 0,
+  oppRender() { sandbox.oppRenderCallCount++; },
   // Minimal DOM stub for the Opportunities filter inputs — oppApplyFilters
   // reads these directly via getElementById, same as the real page.
+  // scrollIntoView is a no-op spy so ncJumpToOpportunities's section-scroll
+  // call doesn't throw in a DOM-less sandbox.
   document: {
     _elements: {},
     getElementById(id) {
-      if (!this._elements[id]) this._elements[id] = { value: '', checked: false };
+      if (!this._elements[id]) this._elements[id] = { value: '', checked: false, scrollIntoView() {} };
       return this._elements[id];
     },
   },
@@ -68,7 +77,7 @@ vm.createContext(sandbox);
 vm.runInContext(
   `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncIsAtrExtendedSrc}\n${ncEmaFilterMembersSrc}\n${ncSortMembersSrc}\n` +
   `${ncMemberOpportunityStateSrc}\n${ncStateFilterMembersSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n` +
-  `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}`,
+  `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n${ncJumpToOpportunitiesSrc}`,
   sandbox
 );
 
@@ -342,4 +351,53 @@ test('oppVisibleSortedItems: empty dashboardState degrades gracefully to empty l
   sandbox.dashboardState = null;
   const visible = vm.runInContext('oppVisibleSortedItems()', sandbox);
   assert.deepEqual(Array.from(visible), []);
+});
+
+// ── Full-Universe: Narrative filter combinable with State tabs (Punkt 13/L) ──
+
+test('Narrative filter (memory) + State tab (leaders) combine to a narrower set than either alone', () => {
+  sandbox.dashboardState = { opportunities: { items: makeOppItems() } };
+  sandbox.oppTab = 'leaders';
+  setOppFilterInputs({ oppFilterNarrative: 'memory' });
+  const visible = vm.runInContext('oppVisibleSortedItems()', sandbox);
+  // makeOppItems: MU is memory+fresh_leader (leader-like) -> passes both.
+  // VRT is ai_infra+leader -> fails the narrative filter.
+  // SNDK is memory+neutral -> fails the state tab.
+  assert.deepEqual(Array.from(visible).map(it => it.symbol), ['MU']);
+  setOppFilterInputs({});
+  sandbox.oppTab = 'all';
+  sandbox.dashboardState = null;
+});
+
+test('Narrative filter = ALL (empty selection) + a state tab behaves like the tab alone', () => {
+  sandbox.dashboardState = { opportunities: { items: makeOppItems() } };
+  sandbox.oppTab = 'recent';
+  setOppFilterInputs({ oppFilterNarrative: '' });
+  const visible = vm.runInContext('oppVisibleSortedItems()', sandbox);
+  assert.deepEqual(Array.from(visible).map(it => it.symbol), ['WDC']);
+  sandbox.oppTab = 'all';
+  sandbox.dashboardState = null;
+});
+
+// ── Full-Universe: Narrative Card -> Opportunities jump (Punkt 12/M) ──
+
+test('ncJumpToOpportunities sets the narrative filter and triggers a re-render', () => {
+  sandbox.oppRenderCallCount = 0;
+  sandbox.document._elements.oppFilterNarrative = { value: '', checked: false, scrollIntoView() {} };
+  vm.runInContext(`ncJumpToOpportunities('ai_infra')`, sandbox);
+  assert.equal(sandbox.document._elements.oppFilterNarrative.value, 'ai_infra');
+  assert.equal(sandbox.oppRenderCallCount, 1);
+});
+
+test('ncJumpToOpportunities stops the click from also toggling the narrative card (event.stopPropagation)', () => {
+  let stopPropagationCalled = false;
+  const fakeEvent = { stopPropagation: () => { stopPropagationCalled = true; } };
+  vm.runInContext('ncJumpToOpportunities', sandbox)('semiconductors', fakeEvent);
+  assert.equal(stopPropagationCalled, true);
+});
+
+test('ncJumpToOpportunities does not throw when the event is omitted (called without a click)', () => {
+  assert.doesNotThrow(() => {
+    vm.runInContext('ncJumpToOpportunities', sandbox)('semiconductors');
+  });
 });

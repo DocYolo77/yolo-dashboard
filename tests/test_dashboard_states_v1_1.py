@@ -29,6 +29,7 @@ from build_dashboard_states import (  # noqa: E402
     detect_stock_changes_v1_1,
     apply_confirm_days,
     select_lifecycle_state,
+    build_narrative_membership_index,
 )
 
 
@@ -373,3 +374,38 @@ def test_detect_stock_changes_v1_1_leader_to_recent_leader_is_not_new_recent_lea
     types = {e["type"] for e in events}
     assert "leadership_lost" in types
     assert "new_recent_leader" not in types
+
+
+# ── Full-Universe: Primary/Secondary Narrative context (point 11/N) ──
+
+def test_build_narrative_membership_index_resolves_primary_and_secondary():
+    narratives = [
+        {"id": "n1", "name": "Narrative One",
+         "members": [{"symbol": "AAA", "assignment_priority": "primary"},
+                     {"symbol": "BBB", "assignment_priority": "secondary"}]},
+        {"id": "n2", "name": "Narrative Two",
+         "members": [{"symbol": "AAA", "assignment_priority": "secondary"}]},
+    ]
+    idx = build_narrative_membership_index(narratives)
+    assert idx["AAA"]["primary_id"] == "n1"
+    assert idx["AAA"]["primary_name"] == "Narrative One"
+    assert idx["AAA"]["secondary_ids"] == ["n2"]
+    assert idx["AAA"]["secondary_names"] == ["Narrative Two"]
+    assert idx["AAA"]["all_ids"] == ["n1", "n2"]
+
+    assert idx["BBB"]["primary_id"] is None  # BBB is only ever secondary
+    assert idx["BBB"]["secondary_ids"] == ["n1"]
+
+
+def test_build_narrative_membership_index_degrades_gracefully_without_assignment_priority():
+    narratives = [{"id": "n1", "name": "Narrative One", "members": [{"symbol": "AAA"}]}]
+    idx = build_narrative_membership_index(narratives)
+    assert idx["AAA"]["primary_id"] is None
+    assert idx["AAA"]["secondary_ids"] == []
+    assert idx["AAA"]["all_ids"] == ["n1"]  # still tracked as a membership, just unresolved priority
+
+
+def test_build_narrative_membership_index_unknown_symbol_returns_default_shape():
+    idx = build_narrative_membership_index([])
+    entry = idx["NOT_PRESENT"]
+    assert entry == {"primary_id": None, "primary_name": None, "secondary_ids": [], "secondary_names": [], "all_ids": []}

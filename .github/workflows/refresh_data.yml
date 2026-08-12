@@ -3,15 +3,21 @@ name: Refresh Dashboard Data
 on:
   # Nachbörslich, direkt nach NYSE-Handelsschluss: 16:05 America/New_York.
   # Zwei Cron-Einträge, da GitHub Actions keine Zeitzonen mit DST kennt —
-  # beide laufen ganzjährig; der jeweils "falsche" Lauf (Markt zu diesem
-  # Zeitpunkt noch nicht/schon länger geschlossen) ist unkritisch, da der
-  # Build idempotent ist (kein Diff → kein Commit).
+  # beide laufen ganzjährig, aber der "NY time-zone guard" Step unten lässt
+  # NUR den Lauf tatsächlich durch, dessen lokale NY-Zeit gerade 16 Uhr ist
+  # (Full-Universe-Spec Punkt 18) — der jeweils falsche Slot bricht sauber
+  # nach Checkout+Setup ab, ohne Build/Commit.
   schedule:
-    - cron: '5 20 * * 1-5'   # Mo-Fr 16:05 EDT (Sommerzeit, UTC-4)
-    - cron: '5 21 * * 1-5'   # Mo-Fr 16:05 EST (Winterzeit, UTC-5)
+    - cron: '5 20 * * 1-5'   # 16:05 EDT (Sommerzeit, UTC-4) bzw. 15:05 EST
+    - cron: '5 21 * * 1-5'   # 16:05 EST (Winterzeit, UTC-5) bzw. 17:05 EDT
 
-  # Manual trigger
+  # Manual trigger — der Time-Guard wird hier NIE angewendet (Punkt 18).
   workflow_dispatch:
+    inputs:
+      full_narrative_rebuild:
+        description: "Full-Universe Narrative Classification (--full-universe) statt taeglicher inkrementeller Reconciliation"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -19,7 +25,7 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -32,19 +38,34 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Build dashboard data
+      # New-York-Time Guard (Punkt 18): GitHub Actions cron kennt keine DST-
+      # Zeitzonen, daher laufen beide UTC-Cron-Eintraege ganzjaehrig — dieser
+      # Step laesst den restlichen Build NUR durch, wenn die lokale Zeit in
+      # America/New_York gerade 16 Uhr ist. Logik lebt in scripts/dst_guard.sh
+      # (unit-getestet in tests/test_dst_guard.py) statt inline hier, damit
+      # Workflow und Test dieselbe Implementierung teilen. Bei
+      # workflow_dispatch immer RUN, unabhaengig von der Uhrzeit.
+      - name: New York time-zone guard
+        id: tzguard
+        run: |
+          RESULT=$(bash scripts/dst_guard.sh "${{ github.event_name }}")
+          echo "should_run=$RESULT" >> "$GITHUB_OUTPUT"
+          echo "Time-Guard Ergebnis: should_run=$RESULT"
+
+      - name: Build dashboard data (QQQ/SPY snapshot, breadth)
+        if: steps.tzguard.outputs.should_run == 'true'
         timeout-minutes: 15
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/build_data.py --out-dir data
 
-      # V1.1: persistent, incrementally-updated rolling-window price-history
-      # cache (260 trading sessions) — lives OUTSIDE git (see .gitignore),
-      # persisted across runs via actions/cache instead of committing a
-      # ~30MB build artifact to repo history. Save key is unique per run
-      # (GH Actions cache keys are immutable once written); restore-keys
-      # falls back to the most recent previous run's cache via prefix match.
+      # V1.1: persistenter, inkrementell aktualisierter Preis-History-Cache
+      # (260 Handelstage) — lebt ausserhalb von Git, wird zwischen Laeufen
+      # per actions/cache persistiert. Save-Key ist pro Run eindeutig (GH-
+      # Actions-Cache-Keys sind nach dem Schreiben unveraenderlich);
+      # restore-keys fallen auf den letzten vorherigen Lauf zurueck.
       - name: Restore price-history cache
+        if: steps.tzguard.outputs.should_run == 'true'
         uses: actions/cache/restore@v4
         with:
           path: .cache/market_history.json
@@ -53,33 +74,75 @@ jobs:
             market-history-
 
       - name: Build full-market features (universe/ADR/RS/EMA/ATR/Structural RS/Trend Strength)
+        if: steps.tzguard.outputs.should_run == 'true'
         timeout-minutes: 20
         env:
           MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
         run: python scripts/build_market_features.py --out-dir data
 
-      - name: Save price-history cache
-        if: always()
-        uses: actions/cache/save@v4
+      # Full-Universe Narrative Engine: haelt die persistente semantische
+      # Taxonomie (data/taxonomy/narratives.json) mit dem heutigen eligible
+      # Universe synchron (STAYED/ENTERED/REENTERED/EXITED, Punkt 6) und
+      # klassifiziert echte Neuzugaenge rein semantisch (Ticker/Name/SIC/
+      # Description, KEIN Momentum, Punkt 16). --full-universe nur bei
+      # manuellem Trigger mit gesetztem Input (Punkt 20) — der taegliche
+      # Scheduled Run nutzt ausschliesslich den inkrementellen Modus.
+      - name: Restore narrative classification checkpoint (Full-Universe resumability)
+        if: steps.tzguard.outputs.should_run == 'true'
+        uses: actions/cache/restore@v4
         with:
-          path: .cache/market_history.json
-          key: market-history-${{ github.run_id }}
+          path: .cache/narrative_classification_checkpoint.jsonl
+          key: narrative-classification-${{ github.run_id }}
+          restore-keys: |
+            narrative-classification-
+
+      - name: Narrative Universe Reconciliation (semantic classification)
+        if: steps.tzguard.outputs.should_run == 'true'
+        timeout-minutes: 60
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.full_narrative_rebuild }}" = "true" ]; then
+            echo "Full-Universe-Modus (manuell angefordert)"
+            python scripts/reconcile_narrative_universe.py --out-dir data --full-universe
+          else
+            echo "Inkrementeller Modus (taeglich)"
+            python scripts/reconcile_narrative_universe.py --out-dir data
+          fi
 
       - name: Build narratives data
+        if: steps.tzguard.outputs.should_run == 'true'
         timeout-minutes: 15
         env:
           MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
         run: python scripts/build_narratives.py --out-dir data --market-features data/market_features.json
 
-      - name: Build V1 dashboard states (Market Regime/QQQ Health/Lifecycle/Opportunities)
+      - name: Build V1.1 dashboard states (Market Regime/QQQ Health/Lifecycle/Opportunities)
+        if: steps.tzguard.outputs.should_run == 'true'
         timeout-minutes: 5
         run: python scripts/build_dashboard_states.py --out-dir data
 
       - name: Sanity-check computed data (pytest)
+        if: steps.tzguard.outputs.should_run == 'true'
         timeout-minutes: 5
         run: pip install -r requirements-dev.txt && python -m pytest tests/ -q
 
+      - name: Save price-history cache
+        if: steps.tzguard.outputs.should_run == 'true' && always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/market_history.json
+          key: market-history-${{ github.run_id }}
+
+      - name: Save narrative classification checkpoint
+        if: steps.tzguard.outputs.should_run == 'true' && always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/narrative_classification_checkpoint.jsonl
+          key: narrative-classification-${{ github.run_id }}
+
       - name: Commit and push data
+        if: steps.tzguard.outputs.should_run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

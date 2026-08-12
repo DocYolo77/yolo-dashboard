@@ -118,9 +118,18 @@ def load_config(path="config/narrative_engine.json"):
 
 def load_taxonomy(path, legacy_path="data/narratives_map.json"):
     """Reads the structured Source of Truth (data/taxonomy/narratives.json:
-    tickers as {SYMBOL: {role, confidence, ...}}). Falls back to the legacy
-    flat-list format (data/narratives_map.json: tickers as [SYMBOL, ...])
-    with a warning if the new file isn't present yet."""
+    tickers as {SYMBOL: {role, assignment_priority, confidence, ...}}).
+    Falls back to the legacy flat-list format (data/narratives_map.json:
+    tickers as [SYMBOL, ...]) with a warning if the new file isn't present
+    yet — legacy narratives get no membership_meta (assignment_priority
+    lookups degrade to None, same graceful-degradation rule as everywhere
+    else in this pipeline).
+
+    `tickers` stays a plain sorted list (every existing caller iterates it
+    as such); `membership_meta` is new and carries the per-ticker
+    assignment_priority/role needed for the Full-Universe Primary/Secondary
+    Narrative context (Opportunities linkage) without disturbing any
+    existing consumer."""
     p = Path(path)
     if not p.exists():
         print(f"  ⚠ {path} nicht gefunden, falle zurueck auf Legacy-Taxonomie {legacy_path}", file=sys.stderr)
@@ -132,12 +141,20 @@ def load_taxonomy(path, legacy_path="data/narratives_map.json"):
     narratives = []
     for n in data["narratives"]:
         tickers = n["tickers"]
-        member_list = sorted(tickers.keys()) if isinstance(tickers, dict) else list(tickers)
+        if isinstance(tickers, dict):
+            member_list = sorted(tickers.keys())
+            membership_meta = {sym: {"assignment_priority": meta.get("assignment_priority"),
+                                       "role": meta.get("role")}
+                                for sym, meta in tickers.items()}
+        else:
+            member_list = list(tickers)
+            membership_meta = {}
         narratives.append({
             "id": n["id"],
             "name": n["name"],
             "status": n.get("status", "active"),
             "tickers": member_list,
+            "membership_meta": membership_meta,
         })
     universe = sorted({t for n in narratives for t in n["tickers"]})
     return narratives, universe
@@ -380,7 +397,7 @@ def basket_daily_return_series(daily_ret, members):
     return daily_ret[cols].median(axis=1, skipna=True)
 
 
-def compute_narrative_rs_history(narratives, daily_ret, trading_days, lookback_days=RS_HISTORY_LOOKBACK_DAYS):
+def compute_narrative_rs_history(narratives, daily_ret, trading_days, eligible_set=None, lookback_days=RS_HISTORY_LOOKBACK_DAYS):
     """Basket-vs-SPY relative-strength time series per narrative, for the
     dashboard's 'Benchmark' comparison chart. Same basket daily-return series
     as Strength/Thrust (basket_daily_return_series), compounded from the
@@ -389,7 +406,14 @@ def compute_narrative_rs_history(narratives, daily_ret, trading_days, lookback_d
     always the flat 0% baseline the chart draws as a dashed line. Returns
     None (with a warning) if SPY wasn't in the fetched universe or has too
     little history — the frontend degrades to an empty-state message rather
-    than crashing, matching load_market_features' graceful-fallback pattern."""
+    than crashing, matching load_market_features' graceful-fallback pattern.
+
+    `eligible_set` restricts basket membership the SAME way as the main
+    Strength/Thrust/Breadth/Leadership calculation below (Full-Universe spec
+    point 8) — a historically-classified-but-currently-ineligible ticker
+    must not silently keep steering the Benchmark chart either. None (the
+    default) means "no eligibility filter" — same graceful-degradation
+    fallback as everywhere market_features may be unavailable."""
     if "SPY" not in daily_ret.columns:
         print("  ⚠ SPY nicht in den geladenen Kursdaten enthalten — Benchmark-RS-Historie übersprungen", file=sys.stderr)
         return None
@@ -403,7 +427,8 @@ def compute_narrative_rs_history(narratives, daily_ret, trading_days, lookback_d
 
     series_by_narrative = {}
     for n in narratives:
-        members = [t for t in n["tickers"] if t in daily_ret.columns]
+        members = [t for t in n["tickers"]
+                   if t in daily_ret.columns and (eligible_set is None or t in eligible_set)]
         if not members:
             continue
         basket_ret = basket_daily_return_series(daily_ret, members).reindex(window_dates)
@@ -554,13 +579,26 @@ def main():
         m["structural_rs"] = mf.get("structural_rs")
         m["trend_strength"] = mf.get("trend_strength")
 
+    # Full-Universe spec point 8: every narrative-level metric (Strength/
+    # Thrust/Breadth/Leadership/Structural Leadership/Trend Participation/
+    # Structural Score) uses ONLY members that are BOTH semantically
+    # classified into this narrative AND currently market_features.eligible
+    # — a historically-classified-but-now-ineligible ticker keeps its
+    # taxonomy membership (point 7) but stops moving any narrative number.
+    # None (not a set) when market_features itself is unavailable: the
+    # existing curated-universe fallback mode has no eligibility concept to
+    # filter on, so it degrades to "use every taxonomy member", same as before.
+    eligible_set = None if market_features is None else \
+        {sym for sym, t in market_features.items() if t.get("eligible")}
+
     # Pass 1: per-narrative basket scores (unchanged existing methodology,
     # now also covering the new 3M/6M horizons) + raw structural inputs.
     narrative_rows = []
     for n in narratives:
-        members = [t for t in n["tickers"] if t in ticker_metrics]
+        members = [t for t in n["tickers"]
+                   if t in ticker_metrics and (eligible_set is None or t in eligible_set)]
         if not members:
-            print(f"  ⚠ {n['name']}: keine Daten für Mitglieder, übersprungen")
+            print(f"  ⚠ {n['name']}: keine eligible Mitglieder mit Daten, übersprungen")
             continue
         scores = calc_basket_scores(members, ticker_metrics, daily_ret, pct_field_by_horizon, percentiles_by_horizon)
         pct_above_sma50, pct_rising_sma50, pct_above_rising_sma50 = calc_trend_participation(members, market_features)
@@ -568,7 +606,7 @@ def main():
             members, market_features, struct_cfg["structural_leadership_rs_threshold"])
         narrative_rows.append({
             "id": n["id"], "name": n["name"], "status": n.get("status", "active"),
-            "members": members, "scores": scores,
+            "members": members, "scores": scores, "membership_meta": n.get("membership_meta", {}),
             "pct_above_sma50": pct_above_sma50, "pct_rising_sma50": pct_rising_sma50,
             "pct_above_rising_sma50": pct_above_rising_sma50,
             "structural_leadership_pct": structural_leadership_pct,
@@ -619,7 +657,13 @@ def main():
             "status": row["status"],
             "n_members": len(members),
             "scores": scores,
-            "members": [ticker_metrics[m] for m in members],
+            # Shallow copy per narrative (not the shared ticker_metrics dict
+            # itself) — a ticker's assignment_priority is per-(narrative,
+            # ticker), e.g. "primary" here but "secondary" in another
+            # narrative this same ticker also belongs to (point 10/11).
+            "members": [{**ticker_metrics[m],
+                         "assignment_priority": row["membership_meta"].get(m, {}).get("assignment_priority")}
+                        for m in members],
             # V1.1 point 17-22: Structural Score replaces the old 1W-heavy
             # Momentum Score as the primary narrative ranking metric. Thrust
             # stays visible inside `scores` (per-horizon) but is no longer a
@@ -645,10 +689,24 @@ def main():
         print(f"  ✅ {row['name']}: {len(members)} Ticker | Structural Score {narrative_structural_score} | "
               f"Trend Participation {row['pct_above_rising_sma50']} | Modifier {momentum_modifier}")
 
-    rs_history = compute_narrative_rs_history(narratives, daily_ret, trading_days)
+    rs_history = compute_narrative_rs_history(
+        narratives, daily_ret, trading_days,
+        eligible_set if eligible_set is not None else set(universe))
     if rs_history is not None:
         print(f"  ✅ Benchmark-RS-Historie: {len(rs_history['narratives'])} Narrative x "
               f"{rs_history['lookback_trading_days']} Handelstage vs. SPY")
+
+    # Full-Universe spec point 23: distinguish the WHOLE market's eligible
+    # universe (eligible_universe_size, from market_features — independent
+    # of narrative classification) from what's actually classified+eligible
+    # right now. total_active_memberships can exceed
+    # unique_classified_eligible_members because Secondary memberships are
+    # real, counted memberships, not a subset (point 23: "das ist korrekt").
+    unique_classified_eligible = {m["symbol"] for row in output_narratives for m in row["members"]}
+    total_active_memberships = sum(row["n_members"] for row in output_narratives)
+    eligible_universe_size = len(eligible_set) if eligible_set is not None else len(universe)
+    coverage_pct = round(len(unique_classified_eligible) / eligible_universe_size * 100, 1) \
+        if eligible_universe_size else 100.0
 
     output = {
         "meta": {
@@ -657,6 +715,10 @@ def main():
             "trading_days_used": len(trading_days),
             "date_range": [trading_days[0], trading_days[-1]] if trading_days else None,
             "universe_size": len(universe),
+            "eligible_universe_size": eligible_universe_size,
+            "unique_classified_eligible_members": len(unique_classified_eligible),
+            "total_active_memberships": total_active_memberships,
+            "coverage_pct": coverage_pct,
         },
         "narratives": output_narratives,
         "rs_history": rs_history,

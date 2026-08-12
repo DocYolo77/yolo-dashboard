@@ -1,12 +1,40 @@
 #!/usr/bin/env python3
 """
 YOLO Dashboard — Weekly AI Narrative Review
-Orchestrates the semantic half of the Narrative Engine:
+Orchestrates the QUALITY half of the Narrative Engine — coverage/scale is
+NOT its job anymore (Full-Universe spec point 17). Every eligible ticker
+already gets a Primary Narrative daily via scripts/reconcile_narrative_universe.py
+(semantic classification from ticker/name/SIC/description only, batched,
+100%-coverage-enforced). This script runs on top of that, weekly, and asks
+narrower questions a same-day incremental classifier can't:
 
-  1. Build a deterministic Discovery pool (momentum-qualifying tickers not
-     yet in the taxonomy) and a Maintenance pool (all current taxonomy
-     members, regardless of current momentum — weak price action must
-     never by itself remove a ticker from a narrative).
+  - Did a ticker get semantically MISCLASSIFIED (wrong Primary/Secondary)?
+  - Did a company's business model change, get acquired, or delist, such
+    that an existing membership is now factually wrong (REMOVE, with a
+    reason code — weak price action is explicitly NEVER a valid reason)?
+  - Are any Secondary memberships still materially justified?
+  - Are two narratives redundant enough to MERGE, or one broad enough to
+    SPLIT? (never auto-applied — always proposal-only, point 5/17)
+  - Are there genuinely new economic clusters the daily classifier's
+    ticket-by-ticket view wouldn't surface (CREATE)?
+
+Because the taxonomy is now Full-Universe-sized (~1000+ tickers, not the
+old ~150-ticker curated set), the maintenance pool below is capped and
+staleness-prioritized (MAX_MAINTENANCE_MEMBERS_IN_PROMPT) rather than sent
+in full — a full taxonomy dump would blow the LLM context AND defeats the
+point of a fast, focused prompt. The taxonomy is large enough that no
+single weekly run can meaningfully re-examine everything at once; picking
+the least-recently-reviewed slice each week means the whole taxonomy
+rotates through review over several weeks, rather than always re-checking
+the same head of the list. The old Discovery pool (momentum-qualifying
+tickers not yet in the taxonomy) still exists structurally, but in normal
+operation it stays near-empty: daily reconciliation classifies real new
+entries same-day, so this pool now mainly catches unusual momentum
+clusters worth a second semantic look, not the primary coverage mechanism
+it used to be (point 17's explicit point).
+
+Orchestration, otherwise unchanged from before:
+  1. Build the (now capped/rotating) Discovery pool + Maintenance pool.
   2. Ask the LLM (via scripts/llm_provider.py) for a structured Change Set
      ONLY — never a full taxonomy replacement.
   3. Run the change set through scripts/validate_narrative_proposal.py.
@@ -39,8 +67,16 @@ from validate_narrative_proposal import validate_proposal  # noqa: E402
 import llm_provider  # noqa: E402
 
 MAX_DISCOVERY_CANDIDATES_IN_PROMPT = 150
+MAX_MAINTENANCE_MEMBERS_IN_PROMPT = 150
 
 SYSTEM_PROMPT = """Du bist der wöchentliche Narrative-Review-Assistent eines Trading-Dashboards.
+
+Wichtig: fast jeder eligible Ticker hat bereits taeglich eine automatische semantische
+Erstklassifikation (Primary + ggf. Secondary Narrative) erhalten. Deine Aufgabe ist NICHT,
+Coverage aufzubauen, sondern die QUALITAET bestehender Klassifikationen zu pruefen: echte
+Fehlzuordnungen, Geschaeftsmodelländerungen/M&A/Delisting, fragwuerdige Secondary-Memberships,
+redundante oder zu breite Narrative (Merge/Split-Vorschlaege), sowie echte neue wirtschaftliche
+Cluster, die eine Ticker-fuer-Ticker-Klassifikation nicht erkennen wuerde.
 
 Deine einzige Aufgabe: wirtschaftliche/semantische Einschätzungen zu Aktien-Narrativen liefern,
 als strukturierter Change Set über das Tool `propose_narrative_changes`.
@@ -106,27 +142,37 @@ def build_discovery_pool(market_features, taxonomy_tickers):
     return candidates[:MAX_DISCOVERY_CANDIDATES_IN_PROMPT]
 
 
-def build_maintenance_pool(market_features, taxonomy):
+def build_maintenance_pool(market_features, taxonomy, max_members=MAX_MAINTENANCE_MEMBERS_IN_PROMPT):
+    """Full-Universe spec point 17: the taxonomy is now ~1000+ tickers, so
+    'all current members' can no longer mean literally every membership in
+    one prompt (context limit, and it would swamp the signal). Sorted by
+    last_reviewed_at ascending (missing = treated as oldest, i.e. reviewed
+    first) and capped — the whole taxonomy rotates through weekly review
+    over several runs instead of a single unbounded dump."""
     tickers = market_features["tickers"]
-    out = []
+    rows = []
     for n in taxonomy["narratives"]:
         for sym, meta in n["tickers"].items():
             t = tickers.get(sym, {})
-            out.append({
+            rows.append({
                 "narrative": n["id"],
                 "ticker": sym,
                 "role": meta.get("role"),
+                "assignment_priority": meta.get("assignment_priority"),
+                "last_reviewed_at": meta.get("last_reviewed_at"),
                 "eligible": t.get("eligible"),
                 "rs_percentile_1w": t.get("rs_percentile_1w"),
                 "rs_percentile_1m": t.get("rs_percentile_1m"),
                 "sic_description": t.get("sic_description"),
             })
-    return out
+    rows.sort(key=lambda r: r["last_reviewed_at"] or "")
+    return rows[:max_members]
 
 
 def build_user_prompt(taxonomy, discovery_pool, maintenance_pool, config):
     taxonomy_summary = [
-        {"id": n["id"], "name": n["name"], "status": n["status"], "members": list(n["tickers"].keys())}
+        {"id": n["id"], "name": n["name"], "status": n["status"], "member_count": len(n["tickers"]),
+         "sample_members": sorted(n["tickers"].keys())[:10]}
         for n in taxonomy["narratives"]
     ]
     payload = {
