@@ -1,0 +1,1122 @@
+{
+  "date": "2026-08-11",
+  "market_regime": {
+    "score": 59.1,
+    "state": "SELECTIVE"
+  },
+  "qqq_health": {
+    "score": 74.5,
+    "base_state": "HEALTHY",
+    "modifiers": [
+      "NARROWING"
+    ],
+    "extended": false
+  },
+  "narratives": {
+    "memory_storage": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 18.0,
+      "rank": 19,
+      "leadership_1w": 0.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "semiconductors": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 24.0,
+      "rank": 14,
+      "leadership_1w": 0.0,
+      "fading_streak": 0,
+      "dormant_streak": 1
+    },
+    "photonics_optical": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 42.8,
+      "rank": 11,
+      "leadership_1w": 60.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "ai_infrastructure": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 18.6,
+      "rank": 17,
+      "leadership_1w": 0.0,
+      "fading_streak": 1,
+      "dormant_streak": 0
+    },
+    "data_center": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 23.3,
+      "rank": 15,
+      "leadership_1w": 0.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "networking": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 19.2,
+      "rank": 16,
+      "leadership_1w": 0.0,
+      "fading_streak": 0,
+      "dormant_streak": 1
+    },
+    "cybersecurity": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 57.6,
+      "rank": 8,
+      "leadership_1w": 20.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "software_saas": {
+      "lifecycle_state": "ACTIVE",
+      "momentum_score": 79.5,
+      "rank": 4,
+      "leadership_1w": 100.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "space": {
+      "lifecycle_state": "ACTIVE",
+      "momentum_score": 86.8,
+      "rank": 2,
+      "leadership_1w": 60.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "nuclear": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 64.9,
+      "rank": 6,
+      "leadership_1w": 20.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "uranium": {
+      "lifecycle_state": "ACTIVE",
+      "momentum_score": 83.0,
+      "rank": 3,
+      "leadership_1w": 80.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "defense_aerospace": {
+      "lifecycle_state": "MATURE",
+      "momentum_score": 67.2,
+      "rank": 5,
+      "leadership_1w": 100.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "fintech": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 18.5,
+      "rank": 18,
+      "leadership_1w": 0.0,
+      "fading_streak": 1,
+      "dormant_streak": 0
+    },
+    "biotech": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 45.5,
+      "rank": 10,
+      "leadership_1w": 0.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "quantum_computing": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 34.4,
+      "rank": 12,
+      "leadership_1w": 0.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "ev_battery": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 56.2,
+      "rank": 9,
+      "leadership_1w": 0.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "solar_clean_energy": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 32.2,
+      "rank": 13,
+      "leadership_1w": 0.0,
+      "fading_streak": 0,
+      "dormant_streak": 1
+    },
+    "robotics_automation": {
+      "lifecycle_state": "NEUTRAL",
+      "momentum_score": 63.3,
+      "rank": 7,
+      "leadership_1w": 25.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    },
+    "gold___precious_metals_miners": {
+      "lifecycle_state": "ACTIVE",
+      "momentum_score": 92.1,
+      "rank": 1,
+      "leadership_1w": 100.0,
+      "fading_streak": 0,
+      "dormant_streak": 0
+    }
+  },
+  "stocks": {
+    "ACHR": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 98.3
+    },
+    "ADBE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 59.1
+    },
+    "AFRM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 38.0
+    },
+    "AMAT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 27.5
+    },
+    "AMD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 14.8
+    },
+    "AMPL": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 98.6
+    },
+    "ANET": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 66.0
+    },
+    "APPN": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 97.3
+    },
+    "ARM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 26.0
+    },
+    "ASTS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "space"
+      ],
+      "rs_1w": 56.2
+    },
+    "AVAV": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 91.8
+    },
+    "AXTI": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 88.1
+    },
+    "BTG": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 98.7
+    },
+    "CBRS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 64.4
+    },
+    "CIEN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 21.3
+    },
+    "COHR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 53.6
+    },
+    "COIN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 39.6
+    },
+    "CRDO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 67.1
+    },
+    "CRWD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 71.1
+    },
+    "DDOG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 6.6
+    },
+    "DELL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 21.8
+    },
+    "DNN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 85.1
+    },
+    "EGO": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.1
+    },
+    "ENPH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 52.7
+    },
+    "EXTR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 1.4
+    },
+    "FFIV": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 49.0
+    },
+    "FIVN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 82.3
+    },
+    "FSLR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 40.9
+    },
+    "FSLY": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 91.2
+    },
+    "FTNT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 27.8
+    },
+    "GEV": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 43.1
+    },
+    "GTLB": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 91.5
+    },
+    "HOOD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 51.2
+    },
+    "HPE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 65.6
+    },
+    "HUBS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 9.8
+    },
+    "HYMC": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.4
+    },
+    "IAG": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.0
+    },
+    "IAUX": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 93.9
+    },
+    "ILMN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 23.5
+    },
+    "INTC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 30.6
+    },
+    "IONQ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 67.2
+    },
+    "KLAC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 60.0
+    },
+    "KRMN": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 90.4
+    },
+    "KTOS": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.2
+    },
+    "LCID": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 7.0
+    },
+    "LEU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 46.4
+    },
+    "LITE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 29.1
+    },
+    "LRCX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 37.1
+    },
+    "LUNR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 93.7
+    },
+    "MCHP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 49.1
+    },
+    "MDB": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 91.6
+    },
+    "MRNA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 75.8
+    },
+    "MRVL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 32.1
+    },
+    "MU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 33.1
+    },
+    "NET": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 56.1
+    },
+    "NG": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 95.4
+    },
+    "NNE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 76.4
+    },
+    "NOK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 24.2
+    },
+    "NOW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 79.4
+    },
+    "NTAP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 67.7
+    },
+    "NTLA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 75.3
+    },
+    "NXPI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 43.5
+    },
+    "OKLO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 80.6
+    },
+    "OKTA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 55.2
+    },
+    "ON": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 48.9
+    },
+    "ONTO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 85.4
+    },
+    "PANW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 69.7
+    },
+    "PATH": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 85.9
+    },
+    "PL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "space"
+      ],
+      "rs_1w": 65.7
+    },
+    "PLTR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 78.5
+    },
+    "PPTA": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.3
+    },
+    "QBTS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 17.5
+    },
+    "QCOM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 46.8
+    },
+    "QUBT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 31.5
+    },
+    "RDW": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 97.9
+    },
+    "RGTI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 65.1
+    },
+    "RIVN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 65.8
+    },
+    "RKLB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 78.1
+    },
+    "RUN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 13.4
+    },
+    "S": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 77.6
+    },
+    "SEDG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 0.6
+    },
+    "SHOP": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.8
+    },
+    "SMCI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 44.6
+    },
+    "SMR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 67.8
+    },
+    "SNDK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 10.6
+    },
+    "SNOW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 72.7
+    },
+    "SOFI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 27.4
+    },
+    "STX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 31.9
+    },
+    "SWKS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 58.5
+    },
+    "SYM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 8.8
+    },
+    "TEAM": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 99.5
+    },
+    "TENB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 71.9
+    },
+    "TWLO": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 99.1
+    },
+    "U": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 97.2
+    },
+    "UEC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 81.5
+    },
+    "UPST": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 39.8
+    },
+    "UROY": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 97.1
+    },
+    "UUUU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 90.5
+    },
+    "VOYG": {
+      "quality_state": "leader",
+      "leader_age_days": 1,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 98.4
+    },
+    "VRT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 68.5
+    },
+    "VST": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 52.1
+    },
+    "WDAY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 74.7
+    },
+    "WDC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 3.5
+    },
+    "WOLF": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 85.7
+    },
+    "ZS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 82.0
+    }
+  }
+}
