@@ -173,6 +173,42 @@ def calc_narrative_environment_score(narratives):
     return {"score": score, **components}
 
 
+def calc_narrative_environment_score_v1_1(narratives):
+    """Narrative Environment subscore — V1.1 point 25: reworked to be
+    STRUCTURAL, no 1W Thrust component (the old calc_narrative_environment_score
+    above is left untouched as reference/fallback, per the V1.1 config-
+    versioning discipline). Same simple-average-of-available-%-components
+    style as the function it replaces, just fed structural inputs (each
+    narrative's narrative_structural_score / Trend Participation / Structural
+    Leadership % / 1M breadth from build_narratives.py) instead of 1W
+    Strength/Thrust/Breadth/Leadership."""
+    structural_vals, trend_participation_vals, structural_leadership_vals, breadth_1m_vals = [], [], [], []
+    for n in narratives:
+        if n.get("narrative_structural_score") is not None:
+            structural_vals.append(n["narrative_structural_score"])
+        tp = (n.get("trend_participation") or {}).get("pct_above_rising_sma50")
+        if tp is not None:
+            trend_participation_vals.append(tp)
+        if n.get("structural_leadership_pct") is not None:
+            structural_leadership_vals.append(n["structural_leadership_pct"])
+        bp = ((n.get("scores") or {}).get("1m") or {}).get("breadth", {}).get("pct_positive")
+        if bp is not None:
+            breadth_1m_vals.append(bp)
+
+    def avg(vals):
+        return round(sum(vals) / len(vals), 1) if vals else None
+
+    components = {
+        "avg_structural_score": avg(structural_vals),
+        "avg_trend_participation": avg(trend_participation_vals),
+        "avg_structural_leadership_pct": avg(structural_leadership_vals),
+        "avg_breadth_pct_positive_1m": avg(breadth_1m_vals),
+    }
+    vals = [v for v in components.values() if v is not None]
+    score = round(sum(vals) / len(vals), 1) if vals else None
+    return {"score": score, **components}
+
+
 def calc_market_regime_score(breadth_score, momentum_score, narrative_env_score, final_weights):
     values = {"breadth": breadth_score, "momentum": momentum_score, "narrative_environment": narrative_env_score}
     return clamp_0_100(renormalized_weighted_sum(values, final_weights))
@@ -422,6 +458,100 @@ def select_lifecycle_state(conditions, priority):
 
 
 # ─────────────────────────────────────────────
+# V1.1: STRUCTURAL NARRATIVE LIFECYCLE
+# (replaces the 1W-Thrust-heavy V1 lifecycle above as the ACTIVE logic;
+# calc_narrative_momentum_scores / calc_narrative_lifecycle_conditions above
+# are left untouched as reference, per the V1.1 config-versioning
+# discipline — apply_confirm_days and select_lifecycle_state are fully
+# generic and reused as-is, unchanged.)
+# ─────────────────────────────────────────────
+
+def calc_narrative_structural_deltas(nid, current_structural_score, current_trend_participation,
+                                      current_structural_leadership_pct, history_5, history_10):
+    """5-/10-trading-day deltas for the structural Lifecycle conditions
+    below. Reads the compact per-narrative history record written by THIS
+    module (see main()'s history_narratives), same 'walk back N *files*'
+    trading-day resolution as every other delta in this file. None (not 0)
+    when either side of the delta is unavailable — the condition using it
+    simply can't be confirmed yet (point 48's rule, same as series_delta)."""
+    def delta(hist, field, current):
+        if hist is None or current is None:
+            return None
+        prev = ((hist.get("narratives") or {}).get(nid) or {}).get(field)
+        if prev is None:
+            return None
+        return round(current - prev, 2)
+
+    return {
+        "structural_score_delta5d": delta(history_5, "structural_score", current_structural_score),
+        "trend_participation_delta5d": delta(history_5, "trend_participation", current_trend_participation),
+        "structural_leadership_delta5d": delta(history_5, "structural_leadership_pct", current_structural_leadership_pct),
+        "trend_participation_delta10d": delta(history_10, "trend_participation", current_trend_participation),
+        "structural_leadership_delta10d": delta(history_10, "structural_leadership_pct", current_structural_leadership_pct),
+    }
+
+
+def calc_narrative_lifecycle_conditions_v1_1(narrative_structural_score, thrust_percentile_1w, momentum_modifier,
+                                              strength_1m, trend_participation, breadth_pct_positive_1m,
+                                              deltas, cfg):
+    """Raw (pre-hysteresis) condition booleans for the V1.1 structural
+    Lifecycle. FADING/DORMANT/MATURE still need confirm-day gating
+    (apply_confirm_days, reused unchanged) — EMERGING/ACTIVE are immediate,
+    same as in the V1 function this replaces."""
+    e = cfg["emerging"]
+    emerging = bool(
+        narrative_structural_score is not None and
+        e["structural_score_min"] <= narrative_structural_score < e["structural_score_max"] and
+        thrust_percentile_1w is not None and thrust_percentile_1w >= e["thrust_percentile_1w_min"] and
+        deltas["structural_score_delta5d"] is not None and
+        deltas["structural_score_delta5d"] >= e["structural_score_delta5d_min"] and
+        deltas["trend_participation_delta5d"] is not None and
+        deltas["trend_participation_delta5d"] >= e["trend_participation_delta5d_min"] and
+        (not e["structural_leadership_delta5d_positive_required"] or
+         (deltas["structural_leadership_delta5d"] is not None and deltas["structural_leadership_delta5d"] > 0))
+    )
+
+    a = cfg["active"]
+    active = bool(
+        narrative_structural_score is not None and narrative_structural_score >= a["structural_score_min"] and
+        strength_1m is not None and strength_1m >= a["strength_1m_min"] and
+        trend_participation is not None and trend_participation >= a["trend_participation_min"] and
+        breadth_pct_positive_1m is not None and breadth_pct_positive_1m >= a["breadth_pct_positive_1m_min"]
+    )
+
+    # MATURE (V1.1): a structurally strong narrative (still at/above the
+    # ACTIVE score bar) whose short-term Thrust has sustainedly cooled —
+    # reuses the momentum_modifier already computed in build_narratives.py
+    # rather than re-deriving a cooling signal here.
+    mature_raw = bool(
+        momentum_modifier == "COOLING" and
+        narrative_structural_score is not None and narrative_structural_score >= a["structural_score_min"]
+    )
+
+    f = cfg["fading"]
+    fading_raw = bool(
+        narrative_structural_score is not None and narrative_structural_score <= f["structural_score_max"] and
+        (
+            (deltas["trend_participation_delta10d"] is not None and
+             deltas["trend_participation_delta10d"] <= f["trend_participation_delta10d_max"]) or
+            (deltas["structural_leadership_delta10d"] is not None and
+             deltas["structural_leadership_delta10d"] <= f["structural_leadership_delta10d_max"]) or
+            (breadth_pct_positive_1m is not None and breadth_pct_positive_1m <= f["breadth_pct_positive_1m_max"])
+        )
+    )
+
+    d = cfg["dormant"]
+    dormant_raw = bool(
+        narrative_structural_score is not None and narrative_structural_score <= d["structural_score_max"] and
+        strength_1m is not None and strength_1m <= d["strength_1m_max"] and
+        trend_participation is not None and trend_participation <= d["trend_participation_max"]
+    )
+
+    return {"emerging": emerging, "active": active, "mature_raw": mature_raw,
+            "fading_raw": fading_raw, "dormant_raw": dormant_raw}
+
+
+# ─────────────────────────────────────────────
 # OPPORTUNITY ENGINE (point 20-28)
 # ─────────────────────────────────────────────
 
@@ -534,6 +664,154 @@ def calc_laggard_state(was_laggard, leadership_score, thrust_pct_1d, thrust_pct_
 
 
 # ─────────────────────────────────────────────
+# V1.1: STRUCTURAL OPPORTUNITY ENGINE
+# (replaces calc_stock_leadership_score/calc_leader_entry_condition/
+# calc_leader_exit_condition/calc_stock_quality_base_state/
+# calc_fresh_leader_label/calc_constructive_reset_narratives/
+# calc_laggard_state above as the ACTIVE logic for main(); those V1
+# functions are left untouched as reference, per the V1.1 config-
+# versioning discipline. calc_near_emas and calc_extended_with_hysteresis
+# are unchanged/shared — same shape, just fed opportunity_v1_1 thresholds.)
+# ─────────────────────────────────────────────
+
+def calc_leader_entry_condition_v1_1(structural_rs, trend_strength, cfg):
+    e = cfg["leader_entry"]
+    return bool(
+        structural_rs is not None and trend_strength is not None and
+        structural_rs >= e["structural_rs_min"] and trend_strength >= e["trend_strength_min"]
+    )
+
+
+def calc_leader_exit_condition_v1_1(structural_rs, trend_strength, sma50_distance_pct, cfg):
+    """Any ONE confirmed weakening signal triggers exit (never assumed true
+    on missing data) — structural RS falling out of leadership range, trend
+    quality deteriorating, or price actually breaking below its SMA50."""
+    e = cfg["leader_exit"]
+    below_rs = structural_rs is not None and structural_rs < e["structural_rs_max"]
+    below_trend = trend_strength is not None and trend_strength < e["trend_strength_max"]
+    below_sma50 = sma50_distance_pct is not None and sma50_distance_pct < e["sma50_distance_max_pct"]
+    return bool(below_rs or below_trend or below_sma50)
+
+
+def calc_stock_quality_base_state_v1_1(entry_condition, exit_condition, prev_quality_state, prev_exit_streak, confirm_days):
+    """Same hysteresis SHAPE as calc_stock_quality_base_state (V1) above,
+    just gated on the V1.1 structural entry/exit conditions instead of
+    short-term Leadership Score/RS1W. Returns (base_state: 'leader'|
+    'neutral', leader_age_days: int|None, exit_streak: int).
+
+    Deliberately excludes 'recent_leader' from "was previously a leader":
+    Recent Leader is a pure DISPLAY overlay applied below (see
+    calc_recent_leader_state) when the base state has already resolved to
+    'neutral' — it must not feed back into this hysteresis, or a ticker
+    would silently revert to full 'leader' the next day just because no
+    exit condition re-triggered, without ever re-satisfying entry_condition."""
+    was_leader = prev_quality_state in ("leader", "fresh_leader")
+
+    if not was_leader:
+        if entry_condition:
+            return "leader", 1, 0
+        return "neutral", 0, 0
+
+    if exit_condition:
+        new_streak = (prev_exit_streak or 0) + 1
+        if new_streak >= confirm_days:
+            return "neutral", 0, 0
+        return "leader", None, new_streak  # leader_age_days recomputed by caller (carried forward)
+    return "leader", None, 0
+
+
+def calc_fresh_leader_label_v1_1(base_state, leader_age_days, rs_1w, thrust_pct_1d, thrust_pct_1w, cfg):
+    """Fresh Leader (V1.1 point 9): a NEW leadership entrant (within the
+    entry window) additionally showing strong immediate acceleration —
+    short-term RS1W or Thrust — on top of already having cleared the
+    structural Leader bar. Acceleration is confirmatory here, never the
+    entry gate itself (that's calc_leader_entry_condition_v1_1's job)."""
+    if base_state != "leader":
+        return base_state
+    f = cfg["fresh_leader"]
+    if leader_age_days is None or leader_age_days > f["entry_window_days"]:
+        return "leader"
+    momentum_trigger = bool(
+        (rs_1w is not None and rs_1w >= f["rs_1w_min"]) or
+        (thrust_pct_1d is not None and thrust_pct_1d >= f["thrust_percentile_1d_min"]) or
+        (thrust_pct_1w is not None and thrust_pct_1w >= f["thrust_percentile_1w_min"])
+    )
+    return "fresh_leader" if momentum_trigger else "leader"
+
+
+def calc_recent_leader_state(quality_state, symbol, history_snapshots, memory_sessions, bootstrap_recent_leader):
+    """Recent Leader (V1.1 point 9/10/13): a ticker that ISN'T currently a
+    Leader/Fresh Leader but WAS one within the last `memory_sessions`
+    trading days — a normal pullback that cost short-term signals shouldn't
+    immediately erase Constructive-Reset eligibility (point 9 symptom: "a
+    former leader loses Constructive Reset status on a normal pullback").
+    Uses REAL daily history once at least `memory_sessions` snapshots exist
+    (walking back N *files*, same trading-day resolution as everywhere else
+    in this module); before that (cold start / early rollout), falls back
+    to the vectorized bootstrap reconstruction build_market_features.py
+    computed once from the 260-session price history (bootstrap_recent_leader),
+    so the state works from day one instead of waiting ~3 weeks for real
+    history to accumulate."""
+    if quality_state in ("leader", "fresh_leader"):
+        return quality_state
+    if len(history_snapshots) >= memory_sessions:
+        window = history_snapshots[-memory_sessions:]
+        was_leader_recently = any(
+            ((snap.get("stocks") or {}).get(symbol) or {}).get("quality_state") in ("leader", "fresh_leader")
+            for snap in window)
+        return "recent_leader" if was_leader_recently else "neutral"
+    return "recent_leader" if bootstrap_recent_leader else "neutral"
+
+
+def calc_constructive_reset_v1_1(quality_state, ema20_distance_pct, sma50_distance_pct, extended, narrative_memberships, cfg):
+    """Constructive Reset (V1.1 point 9/11) — LOOSENED vs V1:
+    - Quality gate now includes Recent Leader (not just Leader/Fresh
+      Leader): a stock that pulled back out of short-term Leader status a
+      few sessions ago is still a legitimate reset candidate.
+    - The narrative-lifecycle hard gate is DROPPED entirely — narrative
+      membership is returned as CONTEXT only (every current membership,
+      unfiltered), not as an eligibility filter (point 9 symptom: leaders
+      losing Constructive Reset purely because their narrative's lifecycle
+      label changed).
+    Location condition: price sits no more than max_below_ema20_pct /
+    max_below_sma50_pct BELOW those anchors (a genuine pullback-to-
+    structure, not a breakdown) and is not Extended."""
+    c = cfg["constructive_reset"]
+    if quality_state not in ("leader", "fresh_leader", "recent_leader"):
+        return []
+    if extended:
+        return []
+    if ema20_distance_pct is None or sma50_distance_pct is None:
+        return []
+    if ema20_distance_pct < c["max_below_ema20_pct"] or sma50_distance_pct < c["max_below_sma50_pct"]:
+        return []
+    return list(narrative_memberships)
+
+
+def calc_laggard_state_v1_1(was_laggard, structural_rs, thrust_pct_1d, thrust_pct_1w, in_bottom_pct, cfg):
+    """Laggard (V1.1 point 15/16): still narrative-relative (bottom X% of
+    the narrative by 1W performance — narrative_bottom_pct_members below is
+    unchanged) but the entry/exit gate is now structural_rs-based instead
+    of the old short-term Leadership Score: a structurally strong stock
+    merely resting this week is not a Laggard; a structurally weak stock in
+    the bottom of its narrative is. No narrative-lifecycle hard gate in
+    V1.1 (dropped, matching Constructive Reset's loosening — see
+    opportunity_v1_1.laggard config, which carries no qualifying_lifecycles
+    field, unlike V1's)."""
+    l = cfg["laggard"]
+    if was_laggard:
+        if structural_rs is not None and structural_rs >= l["exit_structural_rs_min"]:
+            return False
+        if not in_bottom_pct:
+            return False
+        return True
+    structural_ok = structural_rs is not None and structural_rs < l["structural_rs_max"]
+    thrust1d_ok = thrust_pct_1d is not None and thrust_pct_1d < l["thrust_percentile_1d_max"]
+    thrust1w_ok = thrust_pct_1w is not None and thrust_pct_1w < l["thrust_percentile_1w_max"]
+    return bool(structural_ok and in_bottom_pct and thrust1d_ok and thrust1w_ok)
+
+
+# ─────────────────────────────────────────────
 # CHANGE DETECTION (point 33-37)
 # ─────────────────────────────────────────────
 
@@ -604,6 +882,113 @@ def detect_stock_changes(symbol, today, prev):
     if prev_ext and not today_ext:
         events.append({"category": "stock", "type": "extension_ended", "symbol": symbol})
     return events
+
+
+# ─────────────────────────────────────────────
+# V1.1: CHANGE DETECTION (new event types, point 30)
+# (detect_narrative_changes/detect_stock_changes above left untouched as
+# reference; these v1_1 versions are the ones main() calls.)
+# ─────────────────────────────────────────────
+
+def detect_narrative_changes_v1_1(narrative_id, narrative_name, today, prev, cfg):
+    if prev is None:
+        return []
+    events = []
+    lifecycle_new, lifecycle_old = today.get("lifecycle_state"), prev.get("lifecycle_state")
+    if lifecycle_new != lifecycle_old and lifecycle_new in ("EMERGING", "ACTIVE", "FADING", "MATURE"):
+        events.append({"category": "narrative", "type": f"new_{lifecycle_new.lower()}",
+                        "narrative_id": narrative_id, "narrative_name": narrative_name})
+    rank_new, rank_old = today.get("rank"), prev.get("rank")
+    if rank_new is not None and rank_old is not None and (rank_old - rank_new) >= cfg["narrative_rank_improve_min"]:
+        events.append({"category": "narrative", "type": "rank_improved", "narrative_id": narrative_id,
+                        "narrative_name": narrative_name, "from_rank": rank_old, "to_rank": rank_new})
+    score_new, score_old = today.get("structural_score"), prev.get("structural_score")
+    if score_new is not None and score_old is not None and (score_new - score_old) >= cfg["narrative_score_delta_min"]:
+        events.append({"category": "narrative", "type": "structural_score_surge", "narrative_id": narrative_id,
+                        "narrative_name": narrative_name, "from_score": score_old, "to_score": score_new})
+    mod_new, mod_old = today.get("momentum_modifier"), prev.get("momentum_modifier")
+    if mod_new != mod_old:
+        if mod_new:
+            events.append({"category": "narrative", "type": "modifier_gained", "narrative_id": narrative_id,
+                            "narrative_name": narrative_name, "modifier": mod_new})
+        if mod_old:
+            events.append({"category": "narrative", "type": "modifier_lost", "narrative_id": narrative_id,
+                            "narrative_name": narrative_name, "modifier": mod_old})
+    return events
+
+
+def detect_stock_changes_v1_1(symbol, today, prev):
+    if prev is None:
+        return []
+    events = []
+    today_q, prev_q = today.get("quality_state"), prev.get("quality_state")
+    leader_like = ("leader", "fresh_leader")
+    was_leader_like, is_leader_like = prev_q in leader_like, today_q in leader_like
+    if is_leader_like and not was_leader_like:
+        events.append({"category": "stock", "type": "new_leader" if today_q == "leader" else "new_fresh_leader", "symbol": symbol})
+    if was_leader_like and not is_leader_like:
+        events.append({"category": "stock", "type": "leadership_lost", "symbol": symbol})
+    if today_q == "recent_leader" and prev_q not in ("recent_leader", "leader", "fresh_leader"):
+        events.append({"category": "stock", "type": "new_recent_leader", "symbol": symbol})
+    if today_q == "neutral" and prev_q == "recent_leader":
+        events.append({"category": "stock", "type": "recent_leader_expired", "symbol": symbol})
+    today_cr, prev_cr = set(today.get("constructive_reset_narratives", [])), set(prev.get("constructive_reset_narratives", []))
+    for nid in sorted(today_cr - prev_cr):
+        events.append({"category": "stock", "type": "new_constructive_reset", "symbol": symbol, "narrative_id": nid})
+    today_ext, prev_ext = bool(today.get("extended")), bool(prev.get("extended"))
+    if today_ext and not prev_ext:
+        events.append({"category": "stock", "type": "new_extended", "symbol": symbol})
+    if prev_ext and not today_ext:
+        events.append({"category": "stock", "type": "extension_ended", "symbol": symbol})
+    return events
+
+
+# ─────────────────────────────────────────────
+# V1.1: POST-BUILD SANITY-CHECK REPORT (console only)
+# No automatic threshold optimization — this is purely a human-readable
+# visual check that Structural Leadership ranks narratives/stocks
+# sensibly (e.g. Software/Cybersecurity no longer buried by a 1W-heavy
+# score), per the V1.1 spec's explicit requirement.
+# ─────────────────────────────────────────────
+
+def print_sanity_check_report(opportunity_items, narrative_report_rows):
+    print("\n" + "=" * 60)
+    print("🔍 V1.1 SANITY CHECK — Structural Leadership & Narrative Engine")
+    print("=" * 60)
+
+    counts = {
+        "fresh_leader": sum(1 for it in opportunity_items if it["quality_state"] == "fresh_leader"),
+        "leader": sum(1 for it in opportunity_items if it["quality_state"] == "leader"),
+        "recent_leader": sum(1 for it in opportunity_items if it["quality_state"] == "recent_leader"),
+        "constructive_reset": sum(1 for it in opportunity_items if it["constructive_reset_narratives"]),
+        "extended": sum(1 for it in opportunity_items if it["extended"]),
+    }
+    print(f"\nCounts: Fresh Leader {counts['fresh_leader']} | Leader {counts['leader']} | "
+          f"Recent Leader {counts['recent_leader']} | Constructive Reset {counts['constructive_reset']} | "
+          f"Extended {counts['extended']}")
+
+    top20_structural_rs = sorted(
+        (it for it in opportunity_items if it.get("structural_rs") is not None),
+        key=lambda it: -it["structural_rs"])[:20]
+    print("\nTop 20 nach Structural RS:")
+    for it in top20_structural_rs:
+        print(f"  {it['symbol']:<8} Structural RS {it['structural_rs']:>5} | "
+              f"Trend Strength {it.get('trend_strength')!s:>5} | Quality {it['quality_state']}")
+
+    top20_trend_strength = sorted(
+        (it for it in opportunity_items if it.get("trend_strength") is not None),
+        key=lambda it: -it["trend_strength"])[:20]
+    print("\nTop 20 nach Trend Strength:")
+    for it in top20_trend_strength:
+        print(f"  {it['symbol']:<8} Trend Strength {it['trend_strength']:>5} | "
+              f"Structural RS {it.get('structural_rs')!s:>5} | Quality {it['quality_state']}")
+
+    print("\nNarrative-Tabelle (Rank | Name | Structural Score | Lifecycle | Modifier | Trend Participation):")
+    for row in sorted(narrative_report_rows, key=lambda r: r["rank"] if r["rank"] is not None else 9999):
+        print(f"  #{row['rank']:<3} {row['name']:<30} Score {row['structural_score']!s:>6} | "
+              f"{row['lifecycle_state']:<10} | {(row['momentum_modifier'] or '-'):<13} | "
+              f"Trend Participation {row['trend_participation']}")
+    print("=" * 60)
 
 
 # ─────────────────────────────────────────────
@@ -695,6 +1080,7 @@ def main():
     yesterday = history_snapshots[-1] if history_snapshots else None
     history_3 = history_snapshots[-3] if len(history_snapshots) >= 3 else None
     history_5 = history_snapshots[-5] if len(history_snapshots) >= 5 else None
+    history_10 = history_snapshots[-10] if len(history_snapshots) >= 10 else None  # V1.1: FADING delta10d
     print(f"\n📅 Stand: {as_of_date} | Historie: {len(history_snapshots)} Tage vorhanden"
           f"{' (FIRST RUN — Baseline)' if first_run else ''}")
 
@@ -703,7 +1089,10 @@ def main():
     eligible_features = [f for f in tickers.values() if f.get("eligible")]
     breadth_result = calc_market_breadth_score(eligible_features, mr_cfg["breadth_component_weights"])
     momentum_result = calc_market_momentum_score(eligible_features)
-    narrative_env_result = calc_narrative_environment_score(narratives)
+    # V1.1 point 25: Narrative Environment subscore is now structural (no 1W
+    # Thrust component) — calc_narrative_environment_score (1W-based) above
+    # stays defined as reference/fallback but is no longer called here.
+    narrative_env_result = calc_narrative_environment_score_v1_1(narratives)
     mr_score = calc_market_regime_score(breadth_result["score"], momentum_result["score"],
                                          narrative_env_result["score"], mr_cfg["final_weights"])
     mr_state = state_from_thresholds(mr_score, mr_cfg["state_thresholds"])
@@ -759,55 +1148,77 @@ def main():
     }
     print(f"  ✅ QQQ Health: {qh_score} ({qh_base_state} {' · '.join(modifiers) if modifiers else ''})")
 
-    # ── NARRATIVE MOMENTUM + LIFECYCLE ─────────────────────────────
-    nl_cfg = cfg["narrative_lifecycle_v1"]
-    momentum_scores = calc_narrative_momentum_scores(narratives, nl_cfg["score_weights"])
+    # ── NARRATIVE STRUCTURAL SCORE + LIFECYCLE (V1.1) ────────────────
+    # narrative_structural_score/trend_participation/structural_leadership_pct/
+    # momentum_modifier/thrust_percentile_1w are already computed per
+    # narrative in build_narratives.py (point 17-22) — this module reads
+    # them and adds what needs day-over-day memory: rank, deltas, and
+    # confirm-day-gated Lifecycle state. calc_narrative_momentum_scores
+    # (V1, 1W-based) above stays defined as reference but is no longer
+    # called here.
+    nl_cfg = cfg["narrative_lifecycle_v1_1"]
 
-    # Rank by momentum score (None sorts last), stable tie-break by name.
+    # Rank by Structural Score (None sorts last), stable tie-break by name.
     ranked = sorted(narratives, key=lambda n: (
-        -(momentum_scores[n["id"]]["score"] if momentum_scores[n["id"]]["score"] is not None else -1), n["name"]))
+        -(n["narrative_structural_score"] if n["narrative_structural_score"] is not None else -1), n["name"]))
     rank_by_id = {n["id"]: i + 1 for i, n in enumerate(ranked)}
 
     narrative_items = {}
     lifecycle_counts = {"EMERGING": 0, "ACTIVE": 0, "MATURE": 0, "FADING": 0, "DORMANT": 0, "NEUTRAL": 0}
     for n in narratives:
         nid = n["id"]
-        mscore = momentum_scores[nid]
-        prev_n = ((yesterday or {}).get("narratives") or {}).get(nid) or {}
-        prev5_n = ((history_5 or {}).get("narratives") or {}).get(nid) or {} if history_5 else {}
-        leadership_delta5d = None
-        if history_5 is not None:
-            prev5_leadership = prev5_n.get("leadership_1w")
-            cur_leadership = (n["scores"]["1w"] or {}).get("leadership")
-            if prev5_leadership is not None and cur_leadership is not None:
-                leadership_delta5d = round(cur_leadership - prev5_leadership, 2)
+        structural_score = n["narrative_structural_score"]
+        trend_participation = (n.get("trend_participation") or {}).get("pct_above_rising_sma50")
+        structural_leadership_pct = n.get("structural_leadership_pct")
+        momentum_modifier = n.get("momentum_modifier")
+        strength_1m = (n["scores"]["1m"] or {}).get("strength")
+        breadth_pct_positive_1m = ((n["scores"]["1m"] or {}).get("breadth") or {}).get("pct_positive")
 
-        conditions = calc_narrative_lifecycle_conditions(n, mscore["thrust_percentile"], leadership_delta5d, nl_cfg)
-        fading_confirmed, fading_streak = apply_confirm_days(conditions["fading_raw"], prev_n.get("fading_streak"), nl_cfg["fading"]["confirm_days"])
-        dormant_confirmed, dormant_streak = apply_confirm_days(conditions["dormant_raw"], prev_n.get("dormant_streak"), nl_cfg["dormant"]["confirm_days"])
-        conditions["fading_confirmed"], conditions["dormant_confirmed"] = fading_confirmed, dormant_confirmed
-        lifecycle_state = select_lifecycle_state(conditions, nl_cfg["priority"])
+        prev_n = ((yesterday or {}).get("narratives") or {}).get(nid) or {}
+        deltas = calc_narrative_structural_deltas(nid, structural_score, trend_participation,
+                                                   structural_leadership_pct, history_5, history_10)
+
+        conditions = calc_narrative_lifecycle_conditions_v1_1(
+            structural_score, n.get("thrust_percentile_1w"), momentum_modifier,
+            strength_1m, trend_participation, breadth_pct_positive_1m, deltas, nl_cfg)
+        fading_confirmed, fading_streak = apply_confirm_days(
+            conditions["fading_raw"], prev_n.get("fading_streak"), nl_cfg["fading"]["confirm_days"])
+        dormant_confirmed, dormant_streak = apply_confirm_days(
+            conditions["dormant_raw"], prev_n.get("dormant_streak"), nl_cfg["dormant"]["confirm_days"])
+        mature_confirmed, mature_streak = apply_confirm_days(
+            conditions["mature_raw"], prev_n.get("mature_streak"), nl_cfg["mature"]["cooling_confirm_days"])
+        final_conditions = {
+            "dormant_confirmed": dormant_confirmed, "emerging": conditions["emerging"],
+            "fading_confirmed": fading_confirmed, "mature": mature_confirmed, "active": conditions["active"],
+        }
+        lifecycle_state = select_lifecycle_state(final_conditions, nl_cfg["priority"])
         lifecycle_counts[lifecycle_state] = lifecycle_counts.get(lifecycle_state, 0) + 1
 
         rank = rank_by_id[nid]
         prev_rank = prev_n.get("rank")
         narrative_items[nid] = {
             "lifecycle_state": lifecycle_state,
-            "momentum_score": mscore["score"],
-            "momentum_score_components": mscore,
-            "score_delta": round(mscore["score"] - prev_n["momentum_score"], 1) if (mscore["score"] is not None and prev_n.get("momentum_score") is not None) else None,
+            "structural_score": structural_score,
+            "structural_score_delta5d": deltas["structural_score_delta5d"],
+            "score_delta": round(structural_score - prev_n["structural_score"], 1)
+                if (structural_score is not None and prev_n.get("structural_score") is not None) else None,
             "rank": rank, "prev_rank": prev_rank,
             "rank_delta": (prev_rank - rank) if (prev_rank is not None) else None,
-            "leadership_1w": (n["scores"]["1w"] or {}).get("leadership"),
-            "leadership_delta5d": leadership_delta5d,
+            "trend_participation": trend_participation,
+            "structural_leadership_pct": structural_leadership_pct,
+            "momentum_modifier": momentum_modifier,
             "_fading_streak": fading_streak, "_dormant_streak": dormant_streak,  # persisted to history only
+            "_mature_streak": mature_streak,
         }
     print(f"  ✅ Narrative Lifecycle: {lifecycle_counts}")
 
-    narrative_lifecycles = {nid: item["lifecycle_state"] for nid, item in narrative_items.items()}
-
-    # ── OPPORTUNITY ENGINE ──────────────────────────────────────────
-    op_cfg = cfg["opportunity_v1"]
+    # ── OPPORTUNITY ENGINE (V1.1) ─────────────────────────────────────
+    # calc_stock_leadership_score/calc_leader_entry_condition/
+    # calc_leader_exit_condition/calc_stock_quality_base_state/
+    # calc_fresh_leader_label/calc_constructive_reset_narratives/
+    # calc_laggard_state (V1, RS1W-gated) stay defined as reference but are
+    # no longer called here — see the _v1_1 versions used below.
+    op_cfg = cfg["opportunity_v1_1"]
     narrative_by_id = {n["id"]: n for n in narratives}
     memberships = {}  # symbol -> [narrative_id, ...]
     for n in narratives:
@@ -817,51 +1228,60 @@ def main():
     bottom_members_by_narrative = {n["id"]: narrative_bottom_pct_members(n, op_cfg["laggard"]["bottom_pct_of_narrative"]) for n in narratives}
 
     prev_stocks = (yesterday or {}).get("stocks") or {}
-    history3_stocks = (history_3 or {}).get("stocks") or {} if history_3 else {}
+    memory_sessions = op_cfg["recent_leader"]["memory_sessions"]
 
+    # V1.1 point 12: iterate the ENTIRE eligible universe from
+    # market_features.json (not just narrative members) — a stock with no
+    # narrative membership is still a valid Leader/Constructive-Reset
+    # candidate; narratives are attached below purely as context tags.
     opportunity_items = []
-    counts = {"fresh_leaders": 0, "leaders": 0, "constructive_resets": 0, "extended": 0, "laggards": 0}
-    for symbol, narrative_ids in memberships.items():
-        f = tickers.get(symbol)
-        if not f or not f.get("eligible"):
+    counts = {"fresh_leaders": 0, "leaders": 0, "recent_leaders": 0, "constructive_resets": 0, "extended": 0, "laggards": 0}
+    for symbol, f in tickers.items():
+        if not f.get("eligible"):
             continue  # Opportunities operates on the eligible YOLO universe only
+        narrative_ids = memberships.get(symbol, [])
 
+        structural_rs, trend_strength = f.get("structural_rs"), f.get("trend_strength")
         rs_1w, rs_1m = f.get("rs_percentile_1w"), f.get("rs_percentile_1m")
         thrust_pct_1d, thrust_pct_1w = f.get("thrust_percentile_1d"), f.get("thrust_percentile_1w")
-        leadership_score = calc_stock_leadership_score(rs_1w, rs_1m, op_cfg["leadership_weights"])
+        sma50_distance_pct = f.get("sma50_distance_pct")
 
         prev_stock = prev_stocks.get(symbol) or {}
-        entry_cond = calc_leader_entry_condition(leadership_score, rs_1w, op_cfg)
-        exit_cond = calc_leader_exit_condition(leadership_score, rs_1w, op_cfg)
-        base_state, leader_age_days, exit_streak = calc_stock_quality_base_state(
-            entry_cond, exit_cond, prev_stock.get("quality_state"), prev_stock.get("exit_streak"), op_cfg)
+        entry_cond = calc_leader_entry_condition_v1_1(structural_rs, trend_strength, op_cfg)
+        exit_cond = calc_leader_exit_condition_v1_1(structural_rs, trend_strength, sma50_distance_pct, op_cfg)
+        base_state, leader_age_days, exit_streak = calc_stock_quality_base_state_v1_1(
+            entry_cond, exit_cond, prev_stock.get("quality_state"), prev_stock.get("exit_streak"),
+            op_cfg["leader_exit"]["confirm_days"])
         if leader_age_days is None:  # carried forward from yesterday (still-leader, no reset)
             leader_age_days = (prev_stock.get("leader_age_days") or 0) + 1
 
-        rs_1w_3d_ago = (history3_stocks.get(symbol) or {}).get("rs_1w") if history_3 else None
-        rs_1w_delta3d = round(rs_1w - rs_1w_3d_ago, 1) if (rs_1w is not None and rs_1w_3d_ago is not None) else None
-        quality_state = calc_fresh_leader_label(base_state, leader_age_days, rs_1w_delta3d, thrust_pct_1d, thrust_pct_1w, op_cfg)
+        quality_state = calc_fresh_leader_label_v1_1(base_state, leader_age_days, rs_1w, thrust_pct_1d, thrust_pct_1w, op_cfg)
+        quality_state = calc_recent_leader_state(quality_state, symbol, history_snapshots, memory_sessions,
+                                                  bool(f.get("bootstrap_recent_leader")))
 
         stock_extended = calc_extended_with_hysteresis(f.get("atr_extension"), prev_stock.get("extended"),
                                                          op_cfg["extended"]["enter"], op_cfg["extended"]["exit"])
         near_emas = calc_near_emas(f.get("ema10_distance_pct"), f.get("ema20_distance_pct"), op_cfg)
-        cr_narratives = calc_constructive_reset_narratives(
-            quality_state, near_emas, stock_extended, f.get("ema10"), f.get("ema20"), narrative_ids, narrative_lifecycles, op_cfg)
+        cr_narratives = calc_constructive_reset_v1_1(
+            quality_state, f.get("ema20_distance_pct"), sma50_distance_pct, stock_extended, narrative_ids, op_cfg)
 
         prev_laggards = set(prev_stock.get("laggard_narratives", []))
         laggard_narratives = []
         for nid in narrative_ids:
-            lifecycle_ok = narrative_lifecycles.get(nid) in ("EMERGING", "ACTIVE")
             in_bottom = symbol in bottom_members_by_narrative.get(nid, set())
             was_laggard = nid in prev_laggards
-            if calc_laggard_state(was_laggard, leadership_score, thrust_pct_1d, thrust_pct_1w, lifecycle_ok, in_bottom, op_cfg):
+            if calc_laggard_state_v1_1(was_laggard, structural_rs, thrust_pct_1d, thrust_pct_1w, in_bottom, op_cfg):
                 laggard_narratives.append(nid)
 
         item = {
             "symbol": symbol, "narratives": narrative_ids,
             "quality_state": quality_state, "near_emas": near_emas, "extended": stock_extended,
             "constructive_reset_narratives": cr_narratives, "laggard_narratives": laggard_narratives,
-            "leadership_score": leadership_score, "rs_1w": rs_1w, "rs_1m": rs_1m,
+            "structural_rs": structural_rs, "trend_strength": trend_strength,
+            "sma50_distance_pct": sma50_distance_pct, "sma50_slope_20d_pct": f.get("sma50_slope_20d_pct"),
+            "pct_sessions_above_sma50_20d": f.get("pct_sessions_above_sma50_20d"),
+            # Acceleration metrics — still shown, explicitly non-gating (V1.1 point 6).
+            "rs_1w": rs_1w, "rs_1m": rs_1m,
             "thrust_percentile_1d": thrust_pct_1d, "thrust_percentile_1w": thrust_pct_1w,
             "ema10_distance_pct": f.get("ema10_distance_pct"), "ema20_distance_pct": f.get("ema20_distance_pct"),
             "atr_extension": f.get("atr_extension"), "w1_pct": f.get("w1_pct"), "m1_pct": f.get("m1_pct"),
@@ -874,6 +1294,8 @@ def main():
             counts["fresh_leaders"] += 1
         elif quality_state == "leader":
             counts["leaders"] += 1
+        elif quality_state == "recent_leader":
+            counts["recent_leaders"] += 1
         if cr_narratives:
             counts["constructive_resets"] += 1
         if stock_extended:
@@ -882,9 +1304,11 @@ def main():
             counts["laggards"] += 1
 
     opportunity_items.sort(key=lambda it: it["symbol"])
-    print(f"  ✅ Opportunities: {len(opportunity_items)} Ticker | {counts}")
+    print(f"  ✅ Opportunities: {len(opportunity_items)} Ticker (gesamtes eligible Universe) | {counts}")
 
-    # ── CHANGE DETECTION ────────────────────────────────────────────
+    # ── CHANGE DETECTION (V1.1 event types) ──────────────────────────
+    # detect_narrative_changes/detect_stock_changes (V1) stay defined as
+    # reference but are no longer called here — see the _v1_1 versions.
     cd_cfg = cfg["change_detection"]
     events = []
     if not first_run:
@@ -892,10 +1316,10 @@ def main():
         events += detect_qqq_health_changes(qqq_health, prev_qqq, qh_cfg["notable_score_delta"])
         for nid, item in narrative_items.items():
             prev_n = ((yesterday or {}).get("narratives") or {}).get(nid)
-            events += detect_narrative_changes(nid, narrative_by_id[nid]["name"], item, prev_n, cd_cfg)
+            events += detect_narrative_changes_v1_1(nid, narrative_by_id[nid]["name"], item, prev_n, cd_cfg)
         for item in opportunity_items:
             prev_stock = prev_stocks.get(item["symbol"])
-            events += detect_stock_changes(item["symbol"], item, prev_stock)
+            events += detect_stock_changes_v1_1(item["symbol"], item, prev_stock)
 
     what_changed = {"first_run": first_run, "events": events}
     print(f"  ✅ Change Detection: {len(events)} Events" + (" (first run, keine Vergleichsbasis)" if first_run else ""))
@@ -924,6 +1348,17 @@ def main():
     size_kb = out_path.stat().st_size / 1024
     print(f"\n✅ dashboard_state.json geschrieben → {out_path} ({size_kb:.0f} KB)")
 
+    # V1.1 point 35: post-build sanity check (console only, no automatic
+    # threshold optimization) — visually confirm structurally-dominant
+    # narratives (e.g. Software/Cybersecurity) now rank sensibly.
+    narrative_report_rows = [
+        {"rank": item["rank"], "name": narrative_by_id[nid]["name"], "structural_score": item["structural_score"],
+         "lifecycle_state": item["lifecycle_state"], "momentum_modifier": item["momentum_modifier"],
+         "trend_participation": item["trend_participation"]}
+        for nid, item in narrative_items.items()
+    ]
+    print_sanity_check_report(opportunity_items, narrative_report_rows)
+
     # ── PERSIST TODAY'S COMPACT HISTORY ─────────────────────────────
     history_stocks = {}
     for item in opportunity_items:
@@ -936,9 +1371,13 @@ def main():
     history_narratives = {}
     for nid, item in narrative_items.items():
         history_narratives[nid] = {
-            "lifecycle_state": item["lifecycle_state"], "momentum_score": item["momentum_score"],
-            "rank": item["rank"], "leadership_1w": item["leadership_1w"],
+            "lifecycle_state": item["lifecycle_state"], "structural_score": item["structural_score"],
+            "trend_participation": item["trend_participation"],
+            "structural_leadership_pct": item["structural_leadership_pct"],
+            "momentum_modifier": item["momentum_modifier"],
+            "rank": item["rank"],
             "fading_streak": item["_fading_streak"], "dormant_streak": item["_dormant_streak"],
+            "mature_streak": item["_mature_streak"],
         }
     today_history = {
         "date": as_of_date,

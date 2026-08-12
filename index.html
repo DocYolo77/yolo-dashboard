@@ -303,6 +303,10 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .nc-rank-change { font-size: 9px; margin-left: 4px; }
 .nc-rank-change.up { color: var(--positive); }
 .nc-rank-change.down { color: var(--negative); }
+.nc-trend-participation { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 2px; }
+.nc-modifier-badge { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; margin-top: 6px; margin-left: 6px; display: inline-block; }
+.nc-modifier-badge.accelerating { background: rgba(61,220,115,0.15); color: var(--positive); }
+.nc-modifier-badge.cooling { background: rgba(47,126,216,0.12); color: #6ea8dc; }
 .nc-opp-summary { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; font-family: var(--mono-font); font-size: 9px; color: var(--ink-muted); }
 
 /* OPPORTUNITIES (Punkt 05) */
@@ -323,6 +327,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .opp-badge { font-family: var(--mono-font); font-size: 8.5px; letter-spacing: 0.3px; padding: 2px 6px; border-radius: 2px; white-space: nowrap; }
 .opp-badge.fresh { background: rgba(61,220,115,0.18); color: var(--positive); }
 .opp-badge.leader { background: rgba(47,126,216,0.15); color: #2f7ed8; }
+.opp-badge.recent { background: rgba(47,126,216,0.08); color: #6ea8dc; }
 .opp-badge.near-ema { background: rgba(255,255,255,0.06); color: var(--ink-light); }
 .opp-badge.extended { background: rgba(226,146,92,0.15); color: #e2925c; }
 .opp-badge.reset { background: rgba(155,127,201,0.18); color: #9b7fc9; }
@@ -764,16 +769,22 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       <span class="section-sub">Welche Aktien führen, konsolidieren oder hinken hinterher?</span>
       <span class="nc-info" id="opportunityInfo" tabindex="0">ⓘ
         <dl class="nc-info-popup">
-          <dt>Leadership Score</dt>
-          <dd>Kombiniert relative Stärke über kurze und mittlere Momentum-Zeiträume.</dd>
+          <dt>Structural RS</dt>
+          <dd>Multi-Timeframe relative Stärke (1M–12M) gegenüber dem eligible Universe — die primäre strukturelle Qualitätskennzahl.</dd>
+          <dt>Trend Strength</dt>
+          <dd>Trendqualität auf Basis der SMA50-Steigung und ihrer Persistenz, unabhängig von der aktuellen Distanz/Extension.</dd>
+          <dt>Leader</dt>
+          <dd>Eine Aktie mit struktureller relativer Stärke UND intakter Trendqualität.</dd>
           <dt>Fresh Leader</dt>
-          <dd>Eine Aktie, die erst vor kurzem in die Gruppe der führenden Momentum-Aktien aufgestiegen ist.</dd>
+          <dd>Ein neuer struktureller Leader, der zusätzlich kurzfristige Beschleunigung (RS/Thrust) zeigt.</dd>
+          <dt>Recent Leader</dt>
+          <dd>War innerhalb der letzten Handelstage ein Leader — ein normaler Pullback allein beendet diesen Status nicht sofort.</dd>
           <dt>Constructive Reset</dt>
-          <dd>Ein Leader, der durch Pullback oder Konsolidierung wieder näher an seine kurzfristige Trendstruktur zurückgekehrt ist.</dd>
+          <dd>Ein aktueller oder kürzlicher Leader, der wieder näher an seine Trendstruktur (EMA20/SMA50) zurückgekehrt ist, ohne extended zu sein.</dd>
           <dt>Extended</dt>
           <dd>Eine starke Aktie, die bereits deutlich von ihrer mittelfristigen Basis weggelaufen ist.</dd>
           <dt>Laggard</dt>
-          <dd>Ein Mitglied eines starken Narratives, das innerhalb dieses Narratives deutlich hinterherhinkt.</dd>
+          <dd>Ein strukturell schwaches Mitglied eines Narratives, das innerhalb dieses Narratives deutlich hinterherhinkt.</dd>
         </dl>
       </span>
     </div>
@@ -782,6 +793,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       <button class="opp-tab active" data-tab="all" onclick="oppSetTab('all')">All <span class="opp-tab-count" id="oppCountAll">0</span></button>
       <button class="opp-tab" data-tab="fresh" onclick="oppSetTab('fresh')">Fresh Leaders <span class="opp-tab-count" id="oppCountFresh">0</span></button>
       <button class="opp-tab" data-tab="leaders" onclick="oppSetTab('leaders')">Leaders <span class="opp-tab-count" id="oppCountLeaders">0</span></button>
+      <button class="opp-tab" data-tab="recent" onclick="oppSetTab('recent')">Recent Leaders <span class="opp-tab-count" id="oppCountRecent">0</span></button>
       <button class="opp-tab" data-tab="reset" onclick="oppSetTab('reset')">Constructive Reset <span class="opp-tab-count" id="oppCountReset">0</span></button>
       <button class="opp-tab" data-tab="extended" onclick="oppSetTab('extended')">Extended <span class="opp-tab-count" id="oppCountExtended">0</span></button>
       <button class="opp-tab" data-tab="laggards" onclick="oppSetTab('laggards')">Laggards <span class="opp-tab-count" id="oppCountLaggards">0</span></button>
@@ -791,6 +803,10 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       <div class="opp-filter-group">
         <label>Narrative</label>
         <select id="oppFilterNarrative" onchange="oppRender()"><option value="">Alle</option></select>
+      </div>
+      <div class="opp-filter-group">
+        <label>Min. Structural RS</label>
+        <input type="number" id="oppFilterStructuralRs" placeholder="—" min="0" max="100" oninput="oppRender()">
       </div>
       <div class="opp-filter-group">
         <label>Min. RS 1W</label>
@@ -1326,23 +1342,32 @@ function renderQqqHealth() {
   if (flagsEl) flagsEl.innerHTML = flags.map(([label, v]) => `<span class="qps-flag ${v ? 'yes' : 'no'}">${label} ${v ? '✓' : '✗'}</span>`).join('');
 }
 
+// Keyed by "category:type" (not type alone): V1.1 introduced a
+// "modifier_gained"/"modifier_lost" event on the narrative category too
+// (momentum_modifier ACCELERATING/COOLING), which otherwise collides with
+// the pre-existing QQQ Health modifier events of the same type name.
 const CHANGE_EVENT_LABELS = {
-  state_change: e => `Market Regime: ${e.from} → ${e.to}`,
-  score_change: e => `Market Regime Score: ${e.from} → ${e.to}`,
-  base_state_change: e => `QQQ Health: ${e.from} → ${e.to}`,
-  modifier_gained: e => `QQQ Health: +${e.modifier}`,
-  modifier_lost: e => `QQQ Health: −${e.modifier}`,
-  new_emerging: e => `${e.narrative_name}: neu Emerging`,
-  new_active: e => `${e.narrative_name}: neu Active`,
-  new_fading: e => `${e.narrative_name}: neu Fading`,
-  rank_improved: e => `${e.narrative_name}: Rank #${e.from_rank} → #${e.to_rank}`,
-  score_surge: e => `${e.narrative_name}: Score ${e.from_score} → ${e.to_score}`,
-  new_leader: e => `${e.symbol}: neuer Leader`,
-  new_fresh_leader: e => `${e.symbol}: neuer Fresh Leader`,
-  leadership_lost: e => `${e.symbol}: Leadership verloren`,
-  new_constructive_reset: e => `${e.symbol}: Constructive Reset`,
-  new_extended: e => `${e.symbol}: neu Extended`,
-  extension_ended: e => `${e.symbol}: Extension beendet`,
+  'market_regime:state_change': e => `Market Regime: ${e.from} → ${e.to}`,
+  'market_regime:score_change': e => `Market Regime Score: ${e.from} → ${e.to}`,
+  'qqq_health:base_state_change': e => `QQQ Health: ${e.from} → ${e.to}`,
+  'qqq_health:modifier_gained': e => `QQQ Health: +${e.modifier}`,
+  'qqq_health:modifier_lost': e => `QQQ Health: −${e.modifier}`,
+  'narrative:new_emerging': e => `${e.narrative_name}: neu Emerging`,
+  'narrative:new_active': e => `${e.narrative_name}: neu Active`,
+  'narrative:new_mature': e => `${e.narrative_name}: neu Mature`,
+  'narrative:new_fading': e => `${e.narrative_name}: neu Fading`,
+  'narrative:rank_improved': e => `${e.narrative_name}: Rank #${e.from_rank} → #${e.to_rank}`,
+  'narrative:structural_score_surge': e => `${e.narrative_name}: Structural Score ${e.from_score} → ${e.to_score}`,
+  'narrative:modifier_gained': e => `${e.narrative_name}: Momentum ${e.modifier}`,
+  'narrative:modifier_lost': e => `${e.narrative_name}: Momentum-Modifier beendet (${e.modifier})`,
+  'stock:new_leader': e => `${e.symbol}: neuer Leader`,
+  'stock:new_fresh_leader': e => `${e.symbol}: neuer Fresh Leader`,
+  'stock:new_recent_leader': e => `${e.symbol}: neuer Recent Leader`,
+  'stock:recent_leader_expired': e => `${e.symbol}: Recent-Leader-Status ausgelaufen`,
+  'stock:leadership_lost': e => `${e.symbol}: Leadership verloren`,
+  'stock:new_constructive_reset': e => `${e.symbol}: Constructive Reset`,
+  'stock:new_extended': e => `${e.symbol}: neu Extended`,
+  'stock:extension_ended': e => `${e.symbol}: Extension beendet`,
 };
 const CHANGE_EVENT_TAG = { market_regime: 'REGIME', qqq_health: 'QQQ', narrative: 'NARRATIVE', stock: 'STOCK' };
 
@@ -1360,8 +1385,8 @@ function renderExecSummary() {
   setText('execNarrState', `Emerging ${lc.EMERGING || 0} · Active ${lc.ACTIVE || 0} · Fading ${lc.FADING || 0}`);
 
   const oc = (dashboardState.opportunities && dashboardState.opportunities.counts) || {};
-  setText('execOppValue', `${oc.fresh_leaders || 0}/${oc.leaders || 0}/${oc.constructive_resets || 0}/${oc.extended || 0}`);
-  setText('execOppState', `Fresh ${oc.fresh_leaders || 0} · Leaders ${oc.leaders || 0} · Resets ${oc.constructive_resets || 0} · Extended ${oc.extended || 0}`);
+  setText('execOppValue', `${oc.fresh_leaders || 0}/${oc.leaders || 0}/${oc.recent_leaders || 0}/${oc.constructive_resets || 0}/${oc.extended || 0}`);
+  setText('execOppState', `Fresh ${oc.fresh_leaders || 0} · Leaders ${oc.leaders || 0} · Recent ${oc.recent_leaders || 0} · Resets ${oc.constructive_resets || 0} · Extended ${oc.extended || 0}`);
 
   const wc = dashboardState.what_changed || {};
   const listEl = document.getElementById('execChangedList');
@@ -1377,7 +1402,7 @@ function renderExecSummary() {
   const MAX_SHOWN = 6;
   const shown = wc.events.slice(0, MAX_SHOWN);
   listEl.innerHTML = shown.map(e => {
-    const fn = CHANGE_EVENT_LABELS[e.type];
+    const fn = CHANGE_EVENT_LABELS[`${e.category}:${e.type}`];
     const text = fn ? fn(e) : e.type;
     const tag = CHANGE_EVENT_TAG[e.category] || e.category;
     return `<div class="exec-event"><span class="exec-event-tag">${tag}</span><span class="exec-event-text">${text}</span></div>`;
@@ -1395,6 +1420,7 @@ function ncOpportunitySummary(narrativeId) {
   return {
     leaders: items.filter(it => it.quality_state === 'leader' || it.quality_state === 'fresh_leader').length,
     fresh: items.filter(it => it.quality_state === 'fresh_leader').length,
+    recent: items.filter(it => it.quality_state === 'recent_leader').length,
     resets: items.filter(it => it.constructive_reset_narratives.includes(narrativeId)).length,
     extended: items.filter(it => it.extended).length,
   };
@@ -1429,18 +1455,22 @@ function ncSetStateFilter(narrativeId, filter) {
 // OPPORTUNITIES (Punkt 20-31)
 // ══════════════════════════════════════════════
 let oppTab = 'all';
-let oppSortState = { field: 'leadership_score', dir: 'desc' };
+let oppSortState = { field: 'structural_rs', dir: 'desc' };
 
 const OPP_COLUMNS = [
   { key: 'symbol', label: 'Ticker', sortable: true },
   { key: 'narratives', label: 'Narrative(s)', sortable: false },
   { key: 'quality_state', label: 'Quality', sortable: true },
   { key: 'badges', label: 'Badges', sortable: false },
-  { key: 'leadership_score', label: 'Leadership', sortable: true },
+  { key: 'structural_rs', label: 'Structural RS', sortable: true },
+  { key: 'trend_strength', label: 'Trend Strength', sortable: true },
   { key: 'rs_1w', label: 'RS 1W', sortable: true },
   { key: 'rs_1m', label: 'RS 1M', sortable: true },
   { key: 'thrust_percentile_1d', label: 'Thrust% 1D', sortable: true },
   { key: 'thrust_percentile_1w', label: 'Thrust% 1W', sortable: true },
+  { key: 'sma50_distance_pct', label: 'SMA50 Dist', sortable: true },
+  { key: 'sma50_slope_20d_pct', label: 'SMA50 Slope', sortable: true },
+  { key: 'pct_sessions_above_sma50_20d', label: 'SMA50 Persist.', sortable: true },
   { key: 'ema10_distance_pct', label: 'EMA10', sortable: true },
   { key: 'ema20_distance_pct', label: 'EMA20', sortable: true },
   { key: 'atr_extension', label: 'ATR Ext', sortable: true },
@@ -1452,6 +1482,7 @@ function oppTabFilter(item, tab) {
   if (tab === 'all') return true;
   if (tab === 'fresh') return item.quality_state === 'fresh_leader';
   if (tab === 'leaders') return item.quality_state === 'leader' || item.quality_state === 'fresh_leader';
+  if (tab === 'recent') return item.quality_state === 'recent_leader';
   if (tab === 'reset') return item.constructive_reset_narratives.length > 0;
   if (tab === 'extended') return item.extended;
   if (tab === 'laggards') return item.laggard_narratives.length > 0;
@@ -1460,6 +1491,7 @@ function oppTabFilter(item, tab) {
 
 function oppApplyFilters(items) {
   const narrativeFilter = document.getElementById('oppFilterNarrative').value;
+  const structuralRsMin = parseFloat(document.getElementById('oppFilterStructuralRs').value);
   const rsMin = parseFloat(document.getElementById('oppFilterRs').value);
   const thrustMin = parseFloat(document.getElementById('oppFilterThrust').value);
   const atrMax = parseFloat(document.getElementById('oppFilterAtr').value);
@@ -1468,6 +1500,7 @@ function oppApplyFilters(items) {
 
   return items.filter(it => {
     if (narrativeFilter && !it.narratives.includes(narrativeFilter)) return false;
+    if (!Number.isNaN(structuralRsMin) && (it.structural_rs == null || it.structural_rs < structuralRsMin)) return false;
     if (!Number.isNaN(rsMin) && (it.rs_1w == null || it.rs_1w < rsMin)) return false;
     if (!Number.isNaN(thrustMin) && (it.thrust_percentile_1w == null || it.thrust_percentile_1w < thrustMin)) return false;
     if (!Number.isNaN(atrMax) && (it.atr_extension == null || it.atr_extension > atrMax)) return false;
@@ -1499,6 +1532,7 @@ function oppBadgesHtml(item) {
   const badges = [];
   if (item.quality_state === 'fresh_leader') badges.push('<span class="opp-badge fresh">FRESH</span>');
   else if (item.quality_state === 'leader') badges.push('<span class="opp-badge leader">LEADER</span>');
+  else if (item.quality_state === 'recent_leader') badges.push('<span class="opp-badge recent">RECENT</span>');
   if (item.near_emas) badges.push('<span class="opp-badge near-ema">NEAR EMA</span>');
   if (item.extended) badges.push('<span class="opp-badge extended">EXTENDED</span>');
   if (item.constructive_reset_narratives.length) badges.push('<span class="opp-badge reset">RESET</span>');
@@ -1514,7 +1548,7 @@ function oppNarrativeTagsHtml(item) {
 }
 function oppFmtNum(v, decimals) { return v == null ? '—' : v.toFixed(decimals); }
 function oppFmtPctSigned(v) { return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
-const QUALITY_LABEL = { fresh_leader: 'Fresh Leader', leader: 'Leader', neutral: 'Neutral' };
+const QUALITY_LABEL = { fresh_leader: 'Fresh Leader', leader: 'Leader', recent_leader: 'Recent Leader', neutral: 'Neutral' };
 
 function oppRender() {
   if (!dashboardState) return;
@@ -1523,6 +1557,7 @@ function oppRender() {
   setText('oppCountAll', dashboardState.opportunities.items.length);
   setText('oppCountFresh', counts.fresh_leaders || 0);
   setText('oppCountLeaders', counts.leaders || 0);
+  setText('oppCountRecent', counts.recent_leaders || 0);
   setText('oppCountReset', counts.constructive_resets || 0);
   setText('oppCountExtended', counts.extended || 0);
   setText('oppCountLaggards', counts.laggards || 0);
@@ -1544,11 +1579,15 @@ function oppRender() {
       <td>${oppNarrativeTagsHtml(it)}</td>
       <td class="muted">${QUALITY_LABEL[it.quality_state] || it.quality_state}</td>
       <td>${oppBadgesHtml(it)}</td>
-      <td class="muted">${oppFmtNum(it.leadership_score, 1)}</td>
+      <td class="muted">${oppFmtNum(it.structural_rs, 1)}</td>
+      <td class="muted">${oppFmtNum(it.trend_strength, 1)}</td>
       <td class="muted">${oppFmtNum(it.rs_1w, 1)}</td>
       <td class="muted">${oppFmtNum(it.rs_1m, 1)}</td>
       <td class="muted">${oppFmtNum(it.thrust_percentile_1d, 1)}</td>
       <td class="muted">${oppFmtNum(it.thrust_percentile_1w, 1)}</td>
+      <td class="muted">${oppFmtPctSigned(it.sma50_distance_pct)}</td>
+      <td class="muted">${oppFmtPctSigned(it.sma50_slope_20d_pct)}</td>
+      <td class="muted">${oppFmtNum(it.pct_sessions_above_sma50_20d, 0)}</td>
       <td class="muted">${oppFmtPctSigned(it.ema10_distance_pct)}</td>
       <td class="muted">${oppFmtPctSigned(it.ema20_distance_pct)}</td>
       <td class="${it.extended ? 'atr-ext-warn' : 'muted'}">${oppFmtNum(it.atr_extension, 1)}</td>
@@ -1995,12 +2034,20 @@ function renderNarrativeGrid() {
     const s = narrative.scores[ncHorizon] || {};
     const breadth = s.breadth || {};
     const isExpanded = narrative.id === ncExpandedId;
+    // Structural Score/Rank/Lifecycle/Modifier/Trend Participation come from
+    // dashboard_state.json (build_dashboard_states.py's V1.1 structural
+    // engine) and are INDEPENDENT of the 1D/1W/1M horizon toggle above —
+    // ncLifecycleData() doesn't take ncHorizon as an input, so switching
+    // horizons never changes these values (V1.1 spec requirement).
     const lc = ncLifecycleData(narrative.id);
+    const modifierHtml = lc && lc.momentum_modifier
+      ? `<span class="nc-modifier-badge ${lc.momentum_modifier.toLowerCase()}">${lc.momentum_modifier}</span>` : '';
     const lifecycleHtml = lc ? `
-      <span class="nc-lifecycle-badge ${lc.lifecycle_state.toLowerCase()}">${lc.lifecycle_state}</span>
-      <div class="nc-momentum-score">Score <b>${lc.momentum_score != null ? lc.momentum_score.toFixed(0) : '—'}</b>${lc.rank != null ? ` &middot; Rank #${lc.rank}` : ''}${lc.rank_delta ? `<span class="nc-rank-change ${lc.rank_delta > 0 ? 'up' : 'down'}">${lc.rank_delta > 0 ? '▲' : '▼'}${Math.abs(lc.rank_delta)}</span>` : ''}</div>` : '';
+      <span class="nc-lifecycle-badge ${lc.lifecycle_state.toLowerCase()}">${lc.lifecycle_state}</span>${modifierHtml}
+      <div class="nc-momentum-score">Structural Score <b>${lc.structural_score != null ? lc.structural_score.toFixed(0) : '—'}</b>${lc.rank != null ? ` &middot; Rank #${lc.rank}` : ''}${lc.rank_delta ? `<span class="nc-rank-change ${lc.rank_delta > 0 ? 'up' : 'down'}">${lc.rank_delta > 0 ? '▲' : '▼'}${Math.abs(lc.rank_delta)}</span>` : ''}</div>
+      <div class="nc-trend-participation">Trend Participation <b>${lc.trend_participation != null ? lc.trend_participation.toFixed(0) + '%' : '—'}</b></div>` : '';
     const opp = ncOpportunitySummary(narrative.id);
-    const oppSummaryHtml = opp ? `<div class="nc-opp-summary"><span>${opp.leaders} Leaders</span><span>${opp.fresh} Fresh</span><span>${opp.resets} Resets</span><span>${opp.extended} Extended</span></div>` : '';
+    const oppSummaryHtml = opp ? `<div class="nc-opp-summary"><span>${opp.leaders} Leaders</span><span>${opp.fresh} Fresh</span><span>${opp.recent} Recent</span><span>${opp.resets} Resets</span><span>${opp.extended} Extended</span></div>` : '';
 
     let card = `<div class="narrative-card${isExpanded ? ' expanded' : ''}" style="background:${bg};" onclick="ncToggleCard('${narrative.id}')">
       <div class="nc-card-top">

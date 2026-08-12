@@ -38,11 +38,32 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/build_data.py --out-dir data
 
-      - name: Build full-market features (universe/ADR/RS/EMA/ATR)
+      # V1.1: persistent, incrementally-updated rolling-window price-history
+      # cache (260 trading sessions) — lives OUTSIDE git (see .gitignore),
+      # persisted across runs via actions/cache instead of committing a
+      # ~30MB build artifact to repo history. Save key is unique per run
+      # (GH Actions cache keys are immutable once written); restore-keys
+      # falls back to the most recent previous run's cache via prefix match.
+      - name: Restore price-history cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/market_history.json
+          key: market-history-${{ github.run_id }}
+          restore-keys: |
+            market-history-
+
+      - name: Build full-market features (universe/ADR/RS/EMA/ATR/Structural RS/Trend Strength)
         timeout-minutes: 20
         env:
           MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
         run: python scripts/build_market_features.py --out-dir data
+
+      - name: Save price-history cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/market_history.json
+          key: market-history-${{ github.run_id }}
 
       - name: Build narratives data
         timeout-minutes: 15
