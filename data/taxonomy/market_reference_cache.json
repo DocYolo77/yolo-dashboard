@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updated_at": "2026-08-12T08:25:51.805778+00:00",
+    "updated_at": "2026-08-12T15:01:11.066933+00:00",
     "source": "Massive /v3/reference/tickers/{ticker} (per-ticker, cached)",
-    "n_tickers": 3162,
+    "n_tickers": 3201,
     "max_age_days": 7
   },
   "tickers": {
@@ -31625,6 +31625,396 @@
       "description": "Warner Music is the third-largest of the three major record companies. Recorded music accounts for most of the firm's revenue, with the segment housing notable record labels including Atlantic Records, Warner Records, Elektra Records. Some of the most successful current artists signed to record deals with Warner include Ed Sheeran, Bruno Mars, Cardi B, and Dua Lipa. Warner's remaining revenue comes from its publishing business, where Warner Chappell represents more than 180,000 songwriters and composers, some of whom are also Warner recording artists but many of whom are not recording artists or are attached to other labels. Warner Chappell controls more than 1 million musical compositions. Access Industries controls 98% of Warner's voting rights, while holding a 72% economic interest.",
       "total_employees": 5500,
       "cached_at": "2026-08-11T20:48:47.421332+00:00"
+    },
+    "ACB": {
+      "market_cap": 215868378.81,
+      "share_class_shares_outstanding": 61344456,
+      "weighted_shares_outstanding": 61942146,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Aurora Cannabis Inc is focused on the production, distribution, and sale of cannabis products in Canada and internationally. The Company conducts the production, distribution, and sale of medical cannabis products and, on a very limited basis, consumer cannabis products in Canada pursuant to the Cannabis Act; the production and distribution of wholesale medical cannabis in the European Union pursuant to the German Medicinal Products Act and German Narcotic Drugs Act; and the distribution of wholesale medical cannabis in various international markets, including Australia and New Zealand. Its segments are Canadian Cannabis CGU, European Cannabis CGU, Australia Cannabis CGU, and New Zealand Cannabis CGU, with Canada generating majority revenue.",
+      "total_employees": 1101,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "ADXN": {
+      "market_cap": 7531771.8,
+      "share_class_shares_outstanding": 1822121,
+      "weighted_shares_outstanding": 1265844,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Addex Therapeutics Ltd is a clinical-stage biopharmaceutical company. The company is focused on the development and commercialization of an emerging class of novel orally available small-molecule drugs known as allosteric modulators. The company's geographical area of operations includes Switzerland and Europe. The Company operates in one segment, which is the discovery, development, and commercialization of small-molecule pharmaceutical products.",
+      "total_employees": 3,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "AIRT": {
+      "market_cap": 84814332.64,
+      "share_class_shares_outstanding": 2691664,
+      "weighted_shares_outstanding": 2691664,
+      "sic_code": "4513",
+      "sic_description": "AIR COURIER SERVICES",
+      "description": "Air T Inc together with its subsidiaries provides air freight service to the express delivery industry. The company's operating segments include overnight air cargo, ground support equipment, commercial aircraft, engines and parts, digital solutions, and regional airline. The company generates maximum revenue from the overnight air cargo segment.",
+      "total_employees": 1666,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "BKYI": {
+      "market_cap": 4240704.0,
+      "share_class_shares_outstanding": 1087360,
+      "weighted_shares_outstanding": 1087360,
+      "sic_code": "7372",
+      "sic_description": "SERVICES-PREPACKAGED SOFTWARE",
+      "description": "BIO-key International Inc is a identity and access management (IAM) platform provider enabling secure work-from-anywhere for enterprise, education, and government customers using secure multi-factor authentication (MFA). Its products include PortalGuard and PortalGuard Identity-as-a-Service (IDaaS) enterprise IAM, WEB-key biometric civil and large-scale ID infrastructure, MobileAuth mobile phone authentication application for iOS and Android, and high-quality, low-cost accessory fingerprint scanner and FIDO-compliant hardware to provide a full and complete solution for identity-innovating customers. The company operates as one operating segment. Its solutions are Passwordless Authentication, Secure Roving Employees, Education, Financial Services, Government, Healthcare, Manufacturing, etc.",
+      "total_employees": 42,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "BLIV": {
+      "market_cap": 23793916.38,
+      "share_class_shares_outstanding": 10864802,
+      "weighted_shares_outstanding": 10864802,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "BeLive Holdings is a holding company. The company is a technology solution provider for live commerce and shoppable short videos. The company enables its customers to engage in interactive and immersive live and video commerce with online businesses, and enables customers to create videos for more traffic and good shopping experiences on their platforms. The company generates revenue from the provision of BeLive White-Label Solutions and BeLive SaaS Solutions.",
+      "total_employees": 32,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "CEPU": {
+      "market_cap": 1996316827.78,
+      "share_class_shares_outstanding": 151377022,
+      "weighted_shares_outstanding": 149986238,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Central Puerto SA is a power generation company. It is mainly engaged in electric power generation and commercialization. The company is also involved in the natural gas distribution public sector service in the Cuyo and Centro regions in Argentina. The Group has four reporting segments which includes electric power generation from conventional sources, electric power generation from renewable sources, natural gas transport and distribution, and forest activity. The company derives maximum revenue from Electric Power Generation from conventional sources segment.",
+      "total_employees": 1269,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "CIGL": {
+      "market_cap": 135351434.56840003,
+      "share_class_shares_outstanding": 206674356,
+      "weighted_shares_outstanding": 226985468,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Concorde International Group Ltd is an integrated security services provider that combines physical manpower and technology to deliver effective security solutions. The company offers a range of services to enhance security and safety: (1) i-Guarding Services; (2) Man-Guarding Services; and (3) Consultancy and Training Services. Its i-Guarding Services leverages technology to increase efficiency, with a mobile platform and cluster aggregation model of a higher skillset workforce. It has two operating segments, which are (i) security services; and (ii) training school. The Majority revenue is generated from Security Services.",
+      "total_employees": 109,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "CKX": {
+      "market_cap": 22338043.520000003,
+      "share_class_shares_outstanding": 2053129,
+      "weighted_shares_outstanding": 2053129,
+      "sic_code": "1311",
+      "sic_description": "CRUDE PETROLEUM & NATURAL GAS",
+      "description": "CKX Lands Inc is a Louisiana corporation organized to receive non-producing mineral royalties spun off by a southwest Louisiana bank. It operates in three segments: Oil and Gas, Surface, and Timber. The company owns land and mineral interests and collects income through its ownership of oil and gas royalties, surface leases for farming, the right of way, and other uses, and timber sales. The company's oil and gas royalties are paid by the operators who own the wells, and timber income is paid by the highest bidder for the timber. It has small royalty interests in approximately 20 different producing oil and gas fields. Maximum revenue for the company is generated from the Timber segment.",
+      "total_employees": 2,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "DGICB": {
+      "market_cap": 891233960.82,
+      "share_class_shares_outstanding": 5576775,
+      "weighted_shares_outstanding": 37119282,
+      "sic_code": "6331",
+      "sic_description": "FIRE, MARINE & CASUALTY INSURANCE",
+      "description": "Donegal Group Inc is an insurance holding company whose insurance subsidiaries and affiliates offer property and casualty insurance in 21 Mid-Atlantic, Midwestern, Southern, and Southwestern states. It includes three segments: Investments Function, Commercial Lines of Insurance, and Personal Lines of Insurance. The majority of revenue is from the commercial Lines segment. The commercial Lines segment consists mainly of commercial automobile, commercial multi-peril, and workers' compensation policies.",
+      "total_employees": 851,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "EAT": {
+      "market_cap": 9494498950.199999,
+      "share_class_shares_outstanding": 42887790,
+      "weighted_shares_outstanding": 42887790,
+      "sic_code": "5812",
+      "sic_description": "RETAIL-EATING PLACES",
+      "description": "Brinker International Inc operates casual dining restaurants under the brand's Chili Grill and Bar (Chili's) and Maggiano's Little Italy (Maggiano's). Chili's falls in the Bar and Grill category of casual dining. Its menu features Fresh Mex and Fresh Tex favorites including signature items such as slow-smoked baby back ribs, craft burgers, fajitas, and bottomless chips and salsa paired with tableside guacamole. Maggiano's is an Italian restaurant brand with a full lunch and dinner menu offering chef-prepared, such as appetizers, chicken, seafood, veal and prime steaks, and desserts. The company generates maximum revenue from Chili's segment.",
+      "total_employees": 83840,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "EURK": {
+      "market_cap": 26003799.98,
+      "share_class_shares_outstanding": 733101,
+      "weighted_shares_outstanding": 2170601,
+      "sic_code": "4400",
+      "sic_description": "WATER TRANSPORTATION",
+      "description": "Eureka Acquisition Corp is a newly incorporated blank check company.",
+      "total_employees": null,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "FEDU": {
+      "market_cap": 15626536.58,
+      "share_class_shares_outstanding": 2261438,
+      "weighted_shares_outstanding": 2261438,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Four Seasons Education (Cayman) Inc is a service provider of both tourism and education-related services in China. Its program, service, and product offerings mainly consist of enrichment learning programs, school-based tutoring product solutions, and training programs for teachers, study camps and learning trips for students, and travel agency services for all age groups. The Company provides a wide variety of learning and tourism services and is committed to maximizing a learner's potential through technology and content capabilities. The Group operates through three segments: Learning Services, which generates maximum revenue, Tourism Services, and Learning Technology and Content Solutions. The Group mainly operates in the PRC.",
+      "total_employees": 271,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "FVN": {
+      "market_cap": 83436640.0,
+      "share_class_shares_outstanding": 7544000,
+      "weighted_shares_outstanding": 7544000,
+      "sic_code": "7373",
+      "sic_description": "SERVICES-COMPUTER INTEGRATED SYSTEMS DESIGN",
+      "description": "Future Vision II Acquisition Corp is a blank check company.",
+      "total_employees": null,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "HCHL": {
+      "market_cap": null,
+      "share_class_shares_outstanding": 17772000,
+      "weighted_shares_outstanding": 29844401,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Happy City Holdings Ltd operates three all-you-can-eat hotpot restaurants and specializes in Thai and Japanese Hotpot under the brand names Thai Pot and Gyu! Gyu! Shabu Shabu in Hong Kong. These restaurants are located in Tsuen Wan in the New Territories, Mong Kok in Kowloon, and North Point on Hong Kong Island. The Company's of its operations are conducted in Hong Kong.",
+      "total_employees": 38,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "HRB": {
+      "market_cap": 5915898860.690001,
+      "share_class_shares_outstanding": 126760207,
+      "weighted_shares_outstanding": 126760207,
+      "sic_code": "7200",
+      "sic_description": "SERVICES-PERSONAL SERVICES",
+      "description": "H&R Block Inc provides income tax return preparation services, digital do-it-yourself tax solutions, and other services related to income tax preparation to the general public in the United States, Canada, and Australia. The company mainly prepares tax returns for customers within the United States through its company-owned offices, franchise locations, and online tax software. The vast majority of H&R Block's offices are located in the U.S. The company derives the majority of its total revenue from the U.S. assisted tax preparation fees. Revenue from franchise and product royalties and digital do-it-yourself tax solutions is also relatively.",
+      "total_employees": 4300,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "INHD": {
+      "market_cap": 29248916.06,
+      "share_class_shares_outstanding": 2520581,
+      "weighted_shares_outstanding": 4520698,
+      "sic_code": "3317",
+      "sic_description": "STEEL PIPE & TUBES",
+      "description": "Inno Holdings Inc is a building technology company with a mission to transform the construction industry with its proprietary cold-formed steel-framing technology and other innovations. It is a manufacturer of cold-formed-steel members and prefabricated homes. It offers a full range of services required to transform raw materials into precise steel framing products and prefabricated homes. The company sells these finished products either to businesses or directly to customers. The finished products and cold-formed-steel members are used in a variety of building types, including residential, commercial, industrial and infrastructure.",
+      "total_employees": 5,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "JDZG": {
+      "market_cap": 15398800.0,
+      "share_class_shares_outstanding": 5137303,
+      "weighted_shares_outstanding": 5480000,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Jiade Ltd specializes in providing one-stop comprehensive education supporting services to adult education institutions, through a wide range of software platform and auxiliary solutions. Auxiliary solutions encompass exam administration services and teaching support services throughout the entire teaching cycle. Specifically, the company offers pre-enrollment guidance on school/major selection and application strategy development, training for entrance exams, and assistance in the application process. The company also provides offline tutoring, exam administration services, guidance on graduation thesis, and social practice assistance included in the one-stop comprehensive education supporting services in the People's Republic of China.",
+      "total_employees": 43,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "KELYB": {
+      "market_cap": 791888300.4,
+      "share_class_shares_outstanding": 3296041,
+      "weighted_shares_outstanding": 34731943,
+      "sic_code": "7363",
+      "sic_description": "SERVICES-HELP SUPPLY SERVICES",
+      "description": "Kelly Services Inc is a specialty talent solutions company. The company operates through three reportable segments: i) Enterprise Talent Management, which provides temporary staffing, outsourcing, and permanent placement services across industrial, contact center, and clerical roles, ii) Science, Engineering & Technology, which supplies specialized talent across multiple industries, and iii) Education, which delivers staffing, placement, and executive search services to Pre-K-12 school districts and education organizations in the United States. The majority of the company's revenue is derived from the Enterprise Talent Management segment. Geographically, it generates the maximum revenue from the United States, followed by Europe and the Asia-Pacific Region.",
+      "total_employees": 4900,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "KRNT": {
+      "market_cap": 814665585.66,
+      "share_class_shares_outstanding": 42966534,
+      "weighted_shares_outstanding": 46340477,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Kornit Digital Ltd is a developer and provider of digital solutions for the printed textile industry. The company focuses on its DTG and DTF segments of the printed textile industry. Its solutions include digital printing systems, ink and other consumables, associated software, and value-added services that enable large-scale printing of short-run complex images and designs directly on finished garments and fabrics. It generates revenue from sales of systems, ink, and other consumables, and services, including software subscriptions. The company geographically operates in the U.S., EMEA, Asia Pacific, and other countries. It derives maximum revenue from the U.S.",
+      "total_employees": 633,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "KRT": {
+      "market_cap": 997781953.26,
+      "share_class_shares_outstanding": 19963731,
+      "weighted_shares_outstanding": 19931721,
+      "sic_code": "3089",
+      "sic_description": "PLASTICS PRODUCTS, NEC",
+      "description": "Karat Packaging Inc is a distributor and manufacturer of disposable foodservice products and related items, including containers, bags, tableware, cups, lids, cutlery, straws, specialty beverage ingredients, gloves, and janitorial supplies, available in plastic, paper, biopolymer-based, and other compostable forms. The Company focuses on environmentally friendly products and provides customized solutions including product development, design, printing, and logistics services. It serves customers through chains and distributors, retail, and e-commerce/online, and operates in the manufacturing and distribution of single-use food and beverage products, as well as specialty food and beverage products and restaurant and warehouse supplies.",
+      "total_employees": 696,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "LBTYB": {
+      "market_cap": 4331812088.2,
+      "share_class_shares_outstanding": 12968658,
+      "weighted_shares_outstanding": 341087566,
+      "sic_code": "4841",
+      "sic_description": "CABLE & OTHER PAY TELEVISION SERVICES",
+      "description": "Liberty Global is a holding company with interests in European telecom companies in the UK, the Netherlands, Belgium, Ireland, and Slovakia. Liberty owns the main cable network in each of these geographies and has pursued a strategy since 2016 to merge or partner with mobile network operators to be able to offer converged services. Liberty also owns minority stakes in other media, entertainment, and cloud companies.",
+      "total_employees": 6636,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "MAGH": {
+      "market_cap": null,
+      "share_class_shares_outstanding": 35000000,
+      "weighted_shares_outstanding": 33350000,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Magnitude International Ltd is providing electrical installation services to customers in both the private and public sectors in Singapore. It includes the planning, design, material selection, installation, testing, commissioning and certification of the electrical equipment/systems to be installed. The Group's revenue is derived from Singapore.",
+      "total_employees": 65,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "MAMK": {
+      "market_cap": null,
+      "share_class_shares_outstanding": 9200000,
+      "weighted_shares_outstanding": 16625000,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "MaxsMaking Inc is a manufacturer of customized consumer goods with a focus on technology. Its group consists of various subsidiaries that specializes in different aspects of its businesses, including digital production, software development, product design and brand management, online sales and international trade. The company uses cotton cloth, nylon cloth, polyester, recycled polyethylene terephthalate (rPET) and other materials to produce backpacks, shopping bags, aprons, tablecloths and other consumer goods.",
+      "total_employees": 99,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "NCL": {
+      "market_cap": null,
+      "share_class_shares_outstanding": 53733083,
+      "weighted_shares_outstanding": 53733083,
+      "sic_code": "3089",
+      "sic_description": "PLASTICS PRODUCTS, NEC",
+      "description": "Northann Corp specialized in 3D-printed flooring solutions under its flagship brand, Benchwick. The company's operations span the full spectrum of additive manufacturing, from sourcing recycled ocean plastics to the final production of intricate flooring designs. It offers an extensive range of proprietary solutions, including Infinite Glass, DSE, TruBevel, and MattMaster, mainly through its sales network in North America and Europe.",
+      "total_employees": 63,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "NRDS": {
+      "market_cap": 625168641.7199999,
+      "share_class_shares_outstanding": 32237522,
+      "weighted_shares_outstanding": 63923174,
+      "sic_code": "7374",
+      "sic_description": "SERVICES-COMPUTER PROCESSING & DATA PREPARATION",
+      "description": "Nerdwallet Inc is a company that provides consumer-driven advice about personal finance through its platform by connecting individuals and small and mid-sized businesses (SMBs) with providers of financial products. The Company's platform comprises three primary components: Editorial and Content Publishing, Marketplace and Referral Services, and Financial Services. It operates in the United States, Canada, and the United Kingdom.",
+      "total_employees": 650,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "NTZ": {
+      "market_cap": 14318991.700000001,
+      "share_class_shares_outstanding": 11014609,
+      "weighted_shares_outstanding": 11014609,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Natuzzi SpA is an Italian firm that designs, manufactures, and sells contemporary and traditional leather and fabric-upholstered furniture. Its product portfolio includes sofas, loveseats, armchairs, sectional furniture, motion furniture, sofa beds, living room furnishings, and accessories. The company markets its products under several brands such as Natuzzi Italia, Private Label, and Natuzzi Editions. The Group operates in two operating segments, the Natuzzi brand and Private label. The Natuzzi brand segment includes net sales from the Natuzzi Italia, Natuzzi Editions, and Divani&Divani by Natuzzi product lines. Geographically, it derives a majority of its revenue from the United States of America and also has an international presence in Italy, Spain, the UK, China, and Other countries.",
+      "total_employees": 3193,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "NVA": {
+      "market_cap": 217250174.50000003,
+      "share_class_shares_outstanding": null,
+      "weighted_shares_outstanding": 38181050,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Nova Minerals Corp is advancing the Estelle Gold and Critical Minerals Project in Alaska, a globally notable gold and antimony project. The Company is also developing a U.S. domestic antimony supply chain, backed by a fully funded around U.S.$43.4 million U.S. Department of War award.",
+      "total_employees": 1,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "OPI": {
+      "market_cap": 416020284.15,
+      "share_class_shares_outstanding": null,
+      "weighted_shares_outstanding": 21953577,
+      "sic_code": "6500",
+      "sic_description": "REAL ESTATE",
+      "description": "Office Properties Income Trust is a real estate investment trust (REIT) focused on owning and leasing office properties to high-credit-quality tenants in markets throughout the United States. The U.S. government leases the maximum portion of the company's properties.",
+      "total_employees": null,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "PFX": {
+      "market_cap": 88918926.0,
+      "share_class_shares_outstanding": 1931273,
+      "weighted_shares_outstanding": 1932600,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "PhenixFIN Corp is a non-diversified closed end management investment company operating in United States. Its investment objective is to generate current income and capital appreciation by lending directly to privately held middle market companies to expand their business, refinance and make acquisitions. It mainly invests in senior secured first lien term loans, senior secured second lien term loans, unitranche, senior secured first lien notes, subordinated notes and warrants and minority equity securities. It may also invest in securities of foreign companies. Portfolio of the company mainly consists of securities across all sectors. Revenue generated by the company comprises of interest income, dividend and other income earned through investments made.",
+      "total_employees": 7,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "PLUT": {
+      "market_cap": 41828750.0,
+      "share_class_shares_outstanding": 15350000,
+      "weighted_shares_outstanding": 15350000,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Plutus Financial Group Ltd provides financial services. The company has three reportable segments: securities-related services, asset management services, and money lending services. The securities-related services segment generated commission by offering securities dealing and brokerage services, securities underwriting and placing services, and other financing services. The asset management services segment generated asset management fees by providing asset management services and investment advisory services. Money lending services generated interest income by lending money to corporations and individuals.",
+      "total_employees": 9,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "PRHIZ": {
+      "market_cap": null,
+      "share_class_shares_outstanding": null,
+      "weighted_shares_outstanding": null,
+      "sic_code": "6331",
+      "sic_description": "FIRE, MARINE & CASUALTY INSURANCE",
+      "description": null,
+      "total_employees": null,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "RDIB": {
+      "market_cap": 204455340.0,
+      "share_class_shares_outstanding": 1680590,
+      "weighted_shares_outstanding": 22717260,
+      "sic_code": "7830",
+      "sic_description": "SERVICES-MOTION PICTURE THEATERS",
+      "description": "Reading International Inc is a diversified company, engaged in the development, ownership, and operation of multiplex cinemas and retail and commercial real estate in the United States, Australia, and New Zealand. It operates through two segments: the Cinema segment includes Reading Cinemas, Angelika Film Center, Consolidated Theatres, and City Cinemas; the Real Estate segment includes real estate development and the rental or licensing of retail, commercial and live theater assets.",
+      "total_employees": 2005,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "SEER": {
+      "market_cap": 119482521.12,
+      "share_class_shares_outstanding": 55315982,
+      "weighted_shares_outstanding": 55315982,
+      "sic_code": "3826",
+      "sic_description": "LABORATORY ANALYTICAL INSTRUMENTS",
+      "description": "Seer Inc is a life sciences company, develops and commercializes products to decode the biology of the proteome. The company offers Proteograph Product Suite, an integrated solution that includes proprietary engineered nanoparticles, consumables, automation instrumentation, and data analysis software to perform proteomic analysis to provide a solution that can be incorporated by nearly any lab for research use only. It markets and sells its products for research use only, which cover academic institutions, life sciences, and research laboratories, as well as biopharmaceutical and biotechnology companies for non-diagnostic and non-clinical purposes. The company operates in China, Australia, Eastern Europe, Israel, Japan and South Africa.",
+      "total_employees": 124,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "SN": {
+      "market_cap": 26438772879.36,
+      "share_class_shares_outstanding": 140871552,
+      "weighted_shares_outstanding": 140871552,
+      "sic_code": "3630",
+      "sic_description": "HOUSEHOLD APPLIANCES",
+      "description": "SharkNinja Inc is a product design and technology company that creates 5-star-rated lifestyle solutions through inventive products for consumers around the world. Its product categories include Cleaning, Cooking, Food Preparation, Home Environment, and Beauty products. It sells vacuum cleaners, cooking pots, fryers, hair dryers, etc. The Company has identified two operating segments, Domestic and International. The SharkNinja Group is expected to carry on the design, production, marketing, and distribution of the Shark and Ninja brands of small household appliances in North America, Europe and other selected international markets (excluding the Asia Pacific Region and Greater China). Currently, the majority of the revenue is derived from the U.S. market.",
+      "total_employees": 4143,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "SPCX": {
+      "market_cap": 1756999448869.0498,
+      "share_class_shares_outstanding": null,
+      "weighted_shares_outstanding": 13181779945,
+      "sic_code": "7370",
+      "sic_description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+      "description": "Founded in 2002 and commonly known as SpaceX, the Space Exploration Technologies Corporation designs, manufactures, and operates a family of reusable rockets to launch various payloads into Earth orbit for government and commercial customers. Starting in 2019, the company began launching a constellation of its own communication satellites to provide mobile broadband and wireless services under the Starlink brand. In early 2026, the company acquired xAI from its founder, Elon Musk, which operates a large language artificial intelligence model named Grok, a gigawatt-scale data center called Colossus, and the social media network X.",
+      "total_employees": 22000,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "SRL": {
+      "market_cap": 89835470.9,
+      "share_class_shares_outstanding": 14822251,
+      "weighted_shares_outstanding": 15226351,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Scully Royalty Ltd is a royalty-based company that maximizes earnings upon its iron ore royalty interest. The company's business segments include Royalty, which includes interest in an iron ore mine; and Merchant Banking, sometimes referred to as financial services, which includes merchant banking activities. The majority of the revenue is generated from the Royalty segment. The company's geographical segments include Canada, Africa, America, Asia, and Europe, out of which Canada accounts for the majority of the revenue.",
+      "total_employees": 71,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "TGS": {
+      "market_cap": 4221484024.48,
+      "share_class_shares_outstanding": 69513693,
+      "weighted_shares_outstanding": 150552212,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Transportadora de Gas del Sur SA is a natural gas transporter in Latin America. The company's operating segments include Natural Gas Transportation, Midstream, Telecommunications, and Liquids Production and Commercialization. It generates maximum revenue from the Natural Gas Transportation segment. Geographically, it derives the majority of its revenue from Argentina.",
+      "total_employees": 1187,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "TJGC": {
+      "market_cap": 38582000.0,
+      "share_class_shares_outstanding": 10100023,
+      "weighted_shares_outstanding": 10100000,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "TJGC Group Ltd is a holding company which is principally engaged in one-stop game advertising.",
+      "total_employees": 28,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
+    },
+    "WEYS": {
+      "market_cap": 447750083.04,
+      "share_class_shares_outstanding": 9532202,
+      "weighted_shares_outstanding": 9550983,
+      "sic_code": "5130",
+      "sic_description": "WHOLESALE-APPAREL, PIECE GOODS & NOTIONS",
+      "description": "Weyco Group Inc is a company, engaged in the manufacturing, designing, and distribution of footwear. The company designs and markets footwear for men, women, and children. It markets its apparel, accessories, and footwear under the brand names of Florsheim, Nunn Bush, Stacy Adams, BOGS, Rafters, and Forsake. The company organizes its business into two segments; the North American wholesale operations and the North American retail operations. The majority of the company's revenue is generated from the wholesale segment under which its products are sold to footwear, department, and specialty stores, as well as e-commerce retailers. The company has operational footprints in the United States which generates key revenue, Canada, South Africa, and Australia.",
+      "total_employees": 569,
+      "cached_at": "2026-08-12T15:01:11.066933+00:00"
     }
   }
 }
