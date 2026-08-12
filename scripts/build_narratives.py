@@ -591,12 +591,32 @@ def main():
     eligible_set = None if market_features is None else \
         {sym for sym, t in market_features.items() if t.get("eligible")}
 
+    # Quality Patch section 8/19-21: a narrative only counts as an ACTIVE
+    # dashboard basket once it has at least minimum_active_narrative_members
+    # CURRENTLY ELIGIBLE members — deterministic, recomputed every run from
+    # today's eligible set (never set by the LLM). Below that it's
+    # "undersized": the semantic classification stays fully persisted in the
+    # taxonomy (untouched here), it just doesn't get a Structural
+    # Score/Lifecycle/Rank published or count toward Market Regime's
+    # Narrative Environment (both consume ONLY output_narratives below) and
+    # doesn't show up as a selectable narrative in Opportunities (whose
+    # narrative_membership_idx is also built purely from output_narratives —
+    # see build_dashboard_states.py). market_features unavailable (None)
+    # degrades to "no size gate" (min_active=0), same graceful-degradation
+    # rule as the eligible-filter above — there is no eligible concept to
+    # gate on in that fallback mode.
+    min_active_members = cfg["classification"]["minimum_active_narrative_members"] if eligible_set is not None else 0
+
     # Pass 1: per-narrative basket scores (unchanged existing methodology,
     # now also covering the new 3M/6M horizons) + raw structural inputs.
     narrative_rows = []
+    undersized_narratives = []
     for n in narratives:
         members = [t for t in n["tickers"]
                    if t in ticker_metrics and (eligible_set is None or t in eligible_set)]
+        if len(members) < min_active_members:
+            undersized_narratives.append({"id": n["id"], "name": n["name"], "eligible_member_count": len(members)})
+            continue
         if not members:
             print(f"  ⚠ {n['name']}: keine eligible Mitglieder mit Daten, übersprungen")
             continue
@@ -708,6 +728,26 @@ def main():
     coverage_pct = round(len(unique_classified_eligible) / eligible_universe_size * 100, 1) \
         if eligible_universe_size else 100.0
 
+    # Quality Patch section 22-23: successor coverage metrics — how many
+    # eligible tickers actually have an ACTIVE (>= min_active_members
+    # eligible members) Primary Narrative, vs. classified-into-SOMETHING
+    # (unique_classified_eligible_members above, which also counts
+    # undersized/secondary-only membership). A ticker without an active
+    # Primary is an explicitly VALID outcome now (never forced) — see
+    # scripts/reconcile_narrative_universe.py's confidence-gated
+    # classification and Opportunities' narrative-independent coverage.
+    active_ids = {row["id"] for row in output_narratives}
+    primary_narrative_of = {}
+    for n in narratives:
+        for sym, meta in n.get("membership_meta", {}).items():
+            if meta.get("assignment_priority") == "primary":
+                primary_narrative_of[sym] = n["id"]
+    eligible_pop = eligible_set if eligible_set is not None else set(universe)
+    eligible_with_active_narrative = sum(1 for t in eligible_pop if primary_narrative_of.get(t) in active_ids)
+    eligible_without_active_narrative = len(eligible_pop) - eligible_with_active_narrative
+    active_narrative_coverage_pct = round(eligible_with_active_narrative / len(eligible_pop) * 100, 1) \
+        if eligible_pop else 100.0
+
     output = {
         "meta": {
             "updated_at": datetime.now(timezone.utc).isoformat(),
@@ -719,6 +759,12 @@ def main():
             "unique_classified_eligible_members": len(unique_classified_eligible),
             "total_active_memberships": total_active_memberships,
             "coverage_pct": coverage_pct,
+            "eligible_with_active_narrative": eligible_with_active_narrative,
+            "eligible_without_active_narrative": eligible_without_active_narrative,
+            "active_narrative_coverage_pct": active_narrative_coverage_pct,
+            "active_narrative_count": len(active_ids),
+            "undersized_narrative_count": len(undersized_narratives),
+            "undersized_narratives": sorted(undersized_narratives, key=lambda u: -u["eligible_member_count"]),
         },
         "narratives": output_narratives,
         "rs_history": rs_history,
@@ -728,7 +774,10 @@ def main():
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print(f"\n✅ Narratives geschrieben → {out_dir / 'narratives.json'}")
-    print(f"   Narrative: {len(output_narratives)} | Ticker gesamt: {len(ticker_metrics)}")
+    print(f"   Aktive Narrative: {len(output_narratives)} | Undersized (< {min_active_members} eligible): "
+          f"{len(undersized_narratives)} | Ticker gesamt: {len(ticker_metrics)}")
+    print(f"   Active Narrative Coverage: {eligible_with_active_narrative}/{len(eligible_pop)} "
+          f"({active_narrative_coverage_pct}%) eligible Ticker mit aktivem Primary Narrative")
     print("=" * 60)
 
 

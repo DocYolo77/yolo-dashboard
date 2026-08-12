@@ -18,6 +18,10 @@ on:
         description: "Full-Universe Narrative Classification (--full-universe) statt taeglicher inkrementeller Reconciliation"
         type: boolean
         default: false
+      narrative_taxonomy_cleanup:
+        description: "Narrative Taxonomy Quality Patch: einmaliger Cleanup-Lauf (--cleanup) statt taeglicher Reconciliation — merged Duplicate-Narrative, reklassifiziert nur Low-Confidence-/Alt-Healing-Ticker"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -102,7 +106,10 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          if [ "${{ github.event.inputs.full_narrative_rebuild }}" = "true" ]; then
+          if [ "${{ github.event.inputs.narrative_taxonomy_cleanup }}" = "true" ]; then
+            echo "Cleanup-Modus (manuell angefordert, Narrative Taxonomy Quality Patch)"
+            python scripts/reconcile_narrative_universe.py --out-dir data --cleanup
+          elif [ "${{ github.event.inputs.full_narrative_rebuild }}" = "true" ]; then
             echo "Full-Universe-Modus (manuell angefordert)"
             python scripts/reconcile_narrative_universe.py --out-dir data --full-universe
           else

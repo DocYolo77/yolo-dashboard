@@ -276,6 +276,23 @@ test('oppApplyFilters: Narrative-Filter', () => {
   setOppFilterInputs({});
 });
 
+test('oppApplyFilters: Narrative-Filter "__NONE__" zeigt nur Ticker ohne aktives Narrative', () => {
+  // Quality Patch point 26: an explicit "Ohne Narrative" filter option lets
+  // users isolate stocks whose only classification is undersized/absent
+  // (narratives.length === 0, since build_narratives.py only ever emits
+  // ACTIVE narrative memberships into this array).
+  setOppFilterInputs({ oppFilterNarrative: '__NONE__' });
+  const items = makeOppItems().concat([
+    { symbol: 'ZZZ', narratives: [], quality_state: 'neutral', near_emas: false, extended: false,
+      constructive_reset_narratives: [], laggard_narratives: [], structural_rs: 50, trend_strength: 40,
+      rs_1w: 40, rs_1m: 40, thrust_percentile_1d: 40, thrust_percentile_1w: 40,
+      atr_extension: 2.0, w1_pct: 0.5, m1_pct: 1.0, market_cap: 2e9 },
+  ]);
+  const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(out).map(it => it.symbol), ['ZZZ']);
+  setOppFilterInputs({});
+});
+
 test('oppApplyFilters: Min Structural RS', () => {
   setOppFilterInputs({ oppFilterStructuralRs: '87' });
   const items = makeOppItems();

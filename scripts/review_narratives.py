@@ -64,6 +64,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from validate_narrative_proposal import validate_proposal  # noqa: E402
+from reconcile_narrative_universe import (  # noqa: E402
+    find_duplicate_narrative_names, find_near_duplicate_candidates,
+    find_low_confidence_memberships, compute_eligible_set, compute_active_undersized_stats,
+)
 import llm_provider  # noqa: E402
 
 MAX_DISCOVERY_CANDIDATES_IN_PROMPT = 150
@@ -72,11 +76,22 @@ MAX_MAINTENANCE_MEMBERS_IN_PROMPT = 150
 SYSTEM_PROMPT = """Du bist der wöchentliche Narrative-Review-Assistent eines Trading-Dashboards.
 
 Wichtig: fast jeder eligible Ticker hat bereits taeglich eine automatische semantische
-Erstklassifikation (Primary + ggf. Secondary Narrative) erhalten. Deine Aufgabe ist NICHT,
-Coverage aufzubauen, sondern die QUALITAET bestehender Klassifikationen zu pruefen: echte
-Fehlzuordnungen, Geschaeftsmodelländerungen/M&A/Delisting, fragwuerdige Secondary-Memberships,
-redundante oder zu breite Narrative (Merge/Split-Vorschlaege), sowie echte neue wirtschaftliche
-Cluster, die eine Ticker-fuer-Ticker-Klassifikation nicht erkennen wuerde.
+Erstklassifikation (Primary + ggf. Secondary Narrative) erhalten -- 100% Narrative-Coverage ist
+seit dem Narrative Taxonomy Quality Patch AUSDRUECKLICH KEIN Ziel mehr (ein Ticker ganz ohne
+aktives Narrative ist ein gueltiges Ergebnis). Deine Aufgabe ist NICHT, Coverage aufzubauen,
+sondern die QUALITAET bestehender Klassifikationen zu pruefen: echte Fehlzuordnungen,
+Geschaeftsmodelländerungen/M&A/Delisting, fragwuerdige Secondary-Memberships, redundante oder zu
+breite Narrative (Merge/Split-Vorschlaege), sowie echte neue wirtschaftliche Cluster, die eine
+Ticker-fuer-Ticker-Klassifikation nicht erkennen wuerde.
+
+Der Prompt-Kontext enthaelt zusaetzlich near_duplicate_candidates (Narrative-Paare mit aehnlichem
+Namen, NUR ein Hinweis -- nie automatisch gemergt, du kannst aber MERGE_PROPOSAL vorschlagen),
+undersized_narratives (Narrative mit < minimum_active_narrative_members aktuell eligible
+Mitgliedern -- werden im Dashboard nicht als aktive Baskets angezeigt; pruefe, ob sie wirtschaftlich
+in ein bestehendes groesseres Narrative gehoeren, bevor du sie so belaesst) und
+low_confidence_memberships (Primary/Secondary mit Confidence knapp ueber/unter den Schwellen --
+das haben reconcile_narrative_universe.py's Confidence-Gates bereits weitgehend bereinigt, aber
+pruefe verbleibende Grenzfaelle auf echte Fehlzuordnung).
 
 Deine einzige Aufgabe: wirtschaftliche/semantische Einschätzungen zu Aktien-Narrativen liefern,
 als strukturierter Change Set über das Tool `propose_narrative_changes`.
@@ -169,7 +184,9 @@ def build_maintenance_pool(market_features, taxonomy, max_members=MAX_MAINTENANC
     return rows[:max_members]
 
 
-def build_user_prompt(taxonomy, discovery_pool, maintenance_pool, config):
+def build_user_prompt(taxonomy, discovery_pool, maintenance_pool, config,
+                       near_duplicate_candidates=None, undersized_narratives=None,
+                       low_confidence_memberships=None):
     taxonomy_summary = [
         {"id": n["id"], "name": n["name"], "status": n["status"], "member_count": len(n["tickers"]),
          "sample_members": sorted(n["tickers"].keys())[:10]}
@@ -179,6 +196,9 @@ def build_user_prompt(taxonomy, discovery_pool, maintenance_pool, config):
         "existing_taxonomy": taxonomy_summary,
         "discovery_candidates": discovery_pool,
         "maintenance_members": maintenance_pool,
+        "near_duplicate_candidates": near_duplicate_candidates or [],
+        "undersized_narratives": undersized_narratives or [],
+        "low_confidence_memberships": low_confidence_memberships or {},
         "config": config,
     }
     return (
@@ -190,6 +210,8 @@ def build_user_prompt(taxonomy, discovery_pool, maintenance_pool, config):
         "maintenance_members = alle aktuellen Mitglieder aller Narratives (auch schwache) — "
         "prüfe NUR auf sachliche Fehlzuordnung, Geschäftsmodelländerung, M&A, Delisting; "
         "ignoriere aktuelle Kursschwäche vollständig. "
+        "near_duplicate_candidates/undersized_narratives/low_confidence_memberships = deterministisch "
+        "vorberechnete Kandidaten fuer Merge/Split-Vorschlaege bzw. Qualitätspruefung (siehe System-Prompt). "
         "config = die geltenden Schwellenwerte, gegen die dein Vorschlag später deterministisch "
         "geprüft wird.\n\n"
         + json.dumps(payload, indent=2, ensure_ascii=False)
@@ -289,7 +311,20 @@ def main():
     maintenance_pool = build_maintenance_pool(market_features, taxonomy)
     print(f"  → Discovery-Pool: {len(discovery_pool)} Kandidaten | Maintenance-Pool: {len(maintenance_pool)} Mitglieder")
 
-    user_prompt = build_user_prompt(taxonomy, discovery_pool, maintenance_pool, config)
+    near_dup_threshold = config["classification"].get("near_duplicate_similarity_threshold", 0.5)
+    near_duplicate_candidates = find_near_duplicate_candidates(taxonomy, near_dup_threshold)
+    eligible_now = compute_eligible_set(market_features)
+    min_active = config["classification"].get("minimum_active_narrative_members", 5)
+    active_stats = compute_active_undersized_stats(taxonomy, eligible_now, min_active)
+    low_confidence_memberships = find_low_confidence_memberships(taxonomy, config["membership"])
+    print(f"  → Near-Duplicate Candidates: {len(near_duplicate_candidates)} | "
+          f"Undersized Narratives: {active_stats['undersized_narrative_count']} | "
+          f"Low-Confidence Memberships: primary<min={len(low_confidence_memberships['primary_below_minimum'])} "
+          f"secondary<min={len(low_confidence_memberships['secondary_below_minimum'])}")
+
+    user_prompt = build_user_prompt(taxonomy, discovery_pool, maintenance_pool, config,
+                                     near_duplicate_candidates, active_stats["undersized_narratives"],
+                                     low_confidence_memberships)
 
     try:
         raw_changes = llm_provider.generate_proposal_changes(SYSTEM_PROMPT, user_prompt)

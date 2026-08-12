@@ -1526,7 +1526,8 @@ function oppApplyFilters(items) {
   const nearEmaOnly = document.getElementById('oppFilterNearEma').checked;
 
   return items.filter(it => {
-    if (narrativeFilter && !it.narratives.includes(narrativeFilter)) return false;
+    if (narrativeFilter === '__NONE__' && it.narratives.length > 0) return false;
+    else if (narrativeFilter && narrativeFilter !== '__NONE__' && !it.narratives.includes(narrativeFilter)) return false;
     if (!Number.isNaN(structuralRsMin) && (it.structural_rs == null || it.structural_rs < structuralRsMin)) return false;
     if (!Number.isNaN(rsMin) && (it.rs_1w == null || it.rs_1w < rsMin)) return false;
     if (!Number.isNaN(thrustMin) && (it.thrust_percentile_1w == null || it.thrust_percentile_1w < thrustMin)) return false;
@@ -1658,9 +1659,14 @@ function populateOppNarrativeFilter() {
   const sel = document.getElementById('oppFilterNarrative');
   if (!sel || !narrativesRaw) return;
   const current = sel.value;
+  // narrativesRaw.narratives only ever contains ACTIVE narratives (Quality
+  // Patch: build_narratives.py already excludes undersized baskets), so
+  // this dropdown is automatically active-only without any extra filtering
+  // here. "Ohne Narrative" surfaces exactly the stocks Quality Patch point
+  // 9/11 says are a legitimate, ungated Opportunities outcome.
   const options = narrativesRaw.narratives.slice().sort((a, b) => a.name.localeCompare(b.name))
     .map(n => `<option value="${n.id}">${n.name}</option>`).join('');
-  sel.innerHTML = '<option value="">Alle</option>' + options;
+  sel.innerHTML = '<option value="">Alle</option><option value="__NONE__">Ohne Narrative</option>' + options;
   sel.value = current;
 }
 
