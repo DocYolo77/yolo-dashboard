@@ -60,8 +60,24 @@ Design notes (see also the technical report handed to the user):
     * B = %Gain-50MA   = (Close - SMA50) / SMA50
     * ATR Extension    = B / A
   i.e. how many "ATR percent" units price has run above (or below) its
-  50-day simple moving average. SMA50 needs 50 trading days of history,
-  hence TRADING_DAYS_NEEDED below is 60, not 35.
+  50-day simple moving average. SMA50 needs 50 trading days of history.
+
+V1.1 (Structural Leadership & Narrative Engine) additions:
+- TRADING_DAYS_NEEDED raised to 260 sessions (12M return + SMA50-slope
+  buffer), fetched incrementally via a persistent, git-ignored rolling-
+  window cache (see load_price_cache/save_price_cache/
+  fetch_grouped_history_full_market_cached) instead of a full walk-back
+  every run.
+- structural_rs (0-100): multi-timeframe RS percentile (1M/3M/6M/12M),
+  the primary structural-quality metric — replaces short-term RS/Thrust
+  as the leadership gate.
+- trend_strength (0-100): SMA50 slope percentile + persistence, i.e. trend
+  QUALITY. Deliberately excludes distance/extension from SMA50 (that is
+  Location, tracked separately via sma50_distance_pct/atr_extension).
+- bootstrap_recent_leader: vectorized reconstruction of "was this ticker a
+  Leader at any point in the last N sessions", replayed from the same
+  260-session history so Recent Leader works from day one instead of
+  waiting on daily-history hysteresis to accumulate.
 """
 
 import argparse
@@ -81,10 +97,11 @@ from build_narratives import percentile_ranks, HORIZONS  # noqa: E402  (reuse ca
 import build_market_reference as ref  # noqa: E402
 
 MASSIVE_BASE = "https://api.massive.com"
-TRADING_DAYS_NEEDED = 60  # SMA50 (ATR-Extension reference MA) needs 50 closes + buffer
-MAX_CALENDAR_LOOKBACK = 100
+TRADING_DAYS_NEEDED = 260  # V1.1: 12M return (252 sessions) + buffer for SMA50-20-sessions-ago etc.
+MAX_CALENDAR_LOOKBACK = 420  # must cover a cold-cache 260-trading-day bootstrap (~365-390 calendar days)
 MIN_RESULTS_FOR_TRADING_DAY = 1000
 ADR_LOOKBACK_DEFAULT = 20
+PRICE_CACHE_SCHEMA_VERSION = 1
 
 
 def massive_get(path, params=None, retries=3):
@@ -135,22 +152,109 @@ def type_eligible_universe(types_ref, excluded_types):
 # Market-wide grouped-daily price history
 # ─────────────────────────────────────────────
 
-def fetch_grouped_history_full_market(universe_set):
-    """Walk backward day by day, collecting grouped-daily OHLC for tickers in
-    `universe_set` until we have TRADING_DAYS_NEEDED trading days. One API
-    call covers the whole market per day (same pattern as
-    build_narratives.fetch_grouped_history), so cost does not scale with the
-    size of `universe_set`."""
-    print(f"\n📊 Lade marktweite Grouped-Daily-OHLC (Ziel: {TRADING_DAYS_NEEDED} Handelstage)...")
-    per_ticker_close = {t: {} for t in universe_set}
-    per_ticker_high = {t: {} for t in universe_set}
-    per_ticker_low = {t: {} for t in universe_set}
-    trading_days = []
+def load_price_cache(cache_path):
+    """Load the persisted rolling-window price cache (V1.1 point 2). Returns
+    None if absent or schema-mismatched (treated as a cold cache — the
+    incremental fetch below transparently falls back to a full bootstrap)."""
+    p = Path(cache_path)
+    if not p.exists():
+        return None
+    try:
+        with open(p, "r", encoding="utf-8") as f:
+            cache = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
+    if cache.get("schema_version") != PRICE_CACHE_SCHEMA_VERSION:
+        print(f"  ⚠ Preis-Cache-Schema veraltet (gefunden {cache.get('schema_version')}, "
+              f"erwartet {PRICE_CACHE_SCHEMA_VERSION}) — verwerfe Cache, baue neu auf")
+        return None
+    return cache
+
+
+def save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low, universe_set):
+    """Persist the rolling window as {symbol: {"close":[...], "high":[...],
+    "low":[...]}} aligned 1:1 to `trading_days`. Not pretty-printed (pure
+    build artifact, never meant to be read by a human or diffed in git —
+    it lives outside git entirely, see refresh_data.yml's actions/cache
+    step)."""
+    tickers_data = {}
+    for sym in universe_set:
+        close_series = [per_ticker_close.get(sym, {}).get(d) for d in trading_days]
+        if not any(v is not None for v in close_series):
+            continue  # nothing ever observed for this symbol -> don't bloat the cache with an all-null row
+        tickers_data[sym] = {
+            "close": close_series,
+            "high": [per_ticker_high.get(sym, {}).get(d) for d in trading_days],
+            "low": [per_ticker_low.get(sym, {}).get(d) for d in trading_days],
+        }
+    p = Path(cache_path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with open(p, "w", encoding="utf-8") as f:
+        json.dump({"schema_version": PRICE_CACHE_SCHEMA_VERSION, "dates": trading_days, "tickers": tickers_data}, f)
+
+
+def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_days=TRADING_DAYS_NEEDED):
+    """Incremental, cache-backed version of the market-wide grouped-daily
+    walk (V1.1 point 2). Loads whatever rolling window is already persisted
+    at `cache_path` (populated across CI runs via GitHub Actions' built-in
+    `actions/cache` — see refresh_data.yml; NOT committed to git, a 260-
+    session x ~5500-ticker window would bloat repo history unboundedly),
+    fetches ONLY the trading day(s) newer than the cache's newest entry
+    (normally just one — yesterday's close), appends, trims to the most
+    recent `target_days` sessions, and re-persists.
+
+    On a cold cache (first run, or an evicted/expired GH Actions cache
+    entry) this transparently performs the one-time full `target_days`
+    walk-back the spec explicitly accepts as a bootstrap cost. New tickers
+    not yet in the cache (recent IPOs, tickers newly passing the type
+    filter) simply accumulate history going forward — same graceful
+    partial-history handling calc_ticker_features() already applies
+    (nothing here requires every ticker to have the full window).
+
+    One API call covers the whole market per trading day regardless of
+    universe size, same pattern as before this change.
+    Returns (close_df, high_df, low_df, trading_days), trading_days ascending.
+    """
+    cache = load_price_cache(cache_path)
+    per_ticker_close, per_ticker_high, per_ticker_low = {}, {}, {}
+    cached_dates = []
+
+    if cache:
+        cached_dates = cache["dates"]
+        cached_tickers = cache["tickers"]
+        for sym, series in cached_tickers.items():
+            if sym not in universe_set:
+                continue  # fell out of the universe (delisted/type change) -> drop, don't carry forward
+            per_ticker_close[sym] = dict(zip(cached_dates, series["close"]))
+            per_ticker_high[sym] = dict(zip(cached_dates, series["high"]))
+            per_ticker_low[sym] = dict(zip(cached_dates, series["low"]))
+        n_missing = sum(1 for s in universe_set if s not in cached_tickers)
+        print(f"  ✅ Preis-Cache geladen: {len(cached_dates)} Handelstage, {len(cached_tickers)} Ticker "
+              f"({n_missing} neue Ticker im Universe noch nicht im Cache)")
+    else:
+        print("  ⚠ Kein (gueltiger) Preis-Cache gefunden — einmaliger Full-Bootstrap "
+              f"({target_days} Handelstage)")
+
+    for t in universe_set:
+        per_ticker_close.setdefault(t, {})
+        per_ticker_high.setdefault(t, {})
+        per_ticker_low.setdefault(t, {})
+
+    newest_cached = cached_dates[-1] if cached_dates else None
+    print(f"\n📊 Ergaenze marktweite Grouped-Daily-OHLC (Ziel: {target_days} Handelstage, "
+          f"{len(cached_dates)} bereits vorhanden)...")
+
+    new_days = []
     day = datetime.now(timezone.utc).date()
     calendar_checked = 0
 
-    while len(trading_days) < TRADING_DAYS_NEEDED and calendar_checked < MAX_CALENDAR_LOOKBACK:
+    while calendar_checked < MAX_CALENDAR_LOOKBACK:
         date_str = day.isoformat()
+        if newest_cached is not None and date_str <= newest_cached:
+            break  # reached the cache's existing coverage -> nothing more to fetch
+        if newest_cached is None and len(new_days) >= target_days:
+            break  # cold-cache bootstrap complete
+
         data = massive_get(f"/v2/aggs/grouped/locale/us/market/stocks/{date_str}")
         calendar_checked += 1
         day -= timedelta(days=1)
@@ -158,18 +262,28 @@ def fetch_grouped_history_full_market(universe_set):
         if not data or data.get("resultsCount", 0) < MIN_RESULTS_FOR_TRADING_DAY:
             continue
 
-        trading_days.append(date_str)
+        new_days.append(date_str)
         for row in data.get("results", []):
             sym = row.get("T")
             if sym in per_ticker_close:
                 per_ticker_close[sym][date_str] = row.get("c")
                 per_ticker_high[sym][date_str] = row.get("h")
                 per_ticker_low[sym][date_str] = row.get("l")
-        print(f"  → {date_str}: {data['resultsCount']} Ticker (Handelstag {len(trading_days)}/{TRADING_DAYS_NEEDED})")
+        print(f"  → {date_str}: {data['resultsCount']} Ticker (neuer Handelstag {len(new_days)})")
 
-    trading_days.sort()
-    print(f"  ✅ {len(trading_days)} Handelstage geladen ({calendar_checked} Kalendertage geprueft)")
-    return per_ticker_close, per_ticker_high, per_ticker_low, trading_days
+    trading_days = sorted(set(cached_dates) | set(new_days))
+    if len(trading_days) > target_days:
+        trading_days = trading_days[-target_days:]  # roll the window
+
+    print(f"  ✅ {len(trading_days)} Handelstage gesamt ({len(new_days)} neu geladen via API, "
+          f"{calendar_checked} Kalendertage geprueft)")
+
+    save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low, universe_set)
+
+    close_df = build_frame(per_ticker_close, trading_days, universe_set)
+    high_df = build_frame(per_ticker_high, trading_days, universe_set)
+    low_df = build_frame(per_ticker_low, trading_days, universe_set)
+    return close_df, high_df, low_df, trading_days
 
 
 def build_frame(per_ticker, trading_days, universe_set):
@@ -195,12 +309,36 @@ def calc_true_range(high, low, close):
     return tr
 
 
-def calc_ticker_features(close_df, high_df, low_df, adr_lookback):
-    """Returns {symbol: {...}} with price/ADR20/EMA/ATR/performance fields."""
+def calc_sma50_trend_fields(close, sma50_series, slope_lookback, persistence_lookback):
+    """SMA50 as a trend-strength anchor, not just an above/below flag (V1.1
+    point 5). Returns (sma50_slope_20d_pct, pct_sessions_above_sma50_20d) —
+    either may be None if there isn't enough history yet (graceful
+    degradation, same as every other lookback-dependent field here)."""
+    sma50_slope_pct = None
+    if len(sma50_series) > slope_lookback:
+        sma50_today = sma50_series.iloc[-1]
+        sma50_ago = sma50_series.iloc[-1 - slope_lookback]
+        if sma50_today and sma50_ago and not np.isnan(sma50_today) and not np.isnan(sma50_ago) and sma50_ago != 0:
+            sma50_slope_pct = round(float((sma50_today / sma50_ago - 1) * 100), 2)
+
+    pct_above = None
+    above = (close > sma50_series)
+    window = above.iloc[-persistence_lookback:]
+    if len(window) >= persistence_lookback and sma50_series.iloc[-persistence_lookback:].notna().all():
+        pct_above = round(float(window.mean() * 100), 1)
+
+    return sma50_slope_pct, pct_above
+
+
+def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
+                          sma50_slope_lookback=20, sma50_persistence_lookback=20):
+    """Returns {symbol: {...}} with price/ADR20/EMA/ATR/performance fields,
+    plus (V1.1) multi-timeframe returns and SMA50 trend-strength fields."""
     out = {}
+    min_history = max(adr_lookback, 51 + max(sma50_slope_lookback, sma50_persistence_lookback))
     for sym in close_df.columns:
         close = close_df[sym].dropna()
-        if len(close) < max(adr_lookback, 51):  # 50 for SMA50 + 1 for the pct_ago(50) edge
+        if len(close) < min_history:
             continue
         high = high_df[sym].reindex(close.index)
         low = low_df[sym].reindex(close.index)
@@ -224,7 +362,8 @@ def calc_ticker_features(close_df, high_df, low_df, adr_lookback):
         ema20 = close.ewm(span=20).mean().iloc[-1]
         ema10_distance_pct = round(float((last - ema10) / ema10 * 100), 2)
         ema20_distance_pct = round(float((last - ema20) / ema20 * 100), 2)
-        sma50 = close.rolling(50).mean().iloc[-1]
+        sma50_series = close.rolling(50).mean()
+        sma50 = sma50_series.iloc[-1]
 
         tr = calc_true_range(high, low, close)
         atr14 = tr.dropna().iloc[-14:].mean() if tr.dropna().shape[0] >= 14 else None
@@ -242,21 +381,30 @@ def calc_ticker_features(close_df, high_df, low_df, adr_lookback):
             atr_pct = atr / last * 100.0
             atr_extension = round(float(gain_from_sma50_pct / atr_pct), 2)
 
+        sma50_slope_20d_pct, pct_sessions_above_sma50_20d = calc_sma50_trend_fields(
+            close, sma50_series, sma50_slope_lookback, sma50_persistence_lookback)
+
         out[sym] = {
             "symbol": sym,
             "close": round(float(last), 2),
             "adr20": adr20,
             "sma50": round(float(sma50), 2) if sma50 and not np.isnan(sma50) else None,
             "gain_from_sma50_pct": gain_from_sma50_pct,
+            "sma50_distance_pct": gain_from_sma50_pct,  # V1.1 alias, same value (see report point 4)
             "d1_pct": pct_ago(1),
             "w1_pct": pct_ago(5),
             "m1_pct": pct_ago(21),
+            "return_3m": pct_ago(63),
+            "return_6m": pct_ago(126),
+            "return_12m": pct_ago(252),
             "ema10": round(float(ema10), 2),
             "ema20": round(float(ema20), 2),
             "ema10_distance_pct": ema10_distance_pct,
             "ema20_distance_pct": ema20_distance_pct,
             "atr": atr,
             "atr_extension": atr_extension,
+            "sma50_slope_20d_pct": sma50_slope_20d_pct,
+            "pct_sessions_above_sma50_20d": pct_sessions_above_sma50_20d,
         }
     return out
 
@@ -301,6 +449,87 @@ def eligible_percentile_ranks(features, eligible_by_symbol, field):
 
 
 # ─────────────────────────────────────────────
+# V1.1: Structural RS / Trend Strength primitives
+# ─────────────────────────────────────────────
+
+def renormalized_weighted_sum(values, weights):
+    """Local copy of build_dashboard_states.renormalized_weighted_sum (point
+    48 there): only keys present in both values/weights with a non-None
+    value contribute, their weights renormalized to sum to 1. Duplicated
+    rather than cross-imported so the Feature Engine has no dependency on
+    the States Engine that consumes its output (build_dashboard_states.py
+    already imports from build_narratives.py; the reverse would invert the
+    pipeline's data-flow direction)."""
+    usable = {k: v for k, v in values.items() if v is not None and k in weights}
+    if not usable:
+        return None
+    total_w = sum(weights[k] for k in usable)
+    if total_w <= 0:
+        return None
+    return sum(values[k] * weights[k] for k in usable) / total_w
+
+
+def clamp_0_100(v):
+    if v is None:
+        return None
+    return round(max(0.0, min(100.0, v)), 1)
+
+
+def compute_recent_leader_bootstrap(close_df, eligible_by_symbol, structural_weights, trend_weights,
+                                     slope_lookback, persistence_lookback, memory_sessions, leader_entry_cfg):
+    """Vectorized historical reconstruction (V1.1 point 10/13): rather than
+    waiting `memory_sessions` real trading days for the daily-history
+    hysteresis trail to accumulate, replay the SAME structural_rs /
+    trend_strength formulas across the last `memory_sessions` rows of the
+    already-fetched 260-session price history to determine whether each
+    ticker was a Leader (per leader_entry thresholds) at ANY point in that
+    window. Uses TODAY's eligible universe for the whole window (no
+    historical Universe-Filter/market-cap history exists) — an accepted
+    approximation. Returns {symbol: bool}; callers mark these
+    bootstrap_recent_leader=true, to be phased out once real daily-history
+    hysteresis has accumulated `memory_sessions` genuine snapshots (see
+    build_dashboard_states.py)."""
+    eligible_cols = [s for s in close_df.columns if eligible_by_symbol.get(s)]
+    if not eligible_cols:
+        return {}
+    close_e = close_df[eligible_cols]
+
+    ret_1m = close_e.pct_change(21) * 100
+    ret_3m = close_e.pct_change(63) * 100
+    ret_6m = close_e.pct_change(126) * 100
+    ret_12m = close_e.pct_change(252) * 100
+
+    pct_1m = ret_1m.rank(pct=True, axis=1) * 100
+    pct_3m = ret_3m.rank(pct=True, axis=1) * 100
+    pct_6m = ret_6m.rank(pct=True, axis=1) * 100
+    pct_12m = ret_12m.rank(pct=True, axis=1) * 100
+
+    sw = structural_weights
+    sw_sum = (pct_1m.notna() * sw["rs_1m"] + pct_3m.notna() * sw["rs_3m"] +
+              pct_6m.notna() * sw["rs_6m"] + pct_12m.notna() * sw["rs_12m"])
+    structural_rs_hist = (pct_1m.fillna(0) * sw["rs_1m"] + pct_3m.fillna(0) * sw["rs_3m"] +
+                           pct_6m.fillna(0) * sw["rs_6m"] + pct_12m.fillna(0) * sw["rs_12m"]) \
+        / sw_sum.replace(0, np.nan)
+
+    sma50_hist = close_e.rolling(50).mean()
+    slope_pct_hist = (sma50_hist / sma50_hist.shift(slope_lookback) - 1) * 100
+    slope_percentile_hist = slope_pct_hist.rank(pct=True, axis=1) * 100
+    persistence_hist = (close_e > sma50_hist).rolling(persistence_lookback).mean() * 100
+
+    tw = trend_weights
+    tw_sum = (slope_percentile_hist.notna() * tw["slope_percentile"] + persistence_hist.notna() * tw["persistence"])
+    trend_strength_hist = (slope_percentile_hist.fillna(0) * tw["slope_percentile"] +
+                            persistence_hist.fillna(0) * tw["persistence"]) / tw_sum.replace(0, np.nan)
+
+    leader_hist = (structural_rs_hist >= leader_entry_cfg["structural_rs_min"]) & \
+                  (trend_strength_hist >= leader_entry_cfg["trend_strength_min"])
+
+    window = leader_hist.iloc[-memory_sessions:]
+    was_leader = window.any(axis=0)
+    return {sym: bool(was_leader.get(sym, False)) for sym in eligible_cols}
+
+
+# ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
 
@@ -324,22 +553,25 @@ def main():
 
     cfg = load_config(args.config)
     u_cfg = cfg["universe"]
+    cache_cfg = cfg["market_history_cache"]
+    trend_cfg = cfg["trend_strength_v1_1"]
 
     types_ref = load_types_reference(taxonomy_dir / "market_reference_types.json")
     type_universe = type_eligible_universe(types_ref, set(u_cfg["excluded_types"]))
     print(f"\n📋 {len(type_universe)} Ticker nach Asset-Type-Filter (ETF/ETN/FUND/... ausgeschlossen)")
 
-    close_hist, high_hist, low_hist, trading_days = fetch_grouped_history_full_market(type_universe)
+    close_df, high_df, low_df, trading_days = fetch_grouped_history_full_market_cached(
+        type_universe, cache_cfg["path"], target_days=cache_cfg["target_trading_days"])
     if len(trading_days) < 21:
         print("FATAL: Zu wenige Handelstage geladen, breche ab.", file=sys.stderr)
         sys.exit(1)
 
-    close_df = build_frame(close_hist, trading_days, type_universe)
-    high_df = build_frame(high_hist, trading_days, type_universe)
-    low_df = build_frame(low_hist, trading_days, type_universe)
     daily_ret = close_df.pct_change() * 100
 
-    features = calc_ticker_features(close_df, high_df, low_df, u_cfg["adr_lookback_sessions"])
+    features = calc_ticker_features(
+        close_df, high_df, low_df, u_cfg["adr_lookback_sessions"],
+        sma50_slope_lookback=trend_cfg["sma50_slope_lookback_sessions"],
+        sma50_persistence_lookback=trend_cfg["sma50_persistence_lookback_sessions"])
     print(f"  ✅ Preis-/ADR-/EMA-/ATR-Features fuer {len(features)}/{len(type_universe)} Ticker berechnet")
 
     # ADR-eligible candidates (cheap, price-based) -> only these get the
@@ -377,9 +609,32 @@ def main():
     # Discovery Candidates, Market Regime Momentum, Opportunities) relies
     # on. Non-eligible tickers get rs_percentile_* = None: not ranked, never
     # silently treated as 0 (would misrepresent them as market-bottom).
-    pct_field_by_horizon = {"1d": "d1_pct", "1w": "w1_pct", "1m": "m1_pct"}
+    pct_field_by_horizon = {
+        "1d": "d1_pct", "1w": "w1_pct", "1m": "m1_pct",
+        # V1.1 point 3: 3M/6M/12M RS percentiles feed structural_rs below —
+        # same eligible-only ranking rule as 1D/1W/1M (point 7 fix).
+        "3m": "return_3m", "6m": "return_6m", "12m": "return_12m",
+    }
     percentiles_by_horizon = {h: eligible_percentile_ranks(features, eligible_by_symbol, f)
                                for h, f in pct_field_by_horizon.items()}
+
+    # V1.1 point 3-6: Structural RS (multi-timeframe RS, gates leadership)
+    # and Trend Strength (SMA50 slope + persistence, trend QUALITY —
+    # distance/extension deliberately excluded, that's Location not
+    # structure). Both are 0-100 composites via the same renormalized-
+    # weighted-sum primitive used throughout build_dashboard_states.py.
+    slope_percentiles = eligible_percentile_ranks(features, eligible_by_symbol, "sma50_slope_20d_pct")
+    structural_weights = cfg["structural_rs_v1_1"]["weights"]
+    trend_weights = trend_cfg["weights"]
+
+    # V1.1 point 10/13: bootstrap Recent Leader reconstruction from the same
+    # 260-session history (no waiting on real daily-history hysteresis).
+    recent_leader_bootstrap = compute_recent_leader_bootstrap(
+        close_df, eligible_by_symbol, structural_weights, trend_weights,
+        trend_cfg["sma50_slope_lookback_sessions"], trend_cfg["sma50_persistence_lookback_sessions"],
+        cfg["opportunity_v1_1"]["recent_leader"]["memory_sessions"], cfg["opportunity_v1_1"]["leader_entry"])
+    print(f"  ✅ Structural RS / Trend Strength / Recent-Leader-Bootstrap berechnet "
+          f"({sum(recent_leader_bootstrap.values())} Ticker via Bootstrap als jüngste Leader erkannt)")
 
     thrust_by_horizon = {}
     for h, hcfg in HORIZONS.items():
@@ -408,9 +663,19 @@ def main():
 
         rs_1w = percentiles_by_horizon["1w"].get(sym)
         rs_1m = percentiles_by_horizon["1m"].get(sym)
+        rs_3m = percentiles_by_horizon["3m"].get(sym)
+        rs_6m = percentiles_by_horizon["6m"].get(sym)
+        rs_12m = percentiles_by_horizon["12m"].get(sym)
         thrust_1d_pct = thrust_percentiles["1d"].get(sym)
         thrust_1w_pct = thrust_percentiles["1w"].get(sym)
         thrust_1m_pct = thrust_percentiles["1m"].get(sym)
+
+        structural_rs = clamp_0_100(renormalized_weighted_sum(
+            {"rs_1m": rs_1m, "rs_3m": rs_3m, "rs_6m": rs_6m, "rs_12m": rs_12m},
+            structural_weights))
+        trend_strength = clamp_0_100(renormalized_weighted_sum(
+            {"slope_percentile": slope_percentiles.get(sym), "persistence": f.get("pct_sessions_above_sma50_20d")},
+            trend_weights))
 
         discovery_candidate = bool(
             (rs_1w is not None and rs_1w >= rs_pct) or
@@ -426,6 +691,13 @@ def main():
             "rs_percentile_1d": percentiles_by_horizon["1d"].get(sym),
             "rs_percentile_1w": rs_1w,
             "rs_percentile_1m": rs_1m,
+            "rs_percentile_3m": rs_3m,
+            "rs_percentile_6m": rs_6m,
+            "rs_percentile_12m": rs_12m,
+            "structural_rs": structural_rs,
+            "sma50_slope_percentile": slope_percentiles.get(sym),
+            "trend_strength": trend_strength,
+            "bootstrap_recent_leader": recent_leader_bootstrap.get(sym, False),
             "thrust_1d": thrust_by_horizon["1d"].get(sym),
             "thrust_1w": thrust_by_horizon["1w"].get(sym),
             "thrust_1m": thrust_by_horizon["1m"].get(sym),
@@ -448,6 +720,9 @@ def main():
             "adr_candidates_enriched": len(adr_candidates),
             "eligible_count": n_eligible,
             "discovery_candidate_count": sum(1 for t in output_tickers.values() if t["discovery_candidate"]),
+            "structural_rs_computed_count": sum(1 for t in output_tickers.values() if t["structural_rs"] is not None),
+            "trend_strength_computed_count": sum(1 for t in output_tickers.values() if t["trend_strength"] is not None),
+            "bootstrap_recent_leader_count": sum(recent_leader_bootstrap.values()),
         },
         "tickers": output_tickers,
     }

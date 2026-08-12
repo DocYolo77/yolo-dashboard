@@ -74,7 +74,7 @@ vm.runInContext(
 
 function setOppFilterInputs(overrides) {
   const defaults = {
-    oppFilterNarrative: '', oppFilterRs: '', oppFilterThrust: '', oppFilterAtr: '', oppFilterCap: '',
+    oppFilterNarrative: '', oppFilterStructuralRs: '', oppFilterRs: '', oppFilterThrust: '', oppFilterAtr: '', oppFilterCap: '',
   };
   const values = Object.assign({}, defaults, overrides);
   Object.entries(values).forEach(([id, value]) => { sandbox.document._elements[id] = { value }; });
@@ -221,26 +221,39 @@ test('ncVisibleSortedMembers: EMA-Filter + State-Filter kombiniert (Near EMA + C
 function makeOppItems() {
   return [
     { symbol: 'MU', narratives: ['memory'], quality_state: 'fresh_leader', near_emas: true, extended: false,
-      constructive_reset_narratives: ['memory'], laggard_narratives: [], leadership_score: 92, rs_1w: 90, rs_1m: 88,
+      constructive_reset_narratives: ['memory'], laggard_narratives: [], structural_rs: 95, trend_strength: 82,
+      leadership_score: 92, rs_1w: 90, rs_1m: 88,
       thrust_percentile_1d: 90, thrust_percentile_1w: 85, ema10_distance_pct: 1.0, ema20_distance_pct: 2.0,
       atr_extension: 3.0, w1_pct: 8.0, m1_pct: 20.0, market_cap: 120e9 },
     { symbol: 'VRT', narratives: ['ai_infra'], quality_state: 'leader', near_emas: false, extended: true,
-      constructive_reset_narratives: [], laggard_narratives: [], leadership_score: 88, rs_1w: 85, rs_1m: 80,
+      constructive_reset_narratives: [], laggard_narratives: [], structural_rs: 90, trend_strength: 78,
+      leadership_score: 88, rs_1w: 85, rs_1m: 80,
       thrust_percentile_1d: 60, thrust_percentile_1w: 55, ema10_distance_pct: 12.0, ema20_distance_pct: 15.0,
       atr_extension: 6.5, w1_pct: 15.0, m1_pct: 30.0, market_cap: 40e9 },
     { symbol: 'SNDK', narratives: ['memory'], quality_state: 'neutral', near_emas: true, extended: false,
-      constructive_reset_narratives: [], laggard_narratives: ['memory'], leadership_score: 40, rs_1w: 35, rs_1m: 30,
+      constructive_reset_narratives: [], laggard_narratives: ['memory'], structural_rs: 45, trend_strength: 30,
+      leadership_score: 40, rs_1w: 35, rs_1m: 30,
       thrust_percentile_1d: 20, thrust_percentile_1w: 25, ema10_distance_pct: -1.5, ema20_distance_pct: -1.0,
       atr_extension: 1.0, w1_pct: -3.0, m1_pct: -5.0, market_cap: 8e9 },
+    // Isolated from the memory/near-EMA/RS1W/ATR/cap fixtures above on
+    // purpose, so it only shows up where a test specifically means to
+    // exercise it (the 'recent' tab and the Structural RS filter below) —
+    // every OTHER existing filter test's expected list stays unchanged.
+    { symbol: 'WDC', narratives: ['ai_infra'], quality_state: 'recent_leader', near_emas: false, extended: false,
+      constructive_reset_narratives: [], laggard_narratives: [], structural_rs: 88, trend_strength: 60,
+      leadership_score: 70, rs_1w: 60, rs_1m: 65,
+      thrust_percentile_1d: 50, thrust_percentile_1w: 45, ema10_distance_pct: 9.0, ema20_distance_pct: 9.0,
+      atr_extension: 8.0, w1_pct: -1.0, m1_pct: 5.0, market_cap: 15e9 },
   ];
 }
 
-test('oppTabFilter: all/fresh/leaders/reset/extended/laggards', () => {
+test('oppTabFilter: all/fresh/leaders/recent/reset/extended/laggards', () => {
   const items = makeOppItems();
   const bySymbol = tab => vm.runInContext('items.filter(it => oppTabFilter(it, tab))', Object.assign(sandbox, { items, tab })).map(it => it.symbol);
-  assert.deepEqual(bySymbol('all'), ['MU', 'VRT', 'SNDK']);
+  assert.deepEqual(bySymbol('all'), ['MU', 'VRT', 'SNDK', 'WDC']);
   assert.deepEqual(bySymbol('fresh'), ['MU']);
-  assert.deepEqual(bySymbol('leaders'), ['MU', 'VRT']); // fresh_leader counts as leader-like too
+  assert.deepEqual(bySymbol('leaders'), ['MU', 'VRT']); // fresh_leader counts as leader-like too, recent_leader does NOT
+  assert.deepEqual(bySymbol('recent'), ['WDC']);
   assert.deepEqual(bySymbol('reset'), ['MU']);
   assert.deepEqual(bySymbol('extended'), ['VRT']);
   assert.deepEqual(bySymbol('laggards'), ['SNDK']);
@@ -251,6 +264,14 @@ test('oppApplyFilters: Narrative-Filter', () => {
   const items = makeOppItems();
   const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
   assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'SNDK']);
+  setOppFilterInputs({});
+});
+
+test('oppApplyFilters: Min Structural RS', () => {
+  setOppFilterInputs({ oppFilterStructuralRs: '87' });
+  const items = makeOppItems();
+  const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'VRT', 'WDC']); // 95, 90, 88 pass; SNDK's 45 excluded
   setOppFilterInputs({});
 });
 
@@ -290,10 +311,17 @@ test('oppSortItems: numeric field descending/ascending', () => {
   const items = makeOppItems();
   sandbox.oppSortState = { field: 'leadership_score', dir: 'desc' };
   const desc = vm.runInContext('oppSortItems(items)', Object.assign(sandbox, { items }));
-  assert.deepEqual(Array.from(desc).map(it => it.symbol), ['MU', 'VRT', 'SNDK']);
+  assert.deepEqual(Array.from(desc).map(it => it.symbol), ['MU', 'VRT', 'WDC', 'SNDK']);
   sandbox.oppSortState = { field: 'leadership_score', dir: 'asc' };
   const asc = vm.runInContext('oppSortItems(items)', Object.assign(sandbox, { items }));
-  assert.deepEqual(Array.from(asc).map(it => it.symbol), ['SNDK', 'VRT', 'MU']);
+  assert.deepEqual(Array.from(asc).map(it => it.symbol), ['SNDK', 'WDC', 'VRT', 'MU']);
+});
+
+test('oppSortItems: sorts by structural_rs (the V1.1 default sort field)', () => {
+  const items = makeOppItems();
+  sandbox.oppSortState = { field: 'structural_rs', dir: 'desc' };
+  const desc = vm.runInContext('oppSortItems(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(desc).map(it => it.symbol), ['MU', 'VRT', 'WDC', 'SNDK']); // 95, 90, 88, 45
 });
 
 test('oppVisibleSortedItems: combines tab + filters + sort into one visible/copyable list', () => {

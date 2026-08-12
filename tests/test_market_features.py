@@ -6,6 +6,7 @@ MASSIVE_API_KEY required.
 Run with: pytest tests/ -v
 """
 
+import json
 import sys
 from pathlib import Path
 
@@ -16,6 +17,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from build_market_features import (  # noqa: E402
     calc_ticker_features, calc_true_range, compute_eligibility, compute_eligible_universe,
     eligible_percentile_ranks, type_eligible_universe,
+    calc_sma50_trend_fields, renormalized_weighted_sum, clamp_0_100,
+    compute_recent_leader_bootstrap, load_price_cache, save_price_cache,
+    PRICE_CACHE_SCHEMA_VERSION,
 )
 from build_narratives import percentile_ranks  # noqa: E402
 
@@ -98,7 +102,9 @@ def make_ohlc(n_days=65, base=100.0, daily_range_pct=6.0, drift_pct=0.0, seed=0)
 
 
 def test_adr20_matches_high_low_ratio_formula():
-    close, high, low = make_ohlc(n_days=65, daily_range_pct=6.0, drift_pct=0.0)
+    # n_days=75: calc_ticker_features' V1.1 min_history gate is
+    # 51 + sma50_slope_lookback (default 20) = 71, so 65 is no longer enough.
+    close, high, low = make_ohlc(n_days=75, daily_range_pct=6.0, drift_pct=0.0)
     close_df = pd.DataFrame({"TEST": close})
     high_df = pd.DataFrame({"TEST": high})
     low_df = pd.DataFrame({"TEST": low})
@@ -109,7 +115,8 @@ def test_adr20_matches_high_low_ratio_formula():
 
 def test_atr_extension_matches_user_supplied_sma50_formula():
     # Strong uptrend -> close well above SMA50 -> positive ATR Extension.
-    close, high, low = make_ohlc(n_days=65, base=100.0, daily_range_pct=4.0, drift_pct=0.8)
+    # n_days=75: see min_history note in test_adr20_matches_high_low_ratio_formula.
+    close, high, low = make_ohlc(n_days=75, base=100.0, daily_range_pct=4.0, drift_pct=0.8)
     close_df = pd.DataFrame({"TEST": close})
     high_df = pd.DataFrame({"TEST": high})
     low_df = pd.DataFrame({"TEST": low})
@@ -130,7 +137,7 @@ def test_atr_extension_matches_user_supplied_sma50_formula():
 
 
 def test_atr_extension_negative_when_below_sma50():
-    close, high, low = make_ohlc(n_days=65, base=100.0, daily_range_pct=4.0, drift_pct=-0.8)
+    close, high, low = make_ohlc(n_days=75, base=100.0, daily_range_pct=4.0, drift_pct=-0.8)
     close_df = pd.DataFrame({"TEST": close})
     high_df = pd.DataFrame({"TEST": high})
     low_df = pd.DataFrame({"TEST": low})
@@ -139,7 +146,7 @@ def test_atr_extension_negative_when_below_sma50():
 
 
 def test_ema10_ema20_distance_signs():
-    close, high, low = make_ohlc(n_days=65, drift_pct=0.5)  # uptrend
+    close, high, low = make_ohlc(n_days=75, drift_pct=0.5)  # uptrend
     close_df = pd.DataFrame({"TEST": close})
     high_df = pd.DataFrame({"TEST": high})
     low_df = pd.DataFrame({"TEST": low})
@@ -246,3 +253,177 @@ def test_eligible_percentile_ranks_matches_plain_percentile_ranks_on_eligible_su
     got = eligible_percentile_ranks(features, eligible_by_symbol, "pct")
     expected = percentile_ranks({"A": {"pct": 1.0}, "B": {"pct": 5.0}}, "pct")
     assert got == expected
+
+
+# ── V1.1: SMA50 trend-strength anchor (slope + persistence) ─────
+
+def test_calc_sma50_trend_fields_insufficient_history_returns_none():
+    close = pd.Series([100.0] * 40)  # too short for a 50-window SMA at all
+    sma50_series = close.rolling(50).mean()
+    slope, pct_above = calc_sma50_trend_fields(close, sma50_series, slope_lookback=20, persistence_lookback=20)
+    assert slope is None and pct_above is None
+
+
+def test_calc_sma50_trend_fields_matches_manual_slope_and_persistence():
+    # Flat at 100 for 60 days (SMA50 stabilizes at 100), then a clean +1%/day
+    # run for 20 more days -> SMA50 rises steadily and close stays above it
+    # the whole time -> persistence should be 100%, slope clearly positive.
+    flat = [100.0] * 60
+    trend = [100.0 * (1.01 ** i) for i in range(1, 21)]
+    close = pd.Series(flat + trend)
+    sma50_series = close.rolling(50).mean()
+
+    slope, pct_above = calc_sma50_trend_fields(close, sma50_series, slope_lookback=20, persistence_lookback=20)
+
+    expected_slope = round(float((sma50_series.iloc[-1] / sma50_series.iloc[-21] - 1) * 100), 2)
+    assert slope == pytest.approx(expected_slope, abs=0.01)
+    assert slope > 0  # SMA50 rising
+    assert pct_above == 100.0  # close never dips below SMA50 in this construction
+
+
+def test_calc_sma50_trend_fields_persistence_below_100_when_price_dips_under_sma50():
+    # Uptrend overall, but the LAST 20 sessions include a stretch where
+    # close sits below the (still-lagging) SMA50 -> persistence < 100%.
+    # 60 flat days (so SMA50 has fully rolled off the initial NaN warm-up by
+    # the time the last-20 persistence window starts) + a 10-day dip.
+    flat = [100.0] * 60
+    dip = [95.0] * 10  # sudden drop, below the SMA50 that formed on the flat period
+    close = pd.Series(flat + dip)
+    sma50_series = close.rolling(50).mean()
+    slope, pct_above = calc_sma50_trend_fields(close, sma50_series, slope_lookback=20, persistence_lookback=20)
+    assert pct_above is not None
+    assert pct_above < 100.0
+
+
+# ── V1.1: calc_ticker_features new fields (multi-timeframe returns, SMA50 anchor) ──
+
+def test_calc_ticker_features_v1_1_fields_present():
+    close, high, low = make_ohlc(n_days=280, drift_pct=0.2)
+    close_df = pd.DataFrame({"TEST": close})
+    high_df = pd.DataFrame({"TEST": high})
+    low_df = pd.DataFrame({"TEST": low})
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)["TEST"]
+
+    assert out["sma50_distance_pct"] == out["gain_from_sma50_pct"]  # V1.1 alias, same value
+    assert out["return_3m"] is not None
+    assert out["return_6m"] is not None
+    assert out["return_12m"] is not None
+    assert out["sma50_slope_20d_pct"] is not None
+    assert out["pct_sessions_above_sma50_20d"] is not None
+    # steady uptrend -> multi-timeframe returns should all be positive
+    assert out["return_3m"] > 0 and out["return_6m"] > 0 and out["return_12m"] > 0
+
+
+def test_calc_ticker_features_min_history_gate_includes_slope_buffer():
+    # min_history = max(adr_lookback, 51 + max(slope_lookback, persistence_lookback))
+    # = 51 + 20 = 71 with the default 20/20 lookbacks -> 70 days must be
+    # skipped, 71 days must produce output (V1.1 point 5/6 dependency).
+    close_short, high_short, low_short = make_ohlc(n_days=70)
+    out_short = calc_ticker_features(
+        pd.DataFrame({"TEST": close_short}), pd.DataFrame({"TEST": high_short}), pd.DataFrame({"TEST": low_short}),
+        adr_lookback=20)
+    assert "TEST" not in out_short
+
+    close_ok, high_ok, low_ok = make_ohlc(n_days=71)
+    out_ok = calc_ticker_features(
+        pd.DataFrame({"TEST": close_ok}), pd.DataFrame({"TEST": high_ok}), pd.DataFrame({"TEST": low_ok}),
+        adr_lookback=20)
+    assert "TEST" in out_ok
+
+
+# ── V1.1: renormalized_weighted_sum / clamp_0_100 (structural_rs / trend_strength primitives) ──
+
+def test_renormalized_weighted_sum_full_data():
+    result = renormalized_weighted_sum({"a": 80.0, "b": 40.0}, {"a": 0.5, "b": 0.5})
+    assert result == pytest.approx(60.0)
+
+
+def test_renormalized_weighted_sum_renormalizes_when_a_component_missing():
+    # weights sum to 1 over {a, b, c}=0.2/0.3/0.5; with c missing, a/b should
+    # be renormalized to sum to 1 (0.2/0.5, 0.3/0.5) rather than treating c as 0.
+    result = renormalized_weighted_sum({"a": 100.0, "b": 0.0, "c": None}, {"a": 0.2, "b": 0.3, "c": 0.5})
+    expected = (100.0 * 0.2 + 0.0 * 0.3) / 0.5
+    assert result == pytest.approx(expected)
+
+
+def test_renormalized_weighted_sum_all_missing_returns_none():
+    assert renormalized_weighted_sum({"a": None, "b": None}, {"a": 0.5, "b": 0.5}) is None
+
+
+def test_clamp_0_100_bounds_and_rounds():
+    assert clamp_0_100(None) is None
+    assert clamp_0_100(-5.0) == 0.0
+    assert clamp_0_100(105.0) == 100.0
+    assert clamp_0_100(42.345) == 42.3
+
+
+# ── V1.1: Recent Leader bootstrap reconstruction ─────────────────
+
+def test_compute_recent_leader_bootstrap_flags_structural_leader_not_laggard():
+    n = 300
+    dates = [f"d{i}" for i in range(n)]
+    steady_up = pd.Series([100.0 * (1.003 ** i) for i in range(n)], index=dates)
+    steady_down = pd.Series([100.0 * (0.999 ** i) for i in range(n)], index=dates)
+    flat = pd.Series([100.0] * n, index=dates)
+    close_df = pd.DataFrame({"LEAD": steady_up, "LAG": steady_down, "FLAT1": flat, "FLAT2": flat + 0.01})
+
+    eligible = {sym: True for sym in close_df.columns}
+    structural_weights = {"rs_1m": 0.20, "rs_3m": 0.35, "rs_6m": 0.30, "rs_12m": 0.15}
+    trend_weights = {"slope_percentile": 0.60, "persistence": 0.40}
+    leader_entry_cfg = {"structural_rs_min": 85, "trend_strength_min": 70}
+
+    result = compute_recent_leader_bootstrap(
+        close_df, eligible, structural_weights, trend_weights,
+        slope_lookback=20, persistence_lookback=20, memory_sessions=15, leader_entry_cfg=leader_entry_cfg)
+
+    assert result["LEAD"] is True
+    assert result["LAG"] is False
+
+
+def test_compute_recent_leader_bootstrap_ignores_non_eligible_columns():
+    n = 300
+    dates = [f"d{i}" for i in range(n)]
+    steady_up = pd.Series([100.0 * (1.003 ** i) for i in range(n)], index=dates)
+    close_df = pd.DataFrame({"LEAD": steady_up, "EXCLUDED": steady_up})
+    eligible = {"LEAD": True, "EXCLUDED": False}
+    structural_weights = {"rs_1m": 0.20, "rs_3m": 0.35, "rs_6m": 0.30, "rs_12m": 0.15}
+    trend_weights = {"slope_percentile": 0.60, "persistence": 0.40}
+    leader_entry_cfg = {"structural_rs_min": 85, "trend_strength_min": 70}
+
+    result = compute_recent_leader_bootstrap(
+        close_df, eligible, structural_weights, trend_weights,
+        slope_lookback=20, persistence_lookback=20, memory_sessions=15, leader_entry_cfg=leader_entry_cfg)
+    assert "EXCLUDED" not in result
+
+
+# ── V1.1: persistent price-history cache round-trip ──────────────
+
+def test_price_cache_round_trip(tmp_path):
+    cache_path = tmp_path / "market_history.json"
+    trading_days = ["2026-01-01", "2026-01-02"]
+    per_ticker_close = {"AAA": {"2026-01-01": 10.0, "2026-01-02": 11.0}}
+    per_ticker_high = {"AAA": {"2026-01-01": 10.5, "2026-01-02": 11.5}}
+    per_ticker_low = {"AAA": {"2026-01-01": 9.5, "2026-01-02": 10.5}}
+
+    assert load_price_cache(cache_path) is None  # nothing written yet
+
+    save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low, {"AAA"})
+    loaded = load_price_cache(cache_path)
+
+    assert loaded["schema_version"] == PRICE_CACHE_SCHEMA_VERSION
+    assert loaded["dates"] == trading_days
+    assert loaded["tickers"]["AAA"]["close"] == [10.0, 11.0]
+
+
+def test_price_cache_skips_tickers_with_no_observed_data(tmp_path):
+    cache_path = tmp_path / "market_history.json"
+    trading_days = ["2026-01-01"]
+    save_price_cache(cache_path, trading_days, {}, {}, {}, {"NEVER_SEEN"})
+    loaded = load_price_cache(cache_path)
+    assert "NEVER_SEEN" not in loaded["tickers"]  # all-null row -> not persisted
+
+
+def test_price_cache_discards_mismatched_schema_version(tmp_path):
+    cache_path = tmp_path / "market_history.json"
+    cache_path.write_text(json.dumps({"schema_version": PRICE_CACHE_SCHEMA_VERSION + 1, "dates": [], "tickers": {}}))
+    assert load_price_cache(cache_path) is None  # stale schema -> treated as cold cache

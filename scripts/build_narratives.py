@@ -69,13 +69,26 @@ HORIZONS = {
     "1d": {"window": 1, "thrust_short": 2, "thrust_long": 5, "sig_threshold": 2.0},
     "1w": {"window": 5, "thrust_short": 5, "thrust_long": 15, "sig_threshold": 5.0},
     "1m": {"window": 21, "thrust_short": 10, "thrust_long": 25, "sig_threshold": 10.0},
+    # V1.1 point 17: 3M/6M horizons for the Narrative Structural Score, added
+    # to the SAME dict so calc_basket_scores() computes Strength/Thrust/
+    # Leadership/Breadth for them via the identical, unchanged methodology
+    # (no new formula — just two more horizons in the existing loop).
+    "3m": {"window": 63, "thrust_short": 15, "thrust_long": 40, "sig_threshold": 15.0},
+    "6m": {"window": 126, "thrust_short": 25, "thrust_long": 60, "sig_threshold": 20.0},
 }
 
 TRADING_DAYS_NEEDED = 55   # 50 trading days (~10 weeks) for the Benchmark RS
-                            # history chart + buffer above the 21-day 1M window
+                            # history chart + buffer above the 21-day 1M window.
+                            # Only used as the FALLBACK walk-back window when
+                            # the shared V1.1 price-history cache (see
+                            # load_shared_price_cache_frame) isn't available —
+                            # 3M/6M metrics stay None in that fallback path,
+                            # same graceful-degradation rule as every other
+                            # lookback-dependent field in this pipeline.
 MAX_CALENDAR_LOOKBACK = 90  # safety cap so weekends/holidays can't loop forever
 RS_HISTORY_LOOKBACK_DAYS = 50  # ~10 trading weeks, matches the Benchmark chart
 MIN_RESULTS_FOR_TRADING_DAY = 1000  # grouped-daily returns ~12k rows on a real session
+SHARED_CACHE_MIN_TRADING_DAYS = 146  # 126 (6M window) + 20 (SMA50-slope buffer)
 
 
 def massive_get(path, params=None, retries=3):
@@ -96,6 +109,11 @@ def massive_get(path, params=None, retries=3):
             last_err = str(e)
     print(f"  ⚠ Request fehlgeschlagen ({path}): {last_err}", file=sys.stderr)
     return None
+
+
+def load_config(path="config/narrative_engine.json"):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def load_taxonomy(path, legacy_path="data/narratives_map.json"):
@@ -138,6 +156,40 @@ def load_market_features(path):
         return None
     with open(p, "r", encoding="utf-8") as f:
         return json.load(f)["tickers"]
+
+
+def load_shared_price_cache_frame(cache_path, universe_set):
+    """Read the persistent rolling-window price cache written by
+    build_market_features.py (config market_history_cache, V1.1 point 2) as
+    a close-price DataFrame restricted to `universe_set` — zero extra API
+    calls, this script reuses the SAME cache instead of its own market-wide
+    walk-back. Returns (close_df, trading_days) or (None, None) if the cache
+    is absent or doesn't cover enough sessions for the new 3M/6M structural
+    horizons (SHARED_CACHE_MIN_TRADING_DAYS); callers fall back to
+    fetch_grouped_history()'s shorter, narrative-taxonomy-scoped walk in
+    that case (same graceful-degradation pattern as load_market_features)."""
+    p = Path(cache_path)
+    if not p.exists():
+        return None, None
+    try:
+        with open(p, "r", encoding="utf-8") as f:
+            cache = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None, None
+    trading_days = cache.get("dates", [])
+    if len(trading_days) < SHARED_CACHE_MIN_TRADING_DAYS:
+        print(f"  ⚠ Geteilter Preis-Cache zu kurz ({len(trading_days)} < {SHARED_CACHE_MIN_TRADING_DAYS} "
+              "Handelstage) — falle zurueck auf eigenen Walk-back (3M/6M-Felder bleiben in diesem Lauf None)",
+              file=sys.stderr)
+        return None, None
+    tickers = cache.get("tickers", {})
+    cols = {sym: tickers[sym]["close"] for sym in universe_set if sym in tickers}
+    if not cols:
+        return None, None
+    close_df = pd.DataFrame(cols, index=trading_days)
+    print(f"  ✅ Geteilter Preis-Cache geladen: {len(trading_days)} Handelstage, "
+          f"{len(cols)}/{len(universe_set)} Ticker (0 zusaetzliche API-Calls)")
+    return close_df, trading_days
 
 
 def fetch_grouped_history(universe_set):
@@ -206,6 +258,8 @@ def calc_ticker_metrics(prices):
             "d1_pct": pct_ago(1),
             "w1_pct": pct_ago(5),
             "m1_pct": pct_ago(21),
+            "return_3m": pct_ago(63),   # V1.1 point 17: feeds the 3M horizon in HORIZONS
+            "return_6m": pct_ago(126),  # V1.1 point 17: feeds the 6M horizon in HORIZONS
             "hist_1w": hist_1w,
             "hist_1m": hist_1m,
         }
@@ -223,6 +277,99 @@ def percentile_ranks(ticker_metrics, field):
     for i, (sym, _) in enumerate(ordered):
         ranks[sym] = round((i + 1) / n * 100, 1)
     return ranks
+
+
+# ─────────────────────────────────────────────
+# V1.1: Narrative Structural Score primitives
+# ─────────────────────────────────────────────
+
+def renormalized_weighted_sum(values, weights):
+    """Local copy of build_dashboard_states.renormalized_weighted_sum /
+    build_market_features.renormalized_weighted_sum (point 48 there): only
+    keys present in both values/weights with a non-None value contribute,
+    their weights renormalized to sum to 1. Duplicated (not cross-imported)
+    to avoid a circular import — build_market_features.py already imports
+    FROM this module (percentile_ranks/HORIZONS)."""
+    usable = {k: v for k, v in values.items() if v is not None and k in weights}
+    if not usable:
+        return None
+    total_w = sum(weights[k] for k in usable)
+    if total_w <= 0:
+        return None
+    return sum(values[k] * weights[k] for k in usable) / total_w
+
+
+def clamp_0_100(v):
+    if v is None:
+        return None
+    return round(max(0.0, min(100.0, v)), 1)
+
+
+def calc_trend_participation(members, market_features):
+    """Trend Participation (V1.1 point 20): share of narrative members whose
+    price sits above SMA50, whose SMA50 is rising, and both simultaneously —
+    a STRUCTURAL breadth measure (independent of any single leader's short-
+    term push). Members without market_features data are excluded from the
+    denominator, not counted as failing — same graceful-degradation rule as
+    everywhere else in this pipeline. Returns
+    (pct_above_sma50, pct_rising_sma50, pct_above_rising_sma50), any/all
+    None if no member has usable data."""
+    mf = market_features or {}
+    above_flags, rising_flags, both_flags = [], [], []
+    for m in members:
+        rec = mf.get(m)
+        if not rec:
+            continue
+        dist = rec.get("sma50_distance_pct")
+        slope = rec.get("sma50_slope_20d_pct")
+        if dist is None or slope is None:
+            continue
+        is_above = dist > 0
+        is_rising = slope > 0
+        above_flags.append(is_above)
+        rising_flags.append(is_rising)
+        both_flags.append(is_above and is_rising)
+    if not above_flags:
+        return None, None, None
+    n = len(above_flags)
+    pct_above = round(sum(above_flags) / n * 100, 1)
+    pct_rising = round(sum(rising_flags) / n * 100, 1)
+    pct_above_rising = round(sum(both_flags) / n * 100, 1)
+    return pct_above, pct_rising, pct_above_rising
+
+
+def calc_structural_leadership_pct(members, market_features, threshold):
+    """% of narrative members whose structural_rs (build_market_features.py,
+    V1.1 point 3) is at/above `threshold` — structural (multi-timeframe RS)
+    leadership share, replacing the old short-term-RS-based Leadership
+    formula as an input to the Narrative Structural Score. Members without
+    a computed structural_rs are excluded from the denominator."""
+    mf = market_features or {}
+    vals = [mf[m]["structural_rs"] for m in members
+            if mf.get(m) and mf[m].get("structural_rs") is not None]
+    if not vals:
+        return None
+    return round(sum(1 for v in vals if v >= threshold) / len(vals) * 100, 1)
+
+
+def calc_momentum_modifier(thrust_1w, thrust_percentile_1w, structural_score, modifier_cfg):
+    """ACCELERATING/COOLING/None (V1.1 point 22) — a separate, non-gating
+    annotation on top of the structural score, NOT a component of it and
+    NOT the Lifecycle stage: Lifecycle (build_dashboard_states.py) tracks
+    the multi-day/week structural trajectory, this flags short-term (1W)
+    Thrust piling on top of (accelerating) or fading under (cooling) an
+    already-decided structural read."""
+    acc = modifier_cfg["accelerating"]
+    cool = modifier_cfg["cooling"]
+    if (thrust_1w is not None and thrust_percentile_1w is not None
+            and (thrust_1w > 0) == acc["thrust_1w_positive_required"]
+            and thrust_percentile_1w >= acc["thrust_percentile_1w_min"]):
+        return "ACCELERATING"
+    if (structural_score is not None and thrust_1w is not None
+            and structural_score >= cool["structural_score_min"]
+            and (thrust_1w < 0) == cool["thrust_1w_negative_required"]):
+        return "COOLING"
+    return None
 
 
 def basket_daily_return_series(daily_ret, members):
@@ -333,7 +480,8 @@ def main():
     parser.add_argument("--out-dir", default="data", help="Output directory")
     parser.add_argument("--taxonomy", default="data/taxonomy/narratives.json", help="Path to taxonomy JSON")
     parser.add_argument("--market-features", default="data/market_features.json",
-                         help="Path to Full-Market Feature Engine output (Leadership/RS/EMA/ATR source)")
+                         help="Path to Full-Market Feature Engine output (Leadership/RS/EMA/ATR/structural_rs source)")
+    parser.add_argument("--config", default="config/narrative_engine.json")
     args = parser.parse_args()
 
     out_dir = Path(args.out_dir)
@@ -344,32 +492,46 @@ def main():
     print(f"   Zeit: {datetime.now().isoformat()}")
     print("=" * 60)
 
+    cfg = load_config(args.config)
+    struct_cfg = cfg["narrative_structural_v1_1"]
+
     narratives, universe = load_taxonomy(args.taxonomy)
     print(f"\n📋 Taxonomie: {len(narratives)} Narrative, {len(universe)} eindeutige Ticker")
 
-    # SPY wird mit demselben marktweiten Grouped-Daily-Call mitgeholt (keine
-    # Zusatzkosten) — dient ausschliesslich als Benchmark fuer die RS-Historie
-    # unten, ist aber selbst kein Narrative-Mitglied und wird aus
-    # ticker_metrics wieder entfernt, damit es die bestehende Perzentil-
-    # Fallback-Logik (percentile_ranks(ticker_metrics, ...) ohne Full-Market-
-    # Daten) nicht verunreinigt.
-    per_ticker, trading_days = fetch_grouped_history(set(universe) | {"SPY"})
-    if len(trading_days) < 10:
-        print("FATAL: Zu wenige Handelstage geladen, breche ab.", file=sys.stderr)
-        sys.exit(1)
+    # SPY dient ausschliesslich als Benchmark fuer die RS-Historie unten, ist
+    # aber selbst kein Narrative-Mitglied und wird aus ticker_metrics wieder
+    # entfernt, damit es die Perzentil-Fallback-Logik nicht verunreinigt.
+    full_universe = set(universe) | {"SPY"}
 
-    prices = build_price_frame(per_ticker, trading_days)
+    # V1.1 point 17: reuse the shared V1.1 price-history cache written by
+    # build_market_features.py (260 sessions, 0 extra API calls) so 3M/6M
+    # structural horizons are available; only fall back to this script's own
+    # short (55-session) walk-back if that cache is absent/too short.
+    prices, trading_days = load_shared_price_cache_frame(cfg["market_history_cache"]["path"], full_universe)
+    if prices is None:
+        per_ticker, trading_days = fetch_grouped_history(full_universe)
+        if len(trading_days) < 10:
+            print("FATAL: Zu wenige Handelstage geladen, breche ab.", file=sys.stderr)
+            sys.exit(1)
+        prices = build_price_frame(per_ticker, trading_days)
+
     ticker_metrics, daily_ret = calc_ticker_metrics(prices)
     ticker_metrics.pop("SPY", None)
     print(f"  ✅ Metriken für {len(ticker_metrics)}/{len(universe)} Ticker berechnet")
 
     market_features = load_market_features(args.market_features)
-    pct_field_by_horizon = {"1d": "d1_pct", "1w": "w1_pct", "1m": "m1_pct"}
-    mf_rs_field_by_horizon = {"1d": "rs_percentile_1d", "1w": "rs_percentile_1w", "1m": "rs_percentile_1m"}
+    pct_field_by_horizon = {
+        "1d": "d1_pct", "1w": "w1_pct", "1m": "m1_pct", "3m": "return_3m", "6m": "return_6m",
+    }
+    mf_rs_field_by_horizon = {
+        "1d": "rs_percentile_1d", "1w": "rs_percentile_1w", "1m": "rs_percentile_1m",
+        "3m": "rs_percentile_3m", "6m": "rs_percentile_6m",
+    }
 
     if market_features is not None:
         # Full-Market RS: percentile against the whole eligible US stock
-        # universe (point 24 — the one required Leadership formula change).
+        # universe (point 24 of V1 — the one required Leadership formula
+        # change; 3M/6M added here for V1.1's structural horizons).
         percentiles_by_horizon = {
             h: {sym: market_features[sym].get(mf_field) for sym in universe if sym in market_features}
             for h, mf_field in mf_rs_field_by_horizon.items()
@@ -389,24 +551,99 @@ def main():
         m["atr"] = mf.get("atr")
         m["atr_extension"] = mf.get("atr_extension")
         m["eligible"] = mf.get("eligible")
+        m["structural_rs"] = mf.get("structural_rs")
+        m["trend_strength"] = mf.get("trend_strength")
 
-    output_narratives = []
+    # Pass 1: per-narrative basket scores (unchanged existing methodology,
+    # now also covering the new 3M/6M horizons) + raw structural inputs.
+    narrative_rows = []
     for n in narratives:
         members = [t for t in n["tickers"] if t in ticker_metrics]
         if not members:
             print(f"  ⚠ {n['name']}: keine Daten für Mitglieder, übersprungen")
             continue
         scores = calc_basket_scores(members, ticker_metrics, daily_ret, pct_field_by_horizon, percentiles_by_horizon)
+        pct_above_sma50, pct_rising_sma50, pct_above_rising_sma50 = calc_trend_participation(members, market_features)
+        structural_leadership_pct = calc_structural_leadership_pct(
+            members, market_features, struct_cfg["structural_leadership_rs_threshold"])
+        narrative_rows.append({
+            "id": n["id"], "name": n["name"], "status": n.get("status", "active"),
+            "members": members, "scores": scores,
+            "pct_above_sma50": pct_above_sma50, "pct_rising_sma50": pct_rising_sma50,
+            "pct_above_rising_sma50": pct_above_rising_sma50,
+            "structural_leadership_pct": structural_leadership_pct,
+        })
+
+    # Pass 2: narrative-vs-narrative percentiles (V1.1 point 18/19) — each
+    # narrative's own Strength ranked against ALL OTHER NARRATIVES (not
+    # tickers), same percentile_ranks() primitive used for ticker RS above.
+    strength_percentile_by_horizon = {}
+    for h in ("1m", "3m", "6m"):
+        metrics = {row["id"]: {"s": row["scores"][h]["strength"]} for row in narrative_rows}
+        strength_percentile_by_horizon[h] = percentile_ranks(metrics, "s")
+    thrust_metrics_1w = {row["id"]: {"t": row["scores"]["1w"]["thrust"]} for row in narrative_rows}
+    thrust_percentile_1w = percentile_ranks(thrust_metrics_1w, "t")
+
+    output_narratives = []
+    for row in narrative_rows:
+        nid, members, scores = row["id"], row["members"], row["scores"]
+
+        strength_percentile_1m = strength_percentile_by_horizon["1m"].get(nid)
+        strength_percentile_3m = strength_percentile_by_horizon["3m"].get(nid)
+        strength_percentile_6m = strength_percentile_by_horizon["6m"].get(nid)
+
+        structural_price_strength = clamp_0_100(renormalized_weighted_sum(
+            {
+                "strength_percentile_1m": strength_percentile_1m,
+                "strength_percentile_3m": strength_percentile_3m,
+                "strength_percentile_6m": strength_percentile_6m,
+            },
+            struct_cfg["structural_price_strength_weights"]))
+
+        narrative_structural_score = clamp_0_100(renormalized_weighted_sum(
+            {
+                "structural_price_strength": structural_price_strength,
+                "trend_participation": row["pct_above_rising_sma50"],
+                "structural_leadership_pct": row["structural_leadership_pct"],
+                "breadth_pct_positive_1m": scores["1m"]["breadth"]["pct_positive"],
+            },
+            struct_cfg["score_weights"]))
+
+        momentum_modifier = calc_momentum_modifier(
+            scores["1w"]["thrust"], thrust_percentile_1w.get(nid),
+            narrative_structural_score, struct_cfg["momentum_modifier"])
+
         output_narratives.append({
-            "id": n["id"],
-            "name": n["name"],
-            "status": n.get("status", "active"),
+            "id": nid,
+            "name": row["name"],
+            "status": row["status"],
             "n_members": len(members),
             "scores": scores,
             "members": [ticker_metrics[m] for m in members],
+            # V1.1 point 17-22: Structural Score replaces the old 1W-heavy
+            # Momentum Score as the primary narrative ranking metric. Thrust
+            # stays visible inside `scores` (per-horizon) but is no longer a
+            # component of this score — see momentum_modifier for its role.
+            "structural_price_strength": structural_price_strength,
+            "strength_percentile_1m": strength_percentile_1m,
+            "strength_percentile_3m": strength_percentile_3m,
+            "strength_percentile_6m": strength_percentile_6m,
+            "trend_participation": {
+                "pct_above_sma50": row["pct_above_sma50"],
+                "pct_rising_sma50": row["pct_rising_sma50"],
+                "pct_above_rising_sma50": row["pct_above_rising_sma50"],
+            },
+            "structural_leadership_pct": row["structural_leadership_pct"],
+            "narrative_structural_score": narrative_structural_score,
+            "momentum_modifier": momentum_modifier,
+            # Narrative-vs-narrative 1W Thrust percentile — used by
+            # build_dashboard_states.py's structural Lifecycle EMERGING
+            # condition (thrust_percentile_1w_min), NOT a narrative_structural_score
+            # component (Thrust stays out of the structural score itself).
+            "thrust_percentile_1w": thrust_percentile_1w.get(nid),
         })
-        print(f"  ✅ {n['name']}: {len(members)} Ticker | 1D Strength {scores['1d']['strength']} | "
-              f"1W Strength {scores['1w']['strength']} | 1M Strength {scores['1m']['strength']}")
+        print(f"  ✅ {row['name']}: {len(members)} Ticker | Structural Score {narrative_structural_score} | "
+              f"Trend Participation {row['pct_above_rising_sma50']} | Modifier {momentum_modifier}")
 
     rs_history = compute_narrative_rs_history(narratives, daily_ret, trading_days)
     if rs_history is not None:

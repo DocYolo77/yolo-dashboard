@@ -1,8 +1,8 @@
 {
   "_comment": "Zentrale Konfiguration der YOLO Dashboard Engine (Full-Market Narrative Engine + V1 Top-down Momentum Operating System). Version-1-Startparameter — Werte hier aendern statt in Python/JS hart zu kodieren. Wird von scripts/build_market_reference.py, scripts/build_market_features.py, scripts/build_narratives.py, scripts/build_dashboard_states.py, scripts/validate_narrative_proposal.py, scripts/review_narratives.py sowie von index.html (per fetch) gelesen.",
-  "version": 2,
-  "dashboard_state_version": "v1",
-  "_v1_note": "Alle Gewichte/Schwellen unter *_v1 sind V1-Startparameter, keine empirisch kalibrierten Werte. Eine separate YOLO Calibration Engine wird sie spaeter (2023-2024 Calibration, 2025 Validation, 2026 Out-of-Sample) ueberpruefen. Aenderung nur hier, kein Architekturumbau noetig.",
+  "version": 3,
+  "dashboard_state_version": "v1.1",
+  "_v1_note": "Alle Gewichte/Schwellen unter *_v1/*_v1_1 sind Startparameter, keine empirisch kalibrierten Werte. Eine separate YOLO Calibration Engine wird sie spaeter (2023-2024 Calibration, 2025 Validation, 2026 Out-of-Sample) ueberpruefen. Aenderung nur hier, kein Architekturumbau noetig. V1.1 trennt strukturelle Momentum-Qualitaet (structural_rs_v1_1/trend_strength_v1_1/narrative_structural_v1_1), kurzfristige Beschleunigung (Thrust/RS1W, unveraendert sichtbar) und aktuelle Location (near_emas/extended) sauber voneinander; die alten *_v1-Bloecke (market_regime_v1 ausgenommen, weiterhin aktiv fuer den Momentum-Subscore) bleiben zu Referenzzwecken stehen, opportunity_v1_1/narrative_lifecycle_v1_1 sind ab jetzt die aktive Logik.",
   "universe": {
     "adr_lookback_sessions": 20,
     "adr_minimum_pct": 4.0,
@@ -94,12 +94,63 @@
     "laggard": { "leadership_score_max": 60, "bottom_pct_of_narrative": 40, "thrust_percentile_1d_max": 80, "thrust_percentile_1w_max": 80, "exit_leadership_score_min": 65 }
   },
   "change_detection": {
-    "_comment": "Schwellen fuer 'What Changed?' Event-Erkennung. Punkt 33-37 der V1-Spec.",
+    "_comment": "Schwellen fuer 'What Changed?' Event-Erkennung. Punkt 33-37 der V1-Spec, um Structural-Events (Punkt 30 V1.1) ergaenzt.",
     "narrative_rank_improve_min": 3,
     "narrative_score_delta_min": 10
   },
   "history": {
     "daily_dir": "data/history/daily",
     "retention_days": 45
+  },
+  "market_history_cache": {
+    "_comment": "Persistenter, inkrementeller Preis-History-Cache (V1.1 Punkt 2) — lebt ausserhalb von Git, wird zwischen GitHub-Actions-Laeufen per actions/cache persistiert (siehe refresh_data.yml), kein Datenbank-Service, nur ein Rolling-Window-JSON-File. build_narratives.py liest denselben Cache lesend mit (0 zusaetzliche API-Calls) statt eines eigenen Walk-backs.",
+    "path": ".cache/market_history.json",
+    "target_trading_days": 260
+  },
+  "structural_rs_v1_1": {
+    "_comment": "Structural RS (0-100) — multi-timeframe relative Staerke, primaere Qualitaetsmetrik ab V1.1 (ersetzt den kurzfristigen Leadership Score als Entry-Gate, siehe opportunity_v1_1). Punkt 3-4 der V1.1-Spec.",
+    "weights": { "rs_1m": 0.20, "rs_3m": 0.35, "rs_6m": 0.30, "rs_12m": 0.15 }
+  },
+  "trend_strength_v1_1": {
+    "_comment": "Trend Strength (0-100) — SMA50-Slope + Persistence, misst Trendqualitaet UNABHAENGIG von der aktuellen Distanz/Extension (die gehoert zu Location, nicht Trendqualitaet). Punkt 5-6 der V1.1-Spec.",
+    "sma50_slope_lookback_sessions": 20,
+    "sma50_persistence_lookback_sessions": 20,
+    "weights": { "slope_percentile": 0.60, "persistence": 0.40 }
+  },
+  "opportunity_v1_1": {
+    "_comment": "V1.1 Quality-State-Maschine (fresh_leader/leader/recent_leader/neutral), Structural-RS-basiert statt RS1W-Hard-Gate. Ersetzt opportunity_v1 als aktive Logik; opportunity_v1 bleibt unveraendert als Referenz stehen (Punkt 32: bestehende V1-Werte nicht loeschen). Punkt 8-16 der V1.1-Spec.",
+    "leader_entry": { "structural_rs_min": 85, "trend_strength_min": 70 },
+    "leader_exit": { "structural_rs_max": 80, "trend_strength_max": 60, "sma50_distance_max_pct": -2.0, "confirm_days": 2 },
+    "fresh_leader": { "entry_window_days": 3, "rs_1w_min": 85, "thrust_percentile_1d_min": 85, "thrust_percentile_1w_min": 80 },
+    "recent_leader": { "memory_sessions": 15 },
+    "near_emas": { "distance_pct": 4.0, "max_below_ema20_pct": -2.0 },
+    "extended": { "enter": 5.0, "exit": 4.5 },
+    "constructive_reset": { "max_below_ema20_pct": -2.0, "max_below_sma50_pct": -2.0 },
+    "laggard": { "structural_rs_max": 60, "bottom_pct_of_narrative": 40, "thrust_percentile_1d_max": 80, "thrust_percentile_1w_max": 80, "exit_structural_rs_min": 65 }
+  },
+  "narrative_structural_v1_1": {
+    "_comment": "Narrative Structural Score (0-100) — ersetzt den 1W-lastigen Narrative Momentum Score als primaeren Score (Thrust bleibt sichtbar, ist aber Acceleration, kein Bestandteil mehr). Punkt 17-22 der V1.1-Spec.",
+    "structural_price_strength_weights": { "strength_percentile_1m": 0.25, "strength_percentile_3m": 0.40, "strength_percentile_6m": 0.35 },
+    "structural_leadership_rs_threshold": 80,
+    "score_weights": { "structural_price_strength": 0.40, "trend_participation": 0.25, "structural_leadership_pct": 0.20, "breadth_pct_positive_1m": 0.15 },
+    "momentum_modifier": {
+      "accelerating": { "thrust_1w_positive_required": true, "thrust_percentile_1w_min": 75 },
+      "cooling": { "structural_score_min": 65, "thrust_1w_negative_required": true }
+    }
+  },
+  "narrative_lifecycle_v1_1": {
+    "_comment": "Structural Lifecycle — ersetzt narrative_lifecycle_v1 als aktive Logik, weniger 1W-Thrust-abhaengig. Prioritaet abweichend von V1: FADING schlaegt jetzt EMERGING. Punkt 24 der V1.1-Spec.",
+    "emerging": {
+      "structural_score_min": 40, "structural_score_max": 65,
+      "thrust_percentile_1w_min": 75,
+      "structural_score_delta5d_min": 5,
+      "trend_participation_delta5d_min": 5,
+      "structural_leadership_delta5d_positive_required": true
+    },
+    "active": { "structural_score_min": 65, "strength_1m_min": 0, "trend_participation_min": 55, "breadth_pct_positive_1m_min": 60 },
+    "mature": { "cooling_confirm_days": 5 },
+    "fading": { "structural_score_max": 55, "trend_participation_delta10d_max": -10, "structural_leadership_delta10d_max": -10, "breadth_pct_positive_1m_max": 50, "confirm_days": 2 },
+    "dormant": { "structural_score_max": 35, "strength_1m_max": 0, "trend_participation_max": 40, "confirm_days": 5 },
+    "priority": ["DORMANT", "FADING", "EMERGING", "MATURE", "ACTIVE", "NEUTRAL"]
   }
 }
