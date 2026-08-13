@@ -29,6 +29,16 @@ function extractFunction(src, name) {
   return src.slice(startIdx, i + 1);
 }
 
+// Simple single-statement const extractor (e.g. `const TC_W = 300, TC_H = 140;`
+// or `const TC_COLORS = {...};`) -- sufficient for the flat literal consts
+// the ticker hover-chart functions below depend on.
+function extractConst(src, name) {
+  const startIdx = src.indexOf(`const ${name} =`);
+  if (startIdx === -1) throw new Error(`const ${name} not found in index.html`);
+  const endIdx = src.indexOf(';', startIdx);
+  return src.slice(startIdx, endIdx + 1);
+}
+
 // Pull the real implementations straight out of index.html.
 const ncNearEma10Src = extractFunction(html, 'ncNearEma10');
 const ncNearEma20Src = extractFunction(html, 'ncNearEma20');
@@ -44,6 +54,12 @@ const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
 const oppVisibleSortedItemsSrc = extractFunction(html, 'oppVisibleSortedItems');
 const ncJumpToOpportunitiesSrc = extractFunction(html, 'ncJumpToOpportunities');
+const tcPolylineSegmentsSrc = extractFunction(html, 'tcPolylineSegments');
+const tickerChartSvgSrc = extractFunction(html, 'tickerChartSvg');
+const tickerChartTooltipHtmlSrc = extractFunction(html, 'tickerChartTooltipHtml');
+const positionTickerChartTooltipSrc = extractFunction(html, 'positionTickerChartTooltip');
+const tcColorsConstSrc = extractConst(html, 'TC_COLORS');
+const tcDimsConstSrc = extractConst(html, 'TC_W'); // combined statement also declares TC_H
 
 const sandbox = {
   ncEmaFilter: 'all',
@@ -52,6 +68,8 @@ const sandbox = {
   engineConfig: { dashboard: { ema_proximity_threshold_pct: 4.0, atr_extension_warning_threshold: 5.0 } },
   ncMemberSort: { field: 'd1_pct', dir: 'desc' },
   dashboardState: null,
+  tickerCharts: null,
+  window: { innerWidth: 1200, innerHeight: 800 },
   oppTab: 'all',
   oppSortState: { field: 'leadership_score', dir: 'desc' },
   // oppRender is a spy here (not the real, DOM-heavy implementation) — this
@@ -77,7 +95,9 @@ vm.createContext(sandbox);
 vm.runInContext(
   `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncIsAtrExtendedSrc}\n${ncEmaFilterMembersSrc}\n${ncSortMembersSrc}\n` +
   `${ncMemberOpportunityStateSrc}\n${ncStateFilterMembersSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n` +
-  `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n${ncJumpToOpportunitiesSrc}`,
+  `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n${ncJumpToOpportunitiesSrc}\n` +
+  `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
+  `${positionTickerChartTooltipSrc}`,
   sandbox
 );
 
@@ -149,37 +169,31 @@ test('ATR Extension > threshold badge condition matches the config threshold, no
   assert.deepEqual(extended.map(m => m.symbol), ['BBB']); // 6.5 > 5.0; 5.0 itself is NOT > 5.0 (CCC excluded)
 });
 
-test('ncMomentumTickerList: near-EMA + not-ATR-extended across all narratives, deduplicated', () => {
-  const data = {
-    narratives: [
-      {
-        id: 'n1',
-        members: [
-          { symbol: 'NEAR_OK', ema10_distance_pct: 1.0, ema20_distance_pct: 9.0, atr_extension: 2.0 },   // near EMA10, not extended -> included
-          { symbol: 'NEAR_EXT', ema10_distance_pct: 0.5, ema20_distance_pct: 9.0, atr_extension: 7.0 },  // near EMA10 but ATR-extended -> excluded
-          { symbol: 'FAR', ema10_distance_pct: 9.0, ema20_distance_pct: 9.0, atr_extension: 1.0 },       // not near either EMA -> excluded
-        ],
-      },
-      {
-        id: 'n2',
-        // NEAR_OK also belongs here (multi-membership) -> must appear only once in the output.
-        members: [
-          { symbol: 'NEAR_OK', ema10_distance_pct: 1.0, ema20_distance_pct: 9.0, atr_extension: 2.0 },
-          { symbol: 'NEAR_OK2', ema10_distance_pct: 9.0, ema20_distance_pct: -2.0, atr_extension: null }, // near EMA20, ATR unknown -> not disqualifying -> included
-        ],
-      },
-    ],
+test('ncMomentumTickerList: copies ONLY items with backend near_emas===true, no frontend recomputation', () => {
+  // Fixed rule: the Momentum-Copy button trusts the backend's near_emas
+  // flag (Opportunity Engine, calc_near_emas) exclusively -- it must never
+  // recompute EMA-distance/ATR-extension thresholds itself. Sourced from
+  // dashboardState.opportunities.items (whole eligible universe), not
+  // narrativesRaw.narratives[].members.
+  const state = {
+    opportunities: {
+      items: [
+        { symbol: 'FLAGGED_TRUE', near_emas: true, ema10_distance_pct: 9.0, atr_extension: 99.0 },  // near_emas wins even though the OLD frontend heuristic would have excluded it
+        { symbol: 'FLAGGED_FALSE', near_emas: false, ema10_distance_pct: 0.1, atr_extension: 0.1 }, // near_emas wins even though the OLD frontend heuristic would have included it
+        { symbol: 'ALSO_TRUE', near_emas: true },
+        { symbol: 'MISSING_FLAG' }, // near_emas undefined -> not === true -> excluded
+      ],
+    },
   };
-  const list = vm.runInContext(
-    'ncMomentumTickerList(data, ema, atr)',
-    Object.assign(sandbox, { data, ema: 4.0, atr: 5.0 })
-  );
-  // Array.from(): the Set/Array built inside vm.runInContext belong to the
-  // sandbox's own realm (new Set()/Array.from() there resolve to the
-  // sandbox's constructors), so deepEqual against a host array literal
-  // needs re-materializing into the host realm first, same as the other
-  // tests' `.map()` calls implicitly do for their host-created inputs.
-  assert.deepEqual(Array.from(list), ['NEAR_OK', 'NEAR_OK2']); // sorted, deduplicated, NEAR_EXT and FAR excluded
+  const list = vm.runInContext('ncMomentumTickerList(state)', Object.assign(sandbox, { state }));
+  assert.deepEqual(Array.from(list), ['ALSO_TRUE', 'FLAGGED_TRUE']); // sorted, exactly the near_emas=true rows
+});
+
+test('ncMomentumTickerList: returns empty list gracefully when opportunities data is unavailable', () => {
+  const list1 = vm.runInContext('ncMomentumTickerList(state)', Object.assign(sandbox, { state: null }));
+  assert.deepEqual(Array.from(list1), []);
+  const list2 = vm.runInContext('ncMomentumTickerList(state)', Object.assign(sandbox, { state: {} }));
+  assert.deepEqual(Array.from(list2), []);
 });
 
 // ── Narrative Detail View: EMA-Filter + State-Filter kombinierbar (Punkt 32) ──
@@ -417,4 +431,101 @@ test('ncJumpToOpportunities does not throw when the event is omitted (called wit
   assert.doesNotThrow(() => {
     vm.runInContext('ncJumpToOpportunities', sandbox)('semiconductors');
   });
+});
+
+// ══════════════════════════════════════════════
+// TICKER HOVER MINI-CHART (pure functions)
+// ══════════════════════════════════════════════
+
+test('tcPolylineSegments: breaks into separate runs at null gaps, drops single-point runs', () => {
+  const values = [1, 2, null, 5, 6, 7, null, null, 9];
+  const xFor = i => i * 10;
+  const yFor = v => 100 - v;
+  const segments = vm.runInContext('tcPolylineSegments(values, xFor, yFor)', Object.assign(sandbox, { values, xFor, yFor }));
+  const materialized = Array.from(segments).map(seg => Array.from(seg));
+  // run [1,2] -> 2 points kept; lone [5,6,7] run of 3 kept; lone trailing [9] (length 1) dropped
+  assert.deepEqual(materialized, [
+    ['0,99', '10,98'],
+    ['30,95', '40,94', '50,93'],
+  ]);
+});
+
+test('tcPolylineSegments: all-null series produces zero segments (no crash)', () => {
+  const values = [null, null, null];
+  const xFor = i => i, yFor = v => v;
+  const segments = vm.runInContext('tcPolylineSegments(values, xFor, yFor)', Object.assign(sandbox, { values, xFor, yFor }));
+  assert.deepEqual(Array.from(segments), []);
+});
+
+function makeChart(overrides) {
+  const n = 10;
+  const base = Array.from({ length: n }, (_, i) => 100 + i);
+  return Object.assign({
+    dates: Array.from({ length: n }, (_, i) => `2026-01-${i + 1}`),
+    o: base.slice(), h: base.map(v => v + 1), l: base.map(v => v - 1), c: base.slice(),
+    ema10: base.slice(), ema20: base.slice(), sma50: Array(n).fill(null), sma200: Array(n).fill(null),
+  }, overrides || {});
+}
+
+test('tickerChartSvg: renders one candle rect per day with usable close data', () => {
+  const chart = makeChart();
+  const svg = vm.runInContext('tickerChartSvg(chart)', Object.assign(sandbox, { chart }));
+  const rectCount = (svg.match(/<rect/g) || []).length;
+  assert.equal(rectCount, 10);
+  assert.match(svg, /<svg/);
+});
+
+test('tickerChartSvg: skips a day with no close value instead of drawing a broken candle', () => {
+  const chart = makeChart({ c: [100, 101, null, 103, 104, 105, 106, 107, 108, 109] });
+  const svg = vm.runInContext('tickerChartSvg(chart)', Object.assign(sandbox, { chart }));
+  const rectCount = (svg.match(/<rect/g) || []).length;
+  assert.equal(rectCount, 9); // 10 days minus the one null close
+});
+
+test('tickerChartSvg: shows a fallback message instead of an empty/broken chart when there is too little data', () => {
+  const chart = makeChart({ dates: ['2026-01-01'], o: [100], h: [101], l: [99], c: [100], ema10: [100], ema20: [100], sma50: [null], sma200: [null] });
+  const svg = vm.runInContext('tickerChartSvg(chart)', Object.assign(sandbox, { chart }));
+  assert.match(svg, /tc-empty/);
+  assert.doesNotMatch(svg, /<svg/);
+});
+
+test('tickerChartTooltipHtml: shows "no data" state when the ticker has no chart entry', () => {
+  sandbox.tickerCharts = { tickers: {} };
+  const html = vm.runInContext(`tickerChartTooltipHtml('GHOST')`, sandbox);
+  assert.match(html, /GHOST/);
+  assert.match(html, /Keine Chart-Daten/);
+});
+
+test('tickerChartTooltipHtml: renders symbol, last close price and full MA legend when data exists', () => {
+  sandbox.tickerCharts = { tickers: { AAPL: makeChart() } };
+  const html = vm.runInContext(`tickerChartTooltipHtml('AAPL')`, sandbox);
+  assert.match(html, /AAPL/);
+  assert.match(html, /\$109\.00/); // last close of the synthetic series (100..109)
+  ['EMA10', 'EMA20', 'SMA50', 'SMA200'].forEach(label => assert.match(html, new RegExp(label)));
+});
+
+test('positionTickerChartTooltip: places the tooltip to the right of the anchor by default', () => {
+  const el = { style: {} };
+  const anchorRect = { left: 100, right: 130, top: 200, bottom: 216 };
+  vm.runInContext('positionTickerChartTooltip(el, anchorRect)', Object.assign(sandbox, { el, anchorRect }));
+  assert.equal(el.style.left, '138px'); // anchorRect.right (130) + margin (8)
+  assert.equal(el.style.top, '200px');
+});
+
+test('positionTickerChartTooltip: flips to the left when the tooltip would overflow the right viewport edge', () => {
+  sandbox.window = { innerWidth: 400, innerHeight: 800 };
+  const el = { style: {} };
+  const anchorRect = { left: 350, right: 380, top: 100, bottom: 116 };
+  vm.runInContext('positionTickerChartTooltip(el, anchorRect)', Object.assign(sandbox, { el, anchorRect }));
+  assert.equal(el.style.left, '22px'); // anchorRect.left (350) - tooltipW (320) - margin (8)
+  sandbox.window = { innerWidth: 1200, innerHeight: 800 }; // restore for later tests
+});
+
+test('positionTickerChartTooltip: clamps to the bottom viewport edge instead of overflowing', () => {
+  sandbox.window = { innerWidth: 1200, innerHeight: 300 };
+  const el = { style: {} };
+  const anchorRect = { left: 100, right: 130, top: 280, bottom: 296 };
+  vm.runInContext('positionTickerChartTooltip(el, anchorRect)', Object.assign(sandbox, { el, anchorRect }));
+  assert.equal(el.style.top, '92px'); // window.innerHeight (300) - tooltipH (200) - margin (8)
+  sandbox.window = { innerWidth: 1200, innerHeight: 800 }; // restore
 });

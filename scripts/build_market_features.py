@@ -101,7 +101,7 @@ TRADING_DAYS_NEEDED = 260  # V1.1: 12M return (252 sessions) + buffer for SMA50-
 MAX_CALENDAR_LOOKBACK = 420  # must cover a cold-cache 260-trading-day bootstrap (~365-390 calendar days)
 MIN_RESULTS_FOR_TRADING_DAY = 1000
 ADR_LOOKBACK_DEFAULT = 20
-PRICE_CACHE_SCHEMA_VERSION = 1
+PRICE_CACHE_SCHEMA_VERSION = 2  # v2: adds per-ticker "open" (scripts/build_ticker_charts.py candlesticks)
 
 
 def massive_get(path, params=None, retries=3):
@@ -171,18 +171,22 @@ def load_price_cache(cache_path):
     return cache
 
 
-def save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low, universe_set):
-    """Persist the rolling window as {symbol: {"close":[...], "high":[...],
-    "low":[...]}} aligned 1:1 to `trading_days`. Not pretty-printed (pure
-    build artifact, never meant to be read by a human or diffed in git —
-    it lives outside git entirely, see refresh_data.yml's actions/cache
-    step)."""
+def save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low,
+                      per_ticker_open, universe_set):
+    """Persist the rolling window as {symbol: {"open":[...], "close":[...],
+    "high":[...], "low":[...]}} aligned 1:1 to `trading_days`. Not pretty-
+    printed (pure build artifact, never meant to be read by a human or
+    diffed in git — it lives outside git entirely, see refresh_data.yml's
+    actions/cache step). "open" (schema v2) exists purely for
+    scripts/build_ticker_charts.py's hover-candlestick chart data — no
+    existing feature calculation in this file needs it."""
     tickers_data = {}
     for sym in universe_set:
         close_series = [per_ticker_close.get(sym, {}).get(d) for d in trading_days]
         if not any(v is not None for v in close_series):
             continue  # nothing ever observed for this symbol -> don't bloat the cache with an all-null row
         tickers_data[sym] = {
+            "open": [per_ticker_open.get(sym, {}).get(d) for d in trading_days],
             "close": close_series,
             "high": [per_ticker_high.get(sym, {}).get(d) for d in trading_days],
             "low": [per_ticker_low.get(sym, {}).get(d) for d in trading_days],
@@ -216,7 +220,7 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
     Returns (close_df, high_df, low_df, trading_days), trading_days ascending.
     """
     cache = load_price_cache(cache_path)
-    per_ticker_close, per_ticker_high, per_ticker_low = {}, {}, {}
+    per_ticker_close, per_ticker_high, per_ticker_low, per_ticker_open = {}, {}, {}, {}
     cached_dates = []
 
     if cache:
@@ -228,6 +232,7 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
             per_ticker_close[sym] = dict(zip(cached_dates, series["close"]))
             per_ticker_high[sym] = dict(zip(cached_dates, series["high"]))
             per_ticker_low[sym] = dict(zip(cached_dates, series["low"]))
+            per_ticker_open[sym] = dict(zip(cached_dates, series.get("open", [])))
         n_missing = sum(1 for s in universe_set if s not in cached_tickers)
         print(f"  ✅ Preis-Cache geladen: {len(cached_dates)} Handelstage, {len(cached_tickers)} Ticker "
               f"({n_missing} neue Ticker im Universe noch nicht im Cache)")
@@ -239,6 +244,7 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
         per_ticker_close.setdefault(t, {})
         per_ticker_high.setdefault(t, {})
         per_ticker_low.setdefault(t, {})
+        per_ticker_open.setdefault(t, {})
 
     newest_cached = cached_dates[-1] if cached_dates else None
     print(f"\n📊 Ergaenze marktweite Grouped-Daily-OHLC (Ziel: {target_days} Handelstage, "
@@ -269,6 +275,7 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
                 per_ticker_close[sym][date_str] = row.get("c")
                 per_ticker_high[sym][date_str] = row.get("h")
                 per_ticker_low[sym][date_str] = row.get("l")
+                per_ticker_open[sym][date_str] = row.get("o")
         print(f"  → {date_str}: {data['resultsCount']} Ticker (neuer Handelstag {len(new_days)})")
 
     trading_days = sorted(set(cached_dates) | set(new_days))
@@ -278,7 +285,8 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
     print(f"  ✅ {len(trading_days)} Handelstage gesamt ({len(new_days)} neu geladen via API, "
           f"{calendar_checked} Kalendertage geprueft)")
 
-    save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low, universe_set)
+    save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low,
+                      per_ticker_open, universe_set)
 
     close_df = build_frame(per_ticker_close, trading_days, universe_set)
     high_df = build_frame(per_ticker_high, trading_days, universe_set)

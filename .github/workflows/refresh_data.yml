@@ -84,6 +84,14 @@ jobs:
           MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
         run: python scripts/build_market_features.py --out-dir data
 
+      # Hover-Mini-Chart-Daten (Ticker-Tooltip: Candlesticks + EMA10/EMA20/
+      # SMA50/SMA200) — liest ausschliesslich den bereits von obigem Schritt
+      # aktualisierten Preis-Cache, 0 zusaetzliche API-Calls.
+      - name: Build ticker hover-chart data
+        if: steps.tzguard.outputs.should_run == 'true'
+        timeout-minutes: 5
+        run: python scripts/build_ticker_charts.py --out-dir data
+
       # Full-Universe Narrative Engine: haelt die persistente semantische
       # Taxonomie (data/taxonomy/narratives.json) mit dem heutigen eligible
       # Universe synchron (STAYED/ENTERED/REENTERED/EXITED, Punkt 6) und

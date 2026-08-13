@@ -340,6 +340,23 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .opp-narr-tag.primary { background: rgba(47,126,216,0.15); color: #2f7ed8; font-weight: 600; }
 .opp-narr-tag.secondary { background: rgba(255,255,255,0.04); color: var(--ink-muted); }
 
+/* Ticker hover mini-chart: one reusable floating tooltip, filled on demand. */
+[data-ticker] { cursor: help; border-bottom: 1px dotted var(--ink-muted); }
+.ticker-chart-tooltip {
+  position: fixed; display: none; z-index: 500; width: 320px;
+  background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 6px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5); padding: 8px 10px 6px; pointer-events: none;
+}
+.ticker-chart-tooltip.visible { display: block; }
+.tc-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; font-family: var(--mono-font); }
+.tc-symbol { font-size: 13px; font-weight: 700; color: var(--ink); }
+.tc-price { font-size: 12px; color: var(--ink-light); }
+.tc-empty { font-size: 11px; color: var(--ink-muted); padding: 24px 0; text-align: center; }
+.tc-legend { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; font-family: var(--mono-font); font-size: 9px; color: var(--ink-muted); }
+.tc-legend span { display: inline-flex; align-items: center; gap: 3px; }
+.tc-legend i { display: inline-block; width: 8px; height: 2px; }
+.tc-dates { display: flex; justify-content: space-between; font-family: var(--mono-font); font-size: 8px; color: var(--ink-muted); margin-top: 2px; }
+
 @media (max-width: 900px) {
   .hero-top { flex-direction: column; gap: 16px; }
   .mcclellan-grid, .sizer-grid { grid-template-columns: 1fr; }
@@ -379,6 +396,8 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     <div class="pw-hint">Passwort findest du im Patreon-Post</div>
   </div>
 </div>
+<!-- Reusable ticker hover mini-chart -- ONE node, filled on demand (never per-row). -->
+<div class="ticker-chart-tooltip" id="tickerChartTooltip"></div>
 <div class="container">
 
   <!-- ═══ HERO ═══ -->
@@ -739,7 +758,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
         </div>
       </div>
       <div class="nc-meta" id="narrativeMeta"></div>
-      <button class="nd-copy-btn" id="momentumCopyBtn" onclick="ncCopyMomentumTickers(this)" title="Kopiert alle eindeutigen Ticker aus allen Narrativen, die nahe EMA10 oder EMA20 sind (Schwelle aus config/narrative_engine.json) und nicht ATR-extended.">📋 Momentum-Ticker kopieren</button>
+      <button class="nd-copy-btn" id="momentumCopyBtn" onclick="ncCopyMomentumTickers(this)" title="Kopiert nur Momentum-Ticker, die aktuell als Near EMA geflaggt sind (near_emas=true aus der Opportunity Engine, gesamtes eligible Universe) — keine Frontend-Neuberechnung.">📋 Near-EMA Momentum kopieren</button>
     </div>
 
     <div class="narrative-grid" id="narrativeGrid">
@@ -1605,7 +1624,7 @@ function oppRender() {
 
   const rows = visible.map(it => `
     <tr>
-      <td><b>${it.symbol}</b></td>
+      <td><b data-ticker="${it.symbol}">${it.symbol}</b></td>
       <td>${oppPrimaryNarrativeHtml(it)}</td>
       <td>${oppSecondaryNarrativeHtml(it)}</td>
       <td class="muted">${QUALITY_LABEL[it.quality_state] || it.quality_state}</td>
@@ -1729,9 +1748,13 @@ const MEMBER_COLUMNS = [
 // "Near EMA10/EMA20" — Punkt 21: abs(Close/EMA - 1) <= Schwelle. Members
 // speichern ema10_distance_pct/ema20_distance_pct bereits als
 // (Close-EMA)/EMA*100, das ist exakt abs(Close/EMA-1)*100.
-// Geteilt zwischen dem Detail-Filter unten und dem globalen
-// "Momentum-Ticker kopieren"-Button, damit beide exakt dieselbe Definition
-// von "nahe EMA" bzw. "nicht ATR-extended" verwenden.
+// NUR fuer den Detail-Filter innerhalb einer Narrative-Karte (EMA-Proximity-
+// Ansicht). Der globale "Near-EMA Momentum kopieren"-Button verwendet
+// bewusst NICHT diese Funktionen, sondern ausschliesslich das vom Backend
+// (Opportunity Engine, calc_near_emas) berechnete near_emas-Flag -- siehe
+// ncMomentumTickerList weiter unten. Zwei verschiedene, absichtlich getrennte
+// "nahe EMA"-Definitionen: diese hier bleibt eine reine Anzeige-Filteroption,
+// near_emas ist die kalibrierungsrelevante Backend-Wahrheit.
 function ncNearEma10(m, threshold) {
   return m.ema10_distance_pct !== null && m.ema10_distance_pct !== undefined && Math.abs(m.ema10_distance_pct) <= threshold;
 }
@@ -1845,8 +1868,8 @@ function renderNarrativeDetail(narrative) {
     // die ATR-Extension-Warnung markiert nur den Ticker-Namen/Wert als
     // Badge, nicht die ganze Zeile.
     const tickerCell = extended
-      ? `${m.symbol} <span class="atr-ext-badge" title="ATR Extension ${m.atr_extension.toFixed(1)} > ${atrThreshold}">⚠ ${m.atr_extension.toFixed(1)}</span>`
-      : m.symbol;
+      ? `<span data-ticker="${m.symbol}">${m.symbol}</span> <span class="atr-ext-badge" title="ATR Extension ${m.atr_extension.toFixed(1)} > ${atrThreshold}">⚠ ${m.atr_extension.toFixed(1)}</span>`
+      : `<span data-ticker="${m.symbol}">${m.symbol}</span>`;
     return `
     <tr>
       <td>${tickerCell}</td>
@@ -1927,29 +1950,28 @@ function ncCopyVisibleTickers(narrativeId, btn) {
   }).catch(e => console.log('Clipboard-Fehler:', e));
 }
 
-// Sammelt ueber ALLE aktuell geladenen Narrative (dieser Bereich ist als
-// Ganzes das Momentum-Ranking) jeden Ticker, der nahe EMA10 oder EMA20 ist
-// UND nicht ATR-extended, dedupliziert (ein Ticker in mehreren Narrativen
-// erscheint nur einmal). Als eigene pure Funktion extrahiert — einzige
-// Quelle fuer den globalen Copy-Button, testbar ohne Clipboard/DOM.
-function ncMomentumTickerList(data, emaThreshold, atrThreshold) {
-  const seen = new Set();
-  data.narratives.forEach(n => {
-    n.members.forEach(m => {
-      const nearEma = ncNearEma10(m, emaThreshold) || ncNearEma20(m, emaThreshold);
-      if (nearEma && !ncIsAtrExtended(m, atrThreshold)) seen.add(m.symbol);
-    });
-  });
-  return Array.from(seen).sort();
+// Feste Regel: "Near-EMA Momentum kopieren" kopiert AUSSCHLIESSLICH Ticker,
+// die das Backend (Opportunity Engine, calc_near_emas in
+// build_dashboard_states.py) als near_emas=true geflaggt hat -- das
+// Frontend berechnet dafuer NICHTS selbst (keine EMA-Distanz-Schwelle, kein
+// ATR-Extension-Check hier). Quelle ist dashboardState.opportunities.items
+// (das gesamte eligible Universe, unabhaengig von Narrative-Zugehoerigkeit),
+// nicht narrativesRaw -- so bleibt die Liste exakt das, was die
+// kalibrierbare Near-EMA-Logik der Opportunity Engine tatsaechlich sagt,
+// und Backend/Frontend koennen nie auseinanderlaufen. Als eigene pure
+// Funktion extrahiert — einzige Quelle fuer den globalen Copy-Button,
+// testbar ohne Clipboard/DOM.
+function ncMomentumTickerList(state) {
+  if (!state || !state.opportunities) return [];
+  return state.opportunities.items
+    .filter(it => it.near_emas === true)
+    .map(it => it.symbol)
+    .sort();
 }
 
 function ncCopyMomentumTickers(btn) {
-  if (!narrativesRaw) return;
-  const list = ncMomentumTickerList(
-    narrativesRaw,
-    engineConfig.dashboard.ema_proximity_threshold_pct,
-    engineConfig.dashboard.atr_extension_warning_threshold
-  );
+  if (!dashboardState) return;
+  const list = ncMomentumTickerList(dashboardState);
   navigator.clipboard.writeText(list.join(',')).then(() => {
     if (btn) {
       const original = btn.textContent;
@@ -2164,6 +2186,176 @@ document.addEventListener('click', (e) => {
   document.querySelectorAll('.nc-info.open').forEach(icon => {
     if (!icon.contains(e.target)) icon.classList.remove('open');
   });
+});
+
+// ══════════════════════════════════════════════
+// TICKER HOVER MINI-CHART
+// Ein einziger wiederverwendbarer Tooltip-Knoten (#tickerChartTooltip), erst
+// beim Hover/Tap mit dem gewuenschten Ticker befuellt -- niemals 1000 Charts
+// gleichzeitig im DOM. Datenquelle: data/ticker_charts.json (60 Handelstage
+// Candlesticks + EMA10/EMA20/SMA50/SMA200), serverseitig aus dem ohnehin
+// vorhandenen 260-Tage-Preis-Cache vorberechnet -- ein Hover loest NIE einen
+// neuen Netzwerk-Request aus. Auf Touch-Geraeten (kein echtes Hover) uebernimmt
+// Tap (Click-Event, feuert auch auf Touch) komplett die Rolle von Hover.
+// ══════════════════════════════════════════════
+let tickerCharts = null;
+let tcHoverTimer = null;
+let tcOpenSymbol = null; // aktuell angezeigter Ticker -- erneutes Tappen desselben schliesst
+
+async function loadTickerCharts() {
+  try {
+    const r = await fetch('data/ticker_charts.json');
+    if (!r.ok) { console.log('ticker_charts.json nicht gefunden.'); return; }
+    tickerCharts = await r.json();
+  } catch (e) {
+    console.log('ticker_charts.json konnte nicht geladen werden:', e);
+  }
+}
+loadTickerCharts();
+
+const TC_HOVER_DELAY_MS = 200;
+const TC_IS_TOUCH = !!(window.matchMedia && window.matchMedia('(hover: none)').matches);
+const TC_COLORS = { ema10: '#e0a83e', ema20: '#2f7ed8', sma50: '#9b7fc9', sma200: '#f0605c' };
+const TC_W = 300, TC_H = 140;
+
+// Bricht die Linie an null-Luecken statt durch einen falschen Wert zu
+// interpolieren -- ein Moving Average ohne ausreichende Warm-up-Historie
+// (z.B. SMA200 bei einem juengeren Ticker) muss als FEHLEND sichtbar sein,
+// nicht als irrefuehrende Linie durch einen erfundenen Punkt.
+function tcPolylineSegments(values, xFor, yFor) {
+  const segments = [];
+  let current = [];
+  (values || []).forEach((v, i) => {
+    if (v === null || v === undefined) {
+      if (current.length > 1) segments.push(current);
+      current = [];
+    } else {
+      current.push(`${xFor(i)},${yFor(v)}`);
+    }
+  });
+  if (current.length > 1) segments.push(current);
+  return segments;
+}
+
+function tickerChartSvg(chart) {
+  const n = chart.dates.length;
+  const allVals = [];
+  ['o', 'h', 'l', 'c', 'ema10', 'ema20', 'sma50', 'sma200'].forEach(k => {
+    (chart[k] || []).forEach(v => { if (v !== null && v !== undefined) allVals.push(v); });
+  });
+  if (n < 2 || !allVals.length) return '<div class="tc-empty">Zu wenig Kursverlauf für einen Chart.</div>';
+
+  const min = Math.min(...allVals), max = Math.max(...allVals);
+  const pad = (max - min) * 0.06 || max * 0.02 || 1;
+  const yLo = min - pad, yHi = max + pad;
+
+  const step = TC_W / n;
+  const xFor = i => step * i + step / 2;
+  const yFor = v => TC_H - ((v - yLo) / (yHi - yLo)) * TC_H;
+  const candleW = Math.max(1.5, step * 0.6);
+
+  let candles = '';
+  for (let i = 0; i < n; i++) {
+    const o = chart.o[i], h = chart.h[i], l = chart.l[i], c = chart.c[i];
+    if (c === null || c === undefined) continue;
+    const x = xFor(i);
+    const up = (o === null || o === undefined) ? true : c >= o;
+    const color = up ? 'var(--positive)' : 'var(--negative)';
+    if (h !== null && h !== undefined && l !== null && l !== undefined) {
+      candles += `<line x1="${x}" y1="${yFor(h)}" x2="${x}" y2="${yFor(l)}" stroke="${color}" stroke-width="1" />`;
+    }
+    const openForBody = (o === null || o === undefined) ? c : o;
+    const bodyTop = yFor(Math.max(openForBody, c));
+    const bodyBottom = yFor(Math.min(openForBody, c));
+    candles += `<rect x="${x - candleW / 2}" y="${bodyTop}" width="${candleW}" height="${Math.max(1, bodyBottom - bodyTop)}" fill="${color}" />`;
+  }
+
+  const maLines = ['ema10', 'ema20', 'sma50', 'sma200'].map(key =>
+    tcPolylineSegments(chart[key], xFor, yFor)
+      .map(seg => `<polyline points="${seg.join(' ')}" fill="none" stroke="${TC_COLORS[key]}" stroke-width="1.3" />`).join('')
+  ).join('');
+
+  return `<svg width="100%" height="${TC_H}" viewBox="0 0 ${TC_W} ${TC_H}" preserveAspectRatio="none">${candles}${maLines}</svg>`;
+}
+
+function tickerChartTooltipHtml(symbol) {
+  const chart = tickerCharts && tickerCharts.tickers[symbol];
+  if (!chart) {
+    return `<div class="tc-head"><span class="tc-symbol">${symbol}</span></div><div class="tc-empty">Keine Chart-Daten verfügbar.</div>`;
+  }
+  const lastClose = chart.c[chart.c.length - 1];
+  const priceStr = (lastClose !== null && lastClose !== undefined) ? '$' + lastClose.toFixed(2) : '—';
+  const legend = ['ema10', 'ema20', 'sma50', 'sma200'].map(key =>
+    `<span><i style="background:${TC_COLORS[key]}"></i>${key.toUpperCase()}</span>`).join('');
+  return `
+    <div class="tc-head"><span class="tc-symbol">${symbol}</span><span class="tc-price">${priceStr}</span></div>
+    ${tickerChartSvg(chart)}
+    <div class="tc-legend">${legend}</div>
+    <div class="tc-dates"><span>${chart.dates[0]}</span><span>${chart.dates[chart.dates.length - 1]}</span></div>`;
+}
+
+function positionTickerChartTooltip(el, anchorRect) {
+  const tooltipW = 320, tooltipH = 200, margin = 8;
+  let left = anchorRect.right + margin;
+  let top = anchorRect.top;
+  if (left + tooltipW > window.innerWidth) left = anchorRect.left - tooltipW - margin;
+  if (left < 0) left = Math.max(4, (window.innerWidth - tooltipW) / 2);
+  if (top + tooltipH > window.innerHeight) top = Math.max(4, window.innerHeight - tooltipH - margin);
+  if (top < 0) top = 4;
+  el.style.left = left + 'px';
+  el.style.top = top + 'px';
+}
+
+function showTickerChartTooltip(symbol, anchorEl) {
+  const el = document.getElementById('tickerChartTooltip');
+  if (!el) return;
+  el.innerHTML = tickerChartTooltipHtml(symbol);
+  positionTickerChartTooltip(el, anchorEl.getBoundingClientRect());
+  el.classList.add('visible');
+  tcOpenSymbol = symbol;
+}
+
+function hideTickerChartTooltip() {
+  const el = document.getElementById('tickerChartTooltip');
+  if (el) el.classList.remove('visible');
+  tcOpenSymbol = null;
+}
+
+function cancelPendingTickerChartHover() {
+  if (tcHoverTimer) { clearTimeout(tcHoverTimer); tcHoverTimer = null; }
+}
+
+// Hover-Pfad (Desktop): 200ms Delay verhindert, dass schnelles Ueberfahren
+// vieler Tabellenzeilen staendig Charts rendert (nur der Tooltip-Inhalt wird
+// ausgetauscht, es entsteht nie ein zweiter DOM-Knoten).
+document.body.addEventListener('mouseover', (e) => {
+  if (TC_IS_TOUCH) return;
+  const target = e.target.closest('[data-ticker]');
+  if (!target) return;
+  const symbol = target.dataset.ticker;
+  cancelPendingTickerChartHover();
+  tcHoverTimer = setTimeout(() => showTickerChartTooltip(symbol, target), TC_HOVER_DELAY_MS);
+});
+
+document.body.addEventListener('mouseout', (e) => {
+  if (TC_IS_TOUCH) return;
+  const target = e.target.closest('[data-ticker]');
+  if (!target) return;
+  if (target.contains(e.relatedTarget)) return; // z.B. Wechsel auf das ATR-Badge im selben Ticker
+  cancelPendingTickerChartHover();
+  hideTickerChartTooltip();
+});
+
+// Tap-Pfad (Mobile, aber auch als Desktop-Zusatzweg harmlos): ein Klick auf
+// denselben bereits offenen Ticker schliesst ihn wieder, ein Klick ausserhalb
+// jedes Tickers schliesst den Tooltip.
+document.body.addEventListener('click', (e) => {
+  const target = e.target.closest('[data-ticker]');
+  if (!target) { hideTickerChartTooltip(); return; }
+  const symbol = target.dataset.ticker;
+  cancelPendingTickerChartHover();
+  if (tcOpenSymbol === symbol) hideTickerChartTooltip();
+  else showTickerChartTooltip(symbol, target);
 });
 
 // ══════════════════════════════════════════════
