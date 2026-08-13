@@ -1,8 +1,8 @@
 {
-  "as_of_date": "2026-08-12",
+  "as_of_date": "2026-08-13",
   "eligible_count": 1039,
-  "classified_eligible_count": 821,
-  "coverage_pct": 79.0,
+  "classified_eligible_count": 778,
+  "coverage_pct": 74.9,
   "entered": [
     "AEVA",
     "AGQ",
@@ -572,21 +572,11 @@
     "ZYME"
   ],
   "new_narratives_created": [
-    "auto_dealership_retail",
-    "clinical_research_organization_cro",
-    "computer_hardware_pc_printing",
-    "equipment_rental_services",
-    "golf_equipment_apparel",
-    "health_insurance_managed_care",
-    "leveraged_commodity_etf",
-    "motorcycle_manufacturing",
-    "petroleum_refining",
-    "private_corrections_detention_services",
-    "tire_manufacturing"
+    "private_detention_corrections_services"
   ],
   "unresolved_after_retries": [
     {
-      "ticker": "AEVA",
+      "ticker": "AGQ",
       "reason": "low_confidence_primary"
     },
     {
@@ -722,6 +712,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "CNC",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "COKE",
       "reason": "low_confidence_primary"
     },
@@ -742,11 +736,35 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "CRSR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CSGP",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "CSW",
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "CVI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CVLT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CVSA",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "CWK",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CXW",
       "reason": "low_confidence_primary"
     },
     {
@@ -767,6 +785,18 @@
     },
     {
       "ticker": "DGII",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DINO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DJT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DK",
       "reason": "low_confidence_primary"
     },
     {
@@ -818,6 +848,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "EQPT",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "ERIE",
       "reason": "low_confidence_primary"
     },
@@ -858,6 +892,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "FICO",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "FLEX",
       "reason": "low_confidence_primary"
     },
@@ -890,7 +928,19 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "GOLF",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "GPGI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GPI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GPRE",
       "reason": "low_confidence_primary"
     },
     {
@@ -898,7 +948,15 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "GRC",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "GRDN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GRND",
       "reason": "low_confidence_primary"
     },
     {
@@ -907,6 +965,10 @@
     },
     {
       "ticker": "GSHD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GT",
       "reason": "low_confidence_primary"
     },
     {
@@ -922,6 +984,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "HL",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "HLIT",
       "reason": "low_confidence_primary"
     },
@@ -930,7 +996,19 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "HOG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HPQ",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "HRB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "HRI",
       "reason": "low_confidence_primary"
     },
     {
@@ -942,6 +1020,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "HUM",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "HURN",
       "reason": "low_confidence_primary"
     },
@@ -950,11 +1032,23 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "ICLR",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "IE",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "IESC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "IQ",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "IT",
       "reason": "low_confidence_primary"
     },
     {
@@ -986,6 +1080,18 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "LAC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LAD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LAR",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "LB",
       "reason": "low_confidence_primary"
     },
@@ -999,6 +1105,10 @@
     },
     {
       "ticker": "LIND",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "LION",
       "reason": "low_confidence_primary"
     },
     {
@@ -1042,6 +1152,14 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "MOD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MOH",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "MORN",
       "reason": "low_confidence_primary"
     },
@@ -1059,6 +1177,10 @@
     },
     {
       "ticker": "NEOG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NEXA",
       "reason": "low_confidence_primary"
     },
     {
@@ -1146,6 +1268,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "OSCR",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "OUST",
       "reason": "low_confidence_primary"
     },
@@ -1155,6 +1281,14 @@
     },
     {
       "ticker": "PAHC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PARR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PBF",
       "reason": "low_confidence_primary"
     },
     {
@@ -1186,6 +1320,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "PLTK",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "PLUG",
       "reason": "low_confidence_primary"
     },
@@ -1194,7 +1332,19 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "POOL",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "POWL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PRCH",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PRG",
       "reason": "low_confidence_primary"
     },
     {
@@ -1222,10 +1372,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "RKT",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "RYAN",
       "reason": "low_confidence_primary"
     },
@@ -1235,6 +1381,10 @@
     },
     {
       "ticker": "RZLV",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SAH",
       "reason": "low_confidence_primary"
     },
     {
@@ -1251,6 +1401,10 @@
     },
     {
       "ticker": "SID",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SLSR",
       "reason": "low_confidence_primary"
     },
     {
@@ -1283,6 +1437,10 @@
     },
     {
       "ticker": "SRAD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "STGW",
       "reason": "low_confidence_primary"
     },
     {
@@ -1350,7 +1508,15 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "TVTX",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "UAMY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "UCTT",
       "reason": "low_confidence_primary"
     },
     {
@@ -1366,10 +1532,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "VIAV",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "VISN",
       "reason": "low_confidence_primary"
     },
@@ -1379,10 +1541,6 @@
     },
     {
       "ticker": "VSAT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "VSEC",
       "reason": "low_confidence_primary"
     },
     {
@@ -1419,6 +1577,10 @@
     },
     {
       "ticker": "WRD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WSC",
       "reason": "low_confidence_primary"
     },
     {
@@ -1459,12 +1621,16 @@
     }
   ],
   "classification_errors": [
-    "Batch 2 (CRCT..FA): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AEVA..CSW): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (CRK..FCFS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (NOVT..RHI): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (CRK..FCFS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (ITRI..NOVT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (NP..RHLD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (RYAN..VAC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 722,
-  "eligible_without_active_narrative": 317,
-  "active_narrative_coverage_pct": 69.5,
-  "active_narrative_count": 48,
-  "undersized_narrative_count": 43
+  "eligible_with_active_narrative": 691,
+  "eligible_without_active_narrative": 348,
+  "active_narrative_coverage_pct": 66.5,
+  "active_narrative_count": 44,
+  "undersized_narrative_count": 37
 }

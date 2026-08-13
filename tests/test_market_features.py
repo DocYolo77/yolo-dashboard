@@ -404,21 +404,24 @@ def test_price_cache_round_trip(tmp_path):
     per_ticker_close = {"AAA": {"2026-01-01": 10.0, "2026-01-02": 11.0}}
     per_ticker_high = {"AAA": {"2026-01-01": 10.5, "2026-01-02": 11.5}}
     per_ticker_low = {"AAA": {"2026-01-01": 9.5, "2026-01-02": 10.5}}
+    per_ticker_open = {"AAA": {"2026-01-01": 9.8, "2026-01-02": 10.6}}
 
     assert load_price_cache(cache_path) is None  # nothing written yet
 
-    save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low, {"AAA"})
+    save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low,
+                      per_ticker_open, {"AAA"})
     loaded = load_price_cache(cache_path)
 
     assert loaded["schema_version"] == PRICE_CACHE_SCHEMA_VERSION
     assert loaded["dates"] == trading_days
     assert loaded["tickers"]["AAA"]["close"] == [10.0, 11.0]
+    assert loaded["tickers"]["AAA"]["open"] == [9.8, 10.6]
 
 
 def test_price_cache_skips_tickers_with_no_observed_data(tmp_path):
     cache_path = tmp_path / "market_history.json"
     trading_days = ["2026-01-01"]
-    save_price_cache(cache_path, trading_days, {}, {}, {}, {"NEVER_SEEN"})
+    save_price_cache(cache_path, trading_days, {}, {}, {}, {}, {"NEVER_SEEN"})
     loaded = load_price_cache(cache_path)
     assert "NEVER_SEEN" not in loaded["tickers"]  # all-null row -> not persisted
 
