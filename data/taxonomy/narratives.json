@@ -806,6 +806,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "AEVA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Aeva designs FMCW LiDAR-on-chip sensing technology, which is fundamentally a photonics/optical semiconductor product used in automotive and other sensing applications. This is closer to a semiconductor/photonics hardware company than a pure auto parts supplier, though SIC code is auto parts.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -1269,6 +1280,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "VIAV": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Viavi provides network test, monitoring and assurance solutions to telecom carriers, enterprises and network equipment manufacturers - core business is network infrastructure testing/measurement, closely aligned with Networking narrative. Secondary optical coatings business ties to photonics.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -2254,6 +2276,39 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "OTEX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Open Text provides enterprise data management, information management and content services software - core enterprise software company.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PRGS": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Progress Software provides software products for developing, deploying and managing applications - core enterprise software/SaaS company.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TOST": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Toast provides a cloud-based SaaS platform purpose-built for restaurants, including payments and hardware - core vertical SaaS company.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -2836,6 +2891,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "VSEC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "VSE Corp provides aircraft/airframe parts supply, distribution and MRO services for aviation, serving both commercial and government/defense markets, core business is aerospace aftermarket parts and services.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -3129,6 +3195,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "MQ": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Marqeta provides a card-issuing platform enabling digital and physical payment options via open APIs - core fintech/payments infrastructure business.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -4524,6 +4601,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "ZYME": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Zymeworks is a clinical-stage biopharmaceutical company developing multifunctional biotherapeutics - core biotech business.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5278,6 +5366,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "WSO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Watsco is the largest HVAC and refrigeration products distributor in North America - fits HVAC/climate control equipment category despite being a distributor rather than manufacturer.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5539,6 +5638,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "TBBB": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "BBB Foods operates a grocery hard discount retail model in Mexico through multiple store banners - core grocery/food retail business.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5745,6 +5855,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "IDCC": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "InterDigital generates majority of revenue through licensing patented wireless, video, and AI technologies - classic IP licensing business model.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -6248,6 +6369,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "WHD": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Cactus designs, manufactures and sells wellheads and pressure control equipment plus field services for oil & gas wells - core oilfield equipment/services business.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -6683,6 +6815,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "KAI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Kadant supplies process and engineering equipment (flow control, industrial processing, material handling) for papermaking, recycling and lumber manufacturing - core industrial machinery manufacturer for process industries.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7017,6 +7160,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "WWW": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Wolverine World Wide designs, manufactures and distributes branded footwear, apparel and accessories - fits apparel/branded consumer goods retail category.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7301,6 +7455,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "UFPT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "UFP Technologies is a contract manufacturer specializing in single-use and single-patient medical devices - fits medical devices manufacturing.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -7778,6 +7943,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "CSTM": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Constellium manufactures high value-added specialty rolled and extruded aluminum products for aerospace, defense, automotive and industrial end-markets - fits specialty metals/advanced materials producer profile.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7984,6 +8160,28 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "AVAL": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Grupo Aval is a Colombian financial holding company offering banking, trust, and merchant banking services - core traditional banking/financial services business.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "RKT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Rocket Companies is fundamentally a mortgage origination and servicing financial services company (Rocket Mortgage), a core lending/financial services business best captured by Banking/Financial Services given no more specific mortgage-lending narrative exists in the catalog.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -9222,6 +9420,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "GRAB": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Grab operates ride-sharing, delivery, and mobile platform services connecting riders/merchants with consumers in Southeast Asia - core mobility platform business.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9639,6 +9848,27 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "private_detention_corrections_services",
+      "name": "Private Detention / Corrections Services",
+      "status": "emerging",
+      "classification_hint": "Companies that operate privately-run detention facilities, correctional institutions, and community reentry/electronic monitoring services under government contracts.",
+      "created_at": "2026-08-13",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "GEO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "GEO Group operates private detention facilities, secure services, and electronic monitoring under government contracts - a distinct economic model not covered by existing catalog categories (miscategorized under residential building SIC code but actual business is corrections/detention services).",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
