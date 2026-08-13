@@ -677,6 +677,39 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "ICHR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Ichor designs and manufactures fluid delivery subsystems primarily for semiconductor capital equipment, positioning it as a key supplier within the semiconductor equipment supply chain.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "MKSI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "MKS Inc provides instruments, subsystems and specialty chemicals for semiconductor manufacturing and related industrial applications, fitting semiconductors equipment supply chain narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "UCTT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Manufactures production tools, modules and subsystems for semiconductor capital equipment industry - core supplier to semiconductor manufacturing.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -989,6 +1022,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "PENG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Penguin Solutions builds servers, HPC/AI systems and racks (Intelligent Platform Solutions) plus integrated memory solutions, positioning it as an AI/HPC infrastructure hardware provider.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -2309,6 +2353,39 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "AVPT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "AvePoint provides SaaS-based data protection, governance and management software for cloud collaboration platforms.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CVLT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Commvault sells prepackaged data protection/cyber resiliency software (backup, recovery) delivered increasingly as SaaS/subscription. This is squarely enterprise software, closest existing catalog fit is Software/SaaS, with secondary cybersecurity exposure given its cyber recovery focus.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PDFS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "PDF Solutions provides software and data analytics platforms for semiconductor yield management, an analytics/SaaS-style business model sold to semiconductor manufacturers.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -3202,6 +3279,17 @@
           "assignment_priority": "primary",
           "confidence": 85,
           "reason": "Marqeta provides a card-issuing platform enabling digital and physical payment options via open APIs - core fintech/payments infrastructure business.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "BILL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "BILL Holdings provides SaaS-based payments, spend and expense management software for businesses, a fintech/software hybrid; fintech captures the payments focus best.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
           "active_eligible": true,
@@ -4612,6 +4700,28 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "BLTE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Belite Bio is a clinical-stage biopharmaceutical company developing therapeutics for retinal diseases, squarely fitting biotech.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "NVAX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Novavax is a clinical-stage/commercial biotechnology company developing vaccines, fitting the biotech narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5301,6 +5411,28 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "AYA": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Aya Gold & Silver is a precious metals mining company operating a silver mine in Morocco, directly fitting gold/precious metals miners narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "HL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Hecla Mining is a major silver and gold producer with additional base metals, fitting well within the gold/precious metals miners narrative given its core silver/gold operating segments.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5374,7 +5506,7 @@
           "reason": "Watsco is the largest HVAC and refrigeration products distributor in North America - fits HVAC/climate control equipment category despite being a distributor rather than manufacturer.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -5504,7 +5636,7 @@
           "reason": "Pediatrix provides physician services in hospitals and ICUs, fitting the healthcare services/facilities narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5515,7 +5647,7 @@
           "reason": "National HealthCare Corp operates skilled nursing, assisted living, independent living facilities and home care programs, fitting healthcare services/facilities narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5548,7 +5680,7 @@
           "reason": "Privia Health builds physician-led provider networks and primary-care centric medical groups, delivering healthcare services via a technology-enabled platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5605,6 +5737,28 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "AVAH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Aveanna provides home healthcare services to medically complex patients, fitting healthcare services/facilities.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CNC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Centene is a managed care organization focused on government-sponsored health insurance (Medicaid, Medicare, exchanges). This is closer to managed care/health insurance than facilities; no specific managed care narrative exists, so using healthcare_services_facilities as closest fit given no better managed-care category.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -5799,7 +5953,7 @@
           "reason": "ePlus provides IT solutions spanning security, cloud, data center, networking to enterprises, functioning as an IT services/VAR provider.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5823,6 +5977,28 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "HURN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Huron is a management consulting firm providing advisory services across healthcare, education and commercial clients - fits professional consulting services model.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "IT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Gartner provides IT research, analysis and consulting services to enterprises, fitting IT services/consulting category well.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -5864,7 +6040,7 @@
           "reason": "InterDigital generates majority of revenue through licensing patented wireless, video, and AI technologies - classic IP licensing business model.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -5953,6 +6129,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "DORM": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Dorman supplies automotive/heavy-duty replacement parts primarily to the aftermarket - fits automotive_parts_components_supplier well, though sold through distribution rather than direct OEM; still closest match given no dedicated aftermarket parts manufacturer category.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -6377,6 +6564,17 @@
           "reason": "Cactus designs, manufactures and sells wellheads and pressure control equipment plus field services for oil & gas wells - core oilfield equipment/services business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "VAL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Valaris provides offshore contract drilling services (rigs, drillships) to oil and gas industry - core oilfield services model.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -6663,6 +6861,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "AMRC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Ameresco provides energy infrastructure solutions, energy efficiency and decarbonization projects, aligning with construction/engineering services for energy infrastructure.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -6783,6 +6992,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "CHWY": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -6821,6 +7041,17 @@
           "assignment_priority": "primary",
           "confidence": 70,
           "reason": "Kadant supplies process and engineering equipment (flow control, industrial processing, material handling) for papermaking, recycling and lumber manufacturing - core industrial machinery manufacturer for process industries.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GRC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Gorman-Rupp designs and manufactures pumps and pump systems for diverse industrial, water/wastewater, and other applications, fitting well within general industrial machinery manufacturing.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
           "active_eligible": true,
@@ -6985,6 +7216,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "HCC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Warrior Met Coal produces and exports metallurgical coal used in steel production, directly matching coal mining narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -7166,6 +7408,28 @@
           "assignment_priority": "primary",
           "confidence": 70,
           "reason": "Wolverine World Wide designs, manufactures and distributes branded footwear, apparel and accessories - fits apparel/branded consumer goods retail category.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "KSS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Kohl's is a department store retailer selling apparel, accessories, and home goods - closely aligned with apparel retail narrative given omnichannel branded clothing focus.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "DDS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Dillard's operates department stores selling apparel, cosmetics and home furnishings - closely matches apparel_retail definition of omnichannel branded apparel/accessories retailing despite department store format.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
           "active_eligible": true,
@@ -7716,6 +7980,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "TPG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "TPG is a large alternative asset management firm investing across private equity, credit, real estate and other alternative strategies, directly matching the alternative asset management narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7821,8 +8096,30 @@
           "reason": "Technology-enabled coastal specialty insurer underwriting residential and commercial P&C policies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "NP": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Neptune is an MGA offering flood and earthquake insurance products, a specialty P&C insurance line distributed through agents.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TRUP": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Trupanion sells pet health insurance, a specialty insurance product line, monetized via subscription premiums.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -7951,7 +8248,7 @@
           "reason": "Constellium manufactures high value-added specialty rolled and extruded aluminum products for aerospace, defense, automotive and industrial end-markets - fits specialty metals/advanced materials producer profile.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8169,7 +8466,7 @@
           "reason": "Grupo Aval is a Colombian financial holding company offering banking, trust, and merchant banking services - core traditional banking/financial services business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8201,7 +8498,7 @@
           "reason": "Boise Cascade manufactures engineered wood products and distributes building materials, distinct from construction machinery or engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8365,7 +8662,7 @@
           "reason": "Brink's provides secure logistics for cash and valuables, a distinct business model from generic freight/trucking logistics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -8498,6 +8795,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "ARXS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Arxis designs/manufactures specialized electronic and mechanical components for extreme environment applications (aerospace parts SIC code), fitting electronic components manufacturing well given its electronic components segment description.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -8695,6 +9003,28 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "TVTX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Biopharmaceutical company developing/commercializing therapies for rare kidney, liver, metabolic diseases - branded specialty pharma model.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "XERS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Xeris is a commercial-stage biopharma developing/commercializing therapies for endocrine and neurological diseases - specialty pharma model.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8803,6 +9133,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "ASST": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Strive explicitly adopted bitcoin as its capital allocation hurdle rate and treasury strategy, fitting the digital asset treasury narrative closely despite being framed as 'structured finance'/asset manager.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -8984,7 +9325,7 @@
           "reason": "Specialty chemicals company serving electronics and industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9064,6 +9405,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "HWKN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 82,
+          "reason": "Hawkins manufactures and distributes industrial and specialty chemicals across multiple end markets, matching the specialty chemicals narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9115,7 +9467,7 @@
           "reason": "Natural gas transportation and midstream utility company distributing energy infrastructure services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9388,6 +9740,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "ARX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Accelerant operates a data-driven risk exchange connecting specialty insurance underwriters with capital, a tech-enabled insurance distribution/underwriting model fitting insurtech.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9428,7 +9791,7 @@
           "reason": "Grab operates ride-sharing, delivery, and mobile platform services connecting riders/merchants with consumers in Southeast Asia - core mobility platform business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9506,6 +9869,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "CVSA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Covista operates accredited universities and medical/veterinary schools delivering healthcare-focused higher education - fits education content/publishing (curriculum and learning delivery) despite healthcare focus, since there's no dedicated for-profit university narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -9614,6 +9988,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "LION": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Lionsgate Studios is a motion picture and television production studio aligned with STARZ streaming platform, fitting the media & entertainment conglomerate narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9655,6 +10040,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "PLTK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Playtika develops and operates mobile social casino/games (Slotomania, Bingo Blitz, Poker Heat), monetizing via virtual currency and in-game purchases - fits online gaming platform narrative well.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -9698,6 +10094,28 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "DJT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Trump Media operates Truth Social, a social media platform, generating ad and subscription-like revenue from user engagement - fits social_media_platform well as primary business.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GRND": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Grindr operates a social networking/dating app monetized via subscriptions and advertising, fitting the social media platform narrative reasonably well despite being niche dating-focused.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -9865,6 +10283,188 @@
           "assignment_priority": "primary",
           "confidence": 80,
           "reason": "GEO Group operates private detention facilities, secure services, and electronic monitoring under government contracts - a distinct economic model not covered by existing catalog categories (miscategorized under residential building SIC code but actual business is corrections/detention services).",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CXW": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "CoreCivic directly operates private prisons, detention centers, and reentry facilities under government contracts, matching this narrative precisely.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "petroleum_refining",
+      "name": "Petroleum Refining",
+      "status": "emerging",
+      "classification_hint": "Companies that refine crude oil into transportation fuels, heating oil, and petrochemical feedstocks for distribution and sale.",
+      "created_at": "2026-08-13",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "PBF": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "PBF Energy is an independent petroleum refiner operating multiple refineries, directly matching a petroleum refining narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "DINO": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "HF Sinclair operates seven refineries with crude oil throughput and produces renewable diesel - directly matches the petroleum_refining narrative definition despite pipeline SIC code.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "DK": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 88,
+          "reason": "Delek US Holdings operates independent refineries producing petroleum products, matching petroleum_refining definition directly (SIC 2911 also confirms).",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "aircraft_engine_leasing_spare_parts",
+      "name": "Aircraft Engine Leasing / Spare Parts",
+      "status": "emerging",
+      "classification_hint": "Companies that lease commercial aircraft engines to airlines and lessors and sell related spare engine parts, generating recurring leasing and servicing revenue.",
+      "created_at": "2026-08-13",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "WLFC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Willis Lease Finance leases and services commercial aircraft engines and sells spare parts - a specialized aviation asset leasing business model not covered by existing catalog entries.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "FTAI": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "FTAI Aviation is an engine maintenance platform focused on repairing, rebuilding and leasing aircraft engines (CFM56, V2500) - directly matches the aircraft_engine_leasing_spare_parts narrative definition.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "beauty_cosmetics_products",
+      "name": "Beauty / Cosmetics Products",
+      "status": "emerging",
+      "classification_hint": "Companies that develop, market and sell branded cosmetics, skincare and personal beauty products through retail and e-commerce channels.",
+      "created_at": "2026-08-13",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "ELF": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "e.l.f. Beauty makes and sells cosmetics/skincare products - no existing catalog narrative covers beauty/cosmetics products specifically (branded_nutrition_consumer_packaged_goods is food/nutrition-focused), warranting a new precise narrative.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "COTY": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Coty is a global beauty company with fragrance, cosmetics, and skincare brands - directly fits beauty/cosmetics products category with high confidence.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "pawn_lending_secondhand_retail",
+      "name": "Pawn Lending / Secondhand Retail",
+      "status": "emerging",
+      "classification_hint": "Companies that operate pawn shops offering collateralized pawn loans and buy/sell secondhand merchandise, generating revenue from pawn service fees and retail sales of forfeited/resale goods.",
+      "created_at": "2026-08-13",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "EZPW": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "EZCORP operates pawn stores and short-term consumer lending - no existing catalog narrative captures pawn lending specifically (off_price_thrift_retail is about donation/resale retail without lending); a new precise narrative is warranted.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "FCFS": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "FirstCash operates pawn stores generating revenue from pawn loans and resale of forfeited merchandise - direct match to pawn_lending_secondhand_retail definition.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "real_estate_marketplace_platform",
+      "name": "Real Estate Marketplace Platform",
+      "status": "emerging",
+      "classification_hint": "Companies operating digital marketplace platforms that connect home buyers, sellers, renters, and real estate professionals (agents, lenders), monetizing through advertising, referral fees, and transaction-based services such as mortgage origination and premier agent placements.",
+      "created_at": "2026-08-13",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "Z": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Zillow ist ein digitales Marktplatz-Modell speziell fuer Immobilien (Listings, Agent-Vermittlung, Mortgage), das sich klar von generischen E-Commerce-Plattformen oder IT-Dienstleistern unterscheidet. Kein bestehendes Narrative im Katalog bildet 'Real Estate Marketplace' praezise ab (e_commerce_platform ist zu generisch fuer physische Produktmaerkte, healthcare/other passen nicht). Daher neues, praezises Narrative mit ehrlich mittelhoher confidence, da das Geschaeftsmodell gut dokumentiert und eindeutig ist.",
+          "added_at": "2026-08-13",
+          "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ZG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Identisches Geschaeftsmodell wie Z (Zillow Group Class C) - gleiche Firma, andere Aktienklasse. Digitale Immobilien-Marktplatzplattform, die Kaeufer/Verkaeufer/Mieter mit Agenten und Kreditgebern verbindet. Neues praezises Narrative passt besser als generische Kategorien.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
           "active_eligible": true,

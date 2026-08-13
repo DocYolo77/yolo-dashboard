@@ -1,12 +1,10 @@
 {
   "as_of_date": "2026-08-13",
-  "eligible_count": 1039,
-  "classified_eligible_count": 778,
-  "coverage_pct": 74.9,
+  "eligible_count": 1034,
+  "classified_eligible_count": 813,
+  "coverage_pct": 78.6,
   "entered": [
-    "AEVA",
     "AGQ",
-    "AIN",
     "ALNT",
     "AMRC",
     "AMSC",
@@ -15,13 +13,18 @@
     "ARXS",
     "ASST",
     "AUR",
-    "AVAL",
+    "AVAH",
+    "AVPT",
     "AXON",
+    "AYA",
     "BBAI",
     "BE",
     "BETA",
+    "BGSI",
+    "BILL",
     "BLLN",
     "BLSH",
+    "BLTE",
     "BMI",
     "BRAI",
     "BVC",
@@ -33,6 +36,7 @@
     "CECO",
     "CERT",
     "CHEF",
+    "CHWY",
     "CIFR",
     "CLBT",
     "CLMT",
@@ -41,14 +45,12 @@
     "CLVT",
     "CMP",
     "CNC",
-    "COKE",
     "COMP",
     "COTY",
     "CRCT",
     "CRK",
     "CRSR",
     "CSGP",
-    "CSTM",
     "CSW",
     "CVI",
     "CVLT",
@@ -58,6 +60,7 @@
     "DAO",
     "DASH",
     "DBD",
+    "DDS",
     "DFIN",
     "DGII",
     "DINO",
@@ -78,20 +81,21 @@
     "EQPT",
     "ERIE",
     "ESAB",
-    "ETN",
     "EVC",
     "EVLV",
+    "EVTC",
     "EYE",
     "EZPW",
     "FA",
     "FCEL",
     "FCFS",
+    "FDS",
     "FICO",
     "FLEX",
+    "FLYW",
     "FTAI",
     "FUN",
     "GDRX",
-    "GEO",
     "GHM",
     "GLW",
     "GLXY",
@@ -100,7 +104,6 @@
     "GPGI",
     "GPI",
     "GPRE",
-    "GRAB",
     "GRAL",
     "GRC",
     "GRDN",
@@ -109,7 +112,7 @@
     "GSHD",
     "GT",
     "GTES",
-    "HBNB",
+    "HCC",
     "HIMS",
     "HL",
     "HLIT",
@@ -122,9 +125,9 @@
     "HTFL",
     "HUM",
     "HURN",
+    "HWKN",
     "ICHR",
     "ICLR",
-    "IDCC",
     "IE",
     "IESC",
     "IQ",
@@ -132,8 +135,6 @@
     "ITRI",
     "JBL",
     "JOBY",
-    "KAI",
-    "KARO",
     "KFRC",
     "KOS",
     "KSS",
@@ -158,7 +159,6 @@
     "MOD",
     "MOH",
     "MORN",
-    "MQ",
     "MRX",
     "MYE",
     "NEO",
@@ -175,6 +175,7 @@
     "NPKI",
     "NPO",
     "NSP",
+    "NVAX",
     "NVT",
     "NWL",
     "ODC",
@@ -184,12 +185,9 @@
     "ONDS",
     "OPEN",
     "OPK",
-    "OPY",
     "OSCR",
-    "OTEX",
     "OUST",
     "P",
-    "PAHC",
     "PARR",
     "PBF",
     "PBT",
@@ -206,14 +204,12 @@
     "POWL",
     "PRCH",
     "PRG",
-    "PRGS",
     "PRKS",
     "PRLB",
     "PSNL",
     "RAL",
     "RHI",
     "RHLD",
-    "RKT",
     "RYAN",
     "RYZ",
     "RZLV",
@@ -234,8 +230,6 @@
     "STGW",
     "SXI",
     "TALO",
-    "TBBB",
-    "TBN",
     "TDAY",
     "TEM",
     "TIC",
@@ -243,55 +237,65 @@
     "TNC",
     "TNET",
     "TOP",
-    "TOST",
     "TPB",
+    "TPG",
     "TPL",
     "TRI",
+    "TRMB",
     "TRN",
     "TRU",
     "TRUP",
     "TVTX",
     "UAMY",
     "UCTT",
-    "UFPT",
     "UMAC",
     "UPWK",
     "VAC",
-    "VIAV",
+    "VAL",
     "VISN",
     "VMET",
     "VSAT",
-    "VSEC",
     "VSTS",
     "VVX",
     "VYX",
     "WBTN",
     "WD",
-    "WHD",
     "WHR",
     "WLFC",
     "WMG",
     "WRD",
     "WSC",
-    "WSO",
     "WT",
     "WULF",
-    "WWW",
+    "XERS",
     "XMTR",
     "XPEL",
     "YELP",
     "YOU",
     "Z",
     "ZBRA",
-    "ZG",
-    "ZYME"
+    "ZG"
   ],
   "reentered": [],
-  "exited": [],
+  "exited": [
+    "AVAL",
+    "BCC",
+    "BCO",
+    "CSTM",
+    "ESI",
+    "GRAB",
+    "IDCC",
+    "MD",
+    "NHC",
+    "PLUS",
+    "PRVA",
+    "SLDE",
+    "TGS",
+    "WHD",
+    "WSO"
+  ],
   "newly_classified": [
-    "AEVA",
     "AGQ",
-    "AIN",
     "ALNT",
     "AMRC",
     "AMSC",
@@ -300,13 +304,18 @@
     "ARXS",
     "ASST",
     "AUR",
-    "AVAL",
+    "AVAH",
+    "AVPT",
     "AXON",
+    "AYA",
     "BBAI",
     "BE",
     "BETA",
+    "BGSI",
+    "BILL",
     "BLLN",
     "BLSH",
+    "BLTE",
     "BMI",
     "BRAI",
     "BVC",
@@ -318,6 +327,7 @@
     "CECO",
     "CERT",
     "CHEF",
+    "CHWY",
     "CIFR",
     "CLBT",
     "CLMT",
@@ -326,14 +336,12 @@
     "CLVT",
     "CMP",
     "CNC",
-    "COKE",
     "COMP",
     "COTY",
     "CRCT",
     "CRK",
     "CRSR",
     "CSGP",
-    "CSTM",
     "CSW",
     "CVI",
     "CVLT",
@@ -343,6 +351,7 @@
     "DAO",
     "DASH",
     "DBD",
+    "DDS",
     "DFIN",
     "DGII",
     "DINO",
@@ -363,20 +372,21 @@
     "EQPT",
     "ERIE",
     "ESAB",
-    "ETN",
     "EVC",
     "EVLV",
+    "EVTC",
     "EYE",
     "EZPW",
     "FA",
     "FCEL",
     "FCFS",
+    "FDS",
     "FICO",
     "FLEX",
+    "FLYW",
     "FTAI",
     "FUN",
     "GDRX",
-    "GEO",
     "GHM",
     "GLW",
     "GLXY",
@@ -385,7 +395,6 @@
     "GPGI",
     "GPI",
     "GPRE",
-    "GRAB",
     "GRAL",
     "GRC",
     "GRDN",
@@ -394,7 +403,7 @@
     "GSHD",
     "GT",
     "GTES",
-    "HBNB",
+    "HCC",
     "HIMS",
     "HL",
     "HLIT",
@@ -407,9 +416,9 @@
     "HTFL",
     "HUM",
     "HURN",
+    "HWKN",
     "ICHR",
     "ICLR",
-    "IDCC",
     "IE",
     "IESC",
     "IQ",
@@ -417,8 +426,6 @@
     "ITRI",
     "JBL",
     "JOBY",
-    "KAI",
-    "KARO",
     "KFRC",
     "KOS",
     "KSS",
@@ -443,7 +450,6 @@
     "MOD",
     "MOH",
     "MORN",
-    "MQ",
     "MRX",
     "MYE",
     "NEO",
@@ -460,6 +466,7 @@
     "NPKI",
     "NPO",
     "NSP",
+    "NVAX",
     "NVT",
     "NWL",
     "ODC",
@@ -469,12 +476,9 @@
     "ONDS",
     "OPEN",
     "OPK",
-    "OPY",
     "OSCR",
-    "OTEX",
     "OUST",
     "P",
-    "PAHC",
     "PARR",
     "PBF",
     "PBT",
@@ -491,14 +495,12 @@
     "POWL",
     "PRCH",
     "PRG",
-    "PRGS",
     "PRKS",
     "PRLB",
     "PSNL",
     "RAL",
     "RHI",
     "RHLD",
-    "RKT",
     "RYAN",
     "RYZ",
     "RZLV",
@@ -519,8 +521,6 @@
     "STGW",
     "SXI",
     "TALO",
-    "TBBB",
-    "TBN",
     "TDAY",
     "TEM",
     "TIC",
@@ -528,51 +528,51 @@
     "TNC",
     "TNET",
     "TOP",
-    "TOST",
     "TPB",
+    "TPG",
     "TPL",
     "TRI",
+    "TRMB",
     "TRN",
     "TRU",
     "TRUP",
     "TVTX",
     "UAMY",
     "UCTT",
-    "UFPT",
     "UMAC",
     "UPWK",
     "VAC",
-    "VIAV",
+    "VAL",
     "VISN",
     "VMET",
     "VSAT",
-    "VSEC",
     "VSTS",
     "VVX",
     "VYX",
     "WBTN",
     "WD",
-    "WHD",
     "WHR",
     "WLFC",
     "WMG",
     "WRD",
     "WSC",
-    "WSO",
     "WT",
     "WULF",
-    "WWW",
+    "XERS",
     "XMTR",
     "XPEL",
     "YELP",
     "YOU",
     "Z",
     "ZBRA",
-    "ZG",
-    "ZYME"
+    "ZG"
   ],
   "new_narratives_created": [
-    "private_detention_corrections_services"
+    "aircraft_engine_leasing_spare_parts",
+    "beauty_cosmetics_products",
+    "pawn_lending_secondhand_retail",
+    "petroleum_refining",
+    "real_estate_marketplace_platform"
   ],
   "unresolved_after_retries": [
     {
@@ -580,15 +580,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "AIN",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "ALNT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "AMRC",
       "reason": "low_confidence_primary"
     },
     {
@@ -597,18 +589,6 @@
     },
     {
       "ticker": "ARLO",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ARX",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ARXS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ASST",
       "reason": "low_confidence_primary"
     },
     {
@@ -629,6 +609,10 @@
     },
     {
       "ticker": "BETA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BGSI",
       "reason": "low_confidence_primary"
     },
     {
@@ -712,19 +696,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CNC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "COKE",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "COMP",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "COTY",
       "reason": "low_confidence_primary"
     },
     {
@@ -752,19 +724,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CVLT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CVSA",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "CWK",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CXW",
       "reason": "low_confidence_primary"
     },
     {
@@ -788,23 +748,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "DINO",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "DJT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "DK",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "DOCN",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "DORM",
       "reason": "low_confidence_primary"
     },
     {
@@ -832,10 +776,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "ELF",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "ENR",
       "reason": "low_confidence_primary"
     },
@@ -860,10 +800,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "ETN",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "EVC",
       "reason": "low_confidence_primary"
     },
@@ -872,11 +808,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "EYE",
+      "ticker": "EVTC",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "EZPW",
+      "ticker": "EYE",
       "reason": "low_confidence_primary"
     },
     {
@@ -888,7 +824,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "FCFS",
+      "ticker": "FDS",
       "reason": "low_confidence_primary"
     },
     {
@@ -900,7 +836,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "FTAI",
+      "ticker": "FLYW",
       "reason": "low_confidence_primary"
     },
     {
@@ -948,15 +884,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "GRC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "GRDN",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GRND",
       "reason": "low_confidence_primary"
     },
     {
@@ -976,15 +904,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "HBNB",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "HIMS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "HL",
       "reason": "low_confidence_primary"
     },
     {
@@ -1024,14 +944,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "HURN",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ICHR",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "ICLR",
       "reason": "low_confidence_primary"
     },
@@ -1048,10 +960,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "IT",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "ITRI",
       "reason": "low_confidence_primary"
     },
@@ -1064,19 +972,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "KARO",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "KFRC",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "KOS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "KSS",
       "reason": "low_confidence_primary"
     },
     {
@@ -1105,10 +1005,6 @@
     },
     {
       "ticker": "LIND",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "LION",
       "reason": "low_confidence_primary"
     },
     {
@@ -1145,10 +1041,6 @@
     },
     {
       "ticker": "MGRT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MKSI",
       "reason": "low_confidence_primary"
     },
     {
@@ -1212,10 +1104,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "NP",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "NPKI",
       "reason": "low_confidence_primary"
     },
@@ -1264,10 +1152,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "OPY",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "OSCR",
       "reason": "low_confidence_primary"
     },
@@ -1280,15 +1164,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "PAHC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "PARR",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "PBF",
       "reason": "low_confidence_primary"
     },
     {
@@ -1297,14 +1173,6 @@
     },
     {
       "ticker": "PCT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "PDFS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "PENG",
       "reason": "low_confidence_primary"
     },
     {
@@ -1317,10 +1185,6 @@
     },
     {
       "ticker": "PLPC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "PLTK",
       "reason": "low_confidence_primary"
     },
     {
@@ -1452,10 +1316,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "TBN",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "TDAY",
       "reason": "low_confidence_primary"
     },
@@ -1496,6 +1356,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "TRMB",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "TRN",
       "reason": "low_confidence_primary"
     },
@@ -1504,19 +1368,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "TRUP",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "TVTX",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "UAMY",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "UCTT",
       "reason": "low_confidence_primary"
     },
     {
@@ -1568,10 +1420,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "WLFC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "WMG",
       "reason": "low_confidence_primary"
     },
@@ -1608,29 +1456,19 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "Z",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "ZBRA",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ZG",
       "reason": "low_confidence_primary"
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (CRK..FCFS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 1 Batch (NOVT..RHI): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (CRK..FCFS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (ITRI..NOVT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (NP..RHLD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (RYAN..VAC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (LAR..OPEN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (OPK..SONO): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (SPOT..YOU): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (LPL..PCT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 691,
-  "eligible_without_active_narrative": 348,
-  "active_narrative_coverage_pct": 66.5,
+  "eligible_with_active_narrative": 710,
+  "eligible_without_active_narrative": 324,
+  "active_narrative_coverage_pct": 68.7,
   "active_narrative_count": 44,
-  "undersized_narrative_count": 37
+  "undersized_narrative_count": 42
 }
