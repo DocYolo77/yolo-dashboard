@@ -258,7 +258,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "SWKS": {
           "role": "core",
@@ -553,7 +553,7 @@
           "reason": "Photronics manufactures photomasks, a critical input for semiconductor and flat-panel display manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -608,7 +608,7 @@
           "reason": "Major semiconductor manufacturer producing analog chips, microcontrollers, sensors and power semiconductors.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -847,6 +847,17 @@
           "reason": "Aeva designs FMCW LiDAR-on-chip sensing technology, which is fundamentally a photonics/optical semiconductor product used in automotive and other sensing applications. This is closer to a semiconductor/photonics hardware company than a pure auto parts supplier, though SIC code is auto parts.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "OUST": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Ouster provides lidar sensors (optical/laser-based sensing technology) for automotive, industrial and robotics applications - fits semiconductors/photonics category given optical sensor technology focus.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -1538,7 +1549,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "NOW": {
           "role": "core",
@@ -2386,6 +2397,28 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "DBX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Dropbox provides cloud storage and content collaboration as a SaaS subscription product for individuals and businesses.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "OMCL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Omnicell provides automation hardware plus business analytics software for pharmacy/medication management - closer to healthcare-focused software/automation solutions; software/SaaS captures the recurring software revenue model best given lack of a dedicated healthcare IT category.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -2910,7 +2943,7 @@
           "reason": "Leonardo DRS provides defense products and technologies including sensing, network computing, and electric power/propulsion for land, air, sea, space and cyber domains.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3281,7 +3314,7 @@
           "reason": "Marqeta provides a card-issuing platform enabling digital and physical payment options via open APIs - core fintech/payments infrastructure business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3740,7 +3773,7 @@
           "reason": "Denali Therapeutics is a biotechnology company developing therapeutics for neurodegenerative diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3828,7 +3861,7 @@
           "reason": "Clinical-stage biopharmaceutical company advancing preclinical autoimmune therapeutic candidates.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4268,7 +4301,7 @@
           "reason": "Protagonist Therapeutics is a biopharmaceutical company discovering and developing peptide-based therapeutics across multiple therapeutic areas.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4367,7 +4400,7 @@
           "reason": "Revolution Medicines is a clinical-stage precision oncology biotech developing targeted therapies for RAS-addicted cancers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4719,7 +4752,7 @@
           "reason": "Novavax is a clinical-stage/commercial biotechnology company developing vaccines, fitting the biotech narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -4924,6 +4957,28 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "LAC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Lithium Americas develops lithium deposits and chemical processing facilities supporting battery supply chains, fitting EV/battery materials narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "LAR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Lithium Argentina advances lithium mining/production projects supporting battery supply chains, fitting EV/battery materials narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -5433,6 +5488,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "HSLV": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Highlander Silver is a mineral exploration company advancing a gold-silver project in Peru, fitting precious metals mining/exploration narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5495,7 +5561,7 @@
           "reason": "Supplies engineered HVAC products as its largest segment, along with detection/measurement technologies and power equipment.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5647,7 +5713,7 @@
           "reason": "National HealthCare Corp operates skilled nursing, assisted living, independent living facilities and home care programs, fitting healthcare services/facilities narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5832,7 +5898,7 @@
           "reason": "Booz Allen Hamilton provides technology consulting and IT/AI/cybersecurity solutions primarily to government agencies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6105,7 +6171,7 @@
           "reason": "Phinia manufactures components/systems for combustion and hybrid propulsion for vehicles, an OEM automotive parts supplier.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6138,6 +6204,28 @@
           "reason": "Dorman supplies automotive/heavy-duty replacement parts primarily to the aftermarket - fits automotive_parts_components_supplier well, though sold through distribution rather than direct OEM; still closest match given no dedicated aftermarket parts manufacturer category.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Goodyear manufactures tires supplied to and used by vehicles across many end markets, an automotive component/parts business, though tires specifically warrant close review; no closer tire-specific narrative exists in catalog.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "MOD": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Modine supplies engineered heat transfer/thermal management systems and components to OEM vehicular applications, fitting the automotive parts/components supplier narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -6578,6 +6666,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "HP": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Helmerich & Payne provides contract drilling services and technology to oil and gas E&P companies, fitting oilfield services/equipment narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -6609,6 +6708,61 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "HIMS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Hims & Hers is a telehealth platform connecting patients to providers for prescription and OTC treatments across multiple specialties - a healthcare services/telehealth model.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "MOH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Molina Healthcare manages Medicaid, Medicare, and Marketplace medical insurance plans - a health insurance/managed care business.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "HNGE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 74,
+          "reason": "Hinge Health operates a digital health platform delivering MSK (musculoskeletal) care via software/AI, monetizing through enterprise/health plan contracts - fundamentally a healthcare services delivery model rather than a horizontal SaaS tool.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "HUM": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Humana is a major health insurer focused on government-sponsored programs (Medicare/Medicaid), core business is managed care/health insurance - healthcare_services is the closest broad catalog fit given no dedicated 'health insurance' narrative exists.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "OMDA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Omada Health provides virtual chronic care management programs - a healthcare services/digital health company delivering care via platform, fitting healthcare services category well.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -6814,7 +6968,7 @@
           "reason": "Quanta Services is a specialty contractor providing electrical and infrastructure construction services to utility, telecom, and energy markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7000,7 +7154,7 @@
           "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7054,6 +7208,17 @@
           "reason": "Gorman-Rupp designs and manufactures pumps and pump systems for diverse industrial, water/wastewater, and other applications, fitting well within general industrial machinery manufacturing.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ALH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Alliance Laundry Holdings designs and manufactures commercial laundry equipment, fitting general industrial machinery manufacturing given no more specific catalog match.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -7282,6 +7447,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "HRB": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "H&R Block provides tax preparation and related financial services to consumers, fitting professional/financial advisory services category.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7322,7 +7498,7 @@
           "reason": "Boot Barn operates specialty retail stores selling western boots, apparel and accessories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7333,7 +7509,7 @@
           "reason": "Markets, distributes and retails upscale accessories and apparel brands (Michael Kors, Jimmy Choo, Versace).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7497,7 +7673,7 @@
           "reason": "Baxter manufactures medical supplies and equipment including IV pumps, surgical sealants, and hospital products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7607,7 +7783,7 @@
           "reason": "LeMaitre Vascular develops and manufactures vascular medical devices for peripheral vascular and cardiovascular disease treatment.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7651,7 +7827,7 @@
           "reason": "Insulet manufactures the Omnipod insulin infusion device system, a medical device for diabetes management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7728,7 +7904,7 @@
           "reason": "UFP Technologies is a contract manufacturer specializing in single-use and single-patient medical devices - fits medical devices manufacturing.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8368,7 +8544,7 @@
           "reason": "Provides drug containment, delivery and diagnostic solutions/consumables to pharma, biotech and life sciences customers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8414,6 +8590,28 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "NEO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "NeoGenomics provides oncology diagnostic testing laboratory services - fits life sciences tools/diagnostic testing services narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "NEOG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Neogen develops diagnostic test kits and products for food and animal safety - lab consumables/diagnostics business.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -8466,7 +8664,7 @@
           "reason": "Grupo Aval is a Colombian financial holding company offering banking, trust, and merchant banking services - core traditional banking/financial services business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8520,7 +8718,7 @@
           "reason": "Homebuilding products company selling plumbing, outdoor and security products for residential construction and renovation markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9210,6 +9408,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "HLF": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Herbalife develops and sells branded nutrition and wellness consumer products through a direct-selling channel, fitting branded nutrition/CPG narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9413,7 +9622,7 @@
           "reason": "Hawkins manufactures and distributes industrial and specialty chemicals across multiple end markets, matching the specialty chemicals narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9554,7 +9763,7 @@
           "reason": "Liberty Latin America provides video, broadband internet, fixed-line telephony and mobile services across Latin American and Caribbean markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9576,7 +9785,7 @@
           "reason": "Provides quadruple play services including mobile, cable TV, internet and fixed telephony.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9651,7 +9860,7 @@
           "reason": "Factory-built housing company producing manufactured and modular homes for residential markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -9748,6 +9957,17 @@
           "reason": "Accelerant operates a data-driven risk exchange connecting specialty insurance underwriters with capital, a tech-enabled insurance distribution/underwriting model fitting insurtech.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PRCH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Porch Group's majority revenue comes from Insurance Services segment operating as a vertical software company for home services and insurance - fits insurtech digital insurance distribution well given software-enabled insurance business model.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10178,7 +10398,7 @@
           "reason": "Winmark franchises value-oriented retail store concepts that buy, sell and trade used merchandise, matching the off-price/thrift retail narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -10199,7 +10419,7 @@
           "reason": "Manufactures corrugated and consumer packaging products (paperboard boxes/cartons), not a metal packaging company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10210,7 +10430,7 @@
           "reason": "Graphic Packaging manufactures paperboard consumer packaging products - directly matches the Packaging/Paperboard Manufacturing narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10221,7 +10441,7 @@
           "reason": "International Paper is a vertically integrated manufacturer of corrugated and consumer packaging products, a direct match for the packaging/paperboard manufacturing narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -10266,6 +10486,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "NEXA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Nexa Resources operates mining and smelting of zinc, copper concentrates and other base metals - fits base metals mining narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -10339,6 +10570,17 @@
           "reason": "Delek US Holdings operates independent refineries producing petroleum products, matching petroleum_refining definition directly (SIC 2911 also confirms).",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PARR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Par Pacific Holdings operates refining business producing diesel, gasoline, jet fuel and other refined products - fits petroleum refining narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10467,6 +10709,113 @@
           "reason": "Identisches Geschaeftsmodell wie Z (Zillow Group Class C) - gleiche Firma, andere Aktienklasse. Digitale Immobilien-Marktplatzplattform, die Kaeufer/Verkaeufer/Mieter mit Agenten und Kreditgebern verbindet. Neues praezises Narrative passt besser als generische Kategorien.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "COMP": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Compass provides a cloud-based software platform empowering residential real estate agents with CRM, marketing and client service tools, fitting real estate marketplace platform narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CSGP": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "CoStar Group operates real estate information, analytics and online marketplaces (LoopNet, Apartments.com) for commercial and residential real estate, a strong fit for real estate marketplace platform narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "OPEN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Opendoor operates an end-to-end online real estate platform enabling direct home buying/selling - fits real estate marketplace platform narrative.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "uniform_workplace_supplies_rental_services",
+      "name": "Uniform / Workplace Supplies Rental Services",
+      "status": "emerging",
+      "classification_hint": "Companies providing recurring rental and service of uniforms, mats, linens, and workplace safety/hygiene supplies to businesses across various industries.",
+      "created_at": "2026-08-14",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "VSTS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Vestis provides uniform rentals and workplace supplies through recurring service contracts, a distinct business model not covered by existing catalog entries.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "household_appliances_manufacturing",
+      "name": "Household Appliances Manufacturing",
+      "status": "emerging",
+      "classification_hint": "Manufacturers that design, produce and market major household appliances such as refrigerators, washers, dryers, ovens and cooktops under branded product lines for consumer markets.",
+      "created_at": "2026-08-14",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "WHR": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Whirlpool manufactures and markets kitchen and laundry appliances globally under multiple brands, a distinct consumer durables manufacturing business not covered by existing catalog entries.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "NWL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Newell Brands is a diversified branded consumer products company (Rubbermaid, Sharpie, Coleman, Oster, Graco) - closest existing fit is household appliances/consumer products manufacturing given branded consumer durable goods focus, though it's broader than pure appliances.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "modular_space_equipment_leasing",
+      "name": "Modular Space Equipment Leasing",
+      "status": "emerging",
+      "classification_hint": "Companies that design, deliver and lease modular office, storage, and portable space solutions to construction, education, and commercial clients on a turnkey rental basis.",
+      "created_at": "2026-08-14",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "WSC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "WillScot provides turnkey modular space and portable storage solutions on a rental/leasing basis across multiple industries, a distinct equipment rental business model not matched by existing catalog entries.",
+          "added_at": "2026-08-14",
+          "last_reviewed_at": "2026-08-14",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
