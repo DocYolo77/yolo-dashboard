@@ -59,6 +59,9 @@ const ncMemberOpportunityStateSrc = extractFunction(html, 'ncMemberOpportunitySt
 const ncStateFilterMembersSrc = extractFunction(html, 'ncStateFilterMembers');
 const ncVisibleSortedMembersSrc = extractFunction(html, 'ncVisibleSortedMembers');
 const ncMomentumTickerListSrc = extractFunction(html, 'ncMomentumTickerList');
+// V6 point 7/11-13: RSP-based Narrative Strength/Thrust headline metrics.
+const ncScoreValueSrc = extractFunction(html, 'ncScoreValue');
+const ncFmtScoreSrc = extractFunction(html, 'ncFmtScore');
 const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
@@ -111,6 +114,7 @@ vm.createContext(sandbox);
 vm.runInContext(
   `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncIsAtrExtendedSrc}\n${ncEmaFilterMembersSrc}\n${ncSortMembersSrc}\n` +
   `${ncMemberOpportunityStateSrc}\n${ncStateFilterMembersSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n` +
+  `${ncScoreValueSrc}\n${ncFmtScoreSrc}\n` +
   `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n${ncJumpToOpportunitiesSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
   `${positionTickerChartTooltipSrc}\n` +
@@ -618,4 +622,48 @@ test('copy-visible-tickers keeps reading from the full filtered DATA STATE regar
   assert.equal(collapsedVisible.length, 120); // NOT limited to 0 just because collapsed
   assert.equal(openFirstPageVisible.length, 120); // NOT limited to 50 just because only 50 rows are on-screen
   assert.deepEqual(collapsedVisible.map(it => it.symbol), openFirstPageVisible.map(it => it.symbol));
+});
+
+// ── Spec point 7/11-13: RSP-based Narrative Strength/Thrust headline ──
+
+test('ncScoreValue reads strength_rsp[window] for the "strength" score, fully separate per window', () => {
+  const narrative = { strength_rsp: { '1w': 80.0, '1m': 70.0, '3m': 65.1, '6m': 61.9 }, thrust_rsp: 78.0 };
+  const out = vm.runInContext('ncScoreValue(narrative, "strength", window)', Object.assign(sandbox, { narrative, window: '1w' }));
+  assert.equal(out, 80.0);
+  const out3m = vm.runInContext('ncScoreValue(narrative, "strength", window)', Object.assign(sandbox, { narrative, window: '3m' }));
+  assert.equal(out3m, 65.1);
+});
+
+test('ncScoreValue "thrust" ignores the strengthWindow argument entirely (spec point 11: no tab affects Thrust)', () => {
+  const narrative = { strength_rsp: { '1w': 80.0, '1m': 70.0, '3m': 65.1, '6m': 61.9 }, thrust_rsp: 78.0 };
+  const forWindow1w = vm.runInContext('ncScoreValue(narrative, "thrust", window)', Object.assign(sandbox, { narrative, window: '1w' }));
+  const forWindow6m = vm.runInContext('ncScoreValue(narrative, "thrust", window)', Object.assign(sandbox, { narrative, window: '6m' }));
+  assert.equal(forWindow1w, 78.0);
+  assert.equal(forWindow6m, 78.0);
+  assert.equal(forWindow1w, forWindow6m);
+});
+
+test('ncScoreValue returns null (never fabricated) when strength_rsp/thrust_rsp are missing', () => {
+  const narrative = { name: 'No RSP data yet' };
+  assert.equal(vm.runInContext('ncScoreValue(narrative, "strength", window)', Object.assign(sandbox, { narrative, window: '1w' })), null);
+  assert.equal(vm.runInContext('ncScoreValue(narrative, "thrust", window)', Object.assign(sandbox, { narrative, window: '1w' })), null);
+});
+
+test('ncFmtScore formats Strength as a plain 0-100-style number (percentile rank, not a %-return)', () => {
+  const out = vm.runInContext('ncFmtScore(v, "strength")', Object.assign(sandbox, { v: 62.45 }));
+  assert.equal(out, '62.5'); // rounds to 1 decimal, no leading + / no % suffix
+});
+
+test('ncFmtScore formats Thrust as a signed float, never clamped, matching the worked example from the spec', () => {
+  const out = vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: 78.0 }));
+  assert.equal(out, '+78.00');
+  const negative = vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: -10.0 }));
+  assert.equal(negative, '-10.00');
+  const over100 = vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: 110.0 }));
+  assert.equal(over100, '+110.00'); // NOT clamped to 100
+});
+
+test('ncFmtScore renders missing values as "—" for both Strength and Thrust', () => {
+  assert.equal(vm.runInContext('ncFmtScore(v, "strength")', Object.assign(sandbox, { v: null })), '—');
+  assert.equal(vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: undefined })), '—');
 });
