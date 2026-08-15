@@ -14,6 +14,7 @@ import pandas as pd
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+import build_market_features  # noqa: E402  (module import, for monkeypatching massive_get)
 from build_market_features import (  # noqa: E402
     calc_ticker_features, calc_true_range, compute_eligibility, compute_eligible_universe,
     eligible_percentile_ranks, type_eligible_universe,
@@ -21,6 +22,7 @@ from build_market_features import (  # noqa: E402
     compute_recent_leader_bootstrap, load_price_cache, save_price_cache,
     PRICE_CACHE_SCHEMA_VERSION,
     classify_healthcare_biotech, compute_healthcare_excluded_universe,
+    fetch_ticker_range_backfill, fetch_grouped_history_full_market_cached,
 )
 from build_narratives import percentile_ranks  # noqa: E402
 
@@ -607,3 +609,112 @@ def test_price_cache_discards_mismatched_schema_version(tmp_path):
     cache_path = tmp_path / "market_history.json"
     cache_path.write_text(json.dumps({"schema_version": PRICE_CACHE_SCHEMA_VERSION + 1, "dates": [], "tickers": {}}))
     assert load_price_cache(cache_path) is None  # stale schema -> treated as cold cache
+
+
+# ── V6 point 9 follow-up: RSP one-time single-ticker backfill ──
+# A ticker that is genuinely new to the shared price cache (a real new IPO,
+# or a stock newly passing the type/ADR filter) correctly has no earlier
+# history to backfill and is left to accumulate one day at a time -- that
+# is intentional, unchanged behaviour (see the tests above for
+# compute_eligible_universe etc.). RSP is different: it already has decades
+# of real trading history available from Massive, it's just new to THIS
+# cache because this feature is the first thing that ever asked for it.
+# Without the backfill below, RSP would be stranded at 1-2 days of history
+# for ~260 daily runs before any Strength/Thrust window could ever populate
+# — a real gap the user caught in production, not the intended behaviour.
+
+from datetime import datetime as _dt, timezone as _tz  # noqa: E402
+
+
+def test_fetch_ticker_range_backfill_converts_timestamps_and_extracts_ohlc(monkeypatch):
+    d1 = _dt(2026, 1, 1, tzinfo=_tz.utc)
+    d2 = _dt(2026, 1, 2, tzinfo=_tz.utc)
+    calls = []
+
+    def fake_massive_get(path, params=None, retries=3):
+        calls.append(path)
+        return {"results": [
+            {"t": int(d1.timestamp() * 1000), "o": 100.0, "h": 101.0, "l": 99.0, "c": 100.5},
+            {"t": int(d2.timestamp() * 1000), "o": 100.5, "h": 102.0, "l": 100.0, "c": 101.5},
+        ]}
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+    out = fetch_ticker_range_backfill("RSP", "2026-01-01", "2026-01-03")
+    assert calls == ["/v2/aggs/ticker/RSP/range/1/day/2026-01-01/2026-01-03"]
+    assert out["2026-01-01"] == {"o": 100.0, "h": 101.0, "l": 99.0, "c": 100.5}
+    assert out["2026-01-02"]["c"] == 101.5
+    assert len(out) == 2
+
+
+def test_fetch_ticker_range_backfill_handles_missing_or_empty_response(monkeypatch):
+    monkeypatch.setattr(build_market_features, "massive_get", lambda *a, **k: None)
+    assert fetch_ticker_range_backfill("RSP", "2026-01-01", "2026-01-03") == {}
+    monkeypatch.setattr(build_market_features, "massive_get", lambda *a, **k: {"results": []})
+    assert fetch_ticker_range_backfill("RSP", "2026-01-01", "2026-01-03") == {}
+
+
+def test_fetch_grouped_history_backfills_a_new_benchmark_ticker_to_match_existing_cache_depth(tmp_path, monkeypatch):
+    cache_path = tmp_path / "market_history.json"
+    today = _dt.now(_tz.utc).date()
+    trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(4, -1, -1)]  # 5 days ending today
+
+    # Pre-existing cache: only AAPL has history, RSP has never been fetched.
+    save_price_cache(
+        cache_path, trading_days,
+        {"AAPL": {d: 150.0 + i for i, d in enumerate(trading_days)}},
+        {"AAPL": {d: 151.0 for d in trading_days}},
+        {"AAPL": {d: 149.0 for d in trading_days}},
+        {"AAPL": {d: 150.0 for d in trading_days}},
+        {"AAPL"},
+    )
+
+    range_calls = []
+
+    def fake_massive_get(path, params=None, retries=3):
+        if path.startswith("/v2/aggs/ticker/"):
+            range_calls.append(path)
+            return {"results": [
+                {"t": int(_dt.fromisoformat(d).replace(tzinfo=_tz.utc).timestamp() * 1000),
+                 "o": 200.0, "h": 201.0, "l": 199.0, "c": 200.0 + i}
+                for i, d in enumerate(trading_days)
+            ]}
+        # Grouped-daily endpoint should never be reached: newest_cached == today,
+        # so the incremental walk-forward loop must break on its first iteration.
+        raise AssertionError(f"unexpected grouped-daily call: {path}")
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+
+    close_df, high_df, low_df, out_days = fetch_grouped_history_full_market_cached(
+        {"AAPL", "RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
+
+    assert range_calls == [f"/v2/aggs/ticker/RSP/range/1/day/{trading_days[0]}/{trading_days[-1]}"]
+    assert list(close_df["RSP"].dropna().index) == trading_days
+    assert close_df["RSP"].iloc[-1] == pytest.approx(200.0 + len(trading_days) - 1)
+    assert close_df["AAPL"].notna().all()  # existing ticker's history untouched
+
+
+def test_fetch_grouped_history_skips_backfill_when_ticker_already_in_cache(tmp_path, monkeypatch):
+    cache_path = tmp_path / "market_history.json"
+    today = _dt.now(_tz.utc).date()
+    trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(2, -1, -1)]
+
+    # RSP is ALREADY in the cache from a previous run -> must never re-trigger the backfill call.
+    save_price_cache(
+        cache_path, trading_days,
+        {"RSP": {d: 220.0 for d in trading_days}},
+        {"RSP": {d: 221.0 for d in trading_days}},
+        {"RSP": {d: 219.0 for d in trading_days}},
+        {"RSP": {d: 220.0 for d in trading_days}},
+        {"RSP"},
+    )
+
+    def fake_massive_get(path, params=None, retries=3):
+        if path.startswith("/v2/aggs/ticker/"):
+            raise AssertionError("backfill must not be called when the ticker is already cached")
+        raise AssertionError(f"unexpected grouped-daily call: {path}")
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+
+    close_df, _, _, _ = fetch_grouped_history_full_market_cached(
+        {"RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
+    assert close_df["RSP"].notna().all()

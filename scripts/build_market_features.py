@@ -177,6 +177,38 @@ def type_eligible_universe(types_ref, excluded_types):
 # Market-wide grouped-daily price history
 # ─────────────────────────────────────────────
 
+def fetch_ticker_range_backfill(ticker, start_date, end_date):
+    """One-time single-ticker historical backfill (spec point 9's explicit
+    fallback: "if the current cache structure doesn't cleanly allow this, a
+    small separate benchmark load may be built instead"). Unlike a genuine
+    new IPO or a stock newly passing the type/ADR filter -- which correctly
+    has no earlier history to backfill and is left to accumulate one day at
+    a time -- a ticker like RSP already has decades of real trading history
+    available from Massive; its absence from the shared cache is purely an
+    artifact of when it was first added to the fetch universe, not a lack
+    of real data. Left unfixed, the grouped-daily incremental walk (which
+    only ever fetches days newer than the cache's existing coverage) would
+    otherwise strand it at 1-2 days of history for ~260 daily runs before
+    ANY Strength/Thrust window could ever populate.
+
+    ONE extra API call (Massive/Polygon-style single-ticker range
+    aggregates), only ever made when the ticker is genuinely missing from
+    an already-populated cache -- a recurring daily run with RSP already in
+    the cache never reaches this function again.
+    Returns {date_str: {"o":..,"h":..,"l":..,"c":..}}."""
+    data = massive_get(f"/v2/aggs/ticker/{ticker}/range/1/day/{start_date}/{end_date}",
+                        params={"adjusted": "true", "sort": "asc", "limit": 50000})
+    if not data or not data.get("results"):
+        return {}
+    out = {}
+    for row in data["results"]:
+        if row.get("t") is None:
+            continue
+        date_str = datetime.fromtimestamp(row["t"] / 1000, tz=timezone.utc).strftime("%Y-%m-%d")
+        out[date_str] = {"o": row.get("o"), "h": row.get("h"), "l": row.get("l"), "c": row.get("c")}
+    return out
+
+
 def load_price_cache(cache_path):
     """Load the persisted rolling-window price cache (V1.1 point 2). Returns
     None if absent or schema-mismatched (treated as a cold cache — the
@@ -222,7 +254,8 @@ def save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high
         json.dump({"schema_version": PRICE_CACHE_SCHEMA_VERSION, "dates": trading_days, "tickers": tickers_data}, f)
 
 
-def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_days=TRADING_DAYS_NEEDED):
+def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_days=TRADING_DAYS_NEEDED,
+                                              backfill_tickers=None):
     """Incremental, cache-backed version of the market-wide grouped-daily
     walk (V1.1 point 2). Loads whatever rolling window is already persisted
     at `cache_path` (populated across CI runs via GitHub Actions' built-in
@@ -239,6 +272,13 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
     filter) simply accumulate history going forward — same graceful
     partial-history handling calc_ticker_features() already applies
     (nothing here requires every ticker to have the full window).
+
+    `backfill_tickers` (V6 point 9): tickers that, unlike a genuine new IPO,
+    already have a long real trading history available from Massive even
+    though they're new to THIS cache (e.g. RSP, added to the fetch universe
+    by this very feature) — see fetch_ticker_range_backfill's docstring for
+    why these need a one-time single-ticker catch-up instead of being left
+    to accumulate one day at a time like an actual new listing.
 
     One API call covers the whole market per trading day regardless of
     universe size, same pattern as before this change.
@@ -261,6 +301,28 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
         n_missing = sum(1 for s in universe_set if s not in cached_tickers)
         print(f"  ✅ Preis-Cache geladen: {len(cached_dates)} Handelstage, {len(cached_tickers)} Ticker "
               f"({n_missing} neue Ticker im Universe noch nicht im Cache)")
+
+        for ticker in (backfill_tickers or ()):
+            if ticker in cached_tickers or ticker not in universe_set or not cached_dates:
+                continue  # already has cache history, or not requested this run -> normal incremental path
+            print(f"  📈 {ticker} neu im Preis-Cache, Cache deckt aber bereits {len(cached_dates)} "
+                  f"Handelstage ab — einmaliger Backfill via Einzel-Ticker-Range-Call "
+                  f"({cached_dates[0]}..{cached_dates[-1]})")
+            backfilled = fetch_ticker_range_backfill(ticker, cached_dates[0], cached_dates[-1])
+            per_ticker_close.setdefault(ticker, {})
+            per_ticker_high.setdefault(ticker, {})
+            per_ticker_low.setdefault(ticker, {})
+            per_ticker_open.setdefault(ticker, {})
+            cached_dates_set = set(cached_dates)
+            for date_str, ohlc in backfilled.items():
+                if date_str not in cached_dates_set:
+                    continue  # stay within this cache's own date set, never extend it independently
+                per_ticker_close[ticker][date_str] = ohlc["c"]
+                per_ticker_high[ticker][date_str] = ohlc["h"]
+                per_ticker_low[ticker][date_str] = ohlc["l"]
+                per_ticker_open[ticker][date_str] = ohlc["o"]
+            print(f"  ✅ {ticker} Backfill: {len(backfilled)} Handelstage nachgeladen "
+                  f"(1 zusaetzlicher API-Call, einmalig)")
     else:
         print("  ⚠ Kein (gueltiger) Preis-Cache gefunden — einmaliger Full-Bootstrap "
               f"({target_days} Handelstage)")
@@ -670,7 +732,8 @@ def main():
     print(f"\n📋 {len(type_universe)} Ticker nach Asset-Type-Filter (ETF/ETN/FUND/... ausgeschlossen)")
 
     close_df, high_df, low_df, trading_days = fetch_grouped_history_full_market_cached(
-        type_universe | {RSP_TICKER}, cache_cfg["path"], target_days=cache_cfg["target_trading_days"])
+        type_universe | {RSP_TICKER}, cache_cfg["path"], target_days=cache_cfg["target_trading_days"],
+        backfill_tickers={RSP_TICKER})
     if len(trading_days) < 21:
         print("FATAL: Zu wenige Handelstage geladen, breche ab.", file=sys.stderr)
         sys.exit(1)
