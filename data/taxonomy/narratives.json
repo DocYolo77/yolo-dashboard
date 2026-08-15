@@ -6884,6 +6884,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "SENEA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Seneca Foods packages fruits and vegetables and has significant farming/agricultural operations plus packaging (cans). Agriculture/Agribusiness fits well as a food processor with farming operations; closest existing category despite being more of packaged food company.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
