@@ -78,6 +78,31 @@ V1.1 (Structural Leadership & Narrative Engine) additions:
   Leader at any point in the last N sessions", replayed from the same
   260-session history so Recent Leader works from day one instead of
   waiting on daily-history hysteresis to accumulate.
+
+V6 (Navigation/Universe-Filter/Screener/Narrative Strength synthesis)
+additions -- see config/narrative_engine.json's _v1_note for the full
+cross-file changelog:
+- Deterministic Healthcare/Biotech universe exclusion (point 5-6), upstream
+  of eligible=true and thus of ALL stock RS/Thrust percentiles: SIC-code-
+  first classification (classify_healthcare_biotech), never a daily LLM
+  call, never a single generic "health" keyword match. compute_eligibility/
+  compute_eligible_universe gained an additive healthcare_excluded
+  parameter (default False, so every pre-V6 caller is unaffected). Per-
+  ticker audit fields healthcare_biotech_excluded/healthcare_exclusion_
+  reason and meta counts healthcare_biotech_excluded_count/eligible_count_
+  before_after_healthcare_exclusion are new in market_features.json.
+- RSP (S&P 500 Equal Weight ETF, config rsp_benchmark.ticker) is folded
+  into the SAME grouped-daily walk as the stock universe (zero extra API
+  calls) and persisted into the shared price-history cache despite being
+  an ETF -- exact same pattern build_narratives.py already used for SPY --
+  then popped back out of `features` immediately so it can NEVER reach
+  eligibility, RS/Thrust percentiles, or market_features.json's tickers
+  block. RSP is a benchmark for build_narratives.py's new RSP-based
+  Narrative Strength/Thrust and the visible Benchmark chart, never a stock.
+- EMA21/ema21_distance_pct: purely ADDITIVE new fields for the Weekly
+  Strength Screener preset (config screener_presets.weekly_strength). The
+  pre-existing, dashboard-canonical EMA20 (used everywhere else, including
+  the Opportunity Engine's near_emas flag) is completely unchanged.
 """
 
 import argparse
@@ -368,8 +393,13 @@ def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
 
         ema10 = close.ewm(span=10).mean().iloc[-1]
         ema20 = close.ewm(span=20).mean().iloc[-1]
+        # V6 point 21: EMA21 is ADDITIVE only, for the Weekly Strength
+        # screener preset — the dashboard-canonical EMA20 (used everywhere
+        # else, incl. near_emas) is completely unchanged.
+        ema21 = close.ewm(span=21).mean().iloc[-1]
         ema10_distance_pct = round(float((last - ema10) / ema10 * 100), 2)
         ema20_distance_pct = round(float((last - ema20) / ema20 * 100), 2)
+        ema21_distance_pct = round(float((last - ema21) / ema21 * 100), 2)
         sma50_series = close.rolling(50).mean()
         sma50 = sma50_series.iloc[-1]
 
@@ -407,8 +437,10 @@ def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
             "return_12m": pct_ago(252),
             "ema10": round(float(ema10), 2),
             "ema20": round(float(ema20), 2),
+            "ema21": round(float(ema21), 2),
             "ema10_distance_pct": ema10_distance_pct,
             "ema20_distance_pct": ema20_distance_pct,
+            "ema21_distance_pct": ema21_distance_pct,
             "atr": atr,
             "atr_extension": atr_extension,
             "sma50_slope_20d_pct": sma50_slope_20d_pct,
@@ -428,24 +460,84 @@ def calc_thrust(daily_ret_by_symbol, symbol, short, long):
     return round(float(ema_short.iloc[-1] - ema_long.iloc[-1]), 2)
 
 
-def compute_eligibility(adr20, market_cap, universe_cfg):
-    """Universe-Filter (point 2): ADR20 > adr_minimum_pct AND market_cap >=
-    market_cap_minimum_usd. Both must be known (not None) — missing data is
-    NOT eligible-by-default. Extracted as a pure function so it is testable
-    without a market-wide fetch."""
+def compute_eligibility(adr20, market_cap, universe_cfg, healthcare_excluded=False):
+    """Universe-Filter (point 2, extended V6 point 5): ADR20 > adr_minimum_pct
+    AND market_cap >= market_cap_minimum_usd AND NOT healthcare_excluded.
+    ADR/market_cap must be known (not None) — missing data is NOT eligible-
+    by-default. healthcare_excluded defaults to False so pre-V6 callers
+    (tests, other scripts) keep working unchanged. Extracted as a pure
+    function so it is testable without a market-wide fetch."""
     adr_ok = adr20 is not None and adr20 > universe_cfg["adr_minimum_pct"]
     cap_ok = market_cap is not None and market_cap >= universe_cfg["market_cap_minimum_usd"]
-    return bool(adr_ok and cap_ok)
+    return bool(adr_ok and cap_ok and not healthcare_excluded)
 
 
-def compute_eligible_universe(features, market_cap_by_symbol, universe_cfg):
+def compute_eligible_universe(features, market_cap_by_symbol, universe_cfg, healthcare_excluded_by_symbol=None):
     """Resolve eligibility for every ticker with a computed feature set.
-    MUST run before any percentile ranking (V1 rebuild point 7 fix):
-    RS/Thrust percentiles are only meaningful when ranked against tickers
-    that actually pass the Universe Filter, not against every ticker that
-    merely has enough price history to compute a feature."""
-    return {sym: compute_eligibility(f["adr20"], market_cap_by_symbol.get(sym), universe_cfg)
+    MUST run before any percentile ranking (V1 rebuild point 7 fix, extended
+    V6 point 5: the Healthcare/Biotech exclusion is upstream of eligible=true
+    for the exact same reason — RS/Thrust percentiles must be ranked only
+    against tickers that survive EVERY universe filter, not just ADR/cap)."""
+    healthcare_excluded_by_symbol = healthcare_excluded_by_symbol or {}
+    return {sym: compute_eligibility(f["adr20"], market_cap_by_symbol.get(sym), universe_cfg,
+                                      healthcare_excluded_by_symbol.get(sym, False))
             for sym, f in features.items()}
+
+
+# ─────────────────────────────────────────────
+# V6: deterministic Healthcare/Biotech universe exclusion (point 5-6)
+# ─────────────────────────────────────────────
+
+def classify_healthcare_biotech(sic_code, sic_description, company_description, filter_cfg):
+    """Deterministic, SIC-code-first Healthcare/Biotech classification.
+    Returns (excluded: bool, reason: str|None).
+
+    Priority order (never mixed):
+      1. sic_code present -> checked ONLY against sic_codes/sic_prefixes,
+         then (backstop) sic_description against sic_description_keywords.
+         company_description is NEVER consulted here — a ticker with a real,
+         non-healthcare SIC must never be excluded just because its business
+         description happens to mention a healthcare customer/use case
+         (spec point 6: 'keine normalen Tech-Unternehmen ausschliessen, nur
+         weil deren Kunden teilweise aus Healthcare kommen').
+      2. sic_code missing entirely -> the ONLY case where
+         company_description_keywords_for_ambiguous_sic is consulted, per
+         the config field's own name ('ambiguous_sic' means 'no SIC at all'
+         here, not 'a SIC that didn't match')."""
+    sic_str = str(sic_code) if sic_code else None
+    if sic_str:
+        if sic_str in set(filter_cfg["sic_codes"]):
+            return True, f"SIC {sic_str} in exclude list"
+        for prefix in filter_cfg["sic_prefixes"]:
+            if sic_str.startswith(prefix):
+                return True, f"SIC {sic_str} matches prefix '{prefix}'"
+        desc = (sic_description or "").lower()
+        for kw in filter_cfg["sic_description_keywords"]:
+            if kw.lower() in desc:
+                return True, f"sic_description contains '{kw}' (SIC {sic_str})"
+        return False, None
+
+    desc = (company_description or "").lower()
+    for kw in filter_cfg["company_description_keywords_for_ambiguous_sic"]:
+        if kw.lower() in desc:
+            return True, f"no SIC code; company_description contains '{kw}'"
+    return False, None
+
+
+def compute_healthcare_excluded_universe(features, sic_by_symbol, universe_cfg):
+    """{symbol: (excluded, reason)} for every ticker with a computed feature
+    set, using whatever SIC/description data is already available (from the
+    per-ticker reference enrichment — no extra API calls). Disabled entirely
+    via universe.exclude_healthcare_biotech=false (returns all-False)."""
+    if not universe_cfg.get("exclude_healthcare_biotech", False):
+        return {sym: (False, None) for sym in features}
+    filter_cfg = universe_cfg["healthcare_biotech_filter"]
+    out = {}
+    for sym in features:
+        meta = sic_by_symbol.get(sym, {})
+        out[sym] = classify_healthcare_biotech(
+            meta.get("sic_code"), meta.get("sic_description"), meta.get("description"), filter_cfg)
+    return out
 
 
 def eligible_percentile_ranks(features, eligible_by_symbol, field):
@@ -563,13 +655,22 @@ def main():
     u_cfg = cfg["universe"]
     cache_cfg = cfg["market_history_cache"]
     trend_cfg = cfg["trend_strength_v1_1"]
+    # V6 point 9: RSP (S&P 500 Equal Weight ETF) is the new sole canonical
+    # Narrative-Benchmark (replaces SPY). Folded into the SAME grouped-daily
+    # walk as the stock universe (zero extra API calls) and persisted into
+    # the shared price-history cache despite being an ETF -- exact same
+    # pattern build_narratives.py already used for SPY -- then popped back
+    # out of `features` below so RSP can NEVER reach eligibility, RS
+    # percentiles, or market_features.json's tickers block.
+    rsp_cfg = cfg["rsp_benchmark"]
+    RSP_TICKER = rsp_cfg["ticker"]
 
     types_ref = load_types_reference(taxonomy_dir / "market_reference_types.json")
     type_universe = type_eligible_universe(types_ref, set(u_cfg["excluded_types"]))
     print(f"\n📋 {len(type_universe)} Ticker nach Asset-Type-Filter (ETF/ETN/FUND/... ausgeschlossen)")
 
     close_df, high_df, low_df, trading_days = fetch_grouped_history_full_market_cached(
-        type_universe, cache_cfg["path"], target_days=cache_cfg["target_trading_days"])
+        type_universe | {RSP_TICKER}, cache_cfg["path"], target_days=cache_cfg["target_trading_days"])
     if len(trading_days) < 21:
         print("FATAL: Zu wenige Handelstage geladen, breche ab.", file=sys.stderr)
         sys.exit(1)
@@ -580,7 +681,13 @@ def main():
         close_df, high_df, low_df, u_cfg["adr_lookback_sessions"],
         sma50_slope_lookback=trend_cfg["sma50_slope_lookback_sessions"],
         sma50_persistence_lookback=trend_cfg["sma50_persistence_lookback_sessions"])
-    print(f"  ✅ Preis-/ADR-/EMA-/ATR-Features fuer {len(features)}/{len(type_universe)} Ticker berechnet")
+    # RSP is a benchmark, never a stock -- pop it back out immediately so it
+    # never flows into ADR candidates, enrichment, eligibility, RS/Thrust
+    # percentiles, or output_tickers (point 9: "RSP darf NIE zum normalen
+    # eligiblen Stock Universe gehoeren").
+    features.pop(RSP_TICKER, None)
+    print(f"  ✅ Preis-/ADR-/EMA-/ATR-Features fuer {len(features)}/{len(type_universe)} Ticker berechnet "
+          f"({RSP_TICKER} als Benchmark aus dem Price-Cache mitgefuehrt, aus Features/Universe entfernt)")
 
     # ADR-eligible candidates (cheap, price-based) -> only these get the
     # expensive per-ticker market-cap/SIC lookup.
@@ -604,13 +711,30 @@ def main():
             market_cap = round(shares * f["close"], 2)
         market_cap_by_symbol[sym] = market_cap
 
+    # V6 point 5-6: deterministic Healthcare/Biotech universe exclusion, MUST
+    # run BEFORE eligible=true / stock RS-Thrust percentiles (spec pipeline
+    # order: Asset-Type -> ADR20 -> Reference-Enrichment -> Healthcare/
+    # Biotech-Exclusion -> Market-Cap -> eligible=true -> percentiles).
+    sic_by_symbol = {sym: enrich_cache.get(sym, {}) for sym in features}
+    healthcare_excluded_by_symbol = compute_healthcare_excluded_universe(features, sic_by_symbol, u_cfg)
+    n_healthcare_excluded = sum(1 for excluded, _ in healthcare_excluded_by_symbol.values() if excluded)
+    print(f"  ✅ {n_healthcare_excluded}/{len(features)} Ticker als Healthcare/Biotech ausgeschlossen "
+          f"(deterministisch, SIC-Code-first — siehe classify_healthcare_biotech)")
+
+    n_eligible_before_healthcare = sum(
+        1 for sym in features
+        if compute_eligibility(features[sym]["adr20"], market_cap_by_symbol[sym], u_cfg, healthcare_excluded=False))
+
     # Eligibility MUST be resolved BEFORE any percentile ranking (point 7
     # fix) — see compute_eligible_universe()/eligible_percentile_ranks().
-    eligible_by_symbol = compute_eligible_universe(features, market_cap_by_symbol, u_cfg)
+    eligible_by_symbol = compute_eligible_universe(
+        features, market_cap_by_symbol, u_cfg,
+        healthcare_excluded_by_symbol={sym: v[0] for sym, v in healthcare_excluded_by_symbol.items()})
     n_eligible = sum(1 for v in eligible_by_symbol.values() if v)
     print(f"  ✅ {n_eligible}/{len(features)} Ticker eligible (ADR{u_cfg['adr_lookback_sessions']} > "
-          f"{u_cfg['adr_minimum_pct']}% UND Market Cap >= ${u_cfg['market_cap_minimum_usd']:,.0f}) — "
-          f"RS-/Thrust-Perzentile werden NUR gegen dieses Subset berechnet")
+          f"{u_cfg['adr_minimum_pct']}% UND Market Cap >= ${u_cfg['market_cap_minimum_usd']:,.0f} UND "
+          f"NICHT Healthcare/Biotech) — RS-/Thrust-Perzentile werden NUR gegen dieses Subset berechnet "
+          f"(vor Healthcare/Biotech-Filter waeren es {n_eligible_before_healthcare} gewesen)")
 
     # RS percentiles across the eligible universe ONLY — this is the
     # "Full-Market RS" the Leadership score (and everything downstream:
@@ -669,6 +793,8 @@ def main():
         market_cap = market_cap_by_symbol[sym]
         overview = enrich_cache.get(sym, {})
 
+        healthcare_excluded, healthcare_reason = healthcare_excluded_by_symbol.get(sym, (False, None))
+
         rs_1w = percentiles_by_horizon["1w"].get(sym)
         rs_1m = percentiles_by_horizon["1m"].get(sym)
         rs_3m = percentiles_by_horizon["3m"].get(sym)
@@ -714,6 +840,8 @@ def main():
             "thrust_percentile_1m": thrust_1m_pct,
             "sic_code": overview.get("sic_code"),
             "sic_description": overview.get("sic_description"),
+            "healthcare_biotech_excluded": healthcare_excluded,
+            "healthcare_exclusion_reason": healthcare_reason,
             "discovery_candidate": discovery_candidate and eligible,
         }
 
@@ -726,6 +854,9 @@ def main():
             "type_universe_size": len(type_universe),
             "features_computed": len(features),
             "adr_candidates_enriched": len(adr_candidates),
+            "healthcare_biotech_excluded_count": n_healthcare_excluded,
+            "eligible_count_before_healthcare_exclusion": n_eligible_before_healthcare,
+            "eligible_count_after_healthcare_exclusion": n_eligible,
             "eligible_count": n_eligible,
             "discovery_candidate_count": sum(1 for t in output_tickers.values() if t["discovery_candidate"]),
             "structural_rs_computed_count": sum(1 for t in output_tickers.values() if t["structural_rs"] is not None),
