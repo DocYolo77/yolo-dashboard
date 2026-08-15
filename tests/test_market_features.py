@@ -23,8 +23,9 @@ from build_market_features import (  # noqa: E402
     PRICE_CACHE_SCHEMA_VERSION,
     classify_healthcare_biotech, compute_healthcare_excluded_universe,
     fetch_ticker_range_backfill, fetch_grouped_history_full_market_cached,
+    calc_return_n_sessions_ago,
 )
-from build_narratives import percentile_ranks  # noqa: E402
+from build_narratives import percentile_ranks, compute_narrative_thrust_rsp  # noqa: E402
 
 
 # ── Universe filter / ETF exclusion ─────────────────────────────
@@ -158,15 +159,60 @@ def test_semiconductor_sic_is_not_excluded(hc_filter_cfg):
 
 
 def test_software_company_with_healthcare_customer_mention_is_not_falsely_excluded(hc_filter_cfg):
-    # A real, non-matching SIC code must take absolute priority -- free-text
-    # company_description mentioning healthcare customers must NEVER trigger
-    # exclusion when a non-healthcare SIC is already known (point 6).
+    # V6.1 point 18: company_description is now ALSO consulted when a SIC is
+    # present but unmapped (see the tests below) -- but only against a
+    # deliberately narrow, company-self-describing phrase list. A pure
+    # customer-/application-vertical mention ("used by hospitals ... other
+    # healthcare providers") must still never trigger exclusion, regardless
+    # of which branch reaches company_description (point 6/18's explicit
+    # "keine normalen Tech-Unternehmen ausschliessen, nur weil deren Kunden
+    # teilweise aus Healthcare kommen").
     excluded, reason = classify_healthcare_biotech(
         "7372", "SERVICES-PREPACKAGED SOFTWARE",
         "We build workflow software used by hospitals, clinics and other healthcare providers.",
         hc_filter_cfg)
     assert excluded is False
     assert reason is None
+
+
+def test_sic_present_but_unmapped_still_excluded_via_high_precision_company_description(hc_filter_cfg):
+    # V6.1 point 18 fix: V6 skipped company_description ENTIRELY whenever a
+    # SIC existed, even if it didn't map to anything -- this is exactly the
+    # bug that let a real Biotech company with a generic/unmapped SIC keep
+    # counting as eligible (an active "Biotech" narrative surviving on the
+    # dashboard). A generic SIC (7372, software) that does NOT itself imply
+    # Healthcare/Biotech, combined with a strong company-self-description,
+    # must now exclude.
+    excluded, reason = classify_healthcare_biotech(
+        "7372", "SERVICES-PREPACKAGED SOFTWARE",
+        "We are a clinical-stage biopharmaceutical company developing novel cancer therapeutics.",
+        hc_filter_cfg)
+    assert excluded is True
+    assert "7372" in reason
+
+
+def test_sic_present_but_unmapped_and_generic_description_stays_eligible(hc_filter_cfg):
+    # Same generic/unmapped SIC, but a company_description with no
+    # high-precision Healthcare/Biotech self-description phrase -> stays
+    # eligible (proves the new branch doesn't over-trigger on any SIC that
+    # merely fails to match).
+    excluded, reason = classify_healthcare_biotech(
+        "7372", "SERVICES-PREPACKAGED SOFTWARE",
+        "We build project management software for construction companies.", hc_filter_cfg)
+    assert excluded is False
+    assert reason is None
+
+
+def test_sic_mapped_directly_never_reaches_company_description_branch(hc_filter_cfg):
+    # A SIC that already maps (prefix "283") must exclude via that branch
+    # alone -- company_description isn't even relevant here, but pin down
+    # that a clearly-irrelevant description doesn't somehow prevent the
+    # SIC-based exclusion either.
+    excluded, reason = classify_healthcare_biotech(
+        "2834", "PHARMACEUTICAL PREPARATIONS", "Irrelevant unrelated text.", hc_filter_cfg)
+    assert excluded is True
+    assert "SIC 2834" in reason
+    assert "company_description" not in reason
 
 
 def test_sic_code_none_uses_company_description_fallback_deterministically(hc_filter_cfg):
@@ -770,3 +816,43 @@ def test_fetch_grouped_history_backfills_a_ticker_already_present_but_stranded_s
     assert range_calls == [f"/v2/aggs/ticker/RSP/range/1/day/{trading_days[0]}/{trading_days[-1]}"]
     assert close_df["RSP"].notna().all()
     assert close_df["RSP"].iloc[-1] == pytest.approx(200.0 + len(trading_days) - 1)
+
+
+# ── V6.1 point 16: Stock Thrust (stock_thrust_rs) building block ──
+
+def test_calc_return_n_sessions_ago_worked_example():
+    # 10 sessions of close prices, strictly increasing by 1 each day (100..109).
+    days = [f"2026-01-{d:02d}" for d in range(1, 11)]
+    close_df = pd.DataFrame({"AAPL": [100.0 + i for i in range(10)]}, index=days)
+    # today (sessions_ago=0), 5-session window: current=109 (idx9), base=104 (idx4) -> +4.8077%
+    ret_today = calc_return_n_sessions_ago(close_df, "AAPL", window=5, sessions_ago=0)
+    assert ret_today == pytest.approx((109.0 - 104.0) / 104.0 * 100, abs=1e-6)
+    # 3 sessions ago: current=106 (idx6), base=101 (idx1) -> +4.9505%
+    ret_3_ago = calc_return_n_sessions_ago(close_df, "AAPL", window=5, sessions_ago=3)
+    assert ret_3_ago == pytest.approx((106.0 - 101.0) / 101.0 * 100, abs=1e-6)
+
+
+def test_calc_return_n_sessions_ago_none_when_insufficient_history():
+    days = [f"2026-01-{d:02d}" for d in range(1, 4)]  # only 3 sessions
+    close_df = pd.DataFrame({"AAPL": [100.0, 101.0, 102.0]}, index=days)
+    assert calc_return_n_sessions_ago(close_df, "AAPL", window=5, sessions_ago=0) is None
+
+
+def test_calc_return_n_sessions_ago_none_when_ticker_absent():
+    days = [f"2026-01-{d:02d}" for d in range(1, 11)]
+    close_df = pd.DataFrame({"AAPL": [100.0 + i for i in range(10)]}, index=days)
+    assert calc_return_n_sessions_ago(close_df, "MSFT", window=5, sessions_ago=0) is None
+
+
+def test_stock_thrust_rs_matches_thrust_formula_end_to_end():
+    # Reproduces the spec's worked Thrust example (0.60*90+0.40*80+0.10*(90-70)=88)
+    # through the ACTUAL cross-sectional plumbing: build a tiny eligible
+    # universe whose 5-session returns rank AAPL at RS1W=90-equivalent today
+    # and RS1W=70-equivalent 3 sessions ago, then verify stock_thrust_rs (via
+    # the same compute_narrative_thrust_rsp reuse build_market_features.py
+    # wires up) matches manual arithmetic on the resulting percentiles.
+    weights = {"strength_1w": 0.60, "strength_1m": 0.40, "delta_1w_acceleration": 0.10}
+    # rs_1w_today=90, rs_1m_today=80, rs_1w_3_ago=60 (spec's own thrust worked example numbers)
+    thrust = compute_narrative_thrust_rsp(90, 80, 60, weights)
+    assert thrust == pytest.approx(0.60 * 90 + 0.40 * 80 + 0.10 * (90 - 60))
+    assert thrust == pytest.approx(89.0)  # 54 + 32 + 3

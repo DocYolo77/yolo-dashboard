@@ -52,16 +52,22 @@ function extractLet(src, name) {
 // Pull the real implementations straight out of index.html.
 const ncNearEma10Src = extractFunction(html, 'ncNearEma10');
 const ncNearEma20Src = extractFunction(html, 'ncNearEma20');
-const ncIsAtrExtendedSrc = extractFunction(html, 'ncIsAtrExtended');
 const ncEmaFilterMembersSrc = extractFunction(html, 'ncEmaFilterMembers');
-const ncSortMembersSrc = extractFunction(html, 'ncSortMembers');
-const ncMemberOpportunityStateSrc = extractFunction(html, 'ncMemberOpportunityState');
-const ncStateFilterMembersSrc = extractFunction(html, 'ncStateFilterMembers');
+// V6.1 (Narrative Ranking & UI Bugfix Patch) point 17: member-table sort is
+// now derived from the Ranking-mode toggle, replacing the old free
+// per-column ncSortMembers/ncMemberSort. State-Filter (ncStateFilter/
+// ncMemberOpportunityState/ncStateFilterMembers) was removed together with
+// the Opportunities-summary/jump-link -- the narrative view no longer reads
+// Opportunity-engine state at all (point 10).
+const ncSortMembersForRankingSrc = extractFunction(html, 'ncSortMembersForRanking');
 const ncVisibleSortedMembersSrc = extractFunction(html, 'ncVisibleSortedMembers');
 const ncMomentumTickerListSrc = extractFunction(html, 'ncMomentumTickerList');
-// V6 point 7/11-13: RSP-based Narrative Strength/Thrust headline metrics.
+const ncToggleDetailSrc = extractFunction(html, 'ncToggleDetail');
+const ncToggleExpandAllSrc = extractFunction(html, 'ncToggleExpandAll');
+// V6.1 point 6-8: cross-sectional Narrative RS/Thrust headline metrics.
 const ncScoreValueSrc = extractFunction(html, 'ncScoreValue');
 const ncFmtScoreSrc = extractFunction(html, 'ncFmtScore');
+const memberColumnsConstSrc = extractConst(html, 'MEMBER_COLUMNS');
 // V6 point 29A: QQQ breadth chart NaN-safety / empty-state fallback.
 const qqqFiniteSeriesSrc = extractFunction(html, 'qqqFiniteSeries');
 const qqqHasEnoughHistorySrc = extractFunction(html, 'qqqHasEnoughHistory');
@@ -77,7 +83,6 @@ const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
 const oppVisibleSortedItemsSrc = extractFunction(html, 'oppVisibleSortedItems');
-const ncJumpToOpportunitiesSrc = extractFunction(html, 'ncJumpToOpportunities');
 // Spec point 4: Opportunities collapse/windowed-rendering state + actions.
 const oppTableOpenLetSrc = extractLet(html, 'oppTableOpen');
 const oppRenderLimitLetSrc = extractLet(html, 'oppRenderLimit');
@@ -93,25 +98,27 @@ const tcDimsConstSrc = extractConst(html, 'TC_W'); // combined statement also de
 
 const sandbox = {
   ncEmaFilter: 'all',
-  ncStateFilter: 'all',
-  ncHorizon: '1d',
+  ncRankingMode: 'rs',
+  ncStrengthWindow: '1w',
+  ncExpandedId: null,
+  ncNarrativesExpanded: false,
   engineConfig: { dashboard: { ema_proximity_threshold_pct: 4.0, atr_extension_warning_threshold: 5.0 } },
-  ncMemberSort: { field: 'd1_pct', dir: 'desc' },
   dashboardState: null,
   tickerCharts: null,
   window: { innerWidth: 1200, innerHeight: 800 },
   oppTab: 'all',
   oppSortState: { field: 'leadership_score', dir: 'desc' },
-  // oppRender is a spy here (not the real, DOM-heavy implementation) — this
-  // sandbox only cares whether ncJumpToOpportunities calls it, not what it
-  // renders (oppApplyFilters/oppTabFilter above are the ones tested against
-  // the real logic).
+  // renderNarrativeGrid/oppRender are spies here (not the real, DOM-heavy
+  // implementations) — ncToggleDetail/ncToggleExpandAll/oppToggleTable/
+  // oppShowMore just need to be observed CALLING them, the actual rendering
+  // is exercised indirectly through the pure functions it's built from
+  // (ncVisibleSortedMembers, oppApplyFilters/oppTabFilter/oppSortItems etc.).
+  renderNarrativeGridCallCount: 0,
+  renderNarrativeGrid() { sandbox.renderNarrativeGridCallCount++; },
   oppRenderCallCount: 0,
   oppRender() { sandbox.oppRenderCallCount++; },
   // Minimal DOM stub for the Opportunities filter inputs — oppApplyFilters
   // reads these directly via getElementById, same as the real page.
-  // scrollIntoView is a no-op spy so ncJumpToOpportunities's section-scroll
-  // call doesn't throw in a DOM-less sandbox.
   document: {
     _elements: {},
     getElementById(id) {
@@ -123,13 +130,13 @@ const sandbox = {
 };
 vm.createContext(sandbox);
 vm.runInContext(
-  `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncIsAtrExtendedSrc}\n${ncEmaFilterMembersSrc}\n${ncSortMembersSrc}\n` +
-  `${ncMemberOpportunityStateSrc}\n${ncStateFilterMembersSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n` +
-  `${ncScoreValueSrc}\n${ncFmtScoreSrc}\n` +
+  `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncEmaFilterMembersSrc}\n${ncSortMembersForRankingSrc}\n` +
+  `${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n${ncToggleDetailSrc}\n${ncToggleExpandAllSrc}\n` +
+  `${ncScoreValueSrc}\n${ncFmtScoreSrc}\n${memberColumnsConstSrc}\n` +
   `${qqqFiniteSeriesSrc}\n${qqqHasEnoughHistorySrc}\n${qqqEmptyStateHtmlSrc}\n` +
   `${rsBenchmarkWindowSrc}\n${rsBenchmarkCumulativeReturnSrc}\n${rsBenchmarkDateLabelSrc}\n` +
   `${screenerTradingViewTxtContentSrc}\n${screenerFilenameSlugSrc}\n` +
-  `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n${ncJumpToOpportunitiesSrc}\n` +
+  `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
   `${positionTickerChartTooltipSrc}\n` +
   `${oppTableOpenLetSrc}\n${oppRenderLimitLetSrc}\n${oppPageSizeConstSrc}\n${oppToggleTableSrc}\n${oppShowMoreSrc}`,
@@ -179,29 +186,63 @@ test('EMA filter "all" returns every member, including nulls', () => {
   assert.equal(out.length, 4);
 });
 
-test('ncVisibleSortedMembers respects filter + sort, never changes membership count beyond the filter', () => {
-  sandbox.ncEmaFilter = 'either';
-  sandbox.ncMemberSort = { field: 'd1_pct', dir: 'desc' };
-  const narrative = { members: makeMembers().map(m => ({ ...m, percentile_1d: 50 })), n_members: 4 };
+// V6.1 point 17: member-table sort is derived from the Ranking-mode toggle
+// (never a free per-column click-sort anymore) -- RS mode sorts by Stock RS
+// of the currently selected RS-Zeitfenster (percentile_<window>, exposed as
+// `rs` by ncVisibleSortedMembers), tie-broken by ticker ascending.
+function makeRankedMembers() {
+  return [
+    { symbol: 'AAA', percentile_1w: 40, stock_thrust_rs: 90, ema10_distance_pct: 1.0, ema20_distance_pct: 8.0 },
+    { symbol: 'BBB', percentile_1w: 90, stock_thrust_rs: 10, ema10_distance_pct: 8.0, ema20_distance_pct: -3.5 },
+    { symbol: 'CCC', percentile_1w: 90, stock_thrust_rs: 50, ema10_distance_pct: -4.0, ema20_distance_pct: 4.0 },
+    { symbol: 'DDD', percentile_1w: null, stock_thrust_rs: null, ema10_distance_pct: null, ema20_distance_pct: null },
+  ];
+}
+
+test('ncVisibleSortedMembers RS mode: Stock RS (selected window) desc, ticker asc tie-break', () => {
+  sandbox.ncEmaFilter = 'all';
+  sandbox.ncRankingMode = 'rs';
+  sandbox.ncStrengthWindow = '1w';
+  const narrative = { members: makeRankedMembers(), n_members: 4 };
   const out = vm.runInContext('ncVisibleSortedMembers(narrative)', Object.assign(sandbox, { narrative }));
-  assert.deepEqual(out.map(m => m.symbol), ['BBB', 'AAA', 'CCC']); // sorted by d1_pct desc: 3.0, 1.0, -2.0
+  // BBB and CCC tie at RS=90 -> ticker asc (BBB before CCC); AAA=40; DDD=null sorts last.
+  assert.deepEqual(out.map(m => m.symbol), ['BBB', 'CCC', 'AAA', 'DDD']);
+});
+
+test('ncVisibleSortedMembers THRUST mode: Stock Thrust desc, then Stock RS desc, then ticker asc', () => {
+  sandbox.ncEmaFilter = 'all';
+  sandbox.ncRankingMode = 'thrust';
+  sandbox.ncStrengthWindow = '1w';
+  const narrative = { members: makeRankedMembers(), n_members: 4 };
+  const out = vm.runInContext('ncVisibleSortedMembers(narrative)', Object.assign(sandbox, { narrative }));
+  assert.deepEqual(out.map(m => m.symbol), ['AAA', 'CCC', 'BBB', 'DDD']); // thrust 90, 50, 10, null
+});
+
+test('ncVisibleSortedMembers Stock RS follows the RS-Zeitfenster tab (percentile_<window>)', () => {
+  sandbox.ncEmaFilter = 'all';
+  sandbox.ncRankingMode = 'rs';
+  const members = [
+    { symbol: 'AAA', percentile_1w: 90, percentile_1m: 10, stock_thrust_rs: 0 },
+    { symbol: 'BBB', percentile_1w: 10, percentile_1m: 90, stock_thrust_rs: 0 },
+  ];
+  sandbox.ncStrengthWindow = '1w';
+  const out1w = vm.runInContext('ncVisibleSortedMembers(narrative)', Object.assign(sandbox, { narrative: { members, n_members: 2 } }));
+  assert.deepEqual(out1w.map(m => m.symbol), ['AAA', 'BBB']);
+  sandbox.ncStrengthWindow = '1m';
+  const out1m = vm.runInContext('ncVisibleSortedMembers(narrative)', Object.assign(sandbox, { narrative: { members, n_members: 2 } }));
+  assert.deepEqual(out1m.map(m => m.symbol), ['BBB', 'AAA']); // reversed -- proves the tab actually switches the field
 });
 
 test('Copy-visible-tickers format: comma-separated symbols only, in the visible+sorted order', () => {
-  sandbox.ncEmaFilter = 'either';
-  sandbox.ncMemberSort = { field: 'd1_pct', dir: 'asc' };
-  const narrative = { members: makeMembers().map(m => ({ ...m, percentile_1d: 50 })), n_members: 4 };
+  sandbox.ncEmaFilter = 'either'; // AAA(1.0/8.0), BBB(8.0/-3.5), CCC(-4.0/4.0) all qualify; DDD excluded (nulls)
+  sandbox.ncRankingMode = 'rs';
+  sandbox.ncStrengthWindow = '1w';
+  const narrative = { members: makeRankedMembers(), n_members: 4 };
   const out = vm.runInContext('ncVisibleSortedMembers(narrative)', Object.assign(sandbox, { narrative }));
   const text = out.map(m => m.symbol).join(',');
-  assert.equal(text, 'CCC,AAA,BBB'); // ascending by d1_pct: -2.0, 1.0, 3.0
+  assert.equal(text, 'BBB,CCC,AAA'); // RS desc with tie-break, DDD filtered out by the EMA filter
   assert.doesNotMatch(text, /[^A-Z,]/); // symbols + commas only, per point 22's "SNDK,WDC,STX" format
-});
-
-test('ATR Extension > threshold badge condition matches the config threshold, not a hardcoded 5', () => {
-  const threshold = sandbox.engineConfig.dashboard.atr_extension_warning_threshold;
-  const members = makeMembers();
-  const extended = members.filter(m => vm.runInContext('ncIsAtrExtended(m, t)', Object.assign(sandbox, { m, t: threshold })));
-  assert.deepEqual(extended.map(m => m.symbol), ['BBB']); // 6.5 > 5.0; 5.0 itself is NOT > 5.0 (CCC excluded)
+  sandbox.ncEmaFilter = 'all';
 });
 
 test('ncMomentumTickerList: copies ONLY items with backend near_emas===true, no frontend recomputation', () => {
@@ -229,49 +270,6 @@ test('ncMomentumTickerList: returns empty list gracefully when opportunities dat
   assert.deepEqual(Array.from(list1), []);
   const list2 = vm.runInContext('ncMomentumTickerList(state)', Object.assign(sandbox, { state: {} }));
   assert.deepEqual(Array.from(list2), []);
-});
-
-// ── Narrative Detail View: EMA-Filter + State-Filter kombinierbar (Punkt 32) ──
-
-function makeStateFilterFixture() {
-  const members = [
-    { symbol: 'AAA', ema10_distance_pct: 1.0, ema20_distance_pct: 1.0 },  // near EMA
-    { symbol: 'BBB', ema10_distance_pct: 1.0, ema20_distance_pct: 1.0 },  // near EMA
-    { symbol: 'CCC', ema10_distance_pct: 9.0, ema20_distance_pct: 9.0 },  // NOT near EMA
-  ];
-  const narrative = { id: 'n1', members: members.map(m => ({ ...m, percentile_1d: 50 })), n_members: 3 };
-  const dashboardState = {
-    opportunities: {
-      items: [
-        { symbol: 'AAA', narratives: ['n1'], quality_state: 'leader', constructive_reset_narratives: ['n1'], laggard_narratives: [], extended: false },
-        { symbol: 'BBB', narratives: ['n1'], quality_state: 'neutral', constructive_reset_narratives: [], laggard_narratives: ['n1'], extended: true },
-        { symbol: 'CCC', narratives: ['n1'], quality_state: 'leader', constructive_reset_narratives: ['n1'], laggard_narratives: [], extended: false },
-      ],
-    },
-  };
-  return { narrative, dashboardState };
-}
-
-test('ncVisibleSortedMembers: State-Filter allein (Leader) matcht ueber alle Mitglieder', () => {
-  const { narrative, dashboardState } = makeStateFilterFixture();
-  sandbox.ncEmaFilter = 'all';
-  sandbox.ncStateFilter = 'leader';
-  sandbox.dashboardState = dashboardState;
-  const out = vm.runInContext('ncVisibleSortedMembers(narrative)', Object.assign(sandbox, { narrative }));
-  assert.deepEqual(Array.from(out).map(m => m.symbol).sort(), ['AAA', 'CCC']); // BBB is neutral
-});
-
-test('ncVisibleSortedMembers: EMA-Filter + State-Filter kombiniert (Near EMA + Constructive Reset)', () => {
-  const { narrative, dashboardState } = makeStateFilterFixture();
-  sandbox.ncEmaFilter = 'either';       // AAA, BBB near EMA; CCC excluded
-  sandbox.ncStateFilter = 'constructive_reset';  // AAA, CCC have the reset; BBB does not
-  sandbox.dashboardState = dashboardState;
-  const out = vm.runInContext('ncVisibleSortedMembers(narrative)', Object.assign(sandbox, { narrative }));
-  // Intersection of both filters: only AAA satisfies both.
-  assert.deepEqual(Array.from(out).map(m => m.symbol), ['AAA']);
-  sandbox.ncEmaFilter = 'all';
-  sandbox.ncStateFilter = 'all';
-  sandbox.dashboardState = null;
 });
 
 // ── Opportunities: Tabs, Filter, Sortierung, Copy (Punkt 30-31) ────────
@@ -445,27 +443,49 @@ test('Narrative filter = ALL (empty selection) + a state tab behaves like the ta
   sandbox.dashboardState = null;
 });
 
-// ── Full-Universe: Narrative Card -> Opportunities jump (Punkt 12/M) ──
+// ── V6.1 point 13: at most one Member-Detailtabelle open at a time ──
 
-test('ncJumpToOpportunities sets the narrative filter and triggers a re-render', () => {
-  sandbox.oppRenderCallCount = 0;
-  sandbox.document._elements.oppFilterNarrative = { value: '', checked: false, scrollIntoView() {} };
-  vm.runInContext(`ncJumpToOpportunities('ai_infra')`, sandbox);
-  assert.equal(sandbox.document._elements.oppFilterNarrative.value, 'ai_infra');
-  assert.equal(sandbox.oppRenderCallCount, 1);
+test('ncToggleDetail opens a narrative, re-clicking the same one closes it', () => {
+  sandbox.ncExpandedId = null;
+  sandbox.renderNarrativeGridCallCount = 0;
+  vm.runInContext(`ncToggleDetail('n1')`, sandbox);
+  assert.equal(vm.runInContext('ncExpandedId', sandbox), 'n1');
+  assert.equal(sandbox.renderNarrativeGridCallCount, 1);
+
+  vm.runInContext(`ncToggleDetail('n1')`, sandbox);
+  assert.equal(vm.runInContext('ncExpandedId', sandbox), null); // re-click closes
+  assert.equal(sandbox.renderNarrativeGridCallCount, 2);
 });
 
-test('ncJumpToOpportunities stops the click from also toggling the narrative card (event.stopPropagation)', () => {
-  let stopPropagationCalled = false;
-  const fakeEvent = { stopPropagation: () => { stopPropagationCalled = true; } };
-  vm.runInContext('ncJumpToOpportunities', sandbox)('semiconductors', fakeEvent);
-  assert.equal(stopPropagationCalled, true);
+test('ncToggleDetail clicking a different narrative closes the previous and opens the new one', () => {
+  sandbox.ncExpandedId = null;
+  vm.runInContext(`ncToggleDetail('n1')`, sandbox);
+  assert.equal(vm.runInContext('ncExpandedId', sandbox), 'n1');
+  vm.runInContext(`ncToggleDetail('n2')`, sandbox);
+  assert.equal(vm.runInContext('ncExpandedId', sandbox), 'n2'); // never both open at once
+  vm.runInContext('ncExpandedId = null', sandbox);
 });
 
-test('ncJumpToOpportunities does not throw when the event is omitted (called without a click)', () => {
-  assert.doesNotThrow(() => {
-    vm.runInContext('ncJumpToOpportunities', sandbox)('semiconductors');
-  });
+test('ncToggleDetail resets the EMA filter when opening/closing a detail view', () => {
+  sandbox.ncEmaFilter = 'ema10';
+  vm.runInContext(`ncToggleDetail('n1')`, sandbox);
+  assert.equal(vm.runInContext('ncEmaFilter', sandbox), 'all');
+  sandbox.ncEmaFilter = 'all';
+  vm.runInContext('ncExpandedId = null', sandbox);
+});
+
+// ── V6.1 point 12: Top 10 default, expand/collapse all ──
+
+test('ncToggleExpandAll flips ncNarrativesExpanded and triggers a re-render', () => {
+  vm.runInContext('ncNarrativesExpanded = false', sandbox);
+  sandbox.renderNarrativeGridCallCount = 0;
+  vm.runInContext('ncToggleExpandAll()', sandbox);
+  assert.equal(vm.runInContext('ncNarrativesExpanded', sandbox), true);
+  assert.equal(sandbox.renderNarrativeGridCallCount, 1);
+
+  vm.runInContext('ncToggleExpandAll()', sandbox);
+  assert.equal(vm.runInContext('ncNarrativesExpanded', sandbox), false);
+  assert.equal(sandbox.renderNarrativeGridCallCount, 2);
 });
 
 // ══════════════════════════════════════════════
@@ -638,18 +658,18 @@ test('copy-visible-tickers keeps reading from the full filtered DATA STATE regar
   assert.deepEqual(collapsedVisible.map(it => it.symbol), openFirstPageVisible.map(it => it.symbol));
 });
 
-// ── Spec point 7/11-13: RSP-based Narrative Strength/Thrust headline ──
+// ── V6.1 point 6-8: cross-sectional Narrative RS/Thrust headline metrics ──
 
-test('ncScoreValue reads strength_rsp[window] for the "strength" score, fully separate per window', () => {
-  const narrative = { strength_rsp: { '1w': 80.0, '1m': 70.0, '3m': 65.1, '6m': 61.9 }, thrust_rsp: 78.0 };
-  const out = vm.runInContext('ncScoreValue(narrative, "strength", window)', Object.assign(sandbox, { narrative, window: '1w' }));
+test('ncScoreValue reads narrative_rs[window] for the "rs" score, fully separate per window', () => {
+  const narrative = { narrative_rs: { '1w': 80.0, '1m': 70.0, '3m': 65.1, '6m': 61.9 }, thrust_rsp: 78.0 };
+  const out = vm.runInContext('ncScoreValue(narrative, "rs", window)', Object.assign(sandbox, { narrative, window: '1w' }));
   assert.equal(out, 80.0);
-  const out3m = vm.runInContext('ncScoreValue(narrative, "strength", window)', Object.assign(sandbox, { narrative, window: '3m' }));
+  const out3m = vm.runInContext('ncScoreValue(narrative, "rs", window)', Object.assign(sandbox, { narrative, window: '3m' }));
   assert.equal(out3m, 65.1);
 });
 
-test('ncScoreValue "thrust" ignores the strengthWindow argument entirely (spec point 11: no tab affects Thrust)', () => {
-  const narrative = { strength_rsp: { '1w': 80.0, '1m': 70.0, '3m': 65.1, '6m': 61.9 }, thrust_rsp: 78.0 };
+test('ncScoreValue "thrust" ignores the strengthWindow argument entirely (point 2: no tab affects Thrust)', () => {
+  const narrative = { narrative_rs: { '1w': 80.0, '1m': 70.0, '3m': 65.1, '6m': 61.9 }, thrust_rsp: 78.0 };
   const forWindow1w = vm.runInContext('ncScoreValue(narrative, "thrust", window)', Object.assign(sandbox, { narrative, window: '1w' }));
   const forWindow6m = vm.runInContext('ncScoreValue(narrative, "thrust", window)', Object.assign(sandbox, { narrative, window: '6m' }));
   assert.equal(forWindow1w, 78.0);
@@ -657,14 +677,14 @@ test('ncScoreValue "thrust" ignores the strengthWindow argument entirely (spec p
   assert.equal(forWindow1w, forWindow6m);
 });
 
-test('ncScoreValue returns null (never fabricated) when strength_rsp/thrust_rsp are missing', () => {
+test('ncScoreValue returns null (never fabricated) when narrative_rs/thrust_rsp are missing', () => {
   const narrative = { name: 'No RSP data yet' };
-  assert.equal(vm.runInContext('ncScoreValue(narrative, "strength", window)', Object.assign(sandbox, { narrative, window: '1w' })), null);
+  assert.equal(vm.runInContext('ncScoreValue(narrative, "rs", window)', Object.assign(sandbox, { narrative, window: '1w' })), null);
   assert.equal(vm.runInContext('ncScoreValue(narrative, "thrust", window)', Object.assign(sandbox, { narrative, window: '1w' })), null);
 });
 
-test('ncFmtScore formats Strength as a plain 0-100-style number (percentile rank, not a %-return)', () => {
-  const out = vm.runInContext('ncFmtScore(v, "strength")', Object.assign(sandbox, { v: 62.45 }));
+test('ncFmtScore formats RS as a plain 0-100-style number (percentile rank, not a %-return)', () => {
+  const out = vm.runInContext('ncFmtScore(v, "rs")', Object.assign(sandbox, { v: 62.45 }));
   assert.equal(out, '62.5'); // rounds to 1 decimal, no leading + / no % suffix
 });
 
@@ -677,9 +697,45 @@ test('ncFmtScore formats Thrust as a signed float, never clamped, matching the w
   assert.equal(over100, '+110.00'); // NOT clamped to 100
 });
 
-test('ncFmtScore renders missing values as "—" for both Strength and Thrust', () => {
-  assert.equal(vm.runInContext('ncFmtScore(v, "strength")', Object.assign(sandbox, { v: null })), '—');
+test('ncFmtScore renders missing values as "—" for both RS and Thrust', () => {
+  assert.equal(vm.runInContext('ncFmtScore(v, "rs")', Object.assign(sandbox, { v: null })), '—');
   assert.equal(vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: undefined })), '—');
+});
+
+// ── V6.1 point 14/25-26: exact Member-Detailtabelle column set, static HTML checks ──
+
+test('MEMBER_COLUMNS matches the spec\'s exact 6-column set (Ticker/Kurs/Veränderung abs./Veränderung %/RS/Thrust)', () => {
+  const cols = vm.runInContext('MEMBER_COLUMNS', sandbox);
+  assert.deepEqual(Array.from(cols).map(c => c.key), ['symbol', 'price', 'change_abs', 'd1_pct', 'rs', 'stock_thrust_rs']);
+});
+
+test('index.html: "Zeithorizont (Mitglieder)" toggle is fully removed (point 2)', () => {
+  assert.doesNotMatch(html, /Zeithorizont \(Mitglieder\)/);
+  assert.doesNotMatch(html, /id="horizonToggle"/);
+});
+
+test('index.html: RS-Zeitfenster and Ranking controls are present (point 2-3)', () => {
+  assert.match(html, /RS-Zeitfenster/);
+  assert.match(html, /id="strengthWindowToggle"/);
+  assert.match(html, /id="rankingModeToggle"/);
+  assert.match(html, /data-ranking="rs"/);
+  assert.match(html, /data-ranking="thrust"/);
+});
+
+test('index.html: no colored full-surface narrative cards remain (point 1/11)', () => {
+  assert.doesNotMatch(html, /class="narrative-card/);
+  assert.doesNotMatch(html, /nc-card-scores/);
+});
+
+test('index.html: Structural Score/Lifecycle/Momentum-Modifier/Opportunities-summary removed from the narrative view (point 10)', () => {
+  assert.doesNotMatch(html, /nc-lifecycle-badge/);
+  assert.doesNotMatch(html, /nc-modifier-badge/);
+  assert.doesNotMatch(html, /nc-opp-summary/);
+  assert.doesNotMatch(html, /ncJumpToOpportunities/);
+});
+
+test('index.html: narrative table header is exactly # | Narrative | RS | Thrust (point 11)', () => {
+  assert.match(html, /<th>#<\/th><th>Narrative<\/th><th>RS<\/th><th>Thrust<\/th>/);
 });
 
 // ── Spec point 29A: QQQ breadth chart NaN-safety / explicit fallback text ──

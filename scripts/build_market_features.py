@@ -118,7 +118,7 @@ import pandas as pd
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent))
-from build_narratives import percentile_ranks, HORIZONS  # noqa: E402  (reuse canonical logic)
+from build_narratives import percentile_ranks, HORIZONS, compute_narrative_thrust_rsp  # noqa: E402  (reuse canonical logic)
 import build_market_reference as ref  # noqa: E402
 
 MASSIVE_BASE = "https://api.massive.com"
@@ -567,17 +567,22 @@ def classify_healthcare_biotech(sic_code, sic_description, company_description, 
     Returns (excluded: bool, reason: str|None).
 
     Priority order (never mixed):
-      1. sic_code present -> checked ONLY against sic_codes/sic_prefixes,
-         then (backstop) sic_description against sic_description_keywords.
-         company_description is NEVER consulted here — a ticker with a real,
-         non-healthcare SIC must never be excluded just because its business
-         description happens to mention a healthcare customer/use case
-         (spec point 6: 'keine normalen Tech-Unternehmen ausschliessen, nur
-         weil deren Kunden teilweise aus Healthcare kommen').
-      2. sic_code missing entirely -> the ONLY case where
-         company_description_keywords_for_ambiguous_sic is consulted, per
-         the config field's own name ('ambiguous_sic' means 'no SIC at all'
-         here, not 'a SIC that didn't match')."""
+      1. sic_code present -> checked against sic_codes/sic_prefixes, then
+         (backstop) sic_description against sic_description_keywords.
+      2. V6.1 (Narrative Ranking & UI Bugfix Patch, point 18): if the SIC
+         was present but didn't map via either of the above, company_
+         description gets ONE more check against the SAME high-precision
+         phrase list used below for the no-SIC-at-all case -- V6 skipped
+         this entirely whenever a SIC existed, which let real Biotech/
+         Healthcare companies with an unmapped/generic SIC still count as
+         eligible (e.g. an active 'Biotech' narrative surviving on the
+         dashboard). Still deliberately narrow, company-self-describing
+         noun phrases ('biotech company', 'hospital operator', ...), never
+         a bare 'health' substring scan -- a normal tech company whose
+         company_description merely mentions healthcare as one of several
+         customer verticals must never match (spec point 6/18).
+      3. sic_code missing entirely -> the same company_description_keywords
+         check, independent of step 2."""
     sic_str = str(sic_code) if sic_code else None
     if sic_str:
         if sic_str in set(filter_cfg["sic_codes"]):
@@ -589,10 +594,14 @@ def classify_healthcare_biotech(sic_code, sic_description, company_description, 
         for kw in filter_cfg["sic_description_keywords"]:
             if kw.lower() in desc:
                 return True, f"sic_description contains '{kw}' (SIC {sic_str})"
+        cdesc = (company_description or "").lower()
+        for kw in filter_cfg["company_description_keywords"]:
+            if kw.lower() in cdesc:
+                return True, f"SIC {sic_str} not mapped; company_description contains '{kw}'"
         return False, None
 
     desc = (company_description or "").lower()
-    for kw in filter_cfg["company_description_keywords_for_ambiguous_sic"]:
+    for kw in filter_cfg["company_description_keywords"]:
         if kw.lower() in desc:
             return True, f"no SIC code; company_description contains '{kw}'"
     return False, None
@@ -612,6 +621,28 @@ def compute_healthcare_excluded_universe(features, sic_by_symbol, universe_cfg):
         out[sym] = classify_healthcare_biotech(
             meta.get("sic_code"), meta.get("sic_description"), meta.get("description"), filter_cfg)
     return out
+
+
+def calc_return_n_sessions_ago(close_df, sym, window, sessions_ago):
+    """V6.1 point 16: `window`-session % return of `sym`, ending `sessions_ago`
+    real trading sessions before the most recent one available in close_df's
+    own (dropna'd) series for that ticker -- used to reconstruct a historical
+    Stock RS1W reference point for stock_thrust_rs, straight from the same
+    260-session price history everything else in this file already uses.
+    None if the ticker isn't in close_df or there isn't enough history for a
+    full window at that reference point (graceful degradation, never a
+    partial/padded window)."""
+    if sym not in close_df.columns:
+        return None
+    s = close_df[sym].dropna()
+    n = len(s)
+    end = n - sessions_ago
+    if end - 1 - window < 0:
+        return None
+    base = s.iloc[end - 1 - window]
+    if not base:
+        return None
+    return float((s.iloc[end - 1] - base) / base * 100)
 
 
 def eligible_percentile_ranks(features, eligible_by_symbol, field):
@@ -843,6 +874,33 @@ def main():
     print(f"  ✅ Structural RS / Trend Strength / Recent-Leader-Bootstrap berechnet "
           f"({sum(recent_leader_bootstrap.values())} Ticker via Bootstrap als jüngste Leader erkannt)")
 
+    # V6.1 point 16: Stock Thrust ("stock_thrust_rs") -- same formula shape
+    # as build_narratives.py's Narrative Thrust (0.60*RS1W + 0.40*RS1M +
+    # 0.10*(RS1W_today - RS1W_N_sessions_ago)), reusing
+    # compute_narrative_thrust_rsp directly rather than duplicating the
+    # formula (it's already a generic percentile-in/percentile-out function
+    # despite its name). RS1W_N_sessions_ago is reconstructed straight from
+    # close_df (the same 260-session price history everything else here
+    # already uses): a 5-session return ending N sessions before the most
+    # recent one, then percentile-ranked cross-sectionally over the SAME
+    # eligible population as today's rs_percentile_1w -- never a second,
+    # independent eligible-universe definition.
+    thrust_delta_sessions = cfg["rsp_benchmark"]["thrust_delta_sessions"]
+    thrust_weights_shared = cfg["rsp_benchmark"]["thrust_weights"]
+    w1_window = HORIZONS["1w"]["window"]
+
+    ret_1w_n_ago_by_symbol = {sym: calc_return_n_sessions_ago(close_df, sym, w1_window, thrust_delta_sessions)
+                               for sym in features}
+    rs_1w_n_ago_by_symbol = eligible_percentile_ranks(
+        {sym: {"_r": v} for sym, v in ret_1w_n_ago_by_symbol.items() if v is not None},
+        eligible_by_symbol, "_r")
+    stock_thrust_rs_by_symbol = {
+        sym: compute_narrative_thrust_rsp(
+            percentiles_by_horizon["1w"].get(sym), percentiles_by_horizon["1m"].get(sym),
+            rs_1w_n_ago_by_symbol.get(sym), thrust_weights_shared)
+        for sym in features
+    }
+
     thrust_by_horizon = {}
     for h, hcfg in HORIZONS.items():
         # Raw Thrust value computed for every ticker with features (used for
@@ -915,8 +973,15 @@ def main():
             "thrust_percentile_1m": thrust_1m_pct,
             "sic_code": overview.get("sic_code"),
             "sic_description": overview.get("sic_description"),
+            # V6.1 point 18/19: exposed additively so both
+            # classify_healthcare_biotech's SIC-present company_description
+            # backstop (this file) and build_narratives.py's
+            # find_healthcare_biotech_leaks sanity gate can audit it without
+            # a second overview fetch.
+            "company_description": overview.get("description"),
             "healthcare_biotech_excluded": healthcare_excluded,
             "healthcare_exclusion_reason": healthcare_reason,
+            "stock_thrust_rs": stock_thrust_rs_by_symbol.get(sym),
             "discovery_candidate": discovery_candidate and eligible,
         }
 
@@ -937,6 +1002,7 @@ def main():
             "structural_rs_computed_count": sum(1 for t in output_tickers.values() if t["structural_rs"] is not None),
             "trend_strength_computed_count": sum(1 for t in output_tickers.values() if t["trend_strength"] is not None),
             "bootstrap_recent_leader_count": sum(recent_leader_bootstrap.values()),
+            "stock_thrust_rs_computed_count": sum(1 for t in output_tickers.values() if t["stock_thrust_rs"] is not None),
         },
         "tickers": output_tickers,
     }

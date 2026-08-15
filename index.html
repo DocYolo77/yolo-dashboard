@@ -192,27 +192,15 @@ html { scroll-behavior: smooth; }
 .nc-btn.active { background: var(--ink); color: var(--sand); }
 .nc-meta { margin-left: auto; font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); }
 
-.narrative-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
-.narrative-empty { grid-column: 1/-1; padding: 40px; text-align: center; font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); }
+.narrative-empty { padding: 40px; text-align: center; font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); }
 
-.narrative-card { border: 1px solid var(--card-border); border-radius: 4px; padding: 16px 18px; cursor: pointer; transition: border-color 0.15s; background: var(--card-bg); }
-.narrative-card:hover { border-color: rgba(255,255,255,0.22); }
-.narrative-card.expanded { border-color: var(--ink-light); }
-.nc-card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-.nc-card-name { font-family: var(--header-font); font-size: 15px; font-weight: 600; }
-.nc-card-rank { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); }
-.nc-card-score { font-family: var(--mono-font); font-size: 26px; font-weight: 400; margin-top: 6px; }
-/* V6 point 7: exactly two headline metrics, always shown together (no
-   Strength/Thrust toggle -- only the Strength timeframe tab exists). */
-.nc-card-scores { display: flex; gap: 22px; margin-top: 6px; }
-.nc-card-score-item { display: flex; flex-direction: column; }
-.nc-card-score-label { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-muted); }
-.nc-card-score-value { font-family: var(--mono-font); font-size: 26px; font-weight: 400; }
-.nc-card-stats { display: flex; gap: 12px; margin-top: 10px; font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); flex-wrap: wrap; }
-.nc-card-stats b { color: var(--ink-light); font-weight: 500; }
-.nc-card-members { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 8px; }
+/* V6.1 (Narrative Ranking & UI Bugfix Patch) point 1/11: card grid replaced
+   by a compact table (.data-table, same visual language as the Futures
+   table) -- rank/name/RS/Thrust only, no colored full-surface cards. */
+.nc-name-cell { font-family: var(--header-font); font-weight: 600; cursor: pointer; }
+.nc-name-cell:hover { text-decoration: underline; text-underline-offset: 2px; }
 
-.narrative-detail { grid-column: 1/-1; border: 1px solid var(--card-border); border-radius: 4px; padding: 16px 20px 20px; margin-top: -2px; background: var(--sand-dark); overflow-x: auto; }
+.narrative-detail { border: 1px solid var(--card-border); border-radius: 4px; padding: 16px 20px 20px; background: var(--sand-dark); overflow-x: auto; }
 .nd-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
 .nd-title { font-family: var(--header-font); font-size: 16px; font-weight: 600; }
 .nd-close { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); cursor: pointer; letter-spacing: 1px; text-transform: uppercase; }
@@ -315,26 +303,6 @@ html { scroll-behavior: smooth; }
 .qps-flag.yes { background: var(--positive-bg); color: var(--positive); }
 .qps-flag.no { background: rgba(255,255,255,0.05); color: var(--ink-muted); }
 
-/* NARRATIVE CARD — Lifecycle/Momentum-Score/Rank (Punkt 19) */
-.nc-lifecycle-badge { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; margin-top: 6px; display: inline-block; }
-.nc-lifecycle-badge.emerging { background: rgba(61,220,115,0.15); color: var(--positive); }
-.nc-lifecycle-badge.active { background: rgba(47,126,216,0.15); color: #2f7ed8; }
-.nc-lifecycle-badge.mature { background: rgba(212,160,23,0.15); color: #d4a017; }
-.nc-lifecycle-badge.fading { background: rgba(226,146,92,0.15); color: #e2925c; }
-.nc-lifecycle-badge.dormant, .nc-lifecycle-badge.neutral { background: rgba(255,255,255,0.05); color: var(--ink-muted); }
-.nc-momentum-score { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 6px; }
-.nc-rank-change { font-size: 9px; margin-left: 4px; }
-.nc-rank-change.up { color: var(--positive); }
-.nc-rank-change.down { color: var(--negative); }
-.nc-trend-participation { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 2px; }
-.nc-modifier-badge { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; margin-top: 6px; margin-left: 6px; display: inline-block; }
-.nc-modifier-badge.accelerating { background: rgba(61,220,115,0.15); color: var(--positive); }
-.nc-modifier-badge.cooling { background: rgba(47,126,216,0.12); color: #6ea8dc; }
-.nc-opp-summary { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; padding: 4px; border-radius: 3px; font-family: var(--mono-font); font-size: 9px; color: var(--ink-muted); cursor: pointer; transition: background 0.15s; }
-.nc-opp-summary:hover { background: rgba(255,255,255,0.05); }
-.nc-opp-summary:hover .nc-opp-jump { color: var(--ink-light); }
-.nc-opp-eligible { color: var(--ink-light); font-weight: 600; }
-.nc-opp-jump { margin-left: auto; opacity: 0.7; }
 
 /* OPPORTUNITIES (Punkt 05) */
 .opp-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 16px; background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 3px; padding: 3px; }
@@ -772,31 +740,21 @@ html { scroll-behavior: smooth; }
       <span class="section-sub">Wo konzentriert sich Leadership?</span>
       <span class="nc-info" id="narrativeInfo" tabindex="0">ⓘ
         <dl class="nc-info-popup">
-          <dt>Strength</dt>
-          <dd>"Jeff-inspired Relative Strength gegen RSP" (Kandidatenformel v1, KEINE Reproduktion von Jeff Suns unveröffentlichter Originalformel). Perzentilrang der aktuellen Relativ-Stärke-Linie (synthetischer, gleichgewichteter Narrative-Index ÷ RSP-Kurs) innerhalb des gewählten Zeitfensters (1W/1M/3M/6M) — die vier Zeitfenster sind vollständig getrennt, kein zusammengesetzter Score.</dd>
+          <dt>RS</dt>
+          <dd>"Jeff-inspired Relative Strength gegen RSP" (Kandidatenformel v1, KEINE Reproduktion von Jeff Suns unveröffentlichter Originalformel). Cross-Sectional-Perzentilrang der relativen Performance (Narrative-Index vs. RSP) innerhalb des gewählten RS-Zeitfensters (1W/1M/3M/6M) GEGEN ALLE ANDEREN AKTIVEN NARRATIVE — die vier Zeitfenster sind vollständig getrennt, kein zusammengesetzter Score.</dd>
           <dt>Thrust</dt>
-          <dd>"Jeff-inspired Thrust candidate v1" (ebenfalls Kandidatenformel, keine Kalibrierung): 0.60×Strength(1W) + 0.40×Strength(1M) + 0.10×(Strength(1W) − Strength(1W vor 3 Handelstagen)). Nicht auf 0–100 begrenzt; unabhängig vom Zeitfenster-Tab.</dd>
+          <dd>"Jeff-inspired Thrust candidate v1" (ebenfalls Kandidatenformel, keine Kalibrierung): 0.60×RS(1W) + 0.40×RS(1M) + 0.10×(RS(1W) − RS(1W vor 3 Handelstagen)). Nicht auf 0–100 begrenzt; unabhängig vom RS-Zeitfenster-Tab.</dd>
+          <dt>Ranking</dt>
+          <dd>RS-Modus sortiert nach RS des gewählten Zeitfensters, THRUST-Modus nach Thrust — jeweils mit der aggregierten Market Cap der eligible Mitglieder als reinem Tie-Breaker (fließt nie in RS/Thrust selbst ein).</dd>
           <dt>RSP Benchmark</dt>
-          <dd>S&amp;P 500 Equal Weight ETF — der Benchmark hinter Strength/Thrust hier UND der Benchmark-Grafik. Nicht zu verwechseln mit der Stock-RS-Percentile (Einzelaktie vs. eligible Universe) oder dieser Narrative Strength (Narrative-Index vs. RSP).</dd>
-          <dt>Lifecycle</dt>
-          <dd>Emerging (entsteht gerade), Active (etabliert), Mature (reif, Momentum lässt nach), Fading (verliert Momentum), Dormant (ruht). Rein struktureller Kontext, unabhängig von Strength/Thrust.</dd>
-          <dt>Leadership / Breadth</dt>
-          <dd>Weiterhin intern berechnet, aber keine konkurrierenden Headline-Scores mehr — nur noch informativer Kontext.</dd>
+          <dd>S&amp;P 500 Equal Weight ETF — der Benchmark hinter RS/Thrust hier UND der Benchmark-Grafik. Nicht zu verwechseln mit der Stock-RS-Percentile (Einzelaktie vs. eligible Universe) in der Mitglieder-Tabelle.</dd>
         </dl>
       </span>
     </div>
 
     <div class="narrative-controls">
       <div class="nc-group">
-        <span class="nc-label">Zeithorizont (Mitglieder)</span>
-        <div class="nc-toggle" id="horizonToggle">
-          <button class="nc-btn active" data-horizon="1d">1D</button>
-          <button class="nc-btn" data-horizon="1w">1W</button>
-          <button class="nc-btn" data-horizon="1m">1M</button>
-        </div>
-      </div>
-      <div class="nc-group">
-        <span class="nc-label">Strength Zeitfenster</span>
+        <span class="nc-label">RS-Zeitfenster</span>
         <div class="nc-toggle" id="strengthWindowToggle">
           <button class="nc-btn active" data-window="1w">1W</button>
           <button class="nc-btn" data-window="1m">1M</button>
@@ -804,13 +762,24 @@ html { scroll-behavior: smooth; }
           <button class="nc-btn" data-window="6m">6M</button>
         </div>
       </div>
+      <div class="nc-group">
+        <span class="nc-label">Ranking</span>
+        <div class="nc-toggle" id="rankingModeToggle">
+          <button class="nc-btn active" data-ranking="rs">RS</button>
+          <button class="nc-btn" data-ranking="thrust">THRUST</button>
+        </div>
+      </div>
       <div class="nc-meta" id="narrativeMeta"></div>
       <button class="nd-copy-btn" id="momentumCopyBtn" onclick="ncCopyMomentumTickers(this)" title="Kopiert nur Momentum-Ticker, die aktuell als Near EMA geflaggt sind (near_emas=true aus der Opportunity Engine, gesamtes eligible Universe) — keine Frontend-Neuberechnung.">📋 Near-EMA Momentum kopieren</button>
     </div>
 
-    <div class="narrative-grid" id="narrativeGrid">
-      <div class="narrative-empty">Lade Narrative-Daten…</div>
-    </div>
+    <table class="data-table narrative-rank-table">
+      <thead><tr><th>#</th><th>Narrative</th><th>RS</th><th>Thrust</th></tr></thead>
+      <tbody id="narrativeGrid">
+        <tr><td colspan="4" class="narrative-empty">Lade Narrative-Daten…</td></tr>
+      </tbody>
+    </table>
+    <button class="nd-copy-btn" id="narrativeExpandToggle" onclick="ncToggleExpandAll()" style="margin-top:10px;display:none;"></button>
 
     <div class="benchmark-section">
       <div class="benchmark-header">
@@ -1590,66 +1559,6 @@ function renderExecSummary() {
   }).join('') + (wc.events.length > MAX_SHOWN ? `<div class="exec-changed-more">+ ${wc.events.length - MAX_SHOWN} weitere Änderungen</div>` : '');
 }
 
-// ── Narrative-Card-Erweiterungen (Lifecycle/Score/Rank, Opportunity-Summary) ──
-function ncLifecycleData(narrativeId) {
-  return (dashboardState && dashboardState.narratives && dashboardState.narratives.items)
-    ? dashboardState.narratives.items[narrativeId] : null;
-}
-function ncOpportunitySummary(narrativeId) {
-  if (!dashboardState) return null;
-  // dashboardState.opportunities.items is already restricted to the
-  // eligible universe (build_dashboard_states.py only emits eligible
-  // tickers), so items.length here IS "eligible members of this narrative"
-  // (Full-Universe spec point 12).
-  const items = dashboardState.opportunities.items.filter(it => it.narratives.includes(narrativeId));
-  return {
-    eligible: items.length,
-    leaders: items.filter(it => it.quality_state === 'leader' || it.quality_state === 'fresh_leader').length,
-    fresh: items.filter(it => it.quality_state === 'fresh_leader').length,
-    recent: items.filter(it => it.quality_state === 'recent_leader').length,
-    resets: items.filter(it => it.constructive_reset_narratives.includes(narrativeId)).length,
-    extended: items.filter(it => it.extended).length,
-    laggards: items.filter(it => it.laggard_narratives.includes(narrativeId)).length,
-  };
-}
-
-// Full-Universe spec point 12: Narrative Card -> Opportunities, narrative
-// pre-filtered. Point 13 wants this combinable with the existing State
-// tabs — this only sets the Narrative filter, existing oppTab/oppSortState
-// stay whatever they already were (no hidden reset of user's other choices).
-function ncJumpToOpportunities(narrativeId, event) {
-  if (event) event.stopPropagation(); // don't also trigger the card's own onclick (ncToggleCard)
-  const sel = document.getElementById('oppFilterNarrative');
-  if (sel) { sel.value = narrativeId; oppRender(); }
-  const section = document.getElementById('opportunities');
-  if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-// ── Narrative Detail View: zusaetzlicher State-Filter (Punkt 32), kombinierbar mit EMA-Filter ──
-let ncStateFilter = 'all'; // 'all' | 'fresh_leader' | 'leader' | 'constructive_reset' | 'extended' | 'laggard'
-
-function ncMemberOpportunityState(narrativeId, symbol) {
-  if (!dashboardState) return null;
-  return dashboardState.opportunities.items.find(it => it.symbol === symbol && it.narratives.includes(narrativeId)) || null;
-}
-function ncStateFilterMembers(members, narrativeId) {
-  if (ncStateFilter === 'all') return members;
-  return members.filter(m => {
-    const op = ncMemberOpportunityState(narrativeId, m.symbol);
-    if (!op) return false;
-    if (ncStateFilter === 'fresh_leader') return op.quality_state === 'fresh_leader';
-    if (ncStateFilter === 'leader') return op.quality_state === 'leader' || op.quality_state === 'fresh_leader';
-    if (ncStateFilter === 'constructive_reset') return op.constructive_reset_narratives.includes(narrativeId);
-    if (ncStateFilter === 'extended') return op.extended;
-    if (ncStateFilter === 'laggard') return op.laggard_narratives.includes(narrativeId);
-    return true;
-  });
-}
-function ncSetStateFilter(narrativeId, filter) {
-  ncStateFilter = filter;
-  renderNarrativeGrid();
-}
-
 // ══════════════════════════════════════════════
 // OPPORTUNITIES (Punkt 20-31)
 // ══════════════════════════════════════════════
@@ -1918,10 +1827,14 @@ loadDashboardState();
 // NARRATIVES / BASKETS
 // ══════════════════════════════════════════════
 let narrativesRaw = null;
-let ncHorizon = '1d'; // member-table horizon (1D/1W/1M) — UNRELATED to Strength; controls only member sort/spark/RS field
-let ncStrengthWindow = '1w'; // V6 point 7/11: RSP Strength timeframe (1W/1M/3M/6M) — controls displayed+ranking Strength value ONLY, never Thrust
+// V6.1 (Narrative Ranking & UI Bugfix Patch) point 2: RS-Zeitfenster
+// (1W/1M/3M/6M) controls the displayed+ranking Narrative RS value AND the
+// member table's Stock RS column -- it never affects Thrust (point 2/16,
+// both Narrative and Stock Thrust are fixed, timeframe-independent values).
+let ncStrengthWindow = '1w';
+let ncRankingMode = 'rs'; // point 3: 'rs' | 'thrust', default 'rs'
 let ncExpandedId = null;
-let ncMemberSort = { field: 'd1_pct', dir: 'desc' };
+let ncNarrativesExpanded = false; // point 12: Top 10 default, expand/collapse all
 let ncEmaFilter = 'all'; // 'all' | 'ema10' | 'ema20' | 'either'
 // V6 point 29B: single dedicated RSP cumulative-return Benchmark chart —
 // replaces the old multi-narrative-vs-SPY pill comparison entirely (that
@@ -1947,17 +1860,15 @@ async function loadEngineConfig() {
   }
 }
 
+// V6.1 point 14: exact column set for the Member-Detailtabelle -- no
+// EMA10/EMA20/ATR-Extension/Verlauf columns anymore.
 const MEMBER_COLUMNS = [
-  { key: 'symbol', label: 'Ticker', sortable: true },
-  { key: 'price',  label: 'Kurs', sortable: true },
-  { key: 'd1_pct', label: '1D%', sortable: true },
-  { key: 'w1_pct', label: '1W%', sortable: true },
-  { key: 'm1_pct', label: '1M%', sortable: true },
-  { key: 'rs',     label: 'RS', sortable: true },
-  { key: 'ema10_distance_pct', label: 'EMA10', sortable: true },
-  { key: 'ema20_distance_pct', label: 'EMA20', sortable: true },
-  { key: 'atr_extension', label: 'ATR Ext', sortable: true },
-  { key: 'spark',  label: 'Verlauf', sortable: false },
+  { key: 'symbol', label: 'Ticker' },
+  { key: 'price', label: 'Kurs' },
+  { key: 'change_abs', label: 'Veränderung abs.' },
+  { key: 'd1_pct', label: 'Veränderung %' },
+  { key: 'rs', label: 'RS' },
+  { key: 'stock_thrust_rs', label: 'Thrust' },
 ];
 
 // "Near EMA10/EMA20" — Punkt 21: abs(Close/EMA - 1) <= Schwelle. Members
@@ -1975,9 +1886,6 @@ function ncNearEma10(m, threshold) {
 }
 function ncNearEma20(m, threshold) {
   return m.ema20_distance_pct !== null && m.ema20_distance_pct !== undefined && Math.abs(m.ema20_distance_pct) <= threshold;
-}
-function ncIsAtrExtended(m, atrThreshold) {
-  return m.atr_extension !== null && m.atr_extension !== undefined && m.atr_extension > atrThreshold;
 }
 
 function ncEmaFilterMembers(members) {
@@ -2008,104 +1916,82 @@ async function loadNarratives() {
   }
 }
 
-// V6 point 7-13: the two new RSP-based headline metrics. 'strength' reads
-// narrative.strength_rsp[strengthWindow] (percentile rank within that
-// window, spec point 11) -- the four windows are fully separate, no
-// averaging. 'thrust' reads narrative.thrust_rsp directly and completely
-// IGNORES strengthWindow (spec point 11: "no tab affects Thrust"). Both are
-// null when build_narratives.py couldn't compute them (e.g. RSP history
-// unavailable that run) -- rendered as "—", never fabricated.
+// V6.1 point 6-8: the headline metrics, now CROSS-SECTIONAL (see
+// scripts/build_narratives.py's compute_narrative_rs). 'rs' reads
+// narrative.narrative_rs[strengthWindow] -- the four windows are fully
+// separate, no averaging. 'thrust' reads narrative.thrust_rsp directly and
+// completely IGNORES strengthWindow (point 2: the RS-Zeitfenster tab never
+// affects Thrust). Both are null when build_narratives.py couldn't compute
+// them (e.g. RSP history unavailable that run) -- rendered as "—", never
+// fabricated.
 function ncScoreValue(narrative, score, strengthWindow) {
   if (score === 'thrust') return narrative.thrust_rsp ?? null;
-  const sr = narrative.strength_rsp;
-  return sr ? (sr[strengthWindow] ?? null) : null;
+  const rs = narrative.narrative_rs;
+  return rs ? (rs[strengthWindow] ?? null) : null;
 }
 
 function ncFmtScore(v, score) {
   if (v === null || v === undefined) return '—';
   const sign = v >= 0 ? '+' : '';
-  // Strength is already a 0-100 percentile rank (not a % return) -> plain
-  // number, same convention as the Stock RS Percentile fields elsewhere on
-  // this dashboard. Thrust is explicitly NOT clamped to 0-100 (spec point
-  // 12) and can be negative or exceed 100 -> signed float.
+  // RS is already a 0-100 cross-sectional percentile rank (not a % return)
+  // -> plain number, same convention as the Stock RS Percentile fields
+  // elsewhere on this dashboard. Thrust is explicitly NOT clamped to 0-100
+  // (point 9/16) and can be negative or exceed 100 -> signed float.
   return score === 'thrust' ? sign + v.toFixed(2) : v.toFixed(1);
 }
 
-// Farbintensität basiert auf dem Perzentilrang innerhalb der aktuell angezeigten
-// Narrative (nicht auf der absoluten Performance) — so bleibt die Skala über
-// verschiedene Scores/Zeithorizonte hinweg konsistent vergleichbar.
-function ncGreenShade(rankPct) {
-  if (rankPct >= 0.90) return 'rgba(61,220,115,0.30)';
-  if (rankPct >= 0.75) return 'rgba(61,220,115,0.20)';
-  if (rankPct >= 0.55) return 'rgba(61,220,115,0.12)';
-  if (rankPct >= 0.35) return 'rgba(61,220,115,0.06)';
-  return 'transparent';
-}
-
-function ncSortMembers(members) {
-  const { field, dir } = ncMemberSort;
-  const mul = dir === 'asc' ? 1 : -1;
+// V6.1 point 17: Member-table sort is DERIVED from the Ranking-mode toggle,
+// not a free per-column click-sort -- RS mode: Stock RS (selected window)
+// desc, Ticker asc. THRUST mode: Stock Thrust desc, Stock RS (selected
+// window) desc, Ticker asc. Thrust never changes when the RS-Zeitfenster
+// tab changes (point 16: "Stock Thrust ist fix und unabhängig").
+function ncSortMembersForRanking(members) {
   return members.slice().sort((a, b) => {
-    if (field === 'symbol') return mul * String(a.symbol).localeCompare(String(b.symbol));
-    const av = (a[field] === null || a[field] === undefined) ? -Infinity : a[field];
-    const bv = (b[field] === null || b[field] === undefined) ? -Infinity : b[field];
-    return mul * (av - bv);
+    if (ncRankingMode === 'thrust') {
+      const at = a.stock_thrust_rs ?? -Infinity, bt = b.stock_thrust_rs ?? -Infinity;
+      if (bt !== at) return bt - at;
+    }
+    const ars = a.rs ?? -Infinity, brs = b.rs ?? -Infinity;
+    if (brs !== ars) return brs - ars;
+    return String(a.symbol).localeCompare(String(b.symbol));
   });
-}
-
-function ncFmtDist(v) {
-  if (v === null || v === undefined) return '—';
-  const sign = v >= 0 ? '+' : '';
-  return sign + v.toFixed(1) + '%';
 }
 
 // Einzige Quelle fuer "was ist gerade sichtbar, in welcher Reihenfolge" —
 // wird sowohl vom Rendering als auch vom Copy-Button genutzt, damit beide
-// garantiert dieselbe Liste sehen (Punkt 22: Copy respektiert EMA-Filter +
-// State-Filter + Sortierung, aber die Sortierung aendert nur die
-// Reihenfolge, nie die Membership. Punkt 32: EMA- und State-Filter sind
-// kombinierbar).
+// garantiert dieselbe Liste sehen (Punkt 22 aus V6, weiterhin gueltig: Copy
+// respektiert EMA-Filter + Sortierung, aber die Sortierung aendert nur die
+// Reihenfolge, nie die Membership).
 function ncVisibleSortedMembers(narrative) {
-  const allMembers = narrative.members.map(m => ({ ...m, rs: m['percentile_' + ncHorizon] }));
+  const allMembers = narrative.members.map(m => ({ ...m, rs: m['percentile_' + ncStrengthWindow] }));
   const emaFiltered = ncEmaFilterMembers(allMembers);
-  const visible = ncStateFilterMembers(emaFiltered, narrative.id);
-  return ncSortMembers(visible);
+  return ncSortMembersForRanking(emaFiltered);
 }
 
+// V6.1 point 14: Member-Detailtabelle, exakt die 6 Spalten aus
+// MEMBER_COLUMNS. Returned als <tr><td colspan="4">…</td></tr>, damit sie
+// direkt unter der angeklickten Narrative-Zeile in derselben <table>
+// erscheint (point 13: "direkt darunter").
 function renderNarrativeDetail(narrative) {
   const sorted = ncVisibleSortedMembers(narrative);
-  const sparkField = ncHorizon === '1m' ? 'hist_1m' : 'hist_1w';
-  const atrThreshold = engineConfig.dashboard.atr_extension_warning_threshold;
 
   const rows = sorted.map(m => {
-    const extended = ncIsAtrExtended(m, atrThreshold);
-    // Grün bleibt ausschliesslich Strength-/Performance-Semantik (Punkt 20) —
-    // die ATR-Extension-Warnung markiert nur den Ticker-Namen/Wert als
-    // Badge, nicht die ganze Zeile.
-    const tickerCell = extended
-      ? `<span data-ticker="${m.symbol}">${m.symbol}</span> <span class="atr-ext-badge" title="ATR Extension ${m.atr_extension.toFixed(1)} > ${atrThreshold}">⚠ ${m.atr_extension.toFixed(1)}</span>`
-      : `<span data-ticker="${m.symbol}">${m.symbol}</span>`;
+    const changeAbsStr = (m.change_abs !== null && m.change_abs !== undefined)
+      ? (m.change_abs >= 0 ? '+' : '') + m.change_abs.toFixed(2) : '—';
+    const thrustStr = (m.stock_thrust_rs !== null && m.stock_thrust_rs !== undefined)
+      ? (m.stock_thrust_rs >= 0 ? '+' : '') + m.stock_thrust_rs.toFixed(2) : '—';
     return `
     <tr>
-      <td>${tickerCell}</td>
+      <td><span data-ticker="${m.symbol}">${m.symbol}</span></td>
       <td>${fmtPrice(m.price)}</td>
+      <td class="${pctClass(m.change_abs)}">${changeAbsStr}</td>
       <td class="${pctClass(m.d1_pct)}">${fmtPct(m.d1_pct)}</td>
-      <td class="${pctClass(m.w1_pct)}">${fmtPct(m.w1_pct)}</td>
-      <td class="${pctClass(m.m1_pct)}">${fmtPct(m.m1_pct)}</td>
-      <td class="muted">${(m.rs !== undefined && m.rs !== null) ? m.rs.toFixed(0) : '—'}</td>
-      <td class="muted">${ncFmtDist(m.ema10_distance_pct)}</td>
-      <td class="muted">${ncFmtDist(m.ema20_distance_pct)}</td>
-      <td class="${extended ? 'atr-ext-warn' : 'muted'}">${(m.atr_extension !== null && m.atr_extension !== undefined) ? m.atr_extension.toFixed(1) : '—'}</td>
-      <td>${makeSparkline(m[sparkField], 64, 20)}</td>
+      <td class="muted">${(m.rs !== undefined && m.rs !== null) ? m.rs.toFixed(1) : '—'}</td>
+      <td class="${(m.stock_thrust_rs ?? 0) >= 0 ? 'pos' : 'neg'}">${thrustStr}</td>
     </tr>`;
   }).join('');
 
-  const headers = MEMBER_COLUMNS.map(col => {
-    const isSorted = ncMemberSort.field === col.key;
-    const arrow = isSorted ? (ncMemberSort.dir === 'asc' ? '▲' : '▼') : '';
-    const click = col.sortable ? `onclick="ncSortBy('${col.key}')"` : '';
-    return `<th class="${isSorted ? 'sorted' : ''}" ${click}>${col.label}${arrow ? ` <span class="sort-arrow">${arrow}</span>` : ''}</th>`;
-  }).join('');
+  const headers = MEMBER_COLUMNS.map(col => `<th>${col.label}</th>`).join('');
 
   const emaFilters = [
     { key: 'all', label: 'All' },
@@ -2117,30 +2003,22 @@ function renderNarrativeDetail(narrative) {
     `<button class="nc-btn${ncEmaFilter === f.key ? ' active' : ''}" onclick="ncSetEmaFilter('${narrative.id}', '${f.key}')">${f.label}</button>`
   ).join('');
 
-  const stateFilters = [
-    { key: 'all', label: 'All' }, { key: 'fresh_leader', label: 'Fresh Leader' },
-    { key: 'leader', label: 'Leader' }, { key: 'constructive_reset', label: 'Constructive Reset' },
-    { key: 'extended', label: 'Extended' }, { key: 'laggard', label: 'Laggard' },
-  ];
-  const stateFilterButtons = stateFilters.map(f =>
-    `<button class="nc-btn${ncStateFilter === f.key ? ' active' : ''}" onclick="ncSetStateFilter('${narrative.id}', '${f.key}')">${f.label}</button>`
-  ).join('');
-
-  return `<div class="narrative-detail">
-    <div class="nd-header">
-      <span class="nd-title">${narrative.name} · ${sorted.length}/${narrative.n_members} Ticker</span>
-      <span class="nd-close" onclick="ncToggleCard('${narrative.id}')">Schließen ✕</span>
+  return `<tr class="narrative-detail-row"><td colspan="4">
+    <div class="narrative-detail">
+      <div class="nd-header">
+        <span class="nd-title">${narrative.name} · ${sorted.length}/${narrative.n_members} Ticker</span>
+        <span class="nd-close" onclick="ncToggleDetail('${narrative.id}')">Schließen ✕</span>
+      </div>
+      <div class="nd-toolbar">
+        <div class="nc-toggle">${emaFilterButtons}</div>
+        <button class="nd-copy-btn" onclick="ncCopyVisibleTickers('${narrative.id}', this)">Copy Tickers</button>
+      </div>
+      <table class="member-table">
+        <thead><tr>${headers}</tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
     </div>
-    <div class="nd-toolbar">
-      <div class="nc-toggle">${emaFilterButtons}</div>
-      <div class="nc-toggle">${stateFilterButtons}</div>
-      <button class="nd-copy-btn" onclick="ncCopyVisibleTickers('${narrative.id}', this)">Copy Tickers</button>
-    </div>
-    <table class="member-table">
-      <thead><tr>${headers}</tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
-  </div>`;
+  </td></tr>`;
 }
 
 function ncSetEmaFilter(narrativeId, filter) {
@@ -2285,117 +2163,92 @@ function renderBenchmarkChart() {
   legendEl.innerHTML = `<span class="bm-legend-item"><span class="bm-swatch" style="background:${BENCHMARK_RSP_COLOR};"></span>RSP (${ncBenchmarkTimeframe.toUpperCase()}) <b class="${last >= 0 ? 'pos' : 'neg'}">${lastStr}</b></span>`;
 }
 
+// V6.1 point 1/3/11: compact # | Narrative | RS | Thrust table replaces the
+// card grid entirely. Ranking mode (RS/THRUST toggle) drives the sort;
+// Structural Score/Rank/Trend Participation/Breadth/Leadership/Lifecycle/
+// Momentum Modifier/Opportunities-summary are all fully removed from this
+// view (point 10) -- they stay computed backend-side (dashboard_state.json)
+// for other, unchanged modules, this view just never reads them anymore.
 function renderNarrativeGrid() {
   if (!narrativesRaw) return;
-  const grid = document.getElementById('narrativeGrid');
+  const tbody = document.getElementById('narrativeGrid');
   const list = narrativesRaw.narratives.slice();
-  // V6 point 13: the selected Strength timeframe tab is the ONLY thing that
-  // drives narrative ranking — Thrust is never mixed into this (no
-  // composite rank), the old narrative_structural_score is no longer the
-  // visible headline rank.
-  list.sort((a, b) => (ncScoreValue(b, 'strength', ncStrengthWindow) ?? -999) - (ncScoreValue(a, 'strength', ncStrengthWindow) ?? -999));
-  const total = list.length;
 
-  const html = list.map((narrative, i) => {
-    const strengthVal = ncScoreValue(narrative, 'strength', ncStrengthWindow);
+  // Point 3/4: RS mode -> RS(selected window) desc, aggregate_market_cap
+  // desc (tie-break ONLY, never an input to RS/Thrust itself), name asc.
+  // THRUST mode -> Thrust desc, aggregate_market_cap desc, name asc.
+  list.sort((a, b) => {
+    if (ncRankingMode === 'thrust') {
+      const at = a.thrust_rsp ?? -Infinity, bt = b.thrust_rsp ?? -Infinity;
+      if (bt !== at) return bt - at;
+    } else {
+      const ars = ncScoreValue(a, 'rs', ncStrengthWindow) ?? -Infinity;
+      const brs = ncScoreValue(b, 'rs', ncStrengthWindow) ?? -Infinity;
+      if (brs !== ars) return brs - ars;
+    }
+    const acap = a.aggregate_market_cap ?? -Infinity, bcap = b.aggregate_market_cap ?? -Infinity;
+    if (bcap !== acap) return bcap - acap;
+    return String(a.name).localeCompare(String(b.name));
+  });
+
+  // Point 12: Top 10 by default, "Alle Narrative anzeigen"/"Auf Top 10
+  // reduzieren" toggles the full list. Re-sliced on every render, so
+  // switching RS-Zeitfenster/Ranking always recomputes Top 10 freshly.
+  const visibleList = ncNarrativesExpanded ? list : list.slice(0, 10);
+
+  const rows = visibleList.map((narrative, i) => {
+    const rsVal = ncScoreValue(narrative, 'rs', ncStrengthWindow);
     const thrustVal = ncScoreValue(narrative, 'thrust', ncStrengthWindow); // strengthWindow arg unused for thrust — see ncScoreValue
-    const rankPct = total > 1 ? 1 - (i / (total - 1)) : 1;
-    const bg = ncGreenShade(rankPct);
-    // Leadership/Breadth: still-computed legacy per-horizon context (spec
-    // point 7 — no longer headline/competing scores), tied to the
-    // UNRELATED member-table horizon toggle (ncHorizon), same as before.
-    const s = narrative.scores[ncHorizon] || {};
-    const breadth = s.breadth || {};
     const isExpanded = narrative.id === ncExpandedId;
-    // Structural Score/Rank/Lifecycle/Modifier/Trend Participation come from
-    // dashboard_state.json (build_dashboard_states.py's V1.1 structural
-    // engine) and are INDEPENDENT of the 1D/1W/1M horizon toggle above —
-    // ncLifecycleData() doesn't take ncHorizon as an input, so switching
-    // horizons never changes these values (V1.1 spec requirement).
-    const lc = ncLifecycleData(narrative.id);
-    const modifierHtml = lc && lc.momentum_modifier
-      ? `<span class="nc-modifier-badge ${lc.momentum_modifier.toLowerCase()}">${lc.momentum_modifier}</span>` : '';
-    const lifecycleHtml = lc ? `
-      <span class="nc-lifecycle-badge ${lc.lifecycle_state.toLowerCase()}">${lc.lifecycle_state}</span>${modifierHtml}
-      <div class="nc-momentum-score">Structural Score <b>${lc.structural_score != null ? lc.structural_score.toFixed(0) : '—'}</b>${lc.rank != null ? ` &middot; Rank #${lc.rank}` : ''}${lc.rank_delta ? `<span class="nc-rank-change ${lc.rank_delta > 0 ? 'up' : 'down'}">${lc.rank_delta > 0 ? '▲' : '▼'}${Math.abs(lc.rank_delta)}</span>` : ''}</div>
-      <div class="nc-trend-participation">Trend Participation <b>${lc.trend_participation != null ? lc.trend_participation.toFixed(0) + '%' : '—'}</b></div>` : '';
-    const opp = ncOpportunitySummary(narrative.id);
-    // Full-Universe spec point 12: eligible-member count + Opportunity-state
-    // counts, click jumps into Opportunities pre-filtered on this narrative
-    // (point 13, combinable there with the existing state tabs/filters —
-    // ncJumpToOpportunities only sets the narrative filter, nothing else).
-    const oppSummaryHtml = opp ? `<div class="nc-opp-summary" onclick="ncJumpToOpportunities('${narrative.id}', event)" title="Opportunities gefiltert auf ${narrative.name} anzeigen">
-      <span class="nc-opp-eligible">${opp.eligible} eligible</span>
-      <span>${opp.leaders} Leaders</span><span>${opp.fresh} Fresh</span><span>${opp.recent} Recent</span>
-      <span>${opp.resets} Resets</span><span>${opp.extended} Extended</span>${opp.laggards ? `<span>${opp.laggards} Laggards</span>` : ''}
-      <span class="nc-opp-jump">Opportunities →</span>
-    </div>` : '';
-
-    let card = `<div class="narrative-card${isExpanded ? ' expanded' : ''}" style="background:${bg};" onclick="ncToggleCard('${narrative.id}')">
-      <div class="nc-card-top">
-        <span class="nc-card-name">${narrative.name}</span>
-        <span class="nc-card-rank">#${i + 1}</span>
-      </div>
-      ${lifecycleHtml}
-      <div class="nc-card-scores">
-        <div class="nc-card-score-item">
-          <span class="nc-card-score-label">Strength</span>
-          <span class="nc-card-score-value ${(strengthVal ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(strengthVal, 'strength')}</span>
-        </div>
-        <div class="nc-card-score-item">
-          <span class="nc-card-score-label">Thrust</span>
-          <span class="nc-card-score-value ${(thrustVal ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(thrustVal, 'thrust')}</span>
-        </div>
-      </div>
-      <div class="nc-card-stats">
-        <span>Breadth <b>${breadth.pct_positive != null ? breadth.pct_positive.toFixed(0) + '%' : '—'}</b></span>
-        <span>Leadership <b>${s.leadership != null ? s.leadership.toFixed(0) + '%' : '—'}</b></span>
-      </div>
-      <div class="nc-card-members">${narrative.n_members} Ticker</div>
-      ${oppSummaryHtml}
-    </div>`;
-
-    if (isExpanded) card += renderNarrativeDetail(narrative);
-    return card;
+    // Point 13: click on the NAME opens the inline member table.
+    let row = `<tr>
+      <td>${i + 1}</td>
+      <td class="nc-name-cell" onclick="ncToggleDetail('${narrative.id}')">${narrative.name}</td>
+      <td class="${(rsVal ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(rsVal, 'rs')}</td>
+      <td class="${(thrustVal ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(thrustVal, 'thrust')}</td>
+    </tr>`;
+    if (isExpanded) row += renderNarrativeDetail(narrative);
+    return row;
   }).join('');
 
-  grid.innerHTML = html || '<div class="narrative-empty">Keine Narrative gefunden.</div>';
-}
+  tbody.innerHTML = rows || '<tr><td colspan="4" class="narrative-empty">Keine Narrative gefunden.</td></tr>';
 
-function ncToggleCard(id) {
-  ncExpandedId = (ncExpandedId === id) ? null : id;
-  ncMemberSort = { field: 'd1_pct', dir: 'desc' };
-  ncEmaFilter = 'all';
-  ncStateFilter = 'all';
-  renderNarrativeGrid();
-}
-
-function ncSortBy(field) {
-  if (ncMemberSort.field === field) {
-    ncMemberSort.dir = ncMemberSort.dir === 'asc' ? 'desc' : 'asc';
-  } else {
-    ncMemberSort = { field, dir: field === 'symbol' ? 'asc' : 'desc' };
+  const toggleBtn = document.getElementById('narrativeExpandToggle');
+  if (toggleBtn) {
+    toggleBtn.style.display = list.length > 10 ? '' : 'none';
+    toggleBtn.textContent = ncNarrativesExpanded
+      ? '▲ Auf Top 10 reduzieren'
+      : `▼ Alle Narrative anzeigen (${list.length})`;
   }
+}
+
+function ncToggleExpandAll() {
+  ncNarrativesExpanded = !ncNarrativesExpanded;
   renderNarrativeGrid();
 }
 
-const NC_HORIZON_PCT_FIELD = { '1d': 'd1_pct', '1w': 'w1_pct', '1m': 'm1_pct' };
-document.getElementById('horizonToggle').addEventListener('click', (e) => {
-  const btn = e.target.closest('.nc-btn');
-  if (!btn) return;
-  ncHorizon = btn.dataset.horizon;
-  document.querySelectorAll('#horizonToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
-  ncMemberSort = { field: NC_HORIZON_PCT_FIELD[ncHorizon], dir: 'desc' };
+// Point 13: at most one Member-Detailtabelle open at a time -- re-clicking
+// the same narrative closes it, clicking a different one closes the
+// previous and opens the new (both are just consequences of ncExpandedId
+// being a single scalar, never a set).
+function ncToggleDetail(id) {
+  ncExpandedId = (ncExpandedId === id) ? null : id;
+  ncEmaFilter = 'all';
   renderNarrativeGrid();
-});
-// V6 point 11/13: the Strength-timeframe tab controls ONLY which Strength
-// value is displayed and which drives ranking — Thrust is completely
-// unaffected (ncScoreValue('thrust', ...) ignores this argument entirely).
+}
+
 document.getElementById('strengthWindowToggle').addEventListener('click', (e) => {
   const btn = e.target.closest('.nc-btn');
   if (!btn) return;
   ncStrengthWindow = btn.dataset.window;
   document.querySelectorAll('#strengthWindowToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
+  renderNarrativeGrid();
+});
+document.getElementById('rankingModeToggle').addEventListener('click', (e) => {
+  const btn = e.target.closest('.nc-btn');
+  if (!btn) return;
+  ncRankingMode = btn.dataset.ranking;
+  document.querySelectorAll('#rankingModeToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
   renderNarrativeGrid();
 });
 // V6 point 29B: timeframe switch re-slices the already-loaded RSP series
