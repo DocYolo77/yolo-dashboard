@@ -345,6 +345,9 @@ html { scroll-behavior: smooth; }
 .opp-filter-checkbox label { display: flex; align-items: center; gap: 6px; font-size: 11px; text-transform: none; letter-spacing: normal; color: var(--ink-light); white-space: nowrap; }
 .opp-table-wrap { overflow-x: auto; }
 .opp-table { min-width: 940px; }
+.opp-load-more-row td { text-align: center; padding: 14px 0; }
+.opp-load-more-btn { font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.5px; padding: 8px 20px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--ink); border-radius: 3px; cursor: pointer; transition: all 0.15s; }
+.opp-load-more-btn:hover { border-color: var(--ink-muted); }
 .opp-badges { display: flex; gap: 4px; flex-wrap: wrap; }
 .opp-badge { font-family: var(--mono-font); font-size: 8.5px; letter-spacing: 0.3px; padding: 2px 6px; border-radius: 2px; white-space: nowrap; }
 .opp-badge.fresh { background: rgba(61,220,115,0.18); color: var(--positive); }
@@ -889,7 +892,13 @@ html { scroll-behavior: smooth; }
       <button class="nd-copy-btn" id="oppCopyBtn" onclick="oppCopyVisibleTickers(this)">Copy visible tickers</button>
     </div>
 
-    <div class="opp-table-wrap">
+    <!-- Spec point 4: lange Ticker-Listen sind per Default eingeklappt;
+         Tabs/Filter/Counts/Copy-Button (oben) bleiben immer sichtbar und
+         unabhaengig vom Auf-/Zuklapp-Status. -->
+    <button class="table-toggle" id="oppTableToggleBtn" onclick="oppToggleTable()">
+      <span class="chevron">▸</span> <span id="oppTableToggleLabel">0 Ticker anzeigen</span>
+    </button>
+    <div class="opp-table-wrap" id="oppTableWrap" style="display:none;">
       <table class="member-table opp-table" id="oppTable">
         <thead><tr id="oppTableHead"></tr></thead>
         <tbody id="oppTableBody"><tr><td class="narrative-empty">Lade Opportunities…</td></tr></tbody>
@@ -1680,8 +1689,37 @@ function oppFmtNum(v, decimals) { return v == null ? '—' : v.toFixed(decimals)
 function oppFmtPctSigned(v) { return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
 const QUALITY_LABEL = { fresh_leader: 'Fresh Leader', leader: 'Leader', recent_leader: 'Recent Leader', neutral: 'Neutral' };
 
-function oppRender() {
+// Spec point 4: Opportunities-Tabelle ist per Default eingeklappt (lange
+// Listen muessen nicht sofort vollstaendig gerendert werden) und rendert,
+// sobald aufgeklappt, nur ein Fenster von oppRenderLimit Zeilen ("erste 50 +
+// weitere anzeigen" statt einer schweren Tabellen-Bibliothek). oppTableOpen
+// bleibt ueber Filter-/Tab-/Sortier-Aenderungen hinweg erhalten (nur der
+// explizite Toggle-Klick aendert ihn); oppRenderLimit wird bei jeder
+// "normalen" oppRender()-Ausloesung (Filter/Tab/Sort/Neuladen) auf 50
+// zurueckgesetzt, NUR der "weitere anzeigen"-Klick (oppShowMore) behaelt ihn
+// ueber { keepLimit: true } bei. Kritisch (Punkt 4): oppCopyVisibleTickers
+// liest weiterhin ausschliesslich aus oppVisibleSortedItems() (dem
+// gefilterten DATA STATE), NIE aus den aktuell gerenderten DOM-Zeilen -- Copy
+// funktioniert dadurch korrekt, auch waehrend die Tabelle eingeklappt oder
+// nur teilweise (Fenster) gerendert ist.
+let oppTableOpen = false;
+let oppRenderLimit = 50;
+const OPP_RENDER_PAGE_SIZE = 50;
+
+function oppToggleTable() {
+  oppTableOpen = !oppTableOpen;
+  oppRender();
+}
+
+function oppShowMore() {
+  oppRenderLimit += OPP_RENDER_PAGE_SIZE;
+  oppRender({ keepLimit: true });
+}
+
+function oppRender(opts) {
   if (!dashboardState) return;
+  if (!(opts && opts.keepLimit)) oppRenderLimit = OPP_RENDER_PAGE_SIZE;
+
   const counts = dashboardState.opportunities.counts || {};
   const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
   setText('oppCountAll', dashboardState.opportunities.items.length);
@@ -1692,7 +1730,19 @@ function oppRender() {
   setText('oppCountExtended', counts.extended || 0);
   setText('oppCountLaggards', counts.laggards || 0);
 
+  // Full filtered+sorted DATA STATE — always computed, regardless of
+  // collapsed/expanded UI state, so counts/toggle-label/copy stay correct
+  // even while the table itself isn't rendered at all.
   const visible = oppVisibleSortedItems();
+
+  const toggleBtn = document.getElementById('oppTableToggleBtn');
+  const toggleLabel = document.getElementById('oppTableToggleLabel');
+  const wrap = document.getElementById('oppTableWrap');
+  if (toggleBtn) toggleBtn.classList.toggle('open', oppTableOpen);
+  if (toggleLabel) toggleLabel.textContent = `${visible.length} Ticker ${oppTableOpen ? 'ausblenden' : 'anzeigen'}`;
+  if (wrap) wrap.style.display = oppTableOpen ? '' : 'none';
+
+  if (!oppTableOpen) return; // collapsed -> skip building head/rows entirely, nothing visible anyway
 
   const headHtml = OPP_COLUMNS.map(col => {
     const isSorted = oppSortState.field === col.key;
@@ -1703,7 +1753,8 @@ function oppRender() {
   const headEl = document.getElementById('oppTableHead');
   if (headEl) headEl.innerHTML = headHtml;
 
-  const rows = visible.map(it => `
+  const windowed = visible.slice(0, oppRenderLimit);
+  let rows = windowed.map(it => `
     <tr>
       <td><b data-ticker="${it.symbol}">${it.symbol}</b></td>
       <td>${oppPrimaryNarrativeHtml(it)}</td>
@@ -1725,6 +1776,14 @@ function oppRender() {
       <td class="${pctClass(it.w1_pct)}">${fmtPct(it.w1_pct)}</td>
       <td class="${pctClass(it.m1_pct)}">${fmtPct(it.m1_pct)}</td>
     </tr>`).join('');
+
+  if (visible.length > windowed.length) {
+    const remaining = visible.length - windowed.length;
+    rows += `<tr class="opp-load-more-row"><td colspan="${OPP_COLUMNS.length}">
+      <button class="opp-load-more-btn" onclick="oppShowMore()">Weitere ${Math.min(OPP_RENDER_PAGE_SIZE, remaining)} anzeigen (${windowed.length}/${visible.length})</button>
+    </td></tr>`;
+  }
+
   const bodyEl = document.getElementById('oppTableBody');
   if (bodyEl) bodyEl.innerHTML = rows || `<tr><td colspan="${OPP_COLUMNS.length}" class="narrative-empty">Keine Treffer für die aktuellen Filter.</td></tr>`;
 }
@@ -1741,8 +1800,12 @@ function oppSortBy(field) {
   oppRender();
 }
 
-// Kopiert exakt die aktuell sichtbaren Ticker (Tab + Filter + Sortierung),
-// dedupliziert, kommasepariert — analog zur Narrative-Copy-Funktion (Punkt 31).
+// Kopiert exakt die aktuell gefilterten/sortierten Ticker (Tab + Filter +
+// Sortierung), dedupliziert, kommasepariert — analog zur Narrative-Copy-
+// Funktion (Punkt 31). Liest bewusst aus oppVisibleSortedItems() (dem
+// gefilterten DATA STATE), NICHT aus den DOM-Zeilen — funktioniert daher
+// unveraendert korrekt, auch waehrend die Tabelle eingeklappt ist oder nur
+// ein Render-Fenster zeigt (Punkt 4).
 function oppCopyVisibleTickers(btn) {
   const visible = oppVisibleSortedItems();
   const symbols = [...new Set(visible.map(it => it.symbol))];

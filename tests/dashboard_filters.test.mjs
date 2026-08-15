@@ -39,6 +39,16 @@ function extractConst(src, name) {
   return src.slice(startIdx, endIdx + 1);
 }
 
+// Same idea as extractConst but for `let NAME = ...;` module-level state
+// (e.g. oppTableOpen/oppRenderLimit — the Opportunities collapse/pagination
+// state, spec point 4).
+function extractLet(src, name) {
+  const startIdx = src.indexOf(`let ${name} =`);
+  if (startIdx === -1) throw new Error(`let ${name} not found in index.html`);
+  const endIdx = src.indexOf(';', startIdx);
+  return src.slice(startIdx, endIdx + 1);
+}
+
 // Pull the real implementations straight out of index.html.
 const ncNearEma10Src = extractFunction(html, 'ncNearEma10');
 const ncNearEma20Src = extractFunction(html, 'ncNearEma20');
@@ -54,6 +64,12 @@ const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
 const oppVisibleSortedItemsSrc = extractFunction(html, 'oppVisibleSortedItems');
 const ncJumpToOpportunitiesSrc = extractFunction(html, 'ncJumpToOpportunities');
+// Spec point 4: Opportunities collapse/windowed-rendering state + actions.
+const oppTableOpenLetSrc = extractLet(html, 'oppTableOpen');
+const oppRenderLimitLetSrc = extractLet(html, 'oppRenderLimit');
+const oppPageSizeConstSrc = extractConst(html, 'OPP_RENDER_PAGE_SIZE');
+const oppToggleTableSrc = extractFunction(html, 'oppToggleTable');
+const oppShowMoreSrc = extractFunction(html, 'oppShowMore');
 const tcPolylineSegmentsSrc = extractFunction(html, 'tcPolylineSegments');
 const tickerChartSvgSrc = extractFunction(html, 'tickerChartSvg');
 const tickerChartTooltipHtmlSrc = extractFunction(html, 'tickerChartTooltipHtml');
@@ -97,7 +113,8 @@ vm.runInContext(
   `${ncMemberOpportunityStateSrc}\n${ncStateFilterMembersSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n` +
   `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n${ncJumpToOpportunitiesSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
-  `${positionTickerChartTooltipSrc}`,
+  `${positionTickerChartTooltipSrc}\n` +
+  `${oppTableOpenLetSrc}\n${oppRenderLimitLetSrc}\n${oppPageSizeConstSrc}\n${oppToggleTableSrc}\n${oppShowMoreSrc}`,
   sandbox
 );
 
@@ -528,4 +545,77 @@ test('positionTickerChartTooltip: clamps to the bottom viewport edge instead of 
   vm.runInContext('positionTickerChartTooltip(el, anchorRect)', Object.assign(sandbox, { el, anchorRect }));
   assert.equal(el.style.top, '92px'); // window.innerHeight (300) - tooltipH (200) - margin (8)
   sandbox.window = { innerWidth: 1200, innerHeight: 800 }; // restore
+});
+
+// ── Spec point 4: Opportunities table collapse + windowed rendering ──
+// oppRender() itself is DOM-heavy (builds the whole table); these tests
+// target the two small, real actions the collapse/pagination UX is built
+// from (oppToggleTable/oppShowMore), spying on oppRender the same way the
+// ncJumpToOpportunities tests above already do, to verify the STATE
+// transition and the exact opts each action passes through -- without
+// re-simulating the full DOM render.
+
+test('oppToggleTable flips oppTableOpen and triggers a re-render (defaults: collapsed)', () => {
+  vm.runInContext('oppTableOpen = false', sandbox);
+  sandbox.oppRenderCallCount = 0;
+  vm.runInContext('oppToggleTable()', sandbox);
+  assert.equal(vm.runInContext('oppTableOpen', sandbox), true);
+  assert.equal(sandbox.oppRenderCallCount, 1);
+
+  vm.runInContext('oppToggleTable()', sandbox);
+  assert.equal(vm.runInContext('oppTableOpen', sandbox), false); // toggles back
+  assert.equal(sandbox.oppRenderCallCount, 2);
+});
+
+test('oppShowMore increases oppRenderLimit by exactly the page size', () => {
+  vm.runInContext('oppRenderLimit = 50', sandbox);
+  vm.runInContext('oppShowMore()', sandbox);
+  assert.equal(vm.runInContext('oppRenderLimit', sandbox), 100);
+  vm.runInContext('oppShowMore()', sandbox);
+  assert.equal(vm.runInContext('oppRenderLimit', sandbox), 150);
+});
+
+test('oppShowMore calls oppRender with { keepLimit: true } so the window survives the re-render', () => {
+  let receivedOpts = 'NOT_CALLED';
+  sandbox.oppRender = (opts) => { receivedOpts = opts; };
+  vm.runInContext('oppShowMore()', sandbox);
+  // Property-level check rather than assert.deepEqual: the opts object
+  // literal is constructed INSIDE the vm sandbox's separate realm, so a
+  // strict deep-equal against an outer-realm {keepLimit:true} object can
+  // spuriously fail on [[Prototype]] identity even though the data matches.
+  assert.equal(receivedOpts.keepLimit, true);
+  assert.deepEqual(Object.keys(receivedOpts), ['keepLimit']);
+});
+
+test('oppToggleTable calls oppRender with no args (so the render limit resets to the first page)', () => {
+  let receivedOpts = 'NOT_CALLED';
+  sandbox.oppRender = (opts) => { receivedOpts = opts; };
+  vm.runInContext('oppToggleTable()', sandbox);
+  assert.equal(receivedOpts, undefined);
+});
+
+test('copy-visible-tickers keeps reading from the full filtered DATA STATE regardless of the collapse/window state', () => {
+  // Spec point 4's core guarantee: oppVisibleSortedItems() (what
+  // oppCopyVisibleTickers reads) must be entirely independent of
+  // oppTableOpen/oppRenderLimit -- collapsing the table or only having
+  // rendered the first page must never change what gets copied.
+  sandbox.dashboardState = {
+    opportunities: {
+      items: Array.from({ length: 120 }, (_, i) => ({ symbol: `T${i}`, quality_state: 'neutral', narratives: [], constructive_reset_narratives: [], laggard_narratives: [] })),
+    },
+  };
+  sandbox.oppTab = 'all';
+  setOppFilterInputs({});
+
+  vm.runInContext('oppTableOpen = false', sandbox);
+  vm.runInContext('oppRenderLimit = 50', sandbox);
+  const collapsedVisible = vm.runInContext('oppVisibleSortedItems()', sandbox);
+
+  vm.runInContext('oppTableOpen = true', sandbox);
+  vm.runInContext('oppRenderLimit = 50', sandbox); // only "page 1" rendered
+  const openFirstPageVisible = vm.runInContext('oppVisibleSortedItems()', sandbox);
+
+  assert.equal(collapsedVisible.length, 120); // NOT limited to 0 just because collapsed
+  assert.equal(openFirstPageVisible.length, 120); // NOT limited to 50 just because only 50 rows are on-screen
+  assert.deepEqual(collapsedVisible.map(it => it.symbol), openFirstPageVisible.map(it => it.symbol));
 });
