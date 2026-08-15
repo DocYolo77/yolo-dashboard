@@ -5,7 +5,7 @@
     "state": "SELECTIVE"
   },
   "qqq_health": {
-    "score": 77.7,
+    "score": 76.5,
     "base_state": "HEALTHY",
     "modifiers": [],
     "extended": false
@@ -13,18 +13,18 @@
   "narratives": {
     "semiconductors": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 32.8,
+      "structural_score": 33.4,
       "trend_participation": 10.0,
       "structural_leadership_pct": 6.0,
       "momentum_modifier": "ACCELERATING",
-      "rank": 28,
+      "rank": 27,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "photonics_optical": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 39.6,
+      "structural_score": 40.0,
       "trend_participation": 15.4,
       "structural_leadership_pct": 7.7,
       "momentum_modifier": null,
@@ -39,14 +39,14 @@
       "trend_participation": 33.3,
       "structural_leadership_pct": 33.3,
       "momentum_modifier": "ACCELERATING",
-      "rank": 9,
+      "rank": 8,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "data_center": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 37.8,
+      "structural_score": 37.5,
       "trend_participation": 14.3,
       "structural_leadership_pct": 21.4,
       "momentum_modifier": "ACCELERATING",
@@ -57,7 +57,7 @@
     },
     "networking": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 42.1,
+      "structural_score": 42.5,
       "trend_participation": 14.3,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
@@ -94,7 +94,7 @@
       "trend_participation": 10.0,
       "structural_leadership_pct": 10.0,
       "momentum_modifier": null,
-      "rank": 22,
+      "rank": 23,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
@@ -134,7 +134,7 @@
     },
     "fintech": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 51.5,
+      "structural_score": 51.2,
       "trend_participation": 53.8,
       "structural_leadership_pct": 7.7,
       "momentum_modifier": null,
@@ -149,7 +149,7 @@
       "trend_participation": 60.0,
       "structural_leadership_pct": 40.0,
       "momentum_modifier": null,
-      "rank": 12,
+      "rank": 11,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
@@ -160,14 +160,14 @@
       "trend_participation": 0.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 31,
+      "rank": 30,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "ev_battery": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 16.1,
+      "structural_score": 16.3,
       "trend_participation": 10.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
@@ -204,14 +204,14 @@
       "trend_participation": 56.2,
       "structural_leadership_pct": 12.5,
       "momentum_modifier": null,
-      "rank": 8,
+      "rank": 7,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "automotive_parts_components_supplier": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 34.9,
+      "structural_score": 35.1,
       "trend_participation": 22.2,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": "ACCELERATING",
@@ -222,11 +222,11 @@
     },
     "industrial_specialty_vehicle_machinery": {
       "lifecycle_state": "FADING",
-      "structural_score": 31.0,
+      "structural_score": 30.6,
       "trend_participation": 25.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 29,
+      "rank": 31,
       "fading_streak": 2,
       "dormant_streak": 2,
       "mature_streak": 0
@@ -255,7 +255,7 @@
     },
     "construction_engineering_services": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 28.0,
+      "structural_score": 27.9,
       "trend_participation": 11.8,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": "ACCELERATING",
@@ -266,7 +266,7 @@
     },
     "e_commerce_platform": {
       "lifecycle_state": "FADING",
-      "structural_score": 43.3,
+      "structural_score": 43.5,
       "trend_participation": 40.0,
       "structural_leadership_pct": 10.0,
       "momentum_modifier": null,
@@ -281,14 +281,14 @@
       "trend_participation": 14.3,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 30,
+      "rank": 29,
       "fading_streak": 1,
       "dormant_streak": 1,
       "mature_streak": 0
     },
     "professional_financial_advisory_services": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 63.2,
+      "structural_score": 63.1,
       "trend_participation": 60.0,
       "structural_leadership_pct": 40.0,
       "momentum_modifier": null,
@@ -303,25 +303,25 @@
       "trend_participation": 36.4,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 21,
+      "rank": 22,
       "fading_streak": 1,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "adtech_digital_advertising_platform": {
-      "lifecycle_state": "NEUTRAL",
-      "structural_score": 57.0,
-      "trend_participation": 50.0,
-      "structural_leadership_pct": 50.0,
-      "momentum_modifier": null,
-      "rank": 7,
-      "fading_streak": 0,
+      "lifecycle_state": "FADING",
+      "structural_score": 52.2,
+      "trend_participation": 42.9,
+      "structural_leadership_pct": 42.9,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 12,
+      "fading_streak": 3,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "trucking_freight_logistics": {
       "lifecycle_state": "FADING",
-      "structural_score": 21.0,
+      "structural_score": 20.7,
       "trend_participation": 0.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": "ACCELERATING",
@@ -336,7 +336,7 @@
       "trend_participation": 57.1,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 10,
+      "rank": 9,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
@@ -358,7 +358,7 @@
       "trend_participation": 25.0,
       "structural_leadership_pct": 25.0,
       "momentum_modifier": null,
-      "rank": 11,
+      "rank": 10,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
@@ -475,18 +475,18 @@
     },
     "education_content_publishing": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 34.5,
-      "trend_participation": 28.6,
+      "structural_score": 32.3,
+      "trend_participation": 25.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 27,
+      "rank": 28,
       "fading_streak": 1,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "media_entertainment_conglomerate": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 36.8,
+      "structural_score": 37.2,
       "trend_participation": 40.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": "ACCELERATING",
@@ -497,11 +497,11 @@
     },
     "social_media_platform": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 38.1,
+      "structural_score": 38.4,
       "trend_participation": 40.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 23,
+      "rank": 21,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
@@ -511,7 +511,7 @@
       "structural_score": 24.9,
       "trend_participation": 20.0,
       "structural_leadership_pct": 0.0,
-      "momentum_modifier": "ACCELERATING",
+      "momentum_modifier": null,
       "rank": 37,
       "fading_streak": 0,
       "dormant_streak": 1,
@@ -5992,9 +5992,7 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [
-        "education_content_publishing"
-      ],
+      "laggard_narratives": [],
       "rs_1w": 12.1
     },
     "Q": {

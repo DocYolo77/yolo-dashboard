@@ -1,8 +1,8 @@
 {
   "as_of_date": "2026-08-15",
   "eligible_count": 810,
-  "classified_eligible_count": 644,
-  "coverage_pct": 79.5,
+  "classified_eligible_count": 647,
+  "coverage_pct": 79.9,
   "entered": [
     "AGQ",
     "ALNT",
@@ -25,7 +25,6 @@
     "CECO",
     "CERT",
     "CHEF",
-    "CHRN",
     "CIFR",
     "CLBT",
     "CLMT",
@@ -45,17 +44,13 @@
     "DGII",
     "DOCN",
     "DRVN",
-    "DXPE",
-    "EAT",
     "ECPG",
-    "EFOR",
     "EFX",
     "ENR",
     "ENS",
     "EPC",
     "EQPT",
     "ERIE",
-    "ESAB",
     "EVC",
     "EVLV",
     "EYE",
@@ -85,7 +80,6 @@
     "IE",
     "IESC",
     "ITRI",
-    "JBL",
     "JOBY",
     "KFRC",
     "KOS",
@@ -125,7 +119,6 @@
     "PLBL",
     "PLPC",
     "PLUG",
-    "PLXS",
     "POWL",
     "PRKS",
     "PRLB",
@@ -141,7 +134,6 @@
     "SID",
     "SLSR",
     "SM",
-    "SN",
     "SNEX",
     "SONO",
     "SPOT",
@@ -171,10 +163,8 @@
     "VVX",
     "VYX",
     "WBTN",
-    "WD",
     "WRD",
     "WT",
-    "WULF",
     "XMTR",
     "XPEL",
     "YELP",
@@ -205,7 +195,6 @@
     "CECO",
     "CERT",
     "CHEF",
-    "CHRN",
     "CIFR",
     "CLBT",
     "CLMT",
@@ -225,17 +214,13 @@
     "DGII",
     "DOCN",
     "DRVN",
-    "DXPE",
-    "EAT",
     "ECPG",
-    "EFOR",
     "EFX",
     "ENR",
     "ENS",
     "EPC",
     "EQPT",
     "ERIE",
-    "ESAB",
     "EVC",
     "EVLV",
     "EYE",
@@ -265,7 +250,6 @@
     "IE",
     "IESC",
     "ITRI",
-    "JBL",
     "JOBY",
     "KFRC",
     "KOS",
@@ -305,7 +289,6 @@
     "PLBL",
     "PLPC",
     "PLUG",
-    "PLXS",
     "POWL",
     "PRKS",
     "PRLB",
@@ -321,7 +304,6 @@
     "SID",
     "SLSR",
     "SM",
-    "SN",
     "SNEX",
     "SONO",
     "SPOT",
@@ -351,17 +333,17 @@
     "VVX",
     "VYX",
     "WBTN",
-    "WD",
     "WRD",
     "WT",
-    "WULF",
     "XMTR",
     "XPEL",
     "YELP",
     "YOU",
     "ZBRA"
   ],
-  "new_narratives_created": [],
+  "new_narratives_created": [
+    "automotive_collision_repair_services"
+  ],
   "unresolved_after_retries": [
     {
       "ticker": "AGQ",
@@ -397,10 +379,6 @@
     },
     {
       "ticker": "BETA",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "BGSI",
       "reason": "low_confidence_primary"
     },
     {
@@ -689,10 +667,6 @@
     },
     {
       "ticker": "LIF",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "LINC",
       "reason": "low_confidence_primary"
     },
     {
@@ -1016,10 +990,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "YELP",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "YOU",
       "reason": "low_confidence_primary"
     },
@@ -1029,14 +999,17 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..DRVN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..DRVN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (LAD..RAL): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (RHI..WBTN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AGQ..ECPG): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (EFX..LB): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (LIF..RHLD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (RYAN..WT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AGQ..ECPG): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (EFX..LB): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (RYAN..WT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 553,
-  "eligible_without_active_narrative": 257,
-  "active_narrative_coverage_pct": 68.3,
+  "eligible_with_active_narrative": 555,
+  "eligible_without_active_narrative": 255,
+  "active_narrative_coverage_pct": 68.5,
   "active_narrative_count": 46,
-  "undersized_narrative_count": 45
+  "undersized_narrative_count": 46
 }

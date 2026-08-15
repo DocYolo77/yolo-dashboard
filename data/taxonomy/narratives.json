@@ -8060,6 +8060,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "YELP": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Yelp generates revenue primarily through local business advertising on its consumer review/content platform, monetizing via ad placements and sponsored listings - core economics resemble a local advertising platform rather than a pure e-commerce or social media play. This is a stronger fit than social media given ad-driven local business monetization model.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10222,6 +10233,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "LINC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Lincoln provides career-oriented post-secondary education programs (trade schools), which is closest to the existing Education Content/Publishing narrative even though it is more direct education delivery than content licensing; no dedicated for-profit vocational school narrative exists in catalog.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10999,6 +11021,27 @@
           "assignment_priority": "primary",
           "confidence": 75,
           "reason": "Warner Music Group is a major record label generating revenue primarily from recorded music and music publishing, distinct from broadcast/streaming/filmed entertainment conglomerates; best served by a dedicated recorded music narrative absent from the catalog.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "automotive_collision_repair_services",
+      "name": "Automotive Collision Repair Services",
+      "status": "emerging",
+      "classification_hint": "Companies that operate non-franchised collision repair and auto glass repair centers, providing repair services to consumers and insurance partners across a network of locations.",
+      "created_at": "2026-08-15",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "BGSI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 82,
+          "reason": "Boyd Group operates collision repair centers, a services business distinct from auto parts retail or component manufacturing. No existing catalog entry captures collision/body repair services specifically, so a new precise narrative is warranted rather than forcing into auto_parts_retail or automotive_parts_components_supplier.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
           "active_eligible": true,
