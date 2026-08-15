@@ -47,11 +47,29 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .quote-bar blockquote { font-family: var(--header-font); font-style: italic; font-size: 18px; color: var(--ink-light); line-height: 1.6; }
 .quote-bar .attribution { font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); margin-top: 6px; letter-spacing: 1px; }
 
-.section { padding: 40px 0 20px; }
+.section { padding: 40px 0 20px; scroll-margin-top: var(--jumpnav-h, 52px); }
 .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); flex-wrap: wrap; }
 .section-num { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); letter-spacing: 1px; }
 .section-title { font-family: var(--header-font); font-size: 28px; font-weight: 600; letter-spacing: -0.5px; }
 .section-sub { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 1.5px; text-transform: uppercase; }
+
+/* ── Jump navigation (spec point 2): sticky anchor menu, plain <a href="#id">
+   links + native smooth scroll -- no SPA/routing library. scroll-margin-top
+   on .section above (kept in sync with --jumpnav-h) is the "correct sticky
+   offset" so a jumped-to section header never lands underneath the sticky
+   bar. Horizontal row on desktop; horizontally scrollable on narrow
+   viewports instead of wrapping, per spec point 2's mobile requirement. */
+html { scroll-behavior: smooth; }
+.jump-nav { position: sticky; top: 0; z-index: 50; background: rgba(10,10,12,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--card-border); }
+.jump-nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: thin; }
+.jump-nav-inner::-webkit-scrollbar { height: 4px; }
+.jump-nav-inner::-webkit-scrollbar-thumb { background: var(--card-border); }
+.jump-nav a { flex: 0 0 auto; font-family: var(--mono-font); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-light); text-decoration: none; padding: 15px 14px; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.15s ease, border-color 0.15s ease; }
+.jump-nav a:hover { color: var(--ink); }
+.jump-nav a.active { color: var(--ink); border-bottom-color: var(--ink); }
+@media (max-width: 720px) {
+  .jump-nav a { padding: 12px 10px; font-size: 10px; }
+}
 
 
 .table-section { margin-bottom: 8px; }
@@ -398,6 +416,20 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 </div>
 <!-- Reusable ticker hover mini-chart -- ONE node, filled on demand (never per-row). -->
 <div class="ticker-chart-tooltip" id="tickerChartTooltip"></div>
+
+<!-- ═══ JUMP NAVIGATION (spec point 2) ═══ -->
+<nav class="jump-nav" id="jumpNav">
+  <div class="jump-nav-inner">
+    <a href="#overview">01 Überblick</a>
+    <a href="#market-regime">02 Market Regime</a>
+    <a href="#qqq-health">03 QQQ Health</a>
+    <a href="#narratives">04 Narratives</a>
+    <a href="#opportunities">05 Opportunities</a>
+    <a href="#screener">06 Screener</a>
+    <a href="#trade-calculator">07 Traderechner</a>
+  </div>
+</nav>
+
 <div class="container">
 
   <!-- ═══ HERO ═══ -->
@@ -430,7 +462,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </header>
 
   <!-- ═══ 01 · ÜBERBLICK ═══ -->
-  <div class="section fade-in">
+  <div class="section fade-in" id="overview">
     <div class="section-header">
       <span class="section-num">01</span>
       <span class="section-title">Überblick</span>
@@ -534,7 +566,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </div>
 
   <!-- ═══ 02 · MOMENTUM MARKET REGIME ═══ -->
-  <div class="section fade-in">
+  <div class="section fade-in" id="market-regime">
     <div class="section-header">
       <span class="section-num">02</span>
       <span class="section-title">Momentum Market Regime</span>
@@ -588,7 +620,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 
 
   <!-- ═══ 03 · QQQ HEALTH ═══ -->
-  <div class="section fade-in">
+  <div class="section fade-in" id="qqq-health">
     <div class="section-header">
       <span class="section-num">03</span>
       <span class="section-title">QQQ Health</span>
@@ -716,7 +748,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </div>
 
   <!-- ═══ 04 · NARRATIVES / BASKETS ═══ -->
-  <div class="section fade-in">
+  <div class="section fade-in" id="narratives">
     <div class="section-header">
       <span class="section-num">04</span>
       <span class="section-title">Narratives</span>
@@ -787,7 +819,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </div>
 
   <!-- ═══ 05 · OPPORTUNITIES ═══ -->
-  <div class="section fade-in" id="opportunitiesSection">
+  <div class="section fade-in" id="opportunities">
     <div class="section-header">
       <span class="section-num">05</span>
       <span class="section-title">Opportunities</span>
@@ -865,10 +897,22 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </div>
   </div>
 
-  <!-- ═══ 06 · TRADERECHNER ═══ -->
-  <div class="section fade-in">
+  <!-- ═══ 06 · SCREENER ═══ -->
+  <div class="section fade-in" id="screener">
     <div class="section-header">
       <span class="section-num">06</span>
+      <span class="section-title">Screener</span>
+      <span class="section-sub">Feste Presets · Kein freier Regel-Editor</span>
+    </div>
+    <div id="screenerContainer">
+      <div class="narrative-empty">Lade Screener-Daten…</div>
+    </div>
+  </div>
+
+  <!-- ═══ 07 · TRADERECHNER ═══ -->
+  <div class="section fade-in" id="trade-calculator">
+    <div class="section-header">
+      <span class="section-num">07</span>
       <span class="section-title">Traderechner</span>
       <span class="section-sub">Risikobasiert · 2-Stop-System</span>
     </div>
@@ -936,6 +980,43 @@ function updateClock() {
   document.getElementById('dateStr').textContent = now.toLocaleDateString('de-DE', { timeZone: 'Europe/Berlin', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 updateClock(); setInterval(updateClock, 1000);
+
+// ══════════════════════════════════════════════
+// JUMP NAVIGATION (spec point 2) — plain anchor links + native smooth
+// scroll, no SPA/routing library. Only two small JS responsibilities on
+// top of that: (1) keep --jumpnav-h in sync with the nav's REAL rendered
+// height so .section's scroll-margin-top (the "correct sticky offset")
+// never drifts from the actual bar height across breakpoints/font-load,
+// (2) a lightweight scrollspy that toggles .active on the link matching
+// whichever section is currently nearest the top of the viewport.
+// ══════════════════════════════════════════════
+function jumpNavSyncOffset() {
+  const nav = document.getElementById('jumpNav');
+  if (!nav) return;
+  document.documentElement.style.setProperty('--jumpnav-h', `${nav.offsetHeight}px`);
+}
+window.addEventListener('resize', jumpNavSyncOffset);
+window.addEventListener('load', jumpNavSyncOffset);
+jumpNavSyncOffset();
+
+function jumpNavInitScrollspy() {
+  const nav = document.getElementById('jumpNav');
+  if (!nav) return;
+  const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+  const sections = links
+    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+    .filter(Boolean);
+  if (!sections.length) return;
+  const setActive = (id) => {
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+  };
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries.filter(e => e.isIntersecting);
+    if (visible.length) setActive(visible[0].target.id);
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+}
+jumpNavInitScrollspy();
 
 // ══════════════════════════════════════════════
 // TABLE TOGGLE
@@ -1467,7 +1548,7 @@ function ncJumpToOpportunities(narrativeId, event) {
   if (event) event.stopPropagation(); // don't also trigger the card's own onclick (ncToggleCard)
   const sel = document.getElementById('oppFilterNarrative');
   if (sel) { sel.value = narrativeId; oppRender(); }
-  const section = document.getElementById('opportunitiesSection');
+  const section = document.getElementById('opportunities');
   if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
