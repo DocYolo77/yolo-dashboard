@@ -10,11 +10,10 @@ import json
 import sys
 from pathlib import Path
 
-import pandas as pd
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-from build_narratives import load_taxonomy, compute_narrative_rs_history  # noqa: E402
+from build_narratives import load_taxonomy  # noqa: E402
 
 
 def write_taxonomy(tmp_path, narratives):
@@ -145,29 +144,14 @@ def test_eligible_with_active_narrative_excludes_ticker_whose_primary_is_undersi
     assert len(eligible_pop) - with_active == 1  # F (small's only member) -> without active narrative
 
 
-# ── compute_narrative_rs_history also respects eligible_set (point 8) ──
-
-def make_daily_ret(days, columns_pct):
-    df = pd.DataFrame(index=days, columns=list(columns_pct.keys()), dtype=float)
-    for sym, rets in columns_pct.items():
-        for i, day in enumerate(days):
-            df.at[day, sym] = rets[i]
-    return df
-
-
-def test_rs_history_excludes_ineligible_member_from_basket():
-    days = [f"2026-01-{d:02d}" for d in range(1, 21)]
-    daily_ret = make_daily_ret(days, {
-        "RSP": [0.1] * 20,
-        "STRONG": [1.0] * 20,   # eligible, drives the basket up
-        "WEAK_INELIGIBLE": [-5.0] * 20,  # classified but NOT eligible -> must be excluded
-    })
-    narratives = [{"id": "n1", "tickers": ["STRONG", "WEAK_INELIGIBLE"]}]
-
-    with_filter = compute_narrative_rs_history(narratives, daily_ret, days, eligible_set={"STRONG"}, lookback_days=20)
-    without_filter = compute_narrative_rs_history(narratives, daily_ret, days, eligible_set=None, lookback_days=20)
-
-    # Filtered basket (STRONG only) must clearly outperform the unfiltered
-    # basket (STRONG+WEAK_INELIGIBLE median) -- proves WEAK_INELIGIBLE was
-    # actually dropped by the eligible_set filter, not just present-but-diluted.
-    assert with_filter["narratives"]["n1"][-1] > without_filter["narratives"]["n1"][-1]
+# NOTE (RVOL/Screener/Benchmark/Futures Patch point 10): the old
+# "compute_narrative_rs_history also respects eligible_set" test used to
+# live here, exercising eligibility-filtering INSIDE that function. That
+# function no longer takes daily_ret/eligible_set at all — it now renders
+# the SAME relative_strength_by_id lines the headline narrative_rs already
+# uses (see build_narratives.main()), which are built from narrative_rows'
+# members — themselves already eligible_set-filtered a few lines above in
+# main() (the exact same filtering this test used to check). That upstream
+# filtering is covered by test_narrative_full_universe.py's other
+# eligible_set tests above; compute_narrative_rs_history's own windowing/
+# 0%-baseline behaviour is covered by tests/test_narrative_rs_history.py.

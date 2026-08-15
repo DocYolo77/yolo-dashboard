@@ -103,6 +103,34 @@ cross-file changelog:
   Strength Screener preset (config screener_presets.weekly_strength). The
   pre-existing, dashboard-canonical EMA20 (used everywhere else, including
   the Opportunity Engine's near_emas flag) is completely unchanged.
+
+RVOL/Screener/Benchmark/Futures Patch additions:
+- "volume" is now persisted additively in the SAME rolling price-history
+  cache (save_price_cache/fetch_grouped_history_full_market_cached), read
+  from the SAME grouped-daily row already used for OHLC (Massive's "v"
+  field) -- no second daily API pipeline. PRICE_CACHE_SCHEMA_VERSION stays
+  UNCHANGED (2): a cache file written before this patch simply has no
+  "volume" key per ticker, and every read path treats that as "no volume
+  history yet" (`series.get("volume", [])`) rather than invalidating the
+  whole cache. A one-time migration (see the "volume_migration_needed"
+  branch inside fetch_grouped_history_full_market_cached) detects that case
+  and backfills volume for the last >= volume_context.
+  average_volume_lookback_sessions + 1 ALREADY-cached trading days via the
+  same market-wide grouped-daily endpoint (one call per calendar day,
+  never per-ticker) so RVOL50 doesn't need 50 more days to accumulate
+  before it can ever populate.
+- RVOL50 (config volume_context): rvol_50 = current_volume / average_volume_50,
+  where current_volume is the most recent fully-completed session's volume
+  and average_volume_50 is the simple mean of the average_volume_
+  lookback_sessions PREVIOUS sessions (today explicitly excluded from the
+  denominator). Both null unless the full previous window is present --
+  never a partial/padded average.
+- sma200/sma200_distance_pct: additive stock feature for the new Monthly
+  Strength screener preset, same rolling-mean/distance shape as the
+  existing sma50/gain_from_sma50_pct pair. Null (not a fabricated partial
+  value) below 200 sessions of history; the ticker stays globally eligible
+  regardless (eligibility never depends on sma200), it just can't match
+  Monthly Strength that run.
 """
 
 import argparse
@@ -229,14 +257,17 @@ def load_price_cache(cache_path):
 
 
 def save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low,
-                      per_ticker_open, universe_set):
+                      per_ticker_open, per_ticker_volume, universe_set):
     """Persist the rolling window as {symbol: {"open":[...], "close":[...],
-    "high":[...], "low":[...]}} aligned 1:1 to `trading_days`. Not pretty-
-    printed (pure build artifact, never meant to be read by a human or
-    diffed in git — it lives outside git entirely, see refresh_data.yml's
-    actions/cache step). "open" (schema v2) exists purely for
-    scripts/build_ticker_charts.py's hover-candlestick chart data — no
-    existing feature calculation in this file needs it."""
+    "high":[...], "low":[...], "volume":[...]}} aligned 1:1 to `trading_days`.
+    Not pretty-printed (pure build artifact, never meant to be read by a
+    human or diffed in git — it lives outside git entirely, see
+    refresh_data.yml's actions/cache step). "open" (schema v2) exists purely
+    for scripts/build_ticker_charts.py's hover-candlestick chart data.
+    "volume" (RVOL/Screener/Benchmark/Futures Patch) is additive under the
+    SAME schema_version (no bump) -- a reader written before this patch
+    would just ignore the extra key; load_price_cache's own schema check is
+    keyed on `close`/`high`/`low` layout only, unaffected."""
     tickers_data = {}
     for sym in universe_set:
         close_series = [per_ticker_close.get(sym, {}).get(d) for d in trading_days]
@@ -247,6 +278,7 @@ def save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high
             "close": close_series,
             "high": [per_ticker_high.get(sym, {}).get(d) for d in trading_days],
             "low": [per_ticker_low.get(sym, {}).get(d) for d in trading_days],
+            "volume": [per_ticker_volume.get(sym, {}).get(d) for d in trading_days],
         }
     p = Path(cache_path)
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -255,7 +287,7 @@ def save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high
 
 
 def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_days=TRADING_DAYS_NEEDED,
-                                              backfill_tickers=None):
+                                              backfill_tickers=None, volume_backfill_min_sessions=51):
     """Incremental, cache-backed version of the market-wide grouped-daily
     walk (V1.1 point 2). Loads whatever rolling window is already persisted
     at `cache_path` (populated across CI runs via GitHub Actions' built-in
@@ -280,13 +312,27 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
     why these need a one-time single-ticker catch-up instead of being left
     to accumulate one day at a time like an actual new listing.
 
+    `volume_backfill_min_sessions` (RVOL/Screener/Benchmark/Futures Patch
+    point 6): a cache written before this patch has NO volume history at
+    all ("volume" key absent from every ticker's series). Writing volume
+    only from today forward would strand RVOL50 at null for
+    average_volume_lookback_sessions more daily runs, so this function
+    detects that one-time migration case (no ticker in the pre-existing
+    cache has ANY non-null volume value yet) and backfills volume for the
+    most recent `volume_backfill_min_sessions` ALREADY-cached trading days
+    by re-querying the SAME market-wide grouped-daily endpoint for each of
+    those calendar days (one call per day, covers the whole market — never
+    hundreds of per-ticker calls). Runs exactly once; every subsequent run
+    finds real volume already present and takes the normal incremental path.
+
     One API call covers the whole market per trading day regardless of
     universe size, same pattern as before this change.
-    Returns (close_df, high_df, low_df, trading_days), trading_days ascending.
+    Returns (close_df, high_df, low_df, volume_df, trading_days), trading_days ascending.
     """
     cache = load_price_cache(cache_path)
-    per_ticker_close, per_ticker_high, per_ticker_low, per_ticker_open = {}, {}, {}, {}
+    per_ticker_close, per_ticker_high, per_ticker_low, per_ticker_open, per_ticker_volume = {}, {}, {}, {}, {}
     cached_dates = []
+    volume_migration_needed = False
 
     if cache:
         cached_dates = cache["dates"]
@@ -298,6 +344,18 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
             per_ticker_high[sym] = dict(zip(cached_dates, series["high"]))
             per_ticker_low[sym] = dict(zip(cached_dates, series["low"]))
             per_ticker_open[sym] = dict(zip(cached_dates, series.get("open", [])))
+            # Backward-compat read (point 6: "Bestehende Cache-Dateien ohne
+            # volume müssen weiterhin lesbar bleiben") — series.get("volume", [])
+            # defaults to an empty list for a pre-patch cache entry, so zip()
+            # simply produces no volume observations for that ticker instead
+            # of raising a KeyError.
+            per_ticker_volume[sym] = dict(zip(cached_dates, series.get("volume", [])))
+        # Migration trigger: a pre-existing cache where NOT A SINGLE relevant
+        # ticker has any real volume observation yet (short-circuits on the
+        # first hit, so this is cheap even for a full ~5500-ticker cache).
+        if cached_dates and not any(
+                v is not None for sym in universe_set for v in per_ticker_volume.get(sym, {}).values()):
+            volume_migration_needed = True
         n_missing = sum(1 for s in universe_set if s not in cached_tickers)
         print(f"  ✅ Preis-Cache geladen: {len(cached_dates)} Handelstage, {len(cached_tickers)} Ticker "
               f"({n_missing} neue Ticker im Universe noch nicht im Cache)")
@@ -344,6 +402,34 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
         per_ticker_high.setdefault(t, {})
         per_ticker_low.setdefault(t, {})
         per_ticker_open.setdefault(t, {})
+        per_ticker_volume.setdefault(t, {})
+
+    if volume_migration_needed:
+        backfill_dates = cached_dates[-volume_backfill_min_sessions:] \
+            if len(cached_dates) > volume_backfill_min_sessions else list(cached_dates)
+        print(f"  🔄 Volume-Migration erkannt: bestehender Preis-Cache ({len(cached_dates)} Handelstage) "
+              f"hat noch keine Volume-Historie — einmaliger Backfill von {len(backfill_dates)} bereits "
+              f"gecachten Handelstagen via marktweite Grouped-Daily-Daten (1 API-Call/Tag, keine "
+              f"Einzel-Ticker-Calls)...")
+        n_days_backfilled = 0
+        for date_str in backfill_dates:
+            data = massive_get(f"/v2/aggs/grouped/locale/us/market/stocks/{date_str}")
+            if not data or data.get("resultsCount", 0) < MIN_RESULTS_FOR_TRADING_DAY:
+                print(f"  ⚠ Volume-Backfill: {date_str} lieferte keine validen Grouped-Daily-Daten, übersprungen")
+                continue
+            for row in data.get("results", []):
+                sym = row.get("T")
+                if sym in per_ticker_volume:
+                    per_ticker_volume[sym][date_str] = row.get("v")
+            n_days_backfilled += 1
+        n_sufficient = sum(
+            1 for sym in universe_set
+            if sum(1 for d in backfill_dates if per_ticker_volume.get(sym, {}).get(d) is not None)
+            >= volume_backfill_min_sessions)
+        n_insufficient = len(universe_set) - n_sufficient
+        print(f"  ✅ Volume-Backfill abgeschlossen: {n_days_backfilled}/{len(backfill_dates)} Handelstage "
+              f"marktweit nachgeladen | Ticker mit >= {volume_backfill_min_sessions} validen Volume-"
+              f"Beobachtungen: {n_sufficient} | ohne ausreichende Historie: {n_insufficient}")
 
     newest_cached = cached_dates[-1] if cached_dates else None
     print(f"\n📊 Ergaenze marktweite Grouped-Daily-OHLC (Ziel: {target_days} Handelstage, "
@@ -375,6 +461,7 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
                 per_ticker_high[sym][date_str] = row.get("h")
                 per_ticker_low[sym][date_str] = row.get("l")
                 per_ticker_open[sym][date_str] = row.get("o")
+                per_ticker_volume[sym][date_str] = row.get("v")
         print(f"  → {date_str}: {data['resultsCount']} Ticker (neuer Handelstag {len(new_days)})")
 
     trading_days = sorted(set(cached_dates) | set(new_days))
@@ -385,12 +472,13 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
           f"{calendar_checked} Kalendertage geprueft)")
 
     save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low,
-                      per_ticker_open, universe_set)
+                      per_ticker_open, per_ticker_volume, universe_set)
 
     close_df = build_frame(per_ticker_close, trading_days, universe_set)
     high_df = build_frame(per_ticker_high, trading_days, universe_set)
     low_df = build_frame(per_ticker_low, trading_days, universe_set)
-    return close_df, high_df, low_df, trading_days
+    volume_df = build_frame(per_ticker_volume, trading_days, universe_set)
+    return close_df, high_df, low_df, volume_df, trading_days
 
 
 def build_frame(per_ticker, trading_days, universe_set):
@@ -437,10 +525,41 @@ def calc_sma50_trend_fields(close, sma50_series, slope_lookback, persistence_loo
     return sma50_slope_pct, pct_above
 
 
+def calc_rvol_fields(vol_aligned, lookback_sessions):
+    """RVOL/Screener/Benchmark/Futures Patch point 4: (current_volume,
+    average_volume_50, rvol_50) from a volume Series aligned 1:1 to the
+    ticker's own close-price date index (ascending, most recent last).
+    current_volume is the LAST entry (the most recent fully completed
+    session — same "most recent row" convention as d1_pct/`last` above).
+    average_volume_50 is the simple mean of the `lookback_sessions`
+    sessions strictly BEFORE that last one (today's own volume is never
+    part of its own denominator) -- both stay None unless that full
+    previous window has zero missing observations, never a partial/padded
+    average. rvol_50 additionally requires current_volume itself to be
+    present."""
+    if vol_aligned is None or len(vol_aligned) == 0:
+        return None, None, None
+    last_v = vol_aligned.iloc[-1]
+    current_volume = int(last_v) if last_v is not None and not (isinstance(last_v, float) and np.isnan(last_v)) else None
+    average_volume_50 = None
+    rvol_50 = None
+    if len(vol_aligned) > lookback_sessions:
+        prev_window = vol_aligned.iloc[-1 - lookback_sessions:-1]
+        if prev_window.notna().sum() >= lookback_sessions:
+            avg = float(prev_window.mean())
+            if avg > 0:
+                average_volume_50 = round(avg, 2)
+                if current_volume is not None:
+                    rvol_50 = round(current_volume / avg, 4)
+    return current_volume, average_volume_50, rvol_50
+
+
 def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
-                          sma50_slope_lookback=20, sma50_persistence_lookback=20):
+                          sma50_slope_lookback=20, sma50_persistence_lookback=20,
+                          volume_df=None, volume_lookback_sessions=50):
     """Returns {symbol: {...}} with price/ADR20/EMA/ATR/performance fields,
-    plus (V1.1) multi-timeframe returns and SMA50 trend-strength fields."""
+    plus (V1.1) multi-timeframe returns and SMA50 trend-strength fields,
+    plus (RVOL/Screener/Benchmark/Futures Patch) volume/RVOL50/SMA200."""
     out = {}
     min_history = max(adr_lookback, 51 + max(sma50_slope_lookback, sma50_persistence_lookback))
     for sym in close_df.columns:
@@ -496,6 +615,24 @@ def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
         sma50_slope_20d_pct, pct_sessions_above_sma50_20d = calc_sma50_trend_fields(
             close, sma50_series, sma50_slope_lookback, sma50_persistence_lookback)
 
+        # RVOL/Screener/Benchmark/Futures Patch point 4: volume/average_
+        # volume_50/rvol_50, from the SAME rolling price-history cache
+        # (aligned onto close's own valid-date index, same reindex pattern
+        # as high/low above).
+        vol_aligned = volume_df[sym].reindex(close.index) if volume_df is not None and sym in volume_df.columns else None
+        current_volume, average_volume_50, rvol_50 = calc_rvol_fields(vol_aligned, volume_lookback_sessions)
+
+        # Point 14: SMA200 stock feature, additive -- null (not fabricated)
+        # below 200 sessions, never gates eligibility.
+        sma200_series = close.rolling(200).mean()
+        sma200 = None
+        sma200_distance_pct = None
+        if len(close) >= 200:
+            sma200_raw = sma200_series.iloc[-1]
+            if sma200_raw and not np.isnan(sma200_raw) and sma200_raw > 0:
+                sma200 = round(float(sma200_raw), 2)
+                sma200_distance_pct = round(float((last - sma200_raw) / sma200_raw * 100), 2)
+
         out[sym] = {
             "symbol": sym,
             "close": round(float(last), 2),
@@ -519,6 +656,11 @@ def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
             "atr_extension": atr_extension,
             "sma50_slope_20d_pct": sma50_slope_20d_pct,
             "pct_sessions_above_sma50_20d": pct_sessions_above_sma50_20d,
+            "sma200": sma200,
+            "sma200_distance_pct": sma200_distance_pct,
+            "volume": current_volume,
+            "average_volume_50": average_volume_50,
+            "rvol_50": rvol_50,
         }
     return out
 
@@ -760,6 +902,7 @@ def main():
     u_cfg = cfg["universe"]
     cache_cfg = cfg["market_history_cache"]
     trend_cfg = cfg["trend_strength_v1_1"]
+    volume_cfg = cfg["volume_context"]
     # V6 point 9: RSP (S&P 500 Equal Weight ETF) is the new sole canonical
     # Narrative-Benchmark (replaces SPY). Folded into the SAME grouped-daily
     # walk as the stock universe (zero extra API calls) and persisted into
@@ -774,9 +917,10 @@ def main():
     type_universe = type_eligible_universe(types_ref, set(u_cfg["excluded_types"]))
     print(f"\n📋 {len(type_universe)} Ticker nach Asset-Type-Filter (ETF/ETN/FUND/... ausgeschlossen)")
 
-    close_df, high_df, low_df, trading_days = fetch_grouped_history_full_market_cached(
+    close_df, high_df, low_df, volume_df, trading_days = fetch_grouped_history_full_market_cached(
         type_universe | {RSP_TICKER}, cache_cfg["path"], target_days=cache_cfg["target_trading_days"],
-        backfill_tickers={RSP_TICKER})
+        backfill_tickers={RSP_TICKER},
+        volume_backfill_min_sessions=volume_cfg["average_volume_lookback_sessions"] + 1)
     if len(trading_days) < 21:
         print("FATAL: Zu wenige Handelstage geladen, breche ab.", file=sys.stderr)
         sys.exit(1)
@@ -786,7 +930,8 @@ def main():
     features = calc_ticker_features(
         close_df, high_df, low_df, u_cfg["adr_lookback_sessions"],
         sma50_slope_lookback=trend_cfg["sma50_slope_lookback_sessions"],
-        sma50_persistence_lookback=trend_cfg["sma50_persistence_lookback_sessions"])
+        sma50_persistence_lookback=trend_cfg["sma50_persistence_lookback_sessions"],
+        volume_df=volume_df, volume_lookback_sessions=volume_cfg["average_volume_lookback_sessions"])
     # RSP is a benchmark, never a stock -- pop it back out immediately so it
     # never flows into ADR candidates, enrichment, eligibility, RS/Thrust
     # percentiles, or output_tickers (point 9: "RSP darf NIE zum normalen
@@ -1003,6 +1148,8 @@ def main():
             "trend_strength_computed_count": sum(1 for t in output_tickers.values() if t["trend_strength"] is not None),
             "bootstrap_recent_leader_count": sum(recent_leader_bootstrap.values()),
             "stock_thrust_rs_computed_count": sum(1 for t in output_tickers.values() if t["stock_thrust_rs"] is not None),
+            "rvol_50_computed_count": sum(1 for t in output_tickers.values() if t["rvol_50"] is not None),
+            "sma200_computed_count": sum(1 for t in output_tickers.values() if t["sma200"] is not None),
         },
         "tickers": output_tickers,
     }

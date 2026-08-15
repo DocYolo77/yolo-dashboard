@@ -446,53 +446,52 @@ def basket_daily_return_series(daily_ret, members):
     return daily_ret[cols].median(axis=1, skipna=True)
 
 
-def compute_narrative_rs_history(narratives, daily_ret, trading_days, eligible_set=None,
+def compute_narrative_rs_history(narratives, relative_strength_by_id, trading_days,
                                   lookback_days=RS_HISTORY_LOOKBACK_DAYS, benchmark_ticker="RSP"):
-    """Basket-vs-benchmark relative-strength time series per narrative, for
-    the dashboard's 'Benchmark' comparison chart (the pill-selectable multi-
-    narrative-vs-benchmark view — separate from the new dedicated RSP-only
-    Benchmark card, see build_benchmark_rsp_series()). Same basket daily-
-    return series as Strength/Thrust (basket_daily_return_series), compounded
-    from the start of the lookback window; relative strength = compounded
-    basket return minus compounded benchmark return, in percentage points,
-    so the benchmark is always the flat 0% baseline the chart draws as a
-    dashed line. V6: benchmark_ticker defaults to RSP (config
-    rsp_benchmark.ticker), replacing the old SPY default -- explicitly NOT
-    SPY, NOT QQQ (point 29B/29C). Returns None (with a warning) if the
-    benchmark wasn't in the fetched universe or has too little history — the
-    frontend degrades to an empty-state message rather than crashing,
-    matching load_market_features' graceful-fallback pattern.
+    """RVOL/Screener/Benchmark/Futures Patch point 10: adapts this backend
+    structure to the CURRENT Narrative Strength/RSP methodology instead of
+    reactivating the old median-basket-return-minus-benchmark-return method.
+    `relative_strength_by_id` is the SAME {narrative_id: pd.Series} the
+    headline narrative_rs percentiles above are built from (narrative_index_t
+    / rsp_close_t, see compute_relative_strength_line) — zero second
+    calculation model, just a different slice of the same lines for the
+    multi-narrative-pill comparison chart (the restored old presentation,
+    spec point 9).
 
-    `eligible_set` restricts basket membership the SAME way as the main
-    Strength/Thrust/Breadth/Leadership calculation below (Full-Universe spec
-    point 8) — a historically-classified-but-currently-ineligible ticker
-    must not silently keep steering the Benchmark chart either. None (the
-    default) means "no eligibility filter" — same graceful-degradation
-    fallback as everywhere market_features may be unavailable."""
-    if benchmark_ticker not in daily_ret.columns:
-        print(f"  ⚠ {benchmark_ticker} nicht in den geladenen Kursdaten enthalten — Benchmark-RS-Historie übersprungen",
-              file=sys.stderr)
+    chart_relative_pct_t = (relative_strength_t / relative_strength_start - 1) * 100,
+    where relative_strength_start is the FIRST valid value within this
+    narrative's own visible lookback window — every line therefore starts at
+    exactly 0% (point 10), and the dashed 0% baseline the chart draws
+    represents RSP itself: above 0 = narrative outperforming RSP since chart
+    start, below 0 = underperforming.
+
+    A narrative needs at least 10 valid points within the window to be
+    included (same threshold the old function used) — returns None (with a
+    warning) if NO narrative qualifies, so the frontend can show its
+    existing empty-state message rather than crash."""
+    if not trading_days:
         return None
-
     window_dates = trading_days[-lookback_days:]
-    bm_ret = daily_ret[benchmark_ticker].reindex(window_dates)
-    if bm_ret.dropna().shape[0] < 10:
-        print(f"  ⚠ Zu wenig {benchmark_ticker}-Historie für Benchmark-RS-Historie — übersprungen", file=sys.stderr)
-        return None
-    bm_cum = (1 + bm_ret.fillna(0) / 100).cumprod() - 1
 
     series_by_narrative = {}
     for n in narratives:
-        members = [t for t in n["tickers"]
-                   if t in daily_ret.columns and (eligible_set is None or t in eligible_set)]
-        if not members:
+        rel = relative_strength_by_id.get(n["id"])
+        if rel is None:
             continue
-        basket_ret = basket_daily_return_series(daily_ret, members).reindex(window_dates)
-        if basket_ret.dropna().shape[0] < 10:
+        windowed = rel.reindex(window_dates)
+        valid = windowed.dropna()
+        if len(valid) < 10:
             continue
-        basket_cum = (1 + basket_ret.fillna(0) / 100).cumprod() - 1
-        relative = (basket_cum - bm_cum) * 100
-        series_by_narrative[n["id"]] = [round(float(v), 2) for v in relative.tolist()]
+        start = valid.iloc[0]
+        if not start:
+            continue
+        chart_pct = (windowed / start - 1.0) * 100
+        series_by_narrative[n["id"]] = [None if pd.isna(v) else round(float(v), 2) for v in chart_pct.tolist()]
+
+    if not series_by_narrative:
+        print(f"  ⚠ Keine Narrative mit ausreichender {benchmark_ticker}-relativer Historie — Benchmark-RS-Historie übersprungen",
+              file=sys.stderr)
+        return None
 
     dates_fmt = [datetime.strptime(d, "%Y-%m-%d").strftime("%d.%m.") for d in window_dates]
     return {
@@ -869,6 +868,12 @@ def main():
         # unchanged -- no second Stock-RS/Thrust engine here.
         m["market_cap"] = mf.get("market_cap")
         m["stock_thrust_rs"] = mf.get("stock_thrust_rs")
+        # RVOL/Screener/Benchmark/Futures Patch point 7: pass through the
+        # already-computed volume/rvol_50 from market_features.json (no
+        # second computation here) for the Member-Detailtabelle's new
+        # "Volumen (M)" column.
+        m["volume"] = mf.get("volume")
+        m["rvol_50"] = mf.get("rvol_50")
 
     # Full-Universe spec point 8: every narrative-level metric (Strength/
     # Thrust/Breadth/Leadership/Structural Leadership/Trend Participation/
@@ -1110,9 +1115,7 @@ def main():
           f"eligible Mitgliedern lesen sich als Healthcare/Biotech")
 
     rs_history = compute_narrative_rs_history(
-        narratives, daily_ret, trading_days,
-        eligible_set if eligible_set is not None else set(universe),
-        benchmark_ticker=RSP_TICKER)
+        narrative_rows, relative_strength_by_id, trading_days, benchmark_ticker=RSP_TICKER)
     if rs_history is not None:
         print(f"  ✅ Benchmark-RS-Historie: {len(rs_history['narratives'])} Narrative x "
               f"{rs_history['lookback_trading_days']} Handelstage vs. {RSP_TICKER}")

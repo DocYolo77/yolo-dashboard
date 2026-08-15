@@ -23,7 +23,7 @@ from build_market_features import (  # noqa: E402
     PRICE_CACHE_SCHEMA_VERSION,
     classify_healthcare_biotech, compute_healthcare_excluded_universe,
     fetch_ticker_range_backfill, fetch_grouped_history_full_market_cached,
-    calc_return_n_sessions_ago,
+    calc_return_n_sessions_ago, calc_rvol_fields,
 )
 from build_narratives import percentile_ranks, compute_narrative_thrust_rsp  # noqa: E402
 
@@ -630,25 +630,42 @@ def test_price_cache_round_trip(tmp_path):
     per_ticker_high = {"AAA": {"2026-01-01": 10.5, "2026-01-02": 11.5}}
     per_ticker_low = {"AAA": {"2026-01-01": 9.5, "2026-01-02": 10.5}}
     per_ticker_open = {"AAA": {"2026-01-01": 9.8, "2026-01-02": 10.6}}
+    per_ticker_volume = {"AAA": {"2026-01-01": 1000000, "2026-01-02": 1100000}}
 
     assert load_price_cache(cache_path) is None  # nothing written yet
 
     save_price_cache(cache_path, trading_days, per_ticker_close, per_ticker_high, per_ticker_low,
-                      per_ticker_open, {"AAA"})
+                      per_ticker_open, per_ticker_volume, {"AAA"})
     loaded = load_price_cache(cache_path)
 
     assert loaded["schema_version"] == PRICE_CACHE_SCHEMA_VERSION
     assert loaded["dates"] == trading_days
     assert loaded["tickers"]["AAA"]["close"] == [10.0, 11.0]
     assert loaded["tickers"]["AAA"]["open"] == [9.8, 10.6]
+    assert loaded["tickers"]["AAA"]["volume"] == [1000000, 1100000]
 
 
 def test_price_cache_skips_tickers_with_no_observed_data(tmp_path):
     cache_path = tmp_path / "market_history.json"
     trading_days = ["2026-01-01"]
-    save_price_cache(cache_path, trading_days, {}, {}, {}, {}, {"NEVER_SEEN"})
+    save_price_cache(cache_path, trading_days, {}, {}, {}, {}, {}, {"NEVER_SEEN"})
     loaded = load_price_cache(cache_path)
     assert "NEVER_SEEN" not in loaded["tickers"]  # all-null row -> not persisted
+
+
+def test_price_cache_reads_pre_patch_cache_without_volume_key(tmp_path):
+    """RVOL/Screener/Benchmark/Futures Patch point 6: a cache file written
+    before this patch has no "volume" key at all per ticker -- must stay
+    fully readable, never crash, never get silently invalidated."""
+    cache_path = tmp_path / "market_history.json"
+    cache_path.write_text(json.dumps({
+        "schema_version": PRICE_CACHE_SCHEMA_VERSION,
+        "dates": ["2026-01-01", "2026-01-02"],
+        "tickers": {"AAA": {"open": [9.8, 10.6], "close": [10.0, 11.0], "high": [10.5, 11.5], "low": [9.5, 10.5]}},
+    }))
+    loaded = load_price_cache(cache_path)
+    assert loaded is not None
+    assert "volume" not in loaded["tickers"]["AAA"]
 
 
 def test_price_cache_discards_mismatched_schema_version(tmp_path):
@@ -705,12 +722,17 @@ def test_fetch_grouped_history_backfills_a_new_benchmark_ticker_to_match_existin
     trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(4, -1, -1)]  # 5 days ending today
 
     # Pre-existing cache: only AAPL has history, RSP has never been fetched.
+    # Volume already populated (>= volume_backfill_min_sessions+1 not required
+    # here since the test only asserts len(range_calls) == 1 -- populating it
+    # at all is what matters, to keep the unrelated volume-migration path
+    # from firing and issuing its own grouped-daily calls in this test).
     save_price_cache(
         cache_path, trading_days,
         {"AAPL": {d: 150.0 + i for i, d in enumerate(trading_days)}},
         {"AAPL": {d: 151.0 for d in trading_days}},
         {"AAPL": {d: 149.0 for d in trading_days}},
         {"AAPL": {d: 150.0 for d in trading_days}},
+        {"AAPL": {d: 1000000 for d in trading_days}},
         {"AAPL"},
     )
 
@@ -730,7 +752,7 @@ def test_fetch_grouped_history_backfills_a_new_benchmark_ticker_to_match_existin
 
     monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
 
-    close_df, high_df, low_df, out_days = fetch_grouped_history_full_market_cached(
+    close_df, high_df, low_df, volume_df, out_days = fetch_grouped_history_full_market_cached(
         {"AAPL", "RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
 
     assert range_calls == [f"/v2/aggs/ticker/RSP/range/1/day/{trading_days[0]}/{trading_days[-1]}"]
@@ -745,12 +767,16 @@ def test_fetch_grouped_history_skips_backfill_when_ticker_already_in_cache(tmp_p
     trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(2, -1, -1)]
 
     # RSP is ALREADY in the cache from a previous run -> must never re-trigger the backfill call.
+    # Volume pre-populated so the unrelated volume-migration path doesn't fire
+    # its own grouped-daily calls here (this test's own massive_get stub
+    # raises on ANY grouped-daily/range call).
     save_price_cache(
         cache_path, trading_days,
         {"RSP": {d: 220.0 for d in trading_days}},
         {"RSP": {d: 221.0 for d in trading_days}},
         {"RSP": {d: 219.0 for d in trading_days}},
         {"RSP": {d: 220.0 for d in trading_days}},
+        {"RSP": {d: 5000000 for d in trading_days}},
         {"RSP"},
     )
 
@@ -761,7 +787,7 @@ def test_fetch_grouped_history_skips_backfill_when_ticker_already_in_cache(tmp_p
 
     monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
 
-    close_df, _, _, _ = fetch_grouped_history_full_market_cached(
+    close_df, _, _, _, _ = fetch_grouped_history_full_market_cached(
         {"RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
     assert close_df["RSP"].notna().all()
 
@@ -793,6 +819,7 @@ def test_fetch_grouped_history_backfills_a_ticker_already_present_but_stranded_s
         {"AAPL": {d: 151.0 for d in trading_days}, "RSP": sparse_close},
         {"AAPL": {d: 149.0 for d in trading_days}, "RSP": sparse_close},
         {"AAPL": {d: 150.0 for d in trading_days}, "RSP": sparse_close},
+        {"AAPL": {d: 1000000 for d in trading_days}, "RSP": sparse_close},
         {"AAPL", "RSP"},
     )
 
@@ -810,7 +837,7 @@ def test_fetch_grouped_history_backfills_a_ticker_already_present_but_stranded_s
 
     monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
 
-    close_df, _, _, _ = fetch_grouped_history_full_market_cached(
+    close_df, _, _, _, _ = fetch_grouped_history_full_market_cached(
         {"AAPL", "RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
 
     assert range_calls == [f"/v2/aggs/ticker/RSP/range/1/day/{trading_days[0]}/{trading_days[-1]}"]
@@ -856,3 +883,207 @@ def test_stock_thrust_rs_matches_thrust_formula_end_to_end():
     thrust = compute_narrative_thrust_rsp(90, 80, 60, weights)
     assert thrust == pytest.approx(0.60 * 90 + 0.40 * 80 + 0.10 * (90 - 60))
     assert thrust == pytest.approx(89.0)  # 54 + 32 + 3
+
+
+# ── RVOL/Screener/Benchmark/Futures Patch point 4: RVOL50 worked examples ──
+
+def test_calc_rvol_fields_worked_example_50_previous_10m_today_15m():
+    # Spec's own worked example: 50 previous sessions @ 10M each, today 15M
+    # -> avg50 = 10M, RVOL50 = 1.50.
+    vol = pd.Series([10_000_000] * 50 + [15_000_000])
+    current_volume, average_volume_50, rvol_50 = calc_rvol_fields(vol, lookback_sessions=50)
+    assert current_volume == 15_000_000
+    assert average_volume_50 == pytest.approx(10_000_000)
+    assert rvol_50 == pytest.approx(1.50)
+
+
+def test_calc_rvol_fields_49_previous_sessions_returns_null():
+    # Only 49 previous sessions (one short of the 50 required) -> both null.
+    vol = pd.Series([10_000_000] * 49 + [15_000_000])
+    current_volume, average_volume_50, rvol_50 = calc_rvol_fields(vol, lookback_sessions=50)
+    assert current_volume == 15_000_000  # current itself is still known
+    assert average_volume_50 is None
+    assert rvol_50 is None
+
+
+def test_calc_rvol_fields_todays_volume_never_enters_the_denominator():
+    # A huge spike TODAY must not distort average_volume_50 -- the average is
+    # computed strictly over the 50 sessions BEFORE the current one.
+    vol = pd.Series([10_000_000] * 50 + [500_000_000])
+    _, average_volume_50, rvol_50 = calc_rvol_fields(vol, lookback_sessions=50)
+    assert average_volume_50 == pytest.approx(10_000_000)  # unaffected by today's spike
+    assert rvol_50 == pytest.approx(50.0)
+
+
+def test_calc_rvol_fields_one_null_in_the_previous_window_still_yields_null():
+    # A single missing observation within the required 50-session window is
+    # enough to withhold the average (never a partial/padded average).
+    vol = pd.Series([10_000_000] * 49 + [None] + [15_000_000])
+    _, average_volume_50, rvol_50 = calc_rvol_fields(vol, lookback_sessions=50)
+    assert average_volume_50 is None
+    assert rvol_50 is None
+
+
+def test_calc_rvol_fields_missing_current_volume_still_computes_average_but_not_rvol():
+    vol = pd.Series([10_000_000] * 50 + [None])
+    current_volume, average_volume_50, rvol_50 = calc_rvol_fields(vol, lookback_sessions=50)
+    assert current_volume is None
+    assert average_volume_50 == pytest.approx(10_000_000)
+    assert rvol_50 is None  # can't compute RVOL without today's volume
+
+
+def test_calc_rvol_fields_empty_series_returns_all_none():
+    current_volume, average_volume_50, rvol_50 = calc_rvol_fields(pd.Series([], dtype=float), lookback_sessions=50)
+    assert current_volume is None
+    assert average_volume_50 is None
+    assert rvol_50 is None
+
+
+def test_calc_rvol_fields_none_input_returns_all_none():
+    assert calc_rvol_fields(None, lookback_sessions=50) == (None, None, None)
+
+
+# ── Point 14: SMA200 stock feature ──
+
+def test_calc_ticker_features_sma200_computed_with_full_200_session_history():
+    days = [f"2026-{(1 + i // 28):02d}-{(1 + i % 28):02d}" for i in range(210)]
+    close = [100.0 + 0.1 * i for i in range(210)]
+    close_df = pd.DataFrame({"AAPL": close}, index=days)
+    high_df = close_df + 1
+    low_df = close_df - 1
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)["AAPL"]
+    assert out["sma200"] is not None
+    assert out["sma200_distance_pct"] is not None
+    # Rising series -> price sits above its own trailing SMA200 -> positive distance.
+    assert out["sma200_distance_pct"] > 0
+
+
+def test_calc_ticker_features_sma200_null_below_200_sessions():
+    days = [f"2026-{(1 + i // 28):02d}-{(1 + i % 28):02d}" for i in range(100)]
+    close = [100.0 + 0.1 * i for i in range(100)]
+    close_df = pd.DataFrame({"AAPL": close}, index=days)
+    high_df = close_df + 1
+    low_df = close_df - 1
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)["AAPL"]
+    assert out["sma200"] is None
+    assert out["sma200_distance_pct"] is None
+    # Ticker still gets a full feature row (stays globally eligible-candidate) --
+    # SMA200 being null doesn't remove it from the output.
+    assert out["close"] is not None
+
+
+def test_calc_ticker_features_volume_fields_flow_through_from_volume_df():
+    days = [f"2026-{(1 + i // 28):02d}-{(1 + i % 28):02d}" for i in range(80)]
+    close = [100.0] * 80
+    close_df = pd.DataFrame({"AAPL": close}, index=days)
+    high_df = close_df + 1
+    low_df = close_df - 1
+    volume_df = pd.DataFrame({"AAPL": [10_000_000] * 50 + [15_000_000] + [10_000_000] * 29}, index=days)
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20,
+                                volume_df=volume_df, volume_lookback_sessions=50)["AAPL"]
+    assert out["volume"] is not None
+    assert out["average_volume_50"] is not None
+    assert out["rvol_50"] is not None
+
+
+def test_calc_ticker_features_without_volume_df_degrades_gracefully():
+    days = [f"2026-{(1 + i // 28):02d}-{(1 + i % 28):02d}" for i in range(80)]
+    close_df = pd.DataFrame({"AAPL": [100.0] * 80}, index=days)
+    high_df = close_df + 1
+    low_df = close_df - 1
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)["AAPL"]
+    assert out["volume"] is None
+    assert out["average_volume_50"] is None
+    assert out["rvol_50"] is None
+
+
+# ── Point 6: one-time volume-history backfill for a pre-patch cache ──
+
+def test_volume_migration_backfills_at_least_51_sessions_from_grouped_daily(tmp_path, monkeypatch):
+    """A cache written before this patch has NO 'volume' key at all for any
+    ticker. fetch_grouped_history_full_market_cached must detect that and
+    backfill volume for the most recent volume_backfill_min_sessions ALREADY-
+    cached days via the market-wide grouped-daily endpoint (never per-ticker
+    calls), so RVOL50 doesn't need 50 more days to populate."""
+    cache_path = tmp_path / "market_history.json"
+    today = _dt.now(_tz.utc).date()
+    trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(59, -1, -1)]  # 60 days ending today
+
+    # Pre-patch cache: close/high/low/open present, but NO "volume" key at all
+    # (mirrors what save_price_cache used to write before this feature).
+    cache_path.write_text(json.dumps({
+        "schema_version": 2,
+        "dates": trading_days,
+        "tickers": {
+            "AAPL": {
+                "open": [150.0] * 60, "close": [150.0] * 60, "high": [151.0] * 60, "low": [149.0] * 60,
+            },
+        },
+    }))
+
+    grouped_daily_calls = []
+
+    def fake_massive_get(path, params=None, retries=3):
+        if path.startswith("/v2/aggs/grouped/locale/us/market/stocks/"):
+            date_str = path.rsplit("/", 1)[-1]
+            grouped_daily_calls.append(date_str)
+            if date_str <= trading_days[-1]:  # only ever asked about known trading days here
+                return {"resultsCount": 1500, "results": [{"T": "AAPL", "c": 150.0, "h": 151.0, "l": 149.0,
+                                                            "o": 150.0, "v": 12_000_000}]}
+            return {"resultsCount": 0, "results": []}
+        raise AssertionError(f"unexpected non-grouped-daily call: {path}")
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+
+    close_df, high_df, low_df, volume_df, out_days = fetch_grouped_history_full_market_cached(
+        {"AAPL"}, cache_path, target_days=260, volume_backfill_min_sessions=51)
+
+    # Migration must have fetched at least 51 calendar days worth of
+    # grouped-daily data purely to backfill volume for already-cached dates
+    # (today's own incremental fetch is separate and would add one more).
+    assert len(grouped_daily_calls) >= 51
+    assert volume_df["AAPL"].notna().sum() >= 51
+
+    # Persisted cache now carries real volume -- next run won't re-migrate.
+    reloaded = load_price_cache(cache_path)
+    assert "volume" in reloaded["tickers"]["AAPL"]
+    assert sum(1 for v in reloaded["tickers"]["AAPL"]["volume"] if v is not None) >= 51
+
+
+def test_volume_migration_skipped_when_cache_already_has_real_volume_history(tmp_path, monkeypatch):
+    """Once a cache already carries real volume data (from a prior run of
+    this feature), the migration must NOT re-trigger and re-fetch 51+ days
+    of grouped-daily data again on every subsequent run."""
+    cache_path = tmp_path / "market_history.json"
+    today = _dt.now(_tz.utc).date()
+    trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(2, 0, -1)]  # 2 days, ending yesterday
+
+    save_price_cache(
+        cache_path, trading_days,
+        {"AAPL": {d: 150.0 for d in trading_days}},
+        {"AAPL": {d: 151.0 for d in trading_days}},
+        {"AAPL": {d: 149.0 for d in trading_days}},
+        {"AAPL": {d: 150.0 for d in trading_days}},
+        {"AAPL": {d: 12_000_000 for d in trading_days}},  # already has real volume
+        {"AAPL"},
+    )
+
+    grouped_daily_calls = []
+
+    def fake_massive_get(path, params=None, retries=3):
+        if path.startswith("/v2/aggs/grouped/locale/us/market/stocks/"):
+            date_str = path.rsplit("/", 1)[-1]
+            grouped_daily_calls.append(date_str)
+            if date_str == today.isoformat():
+                return {"resultsCount": 1500, "results": [{"T": "AAPL", "c": 150.0, "h": 151.0, "l": 149.0,
+                                                            "o": 150.0, "v": 13_000_000}]}
+            return {"resultsCount": 0, "results": []}
+        raise AssertionError(f"unexpected non-grouped-daily call: {path}")
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+
+    fetch_grouped_history_full_market_cached({"AAPL"}, cache_path, target_days=260, volume_backfill_min_sessions=51)
+
+    # Only today's single incremental fetch happened -- no 51-day migration walk.
+    assert len(grouped_daily_calls) == 1
+    assert grouped_daily_calls[0] == today.isoformat()

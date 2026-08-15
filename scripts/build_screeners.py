@@ -109,8 +109,8 @@ def mic_to_tradingview_symbol(symbol, primary_exchange, mic_to_exchange):
 
 
 SCREENER_TICKER_FIELDS = (
-    "close", "adr20", "market_cap", "rs_percentile_1w", "structural_rs",
-    "sma50_distance_pct", "ema10_distance_pct", "ema21_distance_pct",
+    "close", "adr20", "market_cap", "rs_percentile_1w", "rs_percentile_1m", "structural_rs",
+    "sma50_distance_pct", "sma200_distance_pct", "ema10_distance_pct", "ema20_distance_pct",
 )
 
 
@@ -134,6 +134,22 @@ def weekly_strength_sort_key(row):
     return (-(rs if rs is not None else -1), -(structural if structural is not None else -1), row["symbol"])
 
 
+def monthly_strength_sort_key(row):
+    """RVOL/Screener/Benchmark/Futures Patch point 13: same multi-key shape
+    as weekly_strength_sort_key, just on the 1M Strength percentile instead
+    of 1W — (1) rs_percentile_1m desc, (2) structural_rs desc, (3) ticker
+    alphabetical."""
+    rs = row["rs_percentile_1m"]
+    structural = row["structural_rs"]
+    return (-(rs if rs is not None else -1), -(structural if structural is not None else -1), row["symbol"])
+
+
+SCREENER_SORT_KEYS = {
+    "weekly_strength": weekly_strength_sort_key,
+    "monthly_strength": monthly_strength_sort_key,
+}
+
+
 def build_screener(preset_id, preset_cfg, tickers, types_ref, mic_to_exchange):
     hits = []
     unknown_mic_tickers = []
@@ -148,8 +164,9 @@ def build_screener(preset_id, preset_cfg, tickers, types_ref, mic_to_exchange):
         if unknown_mic:
             unknown_mic_tickers.append({"symbol": symbol, "primary_exchange": primary_exchange})
 
-    if preset_id == "weekly_strength":
-        hits.sort(key=weekly_strength_sort_key)
+    sort_key = SCREENER_SORT_KEYS.get(preset_id)
+    if sort_key:
+        hits.sort(key=sort_key)
     else:
         hits.sort(key=lambda r: r["symbol"])
 

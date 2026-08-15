@@ -72,13 +72,30 @@ const memberColumnsConstSrc = extractConst(html, 'MEMBER_COLUMNS');
 const qqqFiniteSeriesSrc = extractFunction(html, 'qqqFiniteSeries');
 const qqqHasEnoughHistorySrc = extractFunction(html, 'qqqHasEnoughHistory');
 const qqqEmptyStateHtmlSrc = extractFunction(html, 'qqqEmptyStateHtml');
-// V6 point 29B: RSP Benchmark chart (cumulative return, client-side timeframe slicing).
-const rsBenchmarkWindowSrc = extractFunction(html, 'rsBenchmarkWindow');
-const rsBenchmarkCumulativeReturnSrc = extractFunction(html, 'rsBenchmarkCumulativeReturn');
-const rsBenchmarkDateLabelSrc = extractFunction(html, 'rsBenchmarkDateLabel');
+// RVOL/Screener/Benchmark/Futures Patch point 2: shared Strength color helper.
+const ncStrengthColorClassSrc = extractFunction(html, 'ncStrengthColorClass');
+// Point 5: Volumen (M) coloring; point 3: Volumen (M) display formatting.
+const ncVolumeColorClassSrc = extractFunction(html, 'ncVolumeColorClass');
+const ncFmtVolumeMSrc = extractFunction(html, 'ncFmtVolumeM');
+// Point 9-10: restored multi-narrative-pill Benchmark chart (commit ec36828a),
+// now rendering the current equal-weight/RSP rs_history methodology.
+const benchmarkColorsConstSrc = extractConst(html, 'BENCHMARK_COLORS');
+const renderBenchmarkPillsSrc = extractFunction(html, 'renderBenchmarkPills');
+const ncToggleBenchmarkSrc = extractFunction(html, 'ncToggleBenchmark');
+const benchmarkLineChartSrc = extractFunction(html, 'benchmarkLineChart');
+const renderBenchmarkChartSrc = extractFunction(html, 'renderBenchmarkChart');
 // V6 point 19-27: Screener (06) — TradingView export + filename.
 const screenerTradingViewTxtContentSrc = extractFunction(html, 'screenerTradingViewTxtContent');
 const screenerFilenameSlugSrc = extractFunction(html, 'screenerFilenameSlug');
+const screenerFmtNumSrc = extractFunction(html, 'screenerFmtNum');
+const screenerFmtPctSignedSrc = extractFunction(html, 'screenerFmtPctSigned');
+const screenerColumnCellHtmlSrc = extractFunction(html, 'screenerColumnCellHtml');
+const screenerPresetColumnsConstSrc = extractConst(html, 'SCREENER_PRESET_COLUMNS');
+const screenerPresetTagsConstSrc = extractConst(html, 'SCREENER_PRESET_TAGS');
+// Point 16: fully sortable Futures table, pure frontend, sorts a copy.
+const futuresReturn5dSrc = extractFunction(html, 'futuresReturn5d');
+const futuresSortValueSrc = extractFunction(html, 'futuresSortValue');
+const sortFuturesRowsSrc = extractFunction(html, 'sortFuturesRows');
 const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
@@ -102,9 +119,16 @@ const sandbox = {
   ncStrengthWindow: '1w',
   ncExpandedId: null,
   ncNarrativesExpanded: false,
-  engineConfig: { dashboard: { ema_proximity_threshold_pct: 4.0, atr_extension_warning_threshold: 5.0 } },
+  engineConfig: {
+    dashboard: { ema_proximity_threshold_pct: 4.0, atr_extension_warning_threshold: 5.0 },
+    volume_context: { average_volume_lookback_sessions: 50, high_rvol_threshold: 1.30 },
+  },
   dashboardState: null,
   tickerCharts: null,
+  // RVOL/Screener/Benchmark/Futures Patch point 9: restored multi-select
+  // pill state + the narratives.json payload the pill/chart functions read.
+  narrativesRaw: null,
+  ncBenchmarkSelected: new Set(),
   window: { innerWidth: 1200, innerHeight: 800 },
   oppTab: 'all',
   oppSortState: { field: 'leadership_score', dir: 'desc' },
@@ -117,14 +141,18 @@ const sandbox = {
   renderNarrativeGrid() { sandbox.renderNarrativeGridCallCount++; },
   oppRenderCallCount: 0,
   oppRender() { sandbox.oppRenderCallCount++; },
-  // Minimal DOM stub for the Opportunities filter inputs — oppApplyFilters
-  // reads these directly via getElementById, same as the real page.
+  // Minimal DOM stub for the Opportunities filter inputs / Benchmark pills —
+  // oppApplyFilters/renderBenchmarkPills/renderBenchmarkChart read these
+  // directly via getElementById, same as the real page. innerHTML is just a
+  // plain settable property here (no real DOM), enough to prove the render
+  // functions run to completion and mutate state correctly without a crash.
   document: {
     _elements: {},
     getElementById(id) {
-      if (!this._elements[id]) this._elements[id] = { value: '', checked: false, scrollIntoView() {} };
+      if (!this._elements[id]) this._elements[id] = { value: '', checked: false, innerHTML: '', scrollIntoView() {} };
       return this._elements[id];
     },
+    querySelectorAll() { return []; },
   },
   console,
 };
@@ -132,10 +160,14 @@ vm.createContext(sandbox);
 vm.runInContext(
   `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncEmaFilterMembersSrc}\n${ncSortMembersForRankingSrc}\n` +
   `${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n${ncToggleDetailSrc}\n${ncToggleExpandAllSrc}\n` +
-  `${ncScoreValueSrc}\n${ncFmtScoreSrc}\n${memberColumnsConstSrc}\n` +
+  `${ncScoreValueSrc}\n${ncFmtScoreSrc}\n${memberColumnsConstSrc}\n${ncStrengthColorClassSrc}\n` +
+  `${ncVolumeColorClassSrc}\n${ncFmtVolumeMSrc}\n` +
   `${qqqFiniteSeriesSrc}\n${qqqHasEnoughHistorySrc}\n${qqqEmptyStateHtmlSrc}\n` +
-  `${rsBenchmarkWindowSrc}\n${rsBenchmarkCumulativeReturnSrc}\n${rsBenchmarkDateLabelSrc}\n` +
+  `${benchmarkColorsConstSrc}\n${renderBenchmarkPillsSrc}\n${ncToggleBenchmarkSrc}\n${benchmarkLineChartSrc}\n${renderBenchmarkChartSrc}\n` +
+  `function qqqXAxis(){ return ''; }\n` +
   `${screenerTradingViewTxtContentSrc}\n${screenerFilenameSlugSrc}\n` +
+  `${screenerFmtNumSrc}\n${screenerFmtPctSignedSrc}\n${screenerPresetColumnsConstSrc}\n${screenerPresetTagsConstSrc}\n${screenerColumnCellHtmlSrc}\n` +
+  `${futuresReturn5dSrc}\n${futuresSortValueSrc}\n${sortFuturesRowsSrc}\n` +
   `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
   `${positionTickerChartTooltipSrc}\n` +
@@ -704,9 +736,16 @@ test('ncFmtScore renders missing values as "—" for both RS and Thrust', () => 
 
 // ── V6.1 point 14/25-26: exact Member-Detailtabelle column set, static HTML checks ──
 
-test('MEMBER_COLUMNS matches the spec\'s exact 6-column set (Ticker/Kurs/Veränderung abs./Veränderung %/RS/Thrust)', () => {
+test('MEMBER_COLUMNS matches the RVOL patch\'s exact 7-column set incl. Volumen (M), RS label -> Strength', () => {
   const cols = vm.runInContext('MEMBER_COLUMNS', sandbox);
-  assert.deepEqual(Array.from(cols).map(c => c.key), ['symbol', 'price', 'change_abs', 'd1_pct', 'rs', 'stock_thrust_rs']);
+  assert.deepEqual(Array.from(cols).map(c => c.key),
+    ['symbol', 'price', 'change_abs', 'd1_pct', 'volume', 'rs', 'stock_thrust_rs']);
+  const byKey = Object.fromEntries(Array.from(cols).map(c => [c.key, c.label]));
+  assert.equal(byKey.volume, 'Volumen (M)');
+  assert.equal(byKey.rs, 'Strength'); // point 1: display label only, field key stays "rs"
+  // Volumen (M) sits directly after Veränderung % (point 3's exact column order).
+  const keys = Array.from(cols).map(c => c.key);
+  assert.equal(keys.indexOf('volume'), keys.indexOf('d1_pct') + 1);
 });
 
 test('index.html: "Zeithorizont (Mitglieder)" toggle is fully removed (point 2)', () => {
@@ -714,12 +753,20 @@ test('index.html: "Zeithorizont (Mitglieder)" toggle is fully removed (point 2)'
   assert.doesNotMatch(html, /id="horizonToggle"/);
 });
 
-test('index.html: RS-Zeitfenster and Ranking controls are present (point 2-3)', () => {
-  assert.match(html, /RS-Zeitfenster/);
+test('index.html: Strength-Zeitfenster and Ranking controls are present, no visible "RS-Zeitfenster" label (point 1)', () => {
+  assert.match(html, /Strength-Zeitfenster/);
+  // The visible <span class="nc-label"> reads "Strength-Zeitfenster", never
+  // "RS-Zeitfenster" -- code comments elsewhere in the file may still say
+  // "RS-Zeitfenster" as shorthand for the underlying narrative_rs concept
+  // (point 1: internal names/prose not unnecessarily migrated), so this
+  // check is scoped to the actual rendered label element, not the whole file.
+  assert.doesNotMatch(html, /nc-label">RS-Zeitfenster</);
   assert.match(html, /id="strengthWindowToggle"/);
   assert.match(html, /id="rankingModeToggle"/);
-  assert.match(html, /data-ranking="rs"/);
-  assert.match(html, /data-ranking="thrust"/);
+  // data-ranking="rs" is the internal identifier (point 1: internal field
+  // names not unnecessarily migrated) -- the VISIBLE button label is STRENGTH.
+  assert.match(html, /data-ranking="rs">STRENGTH</);
+  assert.match(html, /data-ranking="thrust">THRUST</);
 });
 
 test('index.html: no colored full-surface narrative cards remain (point 1/11)', () => {
@@ -734,8 +781,74 @@ test('index.html: Structural Score/Lifecycle/Momentum-Modifier/Opportunities-sum
   assert.doesNotMatch(html, /ncJumpToOpportunities/);
 });
 
-test('index.html: narrative table header is exactly # | Narrative | RS | Thrust (point 11)', () => {
-  assert.match(html, /<th>#<\/th><th>Narrative<\/th><th>RS<\/th><th>Thrust<\/th>/);
+test('index.html: narrative table header is exactly # | Narrative | Strength | Thrust, no bare "RS" (point 1/11)', () => {
+  assert.match(html, /<th>#<\/th><th>Narrative<\/th><th>Strength<\/th><th>Thrust<\/th>/);
+  assert.doesNotMatch(html, /<th>RS<\/th>/);
+});
+
+// ── RVOL/Screener/Benchmark/Futures Patch point 2: shared Strength color helper ──
+
+test('ncStrengthColorClass: positive/zero -> pos, negative -> neg, null/undefined -> neutral', () => {
+  assert.equal(vm.runInContext('ncStrengthColorClass(v)', Object.assign(sandbox, { v: 62.5 })), 'pos');
+  assert.equal(vm.runInContext('ncStrengthColorClass(v)', Object.assign(sandbox, { v: 0 })), 'pos');
+  assert.equal(vm.runInContext('ncStrengthColorClass(v)', Object.assign(sandbox, { v: -1.0 })), 'neg');
+  assert.equal(vm.runInContext('ncStrengthColorClass(v)', Object.assign(sandbox, { v: null })), 'muted');
+  assert.equal(vm.runInContext('ncStrengthColorClass(v)', Object.assign(sandbox, { v: undefined })), 'muted');
+});
+
+test('ncStrengthColorClass: identical value in Narrative main table and Member detail table yields the identical class', () => {
+  // Both call sites (renderNarrativeGrid's Strength cell and
+  // renderNarrativeDetail's Stock Strength cell) invoke this SAME function —
+  // proven here by feeding it the same value twice and asserting equality,
+  // the concrete regression the "grey Stock Strength" bug fix guards against.
+  const narrativeStrengthValue = 73.2;
+  const stockStrengthValue = 73.2;
+  const a = vm.runInContext('ncStrengthColorClass(v)', Object.assign(sandbox, { v: narrativeStrengthValue }));
+  const b = vm.runInContext('ncStrengthColorClass(v)', Object.assign(sandbox, { v: stockStrengthValue }));
+  assert.equal(a, b);
+  assert.equal(a, 'pos');
+});
+
+test('ncStrengthColorClass never changes the underlying value or ranking, only the CSS class', () => {
+  const values = [90, 10, null, -5, 50];
+  const classes = values.map(v => vm.runInContext('ncStrengthColorClass(v)', Object.assign(sandbox, { v })));
+  assert.deepEqual(classes, ['pos', 'pos', 'muted', 'neg', 'pos']);
+  assert.deepEqual(values, [90, 10, null, -5, 50]); // untouched
+});
+
+// ── RVOL/Screener/Benchmark/Futures Patch points 3-5: Volumen (M) column ──
+
+test('ncFmtVolumeM: volume / 1_000_000, null renders as em-dash', () => {
+  assert.equal(vm.runInContext('ncFmtVolumeM(v)', Object.assign(sandbox, { v: 18420000 })), '18.42');
+  assert.equal(vm.runInContext('ncFmtVolumeM(v)', Object.assign(sandbox, { v: null })), '—');
+  assert.equal(vm.runInContext('ncFmtVolumeM(v)', Object.assign(sandbox, { v: undefined })), '—');
+});
+
+test('ncVolumeColorClass: worked example from the spec (avg50=10M, today 15M -> RVOL50=1.50)', () => {
+  const rvol50 = 15000000 / 10000000; // 1.50
+  assert.equal(vm.runInContext('ncVolumeColorClass(d1Pct, rvol50, threshold)',
+    Object.assign(sandbox, { d1Pct: 1.2, rvol50, threshold: 1.30 })), 'pos'); // up + RVOL1.50 -> green
+  assert.equal(vm.runInContext('ncVolumeColorClass(d1Pct, rvol50, threshold)',
+    Object.assign(sandbox, { d1Pct: -1.2, rvol50, threshold: 1.30 })), 'neg'); // down + RVOL1.50 -> red
+});
+
+test('ncVolumeColorClass: RVOL below threshold is always neutral regardless of direction', () => {
+  assert.equal(vm.runInContext('ncVolumeColorClass(d1Pct, rvol50, threshold)',
+    Object.assign(sandbox, { d1Pct: 2.0, rvol50: 1.20, threshold: 1.30 })), 'muted');
+  assert.equal(vm.runInContext('ncVolumeColorClass(d1Pct, rvol50, threshold)',
+    Object.assign(sandbox, { d1Pct: -2.0, rvol50: 1.20, threshold: 1.30 })), 'muted');
+});
+
+test('ncVolumeColorClass: d1_pct === 0 is always neutral, even with high RVOL', () => {
+  assert.equal(vm.runInContext('ncVolumeColorClass(d1Pct, rvol50, threshold)',
+    Object.assign(sandbox, { d1Pct: 0, rvol50: 2.0, threshold: 1.30 })), 'muted');
+});
+
+test('ncVolumeColorClass: missing d1_pct or rvol_50 is neutral, never crashes', () => {
+  assert.equal(vm.runInContext('ncVolumeColorClass(d1Pct, rvol50, threshold)',
+    Object.assign(sandbox, { d1Pct: null, rvol50: 2.0, threshold: 1.30 })), 'muted');
+  assert.equal(vm.runInContext('ncVolumeColorClass(d1Pct, rvol50, threshold)',
+    Object.assign(sandbox, { d1Pct: 1.0, rvol50: null, threshold: 1.30 })), 'muted');
 });
 
 // ── Spec point 29A: QQQ breadth chart NaN-safety / explicit fallback text ──
@@ -769,42 +882,107 @@ test('qqqEmptyStateHtml renders the explicit fallback message, not a blank strin
   assert.match(html, /class="qqq-chart-empty"/);
 });
 
-// ── Spec point 29B: RSP Benchmark chart window/cumulative-return logic ──
+// ── RVOL/Screener/Benchmark/Futures Patch point 9-10: restored multi-pill
+// Benchmark chart (commit ec36828a), rendering the current equal-weight/
+// RSP rs_history methodology instead of the old median-basket-vs-SPY diff ──
 
-test('rsBenchmarkWindow takes the last N sessions, real trading days not calendar days', () => {
-  const dates = ['2026-01-01', '2026-01-02', '2026-01-05', '2026-01-06', '2026-01-07'];
-  const close = [100, 101, 102, 103, 104];
-  const out = vm.runInContext('rsBenchmarkWindow(dates, close, 3)', Object.assign(sandbox, { dates, close }));
-  assert.deepEqual(Array.from(out.dates), ['2026-01-05', '2026-01-06', '2026-01-07']);
-  assert.deepEqual(Array.from(out.close), [102, 103, 104]);
+test('index.html: old multi-pill Benchmark UI classes/functions are present (point 9)', () => {
+  assert.match(html, /class="benchmark-section"/);
+  assert.match(html, /class="benchmark-header"/);
+  assert.match(html, /class="bm-pill-row"/);
+  assert.match(html, /\.bm-pill /);
+  assert.match(html, /class="benchmark-chart-wrap"/);
+  assert.match(html, /class="bm-legend"/);
+  assert.match(html, /function renderBenchmarkPills/);
+  assert.match(html, /function ncToggleBenchmark/);
+  assert.match(html, /function benchmarkLineChart/);
+  assert.match(html, /function renderBenchmarkChart/);
 });
 
-test('rsBenchmarkWindow drops non-finite closes before windowing (never passed to the renderer)', () => {
-  const dates = ['2026-01-01', '2026-01-02', '2026-01-05'];
-  const close = [100, null, 102];
-  const out = vm.runInContext('rsBenchmarkWindow(dates, close, 5)', Object.assign(sandbox, { dates, close }));
-  assert.deepEqual(Array.from(out.close), [100, 102]);
+test('index.html: current single-RSP cumulative-return chart is fully removed (point 9/10)', () => {
+  assert.doesNotMatch(html, /benchmarkTimeframeToggle/);
+  assert.doesNotMatch(html, /ncBenchmarkTimeframe/);
+  assert.doesNotMatch(html, /BENCHMARK_RSP_WINDOW_SESSIONS/);
+  assert.doesNotMatch(html, /function benchmarkRspChart/);
+  assert.doesNotMatch(html, /function rsBenchmarkWindow/);
+  assert.doesNotMatch(html, /function rsBenchmarkCumulativeReturn/);
 });
 
-test('rsBenchmarkWindow returns null when fewer than 2 valid points survive', () => {
-  const dates = ['2026-01-01'];
-  const close = [100];
-  const out = vm.runInContext('rsBenchmarkWindow(dates, close, 5)', Object.assign(sandbox, { dates, close }));
-  assert.equal(out, null);
+test('index.html: Benchmark confirmed as RSP / Invesco S&P 500 Equal Weight ETF, never SPY (point 9)', () => {
+  assert.match(html, /Benchmark · RSP \/ S&amp;P 500 Equal Weight/);
+  assert.match(html, /Invesco S&amp;P 500 Equal Weight ETF/);
+  assert.doesNotMatch(html, /Benchmark.{0,40}SPY/);
 });
 
-test('rsBenchmarkCumulativeReturn starts at exactly 0 and matches (close/start-1)*100', () => {
-  const out = vm.runInContext('rsBenchmarkCumulativeReturn(closeWindow)', Object.assign(sandbox, { closeWindow: [100, 102, 99, 105] }));
-  assert.equal(out[0], 0);
-  assert.equal(out[1], pctClose(102, 100));
-  assert.equal(out[3], pctClose(105, 100));
-
-  function pctClose(v, start) { return (v / start - 1) * 100; }
+test('ncToggleBenchmark: multi-select — adding a second narrative keeps the first selected', () => {
+  sandbox.ncBenchmarkSelected = new Set();
+  sandbox.narrativesRaw = {
+    narratives: [{ id: 'n1', name: 'One' }, { id: 'n2', name: 'Two' }],
+    rs_history: { dates: ['01.01.'], narratives: { n1: [0], n2: [0] } },
+  };
+  vm.runInContext(`ncToggleBenchmark('n1')`, sandbox);
+  vm.runInContext(`ncToggleBenchmark('n2')`, sandbox);
+  // Array.from(...) re-materializes the vm-realm Set's contents as a
+  // host-realm array (same cross-realm [[Prototype]] caveat as elsewhere in
+  // this file) before comparing.
+  const selected = Array.from(vm.runInContext('Array.from(ncBenchmarkSelected)', sandbox));
+  assert.deepEqual(selected.sort(), ['n1', 'n2']);
 });
 
-test('rsBenchmarkDateLabel formats ISO dates as DD.MM. (matches the existing Benchmark date-label convention)', () => {
-  const out = vm.runInContext('rsBenchmarkDateLabel(iso)', Object.assign(sandbox, { iso: '2026-03-07' }));
-  assert.equal(out, '07.03.');
+test('ncToggleBenchmark: re-clicking an already-selected narrative deselects it', () => {
+  sandbox.ncBenchmarkSelected = new Set(['n1']);
+  sandbox.narrativesRaw = { narratives: [{ id: 'n1', name: 'One' }], rs_history: { dates: ['01.01.'], narratives: { n1: [0] } } };
+  vm.runInContext(`ncToggleBenchmark('n1')`, sandbox);
+  assert.equal(vm.runInContext('ncBenchmarkSelected.has("n1")', sandbox), false);
+});
+
+test('ncToggleBenchmark/renderBenchmarkPills/renderBenchmarkChart never call fetch (no API call on pill click)', () => {
+  const combined = ncToggleBenchmarkSrc + renderBenchmarkPillsSrc + renderBenchmarkChartSrc;
+  assert.doesNotMatch(combined, /fetch\(/);
+});
+
+test('benchmarkLineChart: each selected narrative gets its own colored polyline, RSP is the 0% baseline label', () => {
+  const dates = ['01.01.', '02.01.', '03.01.', '04.01.', '05.01.'];
+  const seriesList = [
+    { id: 'n1', color: '#111111', data: [0, 2, 4, 6, 8] },
+    { id: 'n2', color: '#222222', data: [0, -1, -2, -3, -4] },
+  ];
+  const svg = vm.runInContext('benchmarkLineChart(seriesList, dates, 900, 260)', Object.assign(sandbox, { seriesList, dates }));
+  assert.match(svg, /<svg/);
+  assert.match(svg, /stroke="#111111"/);
+  assert.match(svg, /stroke="#222222"/);
+  assert.match(svg, />RSP</); // dashed 0% baseline is labelled RSP, never S&P 500
+  assert.match(svg, /stroke-dasharray="4,3"/); // the dashed 0% line itself
+});
+
+test('benchmarkLineChart: outperformance (>0), underperformance (<0), and equal (=0) all render without crashing', () => {
+  const dates = ['01.01.', '02.01.', '03.01.'];
+  const outperform = { id: 'out', color: '#111', data: [0, 5, 10] };
+  const underperform = { id: 'under', color: '#222', data: [0, -5, -10] };
+  const equal = { id: 'eq', color: '#333', data: [0, 0, 0] };
+  const svg = vm.runInContext('benchmarkLineChart(seriesList, dates, 900, 260)',
+    Object.assign(sandbox, { seriesList: [outperform, underperform, equal], dates }));
+  assert.match(svg, /<svg/);
+  assert.equal((svg.match(/<polyline/g) || []).length, 3);
+});
+
+test('benchmarkLineChart: fewer than 2 dates returns an empty string (no broken chart)', () => {
+  const svg = vm.runInContext('benchmarkLineChart(seriesList, dates, 900, 260)',
+    Object.assign(sandbox, { seriesList: [{ id: 'n1', color: '#111', data: [0] }], dates: ['01.01.'] }));
+  assert.equal(svg, '');
+});
+
+test('renderBenchmarkPills/renderBenchmarkChart: default-selecting the leading narrative renders a legend entry, no crash', () => {
+  sandbox.ncBenchmarkSelected = new Set(['lead']);
+  sandbox.narrativesRaw = {
+    narratives: [{ id: 'lead', name: 'Leading Narrative' }, { id: 'other', name: 'Other' }],
+    rs_history: { dates: ['01.01.', '02.01.'], narratives: { lead: [0, 3.2] } },
+  };
+  vm.runInContext('renderBenchmarkPills()', sandbox);
+  vm.runInContext('renderBenchmarkChart()', sandbox);
+  const legendHtml = sandbox.document._elements['benchmarkLegend'].innerHTML;
+  assert.match(legendHtml, /Leading Narrative/);
+  assert.match(legendHtml, /\+3\.2%/);
 });
 
 // ── Spec point 26: Screener TradingView export — known MIC -> prefix, ──
@@ -845,4 +1023,146 @@ test('TradingView TXT filename matches spec point 26\'s exact example shape', ()
   const slug = vm.runInContext('screenerFilenameSlug(presetId)', Object.assign(sandbox, { presetId: 'weekly_strength' }));
   const filename = `${slug}-2026-03-07-tradingview.txt`;
   assert.equal(filename, 'weekly-strength-2026-03-07-tradingview.txt');
+});
+
+// ── RVOL/Screener/Benchmark/Futures Patch point 11: simplified Screener header ──
+
+test('index.html: Screener header is just "06 Screener", subtitle removed (point 11)', () => {
+  assert.doesNotMatch(html, /FESTE PRESETS/);
+  assert.doesNotMatch(html, /KEIN FREIER REGEL-EDITOR/);
+  assert.match(html, /<span class="section-title">Screener<\/span>/);
+});
+
+// ── RVOL/Screener/Benchmark/Futures Patch points 1/12/13: Weekly + Monthly
+// Strength screener chips, no "YOLO RS"/"AS", EMA20 not EMA21 ──
+
+test('SCREENER_PRESET_TAGS: Weekly Strength chips are exact, no "YOLO RS"/"AS", no EMA21', () => {
+  const tags = vm.runInContext('SCREENER_PRESET_TAGS.weekly_strength', sandbox);
+  assert.deepEqual(Array.from(tags), ['Strength 1W ≥ 85', 'Price > SMA50', 'EMA10 oder EMA20 innerhalb ±5%']);
+  assert.doesNotMatch(JSON.stringify(Array.from(tags)), /YOLO RS|EMA21|\bAS\b/);
+});
+
+test('SCREENER_PRESET_TAGS: Monthly Strength chips are exact, confirms Strength1M/SMA200', () => {
+  const tags = vm.runInContext('SCREENER_PRESET_TAGS.monthly_strength', sandbox);
+  assert.deepEqual(Array.from(tags), ['Strength 1M ≥ 85', 'Price > SMA200', 'EMA10 oder EMA20 innerhalb ±5%']);
+});
+
+test('SCREENER_PRESET_TAGS: no visible "YOLO RS" anywhere in the actual chip values (point 1)', () => {
+  // Scoped to the const's own extracted source (the actual rendered chip
+  // strings), not the whole index.html file, since an explanatory code
+  // comment elsewhere legitimately mentions the old "YOLO RS ..." label
+  // when documenting the rename itself.
+  assert.doesNotMatch(screenerPresetTagsConstSrc, /YOLO RS/);
+});
+
+test('screenerColumnCellHtml: Strength column uses ncStrengthColorClass, other columns stay muted', () => {
+  const strengthCol = { key: 'rs_percentile_1w', label: 'Strength 1W', fmt: 'num', strength: true };
+  const pctCol = { key: 'sma50_distance_pct', label: 'vs SMA50', fmt: 'pct' };
+  const cellPos = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: strengthCol, t: { rs_percentile_1w: 90 } }));
+  const cellNull = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: strengthCol, t: { rs_percentile_1w: null } }));
+  const cellPct = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: pctCol, t: { sma50_distance_pct: 3.5 } }));
+  assert.match(cellPos, /class="pos"/);
+  assert.match(cellNull, /class="muted"/);
+  assert.match(cellPct, /class="muted"/);
+  assert.match(cellPct, /\+3\.5%/);
+});
+
+test('SCREENER_PRESET_COLUMNS: weekly uses rs_percentile_1w/sma50, monthly uses rs_percentile_1m/sma200, both EMA10+EMA20', () => {
+  const weekly = vm.runInContext('SCREENER_PRESET_COLUMNS.weekly_strength', sandbox);
+  const monthly = vm.runInContext('SCREENER_PRESET_COLUMNS.monthly_strength', sandbox);
+  const weeklyKeys = Array.from(weekly).map(c => c.key);
+  const monthlyKeys = Array.from(monthly).map(c => c.key);
+  assert.ok(weeklyKeys.includes('rs_percentile_1w'));
+  assert.ok(weeklyKeys.includes('sma50_distance_pct'));
+  assert.ok(weeklyKeys.includes('ema20_distance_pct'));
+  assert.ok(!weeklyKeys.includes('ema21_distance_pct'));
+  assert.ok(monthlyKeys.includes('rs_percentile_1m'));
+  assert.ok(monthlyKeys.includes('sma200_distance_pct'));
+  assert.ok(monthlyKeys.includes('ema20_distance_pct'));
+});
+
+// ── RVOL/Screener/Benchmark/Futures Patch point 16: fully sortable Futures table ──
+
+test('futuresReturn5d: return_5d = last_valid / first_valid - 1', () => {
+  const out = vm.runInContext('futuresReturn5d(hist)', Object.assign(sandbox, { hist: [100, 101, 102, 103, 104] }));
+  assert.ok(Math.abs(out - (104 / 100 - 1)) < 1e-9);
+});
+
+test('futuresReturn5d: ignores non-finite entries, needs at least 2 valid points', () => {
+  const out = vm.runInContext('futuresReturn5d(hist)', Object.assign(sandbox, { hist: [null, 100, undefined, NaN, 110] }));
+  assert.ok(Math.abs(out - (110 / 100 - 1)) < 1e-9);
+  assert.equal(vm.runInContext('futuresReturn5d(hist)', Object.assign(sandbox, { hist: [100] })), null);
+  assert.equal(vm.runInContext('futuresReturn5d(hist)', Object.assign(sandbox, { hist: null })), null);
+});
+
+function makeFuturesRows() {
+  return [
+    { name: 'ES (S&P 500)', price: 5998, d1_pct: 0.42, w1_pct: 1.12, hi52w_pct: -2.1, ytd_pct: 18.4, hist_5d: [100, 101, 102, 103, 104] },
+    { name: 'NQ (Nasdaq 100)', price: 21320, d1_pct: 0.56, w1_pct: 1.44, hi52w_pct: -3.2, ytd_pct: 22.1, hist_5d: [100, 99, 98, 97, 90] },
+    { name: 'YM (Dow Jones)', price: 43890, d1_pct: null, w1_pct: 0.85, hi52w_pct: -1.5, ytd_pct: 15.2, hist_5d: [100, 100, 100, 100, 100] },
+    { name: 'RTY (Russell 2000)', price: 2285, d1_pct: -0.18, w1_pct: -0.42, hi52w_pct: -8.4, ytd_pct: 8.7, hist_5d: null },
+  ];
+}
+
+test('sortFuturesRows: Kontrakt (name) sorts alphabetically', () => {
+  const out = vm.runInContext('sortFuturesRows(rows, "name", "asc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+  assert.deepEqual(Array.from(out).map(r => r.name),
+    ['ES (S&P 500)', 'NQ (Nasdaq 100)', 'RTY (Russell 2000)', 'YM (Dow Jones)']);
+});
+
+test('sortFuturesRows: numeric fields sort DESC/ASC correctly (Kurs example)', () => {
+  // Prices: ES 5998, NQ 21320, YM 43890, RTY 2285.
+  const desc = vm.runInContext('sortFuturesRows(rows, "price", "desc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+  assert.deepEqual(Array.from(desc).map(r => r.name), ['YM (Dow Jones)', 'NQ (Nasdaq 100)', 'ES (S&P 500)', 'RTY (Russell 2000)']);
+  const asc = vm.runInContext('sortFuturesRows(rows, "price", "asc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+  assert.deepEqual(Array.from(asc).map(r => r.name), ['RTY (Russell 2000)', 'ES (S&P 500)', 'NQ (Nasdaq 100)', 'YM (Dow Jones)']);
+});
+
+test('sortFuturesRows: 1T% (d1_pct) sorts numerically, null always sorts last regardless of direction', () => {
+  const desc = vm.runInContext('sortFuturesRows(rows, "d1_pct", "desc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+  assert.deepEqual(Array.from(desc).map(r => r.name).slice(-1), ['YM (Dow Jones)']); // null d1_pct always last
+  const asc = vm.runInContext('sortFuturesRows(rows, "d1_pct", "asc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+  assert.deepEqual(Array.from(asc).map(r => r.name).slice(-1), ['YM (Dow Jones)']); // still last, even ascending
+});
+
+test('sortFuturesRows: 5D sorts by the numeric return_5d endpoint, not by sparkline SVG/string', () => {
+  const desc = vm.runInContext('sortFuturesRows(rows, "return_5d", "desc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+  const names = Array.from(desc).map(r => r.name);
+  // ES: 104/100-1=+4%, NQ: 90/100-1=-10%, YM: 100/100-1=0%, RTY: null hist_5d -> null return_5d, always last.
+  assert.deepEqual(names, ['ES (S&P 500)', 'YM (Dow Jones)', 'NQ (Nasdaq 100)', 'RTY (Russell 2000)']);
+});
+
+test('sortFuturesRows: sorts a COPY, never mutates the original array or its row objects', () => {
+  const original = makeFuturesRows();
+  const originalOrder = original.map(r => r.name);
+  const sorted = vm.runInContext('sortFuturesRows(rows, "price", "asc")', Object.assign(sandbox, { rows: original }));
+  assert.deepEqual(original.map(r => r.name), originalOrder); // unchanged
+  assert.notEqual(sorted, original); // different array reference
+});
+
+test('sortFuturesRows: the entire row (incl. sparkline data + all other fields) stays together when re-sorted', () => {
+  const rows = makeFuturesRows();
+  const sorted = vm.runInContext('sortFuturesRows(rows, "price", "asc")', Object.assign(sandbox, { rows }));
+  const rty = Array.from(sorted).find(r => r.name === 'RTY (Russell 2000)');
+  // RTY's own field values (its "color"/sparkline-driving data) must travel
+  // with it, never get scrambled/mixed with another row's fields by the sort.
+  assert.equal(rty.d1_pct, -0.18);
+  assert.equal(rty.ytd_pct, 8.7);
+  assert.equal(rty.hist_5d, null);
+});
+
+// ── RVOL/Screener/Benchmark/Futures Patch point 8: sticky Narrative controls ──
+
+test('index.html: .narrative-controls is sticky, reuses --jumpnav-h, scoped only to Section 04', () => {
+  const cssMatch = html.match(/\.narrative-controls\s*\{[^}]*\}/);
+  assert.ok(cssMatch, '.narrative-controls CSS rule not found');
+  assert.match(cssMatch[0], /position:\s*sticky/);
+  assert.match(cssMatch[0], /top:\s*var\(--jumpnav-h/);
+  // Only ONE declaration of the .narrative-controls rule -- not a second,
+  // competing hardcoded sticky offset defined elsewhere for e.g. mobile.
+  const allMatches = html.match(/\.narrative-controls\s*\{/g) || [];
+  assert.equal(allMatches.length, 1);
 });

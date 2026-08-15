@@ -80,6 +80,11 @@ html { scroll-behavior: smooth; }
 .data-table thead th { font-family: var(--mono-font); font-size: 9px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); padding: 10px 12px; text-align: right; border-bottom: 1px solid var(--card-border); }
 .data-table thead th:first-child { text-align: left; }
 .data-table thead th:nth-child(2) { text-align: left; }
+/* RVOL/Screener/Benchmark/Futures Patch point 16: sortable Futures columns. */
+.data-table thead th.sortable { cursor: pointer; user-select: none; }
+.data-table thead th.sortable:hover { color: var(--ink-light); }
+.data-table thead th.sorted { color: var(--ink); }
+.data-table thead th .sort-arrow { opacity: 0.6; margin-left: 3px; font-size: 9px; }
 .data-table tbody td { font-family: var(--mono-font); font-size: 12px; padding: 8px 12px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .data-table tbody td:first-child { text-align: left; font-weight: 500; color: var(--ink); }
 .data-table tbody td:nth-child(2) { text-align: left; font-weight: 500; color: var(--ink); }
@@ -183,7 +188,16 @@ html { scroll-behavior: smooth; }
 .footer p { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 1px; }
 
 /* NARRATIVES / BASKETS */
-.narrative-controls { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+/* RVOL/Screener/Benchmark/Futures Patch point 8: sticky within Section 04
+   only -- reuses the SAME --jumpnav-h variable the jump-navigation already
+   keeps in sync with its own real rendered height (see the JS below), so
+   this never floats under/over the jump-nav or needs a second hardcoded
+   offset. position:sticky is naturally scoped to its containing block (the
+   #narratives .section div), so it stops being sticky at the end of
+   Section 04 without any extra JS -- it can never float over Opportunities/
+   Screener/Traderechner. An opaque background keeps the (also sticky)
+   table headers of the member table from showing through underneath it. */
+.narrative-controls { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; position: sticky; top: var(--jumpnav-h, 52px); z-index: 40; background: var(--sand); padding: 12px 0; }
 .nc-group { display: flex; align-items: center; gap: 10px; }
 .nc-label { font-family: var(--mono-font); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); }
 .nc-toggle { display: flex; gap: 4px; background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 3px; padding: 3px; }
@@ -234,7 +248,14 @@ html { scroll-behavior: smooth; }
 .benchmark-section { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--card-border); }
 .benchmark-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
 .benchmark-title { font-family: var(--header-font); font-size: 18px; font-weight: 600; }
-.benchmark-chart-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px; margin-top: 14px; }
+/* RVOL/Screener/Benchmark/Futures Patch point 9: restored from commit
+   ec36828a (multi-narrative-pill comparison UI), replacing the single-RSP-
+   chart timeframe toggle it was temporarily swapped for. */
+.bm-pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.bm-pill { font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.3px; padding: 6px 12px; border: 1px solid var(--card-border); background: transparent; color: var(--ink-muted); border-radius: 3px; cursor: pointer; transition: all 0.15s; }
+.bm-pill:hover { color: var(--ink); border-color: var(--ink-muted); }
+.bm-pill.active { background: var(--ink); color: var(--sand); border-color: var(--ink); }
+.benchmark-chart-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px; }
 .bm-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-family: var(--mono-font); font-size: 11px; }
 .bm-legend-item { display: flex; align-items: center; gap: 6px; color: var(--ink-light); }
 .bm-legend-item b { color: var(--ink); font-weight: 500; }
@@ -485,8 +506,16 @@ html { scroll-behavior: smooth; }
 
     <div class="table-section">
       <button class="table-toggle open" onclick="toggleTable(this)"><span class="chevron">▸</span> US Index Futures</button>
-      <table class="data-table">
-        <thead><tr><th>Kontrakt</th><th>Kurs</th><th>1T%</th><th>1W%</th><th>52W Hoch%</th><th>YTD%</th><th>5D</th></tr></thead>
+      <table class="data-table" id="futuresTable">
+        <thead><tr>
+          <th class="sortable" data-field="name" onclick="futuresSortBy('name')">Kontrakt</th>
+          <th class="sortable" data-field="price" onclick="futuresSortBy('price')">Kurs</th>
+          <th class="sortable" data-field="d1_pct" onclick="futuresSortBy('d1_pct')">1T%</th>
+          <th class="sortable" data-field="w1_pct" onclick="futuresSortBy('w1_pct')">1W%</th>
+          <th class="sortable" data-field="hi52w_pct" onclick="futuresSortBy('hi52w_pct')">52W Hoch%</th>
+          <th class="sortable" data-field="ytd_pct" onclick="futuresSortBy('ytd_pct')">YTD%</th>
+          <th class="sortable" data-field="return_5d" onclick="futuresSortBy('return_5d')">5D</th>
+        </tr></thead>
         <tbody>
           <tr><td>ES (S&P 500)</td><td>5.998</td><td class="pos">+0,42%</td><td class="pos">+1,12%</td><td class="muted">-2,1%</td><td class="pos">+18,4%</td></tr>
           <tr><td>NQ (Nasdaq 100)</td><td>21.320</td><td class="pos">+0,56%</td><td class="pos">+1,44%</td><td class="muted">-3,2%</td><td class="pos">+22,1%</td></tr>
@@ -740,21 +769,21 @@ html { scroll-behavior: smooth; }
       <span class="section-sub">Wo konzentriert sich Leadership?</span>
       <span class="nc-info" id="narrativeInfo" tabindex="0">ⓘ
         <dl class="nc-info-popup">
-          <dt>RS</dt>
-          <dd>"Jeff-inspired Relative Strength gegen RSP" (Kandidatenformel v1, KEINE Reproduktion von Jeff Suns unveröffentlichter Originalformel). Cross-Sectional-Perzentilrang der relativen Performance (Narrative-Index vs. RSP) innerhalb des gewählten RS-Zeitfensters (1W/1M/3M/6M) GEGEN ALLE ANDEREN AKTIVEN NARRATIVE — die vier Zeitfenster sind vollständig getrennt, kein zusammengesetzter Score.</dd>
+          <dt>Strength</dt>
+          <dd>"Jeff-inspired Relative Strength gegen RSP" (Kandidatenformel v1, KEINE Reproduktion von Jeff Suns unveröffentlichter Originalformel). Cross-Sectional-Perzentilrang der relativen Performance (Narrative-Index vs. RSP) innerhalb des gewählten Strength-Zeitfensters (1W/1M/3M/6M) GEGEN ALLE ANDEREN AKTIVEN NARRATIVE — die vier Zeitfenster sind vollständig getrennt, kein zusammengesetzter Score.</dd>
           <dt>Thrust</dt>
-          <dd>"Jeff-inspired Thrust candidate v1" (ebenfalls Kandidatenformel, keine Kalibrierung): 0.60×RS(1W) + 0.40×RS(1M) + 0.10×(RS(1W) − RS(1W vor 3 Handelstagen)). Nicht auf 0–100 begrenzt; unabhängig vom RS-Zeitfenster-Tab.</dd>
+          <dd>"Jeff-inspired Thrust candidate v1" (ebenfalls Kandidatenformel, keine Kalibrierung): 0.60×Strength(1W) + 0.40×Strength(1M) + 0.10×(Strength(1W) − Strength(1W vor 3 Handelstagen)). Nicht auf 0–100 begrenzt; unabhängig vom Strength-Zeitfenster-Tab.</dd>
           <dt>Ranking</dt>
-          <dd>RS-Modus sortiert nach RS des gewählten Zeitfensters, THRUST-Modus nach Thrust — jeweils mit der aggregierten Market Cap der eligible Mitglieder als reinem Tie-Breaker (fließt nie in RS/Thrust selbst ein).</dd>
+          <dd>STRENGTH-Modus sortiert nach Strength des gewählten Zeitfensters, THRUST-Modus nach Thrust — jeweils mit der aggregierten Market Cap der eligible Mitglieder als reinem Tie-Breaker (fließt nie in Strength/Thrust selbst ein).</dd>
           <dt>RSP Benchmark</dt>
-          <dd>S&amp;P 500 Equal Weight ETF — der Benchmark hinter RS/Thrust hier UND der Benchmark-Grafik. Nicht zu verwechseln mit der Stock-RS-Percentile (Einzelaktie vs. eligible Universe) in der Mitglieder-Tabelle.</dd>
+          <dd>S&amp;P 500 Equal Weight ETF — der Benchmark hinter Strength/Thrust hier UND der Benchmark-Grafik. Nicht zu verwechseln mit der Stock-Strength-Percentile (Einzelaktie vs. eligible Universe) in der Mitglieder-Tabelle.</dd>
         </dl>
       </span>
     </div>
 
     <div class="narrative-controls">
       <div class="nc-group">
-        <span class="nc-label">RS-Zeitfenster</span>
+        <span class="nc-label">Strength-Zeitfenster</span>
         <div class="nc-toggle" id="strengthWindowToggle">
           <button class="nc-btn active" data-window="1w">1W</button>
           <button class="nc-btn" data-window="1m">1M</button>
@@ -765,7 +794,7 @@ html { scroll-behavior: smooth; }
       <div class="nc-group">
         <span class="nc-label">Ranking</span>
         <div class="nc-toggle" id="rankingModeToggle">
-          <button class="nc-btn active" data-ranking="rs">RS</button>
+          <button class="nc-btn active" data-ranking="rs">STRENGTH</button>
           <button class="nc-btn" data-ranking="thrust">THRUST</button>
         </div>
       </div>
@@ -774,7 +803,7 @@ html { scroll-behavior: smooth; }
     </div>
 
     <table class="data-table narrative-rank-table">
-      <thead><tr><th>#</th><th>Narrative</th><th>RS</th><th>Thrust</th></tr></thead>
+      <thead><tr><th>#</th><th>Narrative</th><th>Strength</th><th>Thrust</th></tr></thead>
       <tbody id="narrativeGrid">
         <tr><td colspan="4" class="narrative-empty">Lade Narrative-Daten…</td></tr>
       </tbody>
@@ -786,19 +815,14 @@ html { scroll-behavior: smooth; }
         <span class="benchmark-title">Benchmark · RSP / S&amp;P 500 Equal Weight</span>
         <span class="nc-info" id="benchmarkInfo" tabindex="0">ⓘ
           <dl class="nc-info-popup">
-            <dt>RSP Benchmark</dt>
-            <dd>Kumulierte Kursrendite von RSP (S&amp;P 500 Equal Weight ETF) im gewählten Zeitraum, ab 0% gestartet: (RSP-Kurs / RSP-Kurs zu Periodenbeginn − 1) × 100. Dieselbe kanonische RSP-Preishistorie treibt auch die neue Narrative Strength oben — eine einzige Quelle, keine zweite unabhängige Benchmark-Pipeline. Ersetzt SPY/QQQ vollständig als sichtbaren Benchmark.</dd>
+            <dt>Relative Stärke</dt>
+            <dd>Relative Stärke ausgewählter Equal-Weight-Narratives gegenüber RSP (Invesco S&amp;P 500 Equal Weight ETF). Pro Narrative: tägliche Equal-Weight-Mitglieder-Rendite → synthetischer Equal-Weight-Narrative-Index → relative_strength = Narrative-Index / RSP-Kurs, ab dem sichtbaren Chartstart auf 0% normiert. Die gestrichelte 0%-Linie ist RSP selbst — oberhalb outperformt das Narrative RSP seit Chartstart, unterhalb underperformt es.</dd>
             <dt>Zeitraum</dt>
-            <dd>1D = letzter verfügbarer Handelstag (letzte 2 Schlusskurse). 1W = letzte 5 Handelstage. 1M = letzte 21 Handelstage. 1Y = bis zu 252 Handelstage — keine Kalendertag-Interpolation. Timeframe-Wechsel lädt keine neuen Daten nach, nutzt ausschließlich die bereits geladene RSP-Historie.</dd>
+            <dd>Die letzten ~10 Handelswochen (50 Handelstage). Mehrere Narrative gleichzeitig auswählbar, kein erneuter Datenabruf beim Pill-Klick.</dd>
           </dl>
         </span>
       </div>
-      <div class="nc-toggle" id="benchmarkTimeframeToggle">
-        <button class="nc-btn" data-timeframe="1d">1D</button>
-        <button class="nc-btn active" data-timeframe="1w">1W</button>
-        <button class="nc-btn" data-timeframe="1m">1M</button>
-        <button class="nc-btn" data-timeframe="1y">1Y</button>
-      </div>
+      <div class="bm-pill-row" id="benchmarkPills"></div>
       <div class="benchmark-chart-wrap">
         <div id="benchmarkChart"></div>
         <div class="bm-legend" id="benchmarkLegend"></div>
@@ -896,7 +920,6 @@ html { scroll-behavior: smooth; }
     <div class="section-header">
       <span class="section-num">06</span>
       <span class="section-title">Screener</span>
-      <span class="section-sub">Feste Presets · Kein freier Regel-Editor</span>
     </div>
     <div id="screenerContainer">
       <div class="narrative-empty">Lade Screener-Daten…</div>
@@ -1328,6 +1351,95 @@ document.addEventListener('click', (e) => {
 });
 
 // ══════════════════════════════════════════════
+// FUTURES TABLE (point 16): fully sortable, pure frontend, no API call.
+// ══════════════════════════════════════════════
+let futuresRawData = null;
+let futuresSort = { field: null, dir: null };
+
+// return_5d = last_valid / first_valid - 1, over the SAME hist_5d array the
+// sparkline already renders -- never a second data source. null if fewer
+// than 2 valid points or the first valid point is 0 (no meaningful return).
+function futuresReturn5d(hist) {
+  if (!hist || !hist.length) return null;
+  const valid = hist.filter(v => v !== null && v !== undefined && Number.isFinite(v));
+  if (valid.length < 2) return null;
+  const first = valid[0], last = valid[valid.length - 1];
+  if (!first) return null;
+  return last / first - 1;
+}
+
+function futuresSortValue(row, field) {
+  if (field === 'name') return row.name;
+  if (field === 'return_5d') return futuresReturn5d(row.hist_5d);
+  return row[field];
+}
+
+// Sorts a COPY of `rows`, never the original array (point 16: "Original
+// nicht mutieren"). Nulls always sort to the end regardless of direction.
+// Kontrakt (name) is alphabetic; every other field is numeric.
+function sortFuturesRows(rows, field, dir) {
+  const copy = rows.slice();
+  const mul = dir === 'asc' ? 1 : -1;
+  copy.sort((a, b) => {
+    const av = futuresSortValue(a, field);
+    const bv = futuresSortValue(b, field);
+    const aNull = av === null || av === undefined || (typeof av === 'number' && Number.isNaN(av));
+    const bNull = bv === null || bv === undefined || (typeof bv === 'number' && Number.isNaN(bv));
+    if (aNull && bNull) return 0;
+    if (aNull) return 1;
+    if (bNull) return -1;
+    if (field === 'name') return String(av).localeCompare(String(bv)) * mul;
+    return (av - bv) * mul;
+  });
+  return copy;
+}
+
+// First click on a new numeric key -> DESC; Kontrakt's first click -> ASC;
+// second click on the SAME key inverts direction.
+function futuresSortBy(field) {
+  if (futuresSort.field === field) {
+    futuresSort.dir = futuresSort.dir === 'asc' ? 'desc' : 'asc';
+  } else {
+    futuresSort.field = field;
+    futuresSort.dir = field === 'name' ? 'asc' : 'desc';
+  }
+  renderFuturesTable();
+}
+
+function futuresRowHtml(item) {
+  const spark = makeSparkline(item.hist_5d, 48, 16);
+  return `<tr>
+    <td>${item.name}</td>
+    <td>${fmtPrice(item.price)}</td>
+    <td class="${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)}</td>
+    <td class="${pctClass(item.w1_pct)}">${fmtPct(item.w1_pct)}</td>
+    <td class="muted">${fmtPct(item.hi52w_pct)}</td>
+    <td class="${pctClass(item.ytd_pct)}">${fmtPct(item.ytd_pct)}</td>
+    <td>${spark}</td>
+  </tr>`;
+}
+
+function renderFuturesTable() {
+  const table = document.getElementById('futuresTable');
+  if (!table || !futuresRawData) return;
+  const tbody = table.querySelector('tbody');
+  const thead = table.querySelector('thead');
+  const rows = futuresSort.field ? sortFuturesRows(futuresRawData, futuresSort.field, futuresSort.dir) : futuresRawData;
+  if (tbody) tbody.innerHTML = rows.map(futuresRowHtml).join('');
+  if (thead) {
+    thead.querySelectorAll('th').forEach(th => {
+      const field = th.dataset.field;
+      th.classList.toggle('sorted', field === futuresSort.field);
+      const existingArrow = th.querySelector('.sort-arrow');
+      if (existingArrow) existingArrow.remove();
+      if (field === futuresSort.field) {
+        th.insertAdjacentHTML('beforeend', `<span class="sort-arrow">${futuresSort.dir === 'asc' ? '↑' : '↓'}</span>`);
+      }
+    });
+  }
+}
+
+// ══════════════════════════════════════════════
 // LOAD DATA FROM snapshot.json
 // ══════════════════════════════════════════════
 async function loadData() {
@@ -1350,6 +1462,17 @@ async function loadData() {
       const text = btn.textContent.trim();
       for (const [key, label] of Object.entries(tableMap)) {
         if (text.includes(label) && data[key]) {
+          // RVOL/Screener/Benchmark/Futures Patch point 16: Futures gets its
+          // own sortable renderer (renderFuturesTable) instead of the
+          // generic one-shot row-render below -- it needs to keep the raw
+          // rows around so a later column click can re-sort a COPY of them
+          // without an API call. Every other table here stays exactly as
+          // before (not in scope for sorting).
+          if (key === 'futures') {
+            futuresRawData = data.futures;
+            renderFuturesTable();
+            continue;
+          }
           const table = btn.nextElementSibling;
           if (table) {
             const tbody = table.querySelector('tbody');
@@ -1836,20 +1959,23 @@ let ncRankingMode = 'rs'; // point 3: 'rs' | 'thrust', default 'rs'
 let ncExpandedId = null;
 let ncNarrativesExpanded = false; // point 12: Top 10 default, expand/collapse all
 let ncEmaFilter = 'all'; // 'all' | 'ema10' | 'ema20' | 'either'
-// V6 point 29B: single dedicated RSP cumulative-return Benchmark chart —
-// replaces the old multi-narrative-vs-SPY pill comparison entirely (that
-// feature's rs_history data source is still computed backend-side, now
-// against RSP instead of SPY, but the frontend no longer renders it as
-// the "Benchmark" card -- exactly one canonical RSP data source
-// (benchmark_rsp) drives this chart, spec point 29B/29C).
-let ncBenchmarkTimeframe = '1w'; // '1d' | '1w' | '1m' | '1y'
-const BENCHMARK_RSP_COLOR = '#2f7ed8';
-const BENCHMARK_RSP_WINDOW_SESSIONS = { '1d': 2, '1w': 5, '1m': 21, '1y': 252 };
+// RVOL/Screener/Benchmark/Futures Patch point 9: restores the old multi-
+// narrative-pill comparison UI (commit ec36828a) as the Benchmark card,
+// replacing the single dedicated RSP cumulative-return chart it had been
+// swapped for. narrativesRaw.rs_history now carries the CURRENT equal-
+// weight/RSP methodology (build_narratives.py's compute_narrative_rs_history,
+// point 10) instead of the old median-basket-vs-SPY-diff data -- the
+// restored frontend just renders it.
+let ncBenchmarkSelected = new Set(); // Narrative-IDs im Benchmark-Vergleichschart
+const BENCHMARK_COLORS = ['#2f7ed8', '#3ddc73', '#d4a017', '#d6407f', '#9b7fc9', '#e2925c', '#4fd6d2', '#f0605c'];
 
 // Fallback-Defaults, falls config/narrative_engine.json (noch) nicht geladen
 // werden konnte — Werte werden von dort ueberschrieben (Punkt 21: "Die 4-%-
 // Grenze aus zentraler Konfiguration lesen").
-let engineConfig = { dashboard: { ema_proximity_threshold_pct: 4.0, atr_extension_warning_threshold: 5.0 } };
+let engineConfig = {
+  dashboard: { ema_proximity_threshold_pct: 4.0, atr_extension_warning_threshold: 5.0 },
+  volume_context: { average_volume_lookback_sessions: 50, high_rvol_threshold: 1.30 },
+};
 
 async function loadEngineConfig() {
   try {
@@ -1861,15 +1987,44 @@ async function loadEngineConfig() {
 }
 
 // V6.1 point 14: exact column set for the Member-Detailtabelle -- no
-// EMA10/EMA20/ATR-Extension/Verlauf columns anymore.
+// EMA10/EMA20/ATR-Extension/Verlauf columns anymore. RVOL/Screener/
+// Benchmark/Futures Patch point 3: "Volumen (M)" inserted directly after
+// "Veränderung %"; point 1: "RS" -> "Strength" is a display-label-only
+// rename, the underlying `rs` field (percentile_<window>) keeps its name.
 const MEMBER_COLUMNS = [
   { key: 'symbol', label: 'Ticker' },
   { key: 'price', label: 'Kurs' },
   { key: 'change_abs', label: 'Veränderung abs.' },
   { key: 'd1_pct', label: 'Veränderung %' },
-  { key: 'rs', label: 'RS' },
+  { key: 'volume', label: 'Volumen (M)' },
+  { key: 'rs', label: 'Strength' },
   { key: 'stock_thrust_rs', label: 'Thrust' },
 ];
+
+// RVOL/Screener/Benchmark/Futures Patch point 2: ONE shared Strength color
+// helper, reused for Narrative Strength (main table), Stock Strength
+// (Member-Detailtabelle) and visible Strength values in the Screener.
+// Identical numeric threshold to the logic Narrative Strength already used
+// (v >= 0 -> pos, else neg) -- no new Calibration-Schwelle introduced by
+// this styling fix. null/undefined is its own explicit neutral case (never
+// silently coerced to 0 -> 'pos', which is what the OLD inline expression
+// `(v ?? 0) >= 0` actually did for a missing value).
+function ncStrengthColorClass(v) {
+  if (v === null || v === undefined) return 'muted';
+  return v >= 0 ? 'pos' : 'neg';
+}
+
+// RVOL/Screener/Benchmark/Futures Patch point 5: colors ONLY the number in
+// "Volumen (M)". d1_pct>0 & rvol_50>=threshold -> green (grün), d1_pct<0 &
+// rvol_50>=threshold -> red (rot), otherwise neutral (incl. d1_pct===0 or
+// either input missing).
+function ncVolumeColorClass(d1Pct, rvol50, highRvolThreshold) {
+  if (d1Pct === null || d1Pct === undefined || rvol50 === null || rvol50 === undefined) return 'muted';
+  if (rvol50 < highRvolThreshold) return 'muted';
+  if (d1Pct > 0) return 'pos';
+  if (d1Pct < 0) return 'neg';
+  return 'muted';
+}
 
 // "Near EMA10/EMA20" — Punkt 21: abs(Close/EMA - 1) <= Schwelle. Members
 // speichern ema10_distance_pct/ema20_distance_pct bereits als
@@ -1908,6 +2063,17 @@ async function loadNarratives() {
       meta.textContent = `${narrativesRaw.meta.universe_size} Ticker · ${narrativesRaw.narratives.length} Narrative · Stand ${dtStr}`;
     }
     renderNarrativeGrid();
+
+    // RVOL/Screener/Benchmark/Futures Patch point 10: default-select the
+    // currently leading narrative (by Strength 1W) so the restored pill
+    // chart isn't empty on first load -- stays fully manual afterwards via
+    // the pills themselves.
+    if (narrativesRaw.rs_history && ncBenchmarkSelected.size === 0) {
+      const top = narrativesRaw.narratives.slice()
+        .sort((a, b) => (ncScoreValue(b, 'rs', '1w') ?? -999) - (ncScoreValue(a, 'rs', '1w') ?? -999))[0];
+      if (top && narrativesRaw.rs_history.narratives[top.id]) ncBenchmarkSelected.add(top.id);
+    }
+    renderBenchmarkPills();
     renderBenchmarkChart();
     populateOppNarrativeFilter();
     if (dashboardState) oppRender();  // narrative names weren't available yet if this loaded first
@@ -1972,8 +2138,16 @@ function ncVisibleSortedMembers(narrative) {
 // MEMBER_COLUMNS. Returned als <tr><td colspan="4">…</td></tr>, damit sie
 // direkt unter der angeklickten Narrative-Zeile in derselben <table>
 // erscheint (point 13: "direkt darunter").
+// volume_m = current_volume / 1_000_000 (point 3). Display-only formatting,
+// backend keeps the raw share-volume integer.
+function ncFmtVolumeM(volume) {
+  if (volume === null || volume === undefined) return '—';
+  return (volume / 1_000_000).toFixed(2);
+}
+
 function renderNarrativeDetail(narrative) {
   const sorted = ncVisibleSortedMembers(narrative);
+  const highRvolThreshold = engineConfig.volume_context.high_rvol_threshold;
 
   const rows = sorted.map(m => {
     const changeAbsStr = (m.change_abs !== null && m.change_abs !== undefined)
@@ -1986,7 +2160,8 @@ function renderNarrativeDetail(narrative) {
       <td>${fmtPrice(m.price)}</td>
       <td class="${pctClass(m.change_abs)}">${changeAbsStr}</td>
       <td class="${pctClass(m.d1_pct)}">${fmtPct(m.d1_pct)}</td>
-      <td class="muted">${(m.rs !== undefined && m.rs !== null) ? m.rs.toFixed(1) : '—'}</td>
+      <td class="${ncVolumeColorClass(m.d1_pct, m.rvol_50, highRvolThreshold)}">${ncFmtVolumeM(m.volume)}</td>
+      <td class="${ncStrengthColorClass(m.rs)}">${(m.rs !== undefined && m.rs !== null) ? m.rs.toFixed(1) : '—'}</td>
       <td class="${(m.stock_thrust_rs ?? 0) >= 0 ? 'pos' : 'neg'}">${thrustStr}</td>
     </tr>`;
   }).join('');
@@ -2074,51 +2249,45 @@ function ncCopyMomentumTickers(btn) {
   }).catch(e => console.log('Clipboard-Fehler:', e));
 }
 
-// ── BENCHMARK (Untersektion): RSP kumulierte Rendite (V6 point 29B) ──
-// Datenquelle: narrativesRaw.benchmark_rsp (siehe build_narratives.py
-// build_benchmark_rsp_series) — dieselbe kanonische RSP-Preis-Serie, die
-// auch die neue Narrative Strength oben antreibt (EINE Quelle, point 29B).
-// Timeframe-Wechsel arbeitet ausschliesslich auf dieser bereits im Browser
-// vorhandenen Serie -- kein erneuter fetch.
+// ── BENCHMARK (Untersektion): Multi-Select-Narrative vs. RSP (restored old
+// pill UI, commit ec36828a, RVOL/Screener/Benchmark/Futures Patch point 9) ──
+// Datenquelle: narrativesRaw.rs_history (siehe build_narratives.py
+// compute_narrative_rs_history, point 10) — geteiltes "dates"-Array + pro
+// Narrative eine chart_relative_pct-Zeitreihe (jede Linie startet bei 0%),
+// RSP selbst ist implizit die gestrichelte 0%-Linie. Kein Fetch beim
+// Pill-Klick -- narrativesRaw ist bereits vollstaendig im Browser.
 
-// Letzte `sessions` Handelstage aus der (zeitsortierten) RSP-Serie, nie
-// kalendertagbasiert. Gibt null zurueck, wenn weniger als 2 Punkte
-// verfuegbar sind (zu wenig fuer eine sinnvolle Kurve). NaN/undefined-
-// Punkte werden entfernt, bevor irgendetwas den Renderer erreicht.
-function rsBenchmarkWindow(dates, close, sessions) {
-  const pairs = [];
-  for (let i = 0; i < dates.length; i++) {
-    const v = close[i];
-    if (v !== null && v !== undefined && Number.isFinite(v)) pairs.push([dates[i], v]);
-  }
-  const windowed = pairs.slice(-sessions);
-  if (windowed.length < 2) return null;
-  return { dates: windowed.map(p => p[0]), close: windowed.map(p => p[1]) };
+function renderBenchmarkPills() {
+  const el = document.getElementById('benchmarkPills');
+  if (!el || !narrativesRaw) return;
+  const hasHistory = id => narrativesRaw.rs_history && narrativesRaw.rs_history.narratives[id];
+  el.innerHTML = narrativesRaw.narratives.map(n => {
+    const active = ncBenchmarkSelected.has(n.id);
+    const disabled = !hasHistory(n.id);
+    return `<button class="bm-pill${active ? ' active' : ''}" ${disabled ? 'disabled title="Keine Benchmark-Historie fuer dieses Narrative"' : ''} onclick="ncToggleBenchmark('${n.id}')">${active ? '✓ ' : ''}${n.name}</button>`;
+  }).join('');
 }
 
-// cumulative_return_t = (close_t / close_start - 1) * 100 -- first point is
-// always exactly 0 by construction (spec point 29B).
-function rsBenchmarkCumulativeReturn(closeWindow) {
-  const start = closeWindow[0];
-  return closeWindow.map(v => (v / start - 1) * 100);
+function ncToggleBenchmark(id) {
+  if (ncBenchmarkSelected.has(id)) ncBenchmarkSelected.delete(id);
+  else ncBenchmarkSelected.add(id);
+  renderBenchmarkPills();
+  renderBenchmarkChart();
 }
 
-function rsBenchmarkDateLabel(isoDate) {
-  // "YYYY-MM-DD" -> "DD.MM." -- same short display format
-  // compute_narrative_rs_history already used for its dates array.
-  return `${isoDate.slice(8, 10)}.${isoDate.slice(5, 7)}.`;
-}
-
-// Single-series line chart in the same hand-rolled SVG style as the QQQ
-// charts -- reuses qqqXAxis() for date labelling (already generic).
-function benchmarkRspChart(dates, cumReturns, w, h) {
+// Liniendiagramm im selben handgerollten SVG-Stil wie die QQQ-Charts —
+// nutzt das dort definierte qqqXAxis() fuer die Datumsbeschriftung wieder
+// (bereits generisch: nimmt dates/xFor/h als Parameter, nichts QQQ-Spezifisches).
+function benchmarkLineChart(seriesList, dates, w, h) {
   const padL = 34, padR = 10, padBottom = 14;
   const inner = w - padL - padR;
   const plotH = h - padBottom;
   const len = dates.length;
   if (len < 2) return '';
 
-  const maxAbs = Math.max(...cumReturns.map(Math.abs), 0.5) * 1.15;
+  let allVals = [0];
+  seriesList.forEach(s => s.data.forEach(v => { if (v !== null && v !== undefined && !Number.isNaN(v)) allVals.push(v); }));
+  const maxAbs = Math.max(...allVals.map(Math.abs), 1) * 1.15;
   const yFor = v => plotH / 2 - (v / maxAbs) * (plotH / 2 - 8);
   const xFor = (i, l) => padL + (i / (l - 1)) * inner;
 
@@ -2129,12 +2298,26 @@ function benchmarkRspChart(dates, cumReturns, w, h) {
     const y = yFor(v).toFixed(1);
     const isZero = i === 0;
     svg += `<line x1="${padL}" y1="${y}" x2="${padL + inner}" y2="${y}" stroke="${isZero ? 'var(--ink-muted)' : 'var(--card-border)'}" stroke-width="${isZero ? 1 : 0.6}" ${isZero ? 'stroke-dasharray="4,3"' : ''} opacity="${isZero ? 0.6 : 0.5}"/>`;
-    svg += `<text x="${padL - 5}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">${v >= 0 ? '+' : ''}${v.toFixed(1)}%</text>`;
+    svg += `<text x="${padL - 5}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">${v >= 0 ? '+' : ''}${v.toFixed(0)}%</text>`;
   }
+  svg += `<text x="${padL + inner}" y="${(+yFor(0) - 4).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">RSP</text>`;
 
-  const points = cumReturns.map((v, i) => `${xFor(i, len).toFixed(1)},${yFor(v).toFixed(1)}`);
-  svg += `<polyline points="${points.join(' ')}" fill="none" stroke="${BENCHMARK_RSP_COLOR}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
-  svg += qqqXAxis(dates.map(rsBenchmarkDateLabel), len, xFor, h);
+  seriesList.forEach(s => {
+    const segs = [];
+    let cur = [];
+    s.data.forEach((v, i) => {
+      if (v === null || v === undefined || Number.isNaN(v)) {
+        if (cur.length) { segs.push(cur); cur = []; }
+        return;
+      }
+      cur.push(`${xFor(i, len).toFixed(1)},${yFor(v).toFixed(1)}`);
+    });
+    if (cur.length) segs.push(cur);
+    segs.forEach(seg => {
+      svg += `<polyline points="${seg.join(' ')}" fill="none" stroke="${s.color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
+    });
+  });
+  svg += qqqXAxis(dates, len, xFor, h);
   svg += `</svg>`;
   return svg;
 }
@@ -2143,24 +2326,26 @@ function renderBenchmarkChart() {
   const chartEl = document.getElementById('benchmarkChart');
   const legendEl = document.getElementById('benchmarkLegend');
   if (!chartEl || !legendEl || !narrativesRaw) return;
-  const bm = narrativesRaw.benchmark_rsp;
-  if (!bm || !bm.dates || !bm.dates.length) {
-    chartEl.innerHTML = '<div class="bm-empty">Keine historischen Daten verfügbar.</div>';
+  const rs = narrativesRaw.rs_history;
+  if (!rs) {
+    chartEl.innerHTML = '<div class="bm-empty">Keine Benchmark-Historie verfügbar.</div>';
     legendEl.innerHTML = '';
     return;
   }
-  const sessions = BENCHMARK_RSP_WINDOW_SESSIONS[ncBenchmarkTimeframe];
-  const windowed = rsBenchmarkWindow(bm.dates, bm.close, sessions);
-  if (!windowed) {
-    chartEl.innerHTML = '<div class="bm-empty">Keine historischen Daten verfügbar.</div>';
+  const selected = Array.from(ncBenchmarkSelected).filter(id => rs.narratives[id]);
+  if (!selected.length) {
+    chartEl.innerHTML = '<div class="bm-empty">Narrative oben auswählen, um die relative Stärke ggü. RSP zu vergleichen.</div>';
     legendEl.innerHTML = '';
     return;
   }
-  const cumReturns = rsBenchmarkCumulativeReturn(windowed.close);
-  chartEl.innerHTML = benchmarkRspChart(windowed.dates, cumReturns, 900, 260);
-  const last = cumReturns[cumReturns.length - 1];
-  const lastStr = `${last >= 0 ? '+' : ''}${last.toFixed(2)}%`;
-  legendEl.innerHTML = `<span class="bm-legend-item"><span class="bm-swatch" style="background:${BENCHMARK_RSP_COLOR};"></span>RSP (${ncBenchmarkTimeframe.toUpperCase()}) <b class="${last >= 0 ? 'pos' : 'neg'}">${lastStr}</b></span>`;
+  const seriesList = selected.map((id, i) => ({ id, color: BENCHMARK_COLORS[i % BENCHMARK_COLORS.length], data: rs.narratives[id] }));
+  chartEl.innerHTML = benchmarkLineChart(seriesList, rs.dates, 900, 260);
+  legendEl.innerHTML = seriesList.map(s => {
+    const n = narrativesRaw.narratives.find(x => x.id === s.id);
+    const last = s.data[s.data.length - 1];
+    const lastStr = (last === null || last === undefined) ? '—' : `${last >= 0 ? '+' : ''}${last.toFixed(1)}%`;
+    return `<span class="bm-legend-item"><span class="bm-swatch" style="background:${s.color};"></span>${n ? n.name : s.id} <b class="${(last ?? 0) >= 0 ? 'pos' : 'neg'}">${lastStr}</b></span>`;
+  }).join('');
 }
 
 // V6.1 point 1/3/11: compact # | Narrative | RS | Thrust table replaces the
@@ -2204,7 +2389,7 @@ function renderNarrativeGrid() {
     let row = `<tr>
       <td>${i + 1}</td>
       <td class="nc-name-cell" onclick="ncToggleDetail('${narrative.id}')">${narrative.name}</td>
-      <td class="${(rsVal ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(rsVal, 'rs')}</td>
+      <td class="${ncStrengthColorClass(rsVal)}">${ncFmtScore(rsVal, 'rs')}</td>
       <td class="${(thrustVal ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(thrustVal, 'thrust')}</td>
     </tr>`;
     if (isExpanded) row += renderNarrativeDetail(narrative);
@@ -2251,16 +2436,6 @@ document.getElementById('rankingModeToggle').addEventListener('click', (e) => {
   document.querySelectorAll('#rankingModeToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
   renderNarrativeGrid();
 });
-// V6 point 29B: timeframe switch re-slices the already-loaded RSP series
-// client-side only -- never triggers a fetch.
-document.getElementById('benchmarkTimeframeToggle').addEventListener('click', (e) => {
-  const btn = e.target.closest('.nc-btn');
-  if (!btn) return;
-  ncBenchmarkTimeframe = btn.dataset.timeframe;
-  document.querySelectorAll('#benchmarkTimeframeToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
-  renderBenchmarkChart();
-});
-
 // ══════════════════════════════════════════════
 // SCREENER (06) — V6 point 19-27: fixed, config-driven presets only, no
 // free/universal screener. Reads data/screeners.json (built by
@@ -2277,15 +2452,47 @@ const screenerRenderLimit = {}; // presetId -> current windowed row count
 // doesn't duplicate the rule definitions (point 23), so this is presentation
 // metadata only, not a second source of truth for the actual filter logic
 // (that lives exclusively in config/narrative_engine.json + build_screeners.py).
-// "YOLO RS 1W ≥ 85" is the spec's own required exact label (point 21) --
-// never phrased in a way that could be confused with Narrative Strength vs RSP.
+// RVOL/Screener/Benchmark/Futures Patch point 1/12/13: "YOLO RS ..." ->
+// "Strength ..." (display-label rename only); EMA21 -> EMA20; new
+// monthly_strength preset's chips. Never "AS" or any other abbreviation.
 const SCREENER_PRESET_TAGS = {
-  weekly_strength: ['YOLO RS 1W ≥ 85', 'Price > SMA50', 'EMA10 oder EMA21 innerhalb ±5%'],
+  weekly_strength: ['Strength 1W ≥ 85', 'Price > SMA50', 'EMA10 oder EMA20 innerhalb ±5%'],
+  monthly_strength: ['Strength 1M ≥ 85', 'Price > SMA200', 'EMA10 oder EMA20 innerhalb ±5%'],
+};
+
+// Per-preset table columns -- the two presets rank on different Strength
+// windows (1W vs 1M) and different long-term MA (SMA50 vs SMA200), so their
+// result tables show different fields (point 13). `strength: true` marks
+// the column that gets the shared ncStrengthColorClass helper instead of
+// plain `muted` (point 2: "ggf. sichtbare Strength-Werte im Screener").
+const SCREENER_PRESET_COLUMNS = {
+  weekly_strength: [
+    { key: 'rs_percentile_1w', label: 'Strength 1W', fmt: 'num', strength: true },
+    { key: 'structural_rs', label: 'Structural RS', fmt: 'num' },
+    { key: 'adr20', label: 'ADR20', fmt: 'num' },
+    { key: 'sma50_distance_pct', label: 'vs SMA50', fmt: 'pct' },
+    { key: 'ema10_distance_pct', label: 'vs EMA10', fmt: 'pct' },
+    { key: 'ema20_distance_pct', label: 'vs EMA20', fmt: 'pct' },
+  ],
+  monthly_strength: [
+    { key: 'rs_percentile_1m', label: 'Strength 1M', fmt: 'num', strength: true },
+    { key: 'structural_rs', label: 'Structural RS', fmt: 'num' },
+    { key: 'adr20', label: 'ADR20', fmt: 'num' },
+    { key: 'sma200_distance_pct', label: 'vs SMA200', fmt: 'pct' },
+    { key: 'ema10_distance_pct', label: 'vs EMA10', fmt: 'pct' },
+    { key: 'ema20_distance_pct', label: 'vs EMA20', fmt: 'pct' },
+  ],
 };
 
 function screenerPresetTagsHtml(presetId) {
   const tags = SCREENER_PRESET_TAGS[presetId] || [];
   return tags.map(t => `<span class="screener-tag">${t}</span>`).join('');
+}
+
+function screenerColumnCellHtml(col, t) {
+  const v = t[col.key];
+  if (col.strength) return `<td class="${ncStrengthColorClass(v)}">${screenerFmtNum(v, 1)}</td>`;
+  return col.fmt === 'pct' ? `<td class="muted">${screenerFmtPctSigned(v)}</td>` : `<td class="muted">${screenerFmtNum(v, 1)}</td>`;
 }
 
 // Filename slug per spec point 26's exact example: "weekly-strength-YYYY-MM-DD-tradingview.txt".
@@ -2353,21 +2560,19 @@ function screenerPresetHtml(presetId, preset, opts) {
   const limit = screenerRenderLimit[presetId] || 50;
   const windowed = isOpen ? tickers.slice(0, limit) : [];
 
+  const columns = SCREENER_PRESET_COLUMNS[presetId] || SCREENER_PRESET_COLUMNS.weekly_strength;
+  const colCount = columns.length + 1; // + Ticker
+
   const rows = windowed.map(t => `
     <tr>
       <td><b data-ticker="${t.symbol}">${t.symbol}</b></td>
-      <td class="muted">${screenerFmtNum(t.rs_percentile_1w, 1)}</td>
-      <td class="muted">${screenerFmtNum(t.structural_rs, 1)}</td>
-      <td class="muted">${screenerFmtNum(t.adr20, 1)}</td>
-      <td class="muted">${screenerFmtPctSigned(t.sma50_distance_pct)}</td>
-      <td class="muted">${screenerFmtPctSigned(t.ema10_distance_pct)}</td>
-      <td class="muted">${screenerFmtPctSigned(t.ema21_distance_pct)}</td>
+      ${columns.map(col => screenerColumnCellHtml(col, t)).join('')}
     </tr>`).join('');
   const loadMoreHtml = (isOpen && tickers.length > windowed.length) ? `
-    <tr class="opp-load-more-row"><td colspan="7">
+    <tr class="opp-load-more-row"><td colspan="${colCount}">
       <button class="opp-load-more-btn" onclick="screenerShowMore('${presetId}')">Weitere ${Math.min(50, tickers.length - windowed.length)} anzeigen (${windowed.length}/${tickers.length})</button>
     </td></tr>` : '';
-  const tableBodyHtml = rows || (isOpen ? `<tr><td colspan="7" class="narrative-empty">Keine Treffer.</td></tr>` : '');
+  const tableBodyHtml = rows || (isOpen ? `<tr><td colspan="${colCount}" class="narrative-empty">Keine Treffer.</td></tr>` : '');
 
   return `<div class="screener-preset">
     <div class="screener-preset-header">
@@ -2385,8 +2590,7 @@ function screenerPresetHtml(presetId, preset, opts) {
     <div class="opp-table-wrap" style="${isOpen ? '' : 'display:none;'}">
       <table class="member-table opp-table">
         <thead><tr>
-          <th>Ticker</th><th>YOLO RS 1W</th><th>Structural RS</th><th>ADR20</th>
-          <th>vs SMA50</th><th>vs EMA10</th><th>vs EMA21</th>
+          <th>Ticker</th>${columns.map(col => `<th>${col.label}</th>`).join('')}
         </tr></thead>
         <tbody>${tableBodyHtml}${loadMoreHtml}</tbody>
       </table>

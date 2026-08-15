@@ -1,8 +1,9 @@
 """
-Tests for scripts/build_screeners.py — the V1 predefined-Screener engine
-(spec point 19-27). Covers the generic rule-engine ops, the Weekly Strength
-pilot preset's exact test matrix A-F from the spec, sort order, and the
-TradingView MIC-mapping/export-safety rules. All synthetic data — no
+Tests for scripts/build_screeners.py — the predefined-Screener engine (V6
+point 19-27, extended by the RVOL/Screener/Benchmark/Futures Patch points
+12-15/24). Covers the generic rule-engine ops, the Weekly Strength (now
+EMA20, not EMA21) and Monthly Strength preset test matrices, sort order, and
+the TradingView MIC-mapping/export-safety rules. All synthetic data — no
 network / no MASSIVE_API_KEY required.
 Run with: pytest tests/ -v
 """
@@ -15,7 +16,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from build_screeners import (  # noqa: E402
     eval_rule, eval_preset, mic_to_tradingview_symbol,
-    build_screener_ticker_row, weekly_strength_sort_key, build_screener,
+    build_screener_ticker_row, weekly_strength_sort_key, monthly_strength_sort_key, build_screener,
 )
 
 
@@ -28,7 +29,20 @@ WEEKLY_STRENGTH_CFG = {
     ],
     "any": [
         {"field": "ema10_distance_pct", "op": "between", "min": -5, "max": 5},
-        {"field": "ema21_distance_pct", "op": "between", "min": -5, "max": 5},
+        {"field": "ema20_distance_pct", "op": "between", "min": -5, "max": 5},
+    ],
+}
+
+MONTHLY_STRENGTH_CFG = {
+    "name": "Monthly Strength",
+    "enabled": True,
+    "all": [
+        {"field": "sma200_distance_pct", "op": ">", "value": 0},
+        {"field": "rs_percentile_1m", "op": ">=", "value": 85},
+    ],
+    "any": [
+        {"field": "ema10_distance_pct", "op": "between", "min": -5, "max": 5},
+        {"field": "ema20_distance_pct", "op": "between", "min": -5, "max": 5},
     ],
 }
 
@@ -77,47 +91,55 @@ def test_eval_preset_empty_any_imposes_no_extra_condition():
     assert eval_preset(preset, {"a": 1}) is True
 
 
-# ── Weekly Strength pilot: exact test matrix A-F from the spec ──
+# ── Weekly Strength: exact test matrix from the spec (now EMA20, not EMA21) ──
 
 def make_ticker(eligible=True, gain_from_sma50_pct=1.0, rs_percentile_1w=90.0,
-                 ema10_distance_pct=0.0, ema21_distance_pct=0.0, healthcare_biotech_excluded=False):
-    return {
+                 ema10_distance_pct=0.0, ema20_distance_pct=0.0, ema21_distance_pct=None,
+                 sma200_distance_pct=1.0, rs_percentile_1m=90.0, healthcare_biotech_excluded=False):
+    t = {
         "eligible": eligible and not healthcare_biotech_excluded,
         "gain_from_sma50_pct": gain_from_sma50_pct,
         "rs_percentile_1w": rs_percentile_1w,
         "ema10_distance_pct": ema10_distance_pct,
-        "ema21_distance_pct": ema21_distance_pct,
+        "ema20_distance_pct": ema20_distance_pct,
+        "sma200_distance_pct": sma200_distance_pct,
+        "rs_percentile_1m": rs_percentile_1m,
         "healthcare_biotech_excluded": healthcare_biotech_excluded,
     }
+    if ema21_distance_pct is not None:
+        # Only set when a test explicitly wants an EMA21-only ticker to prove
+        # it does NOT satisfy the ANY-rule (spec point 12: "Kein EMA21").
+        t["ema21_distance_pct"] = ema21_distance_pct
+    return t
 
 
-def test_case_a_above_sma50_rs90_ema10_plus2_ema21_plus7_match():
-    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=90, ema10_distance_pct=2, ema21_distance_pct=7)
+def test_case_a_above_sma50_rs90_ema10_plus2_ema20_plus7_match():
+    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=90, ema10_distance_pct=2, ema20_distance_pct=7)
     assert eval_preset(WEEKLY_STRENGTH_CFG, t) is True
 
 
-def test_case_b_above_sma50_rs90_ema10_plus8_ema21_minus3_match():
-    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=90, ema10_distance_pct=8, ema21_distance_pct=-3)
+def test_case_b_above_sma50_rs90_ema10_plus8_ema20_minus3_match():
+    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=90, ema10_distance_pct=8, ema20_distance_pct=-3)
     assert eval_preset(WEEKLY_STRENGTH_CFG, t) is True
 
 
 def test_case_c_rs84_below_threshold_no_match():
-    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=84, ema10_distance_pct=0, ema21_distance_pct=0)
+    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=84, ema10_distance_pct=0, ema20_distance_pct=0)
     assert eval_preset(WEEKLY_STRENGTH_CFG, t) is False
 
 
 def test_case_d_below_sma50_rs95_no_match():
-    t = make_ticker(gain_from_sma50_pct=-1.0, rs_percentile_1w=95, ema10_distance_pct=0, ema21_distance_pct=0)
+    t = make_ticker(gain_from_sma50_pct=-1.0, rs_percentile_1w=95, ema10_distance_pct=0, ema20_distance_pct=0)
     assert eval_preset(WEEKLY_STRENGTH_CFG, t) is False
 
 
 def test_case_e_above_sma50_rs95_both_emas_outside_band_no_match():
-    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=95, ema10_distance_pct=6, ema21_distance_pct=6)
+    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=95, ema10_distance_pct=6, ema20_distance_pct=6)
     assert eval_preset(WEEKLY_STRENGTH_CFG, t) is False
 
 
 def test_case_f_healthcare_biotech_excluded_no_match():
-    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=95, ema10_distance_pct=2, ema21_distance_pct=2,
+    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=95, ema10_distance_pct=2, ema20_distance_pct=2,
                      healthcare_biotech_excluded=True)
     # eligible is already False upstream once healthcare_biotech_excluded — the
     # preset rules never even need to run; build_screener's own eligible gate
@@ -128,8 +150,8 @@ def test_case_f_healthcare_biotech_excluded_no_match():
 def test_case_f_via_build_screener_excludes_healthcare_biotech():
     tickers = {
         "PHARMA": make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=95, ema10_distance_pct=2,
-                               ema21_distance_pct=2, healthcare_biotech_excluded=True),
-        "TECH": make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=95, ema10_distance_pct=2, ema21_distance_pct=2),
+                               ema20_distance_pct=2, healthcare_biotech_excluded=True),
+        "TECH": make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=95, ema10_distance_pct=2, ema20_distance_pct=2),
     }
     result, _ = build_screener("weekly_strength", WEEKLY_STRENGTH_CFG, tickers, {}, MIC_MAP)
     symbols = {row["symbol"] for row in result["tickers"]}
@@ -137,11 +159,20 @@ def test_case_f_via_build_screener_excludes_healthcare_biotech():
     assert "TECH" in symbols
 
 
+def test_weekly_strength_ema21_only_never_matches_the_any_rule():
+    # Point 12: "Kein EMA21" — a ticker whose ONLY EMA proximity is on EMA21
+    # (not EMA10/EMA20) must NOT match, even though the legacy field is still
+    # present on the record (e.g. carried over from market_features.json).
+    t = make_ticker(gain_from_sma50_pct=2.0, rs_percentile_1w=95, ema10_distance_pct=20, ema20_distance_pct=20,
+                     ema21_distance_pct=0.0)
+    assert eval_preset(WEEKLY_STRENGTH_CFG, t) is False
+
+
 # ── base eligible gate is never re-derived, only consumed ──────────
 
 def test_build_screener_skips_ineligible_even_if_rules_would_match():
     tickers = {"X": make_ticker(eligible=False, gain_from_sma50_pct=5, rs_percentile_1w=99,
-                                 ema10_distance_pct=0, ema21_distance_pct=0)}
+                                 ema10_distance_pct=0, ema20_distance_pct=0)}
     result, _ = build_screener("weekly_strength", WEEKLY_STRENGTH_CFG, tickers, {}, MIC_MAP)
     assert result["count"] == 0
 
@@ -176,6 +207,60 @@ def test_build_screener_applies_weekly_strength_sort_end_to_end():
     tickers["AAA"]["structural_rs"] = 50
     result, _ = build_screener("weekly_strength", WEEKLY_STRENGTH_CFG, tickers, {}, MIC_MAP)
     assert [r["symbol"] for r in result["tickers"]] == ["AAA", "BBB"]
+
+
+# ── Monthly Strength (new preset, spec points 13-15/18) ──
+
+def test_monthly_strength_1m85_above_sma200_ema10_match():
+    t = make_ticker(sma200_distance_pct=3.0, rs_percentile_1m=90, ema10_distance_pct=2, ema20_distance_pct=99)
+    assert eval_preset(MONTHLY_STRENGTH_CFG, t) is True
+
+
+def test_monthly_strength_1m85_above_sma200_ema20_match():
+    t = make_ticker(sma200_distance_pct=3.0, rs_percentile_1m=90, ema10_distance_pct=99, ema20_distance_pct=-2)
+    assert eval_preset(MONTHLY_STRENGTH_CFG, t) is True
+
+
+def test_monthly_strength_below_sma200_no_match():
+    t = make_ticker(sma200_distance_pct=-1.0, rs_percentile_1m=95, ema10_distance_pct=0, ema20_distance_pct=0)
+    assert eval_preset(MONTHLY_STRENGTH_CFG, t) is False
+
+
+def test_monthly_strength_sma200_null_no_match():
+    t = make_ticker(sma200_distance_pct=None, rs_percentile_1m=95, ema10_distance_pct=0, ema20_distance_pct=0)
+    assert eval_preset(MONTHLY_STRENGTH_CFG, t) is False
+
+
+def test_monthly_strength_below_rs85_no_match():
+    t = make_ticker(sma200_distance_pct=3.0, rs_percentile_1m=84, ema10_distance_pct=0, ema20_distance_pct=0)
+    assert eval_preset(MONTHLY_STRENGTH_CFG, t) is False
+
+
+def test_monthly_strength_ema21_only_never_matches_the_any_rule():
+    t = make_ticker(sma200_distance_pct=3.0, rs_percentile_1m=95, ema10_distance_pct=20, ema20_distance_pct=20,
+                     ema21_distance_pct=0.0)
+    assert eval_preset(MONTHLY_STRENGTH_CFG, t) is False
+
+
+def test_monthly_strength_sort_order():
+    rows = [
+        {"symbol": "BBB", "rs_percentile_1m": 90, "structural_rs": 50},
+        {"symbol": "AAA", "rs_percentile_1m": 90, "structural_rs": 60},
+        {"symbol": "CCC", "rs_percentile_1m": 95, "structural_rs": 10},
+    ]
+    rows.sort(key=monthly_strength_sort_key)
+    assert [r["symbol"] for r in rows] == ["CCC", "AAA", "BBB"]
+
+
+def test_build_screener_applies_monthly_strength_end_to_end():
+    tickers = {
+        "GOOD": make_ticker(sma200_distance_pct=3.0, rs_percentile_1m=95, ema10_distance_pct=1, ema20_distance_pct=99),
+        "BELOW_SMA200": make_ticker(sma200_distance_pct=-3.0, rs_percentile_1m=95, ema10_distance_pct=1, ema20_distance_pct=99),
+        "LOW_STRENGTH": make_ticker(sma200_distance_pct=3.0, rs_percentile_1m=70, ema10_distance_pct=1, ema20_distance_pct=99),
+    }
+    result, _ = build_screener("monthly_strength", MONTHLY_STRENGTH_CFG, tickers, {}, MIC_MAP)
+    symbols = {row["symbol"] for row in result["tickers"]}
+    assert symbols == {"GOOD"}
 
 
 # ── TradingView MIC mapping / export safety (spec point 26) ────────
@@ -229,8 +314,9 @@ def test_build_screener_ticker_row_only_carries_documented_fields():
     ticker = make_ticker()
     ticker.update({"close": 1, "adr20": 1, "market_cap": 1, "structural_rs": 1, "sma50_distance_pct": 1})
     row, _ = build_screener_ticker_row("AAPL", ticker, "XNAS", MIC_MAP)
-    expected_keys = {"symbol", "close", "adr20", "market_cap", "rs_percentile_1w", "structural_rs",
-                      "sma50_distance_pct", "ema10_distance_pct", "ema21_distance_pct",
+    expected_keys = {"symbol", "close", "adr20", "market_cap", "rs_percentile_1w", "rs_percentile_1m",
+                      "structural_rs", "sma50_distance_pct", "sma200_distance_pct",
+                      "ema10_distance_pct", "ema20_distance_pct",
                       "primary_exchange", "tradingview_symbol"}
     assert set(row.keys()) == expected_keys  # doesn't dump every Market Features field (spec point 23)
 

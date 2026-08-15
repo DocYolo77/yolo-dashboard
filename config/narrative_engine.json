@@ -32,7 +32,7 @@
     "thrust_delta_sessions": 3
   },
   "screener_presets": {
-    "_comment": "V1 Screener: feste, config-definierte Presets (kein freier Universal-Screener). Arbeitet auf dem bereits final gefilterten eligible Universe (Stocks, kein Healthcare/Biotech, Market Cap/ADR20-Schwellen bereits angewendet) -- diese Basisfilter werden NICHT hier erneut dupliziert, nur zusaetzliche Preset-Regeln.",
+    "_comment": "V1 Screener: feste, config-definierte Presets (kein freier Universal-Screener). Arbeitet auf dem bereits final gefilterten eligible Universe (Stocks, kein Healthcare/Biotech, Market Cap/ADR20-Schwellen bereits angewendet) -- diese Basisfilter werden NICHT hier erneut dupliziert, nur zusaetzliche Preset-Regeln. RVOL/Screener/Benchmark/Futures Patch Punkt 12/13: weekly_strength nutzt jetzt EMA20 statt EMA21 (kein EMA21 mehr in irgendeinem Preset); monthly_strength ist neu, analog zu weekly_strength aber auf dem 1M-Strength-Percentile/SMA200 statt 1W-Strength/SMA50.",
     "weekly_strength": {
       "name": "Weekly Strength",
       "enabled": true,
@@ -42,7 +42,19 @@
       ],
       "any": [
         { "field": "ema10_distance_pct", "op": "between", "min": -5, "max": 5 },
-        { "field": "ema21_distance_pct", "op": "between", "min": -5, "max": 5 }
+        { "field": "ema20_distance_pct", "op": "between", "min": -5, "max": 5 }
+      ]
+    },
+    "monthly_strength": {
+      "name": "Monthly Strength",
+      "enabled": true,
+      "all": [
+        { "field": "sma200_distance_pct", "op": ">", "value": 0 },
+        { "field": "rs_percentile_1m", "op": ">=", "value": 85 }
+      ],
+      "any": [
+        { "field": "ema10_distance_pct", "op": "between", "min": -5, "max": 5 },
+        { "field": "ema20_distance_pct", "op": "between", "min": -5, "max": 5 }
       ]
     }
   },
@@ -158,9 +170,14 @@
     "retention_days": 45
   },
   "market_history_cache": {
-    "_comment": "Persistenter, inkrementeller Preis-History-Cache (V1.1 Punkt 2) — lebt ausserhalb von Git, wird zwischen GitHub-Actions-Laeufen per actions/cache persistiert (siehe refresh_data.yml), kein Datenbank-Service, nur ein Rolling-Window-JSON-File. build_narratives.py liest denselben Cache lesend mit (0 zusaetzliche API-Calls) statt eines eigenen Walk-backs.",
+    "_comment": "Persistenter, inkrementeller Preis-History-Cache (V1.1 Punkt 2) — lebt ausserhalb von Git, wird zwischen GitHub-Actions-Laeufen per actions/cache persistiert (siehe refresh_data.yml), kein Datenbank-Service, nur ein Rolling-Window-JSON-File. build_narratives.py liest denselben Cache lesend mit (0 zusaetzliche API-Calls) statt eines eigenen Walk-backs. RVOL/Screener/Benchmark/Futures Patch Punkt 6: derselbe Cache persistiert jetzt additiv 'volume' pro Ticker (Rolling Window, gleiche Laenge wie close/high/low/open) -- bestehende Cache-Dateien ohne 'volume' bleiben lesbar (backward compatible), ein einmaliger Backfill materialisiert bei Bedarf mindestens average_volume_lookback_sessions+1 Sessions aus den bereits geladenen Grouped-Daily-Daten.",
     "path": ".cache/market_history.json",
     "target_trading_days": 260
+  },
+  "volume_context": {
+    "_comment": "RVOL/Screener/Benchmark/Futures Patch Punkt 4/5: RVOL50 = current_volume / average_volume_50, wobei average_volume_50 der einfache Durchschnitt der average_volume_lookback_sessions VORHERIGEN vollstaendig abgeschlossenen Trading Sessions ist (heutiges Volumen NICHT im Nenner). high_rvol_threshold steuert ausschliesslich die Volumen-Faerbung in der Member-Tabelle (d1_pct>0 & rvol_50>=Schwelle -> gruen, d1_pct<0 & rvol_50>=Schwelle -> rot, sonst neutral) -- keine neue Calibration-Schwelle fuer irgendeine Strength-/Thrust-/Structural-Formel.",
+    "average_volume_lookback_sessions": 50,
+    "high_rvol_threshold": 1.30
   },
   "structural_rs_v1_1": {
     "_comment": "Structural RS (0-100) — multi-timeframe relative Staerke, primaere Qualitaetsmetrik ab V1.1 (ersetzt den kurzfristigen Leadership Score als Entry-Gate, siehe opportunity_v1_1). Punkt 3-4 der V1.1-Spec.",
