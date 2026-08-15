@@ -158,7 +158,7 @@ def make_daily_ret(days, columns_pct):
 def test_rs_history_excludes_ineligible_member_from_basket():
     days = [f"2026-01-{d:02d}" for d in range(1, 21)]
     daily_ret = make_daily_ret(days, {
-        "SPY": [0.1] * 20,
+        "RSP": [0.1] * 20,
         "STRONG": [1.0] * 20,   # eligible, drives the basket up
         "WEAK_INELIGIBLE": [-5.0] * 20,  # classified but NOT eligible -> must be excluded
     })

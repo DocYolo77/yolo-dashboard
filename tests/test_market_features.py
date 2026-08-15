@@ -14,12 +14,15 @@ import pandas as pd
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+import build_market_features  # noqa: E402  (module import, for monkeypatching massive_get)
 from build_market_features import (  # noqa: E402
     calc_ticker_features, calc_true_range, compute_eligibility, compute_eligible_universe,
     eligible_percentile_ranks, type_eligible_universe,
     calc_sma50_trend_fields, renormalized_weighted_sum, clamp_0_100,
     compute_recent_leader_bootstrap, load_price_cache, save_price_cache,
     PRICE_CACHE_SCHEMA_VERSION,
+    classify_healthcare_biotech, compute_healthcare_excluded_universe,
+    fetch_ticker_range_backfill, fetch_grouped_history_full_market_cached,
 )
 from build_narratives import percentile_ranks  # noqa: E402
 
@@ -76,6 +79,149 @@ def test_adr_exactly_at_threshold_is_not_eligible(universe_cfg):
 def test_market_cap_exactly_at_threshold_is_eligible(universe_cfg):
     # Spec: "Market Cap >= 1B" is inclusive.
     assert compute_eligibility(adr20=5.0, market_cap=1_000_000_000, universe_cfg=universe_cfg) is True
+
+
+def test_healthcare_excluded_stock_is_never_eligible_even_if_adr_and_cap_pass(universe_cfg):
+    # V6 point 5: Healthcare/Biotech-Exclusion runs BEFORE eligible=true --
+    # a stock that would otherwise pass ADR/Market-Cap must still be
+    # ineligible once healthcare_excluded=True.
+    assert compute_eligibility(adr20=5.0, market_cap=2_000_000_000, universe_cfg=universe_cfg,
+                                healthcare_excluded=True) is False
+    assert compute_eligibility(adr20=5.0, market_cap=2_000_000_000, universe_cfg=universe_cfg,
+                                healthcare_excluded=False) is True
+
+
+def test_compute_eligibility_healthcare_excluded_defaults_false_for_legacy_callers(universe_cfg):
+    # Pre-V6 callers (other scripts, other tests) that don't pass the new
+    # 4th arg must keep working exactly as before.
+    assert compute_eligibility(adr20=5.0, market_cap=2_000_000_000, universe_cfg=universe_cfg) is True
+
+
+# ── V6 point 9: RSP benchmark folded into the price cache, then popped
+# back out of `features` -- must never reach eligibility/RS/output ──
+
+def test_rsp_is_computed_transiently_but_never_reaches_final_features():
+    # Mirrors main()'s exact pattern: fetch_grouped_history_full_market_cached
+    # is called with type_universe | {RSP_TICKER}, so close_df/high_df/low_df
+    # transiently contain an RSP column: calc_ticker_features() will compute
+    # RSP like any other ticker, but main() immediately pops it back out
+    # before ADR-candidate filtering / enrichment / eligibility ever runs.
+    close, high, low = make_ohlc(n_days=75, drift_pct=0.3)
+    close_df = pd.DataFrame({"AAPL": close, "RSP": close})
+    high_df = pd.DataFrame({"AAPL": high, "RSP": high})
+    low_df = pd.DataFrame({"AAPL": low, "RSP": low})
+    features = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)
+    assert "RSP" in features  # computed transiently, just like any ticker
+    features.pop("RSP", None)  # exact pop-back-out pattern used in main()
+    assert "RSP" not in features
+    assert "AAPL" in features
+
+
+# ── V6 point 5-6: deterministic Healthcare/Biotech universe exclusion ──
+
+@pytest.fixture
+def hc_filter_cfg():
+    return json.loads(Path(__file__).parent.parent.joinpath(
+        "config/narrative_engine.json").read_text())["universe"]["healthcare_biotech_filter"]
+
+
+def test_pharma_sic_prefix_is_excluded(hc_filter_cfg):
+    excluded, reason = classify_healthcare_biotech("2834", "PHARMACEUTICAL PREPARATIONS", None, hc_filter_cfg)
+    assert excluded is True
+    assert reason is not None
+
+
+def test_biological_products_sic_prefix_is_excluded(hc_filter_cfg):
+    excluded, reason = classify_healthcare_biotech("2836", "BIOLOGICAL PRODUCTS, NO DIAGNOSTIC SUBSTANCES", None, hc_filter_cfg)
+    assert excluded is True
+
+
+def test_medical_surgical_instrument_sic_prefix_is_excluded(hc_filter_cfg):
+    excluded, reason = classify_healthcare_biotech("3841", "SURGICAL & MEDICAL INSTRUMENTS & APPARATUS", None, hc_filter_cfg)
+    assert excluded is True
+
+
+def test_hospital_health_service_sic_prefix_is_excluded(hc_filter_cfg):
+    excluded, reason = classify_healthcare_biotech("8062", "GENERAL MEDICAL & SURGICAL HOSPITALS", None, hc_filter_cfg)
+    assert excluded is True
+
+
+def test_hospital_medical_service_plan_exact_sic_is_excluded(hc_filter_cfg):
+    excluded, reason = classify_healthcare_biotech("6324", "HOSPITAL & MEDICAL SERVICE PLANS", None, hc_filter_cfg)
+    assert excluded is True
+
+
+def test_semiconductor_sic_is_not_excluded(hc_filter_cfg):
+    excluded, reason = classify_healthcare_biotech("3674", "SEMICONDUCTORS & RELATED DEVICES", None, hc_filter_cfg)
+    assert excluded is False
+    assert reason is None
+
+
+def test_software_company_with_healthcare_customer_mention_is_not_falsely_excluded(hc_filter_cfg):
+    # A real, non-matching SIC code must take absolute priority -- free-text
+    # company_description mentioning healthcare customers must NEVER trigger
+    # exclusion when a non-healthcare SIC is already known (point 6).
+    excluded, reason = classify_healthcare_biotech(
+        "7372", "SERVICES-PREPACKAGED SOFTWARE",
+        "We build workflow software used by hospitals, clinics and other healthcare providers.",
+        hc_filter_cfg)
+    assert excluded is False
+    assert reason is None
+
+
+def test_sic_code_none_uses_company_description_fallback_deterministically(hc_filter_cfg):
+    excluded, reason = classify_healthcare_biotech(
+        None, None, "A clinical-stage biopharmaceutical company developing drug candidates.", hc_filter_cfg)
+    assert excluded is True
+    assert reason is not None
+
+    excluded2, reason2 = classify_healthcare_biotech(None, None, "A logistics and freight company.", hc_filter_cfg)
+    assert excluded2 is False
+    assert reason2 is None
+
+
+def test_sic_description_keyword_backstop_fires_for_unlisted_sic_code(hc_filter_cfg):
+    # SIC code itself not in sic_codes/sic_prefixes, but sic_description
+    # contains a backstop keyword -> still excluded, company_description
+    # never consulted in this branch.
+    excluded, reason = classify_healthcare_biotech("9999", "OFFICES OF PHYSICIANS", "irrelevant text", hc_filter_cfg)
+    assert excluded is True
+
+
+def test_compute_healthcare_excluded_universe_kill_switch_returns_all_false(hc_filter_cfg):
+    features = {"AAA": {}, "BBB": {}}
+    sic_by_symbol = {"AAA": {"sic_code": "2834", "sic_description": "PHARMACEUTICAL PREPARATIONS"}, "BBB": {}}
+    result = compute_healthcare_excluded_universe(features, sic_by_symbol, {"exclude_healthcare_biotech": False})
+    assert result == {"AAA": (False, None), "BBB": (False, None)}
+
+
+def test_compute_healthcare_excluded_universe_end_to_end(hc_filter_cfg):
+    features = {"PHARMA_CO": {}, "TECH_CO": {}, "NO_SIC_DATA": {}}
+    sic_by_symbol = {
+        "PHARMA_CO": {"sic_code": "2834", "sic_description": "PHARMACEUTICAL PREPARATIONS"},
+        "TECH_CO": {"sic_code": "7372", "sic_description": "SERVICES-PREPACKAGED SOFTWARE"},
+    }
+    universe_cfg = {"exclude_healthcare_biotech": True, "healthcare_biotech_filter": hc_filter_cfg}
+    result = compute_healthcare_excluded_universe(features, sic_by_symbol, universe_cfg)
+    assert result["PHARMA_CO"][0] is True
+    assert result["TECH_CO"][0] is False
+    assert result["NO_SIC_DATA"][0] is False  # missing SIC data entirely, no description keyword hit either
+
+
+def test_healthcare_exclusion_reduces_eligible_universe_end_to_end(hc_filter_cfg):
+    u_cfg = {"adr_minimum_pct": 4.0, "market_cap_minimum_usd": 1_000_000_000,
+              "exclude_healthcare_biotech": True, "healthcare_biotech_filter": hc_filter_cfg}
+    features = {"PHARMA_CO": {"adr20": 6.0}, "TECH_CO": {"adr20": 6.0}}
+    market_caps = {"PHARMA_CO": 5_000_000_000, "TECH_CO": 5_000_000_000}
+    sic_by_symbol = {
+        "PHARMA_CO": {"sic_code": "2834", "sic_description": "PHARMACEUTICAL PREPARATIONS"},
+        "TECH_CO": {"sic_code": "7372", "sic_description": "SERVICES-PREPACKAGED SOFTWARE"},
+    }
+    healthcare_excluded = compute_healthcare_excluded_universe(features, sic_by_symbol, u_cfg)
+    eligible = compute_eligible_universe(
+        features, market_caps, u_cfg,
+        healthcare_excluded_by_symbol={sym: v[0] for sym, v in healthcare_excluded.items()})
+    assert eligible == {"PHARMA_CO": False, "TECH_CO": True}
 
 
 # ── ADR20 / EMA / SMA50 / ATR / ATR-Extension formulas ──────────
@@ -154,6 +300,39 @@ def test_ema10_ema20_distance_signs():
     # In a steady uptrend, price sits above both fast EMAs.
     assert out["ema10_distance_pct"] > 0
     assert out["ema20_distance_pct"] > 0
+
+
+# ── V6 point 21: EMA21 is purely ADDITIVE, EMA20 stays canonical/unchanged ──
+
+def test_ema21_is_additive_and_ema20_unchanged():
+    close, high, low = make_ohlc(n_days=75, drift_pct=0.5)  # uptrend
+    close_df = pd.DataFrame({"TEST": close})
+    high_df = pd.DataFrame({"TEST": high})
+    low_df = pd.DataFrame({"TEST": low})
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)["TEST"]
+    # New field present and populated...
+    assert out["ema21"] is not None
+    assert out["ema21_distance_pct"] is not None
+    # ...but the pre-existing EMA20 formula/value is byte-identical to a
+    # standalone ewm(span=20) computation -- EMA21's presence must not have
+    # perturbed it.
+    expected_ema20 = close.ewm(span=20).mean().iloc[-1]
+    assert out["ema20"] == pytest.approx(round(float(expected_ema20), 2))
+    # In a steady uptrend, price also sits above the new EMA21.
+    assert out["ema21_distance_pct"] > 0
+
+
+def test_ema21_matches_standalone_formula():
+    close, high, low = make_ohlc(n_days=75, drift_pct=0.5)
+    close_df = pd.DataFrame({"TEST": close})
+    high_df = pd.DataFrame({"TEST": high})
+    low_df = pd.DataFrame({"TEST": low})
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)["TEST"]
+    expected_ema21 = close.ewm(span=21).mean().iloc[-1]
+    last = close.iloc[-1]
+    expected_dist = round(float((last - expected_ema21) / expected_ema21 * 100), 2)
+    assert out["ema21"] == pytest.approx(round(float(expected_ema21), 2))
+    assert out["ema21_distance_pct"] == pytest.approx(expected_dist)
 
 
 def test_calc_true_range_matches_manual_formula():
@@ -430,3 +609,164 @@ def test_price_cache_discards_mismatched_schema_version(tmp_path):
     cache_path = tmp_path / "market_history.json"
     cache_path.write_text(json.dumps({"schema_version": PRICE_CACHE_SCHEMA_VERSION + 1, "dates": [], "tickers": {}}))
     assert load_price_cache(cache_path) is None  # stale schema -> treated as cold cache
+
+
+# ── V6 point 9 follow-up: RSP one-time single-ticker backfill ──
+# A ticker that is genuinely new to the shared price cache (a real new IPO,
+# or a stock newly passing the type/ADR filter) correctly has no earlier
+# history to backfill and is left to accumulate one day at a time -- that
+# is intentional, unchanged behaviour (see the tests above for
+# compute_eligible_universe etc.). RSP is different: it already has decades
+# of real trading history available from Massive, it's just new to THIS
+# cache because this feature is the first thing that ever asked for it.
+# Without the backfill below, RSP would be stranded at 1-2 days of history
+# for ~260 daily runs before any Strength/Thrust window could ever populate
+# — a real gap the user caught in production, not the intended behaviour.
+
+from datetime import datetime as _dt, timezone as _tz  # noqa: E402
+
+
+def test_fetch_ticker_range_backfill_converts_timestamps_and_extracts_ohlc(monkeypatch):
+    d1 = _dt(2026, 1, 1, tzinfo=_tz.utc)
+    d2 = _dt(2026, 1, 2, tzinfo=_tz.utc)
+    calls = []
+
+    def fake_massive_get(path, params=None, retries=3):
+        calls.append(path)
+        return {"results": [
+            {"t": int(d1.timestamp() * 1000), "o": 100.0, "h": 101.0, "l": 99.0, "c": 100.5},
+            {"t": int(d2.timestamp() * 1000), "o": 100.5, "h": 102.0, "l": 100.0, "c": 101.5},
+        ]}
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+    out = fetch_ticker_range_backfill("RSP", "2026-01-01", "2026-01-03")
+    assert calls == ["/v2/aggs/ticker/RSP/range/1/day/2026-01-01/2026-01-03"]
+    assert out["2026-01-01"] == {"o": 100.0, "h": 101.0, "l": 99.0, "c": 100.5}
+    assert out["2026-01-02"]["c"] == 101.5
+    assert len(out) == 2
+
+
+def test_fetch_ticker_range_backfill_handles_missing_or_empty_response(monkeypatch):
+    monkeypatch.setattr(build_market_features, "massive_get", lambda *a, **k: None)
+    assert fetch_ticker_range_backfill("RSP", "2026-01-01", "2026-01-03") == {}
+    monkeypatch.setattr(build_market_features, "massive_get", lambda *a, **k: {"results": []})
+    assert fetch_ticker_range_backfill("RSP", "2026-01-01", "2026-01-03") == {}
+
+
+def test_fetch_grouped_history_backfills_a_new_benchmark_ticker_to_match_existing_cache_depth(tmp_path, monkeypatch):
+    cache_path = tmp_path / "market_history.json"
+    today = _dt.now(_tz.utc).date()
+    trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(4, -1, -1)]  # 5 days ending today
+
+    # Pre-existing cache: only AAPL has history, RSP has never been fetched.
+    save_price_cache(
+        cache_path, trading_days,
+        {"AAPL": {d: 150.0 + i for i, d in enumerate(trading_days)}},
+        {"AAPL": {d: 151.0 for d in trading_days}},
+        {"AAPL": {d: 149.0 for d in trading_days}},
+        {"AAPL": {d: 150.0 for d in trading_days}},
+        {"AAPL"},
+    )
+
+    range_calls = []
+
+    def fake_massive_get(path, params=None, retries=3):
+        if path.startswith("/v2/aggs/ticker/"):
+            range_calls.append(path)
+            return {"results": [
+                {"t": int(_dt.fromisoformat(d).replace(tzinfo=_tz.utc).timestamp() * 1000),
+                 "o": 200.0, "h": 201.0, "l": 199.0, "c": 200.0 + i}
+                for i, d in enumerate(trading_days)
+            ]}
+        # Grouped-daily endpoint should never be reached: newest_cached == today,
+        # so the incremental walk-forward loop must break on its first iteration.
+        raise AssertionError(f"unexpected grouped-daily call: {path}")
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+
+    close_df, high_df, low_df, out_days = fetch_grouped_history_full_market_cached(
+        {"AAPL", "RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
+
+    assert range_calls == [f"/v2/aggs/ticker/RSP/range/1/day/{trading_days[0]}/{trading_days[-1]}"]
+    assert list(close_df["RSP"].dropna().index) == trading_days
+    assert close_df["RSP"].iloc[-1] == pytest.approx(200.0 + len(trading_days) - 1)
+    assert close_df["AAPL"].notna().all()  # existing ticker's history untouched
+
+
+def test_fetch_grouped_history_skips_backfill_when_ticker_already_in_cache(tmp_path, monkeypatch):
+    cache_path = tmp_path / "market_history.json"
+    today = _dt.now(_tz.utc).date()
+    trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(2, -1, -1)]
+
+    # RSP is ALREADY in the cache from a previous run -> must never re-trigger the backfill call.
+    save_price_cache(
+        cache_path, trading_days,
+        {"RSP": {d: 220.0 for d in trading_days}},
+        {"RSP": {d: 221.0 for d in trading_days}},
+        {"RSP": {d: 219.0 for d in trading_days}},
+        {"RSP": {d: 220.0 for d in trading_days}},
+        {"RSP"},
+    )
+
+    def fake_massive_get(path, params=None, retries=3):
+        if path.startswith("/v2/aggs/ticker/"):
+            raise AssertionError("backfill must not be called when the ticker is already cached")
+        raise AssertionError(f"unexpected grouped-daily call: {path}")
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+
+    close_df, _, _, _ = fetch_grouped_history_full_market_cached(
+        {"RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
+    assert close_df["RSP"].notna().all()
+
+
+def test_fetch_grouped_history_backfills_a_ticker_already_present_but_stranded_sparse(tmp_path, monkeypatch):
+    """Regression test for the real production bug: a ticker can already be a
+    key in cached_tickers (added to per_ticker_close by a run that predates
+    this backfill feature) while its "close" series is almost entirely None
+    -- e.g. RSP had exactly 2 real days out of a 260-day-deep cache after its
+    first-ever run, because it was simply new to the shared price cache and
+    the old incremental walk only ever appends one day forward per run.
+    `ticker in cached_tickers` alone must NOT be treated as "already fully
+    backfilled" -- coverage must be compared against the cache's own date
+    depth, or a previously-stranded ticker silently stays stranded forever
+    even with backfill_tickers set (this is exactly what shipped and was
+    caught against real production data)."""
+    cache_path = tmp_path / "market_history.json"
+    today = _dt.now(_tz.utc).date()
+    trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(4, -1, -1)]  # 5 days ending today
+
+    # RSP is a key in cached_tickers, but only the last 2 of 5 days are real
+    # -- exactly the shape a pre-backfill run would have left behind.
+    sparse_close = {d: None for d in trading_days}
+    sparse_close[trading_days[-2]] = 222.73
+    sparse_close[trading_days[-1]] = 222.77
+    save_price_cache(
+        cache_path, trading_days,
+        {"AAPL": {d: 150.0 + i for i, d in enumerate(trading_days)}, "RSP": sparse_close},
+        {"AAPL": {d: 151.0 for d in trading_days}, "RSP": sparse_close},
+        {"AAPL": {d: 149.0 for d in trading_days}, "RSP": sparse_close},
+        {"AAPL": {d: 150.0 for d in trading_days}, "RSP": sparse_close},
+        {"AAPL", "RSP"},
+    )
+
+    range_calls = []
+
+    def fake_massive_get(path, params=None, retries=3):
+        if path.startswith("/v2/aggs/ticker/"):
+            range_calls.append(path)
+            return {"results": [
+                {"t": int(_dt.fromisoformat(d).replace(tzinfo=_tz.utc).timestamp() * 1000),
+                 "o": 200.0, "h": 201.0, "l": 199.0, "c": 200.0 + i}
+                for i, d in enumerate(trading_days)
+            ]}
+        raise AssertionError(f"unexpected grouped-daily call: {path}")
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+
+    close_df, _, _, _ = fetch_grouped_history_full_market_cached(
+        {"AAPL", "RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
+
+    assert range_calls == [f"/v2/aggs/ticker/RSP/range/1/day/{trading_days[0]}/{trading_days[-1]}"]
+    assert close_df["RSP"].notna().all()
+    assert close_df["RSP"].iloc[-1] == pytest.approx(200.0 + len(trading_days) - 1)

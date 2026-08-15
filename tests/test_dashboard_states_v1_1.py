@@ -30,6 +30,7 @@ from build_dashboard_states import (  # noqa: E402
     apply_confirm_days,
     select_lifecycle_state,
     build_narrative_membership_index,
+    compute_opportunity_v2_prep_fields,
 )
 
 
@@ -409,3 +410,40 @@ def test_build_narrative_membership_index_unknown_symbol_returns_default_shape()
     idx = build_narrative_membership_index([])
     entry = idx["NOT_PRESENT"]
     assert entry == {"primary_id": None, "primary_name": None, "secondary_ids": [], "secondary_names": [], "all_ids": []}
+
+
+# ── V6 point 16-18: Opportunity V2 architecture preparation (no new rules) ──
+
+def test_opportunity_v2_prep_fields_stay_null_no_new_rules_invented():
+    result = compute_opportunity_v2_prep_fields(ema10_distance_pct=2.0, ema20_distance_pct=-1.0)
+    assert result["quality_v2"] is None
+    assert result["state_v2"] is None
+    assert result["extension_peak_history_v2"] is None
+    assert result["repeat_offender_history_v2"] is None
+
+
+def test_opportunity_v2_above_ema10_ema20_derived_from_existing_distance_fields():
+    result = compute_opportunity_v2_prep_fields(ema10_distance_pct=2.0, ema20_distance_pct=-1.0)
+    assert result["above_ema10"] is True
+    assert result["above_ema20"] is False
+
+
+def test_opportunity_v2_above_ema_boundary_zero_is_not_above():
+    result = compute_opportunity_v2_prep_fields(ema10_distance_pct=0.0, ema20_distance_pct=0.0)
+    assert result["above_ema10"] is False
+    assert result["above_ema20"] is False
+
+
+def test_opportunity_v2_above_ema_none_when_distance_missing():
+    result = compute_opportunity_v2_prep_fields(ema10_distance_pct=None, ema20_distance_pct=None)
+    assert result["above_ema10"] is None
+    assert result["above_ema20"] is None
+
+
+def test_opportunity_v2_prep_fields_never_derived_from_legacy_quality_state():
+    # The function signature itself proves this structurally -- it takes
+    # ONLY ema10/ema20 distances, no quality_state/near_emas/extended input
+    # exists to derive quality_v2/state_v2 from, even accidentally.
+    import inspect
+    params = list(inspect.signature(compute_opportunity_v2_prep_fields).parameters)
+    assert params == ["ema10_distance_pct", "ema20_distance_pct"]

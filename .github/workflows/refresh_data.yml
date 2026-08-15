@@ -42,6 +42,17 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # V6: node --test tests/*.test.mjs (dashboard_filters.test.mjs) exercises
+      # the ACTUAL frontend logic extracted straight out of index.html (EMA/
+      # Opportunities/Narrative-Strength/Screener/Benchmark-chart functions,
+      # see that file's own header comment) -- was previously only run
+      # locally; wired into CI here so a frontend regression fails the build
+      # the same way a backend one already does.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
       # New-York-Time Guard (Punkt 18): GitHub Actions cron kennt keine DST-
       # Zeitzonen, daher laufen beide UTC-Cron-Eintraege ganzjaehrig — dieser
       # Step laesst den restlichen Build NUR durch, wenn die lokale Zeit in
@@ -77,12 +88,26 @@ jobs:
           restore-keys: |
             market-history-
 
+      # V6 point 5-9: Healthcare/Biotech-Exclusion (vor eligible=true), EMA21
+      # (additiv), RSP-Preishistorie (im geteilten Preis-Cache mitgefuehrt,
+      # aus Features/Universe wieder entfernt), Stock-RS/Thrust-Perzentile
+      # ausschliesslich ueber dem finalen eligible Universe.
       - name: Build full-market features (universe/ADR/RS/EMA/ATR/Structural RS/Trend Strength)
         if: steps.tzguard.outputs.should_run == 'true'
         timeout-minutes: 20
         env:
           MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
         run: python scripts/build_market_features.py --out-dir data
+
+      # V6 point 19-27: feste, config-definierte Screener-Presets (V1: nur
+      # "Weekly Strength") gegen das bereits final gefilterte eligible
+      # Universe aus data/market_features.json — 0 zusaetzliche API-Calls,
+      # kein MASSIVE_API_KEY noetig (dieses Script hat gar keinen
+      # Netzwerk-Client importiert, siehe scripts/build_screeners.py).
+      - name: Build predefined screeners (Weekly Strength)
+        if: steps.tzguard.outputs.should_run == 'true'
+        timeout-minutes: 5
+        run: python scripts/build_screeners.py --out-dir data
 
       # Hover-Mini-Chart-Daten (Ticker-Tooltip: Candlesticks + EMA10/EMA20/
       # SMA50/SMA200) — liest ausschliesslich den bereits von obigem Schritt
@@ -125,7 +150,11 @@ jobs:
             python scripts/reconcile_narrative_universe.py --out-dir data
           fi
 
-      - name: Build narratives data
+      # V6 point 8-13: RSP (statt SPY) als kanonischer Narrative-Benchmark,
+      # neue "Jeff-inspired" Strength (1W/1M/3M/6M, getrennt) + Thrust
+      # candidate v1 -- alte Basket-Return-Strength/EMA-Thrust bleiben
+      # intern als Legacy-Felder erhalten, siehe scripts/build_narratives.py.
+      - name: Build narratives data (RSP Strength/Thrust)
         if: steps.tzguard.outputs.should_run == 'true'
         timeout-minutes: 15
         env:
@@ -141,6 +170,11 @@ jobs:
         if: steps.tzguard.outputs.should_run == 'true'
         timeout-minutes: 5
         run: pip install -r requirements-dev.txt && python -m pytest tests/ -q
+
+      - name: Sanity-check frontend JS logic (node --test)
+        if: steps.tzguard.outputs.should_run == 'true'
+        timeout-minutes: 5
+        run: node --test tests/*.test.mjs
 
       - name: Save price-history cache
         if: steps.tzguard.outputs.should_run == 'true' && always()

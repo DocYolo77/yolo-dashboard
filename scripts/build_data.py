@@ -392,6 +392,18 @@ def calc_metrics(hist):
         return None
 
     close = hist["Close"]
+    # V6 point 29A: some yfinance responses (observed for e.g. 000300.SS)
+    # carry NaN closes on individual rows despite `hist` otherwise being
+    # non-empty -- every downstream field derived from a NaN row would
+    # silently become NaN too, and Python's json.dump() happily serializes
+    # a bare `NaN` token that is NOT valid JSON, breaking the ENTIRE
+    # snapshot.json parse in the browser (not just this one ticker/field).
+    # Same dropna-first convention already used elsewhere in this repo
+    # (e.g. build_ticker_charts.compute_ticker_chart) instead of letting
+    # NaN rows silently corrupt every computed metric.
+    close = close.dropna()
+    if len(close) < 2:
+        return None
     current = close.iloc[-1]
 
     prev = close.iloc[-2] if len(close) >= 2 else current
@@ -403,9 +415,9 @@ def calc_metrics(hist):
     high_52w = close.max()
     hi_pct = ((current - high_52w) / high_52w) * 100
 
-    year_start = hist[hist.index.year == datetime.now().year]
+    year_start = close[close.index.year == datetime.now().year]  # dropna'd `close`, not raw `hist` (point 29A)
     if len(year_start) > 0:
-        ytd_start = year_start["Close"].iloc[0]
+        ytd_start = year_start.iloc[0]
         ytd_pct = ((current - ytd_start) / ytd_start) * 100
     else:
         ytd_pct = 0.0

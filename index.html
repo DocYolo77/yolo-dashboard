@@ -47,11 +47,29 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .quote-bar blockquote { font-family: var(--header-font); font-style: italic; font-size: 18px; color: var(--ink-light); line-height: 1.6; }
 .quote-bar .attribution { font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); margin-top: 6px; letter-spacing: 1px; }
 
-.section { padding: 40px 0 20px; }
+.section { padding: 40px 0 20px; scroll-margin-top: var(--jumpnav-h, 52px); }
 .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); flex-wrap: wrap; }
 .section-num { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); letter-spacing: 1px; }
 .section-title { font-family: var(--header-font); font-size: 28px; font-weight: 600; letter-spacing: -0.5px; }
 .section-sub { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 1.5px; text-transform: uppercase; }
+
+/* ── Jump navigation (spec point 2): sticky anchor menu, plain <a href="#id">
+   links + native smooth scroll -- no SPA/routing library. scroll-margin-top
+   on .section above (kept in sync with --jumpnav-h) is the "correct sticky
+   offset" so a jumped-to section header never lands underneath the sticky
+   bar. Horizontal row on desktop; horizontally scrollable on narrow
+   viewports instead of wrapping, per spec point 2's mobile requirement. */
+html { scroll-behavior: smooth; }
+.jump-nav { position: sticky; top: 0; z-index: 50; background: rgba(10,10,12,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--card-border); }
+.jump-nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: thin; }
+.jump-nav-inner::-webkit-scrollbar { height: 4px; }
+.jump-nav-inner::-webkit-scrollbar-thumb { background: var(--card-border); }
+.jump-nav a { flex: 0 0 auto; font-family: var(--mono-font); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-light); text-decoration: none; padding: 15px 14px; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.15s ease, border-color 0.15s ease; }
+.jump-nav a:hover { color: var(--ink); }
+.jump-nav a.active { color: var(--ink); border-bottom-color: var(--ink); }
+@media (max-width: 720px) {
+  .jump-nav a { padding: 12px 10px; font-size: 10px; }
+}
 
 
 .table-section { margin-bottom: 8px; }
@@ -184,6 +202,12 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .nc-card-name { font-family: var(--header-font); font-size: 15px; font-weight: 600; }
 .nc-card-rank { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); }
 .nc-card-score { font-family: var(--mono-font); font-size: 26px; font-weight: 400; margin-top: 6px; }
+/* V6 point 7: exactly two headline metrics, always shown together (no
+   Strength/Thrust toggle -- only the Strength timeframe tab exists). */
+.nc-card-scores { display: flex; gap: 22px; margin-top: 6px; }
+.nc-card-score-item { display: flex; flex-direction: column; }
+.nc-card-score-label { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-muted); }
+.nc-card-score-value { font-family: var(--mono-font); font-size: 26px; font-weight: 400; }
 .nc-card-stats { display: flex; gap: 12px; margin-top: 10px; font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); flex-wrap: wrap; }
 .nc-card-stats b { color: var(--ink-light); font-weight: 500; }
 .nc-card-members { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); margin-top: 8px; }
@@ -222,16 +246,15 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .benchmark-section { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--card-border); }
 .benchmark-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
 .benchmark-title { font-family: var(--header-font); font-size: 18px; font-weight: 600; }
-.bm-pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
-.bm-pill { font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.3px; padding: 6px 12px; border: 1px solid var(--card-border); background: transparent; color: var(--ink-muted); border-radius: 3px; cursor: pointer; transition: all 0.15s; }
-.bm-pill:hover { color: var(--ink); border-color: var(--ink-muted); }
-.bm-pill.active { background: var(--ink); color: var(--sand); border-color: var(--ink); }
-.benchmark-chart-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px; }
+.benchmark-chart-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px; margin-top: 14px; }
 .bm-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-family: var(--mono-font); font-size: 11px; }
 .bm-legend-item { display: flex; align-items: center; gap: 6px; color: var(--ink-light); }
 .bm-legend-item b { color: var(--ink); font-weight: 500; }
 .bm-swatch { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
 .bm-empty { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); padding: 30px 0; text-align: center; }
+/* Spec point 29A: explicit fallback text for QQQ breadth charts instead of
+   an unexplained empty SVG area when historical data is missing/insufficient. */
+.qqq-chart-empty { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); padding: 30px 0; text-align: center; }
 
 /* EXECUTIVE SUMMARY (Punkt 01 Überblick) */
 .exec-summary { margin-bottom: 28px; }
@@ -327,6 +350,18 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 .opp-filter-checkbox label { display: flex; align-items: center; gap: 6px; font-size: 11px; text-transform: none; letter-spacing: normal; color: var(--ink-light); white-space: nowrap; }
 .opp-table-wrap { overflow-x: auto; }
 .opp-table { min-width: 940px; }
+.opp-load-more-row td { text-align: center; padding: 14px 0; }
+.opp-load-more-btn { font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.5px; padding: 8px 20px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--ink); border-radius: 3px; cursor: pointer; transition: all 0.15s; }
+.opp-load-more-btn:hover { border-color: var(--ink-muted); }
+
+/* ── Screener (06) — V6 point 19-27: fixed, config-driven presets ── */
+.screener-preset { border: 1px solid var(--card-border); border-radius: 4px; padding: 20px 22px; margin-bottom: 20px; background: var(--card-bg); }
+.screener-preset-header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.screener-preset-name { font-family: var(--header-font); font-size: 18px; font-weight: 600; }
+.screener-preset-count { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); }
+.screener-preset-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.screener-tag { font-family: var(--mono-font); font-size: 10px; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 2px; background: rgba(255,255,255,0.06); color: var(--ink-light); }
+.screener-actions { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
 .opp-badges { display: flex; gap: 4px; flex-wrap: wrap; }
 .opp-badge { font-family: var(--mono-font); font-size: 8.5px; letter-spacing: 0.3px; padding: 2px 6px; border-radius: 2px; white-space: nowrap; }
 .opp-badge.fresh { background: rgba(61,220,115,0.18); color: var(--positive); }
@@ -398,6 +433,20 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 </div>
 <!-- Reusable ticker hover mini-chart -- ONE node, filled on demand (never per-row). -->
 <div class="ticker-chart-tooltip" id="tickerChartTooltip"></div>
+
+<!-- ═══ JUMP NAVIGATION (spec point 2) ═══ -->
+<nav class="jump-nav" id="jumpNav">
+  <div class="jump-nav-inner">
+    <a href="#overview">01 Überblick</a>
+    <a href="#market-regime">02 Market Regime</a>
+    <a href="#qqq-health">03 QQQ Health</a>
+    <a href="#narratives">04 Narratives</a>
+    <a href="#opportunities">05 Opportunities</a>
+    <a href="#screener">06 Screener</a>
+    <a href="#trade-calculator">07 Traderechner</a>
+  </div>
+</nav>
+
 <div class="container">
 
   <!-- ═══ HERO ═══ -->
@@ -430,7 +479,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </header>
 
   <!-- ═══ 01 · ÜBERBLICK ═══ -->
-  <div class="section fade-in">
+  <div class="section fade-in" id="overview">
     <div class="section-header">
       <span class="section-num">01</span>
       <span class="section-title">Überblick</span>
@@ -534,7 +583,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </div>
 
   <!-- ═══ 02 · MOMENTUM MARKET REGIME ═══ -->
-  <div class="section fade-in">
+  <div class="section fade-in" id="market-regime">
     <div class="section-header">
       <span class="section-num">02</span>
       <span class="section-title">Momentum Market Regime</span>
@@ -588,7 +637,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 
 
   <!-- ═══ 03 · QQQ HEALTH ═══ -->
-  <div class="section fade-in">
+  <div class="section fade-in" id="qqq-health">
     <div class="section-header">
       <span class="section-num">03</span>
       <span class="section-title">QQQ Health</span>
@@ -716,32 +765,30 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </div>
 
   <!-- ═══ 04 · NARRATIVES / BASKETS ═══ -->
-  <div class="section fade-in">
+  <div class="section fade-in" id="narratives">
     <div class="section-header">
       <span class="section-num">04</span>
       <span class="section-title">Narratives</span>
       <span class="section-sub">Wo konzentriert sich Leadership?</span>
       <span class="nc-info" id="narrativeInfo" tabindex="0">ⓘ
         <dl class="nc-info-popup">
-          <dt>Momentum Score</dt>
-          <dd>Kombiniert Kursstärke, Beschleunigung, Leadership und Breite eines Narratives zu einer Rangzahl.</dd>
-          <dt>Lifecycle</dt>
-          <dd>Emerging (entsteht gerade), Active (etabliert), Mature (reif, Momentum lässt nach), Fading (verliert Momentum), Dormant (ruht).</dd>
           <dt>Strength</dt>
-          <dd>Zeigt, wie stark sich ein Narrative zuletzt bewegt hat.</dd>
+          <dd>"Jeff-inspired Relative Strength gegen RSP" (Kandidatenformel v1, KEINE Reproduktion von Jeff Suns unveröffentlichter Originalformel). Perzentilrang der aktuellen Relativ-Stärke-Linie (synthetischer, gleichgewichteter Narrative-Index ÷ RSP-Kurs) innerhalb des gewählten Zeitfensters (1W/1M/3M/6M) — die vier Zeitfenster sind vollständig getrennt, kein zusammengesetzter Score.</dd>
           <dt>Thrust</dt>
-          <dd>Misst, ob das Momentum eines Narratives gerade beschleunigt oder nachlässt.</dd>
-          <dt>Leadership</dt>
-          <dd>Zeigt, wie viele Mitglieder relativ zum Gesamtmarkt echte Stärke zeigen.</dd>
-          <dt>Breadth</dt>
-          <dd>Zeigt, wie breit die Bewegung innerhalb des Narratives getragen wird.</dd>
+          <dd>"Jeff-inspired Thrust candidate v1" (ebenfalls Kandidatenformel, keine Kalibrierung): 0.60×Strength(1W) + 0.40×Strength(1M) + 0.10×(Strength(1W) − Strength(1W vor 3 Handelstagen)). Nicht auf 0–100 begrenzt; unabhängig vom Zeitfenster-Tab.</dd>
+          <dt>RSP Benchmark</dt>
+          <dd>S&amp;P 500 Equal Weight ETF — der Benchmark hinter Strength/Thrust hier UND der Benchmark-Grafik. Nicht zu verwechseln mit der Stock-RS-Percentile (Einzelaktie vs. eligible Universe) oder dieser Narrative Strength (Narrative-Index vs. RSP).</dd>
+          <dt>Lifecycle</dt>
+          <dd>Emerging (entsteht gerade), Active (etabliert), Mature (reif, Momentum lässt nach), Fading (verliert Momentum), Dormant (ruht). Rein struktureller Kontext, unabhängig von Strength/Thrust.</dd>
+          <dt>Leadership / Breadth</dt>
+          <dd>Weiterhin intern berechnet, aber keine konkurrierenden Headline-Scores mehr — nur noch informativer Kontext.</dd>
         </dl>
       </span>
     </div>
 
     <div class="narrative-controls">
       <div class="nc-group">
-        <span class="nc-label">Zeithorizont</span>
+        <span class="nc-label">Zeithorizont (Mitglieder)</span>
         <div class="nc-toggle" id="horizonToggle">
           <button class="nc-btn active" data-horizon="1d">1D</button>
           <button class="nc-btn" data-horizon="1w">1W</button>
@@ -749,12 +796,12 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
         </div>
       </div>
       <div class="nc-group">
-        <span class="nc-label">Score</span>
-        <div class="nc-toggle" id="scoreToggle">
-          <button class="nc-btn active" data-score="strength">Strength</button>
-          <button class="nc-btn" data-score="thrust">Thrust</button>
-          <button class="nc-btn" data-score="leadership">Leadership</button>
-          <button class="nc-btn" data-score="breadth">Breadth</button>
+        <span class="nc-label">Strength Zeitfenster</span>
+        <div class="nc-toggle" id="strengthWindowToggle">
+          <button class="nc-btn active" data-window="1w">1W</button>
+          <button class="nc-btn" data-window="1m">1M</button>
+          <button class="nc-btn" data-window="3m">3M</button>
+          <button class="nc-btn" data-window="6m">6M</button>
         </div>
       </div>
       <div class="nc-meta" id="narrativeMeta"></div>
@@ -767,18 +814,22 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
 
     <div class="benchmark-section">
       <div class="benchmark-header">
-        <span class="benchmark-title">Benchmark</span>
-        <span class="section-sub">Relative Stärke ausgewählter Narrative vs. S&amp;P 500</span>
+        <span class="benchmark-title">Benchmark · RSP / S&amp;P 500 Equal Weight</span>
         <span class="nc-info" id="benchmarkInfo" tabindex="0">ⓘ
           <dl class="nc-info-popup">
-            <dt>Relative Stärke</dt>
-            <dd>Kumulierte Basket-Rendite (Median der taeglichen Mitglieder-Renditen, kompoundiert über den Zeitraum) minus kumulierte S&amp;P-500-Rendite über denselben Zeitraum. Die gestrichelte Nulllinie ist der S&amp;P 500 selbst.</dd>
+            <dt>RSP Benchmark</dt>
+            <dd>Kumulierte Kursrendite von RSP (S&amp;P 500 Equal Weight ETF) im gewählten Zeitraum, ab 0% gestartet: (RSP-Kurs / RSP-Kurs zu Periodenbeginn − 1) × 100. Dieselbe kanonische RSP-Preishistorie treibt auch die neue Narrative Strength oben — eine einzige Quelle, keine zweite unabhängige Benchmark-Pipeline. Ersetzt SPY/QQQ vollständig als sichtbaren Benchmark.</dd>
             <dt>Zeitraum</dt>
-            <dd>Die letzten ~10 Handelswochen (50 Handelstage).</dd>
+            <dd>1D = letzter verfügbarer Handelstag (letzte 2 Schlusskurse). 1W = letzte 5 Handelstage. 1M = letzte 21 Handelstage. 1Y = bis zu 252 Handelstage — keine Kalendertag-Interpolation. Timeframe-Wechsel lädt keine neuen Daten nach, nutzt ausschließlich die bereits geladene RSP-Historie.</dd>
           </dl>
         </span>
       </div>
-      <div class="bm-pill-row" id="benchmarkPills"></div>
+      <div class="nc-toggle" id="benchmarkTimeframeToggle">
+        <button class="nc-btn" data-timeframe="1d">1D</button>
+        <button class="nc-btn active" data-timeframe="1w">1W</button>
+        <button class="nc-btn" data-timeframe="1m">1M</button>
+        <button class="nc-btn" data-timeframe="1y">1Y</button>
+      </div>
       <div class="benchmark-chart-wrap">
         <div id="benchmarkChart"></div>
         <div class="bm-legend" id="benchmarkLegend"></div>
@@ -787,7 +838,7 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
   </div>
 
   <!-- ═══ 05 · OPPORTUNITIES ═══ -->
-  <div class="section fade-in" id="opportunitiesSection">
+  <div class="section fade-in" id="opportunities">
     <div class="section-header">
       <span class="section-num">05</span>
       <span class="section-title">Opportunities</span>
@@ -857,7 +908,13 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
       <button class="nd-copy-btn" id="oppCopyBtn" onclick="oppCopyVisibleTickers(this)">Copy visible tickers</button>
     </div>
 
-    <div class="opp-table-wrap">
+    <!-- Spec point 4: lange Ticker-Listen sind per Default eingeklappt;
+         Tabs/Filter/Counts/Copy-Button (oben) bleiben immer sichtbar und
+         unabhaengig vom Auf-/Zuklapp-Status. -->
+    <button class="table-toggle" id="oppTableToggleBtn" onclick="oppToggleTable()">
+      <span class="chevron">▸</span> <span id="oppTableToggleLabel">0 Ticker anzeigen</span>
+    </button>
+    <div class="opp-table-wrap" id="oppTableWrap" style="display:none;">
       <table class="member-table opp-table" id="oppTable">
         <thead><tr id="oppTableHead"></tr></thead>
         <tbody id="oppTableBody"><tr><td class="narrative-empty">Lade Opportunities…</td></tr></tbody>
@@ -865,10 +922,22 @@ body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 
     </div>
   </div>
 
-  <!-- ═══ 06 · TRADERECHNER ═══ -->
-  <div class="section fade-in">
+  <!-- ═══ 06 · SCREENER ═══ -->
+  <div class="section fade-in" id="screener">
     <div class="section-header">
       <span class="section-num">06</span>
+      <span class="section-title">Screener</span>
+      <span class="section-sub">Feste Presets · Kein freier Regel-Editor</span>
+    </div>
+    <div id="screenerContainer">
+      <div class="narrative-empty">Lade Screener-Daten…</div>
+    </div>
+  </div>
+
+  <!-- ═══ 07 · TRADERECHNER ═══ -->
+  <div class="section fade-in" id="trade-calculator">
+    <div class="section-header">
+      <span class="section-num">07</span>
       <span class="section-title">Traderechner</span>
       <span class="section-sub">Risikobasiert · 2-Stop-System</span>
     </div>
@@ -938,6 +1007,43 @@ function updateClock() {
 updateClock(); setInterval(updateClock, 1000);
 
 // ══════════════════════════════════════════════
+// JUMP NAVIGATION (spec point 2) — plain anchor links + native smooth
+// scroll, no SPA/routing library. Only two small JS responsibilities on
+// top of that: (1) keep --jumpnav-h in sync with the nav's REAL rendered
+// height so .section's scroll-margin-top (the "correct sticky offset")
+// never drifts from the actual bar height across breakpoints/font-load,
+// (2) a lightweight scrollspy that toggles .active on the link matching
+// whichever section is currently nearest the top of the viewport.
+// ══════════════════════════════════════════════
+function jumpNavSyncOffset() {
+  const nav = document.getElementById('jumpNav');
+  if (!nav) return;
+  document.documentElement.style.setProperty('--jumpnav-h', `${nav.offsetHeight}px`);
+}
+window.addEventListener('resize', jumpNavSyncOffset);
+window.addEventListener('load', jumpNavSyncOffset);
+jumpNavSyncOffset();
+
+function jumpNavInitScrollspy() {
+  const nav = document.getElementById('jumpNav');
+  if (!nav) return;
+  const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+  const sections = links
+    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+    .filter(Boolean);
+  if (!sections.length) return;
+  const setActive = (id) => {
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+  };
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries.filter(e => e.isIntersecting);
+    if (visible.length) setActive(visible[0].target.id);
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+}
+jumpNavInitScrollspy();
+
+// ══════════════════════════════════════════════
 // TABLE TOGGLE
 // ══════════════════════════════════════════════
 function toggleTable(btn) {
@@ -990,6 +1096,27 @@ function qqqSlice(arr, key) {
   if (!arr || r === 'all') return arr;
   return arr.slice(-r);
 }
+
+// Spec point 29A: no NaN/undefined/null/Infinity value may ever reach the
+// SVG/chart-primitive code below -- drops any non-finite entry rather than
+// passing it through (never fabricates a replacement value either).
+function qqqFiniteSeries(arr) {
+  if (!arr) return [];
+  return arr.filter(v => v !== null && v !== undefined && Number.isFinite(v));
+}
+
+// A chart needs at least 2 real points to draw a line at all (spec point
+// 29A: "ein Chart muss rendern, sobald >=2 valide historische Punkte
+// existieren"); below that, callers show the explicit fallback text
+// instead of an empty/broken SVG.
+function qqqHasEnoughHistory(arr, minPoints) {
+  return qqqFiniteSeries(arr).length >= (minPoints || 2);
+}
+
+function qqqEmptyStateHtml(message) {
+  return `<div class="qqq-chart-empty">${message}</div>`;
+}
+const QQQ_NO_DATA_MESSAGE = 'Keine historischen Daten verfügbar.';
 
 function qqqXAxis(dates, len, xFor, h) {
   if (!dates || !dates.length || len < 2) return '';
@@ -1111,11 +1238,17 @@ const qqqNf2 = v => v.toLocaleString('de-DE', { minimumFractionDigits: 2, maximu
 
 function renderMcsi() {
   const q = qqqRaw;
-  if (!q || !q.summation_zscore_history) return;
-  const hist = qqqSlice(q.summation_zscore_history, 'mcsi');
-  const sma = qqqSlice(q.summation_zscore_sma10_history, 'mcsi');
+  const chartEl = document.getElementById('mcsi-chart');
+  if (!chartEl) return;
+  const histRaw = q ? qqqSlice(q.summation_zscore_history, 'mcsi') : null;
+  if (!qqqHasEnoughHistory(histRaw)) {
+    chartEl.innerHTML = qqqEmptyStateHtml(QQQ_NO_DATA_MESSAGE);
+    return;
+  }
+  const hist = qqqFiniteSeries(histRaw);
+  const sma = qqqFiniteSeries(qqqSlice(q.summation_zscore_sma10_history, 'mcsi'));
   const dates = qqqSlice(q.summation_zscore_dates, 'mcsi');
-  document.getElementById('mcsi-chart').innerHTML = sigmaChart([
+  chartEl.innerHTML = sigmaChart([
     { data: hist, color: '#2f7ed8', width: 2 },
     { data: sma, color: '#d4a017', width: 1.3, dash: '3,2' },
   ], 760, 190, dates);
@@ -1127,10 +1260,16 @@ function renderMcsi() {
 
 function renderMco() {
   const q = qqqRaw;
-  if (!q || !q.mco_zscore_history) return;
-  const hist = qqqSlice(q.mco_zscore_history, 'mco');
+  const chartEl = document.getElementById('mco-chart');
+  if (!chartEl) return;
+  const histRaw = q ? qqqSlice(q.mco_zscore_history, 'mco') : null;
+  if (!qqqHasEnoughHistory(histRaw)) {
+    chartEl.innerHTML = qqqEmptyStateHtml(QQQ_NO_DATA_MESSAGE);
+    return;
+  }
+  const hist = qqqFiniteSeries(histRaw);
   const dates = qqqSlice(q.mco_zscore_dates, 'mco');
-  document.getElementById('mco-chart').innerHTML = sigmaChart([
+  chartEl.innerHTML = sigmaChart([
     { data: hist, color: '#9a9aa2', width: 1.6 },
   ], 760, 190, dates);
   const el = document.getElementById('mco-val');
@@ -1147,14 +1286,21 @@ const KMA_DEFS = [
 
 function renderKma() {
   const q = qqqRaw;
-  if (!q || !q.kma_history) return;
-  const dates = qqqSlice(q.kma_dates, 'kma');
-  const series = KMA_DEFS
+  const chartEl = document.getElementById('kma-chart');
+  if (!chartEl) return;
+  const dates = q ? qqqSlice(q.kma_dates, 'kma') : null;
+  const series = (q && q.kma_history) ? KMA_DEFS
     .filter(d => kmaVisible[d.key] && q.kma_history[d.key])
-    .map(d => ({ data: qqqSlice(q.kma_history[d.key], 'kma'), color: d.color }));
-  document.getElementById('kma-chart').innerHTML = kmaChart(series, 900, 230, dates);
+    .map(d => ({ data: qqqFiniteSeries(qqqSlice(q.kma_history[d.key], 'kma')), color: d.color })) : [];
+  // At least one VISIBLE series must have >=2 real points, or the fallback
+  // text shows instead of an unexplained empty chart (spec point 29A).
+  if (!series.some(s => s.data.length >= 2)) {
+    chartEl.innerHTML = qqqEmptyStateHtml(QQQ_NO_DATA_MESSAGE);
+  } else {
+    chartEl.innerHTML = kmaChart(series, 900, 230, dates);
+  }
   const legend = document.getElementById('kma-legend');
-  if (legend && q.kma_now) {
+  if (legend && q && q.kma_now) {
     legend.innerHTML = KMA_DEFS.filter(d => q.kma_now[d.key] !== undefined).map(d => {
       const on = kmaVisible[d.key];
       return `<span class="kma-legend-item${on ? '' : ' off'}" style="--kma-color:${d.color};" onclick="toggleKmaSeries('${d.key}')">${d.label} <b>${qqqNf2(q.kma_now[d.key])}</b></span>`;
@@ -1165,13 +1311,21 @@ function renderKma() {
 function renderHl() {
   const q = qqqRaw;
   const hlCard = document.getElementById('hlosc-card');
-  if (!hlCard || !q || !q.hl_history) return;
-  const v = hlCard.querySelector('.bc-value');
-  v.textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + '  (' + q.new_highs + 'H / ' + q.new_lows + 'L)';
-  v.style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
-  const hist = qqqSlice(q.hl_history, 'hl');
+  const chartEl = document.getElementById('hlosc-chart');
+  if (!hlCard || !chartEl || !q) return;
+  if (q.hl_osc !== undefined) {
+    const v = hlCard.querySelector('.bc-value');
+    v.textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + '  (' + q.new_highs + 'H / ' + q.new_lows + 'L)';
+    v.style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
+  }
+  const histRaw = qqqSlice(q.hl_history, 'hl');
+  if (!qqqHasEnoughHistory(histRaw)) {
+    chartEl.innerHTML = qqqEmptyStateHtml(QQQ_NO_DATA_MESSAGE);
+    return;
+  }
+  const hist = qqqFiniteSeries(histRaw);
   const dates = qqqSlice(q.hl_dates, 'hl');
-  document.getElementById('hlosc-chart').innerHTML = hlBarChart(hist, 760, 150, dates);
+  chartEl.innerHTML = hlBarChart(hist, 760, 150, dates);
 }
 
 function setQqqRange(key, range, btn) {
@@ -1467,7 +1621,7 @@ function ncJumpToOpportunities(narrativeId, event) {
   if (event) event.stopPropagation(); // don't also trigger the card's own onclick (ncToggleCard)
   const sel = document.getElementById('oppFilterNarrative');
   if (sel) { sel.value = narrativeId; oppRender(); }
-  const section = document.getElementById('opportunitiesSection');
+  const section = document.getElementById('opportunities');
   if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
@@ -1599,8 +1753,37 @@ function oppFmtNum(v, decimals) { return v == null ? '—' : v.toFixed(decimals)
 function oppFmtPctSigned(v) { return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
 const QUALITY_LABEL = { fresh_leader: 'Fresh Leader', leader: 'Leader', recent_leader: 'Recent Leader', neutral: 'Neutral' };
 
-function oppRender() {
+// Spec point 4: Opportunities-Tabelle ist per Default eingeklappt (lange
+// Listen muessen nicht sofort vollstaendig gerendert werden) und rendert,
+// sobald aufgeklappt, nur ein Fenster von oppRenderLimit Zeilen ("erste 50 +
+// weitere anzeigen" statt einer schweren Tabellen-Bibliothek). oppTableOpen
+// bleibt ueber Filter-/Tab-/Sortier-Aenderungen hinweg erhalten (nur der
+// explizite Toggle-Klick aendert ihn); oppRenderLimit wird bei jeder
+// "normalen" oppRender()-Ausloesung (Filter/Tab/Sort/Neuladen) auf 50
+// zurueckgesetzt, NUR der "weitere anzeigen"-Klick (oppShowMore) behaelt ihn
+// ueber { keepLimit: true } bei. Kritisch (Punkt 4): oppCopyVisibleTickers
+// liest weiterhin ausschliesslich aus oppVisibleSortedItems() (dem
+// gefilterten DATA STATE), NIE aus den aktuell gerenderten DOM-Zeilen -- Copy
+// funktioniert dadurch korrekt, auch waehrend die Tabelle eingeklappt oder
+// nur teilweise (Fenster) gerendert ist.
+let oppTableOpen = false;
+let oppRenderLimit = 50;
+const OPP_RENDER_PAGE_SIZE = 50;
+
+function oppToggleTable() {
+  oppTableOpen = !oppTableOpen;
+  oppRender();
+}
+
+function oppShowMore() {
+  oppRenderLimit += OPP_RENDER_PAGE_SIZE;
+  oppRender({ keepLimit: true });
+}
+
+function oppRender(opts) {
   if (!dashboardState) return;
+  if (!(opts && opts.keepLimit)) oppRenderLimit = OPP_RENDER_PAGE_SIZE;
+
   const counts = dashboardState.opportunities.counts || {};
   const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
   setText('oppCountAll', dashboardState.opportunities.items.length);
@@ -1611,7 +1794,19 @@ function oppRender() {
   setText('oppCountExtended', counts.extended || 0);
   setText('oppCountLaggards', counts.laggards || 0);
 
+  // Full filtered+sorted DATA STATE — always computed, regardless of
+  // collapsed/expanded UI state, so counts/toggle-label/copy stay correct
+  // even while the table itself isn't rendered at all.
   const visible = oppVisibleSortedItems();
+
+  const toggleBtn = document.getElementById('oppTableToggleBtn');
+  const toggleLabel = document.getElementById('oppTableToggleLabel');
+  const wrap = document.getElementById('oppTableWrap');
+  if (toggleBtn) toggleBtn.classList.toggle('open', oppTableOpen);
+  if (toggleLabel) toggleLabel.textContent = `${visible.length} Ticker ${oppTableOpen ? 'ausblenden' : 'anzeigen'}`;
+  if (wrap) wrap.style.display = oppTableOpen ? '' : 'none';
+
+  if (!oppTableOpen) return; // collapsed -> skip building head/rows entirely, nothing visible anyway
 
   const headHtml = OPP_COLUMNS.map(col => {
     const isSorted = oppSortState.field === col.key;
@@ -1622,7 +1817,8 @@ function oppRender() {
   const headEl = document.getElementById('oppTableHead');
   if (headEl) headEl.innerHTML = headHtml;
 
-  const rows = visible.map(it => `
+  const windowed = visible.slice(0, oppRenderLimit);
+  let rows = windowed.map(it => `
     <tr>
       <td><b data-ticker="${it.symbol}">${it.symbol}</b></td>
       <td>${oppPrimaryNarrativeHtml(it)}</td>
@@ -1644,6 +1840,14 @@ function oppRender() {
       <td class="${pctClass(it.w1_pct)}">${fmtPct(it.w1_pct)}</td>
       <td class="${pctClass(it.m1_pct)}">${fmtPct(it.m1_pct)}</td>
     </tr>`).join('');
+
+  if (visible.length > windowed.length) {
+    const remaining = visible.length - windowed.length;
+    rows += `<tr class="opp-load-more-row"><td colspan="${OPP_COLUMNS.length}">
+      <button class="opp-load-more-btn" onclick="oppShowMore()">Weitere ${Math.min(OPP_RENDER_PAGE_SIZE, remaining)} anzeigen (${windowed.length}/${visible.length})</button>
+    </td></tr>`;
+  }
+
   const bodyEl = document.getElementById('oppTableBody');
   if (bodyEl) bodyEl.innerHTML = rows || `<tr><td colspan="${OPP_COLUMNS.length}" class="narrative-empty">Keine Treffer für die aktuellen Filter.</td></tr>`;
 }
@@ -1660,8 +1864,12 @@ function oppSortBy(field) {
   oppRender();
 }
 
-// Kopiert exakt die aktuell sichtbaren Ticker (Tab + Filter + Sortierung),
-// dedupliziert, kommasepariert — analog zur Narrative-Copy-Funktion (Punkt 31).
+// Kopiert exakt die aktuell gefilterten/sortierten Ticker (Tab + Filter +
+// Sortierung), dedupliziert, kommasepariert — analog zur Narrative-Copy-
+// Funktion (Punkt 31). Liest bewusst aus oppVisibleSortedItems() (dem
+// gefilterten DATA STATE), NICHT aus den DOM-Zeilen — funktioniert daher
+// unveraendert korrekt, auch waehrend die Tabelle eingeklappt ist oder nur
+// ein Render-Fenster zeigt (Punkt 4).
 function oppCopyVisibleTickers(btn) {
   const visible = oppVisibleSortedItems();
   const symbols = [...new Set(visible.map(it => it.symbol))];
@@ -1710,13 +1918,20 @@ loadDashboardState();
 // NARRATIVES / BASKETS
 // ══════════════════════════════════════════════
 let narrativesRaw = null;
-let ncHorizon = '1d';
-let ncScore = 'strength';
+let ncHorizon = '1d'; // member-table horizon (1D/1W/1M) — UNRELATED to Strength; controls only member sort/spark/RS field
+let ncStrengthWindow = '1w'; // V6 point 7/11: RSP Strength timeframe (1W/1M/3M/6M) — controls displayed+ranking Strength value ONLY, never Thrust
 let ncExpandedId = null;
 let ncMemberSort = { field: 'd1_pct', dir: 'desc' };
 let ncEmaFilter = 'all'; // 'all' | 'ema10' | 'ema20' | 'either'
-let ncBenchmarkSelected = new Set(); // Narrative-IDs im Benchmark-Vergleichschart
-const BENCHMARK_COLORS = ['#2f7ed8', '#3ddc73', '#d4a017', '#d6407f', '#9b7fc9', '#e2925c', '#4fd6d2', '#f0605c'];
+// V6 point 29B: single dedicated RSP cumulative-return Benchmark chart —
+// replaces the old multi-narrative-vs-SPY pill comparison entirely (that
+// feature's rs_history data source is still computed backend-side, now
+// against RSP instead of SPY, but the frontend no longer renders it as
+// the "Benchmark" card -- exactly one canonical RSP data source
+// (benchmark_rsp) drives this chart, spec point 29B/29C).
+let ncBenchmarkTimeframe = '1w'; // '1d' | '1w' | '1m' | '1y'
+const BENCHMARK_RSP_COLOR = '#2f7ed8';
+const BENCHMARK_RSP_WINDOW_SESSIONS = { '1d': 2, '1w': 5, '1m': 21, '1y': 252 };
 
 // Fallback-Defaults, falls config/narrative_engine.json (noch) nicht geladen
 // werden konnte — Werte werden von dort ueberschrieben (Punkt 21: "Die 4-%-
@@ -1785,16 +2000,6 @@ async function loadNarratives() {
       meta.textContent = `${narrativesRaw.meta.universe_size} Ticker · ${narrativesRaw.narratives.length} Narrative · Stand ${dtStr}`;
     }
     renderNarrativeGrid();
-
-    // Default-Auswahl: das aktuell (1D Strength) fuehrende Narrative, damit
-    // der Benchmark-Chart beim ersten Laden nicht leer ist — bleibt danach
-    // vollstaendig manuell ueber die Pills steuerbar.
-    if (narrativesRaw.rs_history && ncBenchmarkSelected.size === 0) {
-      const top = narrativesRaw.narratives.slice()
-        .sort((a, b) => (ncScoreValue(b, '1d', 'strength') ?? -999) - (ncScoreValue(a, '1d', 'strength') ?? -999))[0];
-      if (top && narrativesRaw.rs_history.narratives[top.id]) ncBenchmarkSelected.add(top.id);
-    }
-    renderBenchmarkPills();
     renderBenchmarkChart();
     populateOppNarrativeFilter();
     if (dashboardState) oppRender();  // narrative names weren't available yet if this loaded first
@@ -1803,17 +2008,27 @@ async function loadNarratives() {
   }
 }
 
-function ncScoreValue(narrative, horizon, score) {
-  const s = narrative.scores && narrative.scores[horizon];
-  if (!s) return null;
-  if (score === 'breadth') return s.breadth ? s.breadth.pct_positive : null;
-  return s[score];
+// V6 point 7-13: the two new RSP-based headline metrics. 'strength' reads
+// narrative.strength_rsp[strengthWindow] (percentile rank within that
+// window, spec point 11) -- the four windows are fully separate, no
+// averaging. 'thrust' reads narrative.thrust_rsp directly and completely
+// IGNORES strengthWindow (spec point 11: "no tab affects Thrust"). Both are
+// null when build_narratives.py couldn't compute them (e.g. RSP history
+// unavailable that run) -- rendered as "—", never fabricated.
+function ncScoreValue(narrative, score, strengthWindow) {
+  if (score === 'thrust') return narrative.thrust_rsp ?? null;
+  const sr = narrative.strength_rsp;
+  return sr ? (sr[strengthWindow] ?? null) : null;
 }
 
 function ncFmtScore(v, score) {
   if (v === null || v === undefined) return '—';
   const sign = v >= 0 ? '+' : '';
-  return score === 'thrust' ? sign + v.toFixed(2) : sign + v.toFixed(1) + '%';
+  // Strength is already a 0-100 percentile rank (not a % return) -> plain
+  // number, same convention as the Stock RS Percentile fields elsewhere on
+  // this dashboard. Thrust is explicitly NOT clamped to 0-100 (spec point
+  // 12) and can be negative or exceed 100 -> signed float.
+  return score === 'thrust' ? sign + v.toFixed(2) : v.toFixed(1);
 }
 
 // Farbintensität basiert auf dem Perzentilrang innerhalb der aktuell angezeigten
@@ -1981,43 +2196,51 @@ function ncCopyMomentumTickers(btn) {
   }).catch(e => console.log('Clipboard-Fehler:', e));
 }
 
-// ── BENCHMARK (Untersektion): Multi-Select-Narrative vs. S&P 500 ──
-// Datenquelle: narrativesRaw.rs_history (siehe build_narratives.py
-// compute_narrative_rs_history) — geteiltes "dates"-Array + pro Narrative
-// eine relative-Staerke-Zeitreihe in Prozentpunkten ggue. SPY, SPY selbst
-// ist implizit die 0%-Linie.
+// ── BENCHMARK (Untersektion): RSP kumulierte Rendite (V6 point 29B) ──
+// Datenquelle: narrativesRaw.benchmark_rsp (siehe build_narratives.py
+// build_benchmark_rsp_series) — dieselbe kanonische RSP-Preis-Serie, die
+// auch die neue Narrative Strength oben antreibt (EINE Quelle, point 29B).
+// Timeframe-Wechsel arbeitet ausschliesslich auf dieser bereits im Browser
+// vorhandenen Serie -- kein erneuter fetch.
 
-function renderBenchmarkPills() {
-  const el = document.getElementById('benchmarkPills');
-  if (!el || !narrativesRaw) return;
-  const hasHistory = id => narrativesRaw.rs_history && narrativesRaw.rs_history.narratives[id];
-  el.innerHTML = narrativesRaw.narratives.map(n => {
-    const active = ncBenchmarkSelected.has(n.id);
-    const disabled = !hasHistory(n.id);
-    return `<button class="bm-pill${active ? ' active' : ''}" ${disabled ? 'disabled title="Keine Benchmark-Historie fuer dieses Narrative"' : ''} onclick="ncToggleBenchmark('${n.id}')">${active ? '✓ ' : ''}${n.name}</button>`;
-  }).join('');
+// Letzte `sessions` Handelstage aus der (zeitsortierten) RSP-Serie, nie
+// kalendertagbasiert. Gibt null zurueck, wenn weniger als 2 Punkte
+// verfuegbar sind (zu wenig fuer eine sinnvolle Kurve). NaN/undefined-
+// Punkte werden entfernt, bevor irgendetwas den Renderer erreicht.
+function rsBenchmarkWindow(dates, close, sessions) {
+  const pairs = [];
+  for (let i = 0; i < dates.length; i++) {
+    const v = close[i];
+    if (v !== null && v !== undefined && Number.isFinite(v)) pairs.push([dates[i], v]);
+  }
+  const windowed = pairs.slice(-sessions);
+  if (windowed.length < 2) return null;
+  return { dates: windowed.map(p => p[0]), close: windowed.map(p => p[1]) };
 }
 
-function ncToggleBenchmark(id) {
-  if (ncBenchmarkSelected.has(id)) ncBenchmarkSelected.delete(id);
-  else ncBenchmarkSelected.add(id);
-  renderBenchmarkPills();
-  renderBenchmarkChart();
+// cumulative_return_t = (close_t / close_start - 1) * 100 -- first point is
+// always exactly 0 by construction (spec point 29B).
+function rsBenchmarkCumulativeReturn(closeWindow) {
+  const start = closeWindow[0];
+  return closeWindow.map(v => (v / start - 1) * 100);
 }
 
-// Liniendiagramm im selben handgerollten SVG-Stil wie die QQQ-Charts —
-// nutzt das dort definierte qqqXAxis() fuer die Datumsbeschriftung wieder
-// (bereits generisch: nimmt dates/xFor/h als Parameter, nichts QQQ-Spezifisches).
-function benchmarkLineChart(seriesList, dates, w, h) {
+function rsBenchmarkDateLabel(isoDate) {
+  // "YYYY-MM-DD" -> "DD.MM." -- same short display format
+  // compute_narrative_rs_history already used for its dates array.
+  return `${isoDate.slice(8, 10)}.${isoDate.slice(5, 7)}.`;
+}
+
+// Single-series line chart in the same hand-rolled SVG style as the QQQ
+// charts -- reuses qqqXAxis() for date labelling (already generic).
+function benchmarkRspChart(dates, cumReturns, w, h) {
   const padL = 34, padR = 10, padBottom = 14;
   const inner = w - padL - padR;
   const plotH = h - padBottom;
   const len = dates.length;
   if (len < 2) return '';
 
-  let allVals = [0];
-  seriesList.forEach(s => s.data.forEach(v => { if (v !== null && v !== undefined && !Number.isNaN(v)) allVals.push(v); }));
-  const maxAbs = Math.max(...allVals.map(Math.abs), 1) * 1.15;
+  const maxAbs = Math.max(...cumReturns.map(Math.abs), 0.5) * 1.15;
   const yFor = v => plotH / 2 - (v / maxAbs) * (plotH / 2 - 8);
   const xFor = (i, l) => padL + (i / (l - 1)) * inner;
 
@@ -2028,26 +2251,12 @@ function benchmarkLineChart(seriesList, dates, w, h) {
     const y = yFor(v).toFixed(1);
     const isZero = i === 0;
     svg += `<line x1="${padL}" y1="${y}" x2="${padL + inner}" y2="${y}" stroke="${isZero ? 'var(--ink-muted)' : 'var(--card-border)'}" stroke-width="${isZero ? 1 : 0.6}" ${isZero ? 'stroke-dasharray="4,3"' : ''} opacity="${isZero ? 0.6 : 0.5}"/>`;
-    svg += `<text x="${padL - 5}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">${v >= 0 ? '+' : ''}${v.toFixed(0)}%</text>`;
+    svg += `<text x="${padL - 5}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">${v >= 0 ? '+' : ''}${v.toFixed(1)}%</text>`;
   }
-  svg += `<text x="${padL + inner}" y="${(+yFor(0) - 4).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">S&amp;P 500</text>`;
 
-  seriesList.forEach(s => {
-    const segs = [];
-    let cur = [];
-    s.data.forEach((v, i) => {
-      if (v === null || v === undefined || Number.isNaN(v)) {
-        if (cur.length) { segs.push(cur); cur = []; }
-        return;
-      }
-      cur.push(`${xFor(i, len).toFixed(1)},${yFor(v).toFixed(1)}`);
-    });
-    if (cur.length) segs.push(cur);
-    segs.forEach(seg => {
-      svg += `<polyline points="${seg.join(' ')}" fill="none" stroke="${s.color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
-    });
-  });
-  svg += qqqXAxis(dates, len, xFor, h);
+  const points = cumReturns.map((v, i) => `${xFor(i, len).toFixed(1)},${yFor(v).toFixed(1)}`);
+  svg += `<polyline points="${points.join(' ')}" fill="none" stroke="${BENCHMARK_RSP_COLOR}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
+  svg += qqqXAxis(dates.map(rsBenchmarkDateLabel), len, xFor, h);
   svg += `</svg>`;
   return svg;
 }
@@ -2056,39 +2265,45 @@ function renderBenchmarkChart() {
   const chartEl = document.getElementById('benchmarkChart');
   const legendEl = document.getElementById('benchmarkLegend');
   if (!chartEl || !legendEl || !narrativesRaw) return;
-  const rs = narrativesRaw.rs_history;
-  if (!rs) {
-    chartEl.innerHTML = '<div class="bm-empty">Keine Benchmark-Historie verfügbar.</div>';
+  const bm = narrativesRaw.benchmark_rsp;
+  if (!bm || !bm.dates || !bm.dates.length) {
+    chartEl.innerHTML = '<div class="bm-empty">Keine historischen Daten verfügbar.</div>';
     legendEl.innerHTML = '';
     return;
   }
-  const selected = Array.from(ncBenchmarkSelected).filter(id => rs.narratives[id]);
-  if (!selected.length) {
-    chartEl.innerHTML = '<div class="bm-empty">Narrative oben auswählen, um die relative Stärke ggü. dem S&amp;P 500 zu vergleichen.</div>';
+  const sessions = BENCHMARK_RSP_WINDOW_SESSIONS[ncBenchmarkTimeframe];
+  const windowed = rsBenchmarkWindow(bm.dates, bm.close, sessions);
+  if (!windowed) {
+    chartEl.innerHTML = '<div class="bm-empty">Keine historischen Daten verfügbar.</div>';
     legendEl.innerHTML = '';
     return;
   }
-  const seriesList = selected.map((id, i) => ({ id, color: BENCHMARK_COLORS[i % BENCHMARK_COLORS.length], data: rs.narratives[id] }));
-  chartEl.innerHTML = benchmarkLineChart(seriesList, rs.dates, 900, 260);
-  legendEl.innerHTML = seriesList.map(s => {
-    const n = narrativesRaw.narratives.find(x => x.id === s.id);
-    const last = s.data[s.data.length - 1];
-    const lastStr = (last === null || last === undefined) ? '—' : `${last >= 0 ? '+' : ''}${last.toFixed(1)}%`;
-    return `<span class="bm-legend-item"><span class="bm-swatch" style="background:${s.color};"></span>${n ? n.name : s.id} <b>${lastStr}</b></span>`;
-  }).join('');
+  const cumReturns = rsBenchmarkCumulativeReturn(windowed.close);
+  chartEl.innerHTML = benchmarkRspChart(windowed.dates, cumReturns, 900, 260);
+  const last = cumReturns[cumReturns.length - 1];
+  const lastStr = `${last >= 0 ? '+' : ''}${last.toFixed(2)}%`;
+  legendEl.innerHTML = `<span class="bm-legend-item"><span class="bm-swatch" style="background:${BENCHMARK_RSP_COLOR};"></span>RSP (${ncBenchmarkTimeframe.toUpperCase()}) <b class="${last >= 0 ? 'pos' : 'neg'}">${lastStr}</b></span>`;
 }
 
 function renderNarrativeGrid() {
   if (!narrativesRaw) return;
   const grid = document.getElementById('narrativeGrid');
   const list = narrativesRaw.narratives.slice();
-  list.sort((a, b) => (ncScoreValue(b, ncHorizon, ncScore) ?? -999) - (ncScoreValue(a, ncHorizon, ncScore) ?? -999));
+  // V6 point 13: the selected Strength timeframe tab is the ONLY thing that
+  // drives narrative ranking — Thrust is never mixed into this (no
+  // composite rank), the old narrative_structural_score is no longer the
+  // visible headline rank.
+  list.sort((a, b) => (ncScoreValue(b, 'strength', ncStrengthWindow) ?? -999) - (ncScoreValue(a, 'strength', ncStrengthWindow) ?? -999));
   const total = list.length;
 
   const html = list.map((narrative, i) => {
-    const val = ncScoreValue(narrative, ncHorizon, ncScore);
+    const strengthVal = ncScoreValue(narrative, 'strength', ncStrengthWindow);
+    const thrustVal = ncScoreValue(narrative, 'thrust', ncStrengthWindow); // strengthWindow arg unused for thrust — see ncScoreValue
     const rankPct = total > 1 ? 1 - (i / (total - 1)) : 1;
     const bg = ncGreenShade(rankPct);
+    // Leadership/Breadth: still-computed legacy per-horizon context (spec
+    // point 7 — no longer headline/competing scores), tied to the
+    // UNRELATED member-table horizon toggle (ncHorizon), same as before.
     const s = narrative.scores[ncHorizon] || {};
     const breadth = s.breadth || {};
     const isExpanded = narrative.id === ncExpandedId;
@@ -2122,11 +2337,19 @@ function renderNarrativeGrid() {
         <span class="nc-card-rank">#${i + 1}</span>
       </div>
       ${lifecycleHtml}
-      <div class="nc-card-score ${(val ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(val, ncScore)}</div>
+      <div class="nc-card-scores">
+        <div class="nc-card-score-item">
+          <span class="nc-card-score-label">Strength</span>
+          <span class="nc-card-score-value ${(strengthVal ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(strengthVal, 'strength')}</span>
+        </div>
+        <div class="nc-card-score-item">
+          <span class="nc-card-score-label">Thrust</span>
+          <span class="nc-card-score-value ${(thrustVal ?? 0) >= 0 ? 'pos' : 'neg'}">${ncFmtScore(thrustVal, 'thrust')}</span>
+        </div>
+      </div>
       <div class="nc-card-stats">
         <span>Breadth <b>${breadth.pct_positive != null ? breadth.pct_positive.toFixed(0) + '%' : '—'}</b></span>
-        <span>Leader <b>${s.leadership != null ? s.leadership.toFixed(0) + '%' : '—'}</b></span>
-        <span>Thrust <b>${s.thrust != null ? (s.thrust >= 0 ? '+' : '') + s.thrust.toFixed(2) : '—'}</b></span>
+        <span>Leadership <b>${s.leadership != null ? s.leadership.toFixed(0) + '%' : '—'}</b></span>
       </div>
       <div class="nc-card-members">${narrative.n_members} Ticker</div>
       ${oppSummaryHtml}
@@ -2165,13 +2388,183 @@ document.getElementById('horizonToggle').addEventListener('click', (e) => {
   ncMemberSort = { field: NC_HORIZON_PCT_FIELD[ncHorizon], dir: 'desc' };
   renderNarrativeGrid();
 });
-document.getElementById('scoreToggle').addEventListener('click', (e) => {
+// V6 point 11/13: the Strength-timeframe tab controls ONLY which Strength
+// value is displayed and which drives ranking — Thrust is completely
+// unaffected (ncScoreValue('thrust', ...) ignores this argument entirely).
+document.getElementById('strengthWindowToggle').addEventListener('click', (e) => {
   const btn = e.target.closest('.nc-btn');
   if (!btn) return;
-  ncScore = btn.dataset.score;
-  document.querySelectorAll('#scoreToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
+  ncStrengthWindow = btn.dataset.window;
+  document.querySelectorAll('#strengthWindowToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
   renderNarrativeGrid();
 });
+// V6 point 29B: timeframe switch re-slices the already-loaded RSP series
+// client-side only -- never triggers a fetch.
+document.getElementById('benchmarkTimeframeToggle').addEventListener('click', (e) => {
+  const btn = e.target.closest('.nc-btn');
+  if (!btn) return;
+  ncBenchmarkTimeframe = btn.dataset.timeframe;
+  document.querySelectorAll('#benchmarkTimeframeToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
+  renderBenchmarkChart();
+});
+
+// ══════════════════════════════════════════════
+// SCREENER (06) — V6 point 19-27: fixed, config-driven presets only, no
+// free/universal screener. Reads data/screeners.json (built by
+// scripts/build_screeners.py from the already-final-filtered eligible
+// universe -- no client-side re-filtering, no Massive API calls, no API
+// key anywhere near this code). V1 has exactly one preset (weekly_strength)
+// but this renderer stays generic over whatever presets the JSON contains.
+// ══════════════════════════════════════════════
+let screenersRaw = null;
+const screenerTableOpen = {};   // presetId -> bool, collapsed by default (spec point 25, same UX as Opportunities point 4)
+const screenerRenderLimit = {}; // presetId -> current windowed row count
+
+// Human-readable filter tags per preset — the JSON payload deliberately
+// doesn't duplicate the rule definitions (point 23), so this is presentation
+// metadata only, not a second source of truth for the actual filter logic
+// (that lives exclusively in config/narrative_engine.json + build_screeners.py).
+// "YOLO RS 1W ≥ 85" is the spec's own required exact label (point 21) --
+// never phrased in a way that could be confused with Narrative Strength vs RSP.
+const SCREENER_PRESET_TAGS = {
+  weekly_strength: ['YOLO RS 1W ≥ 85', 'Price > SMA50', 'EMA10 oder EMA21 innerhalb ±5%'],
+};
+
+function screenerPresetTagsHtml(presetId) {
+  const tags = SCREENER_PRESET_TAGS[presetId] || [];
+  return tags.map(t => `<span class="screener-tag">${t}</span>`).join('');
+}
+
+// Filename slug per spec point 26's exact example: "weekly-strength-YYYY-MM-DD-tradingview.txt".
+function screenerFilenameSlug(presetId) {
+  return presetId.replace(/_/g, '-');
+}
+
+function screenerTradingViewTxtContent(tickers) {
+  // Never silently mis-prefixes an unmapped MIC -- tradingview_symbol is
+  // already null for those (build_screeners.py's audited mapping), so they
+  // are simply excluded from the TXT content here, not guessed.
+  return tickers.map(t => t.tradingview_symbol).filter(Boolean).join(',');
+}
+
+function screenerCopyTickers(presetId, btn) {
+  const preset = screenersRaw && screenersRaw.screeners[presetId];
+  if (!preset) return;
+  const symbols = preset.tickers.map(t => t.symbol);
+  navigator.clipboard.writeText(symbols.join(',')).then(() => {
+    if (btn) {
+      const original = btn.textContent;
+      btn.textContent = `Kopiert (${symbols.length})`;
+      setTimeout(() => { btn.textContent = original; }, 1500);
+    }
+  }).catch(e => console.log('Clipboard-Fehler:', e));
+}
+
+function screenerDownloadTradingViewTxt(presetId) {
+  const preset = screenersRaw && screenersRaw.screeners[presetId];
+  if (!preset) return;
+  const content = screenerTradingViewTxtContent(preset.tickers);
+  const asOfDate = (screenersRaw.meta && screenersRaw.meta.as_of_date) || new Date().toISOString().slice(0, 10);
+  const filename = `${screenerFilenameSlug(presetId)}-${asOfDate}-tradingview.txt`;
+  // Spec point 26: purely a manual client-side file export -- no automatic
+  // TradingView watchlist manipulation via scraping or credentials anywhere.
+  const blob = new Blob([content], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function screenerToggleTable(presetId) {
+  screenerTableOpen[presetId] = !screenerTableOpen[presetId];
+  renderScreeners();
+}
+
+function screenerShowMore(presetId) {
+  screenerRenderLimit[presetId] = (screenerRenderLimit[presetId] || 50) + 50;
+  renderScreeners({ keepLimit: true });
+}
+
+function screenerFmtNum(v, decimals) { return v == null ? '—' : v.toFixed(decimals); }
+function screenerFmtPctSigned(v) { return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
+
+function screenerPresetHtml(presetId, preset, opts) {
+  const keepLimit = opts && opts.keepLimit;
+  if (!keepLimit) screenerRenderLimit[presetId] = 50;
+  const isOpen = !!screenerTableOpen[presetId];
+  const tickers = preset.tickers; // already sorted server-side (point 24) -- no frontend re-sort/re-filter
+  const limit = screenerRenderLimit[presetId] || 50;
+  const windowed = isOpen ? tickers.slice(0, limit) : [];
+
+  const rows = windowed.map(t => `
+    <tr>
+      <td><b data-ticker="${t.symbol}">${t.symbol}</b></td>
+      <td class="muted">${screenerFmtNum(t.rs_percentile_1w, 1)}</td>
+      <td class="muted">${screenerFmtNum(t.structural_rs, 1)}</td>
+      <td class="muted">${screenerFmtNum(t.adr20, 1)}</td>
+      <td class="muted">${screenerFmtPctSigned(t.sma50_distance_pct)}</td>
+      <td class="muted">${screenerFmtPctSigned(t.ema10_distance_pct)}</td>
+      <td class="muted">${screenerFmtPctSigned(t.ema21_distance_pct)}</td>
+    </tr>`).join('');
+  const loadMoreHtml = (isOpen && tickers.length > windowed.length) ? `
+    <tr class="opp-load-more-row"><td colspan="7">
+      <button class="opp-load-more-btn" onclick="screenerShowMore('${presetId}')">Weitere ${Math.min(50, tickers.length - windowed.length)} anzeigen (${windowed.length}/${tickers.length})</button>
+    </td></tr>` : '';
+  const tableBodyHtml = rows || (isOpen ? `<tr><td colspan="7" class="narrative-empty">Keine Treffer.</td></tr>` : '');
+
+  return `<div class="screener-preset">
+    <div class="screener-preset-header">
+      <span class="screener-preset-name">${preset.name}</span>
+      <span class="screener-preset-count">${preset.count} Treffer</span>
+    </div>
+    <div class="screener-preset-tags">${screenerPresetTagsHtml(presetId)}</div>
+    <div class="screener-actions">
+      <button class="nd-copy-btn" onclick="screenerCopyTickers('${presetId}', this)">Ticker kopieren</button>
+      <button class="nd-copy-btn" onclick="screenerDownloadTradingViewTxt('${presetId}')">TradingView TXT</button>
+    </div>
+    <button class="table-toggle${isOpen ? ' open' : ''}" onclick="screenerToggleTable('${presetId}')">
+      <span class="chevron">▸</span> ${preset.count} Ticker ${isOpen ? 'ausblenden' : 'anzeigen'}
+    </button>
+    <div class="opp-table-wrap" style="${isOpen ? '' : 'display:none;'}">
+      <table class="member-table opp-table">
+        <thead><tr>
+          <th>Ticker</th><th>YOLO RS 1W</th><th>Structural RS</th><th>ADR20</th>
+          <th>vs SMA50</th><th>vs EMA10</th><th>vs EMA21</th>
+        </tr></thead>
+        <tbody>${tableBodyHtml}${loadMoreHtml}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+function renderScreeners(opts) {
+  const el = document.getElementById('screenerContainer');
+  if (!el || !screenersRaw) return;
+  const ids = Object.keys(screenersRaw.screeners || {});
+  if (!ids.length) {
+    el.innerHTML = '<div class="narrative-empty">Keine Screener-Ergebnisse verfügbar.</div>';
+    return;
+  }
+  el.innerHTML = ids.map(id => screenerPresetHtml(id, screenersRaw.screeners[id], opts)).join('');
+}
+
+async function loadScreeners() {
+  try {
+    const r = await fetch('data/screeners.json');
+    if (!r.ok) { console.log('screeners.json nicht gefunden.'); return; }
+    screenersRaw = await r.json();
+    renderScreeners();
+  } catch (e) {
+    console.log('Screener-Daten konnten nicht geladen werden:', e);
+    const el = document.getElementById('screenerContainer');
+    if (el) el.innerHTML = '<div class="narrative-empty">Keine Screener-Daten verfügbar.</div>';
+  }
+}
+loadScreeners();
 
 loadEngineConfig().then(loadNarratives);
 

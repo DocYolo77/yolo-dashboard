@@ -39,6 +39,16 @@ function extractConst(src, name) {
   return src.slice(startIdx, endIdx + 1);
 }
 
+// Same idea as extractConst but for `let NAME = ...;` module-level state
+// (e.g. oppTableOpen/oppRenderLimit — the Opportunities collapse/pagination
+// state, spec point 4).
+function extractLet(src, name) {
+  const startIdx = src.indexOf(`let ${name} =`);
+  if (startIdx === -1) throw new Error(`let ${name} not found in index.html`);
+  const endIdx = src.indexOf(';', startIdx);
+  return src.slice(startIdx, endIdx + 1);
+}
+
 // Pull the real implementations straight out of index.html.
 const ncNearEma10Src = extractFunction(html, 'ncNearEma10');
 const ncNearEma20Src = extractFunction(html, 'ncNearEma20');
@@ -49,11 +59,31 @@ const ncMemberOpportunityStateSrc = extractFunction(html, 'ncMemberOpportunitySt
 const ncStateFilterMembersSrc = extractFunction(html, 'ncStateFilterMembers');
 const ncVisibleSortedMembersSrc = extractFunction(html, 'ncVisibleSortedMembers');
 const ncMomentumTickerListSrc = extractFunction(html, 'ncMomentumTickerList');
+// V6 point 7/11-13: RSP-based Narrative Strength/Thrust headline metrics.
+const ncScoreValueSrc = extractFunction(html, 'ncScoreValue');
+const ncFmtScoreSrc = extractFunction(html, 'ncFmtScore');
+// V6 point 29A: QQQ breadth chart NaN-safety / empty-state fallback.
+const qqqFiniteSeriesSrc = extractFunction(html, 'qqqFiniteSeries');
+const qqqHasEnoughHistorySrc = extractFunction(html, 'qqqHasEnoughHistory');
+const qqqEmptyStateHtmlSrc = extractFunction(html, 'qqqEmptyStateHtml');
+// V6 point 29B: RSP Benchmark chart (cumulative return, client-side timeframe slicing).
+const rsBenchmarkWindowSrc = extractFunction(html, 'rsBenchmarkWindow');
+const rsBenchmarkCumulativeReturnSrc = extractFunction(html, 'rsBenchmarkCumulativeReturn');
+const rsBenchmarkDateLabelSrc = extractFunction(html, 'rsBenchmarkDateLabel');
+// V6 point 19-27: Screener (06) — TradingView export + filename.
+const screenerTradingViewTxtContentSrc = extractFunction(html, 'screenerTradingViewTxtContent');
+const screenerFilenameSlugSrc = extractFunction(html, 'screenerFilenameSlug');
 const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
 const oppVisibleSortedItemsSrc = extractFunction(html, 'oppVisibleSortedItems');
 const ncJumpToOpportunitiesSrc = extractFunction(html, 'ncJumpToOpportunities');
+// Spec point 4: Opportunities collapse/windowed-rendering state + actions.
+const oppTableOpenLetSrc = extractLet(html, 'oppTableOpen');
+const oppRenderLimitLetSrc = extractLet(html, 'oppRenderLimit');
+const oppPageSizeConstSrc = extractConst(html, 'OPP_RENDER_PAGE_SIZE');
+const oppToggleTableSrc = extractFunction(html, 'oppToggleTable');
+const oppShowMoreSrc = extractFunction(html, 'oppShowMore');
 const tcPolylineSegmentsSrc = extractFunction(html, 'tcPolylineSegments');
 const tickerChartSvgSrc = extractFunction(html, 'tickerChartSvg');
 const tickerChartTooltipHtmlSrc = extractFunction(html, 'tickerChartTooltipHtml');
@@ -95,9 +125,14 @@ vm.createContext(sandbox);
 vm.runInContext(
   `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncIsAtrExtendedSrc}\n${ncEmaFilterMembersSrc}\n${ncSortMembersSrc}\n` +
   `${ncMemberOpportunityStateSrc}\n${ncStateFilterMembersSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n` +
+  `${ncScoreValueSrc}\n${ncFmtScoreSrc}\n` +
+  `${qqqFiniteSeriesSrc}\n${qqqHasEnoughHistorySrc}\n${qqqEmptyStateHtmlSrc}\n` +
+  `${rsBenchmarkWindowSrc}\n${rsBenchmarkCumulativeReturnSrc}\n${rsBenchmarkDateLabelSrc}\n` +
+  `${screenerTradingViewTxtContentSrc}\n${screenerFilenameSlugSrc}\n` +
   `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n${ncJumpToOpportunitiesSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
-  `${positionTickerChartTooltipSrc}`,
+  `${positionTickerChartTooltipSrc}\n` +
+  `${oppTableOpenLetSrc}\n${oppRenderLimitLetSrc}\n${oppPageSizeConstSrc}\n${oppToggleTableSrc}\n${oppShowMoreSrc}`,
   sandbox
 );
 
@@ -528,4 +563,230 @@ test('positionTickerChartTooltip: clamps to the bottom viewport edge instead of 
   vm.runInContext('positionTickerChartTooltip(el, anchorRect)', Object.assign(sandbox, { el, anchorRect }));
   assert.equal(el.style.top, '92px'); // window.innerHeight (300) - tooltipH (200) - margin (8)
   sandbox.window = { innerWidth: 1200, innerHeight: 800 }; // restore
+});
+
+// ── Spec point 4: Opportunities table collapse + windowed rendering ──
+// oppRender() itself is DOM-heavy (builds the whole table); these tests
+// target the two small, real actions the collapse/pagination UX is built
+// from (oppToggleTable/oppShowMore), spying on oppRender the same way the
+// ncJumpToOpportunities tests above already do, to verify the STATE
+// transition and the exact opts each action passes through -- without
+// re-simulating the full DOM render.
+
+test('oppToggleTable flips oppTableOpen and triggers a re-render (defaults: collapsed)', () => {
+  vm.runInContext('oppTableOpen = false', sandbox);
+  sandbox.oppRenderCallCount = 0;
+  vm.runInContext('oppToggleTable()', sandbox);
+  assert.equal(vm.runInContext('oppTableOpen', sandbox), true);
+  assert.equal(sandbox.oppRenderCallCount, 1);
+
+  vm.runInContext('oppToggleTable()', sandbox);
+  assert.equal(vm.runInContext('oppTableOpen', sandbox), false); // toggles back
+  assert.equal(sandbox.oppRenderCallCount, 2);
+});
+
+test('oppShowMore increases oppRenderLimit by exactly the page size', () => {
+  vm.runInContext('oppRenderLimit = 50', sandbox);
+  vm.runInContext('oppShowMore()', sandbox);
+  assert.equal(vm.runInContext('oppRenderLimit', sandbox), 100);
+  vm.runInContext('oppShowMore()', sandbox);
+  assert.equal(vm.runInContext('oppRenderLimit', sandbox), 150);
+});
+
+test('oppShowMore calls oppRender with { keepLimit: true } so the window survives the re-render', () => {
+  let receivedOpts = 'NOT_CALLED';
+  sandbox.oppRender = (opts) => { receivedOpts = opts; };
+  vm.runInContext('oppShowMore()', sandbox);
+  // Property-level check rather than assert.deepEqual: the opts object
+  // literal is constructed INSIDE the vm sandbox's separate realm, so a
+  // strict deep-equal against an outer-realm {keepLimit:true} object can
+  // spuriously fail on [[Prototype]] identity even though the data matches.
+  assert.equal(receivedOpts.keepLimit, true);
+  assert.deepEqual(Object.keys(receivedOpts), ['keepLimit']);
+});
+
+test('oppToggleTable calls oppRender with no args (so the render limit resets to the first page)', () => {
+  let receivedOpts = 'NOT_CALLED';
+  sandbox.oppRender = (opts) => { receivedOpts = opts; };
+  vm.runInContext('oppToggleTable()', sandbox);
+  assert.equal(receivedOpts, undefined);
+});
+
+test('copy-visible-tickers keeps reading from the full filtered DATA STATE regardless of the collapse/window state', () => {
+  // Spec point 4's core guarantee: oppVisibleSortedItems() (what
+  // oppCopyVisibleTickers reads) must be entirely independent of
+  // oppTableOpen/oppRenderLimit -- collapsing the table or only having
+  // rendered the first page must never change what gets copied.
+  sandbox.dashboardState = {
+    opportunities: {
+      items: Array.from({ length: 120 }, (_, i) => ({ symbol: `T${i}`, quality_state: 'neutral', narratives: [], constructive_reset_narratives: [], laggard_narratives: [] })),
+    },
+  };
+  sandbox.oppTab = 'all';
+  setOppFilterInputs({});
+
+  vm.runInContext('oppTableOpen = false', sandbox);
+  vm.runInContext('oppRenderLimit = 50', sandbox);
+  const collapsedVisible = vm.runInContext('oppVisibleSortedItems()', sandbox);
+
+  vm.runInContext('oppTableOpen = true', sandbox);
+  vm.runInContext('oppRenderLimit = 50', sandbox); // only "page 1" rendered
+  const openFirstPageVisible = vm.runInContext('oppVisibleSortedItems()', sandbox);
+
+  assert.equal(collapsedVisible.length, 120); // NOT limited to 0 just because collapsed
+  assert.equal(openFirstPageVisible.length, 120); // NOT limited to 50 just because only 50 rows are on-screen
+  assert.deepEqual(collapsedVisible.map(it => it.symbol), openFirstPageVisible.map(it => it.symbol));
+});
+
+// ── Spec point 7/11-13: RSP-based Narrative Strength/Thrust headline ──
+
+test('ncScoreValue reads strength_rsp[window] for the "strength" score, fully separate per window', () => {
+  const narrative = { strength_rsp: { '1w': 80.0, '1m': 70.0, '3m': 65.1, '6m': 61.9 }, thrust_rsp: 78.0 };
+  const out = vm.runInContext('ncScoreValue(narrative, "strength", window)', Object.assign(sandbox, { narrative, window: '1w' }));
+  assert.equal(out, 80.0);
+  const out3m = vm.runInContext('ncScoreValue(narrative, "strength", window)', Object.assign(sandbox, { narrative, window: '3m' }));
+  assert.equal(out3m, 65.1);
+});
+
+test('ncScoreValue "thrust" ignores the strengthWindow argument entirely (spec point 11: no tab affects Thrust)', () => {
+  const narrative = { strength_rsp: { '1w': 80.0, '1m': 70.0, '3m': 65.1, '6m': 61.9 }, thrust_rsp: 78.0 };
+  const forWindow1w = vm.runInContext('ncScoreValue(narrative, "thrust", window)', Object.assign(sandbox, { narrative, window: '1w' }));
+  const forWindow6m = vm.runInContext('ncScoreValue(narrative, "thrust", window)', Object.assign(sandbox, { narrative, window: '6m' }));
+  assert.equal(forWindow1w, 78.0);
+  assert.equal(forWindow6m, 78.0);
+  assert.equal(forWindow1w, forWindow6m);
+});
+
+test('ncScoreValue returns null (never fabricated) when strength_rsp/thrust_rsp are missing', () => {
+  const narrative = { name: 'No RSP data yet' };
+  assert.equal(vm.runInContext('ncScoreValue(narrative, "strength", window)', Object.assign(sandbox, { narrative, window: '1w' })), null);
+  assert.equal(vm.runInContext('ncScoreValue(narrative, "thrust", window)', Object.assign(sandbox, { narrative, window: '1w' })), null);
+});
+
+test('ncFmtScore formats Strength as a plain 0-100-style number (percentile rank, not a %-return)', () => {
+  const out = vm.runInContext('ncFmtScore(v, "strength")', Object.assign(sandbox, { v: 62.45 }));
+  assert.equal(out, '62.5'); // rounds to 1 decimal, no leading + / no % suffix
+});
+
+test('ncFmtScore formats Thrust as a signed float, never clamped, matching the worked example from the spec', () => {
+  const out = vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: 78.0 }));
+  assert.equal(out, '+78.00');
+  const negative = vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: -10.0 }));
+  assert.equal(negative, '-10.00');
+  const over100 = vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: 110.0 }));
+  assert.equal(over100, '+110.00'); // NOT clamped to 100
+});
+
+test('ncFmtScore renders missing values as "—" for both Strength and Thrust', () => {
+  assert.equal(vm.runInContext('ncFmtScore(v, "strength")', Object.assign(sandbox, { v: null })), '—');
+  assert.equal(vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: undefined })), '—');
+});
+
+// ── Spec point 29A: QQQ breadth chart NaN-safety / explicit fallback text ──
+
+test('qqqFiniteSeries drops null/undefined/NaN/Infinity, keeps valid numbers', () => {
+  const out = vm.runInContext('qqqFiniteSeries(arr)', Object.assign(sandbox, {
+    arr: [1.5, null, 2.5, undefined, NaN, Infinity, -Infinity, 3.5, 0],
+  }));
+  assert.deepEqual(out, [1.5, 2.5, 3.5, 0]);
+});
+
+test('qqqFiniteSeries returns empty array for a missing/null input (never throws)', () => {
+  // Array.from(...) re-materializes the vm-realm array's contents as a
+  // host-realm array -- vm.runInContext's `return []` literal is built in
+  // the SEPARATE vm realm, so a strict deepEqual against a host-realm []
+  // can spuriously fail on [[Prototype]] identity even with identical
+  // (empty) contents.
+  assert.deepEqual(Array.from(vm.runInContext('qqqFiniteSeries(arr)', Object.assign(sandbox, { arr: null }))), []);
+  assert.deepEqual(Array.from(vm.runInContext('qqqFiniteSeries(arr)', Object.assign(sandbox, { arr: undefined }))), []);
+});
+
+test('qqqHasEnoughHistory requires >=2 valid points by default, ignoring NaN/null noise', () => {
+  assert.equal(vm.runInContext('qqqHasEnoughHistory(arr)', Object.assign(sandbox, { arr: [1, NaN, null] })), false);
+  assert.equal(vm.runInContext('qqqHasEnoughHistory(arr)', Object.assign(sandbox, { arr: [1, 2, NaN] })), true);
+  assert.equal(vm.runInContext('qqqHasEnoughHistory(arr)', Object.assign(sandbox, { arr: null })), false);
+});
+
+test('qqqEmptyStateHtml renders the explicit fallback message, not a blank string', () => {
+  const html = vm.runInContext('qqqEmptyStateHtml(msg)', Object.assign(sandbox, { msg: 'Keine historischen Daten verfügbar.' }));
+  assert.match(html, /Keine historischen Daten verfügbar\./);
+  assert.match(html, /class="qqq-chart-empty"/);
+});
+
+// ── Spec point 29B: RSP Benchmark chart window/cumulative-return logic ──
+
+test('rsBenchmarkWindow takes the last N sessions, real trading days not calendar days', () => {
+  const dates = ['2026-01-01', '2026-01-02', '2026-01-05', '2026-01-06', '2026-01-07'];
+  const close = [100, 101, 102, 103, 104];
+  const out = vm.runInContext('rsBenchmarkWindow(dates, close, 3)', Object.assign(sandbox, { dates, close }));
+  assert.deepEqual(Array.from(out.dates), ['2026-01-05', '2026-01-06', '2026-01-07']);
+  assert.deepEqual(Array.from(out.close), [102, 103, 104]);
+});
+
+test('rsBenchmarkWindow drops non-finite closes before windowing (never passed to the renderer)', () => {
+  const dates = ['2026-01-01', '2026-01-02', '2026-01-05'];
+  const close = [100, null, 102];
+  const out = vm.runInContext('rsBenchmarkWindow(dates, close, 5)', Object.assign(sandbox, { dates, close }));
+  assert.deepEqual(Array.from(out.close), [100, 102]);
+});
+
+test('rsBenchmarkWindow returns null when fewer than 2 valid points survive', () => {
+  const dates = ['2026-01-01'];
+  const close = [100];
+  const out = vm.runInContext('rsBenchmarkWindow(dates, close, 5)', Object.assign(sandbox, { dates, close }));
+  assert.equal(out, null);
+});
+
+test('rsBenchmarkCumulativeReturn starts at exactly 0 and matches (close/start-1)*100', () => {
+  const out = vm.runInContext('rsBenchmarkCumulativeReturn(closeWindow)', Object.assign(sandbox, { closeWindow: [100, 102, 99, 105] }));
+  assert.equal(out[0], 0);
+  assert.equal(out[1], pctClose(102, 100));
+  assert.equal(out[3], pctClose(105, 100));
+
+  function pctClose(v, start) { return (v / start - 1) * 100; }
+});
+
+test('rsBenchmarkDateLabel formats ISO dates as DD.MM. (matches the existing Benchmark date-label convention)', () => {
+  const out = vm.runInContext('rsBenchmarkDateLabel(iso)', Object.assign(sandbox, { iso: '2026-03-07' }));
+  assert.equal(out, '07.03.');
+});
+
+// ── Spec point 26: Screener TradingView export — known MIC -> prefix, ──
+// unknown MIC never silently mis-prefixed, exact filename format ──
+
+test('screenerTradingViewTxtContent joins known tradingview_symbol values with commas', () => {
+  const tickers = [
+    { symbol: 'AAPL', tradingview_symbol: 'NASDAQ:AAPL' },
+    { symbol: 'DELL', tradingview_symbol: 'NYSE:DELL' },
+  ];
+  const out = vm.runInContext('screenerTradingViewTxtContent(tickers)', Object.assign(sandbox, { tickers }));
+  assert.equal(out, 'NASDAQ:AAPL,NYSE:DELL');
+});
+
+test('screenerTradingViewTxtContent excludes tickers with an unmapped MIC (null tradingview_symbol) instead of mis-prefixing them', () => {
+  const tickers = [
+    { symbol: 'AAPL', tradingview_symbol: 'NASDAQ:AAPL' },
+    { symbol: 'UNKNOWN', tradingview_symbol: null },
+    { symbol: 'DELL', tradingview_symbol: 'NYSE:DELL' },
+  ];
+  const out = vm.runInContext('screenerTradingViewTxtContent(tickers)', Object.assign(sandbox, { tickers }));
+  assert.equal(out, 'NASDAQ:AAPL,NYSE:DELL');
+  assert.doesNotMatch(out, /UNKNOWN/);
+});
+
+test('screenerTradingViewTxtContent only includes tickers from the current screener hits (whatever list it is given)', () => {
+  const tickers = [{ symbol: 'ONE', tradingview_symbol: 'NYSE:ONE' }];
+  const out = vm.runInContext('screenerTradingViewTxtContent(tickers)', Object.assign(sandbox, { tickers }));
+  assert.equal(out, 'NYSE:ONE');
+});
+
+test('screenerFilenameSlug converts the preset id to the spec\'s exact dash-separated filename format', () => {
+  const out = vm.runInContext('screenerFilenameSlug(presetId)', Object.assign(sandbox, { presetId: 'weekly_strength' }));
+  assert.equal(out, 'weekly-strength');
+});
+
+test('TradingView TXT filename matches spec point 26\'s exact example shape', () => {
+  const slug = vm.runInContext('screenerFilenameSlug(presetId)', Object.assign(sandbox, { presetId: 'weekly_strength' }));
+  const filename = `${slug}-2026-03-07-tradingview.txt`;
+  assert.equal(filename, 'weekly-strength-2026-03-07-tradingview.txt');
 });
