@@ -42,14 +42,56 @@ day window for ~100-300 taxonomy tickers is a small, bounded cost, separate
 from the market-wide walk in build_market_features.py.
 
 Benchmark RS history (dashboard "Benchmark" subsection under Narratives):
-SPY is folded into the same grouped-daily walk (zero extra API calls — the
-grouped-daily response already contains the whole market per day) purely as
-the comparison series, then popped back out of ticker_metrics so it never
-appears as a narrative member or pollutes the percentile-fallback pool. See
-compute_narrative_rs_history() for the basket-vs-SPY cumulative-return
-calculation and data/narratives.json's "rs_history" key for the output
-shape (one shared "dates" array + per-narrative value lists — checked
-against real narrative counts, this is a few KB, not worth a separate file).
+RSP (S&P 500 Equal Weight ETF) is folded into the same shared price-history
+cache walk as the narrative universe (zero extra API calls), then popped
+back out of ticker_metrics so it never appears as a narrative member or
+pollutes the percentile-fallback pool. See compute_narrative_rs_history()
+for the basket-vs-RSP cumulative-return calculation and data/narratives.json's
+"rs_history" key for the output shape (one shared "dates" array + per-
+narrative value lists). data/narratives.json's "benchmark_rsp" key carries
+the raw RSP close/date series itself (the SAME prices[RSP_TICKER] column
+used below for Narrative Strength) for the dashboard's dedicated RSP
+Benchmark chart — see build_benchmark_rsp_series().
+
+V6 (Navigation/Universe-Filter/Screener/Narrative-Strength synthesis) —
+new RSP-based Narrative Strength/Thrust, replacing SPY as the benchmark:
+- RSP replaces SPY everywhere in this file (config rsp_benchmark.ticker).
+  RSP is a benchmark ETF, NEVER eligible, NEVER a narrative member, NEVER
+  in the stock RS percentile pool.
+- Narrative Strength ("Jeff-inspired Relative Strength gegen RSP", a
+  candidate v1 formula -- explicitly NOT claimed to be Jeff Sun's exact
+  unpublished formula): equal-weight MEAN daily return of a narrative's
+  currently-active members (compute_narrative_equal_weight_return_series)
+  compounded into a synthetic index starting at 100
+  (build_synthetic_narrative_index), divided by the canonical RSP close on
+  the same real trading sessions (compute_relative_strength_line), then
+  percentile-ranked against its OWN trailing 1W/5-, 1M/20-, 3M/63-, 6M/126-
+  session window (percentile_rank_of_current, reusing the exact same
+  sort-position convention as percentile_ranks() above) -> strength_rsp
+  {1w,1m,3m,6m}, fully separate values, never averaged/composited.
+- Narrative Thrust ("Jeff-inspired Thrust candidate v1"):
+  0.60*Strength_1W(today) + 0.40*Strength_1M(today) +
+  0.10*(Strength_1W(today) - Strength_1W(3 real trading sessions ago)) ->
+  thrust_rsp. NOT clamped to 0-100. thrust_rsp is None unless all three
+  inputs are present -- no alternative weighting is ever substituted for a
+  missing input.
+- The OLD basket-median-return Strength (scores[h]["strength"]) and OLD
+  EMA-difference Thrust (scores[h]["thrust"]) are DEPRECATED for the
+  VISIBLE dashboard as of V6 but are intentionally left completely
+  unchanged/uncomputed-different here: narrative_structural_score,
+  momentum_modifier and thrust_percentile_1w still consume them internally
+  exactly as before (V1.1 methodology, untouched). The frontend must
+  display strength_rsp/thrust_rsp as the new headline Strength/Thrust and
+  must never surface scores[h]["strength"]/["thrust"] as if they were the
+  new metric -- see index.html's Narrative card rendering (task point 29).
+- Point 28 (3-session Thrust delta, must use real trading sessions, not
+  calendar days): implemented via variant "deterministically recompute
+  historical Strength_1W from the already-available OHLC/price history"
+  (NOT the data/history/daily/ per-day snapshot architecture) --
+  strength_percentile_at() slices the SAME relative-strength line 3
+  positions further back on its own (real-session-only, gap-free by
+  construction — see build_synthetic_narrative_index) index. No lookahead:
+  every window used only ever looks backward from its reference session.
 """
 
 import json
@@ -397,16 +439,22 @@ def basket_daily_return_series(daily_ret, members):
     return daily_ret[cols].median(axis=1, skipna=True)
 
 
-def compute_narrative_rs_history(narratives, daily_ret, trading_days, eligible_set=None, lookback_days=RS_HISTORY_LOOKBACK_DAYS):
-    """Basket-vs-SPY relative-strength time series per narrative, for the
-    dashboard's 'Benchmark' comparison chart. Same basket daily-return series
-    as Strength/Thrust (basket_daily_return_series), compounded from the
-    start of the lookback window; relative strength = compounded basket
-    return minus compounded SPY return, in percentage points, so SPY is
-    always the flat 0% baseline the chart draws as a dashed line. Returns
-    None (with a warning) if SPY wasn't in the fetched universe or has too
-    little history — the frontend degrades to an empty-state message rather
-    than crashing, matching load_market_features' graceful-fallback pattern.
+def compute_narrative_rs_history(narratives, daily_ret, trading_days, eligible_set=None,
+                                  lookback_days=RS_HISTORY_LOOKBACK_DAYS, benchmark_ticker="RSP"):
+    """Basket-vs-benchmark relative-strength time series per narrative, for
+    the dashboard's 'Benchmark' comparison chart (the pill-selectable multi-
+    narrative-vs-benchmark view — separate from the new dedicated RSP-only
+    Benchmark card, see build_benchmark_rsp_series()). Same basket daily-
+    return series as Strength/Thrust (basket_daily_return_series), compounded
+    from the start of the lookback window; relative strength = compounded
+    basket return minus compounded benchmark return, in percentage points,
+    so the benchmark is always the flat 0% baseline the chart draws as a
+    dashed line. V6: benchmark_ticker defaults to RSP (config
+    rsp_benchmark.ticker), replacing the old SPY default -- explicitly NOT
+    SPY, NOT QQQ (point 29B/29C). Returns None (with a warning) if the
+    benchmark wasn't in the fetched universe or has too little history — the
+    frontend degrades to an empty-state message rather than crashing,
+    matching load_market_features' graceful-fallback pattern.
 
     `eligible_set` restricts basket membership the SAME way as the main
     Strength/Thrust/Breadth/Leadership calculation below (Full-Universe spec
@@ -414,16 +462,17 @@ def compute_narrative_rs_history(narratives, daily_ret, trading_days, eligible_s
     must not silently keep steering the Benchmark chart either. None (the
     default) means "no eligibility filter" — same graceful-degradation
     fallback as everywhere market_features may be unavailable."""
-    if "SPY" not in daily_ret.columns:
-        print("  ⚠ SPY nicht in den geladenen Kursdaten enthalten — Benchmark-RS-Historie übersprungen", file=sys.stderr)
+    if benchmark_ticker not in daily_ret.columns:
+        print(f"  ⚠ {benchmark_ticker} nicht in den geladenen Kursdaten enthalten — Benchmark-RS-Historie übersprungen",
+              file=sys.stderr)
         return None
 
     window_dates = trading_days[-lookback_days:]
-    spy_ret = daily_ret["SPY"].reindex(window_dates)
-    if spy_ret.dropna().shape[0] < 10:
-        print("  ⚠ Zu wenig SPY-Historie für Benchmark-RS-Historie — übersprungen", file=sys.stderr)
+    bm_ret = daily_ret[benchmark_ticker].reindex(window_dates)
+    if bm_ret.dropna().shape[0] < 10:
+        print(f"  ⚠ Zu wenig {benchmark_ticker}-Historie für Benchmark-RS-Historie — übersprungen", file=sys.stderr)
         return None
-    spy_cum = (1 + spy_ret.fillna(0) / 100).cumprod() - 1
+    bm_cum = (1 + bm_ret.fillna(0) / 100).cumprod() - 1
 
     series_by_narrative = {}
     for n in narratives:
@@ -435,15 +484,146 @@ def compute_narrative_rs_history(narratives, daily_ret, trading_days, eligible_s
         if basket_ret.dropna().shape[0] < 10:
             continue
         basket_cum = (1 + basket_ret.fillna(0) / 100).cumprod() - 1
-        relative = (basket_cum - spy_cum) * 100
+        relative = (basket_cum - bm_cum) * 100
         series_by_narrative[n["id"]] = [round(float(v), 2) for v in relative.tolist()]
 
     dates_fmt = [datetime.strptime(d, "%Y-%m-%d").strftime("%d.%m.") for d in window_dates]
     return {
-        "benchmark": "SPY",
+        "benchmark": benchmark_ticker,
         "lookback_trading_days": len(window_dates),
         "dates": dates_fmt,
         "narratives": series_by_narrative,
+    }
+
+
+# ─────────────────────────────────────────────
+# V6: RSP-based Narrative Strength/Thrust ("Jeff-inspired" candidate v1)
+# ─────────────────────────────────────────────
+
+def compute_narrative_equal_weight_return_series(daily_ret, members):
+    """Equal-weight MEAN daily % return of a narrative's currently-active
+    members (point 10) — explicitly MEAN, not the median used by the legacy
+    basket_daily_return_series/old Strength. `.mean(axis=1, skipna=True)`
+    already implements the exact missing-data rule the spec requires: a
+    member missing its return on a given day is excluded from just that
+    day's mean (skipna); a day where ALL members are missing yields NaN
+    (pandas mean-of-all-NaN), which build_synthetic_narrative_index() below
+    then DROPS entirely rather than fabricating/forward-filling a value."""
+    cols = [m for m in members if m in daily_ret.columns]
+    if not cols:
+        return pd.Series(dtype=float)
+    return daily_ret[cols].mean(axis=1, skipna=True)
+
+
+def build_synthetic_narrative_index(return_series):
+    """Synthetic equal-weight narrative index, starting at 100 (point 10):
+    narrative_close_t = narrative_close_(t-1) * (1 + narrative_return_t).
+    Days with no valid narrative return (NaN — see
+    compute_narrative_equal_weight_return_series) are DROPPED from the
+    index entirely, never inserted as an artificial flat/forward-filled
+    point — the returned Series' own index is therefore the narrative's
+    own real, valid-return trading sessions only (a subsequence of the
+    full market calendar, gap-free by construction)."""
+    valid = return_series.dropna()
+    if valid.empty:
+        return pd.Series(dtype=float)
+    return (1 + valid / 100.0).cumprod() * 100.0
+
+
+def compute_relative_strength_line(narrative_index, benchmark_close):
+    """relative_strength_t = narrative_close_t / benchmark_close_t (point 11
+    step 2), aligned on real, shared trading sessions only: benchmark_close
+    is reindexed onto narrative_index's own (already valid-only) date axis,
+    and any date where the benchmark itself has no price is additionally
+    dropped — never fabricated on either side."""
+    if narrative_index.empty:
+        return pd.Series(dtype=float)
+    bm = benchmark_close.reindex(narrative_index.index)
+    aligned = pd.DataFrame({"narrative": narrative_index, "benchmark": bm}).dropna()
+    if aligned.empty:
+        return pd.Series(dtype=float)
+    return aligned["narrative"] / aligned["benchmark"]
+
+
+def percentile_rank_of_current(window_values):
+    """Percentile rank (0-100) of the LAST value in `window_values` within
+    the window (itself included) — reuses percentile_ranks()'s exact
+    sort-position convention (stable sort; among tied values the one that
+    appears later in the input list gets the higher rank) instead of
+    inventing a second percentile convention, per point 11's explicit
+    requirement. `window_values` is a plain ordered list, oldest-first,
+    current value last."""
+    n = len(window_values)
+    if n == 0:
+        return None
+    keyed = {i: {"v": v} for i, v in enumerate(window_values)}
+    ranks = percentile_ranks(keyed, "v")
+    return ranks.get(n - 1)
+
+
+def strength_percentile_at(relative_strength, window, sessions_ago=0):
+    """Strength_<window> as of `sessions_ago` real trading sessions before
+    the most recent one available in `relative_strength` (point 11 step 3 /
+    point 28's 3-session Thrust-delta lookback) — percentile_rank_of_current
+    applied to the `window`-session slice ending at that reference session.
+    None if there isn't enough history for a full window at that point
+    (graceful degradation, never a partial/padded window)."""
+    valid = relative_strength.dropna()
+    n = len(valid)
+    end = n - sessions_ago
+    if end < window:
+        return None
+    window_vals = valid.iloc[end - window:end].tolist()
+    return percentile_rank_of_current(window_vals)
+
+
+def compute_strength_windows_rsp(relative_strength, windows_sessions):
+    """{"1w":.., "1m":.., "3m":.., "6m":..} — point 11's four FULLY SEPARATE
+    Strength timeframes (no averaging/weighting across them, no composite
+    score). Each is independently None if its window's history isn't
+    available yet."""
+    return {label: strength_percentile_at(relative_strength, sessions)
+            for label, sessions in windows_sessions.items()}
+
+
+def compute_narrative_thrust_rsp(strength_1w_today, strength_1m_today, strength_1w_n_sessions_ago, thrust_weights):
+    """Thrust ('Jeff-inspired Thrust candidate v1', point 12):
+      0.60*Strength_1W(today) + 0.40*Strength_1M(today)
+      + 0.10*(Strength_1W(today) - Strength_1W(N sessions ago))
+    Deliberately NOT clamped to 0-100 (may legitimately exceed 100 or go
+    negative). None unless ALL three inputs are present — no alternative
+    weighting/renormalization is ever substituted for a missing input
+    (unlike renormalized_weighted_sum elsewhere in this pipeline, which is
+    intentionally NOT reused here)."""
+    if strength_1w_today is None or strength_1m_today is None or strength_1w_n_sessions_ago is None:
+        return None
+    w = thrust_weights
+    acceleration = strength_1w_today - strength_1w_n_sessions_ago
+    thrust = (w["strength_1w"] * strength_1w_today + w["strength_1m"] * strength_1m_today
+              + w["delta_1w_acceleration"] * acceleration)
+    return round(thrust, 2)
+
+
+def build_benchmark_rsp_series(prices, rsp_ticker):
+    """Raw RSP close/date series (point 29B/29C) for the dashboard's
+    dedicated Benchmark card — the SAME prices[rsp_ticker] column used above
+    for the Narrative Strength relative-strength line, so there is exactly
+    ONE canonical RSP data source for both consumers (point 29B: 'keine
+    zweite, unabhaengige Benchmark-Datenpipeline'). Time-sorted (prices is
+    already indexed by ascending trading_days); NaN entries dropped (never
+    passed to the frontend renderer). The frontend computes 1D/1W/1M/1Y
+    cumulative returns client-side from this single payload — no server-side
+    timeframe pre-slicing, so switching timeframe buttons needs zero extra
+    API/data calls (point 29B's explicit requirement)."""
+    if rsp_ticker not in prices.columns:
+        return None
+    s = prices[rsp_ticker].dropna()
+    if s.empty:
+        return None
+    return {
+        "ticker": rsp_ticker,
+        "dates": list(s.index),
+        "close": [round(float(v), 4) for v in s.tolist()],
     }
 
 
@@ -519,14 +699,17 @@ def main():
 
     cfg = load_config(args.config)
     struct_cfg = cfg["narrative_structural_v1_1"]
+    rsp_cfg = cfg["rsp_benchmark"]
+    RSP_TICKER = rsp_cfg["ticker"]
 
     narratives, universe = load_taxonomy(args.taxonomy)
     print(f"\n📋 Taxonomie: {len(narratives)} Narrative, {len(universe)} eindeutige Ticker")
 
-    # SPY dient ausschliesslich als Benchmark fuer die RS-Historie unten, ist
-    # aber selbst kein Narrative-Mitglied und wird aus ticker_metrics wieder
-    # entfernt, damit es die Perzentil-Fallback-Logik nicht verunreinigt.
-    full_universe = set(universe) | {"SPY"}
+    # RSP dient ausschliesslich als Benchmark (RS-Historie unten + neue
+    # RSP-basierte Narrative Strength/Thrust), ist aber selbst kein
+    # Narrative-Mitglied und wird aus ticker_metrics wieder entfernt, damit
+    # es die Perzentil-Fallback-Logik nicht verunreinigt. V6: ersetzt SPY.
+    full_universe = set(universe) | {RSP_TICKER}
 
     # V1.1 point 17: reuse the shared V1.1 price-history cache written by
     # build_market_features.py (260 sessions, 0 extra API calls) so 3M/6M
@@ -541,7 +724,7 @@ def main():
         prices = build_price_frame(per_ticker, trading_days)
 
     ticker_metrics, daily_ret = calc_ticker_metrics(prices)
-    ticker_metrics.pop("SPY", None)
+    ticker_metrics.pop(RSP_TICKER, None)
     print(f"  ✅ Metriken für {len(ticker_metrics)}/{len(universe)} Ticker berechnet")
 
     market_features = load_market_features(args.market_features)
@@ -642,9 +825,31 @@ def main():
     thrust_metrics_1w = {row["id"]: {"t": row["scores"]["1w"]["thrust"]} for row in narrative_rows}
     thrust_percentile_1w = percentile_ranks(thrust_metrics_1w, "t")
 
+    # V6: RSP-based Narrative Strength/Thrust — single canonical RSP close
+    # series (same column build_benchmark_rsp_series() reads below), shared
+    # by every narrative's relative-strength line (point 29B: exactly ONE
+    # canonical RSP data source).
+    benchmark_close = prices[RSP_TICKER] if RSP_TICKER in prices.columns else None
+    if benchmark_close is None:
+        print(f"  ⚠ {RSP_TICKER} nicht in den geladenen Kursdaten enthalten — "
+              "RSP-Narrative-Strength/Thrust uebersprungen (strength_rsp/thrust_rsp bleiben None)", file=sys.stderr)
+
     output_narratives = []
     for row in narrative_rows:
         nid, members, scores = row["id"], row["members"], row["scores"]
+
+        if benchmark_close is not None:
+            eq_weight_ret = compute_narrative_equal_weight_return_series(daily_ret, members)
+            narrative_index = build_synthetic_narrative_index(eq_weight_ret)
+            relative_strength = compute_relative_strength_line(narrative_index, benchmark_close)
+            strength_rsp = compute_strength_windows_rsp(relative_strength, rsp_cfg["strength_windows_sessions"])
+            strength_1w_n_ago = strength_percentile_at(
+                relative_strength, rsp_cfg["strength_windows_sessions"]["1w"], rsp_cfg["thrust_delta_sessions"])
+            thrust_rsp = compute_narrative_thrust_rsp(
+                strength_rsp["1w"], strength_rsp["1m"], strength_1w_n_ago, rsp_cfg["thrust_weights"])
+        else:
+            strength_rsp = {label: None for label in rsp_cfg["strength_windows_sessions"]}
+            thrust_rsp = None
 
         strength_percentile_1m = strength_percentile_by_horizon["1m"].get(nid)
         strength_percentile_3m = strength_percentile_by_horizon["3m"].get(nid)
@@ -705,16 +910,35 @@ def main():
             # condition (thrust_percentile_1w_min), NOT a narrative_structural_score
             # component (Thrust stays out of the structural score itself).
             "thrust_percentile_1w": thrust_percentile_1w.get(nid),
+            # V6 point 7-13: the new headline metrics. "Jeff-inspired
+            # Relative Strength gegen RSP" (candidate v1, NOT Jeff Sun's
+            # exact unpublished formula) / "Jeff-inspired Thrust candidate
+            # v1" — see compute_strength_windows_rsp/
+            # compute_narrative_thrust_rsp. The four strength_rsp timeframes
+            # are fully separate (no averaging/composite). Leadership/
+            # Breadth (above) are no longer shown as competing headline
+            # scores but stay computed for internal/debug use.
+            "strength_rsp": strength_rsp,
+            "thrust_rsp": thrust_rsp,
         })
         print(f"  ✅ {row['name']}: {len(members)} Ticker | Structural Score {narrative_structural_score} | "
-              f"Trend Participation {row['pct_above_rising_sma50']} | Modifier {momentum_modifier}")
+              f"Trend Participation {row['pct_above_rising_sma50']} | Modifier {momentum_modifier} | "
+              f"Strength(RSP) 1W={strength_rsp['1w']} 1M={strength_rsp['1m']} | Thrust(RSP)={thrust_rsp}")
 
     rs_history = compute_narrative_rs_history(
         narratives, daily_ret, trading_days,
-        eligible_set if eligible_set is not None else set(universe))
+        eligible_set if eligible_set is not None else set(universe),
+        benchmark_ticker=RSP_TICKER)
     if rs_history is not None:
         print(f"  ✅ Benchmark-RS-Historie: {len(rs_history['narratives'])} Narrative x "
-              f"{rs_history['lookback_trading_days']} Handelstage vs. SPY")
+              f"{rs_history['lookback_trading_days']} Handelstage vs. {RSP_TICKER}")
+
+    benchmark_rsp = build_benchmark_rsp_series(prices, RSP_TICKER)
+    if benchmark_rsp is not None:
+        print(f"  ✅ Benchmark · RSP Serie: {len(benchmark_rsp['dates'])} Handelstage "
+              f"({benchmark_rsp['dates'][0]} .. {benchmark_rsp['dates'][-1]})")
+    else:
+        print(f"  ⚠ {RSP_TICKER}-Preis-Serie nicht verfuegbar — Benchmark-Chart-Daten fehlen diesen Lauf", file=sys.stderr)
 
     # Full-Universe spec point 23: distinguish the WHOLE market's eligible
     # universe (eligible_universe_size, from market_features — independent
@@ -768,6 +992,7 @@ def main():
         },
         "narratives": output_narratives,
         "rs_history": rs_history,
+        "benchmark_rsp": benchmark_rsp,
     }
 
     with open(out_dir / "narratives.json", "w", encoding="utf-8") as f:
