@@ -1,10 +1,14 @@
 """
 Tests for scripts/build_data.py: calc_atr_extension (QQQ/SPY price
-structure feeding QQQ Health, V1 rebuild point 11). Synthetic data only —
-no network / no yfinance download required for the function under test.
+structure feeding QQQ Health, V1 rebuild point 11) and calc_metrics (index/
+crypto/commodity table rows, V6 point 29A NaN-safety fix). Synthetic data
+only — no network / no yfinance download required for the functions under
+test.
 Run with: pytest tests/ -v
 """
 
+import json
+import math
 import sys
 from pathlib import Path
 
@@ -12,7 +16,7 @@ import pandas as pd
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-from build_data import calc_atr_extension  # noqa: E402
+from build_data import calc_atr_extension, calc_metrics  # noqa: E402
 from build_market_features import calc_true_range  # noqa: E402  (independently-tested reference formula)
 
 
@@ -64,3 +68,88 @@ def test_atr_extension_negative_when_below_sma50():
     atr14, atr_pct, atr_extension = calc_atr_extension(hist)
     assert atr14 is not None
     assert atr_extension < 0
+
+
+# ── V6 point 29A: calc_metrics NaN-safety (root cause of the empty QQQ
+# breadth charts in production — a bare NaN close for ONE unrelated global-
+# index ticker made json.dump() emit an invalid `NaN` token, which broke
+# JSON.parse() for the ENTIRE snapshot.json in the browser, not just that
+# ticker/field) ──
+
+def make_close_hist(values, freq="B"):
+    idx = pd.date_range("2026-01-01", periods=len(values), freq=freq)
+    return pd.DataFrame({"Close": pd.Series(values, index=idx, dtype=float)})
+
+
+def test_calc_metrics_none_hist_returns_none():
+    assert calc_metrics(None) is None
+
+
+def test_calc_metrics_insufficient_history_returns_none():
+    assert calc_metrics(make_close_hist([100.0])) is None
+
+
+def test_calc_metrics_nan_latest_close_uses_last_valid_close_not_nan():
+    # Reproduces the exact production bug: yfinance returned NaN as the
+    # LATEST close (observed for 000300.SS) despite otherwise-valid history.
+    # The dropna-first fix removes the bad trailing row and uses the last
+    # actually-valid close (102.0) instead of either crashing, returning
+    # None for a ticker that clearly has usable data, or -- the pre-fix
+    # production bug -- silently computing NaN and breaking the whole
+    # snapshot.json's JSON validity.
+    hist = make_close_hist([100.0, 101.0, 102.0, float('nan')])
+    result = calc_metrics(hist)
+    assert result is not None
+    assert result["price"] == pytest.approx(102.0)
+    assert result["price"] == result["price"]  # not NaN
+
+
+def test_calc_metrics_all_nan_returns_none():
+    hist = make_close_hist([float('nan')] * 5)
+    assert calc_metrics(hist) is None
+
+
+def test_calc_metrics_nan_interior_close_is_dropped_not_propagated():
+    # A NaN row NOT at the end must also never leak into d1_pct/w1_pct/
+    # hi52w_pct/hist_5d via .iloc[-N] landing on it or .max()/.mean() -- the
+    # dropna-first fix removes it from the series entirely before any
+    # metric is computed.
+    hist = make_close_hist([100.0, float('nan'), 102.0, 103.0, 104.0, 105.0])
+    result = calc_metrics(hist)
+    assert result is not None
+    assert all(v is None or (isinstance(v, (int, float)) and v == v) for v in
+               [result["price"], result["d1_pct"], result["w1_pct"], result["hi52w_pct"], result["ytd_pct"]])
+    assert all(x == x for x in result["hist_5d"])  # x == x is False for NaN
+
+
+def test_calc_metrics_result_is_actually_json_serializable_without_nan_tokens():
+    # The real-world failure mode: json.dump()'s default allow_nan=True
+    # would happily emit a bare `NaN` token for a leftover NaN value, which
+    # is NOT valid JSON and breaks JSON.parse() for the WHOLE file in the
+    # browser. allow_nan=False turns any surviving NaN into a loud
+    # ValueError here instead of a silent invalid-JSON byte in production.
+    hist = make_close_hist([100.0, float('nan'), 102.0, 103.0, 104.0, 105.0])
+    result = calc_metrics(hist)
+    json.dumps(result, allow_nan=False)  # must not raise
+
+
+def test_calc_metrics_normal_data_unaffected_by_the_dropna_fix():
+    closes = [100.0 + i for i in range(10)]
+    hist = make_close_hist(closes)
+    result = calc_metrics(hist)
+    assert result is not None
+    assert result["price"] == pytest.approx(109.0)
+    assert result["hist_5d"] == [pytest.approx(v) for v in closes[-5:]]
+
+
+def test_calc_metrics_ytd_uses_dropna_close_not_raw_hist():
+    # Regression for the ytd_pct fix: year_start now derives from the
+    # dropna'd `close` series, not the raw `hist` DataFrame -- a NaN row
+    # sitting exactly at the first trading day of the year must not leak
+    # a NaN ytd_start.
+    dates = pd.date_range("2025-12-29", periods=6, freq="B")
+    values = [50.0, float('nan'), 60.0, 61.0, 62.0, 63.0]  # first 2026 row (idx 2) would be NaN pre-fix
+    hist = pd.DataFrame({"Close": pd.Series(values, index=dates)})
+    result = calc_metrics(hist)
+    assert result is not None
+    assert result["ytd_pct"] == result["ytd_pct"]  # not NaN

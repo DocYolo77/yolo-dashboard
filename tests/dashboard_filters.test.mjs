@@ -62,6 +62,14 @@ const ncMomentumTickerListSrc = extractFunction(html, 'ncMomentumTickerList');
 // V6 point 7/11-13: RSP-based Narrative Strength/Thrust headline metrics.
 const ncScoreValueSrc = extractFunction(html, 'ncScoreValue');
 const ncFmtScoreSrc = extractFunction(html, 'ncFmtScore');
+// V6 point 29A: QQQ breadth chart NaN-safety / empty-state fallback.
+const qqqFiniteSeriesSrc = extractFunction(html, 'qqqFiniteSeries');
+const qqqHasEnoughHistorySrc = extractFunction(html, 'qqqHasEnoughHistory');
+const qqqEmptyStateHtmlSrc = extractFunction(html, 'qqqEmptyStateHtml');
+// V6 point 29B: RSP Benchmark chart (cumulative return, client-side timeframe slicing).
+const rsBenchmarkWindowSrc = extractFunction(html, 'rsBenchmarkWindow');
+const rsBenchmarkCumulativeReturnSrc = extractFunction(html, 'rsBenchmarkCumulativeReturn');
+const rsBenchmarkDateLabelSrc = extractFunction(html, 'rsBenchmarkDateLabel');
 const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
@@ -115,6 +123,8 @@ vm.runInContext(
   `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncIsAtrExtendedSrc}\n${ncEmaFilterMembersSrc}\n${ncSortMembersSrc}\n` +
   `${ncMemberOpportunityStateSrc}\n${ncStateFilterMembersSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n` +
   `${ncScoreValueSrc}\n${ncFmtScoreSrc}\n` +
+  `${qqqFiniteSeriesSrc}\n${qqqHasEnoughHistorySrc}\n${qqqEmptyStateHtmlSrc}\n` +
+  `${rsBenchmarkWindowSrc}\n${rsBenchmarkCumulativeReturnSrc}\n${rsBenchmarkDateLabelSrc}\n` +
   `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n${ncJumpToOpportunitiesSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
   `${positionTickerChartTooltipSrc}\n` +
@@ -666,4 +676,73 @@ test('ncFmtScore formats Thrust as a signed float, never clamped, matching the w
 test('ncFmtScore renders missing values as "—" for both Strength and Thrust', () => {
   assert.equal(vm.runInContext('ncFmtScore(v, "strength")', Object.assign(sandbox, { v: null })), '—');
   assert.equal(vm.runInContext('ncFmtScore(v, "thrust")', Object.assign(sandbox, { v: undefined })), '—');
+});
+
+// ── Spec point 29A: QQQ breadth chart NaN-safety / explicit fallback text ──
+
+test('qqqFiniteSeries drops null/undefined/NaN/Infinity, keeps valid numbers', () => {
+  const out = vm.runInContext('qqqFiniteSeries(arr)', Object.assign(sandbox, {
+    arr: [1.5, null, 2.5, undefined, NaN, Infinity, -Infinity, 3.5, 0],
+  }));
+  assert.deepEqual(out, [1.5, 2.5, 3.5, 0]);
+});
+
+test('qqqFiniteSeries returns empty array for a missing/null input (never throws)', () => {
+  // Array.from(...) re-materializes the vm-realm array's contents as a
+  // host-realm array -- vm.runInContext's `return []` literal is built in
+  // the SEPARATE vm realm, so a strict deepEqual against a host-realm []
+  // can spuriously fail on [[Prototype]] identity even with identical
+  // (empty) contents.
+  assert.deepEqual(Array.from(vm.runInContext('qqqFiniteSeries(arr)', Object.assign(sandbox, { arr: null }))), []);
+  assert.deepEqual(Array.from(vm.runInContext('qqqFiniteSeries(arr)', Object.assign(sandbox, { arr: undefined }))), []);
+});
+
+test('qqqHasEnoughHistory requires >=2 valid points by default, ignoring NaN/null noise', () => {
+  assert.equal(vm.runInContext('qqqHasEnoughHistory(arr)', Object.assign(sandbox, { arr: [1, NaN, null] })), false);
+  assert.equal(vm.runInContext('qqqHasEnoughHistory(arr)', Object.assign(sandbox, { arr: [1, 2, NaN] })), true);
+  assert.equal(vm.runInContext('qqqHasEnoughHistory(arr)', Object.assign(sandbox, { arr: null })), false);
+});
+
+test('qqqEmptyStateHtml renders the explicit fallback message, not a blank string', () => {
+  const html = vm.runInContext('qqqEmptyStateHtml(msg)', Object.assign(sandbox, { msg: 'Keine historischen Daten verfügbar.' }));
+  assert.match(html, /Keine historischen Daten verfügbar\./);
+  assert.match(html, /class="qqq-chart-empty"/);
+});
+
+// ── Spec point 29B: RSP Benchmark chart window/cumulative-return logic ──
+
+test('rsBenchmarkWindow takes the last N sessions, real trading days not calendar days', () => {
+  const dates = ['2026-01-01', '2026-01-02', '2026-01-05', '2026-01-06', '2026-01-07'];
+  const close = [100, 101, 102, 103, 104];
+  const out = vm.runInContext('rsBenchmarkWindow(dates, close, 3)', Object.assign(sandbox, { dates, close }));
+  assert.deepEqual(Array.from(out.dates), ['2026-01-05', '2026-01-06', '2026-01-07']);
+  assert.deepEqual(Array.from(out.close), [102, 103, 104]);
+});
+
+test('rsBenchmarkWindow drops non-finite closes before windowing (never passed to the renderer)', () => {
+  const dates = ['2026-01-01', '2026-01-02', '2026-01-05'];
+  const close = [100, null, 102];
+  const out = vm.runInContext('rsBenchmarkWindow(dates, close, 5)', Object.assign(sandbox, { dates, close }));
+  assert.deepEqual(Array.from(out.close), [100, 102]);
+});
+
+test('rsBenchmarkWindow returns null when fewer than 2 valid points survive', () => {
+  const dates = ['2026-01-01'];
+  const close = [100];
+  const out = vm.runInContext('rsBenchmarkWindow(dates, close, 5)', Object.assign(sandbox, { dates, close }));
+  assert.equal(out, null);
+});
+
+test('rsBenchmarkCumulativeReturn starts at exactly 0 and matches (close/start-1)*100', () => {
+  const out = vm.runInContext('rsBenchmarkCumulativeReturn(closeWindow)', Object.assign(sandbox, { closeWindow: [100, 102, 99, 105] }));
+  assert.equal(out[0], 0);
+  assert.equal(out[1], pctClose(102, 100));
+  assert.equal(out[3], pctClose(105, 100));
+
+  function pctClose(v, start) { return (v / start - 1) * 100; }
+});
+
+test('rsBenchmarkDateLabel formats ISO dates as DD.MM. (matches the existing Benchmark date-label convention)', () => {
+  const out = vm.runInContext('rsBenchmarkDateLabel(iso)', Object.assign(sandbox, { iso: '2026-03-07' }));
+  assert.equal(out, '07.03.');
 });

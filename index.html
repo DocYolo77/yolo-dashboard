@@ -246,16 +246,15 @@ html { scroll-behavior: smooth; }
 .benchmark-section { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--card-border); }
 .benchmark-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
 .benchmark-title { font-family: var(--header-font); font-size: 18px; font-weight: 600; }
-.bm-pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
-.bm-pill { font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.3px; padding: 6px 12px; border: 1px solid var(--card-border); background: transparent; color: var(--ink-muted); border-radius: 3px; cursor: pointer; transition: all 0.15s; }
-.bm-pill:hover { color: var(--ink); border-color: var(--ink-muted); }
-.bm-pill.active { background: var(--ink); color: var(--sand); border-color: var(--ink); }
-.benchmark-chart-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px; }
+.benchmark-chart-wrap { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 20px; margin-top: 14px; }
 .bm-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-family: var(--mono-font); font-size: 11px; }
 .bm-legend-item { display: flex; align-items: center; gap: 6px; color: var(--ink-light); }
 .bm-legend-item b { color: var(--ink); font-weight: 500; }
 .bm-swatch { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
 .bm-empty { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); padding: 30px 0; text-align: center; }
+/* Spec point 29A: explicit fallback text for QQQ breadth charts instead of
+   an unexplained empty SVG area when historical data is missing/insufficient. */
+.qqq-chart-empty { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); padding: 30px 0; text-align: center; }
 
 /* EXECUTIVE SUMMARY (Punkt 01 Überblick) */
 .exec-summary { margin-bottom: 28px; }
@@ -806,18 +805,22 @@ html { scroll-behavior: smooth; }
 
     <div class="benchmark-section">
       <div class="benchmark-header">
-        <span class="benchmark-title">Benchmark</span>
-        <span class="section-sub">Relative Stärke ausgewählter Narrative vs. S&amp;P 500</span>
+        <span class="benchmark-title">Benchmark · RSP / S&amp;P 500 Equal Weight</span>
         <span class="nc-info" id="benchmarkInfo" tabindex="0">ⓘ
           <dl class="nc-info-popup">
-            <dt>Relative Stärke</dt>
-            <dd>Kumulierte Basket-Rendite (Median der taeglichen Mitglieder-Renditen, kompoundiert über den Zeitraum) minus kumulierte S&amp;P-500-Rendite über denselben Zeitraum. Die gestrichelte Nulllinie ist der S&amp;P 500 selbst.</dd>
+            <dt>RSP Benchmark</dt>
+            <dd>Kumulierte Kursrendite von RSP (S&amp;P 500 Equal Weight ETF) im gewählten Zeitraum, ab 0% gestartet: (RSP-Kurs / RSP-Kurs zu Periodenbeginn − 1) × 100. Dieselbe kanonische RSP-Preishistorie treibt auch die neue Narrative Strength oben — eine einzige Quelle, keine zweite unabhängige Benchmark-Pipeline. Ersetzt SPY/QQQ vollständig als sichtbaren Benchmark.</dd>
             <dt>Zeitraum</dt>
-            <dd>Die letzten ~10 Handelswochen (50 Handelstage).</dd>
+            <dd>1D = letzter verfügbarer Handelstag (letzte 2 Schlusskurse). 1W = letzte 5 Handelstage. 1M = letzte 21 Handelstage. 1Y = bis zu 252 Handelstage — keine Kalendertag-Interpolation. Timeframe-Wechsel lädt keine neuen Daten nach, nutzt ausschließlich die bereits geladene RSP-Historie.</dd>
           </dl>
         </span>
       </div>
-      <div class="bm-pill-row" id="benchmarkPills"></div>
+      <div class="nc-toggle" id="benchmarkTimeframeToggle">
+        <button class="nc-btn" data-timeframe="1d">1D</button>
+        <button class="nc-btn active" data-timeframe="1w">1W</button>
+        <button class="nc-btn" data-timeframe="1m">1M</button>
+        <button class="nc-btn" data-timeframe="1y">1Y</button>
+      </div>
       <div class="benchmark-chart-wrap">
         <div id="benchmarkChart"></div>
         <div class="bm-legend" id="benchmarkLegend"></div>
@@ -1085,6 +1088,27 @@ function qqqSlice(arr, key) {
   return arr.slice(-r);
 }
 
+// Spec point 29A: no NaN/undefined/null/Infinity value may ever reach the
+// SVG/chart-primitive code below -- drops any non-finite entry rather than
+// passing it through (never fabricates a replacement value either).
+function qqqFiniteSeries(arr) {
+  if (!arr) return [];
+  return arr.filter(v => v !== null && v !== undefined && Number.isFinite(v));
+}
+
+// A chart needs at least 2 real points to draw a line at all (spec point
+// 29A: "ein Chart muss rendern, sobald >=2 valide historische Punkte
+// existieren"); below that, callers show the explicit fallback text
+// instead of an empty/broken SVG.
+function qqqHasEnoughHistory(arr, minPoints) {
+  return qqqFiniteSeries(arr).length >= (minPoints || 2);
+}
+
+function qqqEmptyStateHtml(message) {
+  return `<div class="qqq-chart-empty">${message}</div>`;
+}
+const QQQ_NO_DATA_MESSAGE = 'Keine historischen Daten verfügbar.';
+
 function qqqXAxis(dates, len, xFor, h) {
   if (!dates || !dates.length || len < 2) return '';
   const nTicks = Math.min(6, len);
@@ -1205,11 +1229,17 @@ const qqqNf2 = v => v.toLocaleString('de-DE', { minimumFractionDigits: 2, maximu
 
 function renderMcsi() {
   const q = qqqRaw;
-  if (!q || !q.summation_zscore_history) return;
-  const hist = qqqSlice(q.summation_zscore_history, 'mcsi');
-  const sma = qqqSlice(q.summation_zscore_sma10_history, 'mcsi');
+  const chartEl = document.getElementById('mcsi-chart');
+  if (!chartEl) return;
+  const histRaw = q ? qqqSlice(q.summation_zscore_history, 'mcsi') : null;
+  if (!qqqHasEnoughHistory(histRaw)) {
+    chartEl.innerHTML = qqqEmptyStateHtml(QQQ_NO_DATA_MESSAGE);
+    return;
+  }
+  const hist = qqqFiniteSeries(histRaw);
+  const sma = qqqFiniteSeries(qqqSlice(q.summation_zscore_sma10_history, 'mcsi'));
   const dates = qqqSlice(q.summation_zscore_dates, 'mcsi');
-  document.getElementById('mcsi-chart').innerHTML = sigmaChart([
+  chartEl.innerHTML = sigmaChart([
     { data: hist, color: '#2f7ed8', width: 2 },
     { data: sma, color: '#d4a017', width: 1.3, dash: '3,2' },
   ], 760, 190, dates);
@@ -1221,10 +1251,16 @@ function renderMcsi() {
 
 function renderMco() {
   const q = qqqRaw;
-  if (!q || !q.mco_zscore_history) return;
-  const hist = qqqSlice(q.mco_zscore_history, 'mco');
+  const chartEl = document.getElementById('mco-chart');
+  if (!chartEl) return;
+  const histRaw = q ? qqqSlice(q.mco_zscore_history, 'mco') : null;
+  if (!qqqHasEnoughHistory(histRaw)) {
+    chartEl.innerHTML = qqqEmptyStateHtml(QQQ_NO_DATA_MESSAGE);
+    return;
+  }
+  const hist = qqqFiniteSeries(histRaw);
   const dates = qqqSlice(q.mco_zscore_dates, 'mco');
-  document.getElementById('mco-chart').innerHTML = sigmaChart([
+  chartEl.innerHTML = sigmaChart([
     { data: hist, color: '#9a9aa2', width: 1.6 },
   ], 760, 190, dates);
   const el = document.getElementById('mco-val');
@@ -1241,14 +1277,21 @@ const KMA_DEFS = [
 
 function renderKma() {
   const q = qqqRaw;
-  if (!q || !q.kma_history) return;
-  const dates = qqqSlice(q.kma_dates, 'kma');
-  const series = KMA_DEFS
+  const chartEl = document.getElementById('kma-chart');
+  if (!chartEl) return;
+  const dates = q ? qqqSlice(q.kma_dates, 'kma') : null;
+  const series = (q && q.kma_history) ? KMA_DEFS
     .filter(d => kmaVisible[d.key] && q.kma_history[d.key])
-    .map(d => ({ data: qqqSlice(q.kma_history[d.key], 'kma'), color: d.color }));
-  document.getElementById('kma-chart').innerHTML = kmaChart(series, 900, 230, dates);
+    .map(d => ({ data: qqqFiniteSeries(qqqSlice(q.kma_history[d.key], 'kma')), color: d.color })) : [];
+  // At least one VISIBLE series must have >=2 real points, or the fallback
+  // text shows instead of an unexplained empty chart (spec point 29A).
+  if (!series.some(s => s.data.length >= 2)) {
+    chartEl.innerHTML = qqqEmptyStateHtml(QQQ_NO_DATA_MESSAGE);
+  } else {
+    chartEl.innerHTML = kmaChart(series, 900, 230, dates);
+  }
   const legend = document.getElementById('kma-legend');
-  if (legend && q.kma_now) {
+  if (legend && q && q.kma_now) {
     legend.innerHTML = KMA_DEFS.filter(d => q.kma_now[d.key] !== undefined).map(d => {
       const on = kmaVisible[d.key];
       return `<span class="kma-legend-item${on ? '' : ' off'}" style="--kma-color:${d.color};" onclick="toggleKmaSeries('${d.key}')">${d.label} <b>${qqqNf2(q.kma_now[d.key])}</b></span>`;
@@ -1259,13 +1302,21 @@ function renderKma() {
 function renderHl() {
   const q = qqqRaw;
   const hlCard = document.getElementById('hlosc-card');
-  if (!hlCard || !q || !q.hl_history) return;
-  const v = hlCard.querySelector('.bc-value');
-  v.textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + '  (' + q.new_highs + 'H / ' + q.new_lows + 'L)';
-  v.style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
-  const hist = qqqSlice(q.hl_history, 'hl');
+  const chartEl = document.getElementById('hlosc-chart');
+  if (!hlCard || !chartEl || !q) return;
+  if (q.hl_osc !== undefined) {
+    const v = hlCard.querySelector('.bc-value');
+    v.textContent = (q.hl_osc >= 0 ? '+' : '') + q.hl_osc + '  (' + q.new_highs + 'H / ' + q.new_lows + 'L)';
+    v.style.color = q.hl_osc >= 0 ? 'var(--positive)' : 'var(--negative)';
+  }
+  const histRaw = qqqSlice(q.hl_history, 'hl');
+  if (!qqqHasEnoughHistory(histRaw)) {
+    chartEl.innerHTML = qqqEmptyStateHtml(QQQ_NO_DATA_MESSAGE);
+    return;
+  }
+  const hist = qqqFiniteSeries(histRaw);
   const dates = qqqSlice(q.hl_dates, 'hl');
-  document.getElementById('hlosc-chart').innerHTML = hlBarChart(hist, 760, 150, dates);
+  chartEl.innerHTML = hlBarChart(hist, 760, 150, dates);
 }
 
 function setQqqRange(key, range, btn) {
@@ -1863,8 +1914,15 @@ let ncStrengthWindow = '1w'; // V6 point 7/11: RSP Strength timeframe (1W/1M/3M/
 let ncExpandedId = null;
 let ncMemberSort = { field: 'd1_pct', dir: 'desc' };
 let ncEmaFilter = 'all'; // 'all' | 'ema10' | 'ema20' | 'either'
-let ncBenchmarkSelected = new Set(); // Narrative-IDs im Benchmark-Vergleichschart
-const BENCHMARK_COLORS = ['#2f7ed8', '#3ddc73', '#d4a017', '#d6407f', '#9b7fc9', '#e2925c', '#4fd6d2', '#f0605c'];
+// V6 point 29B: single dedicated RSP cumulative-return Benchmark chart —
+// replaces the old multi-narrative-vs-SPY pill comparison entirely (that
+// feature's rs_history data source is still computed backend-side, now
+// against RSP instead of SPY, but the frontend no longer renders it as
+// the "Benchmark" card -- exactly one canonical RSP data source
+// (benchmark_rsp) drives this chart, spec point 29B/29C).
+let ncBenchmarkTimeframe = '1w'; // '1d' | '1w' | '1m' | '1y'
+const BENCHMARK_RSP_COLOR = '#2f7ed8';
+const BENCHMARK_RSP_WINDOW_SESSIONS = { '1d': 2, '1w': 5, '1m': 21, '1y': 252 };
 
 // Fallback-Defaults, falls config/narrative_engine.json (noch) nicht geladen
 // werden konnte — Werte werden von dort ueberschrieben (Punkt 21: "Die 4-%-
@@ -1933,16 +1991,6 @@ async function loadNarratives() {
       meta.textContent = `${narrativesRaw.meta.universe_size} Ticker · ${narrativesRaw.narratives.length} Narrative · Stand ${dtStr}`;
     }
     renderNarrativeGrid();
-
-    // Default-Auswahl: das aktuell (1W Strength) fuehrende Narrative, damit
-    // der Benchmark-Chart beim ersten Laden nicht leer ist — bleibt danach
-    // vollstaendig manuell ueber die Pills steuerbar.
-    if (narrativesRaw.rs_history && ncBenchmarkSelected.size === 0) {
-      const top = narrativesRaw.narratives.slice()
-        .sort((a, b) => (ncScoreValue(b, 'strength', '1w') ?? -999) - (ncScoreValue(a, 'strength', '1w') ?? -999))[0];
-      if (top && narrativesRaw.rs_history.narratives[top.id]) ncBenchmarkSelected.add(top.id);
-    }
-    renderBenchmarkPills();
     renderBenchmarkChart();
     populateOppNarrativeFilter();
     if (dashboardState) oppRender();  // narrative names weren't available yet if this loaded first
@@ -2139,43 +2187,51 @@ function ncCopyMomentumTickers(btn) {
   }).catch(e => console.log('Clipboard-Fehler:', e));
 }
 
-// ── BENCHMARK (Untersektion): Multi-Select-Narrative vs. S&P 500 ──
-// Datenquelle: narrativesRaw.rs_history (siehe build_narratives.py
-// compute_narrative_rs_history) — geteiltes "dates"-Array + pro Narrative
-// eine relative-Staerke-Zeitreihe in Prozentpunkten ggue. SPY, SPY selbst
-// ist implizit die 0%-Linie.
+// ── BENCHMARK (Untersektion): RSP kumulierte Rendite (V6 point 29B) ──
+// Datenquelle: narrativesRaw.benchmark_rsp (siehe build_narratives.py
+// build_benchmark_rsp_series) — dieselbe kanonische RSP-Preis-Serie, die
+// auch die neue Narrative Strength oben antreibt (EINE Quelle, point 29B).
+// Timeframe-Wechsel arbeitet ausschliesslich auf dieser bereits im Browser
+// vorhandenen Serie -- kein erneuter fetch.
 
-function renderBenchmarkPills() {
-  const el = document.getElementById('benchmarkPills');
-  if (!el || !narrativesRaw) return;
-  const hasHistory = id => narrativesRaw.rs_history && narrativesRaw.rs_history.narratives[id];
-  el.innerHTML = narrativesRaw.narratives.map(n => {
-    const active = ncBenchmarkSelected.has(n.id);
-    const disabled = !hasHistory(n.id);
-    return `<button class="bm-pill${active ? ' active' : ''}" ${disabled ? 'disabled title="Keine Benchmark-Historie fuer dieses Narrative"' : ''} onclick="ncToggleBenchmark('${n.id}')">${active ? '✓ ' : ''}${n.name}</button>`;
-  }).join('');
+// Letzte `sessions` Handelstage aus der (zeitsortierten) RSP-Serie, nie
+// kalendertagbasiert. Gibt null zurueck, wenn weniger als 2 Punkte
+// verfuegbar sind (zu wenig fuer eine sinnvolle Kurve). NaN/undefined-
+// Punkte werden entfernt, bevor irgendetwas den Renderer erreicht.
+function rsBenchmarkWindow(dates, close, sessions) {
+  const pairs = [];
+  for (let i = 0; i < dates.length; i++) {
+    const v = close[i];
+    if (v !== null && v !== undefined && Number.isFinite(v)) pairs.push([dates[i], v]);
+  }
+  const windowed = pairs.slice(-sessions);
+  if (windowed.length < 2) return null;
+  return { dates: windowed.map(p => p[0]), close: windowed.map(p => p[1]) };
 }
 
-function ncToggleBenchmark(id) {
-  if (ncBenchmarkSelected.has(id)) ncBenchmarkSelected.delete(id);
-  else ncBenchmarkSelected.add(id);
-  renderBenchmarkPills();
-  renderBenchmarkChart();
+// cumulative_return_t = (close_t / close_start - 1) * 100 -- first point is
+// always exactly 0 by construction (spec point 29B).
+function rsBenchmarkCumulativeReturn(closeWindow) {
+  const start = closeWindow[0];
+  return closeWindow.map(v => (v / start - 1) * 100);
 }
 
-// Liniendiagramm im selben handgerollten SVG-Stil wie die QQQ-Charts —
-// nutzt das dort definierte qqqXAxis() fuer die Datumsbeschriftung wieder
-// (bereits generisch: nimmt dates/xFor/h als Parameter, nichts QQQ-Spezifisches).
-function benchmarkLineChart(seriesList, dates, w, h) {
+function rsBenchmarkDateLabel(isoDate) {
+  // "YYYY-MM-DD" -> "DD.MM." -- same short display format
+  // compute_narrative_rs_history already used for its dates array.
+  return `${isoDate.slice(8, 10)}.${isoDate.slice(5, 7)}.`;
+}
+
+// Single-series line chart in the same hand-rolled SVG style as the QQQ
+// charts -- reuses qqqXAxis() for date labelling (already generic).
+function benchmarkRspChart(dates, cumReturns, w, h) {
   const padL = 34, padR = 10, padBottom = 14;
   const inner = w - padL - padR;
   const plotH = h - padBottom;
   const len = dates.length;
   if (len < 2) return '';
 
-  let allVals = [0];
-  seriesList.forEach(s => s.data.forEach(v => { if (v !== null && v !== undefined && !Number.isNaN(v)) allVals.push(v); }));
-  const maxAbs = Math.max(...allVals.map(Math.abs), 1) * 1.15;
+  const maxAbs = Math.max(...cumReturns.map(Math.abs), 0.5) * 1.15;
   const yFor = v => plotH / 2 - (v / maxAbs) * (plotH / 2 - 8);
   const xFor = (i, l) => padL + (i / (l - 1)) * inner;
 
@@ -2186,26 +2242,12 @@ function benchmarkLineChart(seriesList, dates, w, h) {
     const y = yFor(v).toFixed(1);
     const isZero = i === 0;
     svg += `<line x1="${padL}" y1="${y}" x2="${padL + inner}" y2="${y}" stroke="${isZero ? 'var(--ink-muted)' : 'var(--card-border)'}" stroke-width="${isZero ? 1 : 0.6}" ${isZero ? 'stroke-dasharray="4,3"' : ''} opacity="${isZero ? 0.6 : 0.5}"/>`;
-    svg += `<text x="${padL - 5}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">${v >= 0 ? '+' : ''}${v.toFixed(0)}%</text>`;
+    svg += `<text x="${padL - 5}" y="${(+y + 3).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">${v >= 0 ? '+' : ''}${v.toFixed(1)}%</text>`;
   }
-  svg += `<text x="${padL + inner}" y="${(+yFor(0) - 4).toFixed(1)}" font-size="8" fill="var(--ink-muted)" font-family="monospace" text-anchor="end">S&amp;P 500</text>`;
 
-  seriesList.forEach(s => {
-    const segs = [];
-    let cur = [];
-    s.data.forEach((v, i) => {
-      if (v === null || v === undefined || Number.isNaN(v)) {
-        if (cur.length) { segs.push(cur); cur = []; }
-        return;
-      }
-      cur.push(`${xFor(i, len).toFixed(1)},${yFor(v).toFixed(1)}`);
-    });
-    if (cur.length) segs.push(cur);
-    segs.forEach(seg => {
-      svg += `<polyline points="${seg.join(' ')}" fill="none" stroke="${s.color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
-    });
-  });
-  svg += qqqXAxis(dates, len, xFor, h);
+  const points = cumReturns.map((v, i) => `${xFor(i, len).toFixed(1)},${yFor(v).toFixed(1)}`);
+  svg += `<polyline points="${points.join(' ')}" fill="none" stroke="${BENCHMARK_RSP_COLOR}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`;
+  svg += qqqXAxis(dates.map(rsBenchmarkDateLabel), len, xFor, h);
   svg += `</svg>`;
   return svg;
 }
@@ -2214,26 +2256,24 @@ function renderBenchmarkChart() {
   const chartEl = document.getElementById('benchmarkChart');
   const legendEl = document.getElementById('benchmarkLegend');
   if (!chartEl || !legendEl || !narrativesRaw) return;
-  const rs = narrativesRaw.rs_history;
-  if (!rs) {
-    chartEl.innerHTML = '<div class="bm-empty">Keine Benchmark-Historie verfügbar.</div>';
+  const bm = narrativesRaw.benchmark_rsp;
+  if (!bm || !bm.dates || !bm.dates.length) {
+    chartEl.innerHTML = '<div class="bm-empty">Keine historischen Daten verfügbar.</div>';
     legendEl.innerHTML = '';
     return;
   }
-  const selected = Array.from(ncBenchmarkSelected).filter(id => rs.narratives[id]);
-  if (!selected.length) {
-    chartEl.innerHTML = '<div class="bm-empty">Narrative oben auswählen, um die relative Stärke ggü. dem S&amp;P 500 zu vergleichen.</div>';
+  const sessions = BENCHMARK_RSP_WINDOW_SESSIONS[ncBenchmarkTimeframe];
+  const windowed = rsBenchmarkWindow(bm.dates, bm.close, sessions);
+  if (!windowed) {
+    chartEl.innerHTML = '<div class="bm-empty">Keine historischen Daten verfügbar.</div>';
     legendEl.innerHTML = '';
     return;
   }
-  const seriesList = selected.map((id, i) => ({ id, color: BENCHMARK_COLORS[i % BENCHMARK_COLORS.length], data: rs.narratives[id] }));
-  chartEl.innerHTML = benchmarkLineChart(seriesList, rs.dates, 900, 260);
-  legendEl.innerHTML = seriesList.map(s => {
-    const n = narrativesRaw.narratives.find(x => x.id === s.id);
-    const last = s.data[s.data.length - 1];
-    const lastStr = (last === null || last === undefined) ? '—' : `${last >= 0 ? '+' : ''}${last.toFixed(1)}%`;
-    return `<span class="bm-legend-item"><span class="bm-swatch" style="background:${s.color};"></span>${n ? n.name : s.id} <b>${lastStr}</b></span>`;
-  }).join('');
+  const cumReturns = rsBenchmarkCumulativeReturn(windowed.close);
+  chartEl.innerHTML = benchmarkRspChart(windowed.dates, cumReturns, 900, 260);
+  const last = cumReturns[cumReturns.length - 1];
+  const lastStr = `${last >= 0 ? '+' : ''}${last.toFixed(2)}%`;
+  legendEl.innerHTML = `<span class="bm-legend-item"><span class="bm-swatch" style="background:${BENCHMARK_RSP_COLOR};"></span>RSP (${ncBenchmarkTimeframe.toUpperCase()}) <b class="${last >= 0 ? 'pos' : 'neg'}">${lastStr}</b></span>`;
 }
 
 function renderNarrativeGrid() {
@@ -2348,6 +2388,15 @@ document.getElementById('strengthWindowToggle').addEventListener('click', (e) =>
   ncStrengthWindow = btn.dataset.window;
   document.querySelectorAll('#strengthWindowToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
   renderNarrativeGrid();
+});
+// V6 point 29B: timeframe switch re-slices the already-loaded RSP series
+// client-side only -- never triggers a fetch.
+document.getElementById('benchmarkTimeframeToggle').addEventListener('click', (e) => {
+  const btn = e.target.closest('.nc-btn');
+  if (!btn) return;
+  ncBenchmarkTimeframe = btn.dataset.timeframe;
+  document.querySelectorAll('#benchmarkTimeframeToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
+  renderBenchmarkChart();
 });
 
 loadEngineConfig().then(loadNarratives);
