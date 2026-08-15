@@ -42,6 +42,17 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # V6: node --test tests/*.test.mjs (dashboard_filters.test.mjs) exercises
+      # the ACTUAL frontend logic extracted straight out of index.html (EMA/
+      # Opportunities/Narrative-Strength/Screener/Benchmark-chart functions,
+      # see that file's own header comment) -- was previously only run
+      # locally; wired into CI here so a frontend regression fails the build
+      # the same way a backend one already does.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
       # New-York-Time Guard (Punkt 18): GitHub Actions cron kennt keine DST-
       # Zeitzonen, daher laufen beide UTC-Cron-Eintraege ganzjaehrig — dieser
       # Step laesst den restlichen Build NUR durch, wenn die lokale Zeit in
@@ -159,6 +170,11 @@ jobs:
         if: steps.tzguard.outputs.should_run == 'true'
         timeout-minutes: 5
         run: pip install -r requirements-dev.txt && python -m pytest tests/ -q
+
+      - name: Sanity-check frontend JS logic (node --test)
+        if: steps.tzguard.outputs.should_run == 'true'
+        timeout-minutes: 5
+        run: node --test tests/*.test.mjs
 
       - name: Save price-history cache
         if: steps.tzguard.outputs.should_run == 'true' && always()
