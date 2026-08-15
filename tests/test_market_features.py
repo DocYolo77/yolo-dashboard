@@ -718,3 +718,55 @@ def test_fetch_grouped_history_skips_backfill_when_ticker_already_in_cache(tmp_p
     close_df, _, _, _ = fetch_grouped_history_full_market_cached(
         {"RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
     assert close_df["RSP"].notna().all()
+
+
+def test_fetch_grouped_history_backfills_a_ticker_already_present_but_stranded_sparse(tmp_path, monkeypatch):
+    """Regression test for the real production bug: a ticker can already be a
+    key in cached_tickers (added to per_ticker_close by a run that predates
+    this backfill feature) while its "close" series is almost entirely None
+    -- e.g. RSP had exactly 2 real days out of a 260-day-deep cache after its
+    first-ever run, because it was simply new to the shared price cache and
+    the old incremental walk only ever appends one day forward per run.
+    `ticker in cached_tickers` alone must NOT be treated as "already fully
+    backfilled" -- coverage must be compared against the cache's own date
+    depth, or a previously-stranded ticker silently stays stranded forever
+    even with backfill_tickers set (this is exactly what shipped and was
+    caught against real production data)."""
+    cache_path = tmp_path / "market_history.json"
+    today = _dt.now(_tz.utc).date()
+    trading_days = [(today - pd.Timedelta(days=i)).isoformat() for i in range(4, -1, -1)]  # 5 days ending today
+
+    # RSP is a key in cached_tickers, but only the last 2 of 5 days are real
+    # -- exactly the shape a pre-backfill run would have left behind.
+    sparse_close = {d: None for d in trading_days}
+    sparse_close[trading_days[-2]] = 222.73
+    sparse_close[trading_days[-1]] = 222.77
+    save_price_cache(
+        cache_path, trading_days,
+        {"AAPL": {d: 150.0 + i for i, d in enumerate(trading_days)}, "RSP": sparse_close},
+        {"AAPL": {d: 151.0 for d in trading_days}, "RSP": sparse_close},
+        {"AAPL": {d: 149.0 for d in trading_days}, "RSP": sparse_close},
+        {"AAPL": {d: 150.0 for d in trading_days}, "RSP": sparse_close},
+        {"AAPL", "RSP"},
+    )
+
+    range_calls = []
+
+    def fake_massive_get(path, params=None, retries=3):
+        if path.startswith("/v2/aggs/ticker/"):
+            range_calls.append(path)
+            return {"results": [
+                {"t": int(_dt.fromisoformat(d).replace(tzinfo=_tz.utc).timestamp() * 1000),
+                 "o": 200.0, "h": 201.0, "l": 199.0, "c": 200.0 + i}
+                for i, d in enumerate(trading_days)
+            ]}
+        raise AssertionError(f"unexpected grouped-daily call: {path}")
+
+    monkeypatch.setattr(build_market_features, "massive_get", fake_massive_get)
+
+    close_df, _, _, _ = fetch_grouped_history_full_market_cached(
+        {"AAPL", "RSP"}, cache_path, target_days=260, backfill_tickers={"RSP"})
+
+    assert range_calls == [f"/v2/aggs/ticker/RSP/range/1/day/{trading_days[0]}/{trading_days[-1]}"]
+    assert close_df["RSP"].notna().all()
+    assert close_df["RSP"].iloc[-1] == pytest.approx(200.0 + len(trading_days) - 1)

@@ -303,10 +303,22 @@ def fetch_grouped_history_full_market_cached(universe_set, cache_path, target_da
               f"({n_missing} neue Ticker im Universe noch nicht im Cache)")
 
         for ticker in (backfill_tickers or ()):
-            if ticker in cached_tickers or ticker not in universe_set or not cached_dates:
-                continue  # already has cache history, or not requested this run -> normal incremental path
-            print(f"  📈 {ticker} neu im Preis-Cache, Cache deckt aber bereits {len(cached_dates)} "
-                  f"Handelstage ab — einmaliger Backfill via Einzel-Ticker-Range-Call "
+            if ticker not in universe_set or not cached_dates:
+                continue  # not requested this run -> normal incremental path
+            # Presence alone isn't enough: a ticker can already be a key in
+            # cached_tickers while its "close" series is almost entirely
+            # None (e.g. RSP was auto-added to per_ticker_close by a run
+            # BEFORE this backfill existed, so it "has cache history" in
+            # name only -- 2 real days out of 260 slots). Compare actual
+            # non-null coverage against the cache's own date depth instead
+            # of just checking dict membership, so a previously-stranded
+            # ticker still gets backfilled exactly once.
+            existing_close = cached_tickers.get(ticker, {}).get("close", [])
+            existing_count = sum(1 for v in existing_close if v is not None)
+            if existing_count >= len(cached_dates):
+                continue  # already fully covers the cache's date range -> normal incremental path
+            print(f"  📈 {ticker} hat nur {existing_count}/{len(cached_dates)} Handelstage im Preis-Cache "
+                  f"— einmaliger Backfill via Einzel-Ticker-Range-Call "
                   f"({cached_dates[0]}..{cached_dates[-1]})")
             backfilled = fetch_ticker_range_backfill(ticker, cached_dates[0], cached_dates[-1])
             per_ticker_close.setdefault(ticker, {})
