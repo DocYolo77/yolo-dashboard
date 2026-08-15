@@ -353,6 +353,15 @@ html { scroll-behavior: smooth; }
 .opp-load-more-row td { text-align: center; padding: 14px 0; }
 .opp-load-more-btn { font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.5px; padding: 8px 20px; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--ink); border-radius: 3px; cursor: pointer; transition: all 0.15s; }
 .opp-load-more-btn:hover { border-color: var(--ink-muted); }
+
+/* ── Screener (06) — V6 point 19-27: fixed, config-driven presets ── */
+.screener-preset { border: 1px solid var(--card-border); border-radius: 4px; padding: 20px 22px; margin-bottom: 20px; background: var(--card-bg); }
+.screener-preset-header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.screener-preset-name { font-family: var(--header-font); font-size: 18px; font-weight: 600; }
+.screener-preset-count { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); }
+.screener-preset-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.screener-tag { font-family: var(--mono-font); font-size: 10px; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 2px; background: rgba(255,255,255,0.06); color: var(--ink-light); }
+.screener-actions { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
 .opp-badges { display: flex; gap: 4px; flex-wrap: wrap; }
 .opp-badge { font-family: var(--mono-font); font-size: 8.5px; letter-spacing: 0.3px; padding: 2px 6px; border-radius: 2px; white-space: nowrap; }
 .opp-badge.fresh { background: rgba(61,220,115,0.18); color: var(--positive); }
@@ -2398,6 +2407,164 @@ document.getElementById('benchmarkTimeframeToggle').addEventListener('click', (e
   document.querySelectorAll('#benchmarkTimeframeToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
   renderBenchmarkChart();
 });
+
+// ══════════════════════════════════════════════
+// SCREENER (06) — V6 point 19-27: fixed, config-driven presets only, no
+// free/universal screener. Reads data/screeners.json (built by
+// scripts/build_screeners.py from the already-final-filtered eligible
+// universe -- no client-side re-filtering, no Massive API calls, no API
+// key anywhere near this code). V1 has exactly one preset (weekly_strength)
+// but this renderer stays generic over whatever presets the JSON contains.
+// ══════════════════════════════════════════════
+let screenersRaw = null;
+const screenerTableOpen = {};   // presetId -> bool, collapsed by default (spec point 25, same UX as Opportunities point 4)
+const screenerRenderLimit = {}; // presetId -> current windowed row count
+
+// Human-readable filter tags per preset — the JSON payload deliberately
+// doesn't duplicate the rule definitions (point 23), so this is presentation
+// metadata only, not a second source of truth for the actual filter logic
+// (that lives exclusively in config/narrative_engine.json + build_screeners.py).
+// "YOLO RS 1W ≥ 85" is the spec's own required exact label (point 21) --
+// never phrased in a way that could be confused with Narrative Strength vs RSP.
+const SCREENER_PRESET_TAGS = {
+  weekly_strength: ['YOLO RS 1W ≥ 85', 'Price > SMA50', 'EMA10 oder EMA21 innerhalb ±5%'],
+};
+
+function screenerPresetTagsHtml(presetId) {
+  const tags = SCREENER_PRESET_TAGS[presetId] || [];
+  return tags.map(t => `<span class="screener-tag">${t}</span>`).join('');
+}
+
+// Filename slug per spec point 26's exact example: "weekly-strength-YYYY-MM-DD-tradingview.txt".
+function screenerFilenameSlug(presetId) {
+  return presetId.replace(/_/g, '-');
+}
+
+function screenerTradingViewTxtContent(tickers) {
+  // Never silently mis-prefixes an unmapped MIC -- tradingview_symbol is
+  // already null for those (build_screeners.py's audited mapping), so they
+  // are simply excluded from the TXT content here, not guessed.
+  return tickers.map(t => t.tradingview_symbol).filter(Boolean).join(',');
+}
+
+function screenerCopyTickers(presetId, btn) {
+  const preset = screenersRaw && screenersRaw.screeners[presetId];
+  if (!preset) return;
+  const symbols = preset.tickers.map(t => t.symbol);
+  navigator.clipboard.writeText(symbols.join(',')).then(() => {
+    if (btn) {
+      const original = btn.textContent;
+      btn.textContent = `Kopiert (${symbols.length})`;
+      setTimeout(() => { btn.textContent = original; }, 1500);
+    }
+  }).catch(e => console.log('Clipboard-Fehler:', e));
+}
+
+function screenerDownloadTradingViewTxt(presetId) {
+  const preset = screenersRaw && screenersRaw.screeners[presetId];
+  if (!preset) return;
+  const content = screenerTradingViewTxtContent(preset.tickers);
+  const asOfDate = (screenersRaw.meta && screenersRaw.meta.as_of_date) || new Date().toISOString().slice(0, 10);
+  const filename = `${screenerFilenameSlug(presetId)}-${asOfDate}-tradingview.txt`;
+  // Spec point 26: purely a manual client-side file export -- no automatic
+  // TradingView watchlist manipulation via scraping or credentials anywhere.
+  const blob = new Blob([content], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function screenerToggleTable(presetId) {
+  screenerTableOpen[presetId] = !screenerTableOpen[presetId];
+  renderScreeners();
+}
+
+function screenerShowMore(presetId) {
+  screenerRenderLimit[presetId] = (screenerRenderLimit[presetId] || 50) + 50;
+  renderScreeners({ keepLimit: true });
+}
+
+function screenerFmtNum(v, decimals) { return v == null ? '—' : v.toFixed(decimals); }
+function screenerFmtPctSigned(v) { return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
+
+function screenerPresetHtml(presetId, preset, opts) {
+  const keepLimit = opts && opts.keepLimit;
+  if (!keepLimit) screenerRenderLimit[presetId] = 50;
+  const isOpen = !!screenerTableOpen[presetId];
+  const tickers = preset.tickers; // already sorted server-side (point 24) -- no frontend re-sort/re-filter
+  const limit = screenerRenderLimit[presetId] || 50;
+  const windowed = isOpen ? tickers.slice(0, limit) : [];
+
+  const rows = windowed.map(t => `
+    <tr>
+      <td><b data-ticker="${t.symbol}">${t.symbol}</b></td>
+      <td class="muted">${screenerFmtNum(t.rs_percentile_1w, 1)}</td>
+      <td class="muted">${screenerFmtNum(t.structural_rs, 1)}</td>
+      <td class="muted">${screenerFmtNum(t.adr20, 1)}</td>
+      <td class="muted">${screenerFmtPctSigned(t.sma50_distance_pct)}</td>
+      <td class="muted">${screenerFmtPctSigned(t.ema10_distance_pct)}</td>
+      <td class="muted">${screenerFmtPctSigned(t.ema21_distance_pct)}</td>
+    </tr>`).join('');
+  const loadMoreHtml = (isOpen && tickers.length > windowed.length) ? `
+    <tr class="opp-load-more-row"><td colspan="7">
+      <button class="opp-load-more-btn" onclick="screenerShowMore('${presetId}')">Weitere ${Math.min(50, tickers.length - windowed.length)} anzeigen (${windowed.length}/${tickers.length})</button>
+    </td></tr>` : '';
+  const tableBodyHtml = rows || (isOpen ? `<tr><td colspan="7" class="narrative-empty">Keine Treffer.</td></tr>` : '');
+
+  return `<div class="screener-preset">
+    <div class="screener-preset-header">
+      <span class="screener-preset-name">${preset.name}</span>
+      <span class="screener-preset-count">${preset.count} Treffer</span>
+    </div>
+    <div class="screener-preset-tags">${screenerPresetTagsHtml(presetId)}</div>
+    <div class="screener-actions">
+      <button class="nd-copy-btn" onclick="screenerCopyTickers('${presetId}', this)">Ticker kopieren</button>
+      <button class="nd-copy-btn" onclick="screenerDownloadTradingViewTxt('${presetId}')">TradingView TXT</button>
+    </div>
+    <button class="table-toggle${isOpen ? ' open' : ''}" onclick="screenerToggleTable('${presetId}')">
+      <span class="chevron">▸</span> ${preset.count} Ticker ${isOpen ? 'ausblenden' : 'anzeigen'}
+    </button>
+    <div class="opp-table-wrap" style="${isOpen ? '' : 'display:none;'}">
+      <table class="member-table opp-table">
+        <thead><tr>
+          <th>Ticker</th><th>YOLO RS 1W</th><th>Structural RS</th><th>ADR20</th>
+          <th>vs SMA50</th><th>vs EMA10</th><th>vs EMA21</th>
+        </tr></thead>
+        <tbody>${tableBodyHtml}${loadMoreHtml}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+function renderScreeners(opts) {
+  const el = document.getElementById('screenerContainer');
+  if (!el || !screenersRaw) return;
+  const ids = Object.keys(screenersRaw.screeners || {});
+  if (!ids.length) {
+    el.innerHTML = '<div class="narrative-empty">Keine Screener-Ergebnisse verfügbar.</div>';
+    return;
+  }
+  el.innerHTML = ids.map(id => screenerPresetHtml(id, screenersRaw.screeners[id], opts)).join('');
+}
+
+async function loadScreeners() {
+  try {
+    const r = await fetch('data/screeners.json');
+    if (!r.ok) { console.log('screeners.json nicht gefunden.'); return; }
+    screenersRaw = await r.json();
+    renderScreeners();
+  } catch (e) {
+    console.log('Screener-Daten konnten nicht geladen werden:', e);
+    const el = document.getElementById('screenerContainer');
+    if (el) el.innerHTML = '<div class="narrative-empty">Keine Screener-Daten verfügbar.</div>';
+  }
+}
+loadScreeners();
 
 loadEngineConfig().then(loadNarratives);
 

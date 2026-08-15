@@ -70,6 +70,9 @@ const qqqEmptyStateHtmlSrc = extractFunction(html, 'qqqEmptyStateHtml');
 const rsBenchmarkWindowSrc = extractFunction(html, 'rsBenchmarkWindow');
 const rsBenchmarkCumulativeReturnSrc = extractFunction(html, 'rsBenchmarkCumulativeReturn');
 const rsBenchmarkDateLabelSrc = extractFunction(html, 'rsBenchmarkDateLabel');
+// V6 point 19-27: Screener (06) — TradingView export + filename.
+const screenerTradingViewTxtContentSrc = extractFunction(html, 'screenerTradingViewTxtContent');
+const screenerFilenameSlugSrc = extractFunction(html, 'screenerFilenameSlug');
 const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
@@ -125,6 +128,7 @@ vm.runInContext(
   `${ncScoreValueSrc}\n${ncFmtScoreSrc}\n` +
   `${qqqFiniteSeriesSrc}\n${qqqHasEnoughHistorySrc}\n${qqqEmptyStateHtmlSrc}\n` +
   `${rsBenchmarkWindowSrc}\n${rsBenchmarkCumulativeReturnSrc}\n${rsBenchmarkDateLabelSrc}\n` +
+  `${screenerTradingViewTxtContentSrc}\n${screenerFilenameSlugSrc}\n` +
   `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n${ncJumpToOpportunitiesSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
   `${positionTickerChartTooltipSrc}\n` +
@@ -745,4 +749,44 @@ test('rsBenchmarkCumulativeReturn starts at exactly 0 and matches (close/start-1
 test('rsBenchmarkDateLabel formats ISO dates as DD.MM. (matches the existing Benchmark date-label convention)', () => {
   const out = vm.runInContext('rsBenchmarkDateLabel(iso)', Object.assign(sandbox, { iso: '2026-03-07' }));
   assert.equal(out, '07.03.');
+});
+
+// ── Spec point 26: Screener TradingView export — known MIC -> prefix, ──
+// unknown MIC never silently mis-prefixed, exact filename format ──
+
+test('screenerTradingViewTxtContent joins known tradingview_symbol values with commas', () => {
+  const tickers = [
+    { symbol: 'AAPL', tradingview_symbol: 'NASDAQ:AAPL' },
+    { symbol: 'DELL', tradingview_symbol: 'NYSE:DELL' },
+  ];
+  const out = vm.runInContext('screenerTradingViewTxtContent(tickers)', Object.assign(sandbox, { tickers }));
+  assert.equal(out, 'NASDAQ:AAPL,NYSE:DELL');
+});
+
+test('screenerTradingViewTxtContent excludes tickers with an unmapped MIC (null tradingview_symbol) instead of mis-prefixing them', () => {
+  const tickers = [
+    { symbol: 'AAPL', tradingview_symbol: 'NASDAQ:AAPL' },
+    { symbol: 'UNKNOWN', tradingview_symbol: null },
+    { symbol: 'DELL', tradingview_symbol: 'NYSE:DELL' },
+  ];
+  const out = vm.runInContext('screenerTradingViewTxtContent(tickers)', Object.assign(sandbox, { tickers }));
+  assert.equal(out, 'NASDAQ:AAPL,NYSE:DELL');
+  assert.doesNotMatch(out, /UNKNOWN/);
+});
+
+test('screenerTradingViewTxtContent only includes tickers from the current screener hits (whatever list it is given)', () => {
+  const tickers = [{ symbol: 'ONE', tradingview_symbol: 'NYSE:ONE' }];
+  const out = vm.runInContext('screenerTradingViewTxtContent(tickers)', Object.assign(sandbox, { tickers }));
+  assert.equal(out, 'NYSE:ONE');
+});
+
+test('screenerFilenameSlug converts the preset id to the spec\'s exact dash-separated filename format', () => {
+  const out = vm.runInContext('screenerFilenameSlug(presetId)', Object.assign(sandbox, { presetId: 'weekly_strength' }));
+  assert.equal(out, 'weekly-strength');
+});
+
+test('TradingView TXT filename matches spec point 26\'s exact example shape', () => {
+  const slug = vm.runInContext('screenerFilenameSlug(presetId)', Object.assign(sandbox, { presetId: 'weekly_strength' }));
+  const filename = `${slug}-2026-03-07-tradingview.txt`;
+  assert.equal(filename, 'weekly-strength-2026-03-07-tradingview.txt');
 });
