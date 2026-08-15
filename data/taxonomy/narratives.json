@@ -3012,6 +3012,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "UMAC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Unusual Machines manufactures and sells drone components and drones for B2B and retail channels. Drones are increasingly used in defense/military and dual-use applications, and the company positions itself within the US drone supply chain (often tied to defense-related sourcing initiatives like Blue UAS). While not a pure defense contractor, its core product (drones/drone components) is closely tied to the defense/aerospace narrative economically, more so than generic electronics manufacturing.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -3328,6 +3339,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "FLYW": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Flywire operates a global payments platform enabling cross-border payment processing for education, healthcare and travel verticals, a core fintech/payments business model.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -3368,7 +3390,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "BIIB": {
           "role": "core",
@@ -3412,7 +3434,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "ABCL": {
           "role": "core",
@@ -3421,7 +3443,7 @@
           "reason": "AbCellera is a clinical-stage biotech developing antibody therapeutics via a discovery platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3443,7 +3465,7 @@
           "reason": "Abivax is a clinical-stage biotech developing immune-modulating therapeutics for chronic inflammatory diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3454,7 +3476,7 @@
           "reason": "Adaptive Biotechnologies focuses on immune-driven diagnostics and therapeutics development.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3465,7 +3487,7 @@
           "reason": "Agios Pharmaceuticals develops small-molecule medicines for rare diseases via cellular metabolism research.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3476,7 +3498,7 @@
           "reason": "Aktis Oncology is a clinical-stage biotech developing targeted radiopharmaceuticals for cancer treatment.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3498,7 +3520,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing TYK2 inhibitors for immune diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3509,7 +3531,7 @@
           "reason": "Leader in RNAi therapeutics with commercial products (Onpattro, Amvuttra); clear biotech/pharma company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3520,7 +3542,7 @@
           "reason": "Biopharmaceutical company focused on development and manufacture of biosimilar medicines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3531,7 +3553,7 @@
           "reason": "Clinical-stage pharmaceutical company developing therapies for endocrine and neurodegenerative diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3542,7 +3564,7 @@
           "reason": "Clinical-stage biotechnology company developing antibody therapeutics for inflammation and immuno-oncology.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3553,7 +3575,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing personalized psychiatric treatments based on neurobiology.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3564,7 +3586,7 @@
           "reason": "Commercial-stage biopharmaceutical company developing dermatological treatments for immune-mediated diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3575,7 +3597,7 @@
           "reason": "Commercial-stage pharmaceutical company developing RNAi therapeutics for genetic and protein-related diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3586,7 +3608,7 @@
           "reason": "ArriVent is a clinical-stage biopharmaceutical company developing cancer therapies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3597,7 +3619,7 @@
           "reason": "Avalyn Pharma is a clinical-stage biopharmaceutical company developing inhaled therapies for rare respiratory diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3608,7 +3630,7 @@
           "reason": "Axsome Therapeutics is a clinical-stage biopharmaceutical company developing CNS disorder therapies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3619,7 +3641,7 @@
           "reason": "Bicara Therapeutics is a clinical-stage biopharmaceutical company developing bifunctional antibody therapies for solid tumors.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3630,7 +3652,7 @@
           "reason": "BioCryst Pharmaceuticals researches and develops small-molecule drugs for infectious and inflammatory diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3641,7 +3663,7 @@
           "reason": "Beam Therapeutics develops precision genetic medicines using base editing technology for serious diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3652,7 +3674,7 @@
           "reason": "Biohaven is a clinical-stage biopharmaceutical company developing treatments across immunology, neuroscience and oncology, fitting the Biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3663,7 +3685,7 @@
           "reason": "Celcuity is a clinical-stage biotechnology company developing targeted cancer therapies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3674,7 +3696,7 @@
           "reason": "Cullinan Therapeutics is a clinical-stage biopharmaceutical company developing therapies for autoimmune diseases and cancer.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3685,7 +3707,7 @@
           "reason": "CG Oncology is a late-stage clinical biopharmaceutical company developing an oncolytic immunotherapy for bladder cancer.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3696,7 +3718,7 @@
           "reason": "Celldex Therapeutics is a biopharmaceutical firm developing therapeutic antibodies for inflammatory and allergic diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3707,7 +3729,7 @@
           "reason": "Compass Pathways is a biotechnology company developing psilocybin-based therapies for mental health conditions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3718,7 +3740,7 @@
           "reason": "Clinical-stage biotech developing therapies for blood coagulation disorders.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3729,7 +3751,7 @@
           "reason": "Biotechnology company developing precision therapies for genetically defined diseases, including tyrosine kinase inhibitors.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3740,7 +3762,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing product candidates targeting immune cell maturation and function.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3751,7 +3773,7 @@
           "reason": "Definium Therapeutics is developing next-generation therapeutics for psychiatric and neurological disorders, a clinical-stage biotech company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3762,7 +3784,7 @@
           "reason": "Damora Therapeutics is a biotechnology company developing biologics for hematologic disorders, fitting the biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3784,7 +3806,7 @@
           "reason": "Dianthus Therapeutics is a clinical-stage biotech company developing therapies for autoimmune diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3795,7 +3817,7 @@
           "reason": "Alpha Tau Medical is a clinical-stage oncology therapeutics company developing radiation therapy technology, fitting biotech/clinical-stage therapeutics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3806,7 +3828,7 @@
           "reason": "Dyne Therapeutics is a clinical-stage biotech company developing therapeutics for genetically driven neuromuscular diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3817,7 +3839,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing small molecule oncology therapeutics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3828,7 +3850,7 @@
           "reason": "Clinical-stage precision oncology biopharmaceutical company targeting RAS/MAPK pathway cancers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3839,7 +3861,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing therapeutics for muscular dystrophies and cardiac conditions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3872,7 +3894,7 @@
           "reason": "Generate Biomedicines is a clinical-stage generative biology company using machine learning for drug discovery and development, fundamentally a biotech company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3883,7 +3905,7 @@
           "reason": "GH Research is a clinical-stage biopharmaceutical company developing novel therapies for treatment-resistant depression, a core biotech classification.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3894,7 +3916,7 @@
           "reason": "Monte Rosa Therapeutics is a clinical-stage biotechnology company developing molecular glue degrader small molecule drugs, core biotech classification.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3905,7 +3927,7 @@
           "reason": "Structure Therapeutics is a clinical-stage biopharmaceutical company developing oral small-molecule therapeutics using structure-based drug discovery, core biotech classification.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3916,7 +3938,7 @@
           "reason": "Clinical-stage biotech focused on antibody-drug conjugates for oncology.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3927,7 +3949,7 @@
           "reason": "Clinical-stage biotech developing T-cell immunotherapies for cancer.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3938,7 +3960,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing novel biologic therapeutics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3949,7 +3971,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing personalized cell therapies for cancer.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3960,7 +3982,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing treatments for hematologic diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3971,7 +3993,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing oral therapies for MASH liver disease.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3982,7 +4004,7 @@
           "reason": "Clinical-stage biotechnology company developing therapies for autoimmune diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3993,7 +4015,7 @@
           "reason": "Clinical-stage biotechnology company developing obesity treatments using GLP-1 mechanisms.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4004,7 +4026,7 @@
           "reason": "Kiniksa is a clinical-stage biopharmaceutical company developing therapeutics for cardiovascular diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4015,7 +4037,7 @@
           "reason": "Kodiak Sciences develops biologic therapies for retinal disease using a proprietary antibody biopolymer platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4026,7 +4048,7 @@
           "reason": "Krystal Biotech is a commercial-stage biotech developing gene therapies using a proprietary HSV-1 vector platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4037,7 +4059,7 @@
           "reason": "Kymera Therapeutics is a clinical-stage biopharmaceutical company developing novel targeted protein degradation medicines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4048,7 +4070,7 @@
           "reason": "LB Pharmaceuticals is a late-stage biopharmaceutical company developing therapies for neuropsychiatric disorders.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4059,7 +4081,7 @@
           "reason": "Legend Biotech is a clinical-stage biopharmaceutical company developing cell therapies (CAR-T) for oncology.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4070,7 +4092,7 @@
           "reason": "Lexicon is a clinical-stage biopharmaceutical company discovering and developing drug candidates for human diseases, fitting the biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4081,7 +4103,7 @@
           "reason": "Veradermics is a clinical-stage biopharmaceutical company developing dermatological and aesthetic therapeutics, fitting the biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4092,7 +4114,7 @@
           "reason": "Maze Therapeutics is a clinical-stage biopharmaceutical company developing small-molecule precision medicines using human genetics, fitting the biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4103,7 +4125,7 @@
           "reason": "MBX Biosciences is a clinical-stage biopharmaceutical company developing precision peptide therapies for endocrine and metabolic disorders.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4114,7 +4136,7 @@
           "reason": "Madrigal is a biopharmaceutical company developing novel therapeutics for MASH liver disease, fitting the biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4125,7 +4147,7 @@
           "reason": "MeiraGTx is a clinical-stage genetic medicines company developing targeted gene therapies, fitting the biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4136,7 +4158,7 @@
           "reason": "MoonLake is a clinical-stage biotechnology company developing therapies for inflammatory skin and joint diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4147,7 +4169,7 @@
           "reason": "Mineralys is a biopharmaceutical company developing medicines targeting aldosterone-driven diseases, fitting the biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4158,7 +4180,7 @@
           "reason": "NewAmsterdam Pharma is a late-stage biopharmaceutical company developing therapies for metabolic diseases, fitting the biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4169,7 +4191,7 @@
           "reason": "Nanobiotix is a late-stage clinical biotechnology company developing physics-based nanotherapeutics for cancer treatment.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4180,7 +4202,7 @@
           "reason": "Nektar Therapeutics is a clinical-stage biopharmaceutical company focused on discovering and developing immunotherapy medicines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4191,7 +4213,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing targeted protein degradation therapies for cancer and inflammatory disease.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4202,7 +4224,7 @@
           "reason": "Nuvation Bio is a clinical-stage oncology biopharmaceutical company developing novel therapeutics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4213,7 +4235,7 @@
           "reason": "Ocular Therapeutix is a biotech company developing hydrogel-based drug delivery therapies for eye diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4224,7 +4246,7 @@
           "reason": "Olema Pharmaceuticals is a clinical-stage biopharmaceutical company developing targeted therapies for women's cancers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4235,7 +4257,7 @@
           "reason": "ORIC Pharmaceuticals is a clinical-stage biopharmaceutical company developing oncology therapeutics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4246,7 +4268,7 @@
           "reason": "Oruka Therapeutics is a clinical-stage biopharmaceutical company developing monoclonal antibodies for psoriasis and immunology.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4257,7 +4279,7 @@
           "reason": "Vaxcyte is a clinical-stage vaccine biotech developing novel conjugate vaccines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4268,7 +4290,7 @@
           "reason": "Precigen is a commercial-stage biopharmaceutical company developing gene therapy precision medicines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4279,7 +4301,7 @@
           "reason": "Pharvaris is a late-stage biopharmaceutical company developing small molecule therapeutics for HAE.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4290,7 +4312,7 @@
           "reason": "Praxis Precision Medicines is a clinical-stage biopharmaceutical company developing CNS disorder therapies based on genetic insights.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4312,7 +4334,7 @@
           "reason": "Palvella Therapeutics is a clinical-stage biopharmaceutical company developing novel therapies for rare skin diseases and vascular malformations.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4323,7 +4345,7 @@
           "reason": "uniQure is a gene therapy company developing treatments for genetic diseases including hemophilia and Huntington's disease.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4334,7 +4356,7 @@
           "reason": "Rapport Therapeutics is a clinical-stage biotech developing small-molecule precision medicines for neurological and psychiatric disorders.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4345,7 +4367,7 @@
           "reason": "Ultragenyx is a biopharmaceutical company developing and commercializing products for rare and ultra-rare genetic diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4356,7 +4378,7 @@
           "reason": "Arcus Biosciences is a late clinical-stage biopharmaceutical company developing molecules for cancer and inflammatory/autoimmune diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4367,7 +4389,7 @@
           "reason": "Replimune is a clinical-stage biotechnology company developing oncolytic immunotherapies for cancer patients.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4389,7 +4411,7 @@
           "reason": "Relay Therapeutics is a clinical-stage precision medicine biotech developing drugs using a computational discovery platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4411,7 +4433,7 @@
           "reason": "Recursion Pharmaceuticals is a clinical-stage biotech using tech-enabled drug discovery platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4422,7 +4444,7 @@
           "reason": "Clinical-stage biotech developing GPCR-targeted oral small molecule drugs via proprietary discovery platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4433,7 +4455,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing therapies for cystic fibrosis.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4444,7 +4466,7 @@
           "reason": "Late-stage clinical biopharmaceutical company developing cancer immunotherapies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4455,7 +4477,7 @@
           "reason": "Biopharmaceutical company discovering and developing novel antibiotics for infectious diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4466,7 +4488,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing combination therapies for cancer indications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4477,7 +4499,7 @@
           "reason": "Clinical-stage therapeutics company developing medicines for depression, anxiety and neuropsychiatric disorders.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4488,7 +4510,7 @@
           "reason": "Commercial-stage biopharmaceutical company developing RNA-targeted and gene therapies for rare neuromuscular diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4499,7 +4521,7 @@
           "reason": "Clinical-stage biopharmaceutical company focused on rare neuromuscular diseases (SMA).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4510,7 +4532,7 @@
           "reason": "Biotechnology company developing RNA-based antisense oligonucleotide medicines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4521,7 +4543,7 @@
           "reason": "Clinical-stage biopharmaceutical company focused on rare respiratory diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4532,7 +4554,7 @@
           "reason": "Clinical-stage biotechnology company developing antibody therapeutics for inflammatory bowel disease and rheumatic diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4543,7 +4565,7 @@
           "reason": "Commercial-stage biotechnology company focused on B-cell disease treatments with an approved product.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4554,7 +4576,7 @@
           "reason": "Tango Therapeutics is a clinical-stage biotech developing precision oncology therapies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4565,7 +4587,7 @@
           "reason": "First Tracks Biotherapeutics is a clinical-stage biotech developing immunology therapeutics for autoimmune and inflammatory diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4576,7 +4598,7 @@
           "reason": "Trevi Therapeutics is a clinical-stage biopharmaceutical company developing therapies for chronic cough conditions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4587,7 +4609,7 @@
           "reason": "Taysha Gene Therapies is a clinical-stage biotech developing AAV-based gene therapies for CNS diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4598,7 +4620,7 @@
           "reason": "Tyra Biosciences is a clinical-stage biotech developing precision oncology medicines targeting FGFR biology.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4609,7 +4631,7 @@
           "reason": "UroGen is a clinical-stage/commercial biotech developing drug-device combination products for urothelial and specialty cancers using proprietary hydrogel technology.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4620,7 +4642,7 @@
           "reason": "Vera Therapeutics is a clinical-stage biotech developing treatments for immunological diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4631,7 +4653,7 @@
           "reason": "Vir Biotechnology is a clinical-stage biopharmaceutical company developing medicines for infectious diseases and cancer using antibody engineering.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4642,7 +4664,7 @@
           "reason": "Viking Therapeutics is a clinical-stage biopharmaceutical company developing treatments for metabolic and endocrine disorders.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4653,7 +4675,7 @@
           "reason": "Vor Biopharma is a clinical-stage biopharmaceutical company developing novel therapies for autoimmune diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4664,7 +4686,7 @@
           "reason": "Viridian Therapeutics is a clinical-stage biopharmaceutical company developing treatments for thyroid eye disease.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4675,7 +4697,7 @@
           "reason": "Wave Life Sciences is a clinical-stage biotech developing RNA-based oligonucleotide medicines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4686,7 +4708,7 @@
           "reason": "Xencor is a clinical-stage biopharmaceutical company developing engineered antibody therapeutics for cancer and autoimmune diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4697,7 +4719,7 @@
           "reason": "Zenas BioPharma is a clinical-stage biopharmaceutical company developing monoclonal antibody therapeutics for autoimmune diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4708,7 +4730,7 @@
           "reason": "Zai Lab is a biopharmaceutical company discovering, licensing, developing, and commercializing therapeutics in oncology, autoimmune, and infectious diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -4719,7 +4741,7 @@
           "reason": "ImmunityBio is a biotechnology company developing immunotherapies for cancer and infectious diseases, a clear fit for the biotech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -4730,7 +4752,7 @@
           "reason": "Zymeworks is a clinical-stage biopharmaceutical company developing multifunctional biotherapeutics - core biotech business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -4741,7 +4763,7 @@
           "reason": "Belite Bio is a clinical-stage biopharmaceutical company developing therapeutics for retinal diseases, squarely fitting biotech.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -5614,7 +5636,7 @@
           "reason": "Acadia Healthcare operates behavioral healthcare facilities - a services/facilities business, not biotech drug development.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5625,7 +5647,7 @@
           "reason": "Operates hospitals and healthcare facilities across multiple mid-sized urban markets in the US.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5647,7 +5669,7 @@
           "reason": "Brookdale operates senior living communities providing assisted living, memory care and independent living services, matching healthcare facilities operator narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5658,7 +5680,7 @@
           "reason": "BrightSpring provides home and community-based healthcare services including pharmacy and provider services to patients, fitting healthcare services/facilities narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5669,7 +5691,7 @@
           "reason": "Provides capitated healthcare delivery/care programs for high-cost seniors, a healthcare services operator.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5680,7 +5702,7 @@
           "reason": "LifeStance Health operates outpatient mental health treatment facilities providing psychiatric and therapy services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5691,7 +5713,7 @@
           "reason": "Lumexa Imaging Holdings operates outpatient diagnostic imaging centers providing MRI, CT, PET and other imaging services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5713,7 +5735,7 @@
           "reason": "National HealthCare Corp operates skilled nursing, assisted living, independent living facilities and home care programs, fitting healthcare services/facilities narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5735,7 +5757,7 @@
           "reason": "PACS Group operates skilled nursing care facilities as a post-acute healthcare company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5757,7 +5779,7 @@
           "reason": "RadNet operates diagnostic imaging centers providing MRI and other imaging services, a healthcare services/facilities operator.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5768,7 +5790,7 @@
           "reason": "Operates outpatient surgical facilities providing surgical and ancillary care services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5779,7 +5801,7 @@
           "reason": "Owner-operator of senior housing communities providing independent living, assisted living and memory care services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5790,7 +5812,7 @@
           "reason": "Provides virtual healthcare services connecting patients and providers via technology platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5801,7 +5823,7 @@
           "reason": "US Physical Therapy operates outpatient physical therapy clinics providing patient care services, fitting healthcare facilities operator narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5812,7 +5834,7 @@
           "reason": "Aveanna provides home healthcare services to medically complex patients, fitting healthcare services/facilities.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -5823,7 +5845,7 @@
           "reason": "Centene is a managed care organization focused on government-sponsored health insurance (Medicaid, Medicare, exchanges). This is closer to managed care/health insurance than facilities; no specific managed care narrative exists, so using healthcare_services_facilities as closest fit given no better managed-care category.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6695,7 +6717,7 @@
           "reason": "Agilon Health provides a value-based care platform partnering with primary care physicians for senior patients - a healthcare services model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -6706,7 +6728,7 @@
           "reason": "Alignment Healthcare offers a Medicare Advantage platform for value-based senior care - a healthcare services/insurance model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -6717,7 +6739,7 @@
           "reason": "Hims & Hers is a telehealth platform connecting patients to providers for prescription and OTC treatments across multiple specialties - a healthcare services/telehealth model.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6728,7 +6750,7 @@
           "reason": "Molina Healthcare manages Medicaid, Medicare, and Marketplace medical insurance plans - a health insurance/managed care business.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6750,7 +6772,7 @@
           "reason": "Humana is a major health insurer focused on government-sponsored programs (Medicare/Medicaid), core business is managed care/health insurance - healthcare_services is the closest broad catalog fit given no dedicated 'health insurance' narrative exists.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6761,7 +6783,7 @@
           "reason": "Omada Health provides virtual chronic care management programs - a healthcare services/digital health company delivering care via platform, fitting healthcare services category well.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7629,7 +7651,7 @@
           "reason": "Manufactures cardiac and vascular surgical devices (heart valves, grafts, patches); distinct from biotech drug development and healthcare services/facilities.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7640,7 +7662,7 @@
           "reason": "Alphatec designs and sells spinal surgery devices and implants, fitting medical devices narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7651,7 +7673,7 @@
           "reason": "AtriCure develops surgical devices for atrial fibrillation treatment and pain management, core medical device company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7662,7 +7684,7 @@
           "reason": "Axogen develops products for peripheral nerve regeneration and repair, a medical device/biologics company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7684,7 +7706,7 @@
           "reason": "Butterfly Network manufactures handheld ultrasound imaging devices using proprietary chip technology, a medical device used in clinical diagnostics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7695,7 +7717,7 @@
           "reason": "Bioventus develops and commercializes medical devices for pain treatment and musculoskeletal conditions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7706,7 +7728,7 @@
           "reason": "Manufactures surgical devices and equipment used across specialties like orthopedics and general surgery, fitting medical devices.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7717,7 +7739,7 @@
           "reason": "Manufacturer of orthopedic and surgical medical devices for reconstructive surgery and rehabilitation.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7728,7 +7750,7 @@
           "reason": "Medical technology company manufacturing silicone breast implants and aesthetic medical devices.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7739,7 +7761,7 @@
           "reason": "Glaukos develops and commercializes ophthalmic medical devices and dropless therapies for glaucoma and other eye diseases, matching medical devices narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7750,7 +7772,7 @@
           "reason": "Develops implantable neurostimulation medical device for obstructive sleep apnea.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7761,7 +7783,7 @@
           "reason": "Digital healthcare device company providing ambulatory cardiac monitoring technology.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7772,7 +7794,7 @@
           "reason": "Kestra Medical develops wearable cardiac monitoring/therapeutic medical devices, fitting the medical devices category.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7794,7 +7816,7 @@
           "reason": "MiniMed develops and manufactures medical technology solutions for diabetes management, fitting the medical devices narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7805,7 +7827,7 @@
           "reason": "NovoCure develops and commercializes Tumor Treating Fields devices for cancer treatment, a medical device platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7816,7 +7838,7 @@
           "reason": "Pulse Biosciences develops bioelectric medicine devices using Nano-Pulse Stimulation technology for clinical applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7838,7 +7860,7 @@
           "reason": "PROCEPT BioRobotics develops surgical robotic systems (AquaBeam, HYDROS) for urology procedures.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7860,7 +7882,7 @@
           "reason": "TransMedics manufactures the Organ Care System, a medical device for organ transplant perfusion, sold to healthcare providers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7871,7 +7893,7 @@
           "reason": "Tandem Diabetes manufactures durable insulin pump medical devices for diabetes management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7882,7 +7904,7 @@
           "reason": "Dentsply Sirona manufactures dental equipment, devices, and consumables used in clinical dental procedures.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7893,7 +7915,7 @@
           "reason": "Integra LifeSciences develops surgical and medical devices for regenerative therapy, orthopedics, and neurosurgery, a strong direct match for the medical devices narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8294,7 +8316,7 @@
           "reason": "Trupanion sells pet health insurance, a specialty insurance product line, monetized via subscription premiums.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8478,7 +8500,7 @@
           "reason": "Caris Life Sciences provides molecular diagnostics and AI-driven precision medicine testing services, fitting life sciences tools/diagnostics narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8489,7 +8511,7 @@
           "reason": "CareDx provides diagnostic testing services and products for transplant patients, closely aligned with medical laboratory/diagnostics services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8500,7 +8522,7 @@
           "reason": "Fortrea is a contract research organization providing clinical trial management services to biopharma and medical device companies, supporting drug development lifecycle.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8511,7 +8533,7 @@
           "reason": "Guardant Health provides liquid biopsy-based cancer diagnostic tests using genomic profiling, fitting life sciences tools/diagnostics services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8522,7 +8544,7 @@
           "reason": "Natera is a diagnostics/molecular testing company providing lab services like NIPT, closer to medical laboratory diagnostics than pure lab tools, but no better fit exists in catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8533,7 +8555,7 @@
           "reason": "Repligen develops and sells bioprocessing equipment and consumables used in biologic drug manufacturing, directly matching the life sciences tools narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8555,7 +8577,7 @@
           "reason": "Twist Bioscience provides a DNA synthesis platform (tools/consumables) enabling synthetic biology research and production.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8577,7 +8599,7 @@
           "reason": "Veracyte provides genomic diagnostic testing services (molecular diagnostics) supporting cancer diagnosis, closely aligned with life sciences tools/diagnostics category.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8588,7 +8610,7 @@
           "reason": "GeneDx provides genomic sequencing and testing services for diagnosing rare genetic pediatric disorders, a diagnostics/genomics services business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8610,7 +8632,7 @@
           "reason": "Neogen develops diagnostic test kits and products for food and animal safety - lab consumables/diagnostics business.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9055,7 +9077,7 @@
           "reason": "Bausch Health is a diversified specialty pharmaceutical company with branded drugs across gastroenterology, dermatology, neurology, plus consumer health and medical device segments; no existing pharma narrative fits.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9066,7 +9088,7 @@
           "reason": "Commercial-stage pharmaceutical company marketing branded drug Korlym and developing cortisol-modulating treatments.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9077,7 +9099,7 @@
           "reason": "Elanco Animal Health develops, manufactures and markets pharmaceutical products for companion and food animals, an animal health specialty pharma company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9088,7 +9110,7 @@
           "reason": "Specialty pharmaceutical company commercializing rare disease pharmaceutical products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9099,7 +9121,7 @@
           "reason": "Specialty pharma company focused on opioid use disorder treatments with marketed products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9110,7 +9132,7 @@
           "reason": "Liquidia is a biopharmaceutical company commercializing treatments for pulmonary hypertension, fitting specialty pharma given it has an approved commercial product focus rather than pure early-stage biotech.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9121,7 +9143,7 @@
           "reason": "Mirum commercializes an approved therapy (Livmarli) for rare/orphan diseases while continuing development, fitting specialty pharmaceuticals given its commercial-stage focus.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9132,7 +9154,7 @@
           "reason": "MannKind is a biopharmaceutical company commercializing approved products (Afrezza) for cardiometabolic and orphan lung diseases, fitting specialty pharmaceuticals.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9143,7 +9165,7 @@
           "reason": "Perrigo manufactures and distributes consumer healthcare/OTC and private-label pharmaceutical products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9154,7 +9176,7 @@
           "reason": "Rhythm Pharmaceuticals is a commercial-stage biopharmaceutical company marketing therapies for rare neuroendocrine diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9165,7 +9187,7 @@
           "reason": "Specialty pharmaceutical company developing and commercializing CNS disease treatments.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9176,7 +9198,7 @@
           "reason": "Commercial-stage biopharmaceutical company focused on ophthalmic therapeutics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9187,7 +9209,7 @@
           "reason": "Harmony Biosciences is a commercial-stage pharma company marketing branded therapies (WAKIX) for rare neurological diseases, fitting specialty pharmaceuticals well given it has an approved marketed product rather than being purely early-stage biotech.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9198,7 +9220,7 @@
           "reason": "Harrow is a commercial ophthalmic pharmaceutical company developing and marketing branded eyecare drug products, aligning closely with specialty pharmaceuticals.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9209,7 +9231,7 @@
           "reason": "Biopharmaceutical company developing/commercializing therapies for rare kidney, liver, metabolic diseases - branded specialty pharma model.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9220,7 +9242,7 @@
           "reason": "Xeris is a commercial-stage biopharma developing/commercializing therapies for endocrine and neurological diseases - specialty pharma model.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10219,6 +10241,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "IQ": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "iQIYI is a subscription-based video streaming platform (China's 'Netflix') generating revenue from subscriptions, ads, and content licensing/distribution, closely matching the media/streaming economic model even though it lacks broadcast/studio assets of the catalog definition.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10816,6 +10849,48 @@
           "reason": "WillScot provides turnkey modular space and portable storage solutions on a rental/leasing basis across multiple industries, a distinct equipment rental business model not matched by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "beverage_bottling_distribution",
+      "name": "Beverage Bottling / Distribution",
+      "status": "emerging",
+      "classification_hint": "Companies that manufacture, market, and distribute non-alcoholic beverages, primarily carbonated soft drinks, under license from brand owners through bottling and distribution networks.",
+      "created_at": "2026-08-15",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "COKE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Coca-Cola Consolidated is a bottler/distributor of Coca-Cola branded beverages, a distinct business model from generic branded CPG/nutrition companies; best captured by a dedicated beverage bottling narrative since no exact match exists in catalog.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "recorded_music_music_publishing",
+      "name": "Recorded Music / Music Publishing",
+      "status": "emerging",
+      "classification_hint": "Companies that produce, distribute, and license recorded music and music publishing rights, generating revenue from streaming royalties, physical/digital sales, and licensing to record labels' artist rosters.",
+      "created_at": "2026-08-15",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "WMG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Warner Music Group is a major record label generating revenue primarily from recorded music and music publishing, distinct from broadcast/streaming/filmed entertainment conglomerates; best served by a dedicated recorded music narrative absent from the catalog.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
