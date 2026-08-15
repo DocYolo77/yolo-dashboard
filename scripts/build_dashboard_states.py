@@ -612,6 +612,30 @@ def calc_fresh_leader_label(base_state, leader_age_days, rs_1w_delta3d, thrust_p
     return "fresh_leader" if momentum_trigger else "leader"
 
 
+def compute_opportunity_v2_prep_fields(ema10_distance_pct, ema20_distance_pct):
+    """Architecture-ONLY preparation for the future Opportunity V2 model
+    (spec point 16-18: separate Quality [Leader/Neutral/Laggard] and State
+    [Normal/Extended/Resetting] dimensions). Explicitly NO new rule/
+    threshold/weighting is invented here — quality_v2/state_v2 stay null
+    until a later, separately-calibrated pass populates them, and are NEVER
+    derived/guessed from the legacy V1.1 quality_state/near_emas/extended.
+    above_ema10/above_ema20 are plain booleans derived from the ALREADY-
+    existing EMA distance fields (no new formula) — both EMA10 and EMA20
+    are explicitly relevant pullback/reset zones per the spec.
+    extension_peak_history_v2/repeat_offender_history_v2 don't exist
+    anywhere in this pipeline yet; per spec point 18 they are prepared here
+    ONLY as null placeholders (no ad-hoc definition invented) for a future
+    pass to populate."""
+    return {
+        "quality_v2": None,
+        "state_v2": None,
+        "above_ema10": (ema10_distance_pct > 0) if ema10_distance_pct is not None else None,
+        "above_ema20": (ema20_distance_pct > 0) if ema20_distance_pct is not None else None,
+        "extension_peak_history_v2": None,
+        "repeat_offender_history_v2": None,
+    }
+
+
 def calc_near_emas(ema10_distance_pct, ema20_distance_pct, cfg):
     n = cfg["near_emas"]
     if ema20_distance_pct is None:
@@ -1337,6 +1361,12 @@ def main():
             "ema10_distance_pct": f.get("ema10_distance_pct"), "ema20_distance_pct": f.get("ema20_distance_pct"),
             "atr_extension": f.get("atr_extension"), "w1_pct": f.get("w1_pct"), "m1_pct": f.get("m1_pct"),
             "price": f.get("close"), "market_cap": f.get("market_cap"),
+            # V6 point 16-18: architecture-ONLY Opportunity V2 preparation —
+            # see compute_opportunity_v2_prep_fields' docstring. "Fresh" is
+            # deliberately NOT used as a V2 target-state name (spec point
+            # 17) — the legacy fresh_leader value above is untouched but
+            # has no V2 successor defined yet.
+            **compute_opportunity_v2_prep_fields(f.get("ema10_distance_pct"), f.get("ema20_distance_pct")),
             "_leader_age_days": leader_age_days, "_exit_streak": exit_streak,  # persisted to history only
         }
         opportunity_items.append(item)
