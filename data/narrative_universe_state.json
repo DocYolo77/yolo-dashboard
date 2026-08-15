@@ -1,8 +1,8 @@
 {
   "as_of_date": "2026-08-15",
-  "eligible_count": 810,
-  "classified_eligible_count": 647,
-  "coverage_pct": 79.9,
+  "eligible_count": 809,
+  "classified_eligible_count": 652,
+  "coverage_pct": 80.6,
   "entered": [
     "AGQ",
     "ALNT",
@@ -13,7 +13,6 @@
     "BBAI",
     "BE",
     "BETA",
-    "BGSI",
     "BLSH",
     "BMI",
     "BRAI",
@@ -86,7 +85,6 @@
     "LAD",
     "LB",
     "LIF",
-    "LINC",
     "LIND",
     "LOMA",
     "LPG",
@@ -167,12 +165,13 @@
     "WT",
     "XMTR",
     "XPEL",
-    "YELP",
     "YOU",
     "ZBRA"
   ],
   "reentered": [],
-  "exited": [],
+  "exited": [
+    "EYPT"
+  ],
   "newly_classified": [
     "AGQ",
     "ALNT",
@@ -183,7 +182,6 @@
     "BBAI",
     "BE",
     "BETA",
-    "BGSI",
     "BLSH",
     "BMI",
     "BRAI",
@@ -256,7 +254,6 @@
     "LAD",
     "LB",
     "LIF",
-    "LINC",
     "LIND",
     "LOMA",
     "LPG",
@@ -337,13 +334,10 @@
     "WT",
     "XMTR",
     "XPEL",
-    "YELP",
     "YOU",
     "ZBRA"
   ],
-  "new_narratives_created": [
-    "automotive_collision_repair_services"
-  ],
+  "new_narratives_created": [],
   "unresolved_after_retries": [
     {
       "ticker": "AGQ",
@@ -518,10 +512,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "EPC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "EQPT",
       "reason": "low_confidence_primary"
     },
@@ -663,10 +653,6 @@
     },
     {
       "ticker": "LB",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "LIF",
       "reason": "low_confidence_primary"
     },
     {
@@ -826,10 +812,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "RYZ",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "RZLV",
       "reason": "low_confidence_primary"
     },
@@ -838,19 +820,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "SBH",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "SENEA",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "SID",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "SLSR",
       "reason": "low_confidence_primary"
     },
     {
@@ -986,10 +960,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "XPEL",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "YOU",
       "reason": "low_confidence_primary"
     },
@@ -1001,15 +971,11 @@
   "classification_errors": [
     "Retry-Runde 1 Batch (AGQ..ECPG): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
     "Retry-Runde 1 Batch (EFX..LB): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 1 Batch (LIF..RHLD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 1 Batch (RYAN..WT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..ECPG): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (EFX..LB): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (RYAN..WT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 2 Batch (LIND..RZLV): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 555,
-  "eligible_without_active_narrative": 255,
-  "active_narrative_coverage_pct": 68.5,
+  "eligible_with_active_narrative": 558,
+  "eligible_without_active_narrative": 251,
+  "active_narrative_coverage_pct": 69.0,
   "active_narrative_count": 46,
   "undersized_narrative_count": 46
 }
