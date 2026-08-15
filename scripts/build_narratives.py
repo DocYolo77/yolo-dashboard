@@ -672,12 +672,23 @@ def find_healthcare_biotech_leaks(output_narratives, market_features, audit_keyw
     threshold that already gates active/undersized elsewhere in this file,
     never a second hardcoded '5') if EITHER its own name reads as Healthcare/
     Biotech, OR more than half its eligible members individually do (via
-    sic_description/company_description substring match) — catching both an
+    sic_description substring match ONLY -- see below) — catching both an
     unmistakably-named leak (point 18's real example: an active 'Biotech'
     narrative) and a content-concentrated one that happens to be named
     something neutral. Returns a list of violation dicts (empty if clean);
     the caller (main()) turns a non-empty result into sys.exit(1) with a full
-    diagnostic dump, per point 19's explicit 'Build/Test fehlschlagen lassen'."""
+    diagnostic dump, per point 19's explicit 'Build/Test fehlschlagen lassen'.
+
+    The per-member signal deliberately checks ONLY sic_description (a
+    controlled, standardized vocabulary), never company_description (free
+    text) -- a first version that also matched company_description produced
+    a real false positive here: 'Life Sciences Tools & Consumables'
+    (AVTR/BRKR/NEO, all laboratory-instrument/testing-lab companies whose
+    SIC -- 3826/8734 -- is deliberately NOT in the exclusion filter, see
+    config's own comment) got flagged because their company_description
+    mentions serving 'biopharma'/'healthcare'/'life sciences' CUSTOMERS,
+    exactly the customer-vertical-mention false-positive point 6/18
+    warns against. sic_description doesn't have that failure mode."""
     def matched_keywords(text):
         t = (text or "").lower()
         return [kw for kw in audit_keywords if kw in t]
@@ -691,7 +702,7 @@ def find_healthcare_biotech_leaks(output_narratives, market_features, audit_keyw
         for m in row["members"]:
             sym = m["symbol"]
             mf = (market_features or {}).get(sym, {})
-            hits = sorted(set(matched_keywords(mf.get("sic_description")) + matched_keywords(mf.get("company_description"))))
+            hits = matched_keywords(mf.get("sic_description"))
             if hits:
                 flagged_members.append({
                     "symbol": sym, "sic_code": mf.get("sic_code"),

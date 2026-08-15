@@ -387,8 +387,11 @@ def test_benchmark_rsp_series_dates_are_sorted_ascending():
 
 # ── point 18-19: Healthcare/Biotech Sanity Gate ──
 
+# NOTE: "life sciences" deliberately excluded -- collides with the real,
+# already-validated-not-Healthcare/Biotech narrative name "Life Sciences
+# Tools & Consumables" (see config's own comment + the regression test below).
 AUDIT_KEYWORDS = ["biotech", "biotechnology", "biopharma", "pharma", "pharmaceutical",
-                   "healthcare", "medical device", "diagnostic", "therapeutic", "life sciences"]
+                   "healthcare", "medical device", "diagnostic", "therapeutic"]
 
 
 def _members(symbols):
@@ -416,11 +419,11 @@ def test_sanity_gate_below_minimum_active_members_is_not_flagged():
 
 def test_sanity_gate_flags_content_concentrated_narrative_even_with_neutral_name():
     # A neutrally-named narrative whose eligible members are OVERWHELMINGLY
-    # (majority) Healthcare/Biotech by sic_description/company_description
-    # must also be caught -- defense in depth beyond just the narrative's name.
+    # (majority) Healthcare/Biotech by sic_description must also be caught --
+    # defense in depth beyond just the narrative's name.
     market_features = {
         "A": {"sic_description": "PHARMACEUTICAL PREPARATIONS"},
-        "B": {"company_description": "A clinical-stage biopharmaceutical company."},
+        "B": {"sic_description": "BIOLOGICAL PRODUCTS, NO DIAGNOSTIC SUBSTANCES"},
         "C": {"sic_description": "IN VITRO & IN VIVO DIAGNOSTIC SUBSTANCES"},
         "D": {"sic_description": "SEMICONDUCTORS & RELATED DEVICES"},
         "E": {"sic_description": "SEMICONDUCTORS & RELATED DEVICES"},
@@ -430,6 +433,31 @@ def test_sanity_gate_flags_content_concentrated_narrative_even_with_neutral_name
     assert len(violations) == 1
     assert violations[0]["flagged_member_count"] == 3  # A, B, C
     assert violations[0]["name_matched_keywords"] == []
+
+
+def test_sanity_gate_ignores_company_description_customer_vertical_false_positive():
+    # Regression for the real production false positive this gate caused:
+    # laboratory-instrument/testing-lab companies (AVTR/BRKR/NEO-shaped)
+    # whose OWN sic_description does NOT match, but whose free-text
+    # company_description mentions serving healthcare/biopharma/life-
+    # sciences CUSTOMERS, must NOT flag the narrative -- company_description
+    # is deliberately excluded from this gate's signal (sic_description only).
+    market_features = {
+        "AVTR": {"sic_code": "3826", "sic_description": "LABORATORY ANALYTICAL INSTRUMENTS",
+                  "company_description": "Provides products and services to customers in the biopharma, "
+                                          "healthcare, education & government, and advanced technologies industries."},
+        "BRKR": {"sic_code": "3826", "sic_description": "LABORATORY ANALYTICAL INSTRUMENTS",
+                  "company_description": "Manufactures scientific instruments and diagnostic tests for customers "
+                                          "in the life sciences, applied markets, pharmaceutical, and biotechnology industries."},
+        "NEO": {"sic_code": "8734", "sic_description": "SERVICES-TESTING LABORATORIES",
+                 "company_description": "Provides oncology diagnostic testing and consultative services."},
+        "D": {"sic_description": "SEMICONDUCTORS & RELATED DEVICES"},
+        "E": {"sic_description": "SEMICONDUCTORS & RELATED DEVICES"},
+    }
+    output_narratives = [{"id": "life_sciences_tools_consumables", "name": "Life Sciences Tools & Consumables",
+                           "members": _members(["AVTR", "BRKR", "NEO", "D", "E"])}]
+    violations = find_healthcare_biotech_leaks(output_narratives, market_features, AUDIT_KEYWORDS, min_active_members=5)
+    assert violations == []
 
 
 def test_sanity_gate_clean_narrative_is_not_flagged():
