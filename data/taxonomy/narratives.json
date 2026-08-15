@@ -3894,7 +3894,7 @@
           "reason": "Clinical-stage biopharmaceutical company developing therapeutics for retinal diseases.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6284,6 +6284,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "XPEL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "XPEL manufactures and supplies protective films and coatings (paint protection film, window film) sold through automotive aftermarket, dealership, and OEM channels. This is fundamentally an automotive-related product supplier business, aligning most closely with the Automotive Parts / Components Supplier narrative, even though it's a coating/film product rather than a mechanical component. The core economic driver (auto aftermarket/OEM distribution) is the same, so I'm raising confidence from before after reconsidering there's no better-fitting narrative like coating services in the catalog.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8515,6 +8526,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "RYZ": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Ryerson is a metals service center/distributor, processing and distributing industrial metals (steel, aluminum, etc.) to industrial customers. While not a producer of specialty metal alloys itself, it fits the closest catalog category as a metals-focused industrial supplier. There's no dedicated 'metals distribution' narrative in the catalog, so this is the best economic fit given its value-added processing role.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10491,6 +10513,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "LIF": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Life360 operates a family-focused location-sharing social network/app with nearly 100M MAU, monetizing via subscriptions and some advertising/data. Closest existing fit is social media/consumer platform model rather than pure software SaaS, though it also has strong subscription SaaS characteristics.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10652,6 +10685,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SLSR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Solaris Resources is engaged in exploration and development of copper properties (Warintza, La Verde, Tamarugo), fitting directly into the copper/base metals mining narrative.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10799,6 +10843,28 @@
           "reason": "Coty is a global beauty company with fragrance, cosmetics, and skincare brands - directly fits beauty/cosmetics products category with high confidence.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SBH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Sally Beauty is a specialty retailer of professional beauty and cosmetics products across many countries, directly matching the beauty/cosmetics products narrative from a retail distribution perspective.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "EPC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Edgewell makes personal care products (shaving, sun/skin care, feminine care) sold under brands - closely aligned with beauty/cosmetics products branded CPG model even though broader than pure cosmetics.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1

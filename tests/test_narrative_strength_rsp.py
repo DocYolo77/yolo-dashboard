@@ -1,10 +1,21 @@
 """
-Tests for scripts/build_narratives.py's V6 RSP-based Narrative Strength/
-Thrust ("Jeff-inspired Relative Strength gegen RSP" / "Jeff-inspired
-Thrust candidate v1" — explicitly candidate formulas, NOT a reproduction
-of Jeff Sun's exact unpublished formula). Worked examples taken directly
-from the spec so the exact arithmetic is pinned down, not just directional
-sign checks. All synthetic data — no network required.
+Tests for scripts/build_narratives.py's RSP-based Narrative Strength/Thrust
+("Jeff-inspired Relative Strength gegen RSP" / "Jeff-inspired Thrust
+candidate v1" — explicitly candidate formulas, NOT a reproduction of Jeff
+Sun's exact unpublished formula). Worked examples taken directly from the
+spec so the exact arithmetic is pinned down, not just directional sign
+checks. All synthetic data — no network required.
+
+V6.1 (Narrative Ranking & UI Bugfix Patch) REPLACED the V6 self-window
+percentile methodology (percentile_rank_of_current/strength_percentile_at/
+compute_strength_windows_rsp, all REMOVED) with cross-sectional ranking
+(relative_performance_at/cross_sectional_percentile_ranks/compute_narrative_rs)
+— see point 5's bug report: ranking a narrative only against its own trailing
+1W/1M/3M/6M history collapsed onto a handful of discrete values (20/40/60/80/
+100 for a 5-observation 1W window) and let multiple narratives tie at 100
+simultaneously. The Thrust formula itself (compute_narrative_thrust_rsp) is
+UNCHANGED — only its inputs changed from self-window Strength to
+cross-sectional Narrative RS.
 Run with: pytest tests/ -v
 """
 
@@ -19,11 +30,12 @@ from build_narratives import (  # noqa: E402
     compute_narrative_equal_weight_return_series,
     build_synthetic_narrative_index,
     compute_relative_strength_line,
-    percentile_rank_of_current,
-    strength_percentile_at,
-    compute_strength_windows_rsp,
+    relative_performance_at,
+    cross_sectional_percentile_ranks,
+    compute_narrative_rs,
     compute_narrative_thrust_rsp,
     build_benchmark_rsp_series,
+    find_healthcare_biotech_leaks,
 )
 
 
@@ -96,7 +108,7 @@ def test_synthetic_index_empty_when_no_valid_returns():
     assert idx.empty
 
 
-# ── point 11 step 2: relative-strength line = narrative_close / benchmark_close ──
+# ── point 11 step 2 / 6.3: relative-strength line = narrative_close / benchmark_close ──
 
 def test_relative_strength_line_worked_examples_from_spec():
     days = make_days(2)
@@ -129,87 +141,141 @@ def test_relative_strength_line_drops_dates_missing_on_either_side():
     assert days[1] not in rel.index
 
 
-# ── point 11 step 3: percentile rank of the CURRENT value in its own window,
-# reusing the repo's canonical percentile_ranks() sort-position convention ──
+# ── point 6.3/7: raw relative_performance_at, ratio-based, mathematically
+# identical to (1+narrative_return)/(1+rsp_return)-1 ──
 
-def test_percentile_rank_top_of_window_worked_example_from_spec():
-    window = [1.00, 1.01, 0.99, 1.02, 1.03]  # current = 1.03, the max
-    assert percentile_rank_of_current(window) == 100.0
-
-
-def test_percentile_rank_bottom_of_window_mirrored_example():
-    window = [1.03, 1.02, 1.01, 1.00, 0.99]  # current = 0.99, the min of 5
-    assert percentile_rank_of_current(window) == 20.0  # 1/5 * 100, same convention as percentile_ranks()
-
-
-def test_percentile_rank_empty_window_is_none():
-    assert percentile_rank_of_current([]) is None
+def test_relative_performance_at_worked_example_from_spec():
+    # Spec section 22-B: Narrative 1W = +10%, RSP 1W = +5%
+    # -> relative_performance = 1.10/1.05 - 1 ~= 4.7619%.
+    days = make_days(2)
+    narrative_index = pd.Series([100.0, 110.0], index=days)
+    benchmark_close = pd.Series([100.0, 105.0], index=days)
+    rel = compute_relative_strength_line(narrative_index, benchmark_close)
+    perf = relative_performance_at(rel, window=1, sessions_ago=0)
+    assert perf == pytest.approx(1.10 / 1.05 - 1, abs=1e-6)
+    assert perf == pytest.approx(0.047619, abs=1e-5)
 
 
-# ── point 11: 1W/1M/3M/6M session counts, never calendar days ──
-
-def test_strength_windows_use_exact_session_counts_not_calendar_days():
-    days = make_days(130)
-    # Build a monotonically increasing relative-strength line so the
-    # CURRENT value is always the max of any trailing window -> Strength=100
-    # regardless of window size, PROVING each window actually pulled exactly
-    # its configured session count (not some other/calendar-based length) --
-    # if a window secretly used the wrong count it would still return 100
-    # here, so pin down window lengths on a NON-monotonic tail instead.
-    rel = pd.Series([100.0 + i for i in range(126)] + [50.0], index=days[:127])
-    # last value (50.0) is the lowest of the whole series -> lowest percentile
-    # in EVERY window that includes it, for every configured window length.
-    windows = {"1w": 5, "1m": 20, "3m": 63, "6m": 126}
-    result = compute_strength_windows_rsp(rel, windows)
-    # percentile_rank_of_current reuses percentile_ranks()'s round(..., 1)
-    # convention, so compare against the same rounded expectation.
-    assert result["1w"] == round(1 / 5 * 100, 1)
-    assert result["1m"] == round(1 / 20 * 100, 1)
-    assert result["3m"] == round(1 / 63 * 100, 1)
-    assert result["6m"] == round(1 / 126 * 100, 1)
+def test_relative_performance_at_none_when_insufficient_history():
+    days = make_days(4)
+    rel = pd.Series([1.0, 1.01, 1.02, 1.03], index=days)
+    assert relative_performance_at(rel, window=5, sessions_ago=0) is None
 
 
-def test_strength_window_none_when_insufficient_history():
-    days = make_days(10)
-    rel = pd.Series([100.0 + i for i in range(10)], index=days)
-    result = compute_strength_windows_rsp(rel, {"1w": 5, "1m": 20, "3m": 63, "6m": 126})
-    assert result["1w"] is not None
-    assert result["1m"] is None
-    assert result["3m"] is None
-    assert result["6m"] is None
-
-
-def test_timeframes_are_fully_separate_no_averaging_no_composite():
-    # Two different relative-strength lines that agree on the last 5
-    # sessions but differ everywhere else must produce identical Strength_1W
-    # but potentially different Strength_1M/3M/6M -- proving 1W's percentile
-    # rank does not leak into or get blended with the other windows.
-    days = make_days(30)
-    tail = [10.0, 10.1, 9.9, 10.2, 10.3]  # identical last 5 sessions
-    rel_a = pd.Series([100.0] * 25 + tail, index=days)
-    rel_b = pd.Series([1.0] * 25 + tail, index=days)
-    windows = {"1w": 5, "1m": 20}
-    result_a = compute_strength_windows_rsp(rel_a, windows)
-    result_b = compute_strength_windows_rsp(rel_b, windows)
-    assert result_a["1w"] == result_b["1w"]  # same 5-session tail -> same Strength_1W
-    assert result_a["1m"] != result_b["1m"]  # different 20-session history -> different Strength_1M
-
-
-def test_strength_percentile_at_sessions_ago_uses_real_sessions_not_calendar_days():
+def test_relative_performance_at_sessions_ago_shifts_the_reference_point():
     days = make_days(10)
     rel = pd.Series([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0], index=days)
-    # "Today" (sessions_ago=0): window = last 5 real sessions [6,7,8,9,10] -> current=10 is max -> 100.
-    assert strength_percentile_at(rel, window=5, sessions_ago=0) == 100.0
-    # 3 REAL sessions ago: window ends 3 positions back = [3,4,5,6,7] -> current(of that window)=7 is max -> 100.
-    assert strength_percentile_at(rel, window=5, sessions_ago=3) == 100.0
-    # 3 sessions ago vs today must reference genuinely different windows.
-    rel2 = pd.Series([5.0, 4.0, 3.0, 2.0, 1.0, 10.0, 9.0, 8.0, 7.0, 6.0], index=days)
-    today = strength_percentile_at(rel2, window=5, sessions_ago=0)   # window [10,9,8,7,6], current=6 -> min of 5 -> 20
-    ago = strength_percentile_at(rel2, window=5, sessions_ago=3)     # window [3,2,1,10,9], current=9 -> 4th of 5 -> 80
-    # today and ago land on genuinely different, correctly-offset windows
-    # (proves sessions_ago actually shifts the reference point, not a no-op).
-    assert today == 20.0
-    assert ago == 80.0
+    # today (sessions_ago=0), window=5: current=10 (idx9), base=5 (idx4) -> 10/5-1 = 1.0
+    today = relative_performance_at(rel, window=5, sessions_ago=0)
+    assert today == pytest.approx(1.0)
+    # 3 sessions ago, window=5: current=7 (idx6), base=2 (idx1) -> 7/2-1 = 2.5
+    ago = relative_performance_at(rel, window=5, sessions_ago=3)
+    assert ago == pytest.approx(2.5)
+    assert today != ago  # proves sessions_ago actually shifts the window, not a no-op
+
+
+# ── point 7: cross-sectional percentile ranking (replaces self-window) ──
+
+def test_cross_sectional_percentile_ranks_worked_example():
+    # Spec section 22-C: A=+8%, B=+4%, C=+1%, D=-2% -> A > B > C > D.
+    values = {"A": 0.08, "B": 0.04, "C": 0.01, "D": -0.02}
+    ranks = cross_sectional_percentile_ranks(values)
+    assert ranks["A"] > ranks["B"] > ranks["C"] > ranks["D"]
+    assert ranks["A"] == 100.0  # highest of 4 -> top percentile
+    assert ranks["D"] == 25.0   # lowest of 4 -> 1/4 * 100
+
+
+def test_cross_sectional_percentile_ranks_ties_get_identical_rank():
+    # Spec section 22-E: exactly equal relative_performance -> exactly equal RS.
+    values = {"A": 0.05, "B": 0.05, "C": 0.01}
+    ranks = cross_sectional_percentile_ranks(values)
+    assert ranks["A"] == ranks["B"]
+    assert ranks["A"] > ranks["C"]
+
+
+def test_cross_sectional_percentile_ranks_tie_is_order_independent():
+    # Same tie, members supplied in a different dict insertion order -> same
+    # ranks (average-rank method, not a stable-sort position).
+    values_1 = {"A": 0.05, "B": 0.05, "C": 0.01}
+    values_2 = {"C": 0.01, "B": 0.05, "A": 0.05}
+    ranks_1 = cross_sectional_percentile_ranks(values_1)
+    ranks_2 = cross_sectional_percentile_ranks(values_2)
+    assert ranks_1["A"] == ranks_2["A"] == ranks_1["B"] == ranks_2["B"]
+
+
+def test_cross_sectional_percentile_ranks_excludes_none_from_pool():
+    values = {"A": 0.08, "B": None, "C": 0.01}
+    ranks = cross_sectional_percentile_ranks(values)
+    assert "B" not in ranks
+    assert set(ranks.keys()) == {"A", "C"}
+    assert ranks["A"] == 100.0
+    assert ranks["C"] == 50.0  # 1 of 2 -> bottom half, avg-rank pct
+
+
+def test_cross_sectional_percentile_ranks_empty_when_all_none():
+    assert cross_sectional_percentile_ranks({"A": None, "B": None}) == {}
+
+
+def test_no_20_40_60_80_100_bucket_ceiling_with_many_active_narratives():
+    # Spec section 22-D: with e.g. 46 active narratives, 1W RS must not be
+    # limited to five discrete values -- this was the actual production bug
+    # (V6's self-window percentile_rank_of_current on a 5-observation window
+    # could only ever produce one of 20/40/60/80/100). Cross-sectional
+    # ranking over N narratives naturally produces up to N distinct values.
+    n = 46
+    values = {f"narrative_{i}": i * 0.001 for i in range(n)}  # all distinct
+    ranks = cross_sectional_percentile_ranks(values)
+    assert len(set(ranks.values())) == n  # every narrative gets its own distinct rank
+
+
+# ── point 7-8: compute_narrative_rs — fully separate 1W/1M/3M/6M, no composite ──
+
+def test_compute_narrative_rs_windows_are_fully_separate_no_averaging():
+    days = make_days(30)
+    # relative_performance_at is a RATIO (current/base - 1), so what must be
+    # shared between A and B for an IDENTICAL 1W result is the pair (base,
+    # current) at the 1W reference points -- not just "the same-looking
+    # trailing values". window=5, sessions_ago=0 -> base=index 24, current=
+    # index 29 (both series' last index). window=20 -> base=index 9, SAME
+    # current=index 29. Sharing indices 24..29 verbatim but diverging at
+    # index 9 gives identical 1W and different 1M, by construction.
+    tail = [10.0, 10.0, 10.0, 10.0, 10.0, 11.0]  # indices 24..29, shared
+    prefix_a = [1.0] * 9 + [5.0] + [1.0] * 14  # index 9 = 5.0
+    prefix_b = [1.0] * 9 + [8.0] + [1.0] * 14  # index 9 = 8.0
+    rel_a = pd.Series(prefix_a + tail, index=days)
+    rel_b = pd.Series(prefix_b + tail, index=days)
+    windows = {"1w": 5, "1m": 20}
+    narrative_rs, relative_performance = compute_narrative_rs({"A": rel_a, "B": rel_b}, windows)
+    # identical (base, current) pair at the 1W reference point -> identical raw relative_performance
+    assert relative_performance["1w"]["A"] == pytest.approx(relative_performance["1w"]["B"])
+    # cross-sectional over just {A, B} with equal 1W values -> tied RS
+    assert narrative_rs["1w"]["A"] == narrative_rs["1w"]["B"]
+    # different 20-session base -> different 1M relative_performance/RS
+    assert relative_performance["1m"]["A"] != relative_performance["1m"]["B"]
+    assert narrative_rs["1m"]["A"] != narrative_rs["1m"]["B"]
+
+
+def test_compute_narrative_rs_none_when_window_insufficient():
+    days = make_days(10)
+    rel = pd.Series([100.0 + i for i in range(10)], index=days)
+    narrative_rs, _ = compute_narrative_rs({"A": rel}, {"1w": 5, "1m": 20, "3m": 63, "6m": 126})
+    assert narrative_rs["1w"].get("A") is not None
+    assert narrative_rs["1m"].get("A") is None
+    assert narrative_rs["3m"].get("A") is None
+    assert narrative_rs["6m"].get("A") is None
+
+
+def test_compute_narrative_rs_sessions_ago_reconstructs_historical_rs():
+    # Point 9: RS1W as of 3 sessions ago must come from the SAME
+    # cross-sectional method, evaluated at an earlier reference point.
+    days = make_days(15)
+    rel_a = pd.Series([1.0 + i * 0.1 for i in range(15)], index=days)   # steadily rising
+    rel_b = pd.Series([1.0 - i * 0.05 for i in range(15)], index=days)  # steadily falling
+    today_rs, _ = compute_narrative_rs({"A": rel_a, "B": rel_b}, {"1w": 5}, sessions_ago=0)
+    ago_rs, _ = compute_narrative_rs({"A": rel_a, "B": rel_b}, {"1w": 5}, sessions_ago=3)
+    # A always outperforms B at every reference point (rising vs falling lines).
+    assert today_rs["1w"]["A"] > today_rs["1w"]["B"]
+    assert ago_rs["1w"]["A"] > ago_rs["1w"]["B"]
 
 
 # ── regression: no outperformance-day binary / win-share model ──
@@ -240,10 +306,11 @@ def test_relative_strength_reflects_magnitude_not_binary_win_day_share():
     assert big_move > small_move * 5
 
 
-# ── point 12: Thrust — worked example, non-clamping, missing-input rules ──
+# ── point 12: Thrust — worked example, non-clamping, missing-input rules
+# (formula UNCHANGED in V6.1, only its inputs changed to cross-sectional RS) ──
 
 def test_thrust_worked_example_from_spec():
-    # Strength_1W=80, Strength_1M=70, Strength_1W(3 sessions ago)=60
+    # RS_1W=80, RS_1M=70, RS_1W(3 sessions ago)=60
     # -> 0.60*80 + 0.40*70 + 0.10*(80-60) = 48 + 28 + 2 = 78
     weights = {"strength_1w": 0.60, "strength_1m": 0.40, "delta_1w_acceleration": 0.10}
     thrust = compute_narrative_thrust_rsp(80, 70, 60, weights)
@@ -316,3 +383,98 @@ def test_benchmark_rsp_series_dates_are_sorted_ascending():
     prices = pd.DataFrame({"RSP": [170.0, 171.0, 172.0, 173.0, 174.0]}, index=days)
     result = build_benchmark_rsp_series(prices, "RSP")
     assert result["dates"] == sorted(result["dates"])
+
+
+# ── point 18-19: Healthcare/Biotech Sanity Gate ──
+
+# NOTE: "life sciences" deliberately excluded -- collides with the real,
+# already-validated-not-Healthcare/Biotech narrative name "Life Sciences
+# Tools & Consumables" (see config's own comment + the regression test below).
+AUDIT_KEYWORDS = ["biotech", "biotechnology", "biopharma", "pharma", "pharmaceutical",
+                   "healthcare", "medical device", "diagnostic", "therapeutic"]
+
+
+def _members(symbols):
+    return [{"symbol": s} for s in symbols]
+
+
+def test_sanity_gate_flags_narrative_named_biotech_with_enough_members():
+    # Point 18's real example: an active "Biotech" narrative with >= 5
+    # eligible members must be caught by name alone, even if no individual
+    # member's SIC/description happens to match.
+    output_narratives = [{"id": "biotech", "name": "Biotech", "members": _members(["A", "B", "C", "D", "E"])}]
+    violations = find_healthcare_biotech_leaks(output_narratives, {}, AUDIT_KEYWORDS, min_active_members=5)
+    assert len(violations) == 1
+    assert violations[0]["narrative_name"] == "Biotech"
+    assert "biotech" in violations[0]["name_matched_keywords"]
+
+
+def test_sanity_gate_below_minimum_active_members_is_not_flagged():
+    # Same name, but under the active-size gate -> not flagged (point 19
+    # explicitly ties the check to the '>= 5 eligible members' bar).
+    output_narratives = [{"id": "biotech", "name": "Biotech", "members": _members(["A", "B", "C"])}]
+    violations = find_healthcare_biotech_leaks(output_narratives, {}, AUDIT_KEYWORDS, min_active_members=5)
+    assert violations == []
+
+
+def test_sanity_gate_flags_content_concentrated_narrative_even_with_neutral_name():
+    # A neutrally-named narrative whose eligible members are OVERWHELMINGLY
+    # (majority) Healthcare/Biotech by sic_description must also be caught --
+    # defense in depth beyond just the narrative's name.
+    market_features = {
+        "A": {"sic_description": "PHARMACEUTICAL PREPARATIONS"},
+        "B": {"sic_description": "BIOLOGICAL PRODUCTS, NO DIAGNOSTIC SUBSTANCES"},
+        "C": {"sic_description": "IN VITRO & IN VIVO DIAGNOSTIC SUBSTANCES"},
+        "D": {"sic_description": "SEMICONDUCTORS & RELATED DEVICES"},
+        "E": {"sic_description": "SEMICONDUCTORS & RELATED DEVICES"},
+    }
+    output_narratives = [{"id": "n1", "name": "Growth Innovators", "members": _members(["A", "B", "C", "D", "E"])}]
+    violations = find_healthcare_biotech_leaks(output_narratives, market_features, AUDIT_KEYWORDS, min_active_members=5)
+    assert len(violations) == 1
+    assert violations[0]["flagged_member_count"] == 3  # A, B, C
+    assert violations[0]["name_matched_keywords"] == []
+
+
+def test_sanity_gate_ignores_company_description_customer_vertical_false_positive():
+    # Regression for the real production false positive this gate caused:
+    # laboratory-instrument/testing-lab companies (AVTR/BRKR/NEO-shaped)
+    # whose OWN sic_description does NOT match, but whose free-text
+    # company_description mentions serving healthcare/biopharma/life-
+    # sciences CUSTOMERS, must NOT flag the narrative -- company_description
+    # is deliberately excluded from this gate's signal (sic_description only).
+    market_features = {
+        "AVTR": {"sic_code": "3826", "sic_description": "LABORATORY ANALYTICAL INSTRUMENTS",
+                  "company_description": "Provides products and services to customers in the biopharma, "
+                                          "healthcare, education & government, and advanced technologies industries."},
+        "BRKR": {"sic_code": "3826", "sic_description": "LABORATORY ANALYTICAL INSTRUMENTS",
+                  "company_description": "Manufactures scientific instruments and diagnostic tests for customers "
+                                          "in the life sciences, applied markets, pharmaceutical, and biotechnology industries."},
+        "NEO": {"sic_code": "8734", "sic_description": "SERVICES-TESTING LABORATORIES",
+                 "company_description": "Provides oncology diagnostic testing and consultative services."},
+        "D": {"sic_description": "SEMICONDUCTORS & RELATED DEVICES"},
+        "E": {"sic_description": "SEMICONDUCTORS & RELATED DEVICES"},
+    }
+    output_narratives = [{"id": "life_sciences_tools_consumables", "name": "Life Sciences Tools & Consumables",
+                           "members": _members(["AVTR", "BRKR", "NEO", "D", "E"])}]
+    violations = find_healthcare_biotech_leaks(output_narratives, market_features, AUDIT_KEYWORDS, min_active_members=5)
+    assert violations == []
+
+
+def test_sanity_gate_clean_narrative_is_not_flagged():
+    market_features = {s: {"sic_description": "SEMICONDUCTORS & RELATED DEVICES"} for s in "ABCDE"}
+    output_narratives = [{"id": "n1", "name": "Semiconductors", "members": _members(list("ABCDE"))}]
+    violations = find_healthcare_biotech_leaks(output_narratives, market_features, AUDIT_KEYWORDS, min_active_members=5)
+    assert violations == []
+
+
+def test_sanity_gate_minority_healthcare_members_alone_do_not_trigger():
+    # Only 1 of 5 members hits an audit keyword (20%, well under the
+    # majority bar) and the narrative's own name is neutral -> not flagged.
+    market_features = {
+        "A": {"sic_description": "PHARMACEUTICAL PREPARATIONS"},
+        "B": {"sic_description": "SEMICONDUCTORS"}, "C": {"sic_description": "SEMICONDUCTORS"},
+        "D": {"sic_description": "SEMICONDUCTORS"}, "E": {"sic_description": "SEMICONDUCTORS"},
+    }
+    output_narratives = [{"id": "n1", "name": "Growth Innovators", "members": _members(["A", "B", "C", "D", "E"])}]
+    violations = find_healthcare_biotech_leaks(output_narratives, market_features, AUDIT_KEYWORDS, min_active_members=5)
+    assert violations == []

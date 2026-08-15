@@ -310,10 +310,17 @@ def calc_ticker_metrics(prices):
 
         hist_1w = [round(float(x), 2) for x in s.iloc[-6:].tolist()]
         hist_1m = [round(float(x), 2) for x in s.iloc[-22:].tolist()]
+        # V6.1 (Narrative Ranking & UI Bugfix Patch) point 14: absolute
+        # change (current_close - previous_close) for the new Member-Detail-
+        # Tabelle's "Veränderung absolut" column -- d1_pct already covers
+        # "Veränderung %" (mathematically identical to the spec's own
+        # (current/previous-1)*100, reused per point 14's explicit allowance).
+        change_abs = round(float(last - s.iloc[-2]), 2) if len(s) > 1 else None
 
         out[sym] = {
             "symbol": sym,
             "price": round(float(last), 2),
+            "change_abs": change_abs,
             "d1_pct": pct_ago(1),
             "w1_pct": pct_ago(5),
             "m1_pct": pct_ago(21),
@@ -545,45 +552,68 @@ def compute_relative_strength_line(narrative_index, benchmark_close):
     return aligned["narrative"] / aligned["benchmark"]
 
 
-def percentile_rank_of_current(window_values):
-    """Percentile rank (0-100) of the LAST value in `window_values` within
-    the window (itself included) — reuses percentile_ranks()'s exact
-    sort-position convention (stable sort; among tied values the one that
-    appears later in the input list gets the higher rank) instead of
-    inventing a second percentile convention, per point 11's explicit
-    requirement. `window_values` is a plain ordered list, oldest-first,
-    current value last."""
-    n = len(window_values)
-    if n == 0:
-        return None
-    keyed = {i: {"v": v} for i, v in enumerate(window_values)}
-    ranks = percentile_ranks(keyed, "v")
-    return ranks.get(n - 1)
-
-
-def strength_percentile_at(relative_strength, window, sessions_ago=0):
-    """Strength_<window> as of `sessions_ago` real trading sessions before
-    the most recent one available in `relative_strength` (point 11 step 3 /
-    point 28's 3-session Thrust-delta lookback) — percentile_rank_of_current
-    applied to the `window`-session slice ending at that reference session.
-    None if there isn't enough history for a full window at that point
-    (graceful degradation, never a partial/padded window)."""
+def relative_performance_at(relative_strength, window, sessions_ago=0):
+    """V6.1 (Narrative Ranking & UI Bugfix Patch) point 6.3/7: the RAW
+    relative-performance return over `window` real trading sessions, as of
+    `sessions_ago` sessions before the most recent one available in
+    `relative_strength` (point 9's historical-RS1W-for-Thrust reconstruction
+    reuses this with sessions_ago>0). Mathematically identical to
+    (1+narrative_horizon_return)/(1+rsp_horizon_return)-1 since
+    relative_strength_t = narrative_index_t / rsp_close_t by construction
+    (point 6.3 explicitly permits this equivalent ratio-based formulation —
+    no second calculation model). Returns the raw ratio-based return, NOT a
+    percentile — cross_sectional_percentile_ranks() below turns a whole
+    snapshot of these into the actual Narrative RS. None if there isn't a
+    full `window`-session gap before the reference session (graceful
+    degradation, never a partial/padded window)."""
     valid = relative_strength.dropna()
     n = len(valid)
     end = n - sessions_ago
-    if end < window:
+    if end - 1 - window < 0:
         return None
-    window_vals = valid.iloc[end - window:end].tolist()
-    return percentile_rank_of_current(window_vals)
+    current = valid.iloc[end - 1]
+    base = valid.iloc[end - 1 - window]
+    if not base:
+        return None
+    return float(current / base - 1.0)
 
 
-def compute_strength_windows_rsp(relative_strength, windows_sessions):
-    """{"1w":.., "1m":.., "3m":.., "6m":..} — point 11's four FULLY SEPARATE
-    Strength timeframes (no averaging/weighting across them, no composite
-    score). Each is independently None if its window's history isn't
-    available yet."""
-    return {label: strength_percentile_at(relative_strength, sessions)
-            for label, sessions in windows_sessions.items()}
+def cross_sectional_percentile_ranks(values):
+    """V6.1 point 7: cross-sectional percentile rank (0-100) of each id's
+    value against ALL OTHER ids with a value in this SAME snapshot — this
+    is what actually makes Narrative RS answer 'how does this narrative's
+    relative performance compare to every OTHER active narrative right now',
+    replacing V6's self-window percentile_rank_of_current (which answered
+    the wrong question: 'where does today sit within THIS narrative's own
+    recent history', collapsing to a handful of discrete values like
+    20/40/60/80/100 whenever the window was short, e.g. 5 sessions for 1W).
+    Point 7's explicit Tie-Handling requirement: exactly-equal values get
+    the EXACT SAME rank via the average-rank method, never an order-
+    dependent stable-sort position (unlike percentile_ranks() above, which
+    intentionally keeps that simpler tie-break for its own unrelated
+    ticker-vs-ticker/narrative-vs-narrative-Strength callers) — equivalent
+    to pandas.Series(values).rank(method='average', pct=True) * 100."""
+    usable = {k: v for k, v in values.items() if v is not None}
+    if not usable:
+        return {}
+    keys = list(usable.keys())
+    ranks = pd.Series([usable[k] for k in keys]).rank(method="average", pct=True) * 100
+    return {k: round(float(r), 1) for k, r in zip(keys, ranks)}
+
+
+def compute_narrative_rs(relative_strength_by_id, windows_sessions, sessions_ago=0):
+    """V6.1 point 7-8: {"1w": {id: rs}, "1m": {...}, "3m": {...}, "6m": {...}}
+    PLUS the raw relative_performance dict per window, cross-sectional across
+    ALL ids with a computable relative_strength line at `sessions_ago`. Each
+    window fully separate (point 7: 'keine Composite Strength') — no
+    averaging/weighting across 1W/1M/3M/6M."""
+    narrative_rs, relative_performance = {}, {}
+    for label, window in windows_sessions.items():
+        raw = {nid: relative_performance_at(rel, window, sessions_ago)
+               for nid, rel in relative_strength_by_id.items()}
+        relative_performance[label] = raw
+        narrative_rs[label] = cross_sectional_percentile_ranks(raw)
+    return narrative_rs, relative_performance
 
 
 def compute_narrative_thrust_rsp(strength_1w_today, strength_1m_today, strength_1w_n_sessions_ago, thrust_weights):
@@ -594,7 +624,12 @@ def compute_narrative_thrust_rsp(strength_1w_today, strength_1m_today, strength_
     negative). None unless ALL three inputs are present — no alternative
     weighting/renormalization is ever substituted for a missing input
     (unlike renormalized_weighted_sum elsewhere in this pipeline, which is
-    intentionally NOT reused here)."""
+    intentionally NOT reused here). V6.1: the formula shape itself is
+    UNCHANGED — only its inputs changed, from V6's self-window Strength
+    percentiles to the new cross-sectional Narrative RS (compute_narrative_rs)
+    / Stock RS (build_market_features.py's rs_percentile_1w/1m, which reuses
+    this exact function for stock_thrust_rs -- same formula, two different
+    percentile inputs, still ONE formula definition)."""
     if strength_1w_today is None or strength_1m_today is None or strength_1w_n_sessions_ago is None:
         return None
     w = thrust_weights
@@ -625,6 +660,67 @@ def build_benchmark_rsp_series(prices, rsp_ticker):
         "dates": list(s.index),
         "close": [round(float(v), 4) for v in s.tolist()],
     }
+
+
+def find_healthcare_biotech_leaks(output_narratives, market_features, audit_keywords, min_active_members):
+    """V6.1 (Narrative Ranking & UI Bugfix Patch) point 19: Healthcare/
+    Biotech Sanity Gate — a DEFENSE-IN-DEPTH check run AFTER the build, never
+    a second universe filter (audit_keywords is deliberately broader/looser
+    than universe.healthcare_biotech_filter's precise exclusion keywords —
+    point 19's explicit 'nicht als alleinigen Universe-Filter'). Flags an
+    active narrative (>= `min_active_members` eligible members, the SAME
+    threshold that already gates active/undersized elsewhere in this file,
+    never a second hardcoded '5') if EITHER its own name reads as Healthcare/
+    Biotech, OR more than half its eligible members individually do (via
+    sic_description substring match ONLY -- see below) — catching both an
+    unmistakably-named leak (point 18's real example: an active 'Biotech'
+    narrative) and a content-concentrated one that happens to be named
+    something neutral. Returns a list of violation dicts (empty if clean);
+    the caller (main()) turns a non-empty result into sys.exit(1) with a full
+    diagnostic dump, per point 19's explicit 'Build/Test fehlschlagen lassen'.
+
+    The per-member signal deliberately checks ONLY sic_description (a
+    controlled, standardized vocabulary), never company_description (free
+    text) -- a first version that also matched company_description produced
+    a real false positive here: 'Life Sciences Tools & Consumables'
+    (AVTR/BRKR/NEO, all laboratory-instrument/testing-lab companies whose
+    SIC -- 3826/8734 -- is deliberately NOT in the exclusion filter, see
+    config's own comment) got flagged because their company_description
+    mentions serving 'biopharma'/'healthcare'/'life sciences' CUSTOMERS,
+    exactly the customer-vertical-mention false-positive point 6/18
+    warns against. sic_description doesn't have that failure mode."""
+    def matched_keywords(text):
+        t = (text or "").lower()
+        return [kw for kw in audit_keywords if kw in t]
+
+    violations = []
+    for row in output_narratives:
+        if len(row["members"]) < min_active_members:
+            continue
+        name_hits = matched_keywords(row["name"])
+        flagged_members = []
+        for m in row["members"]:
+            sym = m["symbol"]
+            mf = (market_features or {}).get(sym, {})
+            hits = matched_keywords(mf.get("sic_description"))
+            if hits:
+                flagged_members.append({
+                    "symbol": sym, "sic_code": mf.get("sic_code"),
+                    "sic_description": mf.get("sic_description"),
+                    "company_description": mf.get("company_description"),
+                    "matched_keywords": hits,
+                })
+        member_majority = len(row["members"]) > 0 and len(flagged_members) / len(row["members"]) > 0.5
+        if name_hits or member_majority:
+            violations.append({
+                "narrative_id": row["id"],
+                "narrative_name": row["name"],
+                "eligible_member_count": len(row["members"]),
+                "name_matched_keywords": name_hits,
+                "flagged_member_count": len(flagged_members),
+                "flagged_members": flagged_members,
+            })
+    return violations
 
 
 def calc_basket_scores(members, ticker_metrics, daily_ret, pct_field_by_horizon, percentiles_by_horizon):
@@ -753,6 +849,11 @@ def main():
         m["percentile_1d"] = percentiles_by_horizon["1d"].get(sym)
         m["percentile_1w"] = percentiles_by_horizon["1w"].get(sym)
         m["percentile_1m"] = percentiles_by_horizon["1m"].get(sym)
+        # V6.1 point 15: 3M/6M Stock-RS-Percentiles, previously missing from
+        # the member payload (percentiles_by_horizon already computes them
+        # via mf_rs_field_by_horizon -- just wasn't copied onto ticker_metrics).
+        m["percentile_3m"] = percentiles_by_horizon["3m"].get(sym)
+        m["percentile_6m"] = percentiles_by_horizon["6m"].get(sym)
         mf = (market_features or {}).get(sym, {})
         m["ema10_distance_pct"] = mf.get("ema10_distance_pct")
         m["ema20_distance_pct"] = mf.get("ema20_distance_pct")
@@ -761,6 +862,13 @@ def main():
         m["eligible"] = mf.get("eligible")
         m["structural_rs"] = mf.get("structural_rs")
         m["trend_strength"] = mf.get("trend_strength")
+        # V6.1 point 4: market_cap for aggregate_market_cap (tie-breaker
+        # only, never fed into any RS/Thrust formula). Point 16: stock_thrust_rs
+        # computed upstream in build_market_features.py (same eligible
+        # cross-sectional population as rs_percentile_1w/1m), passed through
+        # unchanged -- no second Stock-RS/Thrust engine here.
+        m["market_cap"] = mf.get("market_cap")
+        m["stock_thrust_rs"] = mf.get("stock_thrust_rs")
 
     # Full-Universe spec point 8: every narrative-level metric (Strength/
     # Thrust/Breadth/Leadership/Structural Leadership/Trend Participation/
@@ -832,24 +940,66 @@ def main():
     benchmark_close = prices[RSP_TICKER] if RSP_TICKER in prices.columns else None
     if benchmark_close is None:
         print(f"  ⚠ {RSP_TICKER} nicht in den geladenen Kursdaten enthalten — "
-              "RSP-Narrative-Strength/Thrust uebersprungen (strength_rsp/thrust_rsp bleiben None)", file=sys.stderr)
+              "RSP-Narrative-Strength/Thrust uebersprungen (narrative_rs/thrust_rsp bleiben None)", file=sys.stderr)
+
+    # V6.1 (Narrative Ranking & UI Bugfix Patch) point 5-7: build every
+    # active narrative's relative-strength line FIRST (Pass 2a), THEN rank
+    # them all cross-sectionally per horizon (Pass 2b) -- this is the actual
+    # fix for the old self-window scaling bug (V6 ranked each narrative only
+    # against its OWN trailing 1W/1M/3M/6M history, which with as few as 5
+    # observations for 1W collapsed onto a handful of discrete values like
+    # 20/40/60/80/100 and let several narratives tie at 100 simultaneously).
+    # Narrative RS now answers "how strong is this narrative RIGHT NOW
+    # relative to every OTHER currently active narrative", not "where does
+    # today sit within this one narrative's own recent history".
+    relative_strength_by_id = {}
+    if benchmark_close is not None:
+        for row in narrative_rows:
+            eq_weight_ret = compute_narrative_equal_weight_return_series(daily_ret, row["members"])
+            narrative_index = build_synthetic_narrative_index(eq_weight_ret)
+            relative_strength = compute_relative_strength_line(narrative_index, benchmark_close)
+            if not relative_strength.empty:
+                relative_strength_by_id[row["id"]] = relative_strength
+
+    narrative_rs, relative_performance_rsp = compute_narrative_rs(
+        relative_strength_by_id, rsp_cfg["strength_windows_sessions"], sessions_ago=0)
+    # Point 9: historical RS1W as of `thrust_delta_sessions` sessions ago,
+    # reconstructed via the SAME cross-sectional method at that earlier
+    # reference point (never the old self-window percentile) -- feeds Thrust's
+    # acceleration term below.
+    narrative_rs_1w_n_ago, _ = compute_narrative_rs(
+        relative_strength_by_id, {"1w": rsp_cfg["strength_windows_sessions"]["1w"]},
+        sessions_ago=rsp_cfg["thrust_delta_sessions"])
+    thrust_rsp_by_id = {
+        nid: compute_narrative_thrust_rsp(
+            narrative_rs["1w"].get(nid), narrative_rs["1m"].get(nid),
+            narrative_rs_1w_n_ago["1w"].get(nid), rsp_cfg["thrust_weights"])
+        for nid in relative_strength_by_id
+    }
+    if relative_strength_by_id:
+        n_distinct_1w = len({v for v in narrative_rs["1w"].values() if v is not None})
+        print(f"  ✅ Narrative RS (cross-sectional): {len(relative_strength_by_id)} aktive Narrative gerankt, "
+              f"{n_distinct_1w} unterschiedliche RS-1W-Werte (kein 20/40/60/80/100-Zwang mehr)")
 
     output_narratives = []
     for row in narrative_rows:
         nid, members, scores = row["id"], row["members"], row["scores"]
 
-        if benchmark_close is not None:
-            eq_weight_ret = compute_narrative_equal_weight_return_series(daily_ret, members)
-            narrative_index = build_synthetic_narrative_index(eq_weight_ret)
-            relative_strength = compute_relative_strength_line(narrative_index, benchmark_close)
-            strength_rsp = compute_strength_windows_rsp(relative_strength, rsp_cfg["strength_windows_sessions"])
-            strength_1w_n_ago = strength_percentile_at(
-                relative_strength, rsp_cfg["strength_windows_sessions"]["1w"], rsp_cfg["thrust_delta_sessions"])
-            thrust_rsp = compute_narrative_thrust_rsp(
-                strength_rsp["1w"], strength_rsp["1m"], strength_1w_n_ago, rsp_cfg["thrust_weights"])
-        else:
-            strength_rsp = {label: None for label in rsp_cfg["strength_windows_sessions"]}
-            thrust_rsp = None
+        narrative_rs_for_id = {label: narrative_rs[label].get(nid) for label in rsp_cfg["strength_windows_sessions"]}
+        relative_performance_for_id = {label: relative_performance_rsp[label].get(nid)
+                                        for label in rsp_cfg["strength_windows_sessions"]}
+        thrust_rsp = thrust_rsp_by_id.get(nid)
+
+        # V6.1 point 4: aggregate_market_cap — sum of CURRENTLY ELIGIBLE
+        # members' market_cap (each ticker counted once per narrative;
+        # overlapping membership across DIFFERENT narratives stays allowed,
+        # point 4's explicit rule). Tie-breaker ONLY -- never an input to
+        # narrative_rs/thrust_rsp above. None (not 0) if no member has a
+        # known market_cap, same graceful-degradation convention as
+        # everywhere else in this pipeline.
+        member_caps = [ticker_metrics[m]["market_cap"] for m in members
+                       if ticker_metrics[m].get("market_cap") is not None]
+        aggregate_market_cap = round(sum(member_caps), 2) if member_caps else None
 
         strength_percentile_1m = strength_percentile_by_horizon["1m"].get(nid)
         strength_percentile_3m = strength_percentile_by_horizon["3m"].get(nid)
@@ -910,20 +1060,54 @@ def main():
             # condition (thrust_percentile_1w_min), NOT a narrative_structural_score
             # component (Thrust stays out of the structural score itself).
             "thrust_percentile_1w": thrust_percentile_1w.get(nid),
-            # V6 point 7-13: the new headline metrics. "Jeff-inspired
-            # Relative Strength gegen RSP" (candidate v1, NOT Jeff Sun's
-            # exact unpublished formula) / "Jeff-inspired Thrust candidate
-            # v1" — see compute_strength_windows_rsp/
-            # compute_narrative_thrust_rsp. The four strength_rsp timeframes
-            # are fully separate (no averaging/composite). Leadership/
-            # Breadth (above) are no longer shown as competing headline
-            # scores but stay computed for internal/debug use.
-            "strength_rsp": strength_rsp,
+            # V6.1 point 6-8: the headline metrics, now CROSS-SECTIONAL
+            # (point 5-7 — see compute_narrative_rs/cross_sectional_percentile_ranks
+            # above for why this replaces V6's self-window strength_rsp).
+            # "Jeff-inspired Relative Strength gegen RSP" / "Jeff-inspired
+            # Thrust candidate v1" remain candidate formulas, not a
+            # reproduction of Jeff Sun's unpublished original. The four
+            # narrative_rs timeframes stay fully separate (no averaging/
+            # composite, point 7). relative_performance_rsp carries the RAW
+            # ratio-based return behind each narrative_rs percentile (point 8).
+            "narrative_rs": narrative_rs_for_id,
+            "relative_performance_rsp": relative_performance_for_id,
             "thrust_rsp": thrust_rsp,
+            "aggregate_market_cap": aggregate_market_cap,
+            # Point 8's explicit backward-compat allowance: "strength_rsp"
+            # kept as a DEPRECATED ALIAS of narrative_rs (the SAME dict, not
+            # a second calculation) for any consumer still reading the old
+            # V6 key name. New consumers (frontend included, point 8) read
+            # narrative_rs exclusively.
+            "strength_rsp": narrative_rs_for_id,
         })
         print(f"  ✅ {row['name']}: {len(members)} Ticker | Structural Score {narrative_structural_score} | "
               f"Trend Participation {row['pct_above_rising_sma50']} | Modifier {momentum_modifier} | "
-              f"Strength(RSP) 1W={strength_rsp['1w']} 1M={strength_rsp['1m']} | Thrust(RSP)={thrust_rsp}")
+              f"RS 1W={narrative_rs_for_id['1w']} 1M={narrative_rs_for_id['1m']} | Thrust={thrust_rsp} | "
+              f"Aggregate Market Cap={aggregate_market_cap}")
+
+    # V6.1 point 19: Healthcare/Biotech Sanity Gate -- runs on the FINAL
+    # active/eligible-filtered output_narratives, so it only ever sees what
+    # the dashboard would actually show. A violation fails the build loudly
+    # (sys.exit(1) with full diagnostics) rather than silently shipping a
+    # Healthcare/Biotech narrative that slipped past the upstream
+    # classify_healthcare_biotech exclusion in build_market_features.py.
+    hc_gate_cfg = cfg.get("universe", {}).get("healthcare_biotech_sanity_gate", {})
+    audit_keywords = hc_gate_cfg.get("audit_keywords", [])
+    hc_leaks = find_healthcare_biotech_leaks(output_narratives, market_features, audit_keywords, min_active_members)
+    if hc_leaks:
+        print("\n❌ Healthcare/Biotech Sanity Gate FEHLGESCHLAGEN (Punkt 19) — Build abgebrochen:", file=sys.stderr)
+        for v in hc_leaks:
+            print(f"  Narrative '{v['narrative_name']}' ({v['narrative_id']}): "
+                  f"{v['eligible_member_count']} eligible Mitglieder, "
+                  f"Name-Treffer: {v['name_matched_keywords']}, "
+                  f"{v['flagged_member_count']} Mitglieder mit Treffer", file=sys.stderr)
+            for fm in v["flagged_members"]:
+                print(f"    {fm['symbol']}: SIC {fm['sic_code']} ({fm['sic_description']}) — "
+                      f"Treffer {fm['matched_keywords']} — company_description: {fm['company_description']!r}",
+                      file=sys.stderr)
+        sys.exit(1)
+    print(f"  ✅ Healthcare/Biotech Sanity Gate: 0 aktive Narrative mit >= {min_active_members} "
+          f"eligible Mitgliedern lesen sich als Healthcare/Biotech")
 
     rs_history = compute_narrative_rs_history(
         narratives, daily_ret, trading_days,
