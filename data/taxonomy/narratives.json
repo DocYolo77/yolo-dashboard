@@ -1045,6 +1045,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "CHRN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "ChronoScale is being formed as an accelerated compute platform delivering scalable GPU-based infrastructure to support AI workloads, directly matching the AI Infrastructure narrative.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -1239,6 +1250,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "WULF": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "TeraWulf has pivoted its large-scale power/digital infrastructure sites toward hosting AI and high-performance computing workloads, effectively operating as a data center infrastructure provider leveraging owned energy capacity. This differs from its historical bitcoin mining focus which is captured by crypto_mining_digital_asset_treasury, but the description emphasizes AI/HPC infrastructure hosting as the strategic direction now.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -6088,6 +6110,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "EFOR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Everforth is a technology/digital engineering consulting company offering AI, cloud, digital engineering, CX, cybersecurity and enterprise platform services - this matches IT Services/Consulting well despite SIC code being help supply services.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7241,6 +7274,28 @@
           "reason": "Alliance Laundry Holdings designs and manufactures commercial laundry equipment, fitting general industrial machinery manufacturing given no more specific catalog match.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "DXPE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "DXP distributes MRO products, equipment and services (industrial machinery/equipment wholesale) to industrial end markets - closest existing fit is Industrial Machinery given SIC 5084 wholesale industrial machinery & equipment.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ESAB": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "ESAB manufactures welding, cutting and joining equipment and consumables for industrial applications - fits well within Industrial Machinery given general industrial equipment manufacturing model.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -8700,6 +8755,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "WD": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Walker & Dunlop originates, sells and services multifamily/commercial real estate loans through Fannie Mae, Freddie Mac, Ginnie Mae programs. This is a specialty commercial real estate finance/mortgage banking business. No catalog entry precisely covers commercial mortgage banking, but Banking/Financial Services is the closest broad economic fit given its role as a financial intermediary originating and servicing loans.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9024,6 +9090,28 @@
           "reason": "Arxis designs/manufactures specialized electronic and mechanical components for extreme environment applications (aerospace parts SIC code), fitting electronic components manufacturing well given its electronic components segment description.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "JBL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Jabil is a large electronics manufacturing services (EMS) provider offering design, manufacturing and supply chain solutions across electronics/PCBs. Closest existing narrative is Electronic Components Manufacturing given SIC 3672 (Printed Circuit Boards) and its role supplying electronic manufacturing to OEMs across industries, though it's broader EMS/contract manufacturing rather than pure components.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PLXS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Plexus is an electronics manufacturing services (EMS) provider designing and manufacturing complex electronic products for medical, aerospace/defense, industrial and semiconductor capital equipment customers. While not a pure passive-components maker, it fits best within the existing electronics manufacturing narrative as no dedicated EMS/contract manufacturing narrative exists in the catalog.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -9515,6 +9603,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "EAT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Brinker operates Chili's and Maggiano's, casual dining chains with franchised/company-owned restaurant growth model. While technically 'casual dining' rather than 'fast casual', this is the closest existing catalog fit as a restaurant chain operator narrative; economics (traffic, unit growth, menu pricing) are highly similar.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -10828,6 +10927,17 @@
           "reason": "Newell Brands is a diversified branded consumer products company (Rubbermaid, Sharpie, Coleman, Oster, Graco) - closest existing fit is household appliances/consumer products manufacturing given branded consumer durable goods focus, though it's broader than pure appliances.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "SharkNinja designs and sells branded small household appliances (vacuums, cooking, food prep, beauty devices), fitting well with the household appliances manufacturing narrative despite being smaller/consumer appliances rather than major appliances.",
+          "added_at": "2026-08-15",
+          "last_reviewed_at": "2026-08-15",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1

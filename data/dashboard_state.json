@@ -1,15 +1,15 @@
 {
   "meta": {
     "as_of_date": "2026-08-14",
-    "updated_at": "2026-08-15T11:11:37.722459+00:00",
+    "updated_at": "2026-08-15T11:48:12.032233+00:00",
     "dashboard_state_version": "v1.1",
     "first_run": false
   },
   "market_regime": {
-    "score": 55.0,
+    "score": 55.1,
     "state": "SELECTIVE",
     "prev_score": 54.0,
-    "score_delta": 1.0,
+    "score_delta": 1.1,
     "components": {
       "breadth": {
         "score": 67.7,
@@ -24,11 +24,11 @@
         "pct_positive_thrust_1w": 48.9
       },
       "narrative_environment": {
-        "score": 35.1,
-        "avg_structural_score": 39.0,
-        "avg_trend_participation": 29.0,
-        "avg_structural_leadership_pct": 8.4,
-        "avg_breadth_pct_positive_1m": 64.0
+        "score": 35.5,
+        "avg_structural_score": 39.3,
+        "avg_trend_participation": 29.9,
+        "avg_structural_leadership_pct": 8.6,
+        "avg_breadth_pct_positive_1m": 64.2
       }
     },
     "eligible_universe_size": 810,
@@ -88,17 +88,17 @@
       "MATURE": 0,
       "FADING": 9,
       "DORMANT": 0,
-      "NEUTRAL": 34
+      "NEUTRAL": 35
     },
     "items": {
       "semiconductors": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 32.6,
+        "structural_score": 32.8,
         "structural_score_delta5d": null,
-        "score_delta": 7.0,
-        "rank": 27,
+        "score_delta": 7.2,
+        "rank": 28,
         "prev_rank": 33,
-        "rank_delta": 6,
+        "rank_delta": 5,
         "trend_participation": 10.0,
         "structural_leadership_pct": 6.0,
         "momentum_modifier": "ACCELERATING"
@@ -117,33 +117,33 @@
       },
       "ai_infrastructure": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 58.0,
+        "structural_score": 56.2,
         "structural_score_delta5d": null,
-        "score_delta": 9.7,
-        "rank": 6,
+        "score_delta": 7.9,
+        "rank": 9,
         "prev_rank": 15,
-        "rank_delta": 9,
-        "trend_participation": 35.7,
-        "structural_leadership_pct": 35.7,
+        "rank_delta": 6,
+        "trend_participation": 33.3,
+        "structural_leadership_pct": 33.3,
         "momentum_modifier": "ACCELERATING"
       },
       "data_center": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 42.6,
+        "structural_score": 37.8,
         "structural_score_delta5d": null,
-        "score_delta": 2.7,
-        "rank": 17,
+        "score_delta": -2.1,
+        "rank": 24,
         "prev_rank": 19,
-        "rank_delta": 2,
-        "trend_participation": 15.4,
-        "structural_leadership_pct": 23.1,
+        "rank_delta": -5,
+        "trend_participation": 14.3,
+        "structural_leadership_pct": 21.4,
         "momentum_modifier": "ACCELERATING"
       },
       "networking": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 42.4,
+        "structural_score": 42.1,
         "structural_score_delta5d": null,
-        "score_delta": 1.9,
+        "score_delta": 1.6,
         "rank": 18,
         "prev_rank": 18,
         "rank_delta": 0,
@@ -153,36 +153,36 @@
       },
       "cybersecurity": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 72.4,
+        "structural_score": 72.2,
         "structural_score_delta5d": null,
-        "score_delta": -4.1,
-        "rank": 2,
+        "score_delta": -4.3,
+        "rank": 3,
         "prev_rank": 1,
-        "rank_delta": -1,
+        "rank_delta": -2,
         "trend_participation": 81.2,
         "structural_leadership_pct": 31.2,
         "momentum_modifier": "COOLING"
       },
       "software_saas": {
         "lifecycle_state": "ACTIVE",
-        "structural_score": 72.0,
+        "structural_score": 72.3,
         "structural_score_delta5d": null,
-        "score_delta": -3.3,
-        "rank": 3,
+        "score_delta": -3.0,
+        "rank": 2,
         "prev_rank": 2,
-        "rank_delta": -1,
+        "rank_delta": 0,
         "trend_participation": 78.5,
         "structural_leadership_pct": 21.5,
         "momentum_modifier": "COOLING"
       },
       "space": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 38.1,
+        "structural_score": 38.2,
         "structural_score_delta5d": null,
-        "score_delta": 2.9,
-        "rank": 23,
+        "score_delta": 3.0,
+        "rank": 22,
         "prev_rank": 24,
-        "rank_delta": 1,
+        "rank_delta": 2,
         "trend_participation": 10.0,
         "structural_leadership_pct": 10.0,
         "momentum_modifier": null
@@ -201,93 +201,93 @@
       },
       "uranium": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 28.9,
+        "structural_score": 28.8,
         "structural_score_delta5d": null,
-        "score_delta": 1.1,
-        "rank": 32,
+        "score_delta": 1.0,
+        "rank": 34,
         "prev_rank": 30,
-        "rank_delta": -2,
+        "rank_delta": -4,
         "trend_participation": 0.0,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "defense_aerospace": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 57.5,
+        "structural_score": 57.7,
         "structural_score_delta5d": null,
-        "score_delta": 4.0,
-        "rank": 7,
+        "score_delta": 4.2,
+        "rank": 6,
         "prev_rank": 10,
-        "rank_delta": 3,
+        "rank_delta": 4,
         "trend_participation": 50.0,
         "structural_leadership_pct": 16.7,
         "momentum_modifier": null
       },
       "fintech": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 51.1,
+        "structural_score": 51.5,
         "structural_score_delta5d": null,
-        "score_delta": 1.5,
-        "rank": 13,
+        "score_delta": 1.9,
+        "rank": 14,
         "prev_rank": 12,
-        "rank_delta": -1,
+        "rank_delta": -2,
         "trend_participation": 53.8,
         "structural_leadership_pct": 7.7,
-        "momentum_modifier": "ACCELERATING"
+        "momentum_modifier": null
       },
       "biotech": {
         "lifecycle_state": "NEUTRAL",
         "structural_score": 54.0,
         "structural_score_delta5d": null,
         "score_delta": 4.8,
-        "rank": 11,
+        "rank": 12,
         "prev_rank": 13,
-        "rank_delta": 2,
+        "rank_delta": 1,
         "trend_participation": 60.0,
         "structural_leadership_pct": 40.0,
         "momentum_modifier": null
       },
       "quantum_computing": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 31.4,
+        "structural_score": 30.9,
         "structural_score_delta5d": null,
-        "score_delta": 6.0,
-        "rank": 28,
+        "score_delta": 5.5,
+        "rank": 31,
         "prev_rank": 34,
-        "rank_delta": 6,
+        "rank_delta": 3,
         "trend_participation": 0.0,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "ev_battery": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 16.2,
+        "structural_score": 16.1,
         "structural_score_delta5d": null,
-        "score_delta": 5.6,
-        "rank": 43,
+        "score_delta": 5.5,
+        "rank": 44,
         "prev_rank": 42,
-        "rank_delta": -1,
+        "rank_delta": -2,
         "trend_participation": 10.0,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "solar_clean_energy": {
         "lifecycle_state": "FADING",
-        "structural_score": 9.2,
+        "structural_score": 9.4,
         "structural_score_delta5d": null,
-        "score_delta": 4.9,
-        "rank": 45,
+        "score_delta": 5.1,
+        "rank": 46,
         "prev_rank": 44,
-        "rank_delta": -1,
+        "rank_delta": -2,
         "trend_participation": 0.0,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "gold___precious_metals_miners": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 38.9,
+        "structural_score": 39.0,
         "structural_score_delta5d": null,
-        "score_delta": 5.1,
+        "score_delta": 5.2,
         "rank": 20,
         "prev_rank": 26,
         "rank_delta": 6,
@@ -297,21 +297,21 @@
       },
       "it_services_consulting": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 53.7,
+        "structural_score": 56.7,
         "structural_score_delta5d": null,
-        "score_delta": -0.3,
-        "rank": 12,
+        "score_delta": 2.7,
+        "rank": 8,
         "prev_rank": 9,
-        "rank_delta": -3,
-        "trend_participation": 53.3,
-        "structural_leadership_pct": 6.7,
+        "rank_delta": 1,
+        "trend_participation": 56.2,
+        "structural_leadership_pct": 12.5,
         "momentum_modifier": null
       },
       "automotive_parts_components_supplier": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 34.3,
+        "structural_score": 34.9,
         "structural_score_delta5d": null,
-        "score_delta": -0.2,
+        "score_delta": 0.4,
         "rank": 26,
         "prev_rank": 25,
         "rank_delta": -1,
@@ -321,9 +321,9 @@
       },
       "industrial_specialty_vehicle_machinery": {
         "lifecycle_state": "FADING",
-        "structural_score": 31.2,
+        "structural_score": 31.0,
         "structural_score_delta5d": null,
-        "score_delta": 4.5,
+        "score_delta": 4.3,
         "rank": 29,
         "prev_rank": 31,
         "rank_delta": 2,
@@ -333,21 +333,21 @@
       },
       "airlines": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 29.2,
+        "structural_score": 29.5,
         "structural_score_delta5d": null,
-        "score_delta": -6.8,
-        "rank": 31,
+        "score_delta": -6.5,
+        "rank": 32,
         "prev_rank": 23,
-        "rank_delta": -8,
+        "rank_delta": -9,
         "trend_participation": 16.7,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "oil_gas_services_equipment": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 43.5,
+        "structural_score": 43.6,
         "structural_score_delta5d": null,
-        "score_delta": 4.7,
+        "score_delta": 4.8,
         "rank": 16,
         "prev_rank": 20,
         "rank_delta": 4,
@@ -357,43 +357,43 @@
       },
       "construction_engineering_services": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 27.4,
+        "structural_score": 28.0,
         "structural_score_delta5d": null,
-        "score_delta": 3.9,
-        "rank": 34,
+        "score_delta": 4.5,
+        "rank": 36,
         "prev_rank": 35,
-        "rank_delta": 1,
+        "rank_delta": -1,
         "trend_participation": 11.8,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": "ACCELERATING"
       },
       "e_commerce_platform": {
         "lifecycle_state": "FADING",
-        "structural_score": 43.5,
+        "structural_score": 43.3,
         "structural_score_delta5d": null,
-        "score_delta": 2.7,
-        "rank": 15,
+        "score_delta": 2.5,
+        "rank": 17,
         "prev_rank": 17,
-        "rank_delta": 2,
+        "rank_delta": 0,
         "trend_participation": 40.0,
         "structural_leadership_pct": 10.0,
         "momentum_modifier": null
       },
       "industrial_machinery": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 26.7,
+        "structural_score": 30.9,
         "structural_score_delta5d": null,
         "score_delta": null,
-        "rank": 35,
+        "rank": 30,
         "prev_rank": null,
         "rank_delta": null,
-        "trend_participation": 0.0,
+        "trend_participation": 14.3,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "professional_financial_advisory_services": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 62.9,
+        "structural_score": 63.2,
         "structural_score_delta5d": null,
         "score_delta": null,
         "rank": 4,
@@ -405,12 +405,12 @@
       },
       "apparel_retail": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 38.1,
+        "structural_score": 38.3,
         "structural_score_delta5d": null,
-        "score_delta": -3.0,
-        "rank": 22,
+        "score_delta": -2.8,
+        "rank": 21,
         "prev_rank": 16,
-        "rank_delta": -6,
+        "rank_delta": -5,
         "trend_participation": 36.4,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
@@ -420,18 +420,18 @@
         "structural_score": 57.0,
         "structural_score_delta5d": null,
         "score_delta": 2.7,
-        "rank": 8,
+        "rank": 7,
         "prev_rank": 8,
-        "rank_delta": 0,
+        "rank_delta": 1,
         "trend_participation": 50.0,
         "structural_leadership_pct": 50.0,
         "momentum_modifier": null
       },
       "trucking_freight_logistics": {
         "lifecycle_state": "FADING",
-        "structural_score": 20.5,
+        "structural_score": 21.0,
         "structural_score_delta5d": null,
-        "score_delta": 2.4,
+        "score_delta": 2.9,
         "rank": 40,
         "prev_rank": 39,
         "rank_delta": -1,
@@ -441,21 +441,21 @@
       },
       "alternative_asset_management": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 55.2,
+        "structural_score": 55.9,
         "structural_score_delta5d": null,
-        "score_delta": 0.6,
-        "rank": 9,
+        "score_delta": 1.3,
+        "rank": 10,
         "prev_rank": 7,
-        "rank_delta": -2,
+        "rank_delta": -3,
         "trend_participation": 57.1,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "home_furnishings_retail": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 61.0,
+        "structural_score": 61.1,
         "structural_score_delta5d": null,
-        "score_delta": 0.7,
+        "score_delta": 0.8,
         "rank": 5,
         "prev_rank": 5,
         "rank_delta": 0,
@@ -465,21 +465,21 @@
       },
       "specialty_metals_advanced_materials": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 54.4,
+        "structural_score": 54.8,
         "structural_score_delta5d": null,
-        "score_delta": 4.1,
-        "rank": 10,
+        "score_delta": 4.5,
+        "rank": 11,
         "prev_rank": 11,
-        "rank_delta": 1,
+        "rank_delta": 0,
         "trend_participation": 25.0,
         "structural_leadership_pct": 25.0,
         "momentum_modifier": null
       },
       "life_sciences_tools_consumables": {
         "lifecycle_state": "ACTIVE",
-        "structural_score": 73.0,
+        "structural_score": 72.9,
         "structural_score_delta5d": null,
-        "score_delta": 0.1,
+        "score_delta": 0.0,
         "rank": 1,
         "prev_rank": 3,
         "rank_delta": 2,
@@ -489,72 +489,84 @@
       },
       "banking_financial_services": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 24.2,
+        "structural_score": 22.0,
         "structural_score_delta5d": null,
         "score_delta": null,
-        "rank": 37,
+        "rank": 39,
         "prev_rank": null,
         "rank_delta": null,
-        "trend_participation": 20.0,
+        "trend_participation": 16.7,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "building_products_materials_distribution": {
         "lifecycle_state": "FADING",
-        "structural_score": 28.2,
+        "structural_score": 28.1,
         "structural_score_delta5d": null,
-        "score_delta": -4.4,
-        "rank": 33,
+        "score_delta": -4.5,
+        "rank": 35,
         "prev_rank": 28,
-        "rank_delta": -5,
+        "rank_delta": -7,
         "trend_participation": 33.3,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "electronic_components_manufacturing": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 47.8,
+        "structural_score": 47.3,
         "structural_score_delta5d": null,
-        "score_delta": 10.7,
-        "rank": 14,
+        "score_delta": 10.2,
+        "rank": 15,
         "prev_rank": 22,
-        "rank_delta": 8,
-        "trend_participation": 25.0,
-        "structural_leadership_pct": 8.3,
+        "rank_delta": 7,
+        "trend_participation": 21.4,
+        "structural_leadership_pct": 7.1,
         "momentum_modifier": null
       },
       "crypto_mining_digital_asset_treasury": {
         "lifecycle_state": "FADING",
-        "structural_score": 17.5,
+        "structural_score": 17.6,
         "structural_score_delta5d": null,
-        "score_delta": 4.9,
-        "rank": 42,
+        "score_delta": 5.0,
+        "rank": 43,
         "prev_rank": 41,
-        "rank_delta": -1,
+        "rank_delta": -2,
         "trend_participation": 0.0,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "branded_nutrition_consumer_packaged_goods": {
         "lifecycle_state": "FADING",
-        "structural_score": 20.8,
+        "structural_score": 19.9,
         "structural_score_delta5d": null,
-        "score_delta": -2.1,
-        "rank": 39,
+        "score_delta": -3.0,
+        "rank": 41,
         "prev_rank": 36,
-        "rank_delta": -3,
+        "rank_delta": -5,
         "trend_participation": 16.7,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": "ACCELERATING"
       },
+      "fast_casual_restaurant_chains": {
+        "lifecycle_state": "NEUTRAL",
+        "structural_score": 52.0,
+        "structural_score_delta5d": null,
+        "score_delta": null,
+        "rank": 13,
+        "prev_rank": null,
+        "rank_delta": null,
+        "trend_participation": 60.0,
+        "structural_leadership_pct": 20.0,
+        "momentum_modifier": "ACCELERATING"
+      },
       "specialty_chemicals": {
         "lifecycle_state": "FADING",
-        "structural_score": 18.4,
+        "structural_score": 18.5,
         "structural_score_delta5d": null,
-        "score_delta": -1.2,
-        "rank": 41,
+        "score_delta": -1.1,
+        "rank": 42,
         "prev_rank": 38,
-        "rank_delta": -3,
+        "rank_delta": -4,
         "trend_participation": 11.1,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
@@ -564,43 +576,43 @@
         "structural_score": 13.2,
         "structural_score_delta5d": null,
         "score_delta": -0.4,
-        "rank": 44,
+        "rank": 45,
         "prev_rank": 40,
-        "rank_delta": -4,
+        "rank_delta": -5,
         "trend_participation": 20.0,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": "ACCELERATING"
       },
       "telecom_cable_broadband_services": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 29.4,
+        "structural_score": 29.0,
         "structural_score_delta5d": null,
-        "score_delta": -3.3,
-        "rank": 30,
+        "score_delta": -3.7,
+        "rank": 33,
         "prev_rank": 27,
-        "rank_delta": -3,
+        "rank_delta": -6,
         "trend_participation": 0.0,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "education_content_publishing": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 34.7,
+        "structural_score": 34.5,
         "structural_score_delta5d": null,
-        "score_delta": -2.9,
-        "rank": 25,
+        "score_delta": -3.1,
+        "rank": 27,
         "prev_rank": 21,
-        "rank_delta": -4,
+        "rank_delta": -6,
         "trend_participation": 28.6,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "media_entertainment_conglomerate": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 37.2,
+        "structural_score": 36.8,
         "structural_score_delta5d": null,
         "score_delta": null,
-        "rank": 24,
+        "rank": 25,
         "prev_rank": null,
         "rank_delta": null,
         "trend_participation": 40.0,
@@ -609,22 +621,22 @@
       },
       "social_media_platform": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 38.2,
+        "structural_score": 38.1,
         "structural_score_delta5d": null,
-        "score_delta": 12.2,
-        "rank": 21,
+        "score_delta": 12.1,
+        "rank": 23,
         "prev_rank": 32,
-        "rank_delta": 11,
+        "rank_delta": 9,
         "trend_participation": 40.0,
         "structural_leadership_pct": 0.0,
         "momentum_modifier": null
       },
       "real_estate_marketplace_platform": {
         "lifecycle_state": "NEUTRAL",
-        "structural_score": 25.0,
+        "structural_score": 24.9,
         "structural_score_delta5d": null,
         "score_delta": null,
-        "rank": 36,
+        "rank": 37,
         "prev_rank": null,
         "rank_delta": null,
         "trend_participation": 20.0,
@@ -640,7 +652,7 @@
       "recent_leaders": 57,
       "constructive_resets": 27,
       "extended": 82,
-      "laggards": 158
+      "laggards": 160
     },
     "items": [
       {
@@ -3014,7 +3026,6 @@
         "extended": false,
         "constructive_reset_narratives": [],
         "laggard_narratives": [
-          "ai_infrastructure",
           "data_center"
         ],
         "structural_rs": 35.6,
@@ -6198,10 +6209,14 @@
       },
       {
         "symbol": "CAVA",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "fast_casual_restaurant_chains"
+        ],
+        "narrative_ids": [
+          "fast_casual_restaurant_chains"
+        ],
+        "primary_narrative_id": "fast_casual_restaurant_chains",
+        "primary_narrative_name": "Fast Casual Restaurant Chains",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
@@ -6816,10 +6831,14 @@
       },
       {
         "symbol": "CHRN",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "ai_infrastructure"
+        ],
+        "narrative_ids": [
+          "ai_infrastructure"
+        ],
+        "primary_narrative_id": "ai_infrastructure",
+        "primary_narrative_name": "AI Infrastructure",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
@@ -10007,9 +10026,7 @@
         "near_emas": true,
         "extended": false,
         "constructive_reset_narratives": [],
-        "laggard_narratives": [
-          "it_services_consulting"
-        ],
+        "laggard_narratives": [],
         "structural_rs": 49.7,
         "trend_strength": 82.4,
         "sma50_distance_pct": 11.09,
@@ -10035,10 +10052,14 @@
       },
       {
         "symbol": "DXPE",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "industrial_machinery"
+        ],
+        "narrative_ids": [
+          "industrial_machinery"
+        ],
+        "primary_narrative_id": "industrial_machinery",
+        "primary_narrative_name": "Industrial Machinery",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
@@ -10111,10 +10132,14 @@
       },
       {
         "symbol": "EAT",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "fast_casual_restaurant_chains"
+        ],
+        "narrative_ids": [
+          "fast_casual_restaurant_chains"
+        ],
+        "primary_narrative_id": "fast_casual_restaurant_chains",
+        "primary_narrative_name": "Fast Casual Restaurant Chains",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "recent_leader",
@@ -10265,10 +10290,14 @@
       },
       {
         "symbol": "EFOR",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "it_services_consulting"
+        ],
+        "narrative_ids": [
+          "it_services_consulting"
+        ],
+        "primary_narrative_id": "it_services_consulting",
+        "primary_narrative_name": "IT Services / Consulting",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "leader",
@@ -10991,17 +11020,23 @@
       },
       {
         "symbol": "ESAB",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "industrial_machinery"
+        ],
+        "narrative_ids": [
+          "industrial_machinery"
+        ],
+        "primary_narrative_id": "industrial_machinery",
+        "primary_narrative_name": "Industrial Machinery",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
         "near_emas": false,
         "extended": false,
         "constructive_reset_narratives": [],
-        "laggard_narratives": [],
+        "laggard_narratives": [
+          "industrial_machinery"
+        ],
         "structural_rs": 19.8,
         "trend_strength": 32.7,
         "sma50_distance_pct": -6.75,
@@ -15588,10 +15623,14 @@
       },
       {
         "symbol": "JBL",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "electronic_components_manufacturing"
+        ],
+        "narrative_ids": [
+          "electronic_components_manufacturing"
+        ],
+        "primary_narrative_id": "electronic_components_manufacturing",
+        "primary_narrative_name": "Electronic Components Manufacturing",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
@@ -22324,17 +22363,23 @@
       },
       {
         "symbol": "PLXS",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "electronic_components_manufacturing"
+        ],
+        "narrative_ids": [
+          "electronic_components_manufacturing"
+        ],
+        "primary_narrative_id": "electronic_components_manufacturing",
+        "primary_narrative_name": "Electronic Components Manufacturing",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
         "near_emas": true,
         "extended": false,
         "constructive_reset_narratives": [],
-        "laggard_narratives": [],
+        "laggard_narratives": [
+          "electronic_components_manufacturing"
+        ],
         "structural_rs": 57.6,
         "trend_strength": 32.4,
         "sma50_distance_pct": -1.71,
@@ -25800,17 +25845,23 @@
       },
       {
         "symbol": "SHAK",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "fast_casual_restaurant_chains"
+        ],
+        "narrative_ids": [
+          "fast_casual_restaurant_chains"
+        ],
+        "primary_narrative_id": "fast_casual_restaurant_chains",
+        "primary_narrative_name": "Fast Casual Restaurant Chains",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
         "near_emas": false,
         "extended": true,
         "constructive_reset_narratives": [],
-        "laggard_narratives": [],
+        "laggard_narratives": [
+          "fast_casual_restaurant_chains"
+        ],
         "structural_rs": 49.7,
         "trend_strength": 61.5,
         "sma50_distance_pct": 24.48,
@@ -30946,10 +30997,14 @@
       },
       {
         "symbol": "WD",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "banking_financial_services"
+        ],
+        "narrative_ids": [
+          "banking_financial_services"
+        ],
+        "primary_narrative_id": "banking_financial_services",
+        "primary_narrative_name": "Banking / Financial Services",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
@@ -31058,10 +31113,14 @@
       },
       {
         "symbol": "WEN",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "fast_casual_restaurant_chains"
+        ],
+        "narrative_ids": [
+          "fast_casual_restaurant_chains"
+        ],
+        "primary_narrative_id": "fast_casual_restaurant_chains",
+        "primary_narrative_name": "Fast Casual Restaurant Chains",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
@@ -31212,10 +31271,14 @@
       },
       {
         "symbol": "WING",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "fast_casual_restaurant_chains"
+        ],
+        "narrative_ids": [
+          "fast_casual_restaurant_chains"
+        ],
+        "primary_narrative_id": "fast_casual_restaurant_chains",
+        "primary_narrative_name": "Fast Casual Restaurant Chains",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
@@ -31748,10 +31811,14 @@
       },
       {
         "symbol": "WULF",
-        "narratives": [],
-        "narrative_ids": [],
-        "primary_narrative_id": null,
-        "primary_narrative_name": null,
+        "narratives": [
+          "data_center"
+        ],
+        "narrative_ids": [
+          "data_center"
+        ],
+        "primary_narrative_id": "data_center",
+        "primary_narrative_name": "Data Center",
         "secondary_narrative_ids": [],
         "secondary_narrative_names": [],
         "quality_state": "neutral",
@@ -32419,7 +32486,7 @@
         "narrative_id": "semiconductors",
         "narrative_name": "Semiconductors",
         "from_rank": 33,
-        "to_rank": 27
+        "to_rank": 28
       },
       {
         "category": "narrative",
@@ -32435,7 +32502,7 @@
         "narrative_id": "ai_infrastructure",
         "narrative_name": "AI Infrastructure",
         "from_rank": 15,
-        "to_rank": 6
+        "to_rank": 9
       },
       {
         "category": "narrative",
@@ -32485,7 +32552,14 @@
         "narrative_id": "defense_aerospace",
         "narrative_name": "Defense / Aerospace",
         "from_rank": 10,
-        "to_rank": 7
+        "to_rank": 6
+      },
+      {
+        "category": "narrative",
+        "type": "modifier_lost",
+        "narrative_id": "fintech",
+        "narrative_name": "Fintech",
+        "modifier": "ACCELERATING"
       },
       {
         "category": "narrative",
@@ -32493,7 +32567,7 @@
         "narrative_id": "quantum_computing",
         "narrative_name": "Quantum Computing",
         "from_rank": 34,
-        "to_rank": 28
+        "to_rank": 31
       },
       {
         "category": "narrative",
@@ -32557,7 +32631,7 @@
         "narrative_id": "electronic_components_manufacturing",
         "narrative_name": "Electronic Components Manufacturing",
         "from_rank": 22,
-        "to_rank": 14
+        "to_rank": 15
       },
       {
         "category": "narrative",
@@ -32565,7 +32639,7 @@
         "narrative_id": "electronic_components_manufacturing",
         "narrative_name": "Electronic Components Manufacturing",
         "from_score": 37.1,
-        "to_score": 47.8
+        "to_score": 47.3
       },
       {
         "category": "narrative",
@@ -32587,7 +32661,7 @@
         "narrative_id": "social_media_platform",
         "narrative_name": "Social Media Platform",
         "from_rank": 32,
-        "to_rank": 21
+        "to_rank": 23
       },
       {
         "category": "narrative",
@@ -32595,7 +32669,7 @@
         "narrative_id": "social_media_platform",
         "narrative_name": "Social Media Platform",
         "from_score": 26.0,
-        "to_score": 38.2
+        "to_score": 38.1
       },
       {
         "category": "stock",
