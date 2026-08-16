@@ -152,7 +152,7 @@ jobs:
           fi
 
       # V6 point 8-13: RSP (statt SPY) als kanonischer Narrative-Benchmark,
-      # neue "Jeff-inspired" Strength (1W/1M/3M/6M, getrennt) + Thrust
+      # neue Strength (1W/1M/3M/6M, getrennt) + Thrust
       # candidate v1 -- alte Basket-Return-Strength/EMA-Thrust bleiben
       # intern als Legacy-Felder erhalten, siehe scripts/build_narratives.py.
       - name: Build narratives data (RSP Strength/Thrust)

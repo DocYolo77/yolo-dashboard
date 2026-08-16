@@ -1,10 +1,9 @@
 """
 Tests for scripts/build_narratives.py's RSP-based Narrative Strength/Thrust
-("Jeff-inspired Relative Strength gegen RSP" / "Jeff-inspired Thrust
-candidate v1" — explicitly candidate formulas, NOT a reproduction of Jeff
-Sun's exact unpublished formula). Worked examples taken directly from the
-spec so the exact arithmetic is pinned down, not just directional sign
-checks. All synthetic data — no network required.
+(Relative Strength gegen RSP / Thrust candidate v1 — explicitly candidate
+formulas). Worked examples taken directly from the spec so the exact
+arithmetic is pinned down, not just directional sign checks. All synthetic
+data — no network required.
 
 V6.1 (Narrative Ranking & UI Bugfix Patch) REPLACED the V6 self-window
 percentile methodology (percentile_rank_of_current/strength_percentile_at/

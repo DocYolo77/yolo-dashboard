@@ -23,7 +23,7 @@ from build_market_features import (  # noqa: E402
     PRICE_CACHE_SCHEMA_VERSION,
     classify_healthcare_biotech, compute_healthcare_excluded_universe,
     fetch_ticker_range_backfill, fetch_grouped_history_full_market_cached,
-    calc_return_n_sessions_ago, calc_rvol_fields,
+    calc_return_n_sessions_ago, calc_rvol_fields, calc_mtd_ytd_fields,
 )
 from build_narratives import percentile_ranks, compute_narrative_thrust_rsp  # noqa: E402
 
@@ -1087,3 +1087,100 @@ def test_volume_migration_skipped_when_cache_already_has_real_volume_history(tmp
     # Only today's single incremental fetch happened -- no 51-day migration walk.
     assert len(grouped_daily_calls) == 1
     assert grouped_daily_calls[0] == today.isoformat()
+
+
+# ── Strength Screeners 3M/6M Union Patch point 12A: MTD %/YTD % ──
+
+def make_close_series(pairs):
+    dates, values = zip(*pairs)
+    return pd.Series(list(values), index=list(dates), dtype=float)
+
+
+def test_mtd_ytd_correct_anchors_and_positive_case():
+    # Last close 2026-08-14; last July close 2026-07-31 (MTD anchor);
+    # last 2025 close 2025-12-31 (YTD anchor). Rising series -> both positive.
+    series = make_close_series([
+        ("2025-12-29", 90.0), ("2025-12-30", 91.0), ("2025-12-31", 100.0),
+        ("2026-01-02", 101.0), ("2026-02-27", 102.0),
+        ("2026-07-30", 119.0), ("2026-07-31", 120.0),
+        ("2026-08-03", 121.0), ("2026-08-14", 130.0),
+    ])
+    mtd_pct, ytd_pct = calc_mtd_ytd_fields(series)
+    assert mtd_pct == pytest.approx((130.0 / 120.0 - 1) * 100, abs=0.005)  # vs. 2026-07-31 close
+    assert ytd_pct == pytest.approx((130.0 / 100.0 - 1) * 100, abs=0.005)  # vs. 2025-12-31 close
+
+
+def test_mtd_ytd_weekend_holiday_month_end_uses_last_real_trading_session():
+    # July 31 itself has NO entry (simulates a weekend/holiday) -> the MTD
+    # anchor must fall back to the last REAL trading session before it
+    # (2026-07-30), never a synthesized calendar-day value.
+    series = make_close_series([
+        ("2025-12-31", 100.0),
+        ("2026-07-29", 118.0), ("2026-07-30", 119.0),
+        ("2026-08-14", 130.0),
+    ])
+    mtd_pct, _ = calc_mtd_ytd_fields(series)
+    assert mtd_pct == pytest.approx((130.0 / 119.0 - 1) * 100, abs=0.005)
+
+
+def test_mtd_ytd_negative_case():
+    series = make_close_series([
+        ("2025-12-31", 200.0),
+        ("2026-07-31", 180.0),
+        ("2026-08-14", 150.0),
+    ])
+    mtd_pct, ytd_pct = calc_mtd_ytd_fields(series)
+    assert mtd_pct == pytest.approx((150.0 / 180.0 - 1) * 100, abs=0.005)
+    assert mtd_pct < 0
+    assert ytd_pct == pytest.approx((150.0 / 200.0 - 1) * 100, abs=0.005)
+    assert ytd_pct < 0
+
+
+def test_mtd_missing_anchor_returns_null_when_all_history_is_within_current_month():
+    series = make_close_series([("2026-08-01", 100.0), ("2026-08-05", 102.0), ("2026-08-14", 105.0)])
+    mtd_pct, ytd_pct = calc_mtd_ytd_fields(series)
+    assert mtd_pct is None
+    assert ytd_pct is None
+
+
+def test_ytd_missing_anchor_for_ipo_within_current_year_while_mtd_still_computes():
+    # Ticker IPO'd January 2026 -- has enough history for a real MTD anchor
+    # (July close) but NO prior-year data at all for YTD.
+    series = make_close_series([
+        ("2026-01-15", 50.0), ("2026-01-20", 51.0),
+        ("2026-07-30", 58.0), ("2026-08-14", 60.0),
+    ])
+    mtd_pct, ytd_pct = calc_mtd_ytd_fields(series)
+    assert mtd_pct == pytest.approx((60.0 / 58.0 - 1) * 100, abs=0.005)
+    assert ytd_pct is None
+
+
+def test_ytd_never_falls_back_to_first_available_ipo_close():
+    # If a buggy implementation fell back to the first available close
+    # (2026-01-15, 50.0) as a substitute YTD anchor, ytd_pct would be a real
+    # nonzero number ((60/50-1)*100 = +20%). The correct behaviour is null.
+    series = make_close_series([("2026-01-15", 50.0), ("2026-08-14", 60.0)])
+    _, ytd_pct = calc_mtd_ytd_fields(series)
+    assert ytd_pct is None
+
+
+def test_mtd_ytd_single_data_point_returns_null_not_a_crash():
+    series = make_close_series([("2026-08-14", 100.0)])
+    mtd_pct, ytd_pct = calc_mtd_ytd_fields(series)
+    assert mtd_pct is None
+    assert ytd_pct is None
+
+
+def test_calc_ticker_features_exposes_mtd_ytd_fields_end_to_end():
+    start = _dt(2025, 6, 1, tzinfo=_tz.utc)
+    days = [(start + pd.Timedelta(days=i)).date().isoformat() for i in range(220)]  # spans mid-2025 into 2026
+    close = [100.0 + 0.2 * i for i in range(220)]
+    close_df = pd.DataFrame({"AAPL": close}, index=days)
+    high_df = close_df + 1
+    low_df = close_df - 1
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)["AAPL"]
+    assert "mtd_pct" in out
+    assert "ytd_pct" in out
+    # Rising series spanning a real year boundary -> both computable and positive.
+    assert out["ytd_pct"] is not None
+    assert out["ytd_pct"] > 0

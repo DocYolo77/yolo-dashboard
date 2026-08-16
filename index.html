@@ -237,8 +237,16 @@ html { scroll-behavior: smooth; }
 .atr-ext-warn { color: #e2925c !important; font-weight: 600; }
 
 .nc-info { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--ink-muted); color: var(--ink-muted); font-family: var(--mono-font); font-size: 10px; cursor: help; user-select: none; }
-.nc-info:hover, .nc-info:focus, .nc-info.open { color: var(--ink); border-color: var(--ink-light); outline: none; }
-.nc-info-popup { display: none; position: absolute; top: 24px; left: 0; width: 340px; max-width: 80vw; z-index: 20; background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 4px; padding: 14px 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); cursor: default; }
+/* Strength Screeners 3M/6M Union Patch point 10: the popup used to render
+   BEHIND the sticky .narrative-controls bar (z-index: 40) because .nc-info
+   itself never opened its own stacking context, so its z-index:20 popup
+   competed at a lower level than the sticky bar's context. Giving .nc-info
+   an elevated z-index only while open/hovered/focused promotes it (and
+   therefore its absolutely-positioned .nc-info-popup child) into its own
+   stacking context above the sticky controls, without a global z-index
+   escalation anywhere else on the page. */
+.nc-info:hover, .nc-info:focus, .nc-info.open { color: var(--ink); border-color: var(--ink-light); outline: none; position: relative; z-index: 90; }
+.nc-info-popup { display: none; position: absolute; top: 24px; left: 0; width: 340px; max-width: 80vw; z-index: 100; background: var(--sand-dark); border: 1px solid var(--card-border); border-radius: 4px; padding: 14px 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); cursor: default; }
 .nc-info:hover .nc-info-popup, .nc-info:focus .nc-info-popup, .nc-info.open .nc-info-popup { display: block; }
 .nc-info-popup dt { font-family: var(--mono-font); font-size: 10px; font-weight: 600; letter-spacing: 0.5px; color: var(--ink); text-transform: uppercase; margin-top: 10px; }
 .nc-info-popup dt:first-child { margin-top: 0; }
@@ -349,8 +357,14 @@ html { scroll-behavior: smooth; }
 .screener-preset-name { font-family: var(--header-font); font-size: 18px; font-weight: 600; }
 .screener-preset-count { font-family: var(--mono-font); font-size: 12px; color: var(--ink-muted); }
 .screener-preset-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+/* Point 1: dezente Basiszeile -- rein informativ, keine zweite Eligibility-
+   Berechnung, spiegelt nur das bereits upstream angewendete eligible-
+   Universe wider. Optisch bewusst zurueckhaltender als die Preset-Regel-Tags. */
+.screener-basis-line { font-family: var(--mono-font); font-size: 9px; letter-spacing: 0.8px; color: var(--ink-muted); margin-bottom: 8px; }
 .screener-tag { font-family: var(--mono-font); font-size: 10px; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 2px; background: rgba(255,255,255,0.06); color: var(--ink-light); }
 .screener-actions { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.screener-union-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.screener-union-count { font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); }
 .opp-badges { display: flex; gap: 4px; flex-wrap: wrap; }
 .opp-badge { font-family: var(--mono-font); font-size: 8.5px; letter-spacing: 0.3px; padding: 2px 6px; border-radius: 2px; white-space: nowrap; }
 .opp-badge.fresh { background: rgba(61,220,115,0.18); color: var(--positive); }
@@ -508,13 +522,13 @@ html { scroll-behavior: smooth; }
       <button class="table-toggle open" onclick="toggleTable(this)"><span class="chevron">▸</span> US Index Futures</button>
       <table class="data-table" id="futuresTable">
         <thead><tr>
-          <th class="sortable" data-field="name" onclick="futuresSortBy('name')">Kontrakt</th>
-          <th class="sortable" data-field="price" onclick="futuresSortBy('price')">Kurs</th>
-          <th class="sortable" data-field="d1_pct" onclick="futuresSortBy('d1_pct')">1T%</th>
-          <th class="sortable" data-field="w1_pct" onclick="futuresSortBy('w1_pct')">1W%</th>
-          <th class="sortable" data-field="hi52w_pct" onclick="futuresSortBy('hi52w_pct')">52W Hoch%</th>
-          <th class="sortable" data-field="ytd_pct" onclick="futuresSortBy('ytd_pct')">YTD%</th>
-          <th class="sortable" data-field="return_5d" onclick="futuresSortBy('return_5d')">5D</th>
+          <th class="sortable" data-field="name" onclick="marketTableSortBy('futures','name')">Kontrakt</th>
+          <th class="sortable" data-field="price" onclick="marketTableSortBy('futures','price')">Kurs</th>
+          <th class="sortable" data-field="d1_pct" onclick="marketTableSortBy('futures','d1_pct')">1T%</th>
+          <th class="sortable" data-field="w1_pct" onclick="marketTableSortBy('futures','w1_pct')">1W%</th>
+          <th class="sortable" data-field="hi52w_pct" onclick="marketTableSortBy('futures','hi52w_pct')">52W Hoch%</th>
+          <th class="sortable" data-field="ytd_pct" onclick="marketTableSortBy('futures','ytd_pct')">YTD%</th>
+          <th class="sortable" data-field="return_5d" onclick="marketTableSortBy('futures','return_5d')">5D</th>
         </tr></thead>
         <tbody>
           <tr><td>ES (S&P 500)</td><td>5.998</td><td class="pos">+0,42%</td><td class="pos">+1,12%</td><td class="muted">-2,1%</td><td class="pos">+18,4%</td></tr>
@@ -527,8 +541,16 @@ html { scroll-behavior: smooth; }
 
     <div class="table-section">
       <button class="table-toggle open" onclick="toggleTable(this)"><span class="chevron">▸</span> 🇩🇪 DAX & Europäische Indizes</button>
-      <table class="data-table">
-        <thead><tr><th>Index</th><th>Kurs</th><th>1T%</th><th>1W%</th><th>52W Hoch%</th><th>YTD%</th><th>5D</th></tr></thead>
+      <table class="data-table" id="europeTable">
+        <thead><tr>
+          <th class="sortable" data-field="name" onclick="marketTableSortBy('europe','name')">Index</th>
+          <th class="sortable" data-field="price" onclick="marketTableSortBy('europe','price')">Kurs</th>
+          <th class="sortable" data-field="d1_pct" onclick="marketTableSortBy('europe','d1_pct')">1T%</th>
+          <th class="sortable" data-field="w1_pct" onclick="marketTableSortBy('europe','w1_pct')">1W%</th>
+          <th class="sortable" data-field="hi52w_pct" onclick="marketTableSortBy('europe','hi52w_pct')">52W Hoch%</th>
+          <th class="sortable" data-field="ytd_pct" onclick="marketTableSortBy('europe','ytd_pct')">YTD%</th>
+          <th class="sortable" data-field="return_5d" onclick="marketTableSortBy('europe','return_5d')">5D</th>
+        </tr></thead>
         <tbody>
           <tr style="background:rgba(255,255,255,0.05);font-weight:600;"><td>🇩🇪 DAX 40</td><td>22.457</td><td class="pos">+1,24%</td><td class="pos">+2,31%</td><td class="muted">-1,8%</td><td class="pos">+14,2%</td></tr>
           <tr><td>🇫🇷 CAC 40</td><td>7.892</td><td class="pos">+0,34%</td><td class="pos">+0,88%</td><td class="muted">-5,2%</td><td class="pos">+6,8%</td></tr>
@@ -540,8 +562,16 @@ html { scroll-behavior: smooth; }
 
     <div class="table-section">
       <button class="table-toggle open" onclick="toggleTable(this)"><span class="chevron">▸</span> Globale Indizes</button>
-      <table class="data-table">
-        <thead><tr><th>Index</th><th>Kurs</th><th>1T%</th><th>1W%</th><th>52W Hoch%</th><th>YTD%</th><th>5D</th></tr></thead>
+      <table class="data-table" id="globalTable">
+        <thead><tr>
+          <th class="sortable" data-field="name" onclick="marketTableSortBy('global','name')">Index</th>
+          <th class="sortable" data-field="price" onclick="marketTableSortBy('global','price')">Kurs</th>
+          <th class="sortable" data-field="d1_pct" onclick="marketTableSortBy('global','d1_pct')">1T%</th>
+          <th class="sortable" data-field="w1_pct" onclick="marketTableSortBy('global','w1_pct')">1W%</th>
+          <th class="sortable" data-field="hi52w_pct" onclick="marketTableSortBy('global','hi52w_pct')">52W Hoch%</th>
+          <th class="sortable" data-field="ytd_pct" onclick="marketTableSortBy('global','ytd_pct')">YTD%</th>
+          <th class="sortable" data-field="return_5d" onclick="marketTableSortBy('global','return_5d')">5D</th>
+        </tr></thead>
         <tbody>
           <tr><td>🇯🇵 Nikkei 225</td><td>38.420</td><td class="neg">-0,42%</td><td class="pos">+0,24%</td><td class="muted">-4,8%</td><td class="pos">+12,4%</td></tr>
           <tr><td>🇭🇰 Hang Seng</td><td>19.842</td><td class="pos">+1,82%</td><td class="pos">+3,42%</td><td class="muted">-12,8%</td><td class="pos">+22,1%</td></tr>
@@ -553,8 +583,16 @@ html { scroll-behavior: smooth; }
 
     <div class="table-section">
       <button class="table-toggle open" onclick="toggleTable(this)"><span class="chevron">▸</span> Krypto</button>
-      <table class="data-table">
-        <thead><tr><th>Asset</th><th>Kurs (USD)</th><th>1T%</th><th>1W%</th><th>52W Hoch%</th><th>YTD%</th><th>5D</th></tr></thead>
+      <table class="data-table" id="cryptoTable">
+        <thead><tr>
+          <th class="sortable" data-field="name" onclick="marketTableSortBy('crypto','name')">Asset</th>
+          <th class="sortable" data-field="price" onclick="marketTableSortBy('crypto','price')">Kurs (USD)</th>
+          <th class="sortable" data-field="d1_pct" onclick="marketTableSortBy('crypto','d1_pct')">1T%</th>
+          <th class="sortable" data-field="w1_pct" onclick="marketTableSortBy('crypto','w1_pct')">1W%</th>
+          <th class="sortable" data-field="hi52w_pct" onclick="marketTableSortBy('crypto','hi52w_pct')">52W Hoch%</th>
+          <th class="sortable" data-field="ytd_pct" onclick="marketTableSortBy('crypto','ytd_pct')">YTD%</th>
+          <th class="sortable" data-field="return_5d" onclick="marketTableSortBy('crypto','return_5d')">5D</th>
+        </tr></thead>
         <tbody>
           <tr><td>Bitcoin (BTC)</td><td>$97.420</td><td class="pos">+1,82%</td><td class="pos">+4,21%</td><td class="muted">-6,2%</td><td class="pos">+128,4%</td></tr>
           <tr><td>Ethereum (ETH)</td><td>$3.420</td><td class="pos">+2,14%</td><td class="pos">+5,82%</td><td class="muted">-14,8%</td><td class="pos">+48,2%</td></tr>
@@ -565,8 +603,16 @@ html { scroll-behavior: smooth; }
 
     <div class="table-section">
       <button class="table-toggle open" onclick="toggleTable(this)"><span class="chevron">▸</span> Edelmetalle & Rohstoffe</button>
-      <table class="data-table">
-        <thead><tr><th>Rohstoff</th><th>Kurs</th><th>1T%</th><th>1W%</th><th>52W Hoch%</th><th>YTD%</th><th>5D</th></tr></thead>
+      <table class="data-table" id="commoditiesTable">
+        <thead><tr>
+          <th class="sortable" data-field="name" onclick="marketTableSortBy('commodities','name')">Rohstoff</th>
+          <th class="sortable" data-field="price" onclick="marketTableSortBy('commodities','price')">Kurs</th>
+          <th class="sortable" data-field="d1_pct" onclick="marketTableSortBy('commodities','d1_pct')">1T%</th>
+          <th class="sortable" data-field="w1_pct" onclick="marketTableSortBy('commodities','w1_pct')">1W%</th>
+          <th class="sortable" data-field="hi52w_pct" onclick="marketTableSortBy('commodities','hi52w_pct')">52W Hoch%</th>
+          <th class="sortable" data-field="ytd_pct" onclick="marketTableSortBy('commodities','ytd_pct')">YTD%</th>
+          <th class="sortable" data-field="return_5d" onclick="marketTableSortBy('commodities','return_5d')">5D</th>
+        </tr></thead>
         <tbody>
           <tr><td>Gold (XAU)</td><td>$2.648</td><td class="pos">+0,32%</td><td class="pos">+1,08%</td><td class="muted">-0,8%</td><td class="pos">+28,4%</td></tr>
           <tr><td>Silber (XAG)</td><td>$31,42</td><td class="pos">+0,68%</td><td class="pos">+2,14%</td><td class="muted">-4,2%</td><td class="pos">+32,1%</td></tr>
@@ -770,9 +816,9 @@ html { scroll-behavior: smooth; }
       <span class="nc-info" id="narrativeInfo" tabindex="0">ⓘ
         <dl class="nc-info-popup">
           <dt>Strength</dt>
-          <dd>"Jeff-inspired Relative Strength gegen RSP" (Kandidatenformel v1, KEINE Reproduktion von Jeff Suns unveröffentlichter Originalformel). Cross-Sectional-Perzentilrang der relativen Performance (Narrative-Index vs. RSP) innerhalb des gewählten Strength-Zeitfensters (1W/1M/3M/6M) GEGEN ALLE ANDEREN AKTIVEN NARRATIVE — die vier Zeitfenster sind vollständig getrennt, kein zusammengesetzter Score.</dd>
+          <dd>Misst die relative Performance eines Narratives gegenüber RSP (Invesco S&amp;P 500 Equal Weight ETF). Für 1W/1M/3M/6M wird die RSP-relative Performance des Narratives gegen alle aktiven Narrative cross-sectional gerankt. Die vier Zeitfenster bleiben getrennt, kein zusammengesetzter Score.</dd>
           <dt>Thrust</dt>
-          <dd>"Jeff-inspired Thrust candidate v1" (ebenfalls Kandidatenformel, keine Kalibrierung): 0.60×Strength(1W) + 0.40×Strength(1M) + 0.10×(Strength(1W) − Strength(1W vor 3 Handelstagen)). Nicht auf 0–100 begrenzt; unabhängig vom Strength-Zeitfenster-Tab.</dd>
+          <dd>Misst kurzfristige Strength, Bestätigung über 1M und die Veränderung der 1W-Strength über drei Trading Sessions: 0.60×Strength(1W) + 0.40×Strength(1M) + 0.10×ΔStrength(1W über 3 Trading Sessions). Nicht auf 0–100 begrenzt; unabhängig vom Strength-Zeitfenster-Tab. Ein einzelner fixer Wert.</dd>
           <dt>Ranking</dt>
           <dd>STRENGTH-Modus sortiert nach Strength des gewählten Zeitfensters, THRUST-Modus nach Thrust — jeweils mit der aggregierten Market Cap der eligible Mitglieder als reinem Tie-Breaker (fließt nie in Strength/Thrust selbst ein).</dd>
           <dt>RSP Benchmark</dt>
@@ -802,8 +848,13 @@ html { scroll-behavior: smooth; }
       <button class="nd-copy-btn" id="momentumCopyBtn" onclick="ncCopyMomentumTickers(this)" title="Kopiert nur Momentum-Ticker, die aktuell als Near EMA geflaggt sind (near_emas=true aus der Opportunity Engine, gesamtes eligible Universe) — keine Frontend-Neuberechnung.">📋 Near-EMA Momentum kopieren</button>
     </div>
 
-    <table class="data-table narrative-rank-table">
-      <thead><tr><th>#</th><th>Narrative</th><th>Strength</th><th>Thrust</th></tr></thead>
+    <table class="data-table narrative-rank-table" id="narrativeRankTable">
+      <thead><tr>
+        <th>#</th>
+        <th class="sortable" data-field="name" onclick="ncTableSortBy('name')">Narrative</th>
+        <th class="sortable" data-field="strength" onclick="ncTableSortBy('strength')">Strength</th>
+        <th class="sortable" data-field="thrust" onclick="ncTableSortBy('thrust')">Thrust</th>
+      </tr></thead>
       <tbody id="narrativeGrid">
         <tr><td colspan="4" class="narrative-empty">Lade Narrative-Daten…</td></tr>
       </tbody>
@@ -920,6 +971,10 @@ html { scroll-behavior: smooth; }
     <div class="section-header">
       <span class="section-num">06</span>
       <span class="section-title">Screener</span>
+    </div>
+    <div class="screener-union-row">
+      <button class="nd-copy-btn" id="screenerUnionCopyBtn" onclick="screenerCopyUnion(this)">Alle Strength-Kandidaten kopieren</button>
+      <span class="screener-union-count" id="screenerUnionCount"></span>
     </div>
     <div id="screenerContainer">
       <div class="narrative-empty">Lade Screener-Daten…</div>
@@ -1351,15 +1406,60 @@ document.addEventListener('click', (e) => {
 });
 
 // ══════════════════════════════════════════════
-// FUTURES TABLE (point 16): fully sortable, pure frontend, no API call.
+// SHARED TABLE SORT PRIMITIVE (Strength Screeners 3M/6M Union Patch point
+// 12B): ONE generic sort helper reused by every sortable table on the
+// dashboard (Market tables, Narratives, Narrative Members, Opportunities,
+// Screener results). Sorts a COPY of `rows` (never mutates the original --
+// "Daten nicht mutieren"), nulls/undefined/NaN ALWAYS sort last regardless
+// of ASC/DESC, and numeric columns always compare the raw underlying value
+// -- formatting/localization is applied only after sorting.
 // ══════════════════════════════════════════════
-let futuresRawData = null;
-let futuresSort = { field: null, dir: null };
+function sortTableRows(rows, { direction, type, accessor, key }) {
+  const copy = rows.slice();
+  const mul = direction === 'asc' ? 1 : -1;
+  const getValue = accessor || (row => row[key]);
+  copy.sort((a, b) => {
+    const av = getValue(a), bv = getValue(b);
+    const aNull = av === null || av === undefined || (typeof av === 'number' && Number.isNaN(av));
+    const bNull = bv === null || bv === undefined || (typeof bv === 'number' && Number.isNaN(bv));
+    if (aNull && bNull) return 0;
+    if (aNull) return 1;
+    if (bNull) return -1;
+    if (type === 'text') return String(av).localeCompare(String(bv)) * mul;
+    return (av - bv) * mul;
+  });
+  return copy;
+}
+
+// Numeric columns' first click is DESC, text columns' first click is ASC
+// (point 12B); clicking the SAME key again inverts; a NEW key resets to
+// that column's own type default.
+function sortTableNextState(currentState, key, type) {
+  if (currentState && currentState.key === key) {
+    return { key, type, direction: currentState.direction === 'asc' ? 'desc' : 'asc' };
+  }
+  return { key, type, direction: type === 'text' ? 'asc' : 'desc' };
+}
+
+// ══════════════════════════════════════════════
+// MARKET TABLES (US Index Futures / DAX & Europäische Indizes / Globale
+// Indizes / Krypto / Edelmetalle & Rohstoffe): fully sortable, pure
+// frontend, no API call. All five share the identical 7-column shape
+// (Name|Kurs|1T%|1W%|52W Hoch%|YTD%|5D) -- ONE generic implementation keyed
+// by tableKey, consolidating what used to be a Futures-only implementation
+// (point 12B: existing sort logic consolidated onto the shared helper).
+// ══════════════════════════════════════════════
+const MARKET_TABLE_IDS = {
+  futures: 'futuresTable', europe: 'europeTable', global: 'globalTable',
+  crypto: 'cryptoTable', commodities: 'commoditiesTable',
+};
+const marketTableRawData = {};
+const marketTableSort = {};
 
 // return_5d = last_valid / first_valid - 1, over the SAME hist_5d array the
 // sparkline already renders -- never a second data source. null if fewer
 // than 2 valid points or the first valid point is 0 (no meaningful return).
-function futuresReturn5d(hist) {
+function marketTableReturn5d(hist) {
   if (!hist || !hist.length) return null;
   const valid = hist.filter(v => v !== null && v !== undefined && Number.isFinite(v));
   if (valid.length < 2) return null;
@@ -1368,47 +1468,31 @@ function futuresReturn5d(hist) {
   return last / first - 1;
 }
 
-function futuresSortValue(row, field) {
+function marketTableSortValue(row, field) {
   if (field === 'name') return row.name;
-  if (field === 'return_5d') return futuresReturn5d(row.hist_5d);
+  if (field === 'return_5d') return marketTableReturn5d(row.hist_5d);
   return row[field];
 }
 
-// Sorts a COPY of `rows`, never the original array (point 16: "Original
-// nicht mutieren"). Nulls always sort to the end regardless of direction.
-// Kontrakt (name) is alphabetic; every other field is numeric.
-function sortFuturesRows(rows, field, dir) {
-  const copy = rows.slice();
-  const mul = dir === 'asc' ? 1 : -1;
-  copy.sort((a, b) => {
-    const av = futuresSortValue(a, field);
-    const bv = futuresSortValue(b, field);
-    const aNull = av === null || av === undefined || (typeof av === 'number' && Number.isNaN(av));
-    const bNull = bv === null || bv === undefined || (typeof bv === 'number' && Number.isNaN(bv));
-    if (aNull && bNull) return 0;
-    if (aNull) return 1;
-    if (bNull) return -1;
-    if (field === 'name') return String(av).localeCompare(String(bv)) * mul;
-    return (av - bv) * mul;
+function sortMarketTableRows(rows, field, dir) {
+  return sortTableRows(rows, {
+    direction: dir, type: field === 'name' ? 'text' : 'number',
+    accessor: row => marketTableSortValue(row, field),
   });
-  return copy;
 }
 
-// First click on a new numeric key -> DESC; Kontrakt's first click -> ASC;
-// second click on the SAME key inverts direction.
-function futuresSortBy(field) {
-  if (futuresSort.field === field) {
-    futuresSort.dir = futuresSort.dir === 'asc' ? 'desc' : 'asc';
-  } else {
-    futuresSort.field = field;
-    futuresSort.dir = field === 'name' ? 'asc' : 'desc';
-  }
-  renderFuturesTable();
+// Each table keeps its OWN independent sort state (point 12B: sorting one
+// table never affects another).
+function marketTableSortBy(tableKey, field) {
+  const type = field === 'name' ? 'text' : 'number';
+  marketTableSort[tableKey] = sortTableNextState(marketTableSort[tableKey], field, type);
+  renderMarketTable(tableKey);
 }
 
-function futuresRowHtml(item) {
+function marketTableRowHtml(item) {
+  const isDax = item.name && item.name.includes('DAX');
   const spark = makeSparkline(item.hist_5d, 48, 16);
-  return `<tr>
+  return `<tr ${isDax ? 'style="background:rgba(255,255,255,0.05);font-weight:600;"' : ''}>
     <td>${item.name}</td>
     <td>${fmtPrice(item.price)}</td>
     <td class="${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)}</td>
@@ -1419,22 +1503,23 @@ function futuresRowHtml(item) {
   </tr>`;
 }
 
-function renderFuturesTable() {
-  const table = document.getElementById('futuresTable');
-  if (!table || !futuresRawData) return;
+function renderMarketTable(tableKey) {
+  const table = document.getElementById(MARKET_TABLE_IDS[tableKey]);
+  const rawData = marketTableRawData[tableKey];
+  if (!table || !rawData) return;
   const tbody = table.querySelector('tbody');
   const thead = table.querySelector('thead');
-  const rows = futuresSort.field ? sortFuturesRows(futuresRawData, futuresSort.field, futuresSort.dir) : futuresRawData;
-  if (tbody) tbody.innerHTML = rows.map(futuresRowHtml).join('');
+  const sort = marketTableSort[tableKey];
+  const rows = sort ? sortMarketTableRows(rawData, sort.key, sort.direction) : rawData;
+  if (tbody) tbody.innerHTML = rows.map(marketTableRowHtml).join('');
   if (thead) {
     thead.querySelectorAll('th').forEach(th => {
       const field = th.dataset.field;
-      th.classList.toggle('sorted', field === futuresSort.field);
+      const isSorted = !!sort && field === sort.key;
+      th.classList.toggle('sorted', isSorted);
       const existingArrow = th.querySelector('.sort-arrow');
       if (existingArrow) existingArrow.remove();
-      if (field === futuresSort.field) {
-        th.insertAdjacentHTML('beforeend', `<span class="sort-arrow">${futuresSort.dir === 'asc' ? '↑' : '↓'}</span>`);
-      }
+      if (isSorted) th.insertAdjacentHTML('beforeend', `<span class="sort-arrow">${sort.direction === 'asc' ? '↑' : '↓'}</span>`);
     });
   }
 }
@@ -1458,42 +1543,16 @@ async function loadData() {
       'commodities': 'Edelmetalle & Rohstoffe',
     };
 
+    // Strength Screeners 3M/6M Union Patch point 12B: all five market
+    // tables now share the SAME generic sortable renderer (marketTableRawData
+    // keeps each table's raw rows around so a later header click can
+    // re-sort a COPY without an API call).
     document.querySelectorAll('.table-toggle').forEach(btn => {
       const text = btn.textContent.trim();
       for (const [key, label] of Object.entries(tableMap)) {
         if (text.includes(label) && data[key]) {
-          // RVOL/Screener/Benchmark/Futures Patch point 16: Futures gets its
-          // own sortable renderer (renderFuturesTable) instead of the
-          // generic one-shot row-render below -- it needs to keep the raw
-          // rows around so a later column click can re-sort a COPY of them
-          // without an API call. Every other table here stays exactly as
-          // before (not in scope for sorting).
-          if (key === 'futures') {
-            futuresRawData = data.futures;
-            renderFuturesTable();
-            continue;
-          }
-          const table = btn.nextElementSibling;
-          if (table) {
-            const tbody = table.querySelector('tbody');
-            if (tbody) {
-              // DAX highlight
-              let rows = data[key].map(item => {
-                const isDax = item.name && item.name.includes('DAX');
-                const spark = makeSparkline(item.hist_5d, 48, 16);
-                return `<tr ${isDax ? 'style="background:rgba(255,255,255,0.05);font-weight:600;"' : ''}>
-                  <td>${item.name}</td>
-                  <td>${fmtPrice(item.price)}</td>
-                  <td class="${pctClass(item.d1_pct)}">${fmtPct(item.d1_pct)}</td>
-                  <td class="${pctClass(item.w1_pct)}">${fmtPct(item.w1_pct)}</td>
-                  <td class="muted">${fmtPct(item.hi52w_pct)}</td>
-                  <td class="${pctClass(item.ytd_pct)}">${fmtPct(item.ytd_pct)}</td>
-                  <td>${spark}</td>
-                </tr>`;
-              }).join('');
-              tbody.innerHTML = rows;
-            }
-          }
+          marketTableRawData[key] = data[key];
+          renderMarketTable(key);
         }
       }
     });
@@ -1743,16 +1802,15 @@ function oppApplyFilters(items) {
   });
 }
 
+// Strength Screeners 3M/6M Union Patch point 12B: consolidated onto the
+// shared sortTableRows primitive -- fixes a real pre-existing bug where
+// missing values used to sort FIRST in ASC mode (`null == -Infinity` made
+// the old comparator direction-dependent); nulls now always sort last,
+// matching the dashboard-wide convention, regardless of ASC/DESC.
 function oppSortItems(items) {
   const { field, dir } = oppSortState;
-  const mul = dir === 'asc' ? 1 : -1;
-  return items.slice().sort((a, b) => {
-    if (field === 'symbol' || field === 'quality_state' || field === 'primary_narrative_name')
-      return mul * String(a[field] || '').localeCompare(String(b[field] || ''));
-    const av = a[field] == null ? -Infinity : a[field];
-    const bv = b[field] == null ? -Infinity : b[field];
-    return mul * (av - bv);
-  });
+  const isText = field === 'symbol' || field === 'quality_state' || field === 'primary_narrative_name';
+  return sortTableRows(items, { direction: dir, type: isText ? 'text' : 'number', key: field });
 }
 
 function oppVisibleSortedItems() {
@@ -1991,15 +2049,38 @@ async function loadEngineConfig() {
 // Benchmark/Futures Patch point 3: "Volumen (M)" inserted directly after
 // "Veränderung %"; point 1: "RS" -> "Strength" is a display-label-only
 // rename, the underlying `rs` field (percentile_<window>) keeps its name.
+// Strength Screeners 3M/6M Union Patch point 12A: "MTD %"/"YTD %" inserted
+// between "Veränderung %" and "Volumen (M)" -- pure Stock-Performance-
+// Kontextwerte, never feed Strength/Thrust/Narrative-Ranking.
 const MEMBER_COLUMNS = [
   { key: 'symbol', label: 'Ticker' },
   { key: 'price', label: 'Kurs' },
   { key: 'change_abs', label: 'Veränderung abs.' },
   { key: 'd1_pct', label: 'Veränderung %' },
+  { key: 'mtd_pct', label: 'MTD %' },
+  { key: 'ytd_pct', label: 'YTD %' },
   { key: 'volume', label: 'Volumen (M)' },
   { key: 'rs', label: 'Strength' },
   { key: 'stock_thrust_rs', label: 'Thrust' },
 ];
+
+// MTD %/YTD % are commonly null (new IPO / no anchor yet, point 12A) --
+// the existing fmtPct/pctClass helpers assume a real number (`null >= 0` is
+// true in JS, `null.toLocaleString` throws), so these get their own
+// null-safe wrappers instead of reusing those directly. Point 12A also
+// explicitly wants exact 0 to render neutral, unlike pctClass's existing
+// (unrelated, pre-existing) convention of treating exactly 0 as positive --
+// deliberately NOT changing pctClass itself (would silently affect
+// Futures/Indices/d1_pct coloring elsewhere), just not reusing it here.
+function ncFmtPctOrDash(v) {
+  return (v === null || v === undefined) ? '—' : fmtPct(v);
+}
+function ncPctColorClassStrict(v) {
+  if (v === null || v === undefined) return 'muted';
+  if (v > 0) return 'pos';
+  if (v < 0) return 'neg';
+  return 'muted';
+}
 
 // RVOL/Screener/Benchmark/Futures Patch point 2: ONE shared Strength color
 // helper, reused for Narrative Strength (main table), Stock Strength
@@ -2128,10 +2209,30 @@ function ncSortMembersForRanking(members) {
 // garantiert dieselbe Liste sehen (Punkt 22 aus V6, weiterhin gueltig: Copy
 // respektiert EMA-Filter + Sortierung, aber die Sortierung aendert nur die
 // Reihenfolge, nie die Membership).
+// Strength Screeners 3M/6M Union Patch point 12B: manual header-click
+// override for the Member-Detailtabelle, layered on TOP of the existing
+// fachliche Default-Sortierung (ncSortMembersForRanking) -- null until the
+// user clicks a column header; reset back to null whenever a different
+// narrative's detail is opened (ncToggleDetail) or the Ranking-Modus/
+// Strength-Zeitfenster control changes (point 12B: "Bestehende Default-
+// Rankings erhalten"). All columns are numeric except "Ticker" (text).
+let memberTableSort = null;
+
+function ncMemberColumnType(key) { return key === 'symbol' ? 'text' : 'number'; }
+
+function ncMemberTableSortBy(key) {
+  memberTableSort = sortTableNextState(memberTableSort, key, ncMemberColumnType(key));
+  renderNarrativeGrid();
+}
+
 function ncVisibleSortedMembers(narrative) {
   const allMembers = narrative.members.map(m => ({ ...m, rs: m['percentile_' + ncStrengthWindow] }));
   const emaFiltered = ncEmaFilterMembers(allMembers);
-  return ncSortMembersForRanking(emaFiltered);
+  let sorted = ncSortMembersForRanking(emaFiltered);
+  if (memberTableSort) {
+    sorted = sortTableRows(sorted, { direction: memberTableSort.direction, type: memberTableSort.type, key: memberTableSort.key });
+  }
+  return sorted;
 }
 
 // V6.1 point 14: Member-Detailtabelle, exakt die 6 Spalten aus
@@ -2160,13 +2261,19 @@ function renderNarrativeDetail(narrative) {
       <td>${fmtPrice(m.price)}</td>
       <td class="${pctClass(m.change_abs)}">${changeAbsStr}</td>
       <td class="${pctClass(m.d1_pct)}">${fmtPct(m.d1_pct)}</td>
+      <td class="${ncPctColorClassStrict(m.mtd_pct)}">${ncFmtPctOrDash(m.mtd_pct)}</td>
+      <td class="${ncPctColorClassStrict(m.ytd_pct)}">${ncFmtPctOrDash(m.ytd_pct)}</td>
       <td class="${ncVolumeColorClass(m.d1_pct, m.rvol_50, highRvolThreshold)}">${ncFmtVolumeM(m.volume)}</td>
       <td class="${ncStrengthColorClass(m.rs)}">${(m.rs !== undefined && m.rs !== null) ? m.rs.toFixed(1) : '—'}</td>
       <td class="${(m.stock_thrust_rs ?? 0) >= 0 ? 'pos' : 'neg'}">${thrustStr}</td>
     </tr>`;
   }).join('');
 
-  const headers = MEMBER_COLUMNS.map(col => `<th>${col.label}</th>`).join('');
+  const headers = MEMBER_COLUMNS.map(col => {
+    const isSorted = !!memberTableSort && memberTableSort.key === col.key;
+    const arrow = isSorted ? `<span class="sort-arrow">${memberTableSort.direction === 'asc' ? '↑' : '↓'}</span>` : '';
+    return `<th class="sortable${isSorted ? ' sorted' : ''}" onclick="ncMemberTableSortBy('${col.key}')">${col.label}${arrow}</th>`;
+  }).join('');
 
   const emaFilters = [
     { key: 'all', label: 'All' },
@@ -2354,10 +2461,47 @@ function renderBenchmarkChart() {
 // Momentum Modifier/Opportunities-summary are all fully removed from this
 // view (point 10) -- they stay computed backend-side (dashboard_state.json)
 // for other, unchanged modules, this view just never reads them anymore.
+// Strength Screeners 3M/6M Union Patch point 12B: manual header-click
+// override for the Narrative main table. null = the fachlich definierte
+// Default-Sortierung (Ranking-Modus + Strength-Zeitfenster, below) stays
+// active; once the user clicks a header, this table sorts manually by that
+// column until either clicked again or the Ranking-Modus/Strength-
+// Zeitfenster control is changed (which resets it back to null -- point
+// 12B: "Bestehende Default-Rankings erhalten"). "#" is deliberately NOT
+// sortable -- it only ever reflects whatever rank the CURRENT sort (default
+// or manual) already produced, so making it independently clickable would
+// either no-op (ASC) or just reverse the already-visible order (DESC).
+let ncTableSort = null;
+
+function ncTableSortAccessor(key) {
+  if (key === 'name') return n => n.name;
+  if (key === 'strength') return n => ncScoreValue(n, 'rs', ncStrengthWindow);
+  if (key === 'thrust') return n => ncScoreValue(n, 'thrust', ncStrengthWindow);
+  return n => n[key];
+}
+
+function ncTableSortBy(key) {
+  const type = key === 'name' ? 'text' : 'number';
+  ncTableSort = sortTableNextState(ncTableSort, key, type);
+  renderNarrativeGrid();
+}
+
+function ncUpdateTableHeaderSortIndicators() {
+  const table = document.getElementById('narrativeRankTable');
+  if (!table) return;
+  table.querySelectorAll('thead th[data-field]').forEach(th => {
+    const isSorted = !!ncTableSort && th.dataset.field === ncTableSort.key;
+    th.classList.toggle('sorted', isSorted);
+    const existingArrow = th.querySelector('.sort-arrow');
+    if (existingArrow) existingArrow.remove();
+    if (isSorted) th.insertAdjacentHTML('beforeend', `<span class="sort-arrow">${ncTableSort.direction === 'asc' ? '↑' : '↓'}</span>`);
+  });
+}
+
 function renderNarrativeGrid() {
   if (!narrativesRaw) return;
   const tbody = document.getElementById('narrativeGrid');
-  const list = narrativesRaw.narratives.slice();
+  let list = narrativesRaw.narratives.slice();
 
   // Point 3/4: RS mode -> RS(selected window) desc, aggregate_market_cap
   // desc (tie-break ONLY, never an input to RS/Thrust itself), name asc.
@@ -2375,6 +2519,17 @@ function renderNarrativeGrid() {
     if (bcap !== acap) return bcap - acap;
     return String(a.name).localeCompare(String(b.name));
   });
+
+  // Manual header-click override (point 12B) -- takes over ONLY the visible
+  // ORDER, never the Top-10 windowing/expand logic below, and never changes
+  // narrative_rs/thrust_rsp themselves.
+  if (ncTableSort) {
+    list = sortTableRows(list, {
+      direction: ncTableSort.direction, type: ncTableSort.type,
+      accessor: ncTableSortAccessor(ncTableSort.key),
+    });
+  }
+  ncUpdateTableHeaderSortIndicators();
 
   // Point 12: Top 10 by default, "Alle Narrative anzeigen"/"Auf Top 10
   // reduzieren" toggles the full list. Re-sliced on every render, so
@@ -2419,6 +2574,7 @@ function ncToggleExpandAll() {
 function ncToggleDetail(id) {
   ncExpandedId = (ncExpandedId === id) ? null : id;
   ncEmaFilter = 'all';
+  memberTableSort = null;
   renderNarrativeGrid();
 }
 
@@ -2426,6 +2582,10 @@ document.getElementById('strengthWindowToggle').addEventListener('click', (e) =>
   const btn = e.target.closest('.nc-btn');
   if (!btn) return;
   ncStrengthWindow = btn.dataset.window;
+  // Point 12B: changing a fachliches Ranking-Control resets any manual
+  // header-click sort back to the defined default.
+  ncTableSort = null;
+  memberTableSort = null;
   document.querySelectorAll('#strengthWindowToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
   renderNarrativeGrid();
 });
@@ -2433,6 +2593,8 @@ document.getElementById('rankingModeToggle').addEventListener('click', (e) => {
   const btn = e.target.closest('.nc-btn');
   if (!btn) return;
   ncRankingMode = btn.dataset.ranking;
+  ncTableSort = null;
+  memberTableSort = null;
   document.querySelectorAll('#rankingModeToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
   renderNarrativeGrid();
 });
@@ -2447,6 +2609,16 @@ document.getElementById('rankingModeToggle').addEventListener('click', (e) => {
 let screenersRaw = null;
 const screenerTableOpen = {};   // presetId -> bool, collapsed by default (spec point 25, same UX as Opportunities point 4)
 const screenerRenderLimit = {}; // presetId -> current windowed row count
+// Strength Screeners 3M/6M Union Patch point 12B: per-preset manual header-
+// click sort override, layered on top of the existing server-side default
+// order (point 24) -- undefined until a header is clicked; each of the 4
+// preset tables keeps its OWN independent state.
+const screenerTableSort = {};
+function screenerColumnType(key) { return key === 'symbol' ? 'text' : 'number'; }
+function screenerTableSortBy(presetId, key) {
+  screenerTableSort[presetId] = sortTableNextState(screenerTableSort[presetId], key, screenerColumnType(key));
+  renderScreeners({ keepLimit: true });
+}
 
 // Human-readable filter tags per preset — the JSON payload deliberately
 // doesn't duplicate the rule definitions (point 23), so this is presentation
@@ -2458,7 +2630,16 @@ const screenerRenderLimit = {}; // presetId -> current windowed row count
 const SCREENER_PRESET_TAGS = {
   weekly_strength: ['Strength 1W ≥ 85', 'Price > SMA50', 'EMA10 oder EMA20 innerhalb ±5%'],
   monthly_strength: ['Strength 1M ≥ 85', 'Price > SMA200', 'EMA10 oder EMA20 innerhalb ±5%'],
+  // Strength Screeners 3M/6M Union Patch point 5/6: KEIN SMA50-/SMA200-Chip
+  // -- diese beiden Presets haben bewusst kein SMA-Gate.
+  three_month_strength: ['Strength 3M ≥ 85', 'EMA10 oder EMA20 innerhalb ±5%'],
+  six_month_strength: ['Strength 6M ≥ 85', 'EMA10 oder EMA20 innerhalb ±5%'],
 };
+
+// Point 1: dezente, rein informative Basiszeile auf JEDER Strength-Card --
+// spiegelt nur das bereits upstream (build_market_features.py) angewendete
+// eligible-Universe wider, keine zweite Eligibility-Berechnung im Frontend.
+const SCREENER_BASE_UNIVERSE_LINE = 'STOCKS · NO HEALTHCARE/BIOTECH · MCAP ≥ $1B · ADR20 > 4%';
 
 // Per-preset table columns -- the two presets rank on different Strength
 // windows (1W vs 1M) and different long-term MA (SMA50 vs SMA200), so their
@@ -2479,6 +2660,22 @@ const SCREENER_PRESET_COLUMNS = {
     { key: 'structural_rs', label: 'Structural RS', fmt: 'num' },
     { key: 'adr20', label: 'ADR20', fmt: 'num' },
     { key: 'sma200_distance_pct', label: 'vs SMA200', fmt: 'pct' },
+    { key: 'ema10_distance_pct', label: 'vs EMA10', fmt: 'pct' },
+    { key: 'ema20_distance_pct', label: 'vs EMA20', fmt: 'pct' },
+  ],
+  // Strength Screeners 3M/6M Union Patch point 5/6: kein SMA-Spalte, da
+  // kein SMA-Gate fuer diese beiden Presets.
+  three_month_strength: [
+    { key: 'rs_percentile_3m', label: 'Strength 3M', fmt: 'num', strength: true },
+    { key: 'structural_rs', label: 'Structural RS', fmt: 'num' },
+    { key: 'adr20', label: 'ADR20', fmt: 'num' },
+    { key: 'ema10_distance_pct', label: 'vs EMA10', fmt: 'pct' },
+    { key: 'ema20_distance_pct', label: 'vs EMA20', fmt: 'pct' },
+  ],
+  six_month_strength: [
+    { key: 'rs_percentile_6m', label: 'Strength 6M', fmt: 'num', strength: true },
+    { key: 'structural_rs', label: 'Structural RS', fmt: 'num' },
+    { key: 'adr20', label: 'ADR20', fmt: 'num' },
     { key: 'ema10_distance_pct', label: 'vs EMA10', fmt: 'pct' },
     { key: 'ema20_distance_pct', label: 'vs EMA20', fmt: 'pct' },
   ],
@@ -2556,12 +2753,25 @@ function screenerPresetHtml(presetId, preset, opts) {
   const keepLimit = opts && opts.keepLimit;
   if (!keepLimit) screenerRenderLimit[presetId] = 50;
   const isOpen = !!screenerTableOpen[presetId];
-  const tickers = preset.tickers; // already sorted server-side (point 24) -- no frontend re-sort/re-filter
+  // Point 24's server-side default order stays the baseline; a manual
+  // header click (point 12B) re-sorts a COPY on top of it, never mutating
+  // preset.tickers itself (screenerCopyTickers/TradingView-Export keep
+  // reading the untouched original order/full list).
+  const sort = screenerTableSort[presetId];
+  const tickers = sort
+    ? sortTableRows(preset.tickers, { direction: sort.direction, type: sort.type, key: sort.key })
+    : preset.tickers;
   const limit = screenerRenderLimit[presetId] || 50;
   const windowed = isOpen ? tickers.slice(0, limit) : [];
 
   const columns = SCREENER_PRESET_COLUMNS[presetId] || SCREENER_PRESET_COLUMNS.weekly_strength;
   const colCount = columns.length + 1; // + Ticker
+
+  function screenerHeaderCell(key, label) {
+    const isSorted = !!sort && sort.key === key;
+    const arrow = isSorted ? `<span class="sort-arrow">${sort.direction === 'asc' ? '↑' : '↓'}</span>` : '';
+    return `<th class="sortable${isSorted ? ' sorted' : ''}" onclick="screenerTableSortBy('${presetId}','${key}')">${label}${arrow}</th>`;
+  }
 
   const rows = windowed.map(t => `
     <tr>
@@ -2579,6 +2789,7 @@ function screenerPresetHtml(presetId, preset, opts) {
       <span class="screener-preset-name">${preset.name}</span>
       <span class="screener-preset-count">${preset.count} Treffer</span>
     </div>
+    <div class="screener-basis-line">${SCREENER_BASE_UNIVERSE_LINE}</div>
     <div class="screener-preset-tags">${screenerPresetTagsHtml(presetId)}</div>
     <div class="screener-actions">
       <button class="nd-copy-btn" onclick="screenerCopyTickers('${presetId}', this)">Ticker kopieren</button>
@@ -2590,7 +2801,7 @@ function screenerPresetHtml(presetId, preset, opts) {
     <div class="opp-table-wrap" style="${isOpen ? '' : 'display:none;'}">
       <table class="member-table opp-table">
         <thead><tr>
-          <th>Ticker</th>${columns.map(col => `<th>${col.label}</th>`).join('')}
+          ${screenerHeaderCell('symbol', 'Ticker')}${columns.map(col => screenerHeaderCell(col.key, col.label)).join('')}
         </tr></thead>
         <tbody>${tableBodyHtml}${loadMoreHtml}</tbody>
       </table>
@@ -2609,12 +2820,54 @@ function renderScreeners(opts) {
   el.innerHTML = ids.map(id => screenerPresetHtml(id, screenersRaw.screeners[id], opts)).join('');
 }
 
+// Strength Screeners 3M/6M Union Patch point 8: union of the CURRENT ticker
+// hits across all four Strength presets (Weekly/Monthly/3M/6M), deduplicated,
+// alphabetical -- reads the already-loaded JS data state (`data`), never the
+// visible/collapsed DOM rows, so it works identically whether every card is
+// collapsed or expanded (point 8: "funktioniert auch bei eingeklappten
+// Ergebnislisten"). "der letzten 6 Monate" in the spec means the four
+// CURRENT Strength horizons (1W/1M/3M/6M) as of today's single
+// data/screeners.json snapshot -- explicitly NOT a historical union of daily
+// screener snapshots across the past 6 calendar months (point 8's
+// "Semantik"); no screener-history database is built or read for this.
+const SCREENER_STRENGTH_PRESET_IDS = ['weekly_strength', 'monthly_strength', 'three_month_strength', 'six_month_strength'];
+
+function screenerUnionTickers(data) {
+  if (!data || !data.screeners) return [];
+  const seen = new Set();
+  SCREENER_STRENGTH_PRESET_IDS.forEach(presetId => {
+    const preset = data.screeners[presetId];
+    if (!preset) return;
+    preset.tickers.forEach(t => seen.add(t.symbol));
+  });
+  return Array.from(seen).sort();
+}
+
+function renderScreenerUnionCount() {
+  const el = document.getElementById('screenerUnionCount');
+  if (!el || !screenersRaw) return;
+  el.textContent = `${screenerUnionTickers(screenersRaw).length} eindeutige Kandidaten`;
+}
+
+function screenerCopyUnion(btn) {
+  if (!screenersRaw) return;
+  const union = screenerUnionTickers(screenersRaw);
+  navigator.clipboard.writeText(union.join(',')).then(() => {
+    if (btn) {
+      const original = btn.textContent;
+      btn.textContent = `Kopiert (${union.length})`;
+      setTimeout(() => { btn.textContent = original; }, 1500);
+    }
+  }).catch(e => console.log('Clipboard-Fehler:', e));
+}
+
 async function loadScreeners() {
   try {
     const r = await fetch('data/screeners.json');
     if (!r.ok) { console.log('screeners.json nicht gefunden.'); return; }
     screenersRaw = await r.json();
     renderScreeners();
+    renderScreenerUnionCount();
   } catch (e) {
     console.log('Screener-Daten konnten nicht geladen werden:', e);
     const el = document.getElementById('screenerContainer');

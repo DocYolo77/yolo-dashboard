@@ -109,7 +109,8 @@ def mic_to_tradingview_symbol(symbol, primary_exchange, mic_to_exchange):
 
 
 SCREENER_TICKER_FIELDS = (
-    "close", "adr20", "market_cap", "rs_percentile_1w", "rs_percentile_1m", "structural_rs",
+    "close", "adr20", "market_cap", "rs_percentile_1w", "rs_percentile_1m",
+    "rs_percentile_3m", "rs_percentile_6m", "structural_rs",
     "sma50_distance_pct", "sma200_distance_pct", "ema10_distance_pct", "ema20_distance_pct",
 )
 
@@ -144,9 +145,27 @@ def monthly_strength_sort_key(row):
     return (-(rs if rs is not None else -1), -(structural if structural is not None else -1), row["symbol"])
 
 
+def three_month_strength_sort_key(row):
+    """Strength Screeners 3M/6M Union Patch point 5: same multi-key shape,
+    on the 3M Strength percentile — (1) rs_percentile_3m desc, (2)
+    structural_rs desc, (3) ticker alphabetical."""
+    rs = row["rs_percentile_3m"]
+    structural = row["structural_rs"]
+    return (-(rs if rs is not None else -1), -(structural if structural is not None else -1), row["symbol"])
+
+
+def six_month_strength_sort_key(row):
+    """Point 6: same shape, on the 6M Strength percentile."""
+    rs = row["rs_percentile_6m"]
+    structural = row["structural_rs"]
+    return (-(rs if rs is not None else -1), -(structural if structural is not None else -1), row["symbol"])
+
+
 SCREENER_SORT_KEYS = {
     "weekly_strength": weekly_strength_sort_key,
     "monthly_strength": monthly_strength_sort_key,
+    "three_month_strength": three_month_strength_sort_key,
+    "six_month_strength": six_month_strength_sort_key,
 }
 
 

@@ -9,7 +9,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -20,8 +20,18 @@ const html = readFileSync(path.join(__dirname, '..', 'index.html'), 'utf-8');
 function extractFunction(src, name) {
   const startIdx = src.indexOf(`function ${name}(`);
   if (startIdx === -1) throw new Error(`function ${name} not found in index.html`);
-  let depth = 0, i = src.indexOf('{', startIdx);
-  const bodyStart = i;
+  // Skip past the parameter list by balancing parens first, THEN look for
+  // the body's opening brace -- a naive "first { after the name" breaks on
+  // a destructured parameter like `function f(x, { a, b }) { ... }` (e.g.
+  // sortTableRows(rows, { direction, type, accessor, key })), which would
+  // otherwise treat the parameter's own `{...}` as the function body.
+  let parenDepth = 0, i = src.indexOf('(', startIdx);
+  for (; i < src.length; i++) {
+    if (src[i] === '(') parenDepth++;
+    else if (src[i] === ')') { parenDepth--; if (parenDepth === 0) { i++; break; } }
+  }
+  while (src[i] !== '{') i++;
+  let depth = 0;
   for (; i < src.length; i++) {
     if (src[i] === '{') depth++;
     else if (src[i] === '}') { depth--; if (depth === 0) break; }
@@ -61,6 +71,9 @@ const ncEmaFilterMembersSrc = extractFunction(html, 'ncEmaFilterMembers');
 // Opportunity-engine state at all (point 10).
 const ncSortMembersForRankingSrc = extractFunction(html, 'ncSortMembersForRanking');
 const ncVisibleSortedMembersSrc = extractFunction(html, 'ncVisibleSortedMembers');
+// Point 12B: manual header-click override state for the Member-Detailtabelle
+// -- ncVisibleSortedMembers reads this module-level `let` directly.
+const memberTableSortLetSrc = extractLet(html, 'memberTableSort');
 const ncMomentumTickerListSrc = extractFunction(html, 'ncMomentumTickerList');
 const ncToggleDetailSrc = extractFunction(html, 'ncToggleDetail');
 const ncToggleExpandAllSrc = extractFunction(html, 'ncToggleExpandAll');
@@ -92,10 +105,36 @@ const screenerFmtPctSignedSrc = extractFunction(html, 'screenerFmtPctSigned');
 const screenerColumnCellHtmlSrc = extractFunction(html, 'screenerColumnCellHtml');
 const screenerPresetColumnsConstSrc = extractConst(html, 'SCREENER_PRESET_COLUMNS');
 const screenerPresetTagsConstSrc = extractConst(html, 'SCREENER_PRESET_TAGS');
-// Point 16: fully sortable Futures table, pure frontend, sorts a copy.
-const futuresReturn5dSrc = extractFunction(html, 'futuresReturn5d');
-const futuresSortValueSrc = extractFunction(html, 'futuresSortValue');
-const sortFuturesRowsSrc = extractFunction(html, 'sortFuturesRows');
+// Strength Screeners 3M/6M Union Patch point 12B: ONE shared sort primitive
+// pair (sortTableRows/sortTableNextState), plus the generic MARKET_TABLE_IDS
+// -driven implementation that replaced the old Futures-only
+// futuresReturn5d/futuresSortValue/sortFuturesRows/futuresSortBy/renderFuturesTable.
+const sortTableRowsSrc = extractFunction(html, 'sortTableRows');
+const sortTableNextStateSrc = extractFunction(html, 'sortTableNextState');
+const marketTableIdsConstSrc = extractConst(html, 'MARKET_TABLE_IDS');
+const marketTableReturn5dSrc = extractFunction(html, 'marketTableReturn5d');
+const marketTableSortValueSrc = extractFunction(html, 'marketTableSortValue');
+const sortMarketTableRowsSrc = extractFunction(html, 'sortMarketTableRows');
+// Point 12A: null-safe MTD %/YTD % formatting/coloring (deliberately NOT
+// reusing fmtPct/pctClass, see the helpers' own comments in index.html).
+// ncFmtPctOrDash delegates to fmtPct/fmt for the non-null case, so those two
+// need to come along too.
+const fmtSrc = extractFunction(html, 'fmt');
+const fmtPctSrc = extractFunction(html, 'fmtPct');
+const ncFmtPctOrDashSrc = extractFunction(html, 'ncFmtPctOrDash');
+const ncPctColorClassStrictSrc = extractFunction(html, 'ncPctColorClassStrict');
+// Point 12B: Member-Detailtabelle + Narrative-Haupttabelle manual sort.
+const ncMemberColumnTypeSrc = extractFunction(html, 'ncMemberColumnType');
+const ncTableSortAccessorSrc = extractFunction(html, 'ncTableSortAccessor');
+// Point 12B: Screener-Ergebnistabellen manual sort.
+const screenerColumnTypeSrc = extractFunction(html, 'screenerColumnType');
+// Point 5/6/7: 3 Month / 6 Month Strength screener presets.
+const screenerPresetHtmlSrc = extractFunction(html, 'screenerPresetHtml');
+// Point 8: global Strength-union copy button.
+const screenerStrengthPresetIdsConstSrc = extractConst(html, 'SCREENER_STRENGTH_PRESET_IDS');
+const screenerUnionTickersSrc = extractFunction(html, 'screenerUnionTickers');
+const screenerCopyUnionSrc = extractFunction(html, 'screenerCopyUnion');
+const screenerBaseUniverseLineConstSrc = extractConst(html, 'SCREENER_BASE_UNIVERSE_LINE');
 const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
@@ -154,12 +193,22 @@ const sandbox = {
     },
     querySelectorAll() { return []; },
   },
+  // Point 8: screenerCopyUnion's only side effect besides mutating the
+  // button label is navigator.clipboard.writeText — captured here instead
+  // of hitting a real clipboard.
+  screenersRaw: null,
+  clipboardWrites: [],
+  navigator: {
+    clipboard: {
+      writeText(text) { sandbox.clipboardWrites.push(text); return Promise.resolve(); },
+    },
+  },
   console,
 };
 vm.createContext(sandbox);
 vm.runInContext(
   `${ncNearEma10Src}\n${ncNearEma20Src}\n${ncEmaFilterMembersSrc}\n${ncSortMembersForRankingSrc}\n` +
-  `${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n${ncToggleDetailSrc}\n${ncToggleExpandAllSrc}\n` +
+  `${memberTableSortLetSrc}\n${ncVisibleSortedMembersSrc}\n${ncMomentumTickerListSrc}\n${ncToggleDetailSrc}\n${ncToggleExpandAllSrc}\n` +
   `${ncScoreValueSrc}\n${ncFmtScoreSrc}\n${memberColumnsConstSrc}\n${ncStrengthColorClassSrc}\n` +
   `${ncVolumeColorClassSrc}\n${ncFmtVolumeMSrc}\n` +
   `${qqqFiniteSeriesSrc}\n${qqqHasEnoughHistorySrc}\n${qqqEmptyStateHtmlSrc}\n` +
@@ -167,7 +216,10 @@ vm.runInContext(
   `function qqqXAxis(){ return ''; }\n` +
   `${screenerTradingViewTxtContentSrc}\n${screenerFilenameSlugSrc}\n` +
   `${screenerFmtNumSrc}\n${screenerFmtPctSignedSrc}\n${screenerPresetColumnsConstSrc}\n${screenerPresetTagsConstSrc}\n${screenerColumnCellHtmlSrc}\n` +
-  `${futuresReturn5dSrc}\n${futuresSortValueSrc}\n${sortFuturesRowsSrc}\n` +
+  `${sortTableRowsSrc}\n${sortTableNextStateSrc}\n` +
+  `${marketTableIdsConstSrc}\n${marketTableReturn5dSrc}\n${marketTableSortValueSrc}\n${sortMarketTableRowsSrc}\n` +
+  `${fmtSrc}\n${fmtPctSrc}\n${ncFmtPctOrDashSrc}\n${ncPctColorClassStrictSrc}\n${ncMemberColumnTypeSrc}\n${ncTableSortAccessorSrc}\n` +
+  `${screenerColumnTypeSrc}\n${screenerStrengthPresetIdsConstSrc}\n${screenerUnionTickersSrc}\n${screenerCopyUnionSrc}\n` +
   `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
   `${positionTickerChartTooltipSrc}\n` +
@@ -736,16 +788,24 @@ test('ncFmtScore renders missing values as "—" for both RS and Thrust', () => 
 
 // ── V6.1 point 14/25-26: exact Member-Detailtabelle column set, static HTML checks ──
 
-test('MEMBER_COLUMNS matches the RVOL patch\'s exact 7-column set incl. Volumen (M), RS label -> Strength', () => {
+test('MEMBER_COLUMNS matches the exact 9-column set incl. MTD %/YTD %/Volumen (M), RS label -> Strength', () => {
+  // Strength Screeners 3M/6M Union Patch point 12A: exact new column order
+  // "Ticker | Kurs | Veränderung absolut | Veränderung % | MTD % | YTD % |
+  // Volumen (M) | Strength | Thrust".
   const cols = vm.runInContext('MEMBER_COLUMNS', sandbox);
   assert.deepEqual(Array.from(cols).map(c => c.key),
-    ['symbol', 'price', 'change_abs', 'd1_pct', 'volume', 'rs', 'stock_thrust_rs']);
+    ['symbol', 'price', 'change_abs', 'd1_pct', 'mtd_pct', 'ytd_pct', 'volume', 'rs', 'stock_thrust_rs']);
   const byKey = Object.fromEntries(Array.from(cols).map(c => [c.key, c.label]));
   assert.equal(byKey.volume, 'Volumen (M)');
+  assert.equal(byKey.mtd_pct, 'MTD %');
+  assert.equal(byKey.ytd_pct, 'YTD %');
   assert.equal(byKey.rs, 'Strength'); // point 1: display label only, field key stays "rs"
-  // Volumen (M) sits directly after Veränderung % (point 3's exact column order).
+  // MTD %/YTD % sit directly after Veränderung %, and Volumen (M) directly
+  // after YTD % (point 12A's exact column order).
   const keys = Array.from(cols).map(c => c.key);
-  assert.equal(keys.indexOf('volume'), keys.indexOf('d1_pct') + 1);
+  assert.equal(keys.indexOf('mtd_pct'), keys.indexOf('d1_pct') + 1);
+  assert.equal(keys.indexOf('ytd_pct'), keys.indexOf('mtd_pct') + 1);
+  assert.equal(keys.indexOf('volume'), keys.indexOf('ytd_pct') + 1);
 });
 
 test('index.html: "Zeithorizont (Mitglieder)" toggle is fully removed (point 2)', () => {
@@ -781,9 +841,47 @@ test('index.html: Structural Score/Lifecycle/Momentum-Modifier/Opportunities-sum
   assert.doesNotMatch(html, /ncJumpToOpportunities/);
 });
 
-test('index.html: narrative table header is exactly # | Narrative | Strength | Thrust, no bare "RS" (point 1/11)', () => {
-  assert.match(html, /<th>#<\/th><th>Narrative<\/th><th>Strength<\/th><th>Thrust<\/th>/);
+test('index.html: narrative table header is # | Narrative | Strength | Thrust, no bare "RS" (point 1/11)', () => {
+  const theadMatch = html.match(/<table class="data-table narrative-rank-table"[^>]*>\s*<thead><tr>([\s\S]*?)<\/tr><\/thead>/);
+  assert.ok(theadMatch, 'narrative-rank-table <thead> not found');
+  const headerCells = theadMatch[1].match(/>[^<]*(?=<\/th>)/g).map(s => s.slice(1));
+  assert.deepEqual(headerCells, ['#', 'Narrative', 'Strength', 'Thrust']);
   assert.doesNotMatch(html, /<th>RS<\/th>/);
+});
+
+// ── Strength Screeners 3M/6M Union Patch point 12B: Narrative main table is
+// header-click sortable (except "#"), per-table independent manual-sort
+// state that resets when a "fachliche Ranking-Control" changes ──
+
+test('index.html: "#" column has no sortable class/onclick, the other 3 headers do', () => {
+  const theadMatch = html.match(/<table class="data-table narrative-rank-table"[^>]*>\s*<thead><tr>([\s\S]*?)<\/tr><\/thead>/);
+  const thead = theadMatch[1];
+  assert.match(thead, /<th>#<\/th>/); // plain, not clickable
+  ['name', 'strength', 'thrust'].forEach(field => {
+    assert.match(thead, new RegExp(`<th class="sortable" data-field="${field}" onclick="ncTableSortBy\\('${field}'\\)">`));
+  });
+});
+
+test('ncTableSortAccessor: name is text, strength/thrust read ncScoreValue for the selected window', () => {
+  const narrative = { name: 'Zeta', narrative_rs: { '1w': 42.0 }, thrust_rsp: 7.5 };
+  sandbox.window_ = 'ignored';
+  const nameVal = vm.runInContext('ncTableSortAccessor("name")(narrative)', Object.assign(sandbox, { narrative }));
+  assert.equal(nameVal, 'Zeta');
+  sandbox.ncStrengthWindow = '1w';
+  const strengthVal = vm.runInContext('ncTableSortAccessor("strength")(narrative)', Object.assign(sandbox, { narrative }));
+  assert.equal(strengthVal, 42.0);
+  const thrustVal = vm.runInContext('ncTableSortAccessor("thrust")(narrative)', Object.assign(sandbox, { narrative }));
+  assert.equal(thrustVal, 7.5);
+});
+
+test('index.html: Strength-Zeitfenster / Ranking-Modus toggles reset BOTH the Narrative table\'s and the Member table\'s manual sort back to default', () => {
+  assert.match(html, /strengthWindowToggle[\s\S]{0,400}ncTableSort\s*=\s*null[\s\S]{0,100}memberTableSort\s*=\s*null/);
+  assert.match(html, /rankingModeToggle[\s\S]{0,400}ncTableSort\s*=\s*null[\s\S]{0,100}memberTableSort\s*=\s*null/);
+});
+
+test('index.html: opening a different Narrative detail resets the Member table\'s manual sort back to default', () => {
+  const fn = extractFunction(html, 'ncToggleDetail');
+  assert.match(fn, /memberTableSort\s*=\s*null/);
 });
 
 // ── RVOL/Screener/Benchmark/Futures Patch point 2: shared Strength color helper ──
@@ -1084,21 +1182,85 @@ test('SCREENER_PRESET_COLUMNS: weekly uses rs_percentile_1w/sma50, monthly uses 
   assert.ok(monthlyKeys.includes('ema20_distance_pct'));
 });
 
-// ── RVOL/Screener/Benchmark/Futures Patch point 16: fully sortable Futures table ──
+// ── Strength Screeners 3M/6M Union Patch point 12B: ONE shared sort
+// primitive (sortTableRows/sortTableNextState), and the generic
+// marketTable* system (Futures/DAX-Europe/Global/Krypto/Commodities all
+// five tables share ONE implementation keyed by tableKey) that replaced
+// the prior phase's Futures-only futuresReturn5d/sortFuturesRows ──
 
-test('futuresReturn5d: return_5d = last_valid / first_valid - 1', () => {
-  const out = vm.runInContext('futuresReturn5d(hist)', Object.assign(sandbox, { hist: [100, 101, 102, 103, 104] }));
+test('sortTableRows: text type sorts alphabetically (locale compare)', () => {
+  const rows = [{ k: 'Charlie' }, { k: 'Alpha' }, { k: 'Bravo' }];
+  const out = vm.runInContext('sortTableRows(rows, { direction: "asc", type: "text", key: "k" })', Object.assign(sandbox, { rows }));
+  assert.deepEqual(Array.from(out).map(r => r.k), ['Alpha', 'Bravo', 'Charlie']);
+});
+
+test('sortTableRows: numeric type sorts DESC on first-click convention, ASC when direction flips', () => {
+  const rows = [{ k: 5 }, { k: 20 }, { k: 1 }];
+  const desc = vm.runInContext('sortTableRows(rows, { direction: "desc", type: "number", key: "k" })', Object.assign(sandbox, { rows }));
+  assert.deepEqual(Array.from(desc).map(r => r.k), [20, 5, 1]);
+  const asc = vm.runInContext('sortTableRows(rows, { direction: "asc", type: "number", key: "k" })', Object.assign(sandbox, { rows }));
+  assert.deepEqual(Array.from(asc).map(r => r.k), [1, 5, 20]);
+});
+
+test('sortTableRows: null/undefined/NaN ALWAYS sort last, regardless of ASC or DESC (point 12B\'s explicit requirement)', () => {
+  // Regression test for a real pre-existing bug: the old oppSortItems used
+  // -Infinity as a null substitute, which put nulls FIRST in ASC and LAST
+  // in DESC -- direction-dependent, violating "nulls immer ans Ende".
+  const rows = [{ k: 5 }, { k: null }, { k: 20 }, { k: undefined }, { k: NaN }, { k: 1 }];
+  const desc = vm.runInContext('sortTableRows(rows, { direction: "desc", type: "number", key: "k" })', Object.assign(sandbox, { rows }));
+  assert.deepEqual(Array.from(desc).map(r => r.k).slice(0, 3), [20, 5, 1]);
+  assert.deepEqual(Array.from(desc).map(r => r.k).slice(3), [null, undefined, NaN]);
+  const asc = vm.runInContext('sortTableRows(rows, { direction: "asc", type: "number", key: "k" })', Object.assign(sandbox, { rows }));
+  assert.deepEqual(Array.from(asc).map(r => r.k).slice(0, 3), [1, 5, 20]);
+  assert.deepEqual(Array.from(asc).map(r => r.k).slice(3), [null, undefined, NaN]); // still last, even ascending
+});
+
+test('sortTableRows: accessor form (used by marketTable/opp) reads a computed value, not a plain key lookup', () => {
+  const rows = [{ a: 1, b: 10 }, { a: 2, b: 1 }];
+  const out = vm.runInContext('sortTableRows(rows, { direction: "asc", type: "number", accessor: r => r.a + r.b })', Object.assign(sandbox, { rows }));
+  assert.deepEqual(Array.from(out).map(r => r.a), [2, 1]); // 3 < 11
+});
+
+test('sortTableRows: sorts a COPY, never mutates the original array', () => {
+  const original = [{ k: 3 }, { k: 1 }, { k: 2 }];
+  const originalOrder = original.map(r => r.k);
+  const sorted = vm.runInContext('sortTableRows(rows, { direction: "asc", type: "number", key: "k" })', Object.assign(sandbox, { rows: original }));
+  assert.deepEqual(original.map(r => r.k), originalOrder);
+  assert.notEqual(sorted, original);
+});
+
+// Object.assign({}, ...) re-materializes the vm-realm object literal's own
+// properties into a host-realm plain object first -- a strict deepEqual
+// against a host-realm object literal can otherwise spuriously fail on
+// [[Prototype]] identity alone (same cross-realm caveat as elsewhere here).
+test('sortTableNextState: numeric columns\' first click is DESC, text columns\' first click is ASC', () => {
+  const numFirst = vm.runInContext('sortTableNextState(null, "price", "number")', sandbox);
+  assert.deepEqual(Object.assign({}, numFirst), { key: 'price', type: 'number', direction: 'desc' });
+  const textFirst = vm.runInContext('sortTableNextState(null, "name", "text")', sandbox);
+  assert.deepEqual(Object.assign({}, textFirst), { key: 'name', type: 'text', direction: 'asc' });
+});
+
+test('sortTableNextState: clicking the SAME key again inverts direction; a NEW key resets to that column\'s own default', () => {
+  const first = vm.runInContext('sortTableNextState(null, "price", "number")', sandbox);
+  const second = vm.runInContext('sortTableNextState(state, "price", "number")', Object.assign(sandbox, { state: first }));
+  assert.equal(second.direction, 'asc'); // inverted
+  const third = vm.runInContext('sortTableNextState(state, "name", "text")', Object.assign(sandbox, { state: second }));
+  assert.deepEqual(Object.assign({}, third), { key: 'name', type: 'text', direction: 'asc' }); // new key -> fresh default, not inverted
+});
+
+test('marketTableReturn5d: return_5d = last_valid / first_valid - 1', () => {
+  const out = vm.runInContext('marketTableReturn5d(hist)', Object.assign(sandbox, { hist: [100, 101, 102, 103, 104] }));
   assert.ok(Math.abs(out - (104 / 100 - 1)) < 1e-9);
 });
 
-test('futuresReturn5d: ignores non-finite entries, needs at least 2 valid points', () => {
-  const out = vm.runInContext('futuresReturn5d(hist)', Object.assign(sandbox, { hist: [null, 100, undefined, NaN, 110] }));
+test('marketTableReturn5d: ignores non-finite entries, needs at least 2 valid points, null for a zero/absent first point', () => {
+  const out = vm.runInContext('marketTableReturn5d(hist)', Object.assign(sandbox, { hist: [null, 100, undefined, NaN, 110] }));
   assert.ok(Math.abs(out - (110 / 100 - 1)) < 1e-9);
-  assert.equal(vm.runInContext('futuresReturn5d(hist)', Object.assign(sandbox, { hist: [100] })), null);
-  assert.equal(vm.runInContext('futuresReturn5d(hist)', Object.assign(sandbox, { hist: null })), null);
+  assert.equal(vm.runInContext('marketTableReturn5d(hist)', Object.assign(sandbox, { hist: [100] })), null);
+  assert.equal(vm.runInContext('marketTableReturn5d(hist)', Object.assign(sandbox, { hist: null })), null);
 });
 
-function makeFuturesRows() {
+function makeMarketRows() {
   return [
     { name: 'ES (S&P 500)', price: 5998, d1_pct: 0.42, w1_pct: 1.12, hi52w_pct: -2.1, ytd_pct: 18.4, hist_5d: [100, 101, 102, 103, 104] },
     { name: 'NQ (Nasdaq 100)', price: 21320, d1_pct: 0.56, w1_pct: 1.44, hi52w_pct: -3.2, ytd_pct: 22.1, hist_5d: [100, 99, 98, 97, 90] },
@@ -1107,51 +1269,242 @@ function makeFuturesRows() {
   ];
 }
 
-test('sortFuturesRows: Kontrakt (name) sorts alphabetically', () => {
-  const out = vm.runInContext('sortFuturesRows(rows, "name", "asc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+test('sortMarketTableRows: Kontrakt/Name sorts alphabetically', () => {
+  const out = vm.runInContext('sortMarketTableRows(rows, "name", "asc")', Object.assign(sandbox, { rows: makeMarketRows() }));
   assert.deepEqual(Array.from(out).map(r => r.name),
     ['ES (S&P 500)', 'NQ (Nasdaq 100)', 'RTY (Russell 2000)', 'YM (Dow Jones)']);
 });
 
-test('sortFuturesRows: numeric fields sort DESC/ASC correctly (Kurs example)', () => {
-  // Prices: ES 5998, NQ 21320, YM 43890, RTY 2285.
-  const desc = vm.runInContext('sortFuturesRows(rows, "price", "desc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+test('sortMarketTableRows: numeric fields sort DESC/ASC correctly (Kurs example)', () => {
+  const desc = vm.runInContext('sortMarketTableRows(rows, "price", "desc")', Object.assign(sandbox, { rows: makeMarketRows() }));
   assert.deepEqual(Array.from(desc).map(r => r.name), ['YM (Dow Jones)', 'NQ (Nasdaq 100)', 'ES (S&P 500)', 'RTY (Russell 2000)']);
-  const asc = vm.runInContext('sortFuturesRows(rows, "price", "asc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+  const asc = vm.runInContext('sortMarketTableRows(rows, "price", "asc")', Object.assign(sandbox, { rows: makeMarketRows() }));
   assert.deepEqual(Array.from(asc).map(r => r.name), ['RTY (Russell 2000)', 'ES (S&P 500)', 'NQ (Nasdaq 100)', 'YM (Dow Jones)']);
 });
 
-test('sortFuturesRows: 1T% (d1_pct) sorts numerically, null always sorts last regardless of direction', () => {
-  const desc = vm.runInContext('sortFuturesRows(rows, "d1_pct", "desc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
-  assert.deepEqual(Array.from(desc).map(r => r.name).slice(-1), ['YM (Dow Jones)']); // null d1_pct always last
-  const asc = vm.runInContext('sortFuturesRows(rows, "d1_pct", "asc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
-  assert.deepEqual(Array.from(asc).map(r => r.name).slice(-1), ['YM (Dow Jones)']); // still last, even ascending
+test('sortMarketTableRows: 1T% (d1_pct) sorts numerically, null always sorts last regardless of direction', () => {
+  const desc = vm.runInContext('sortMarketTableRows(rows, "d1_pct", "desc")', Object.assign(sandbox, { rows: makeMarketRows() }));
+  assert.deepEqual(Array.from(desc).map(r => r.name).slice(-1), ['YM (Dow Jones)']);
+  const asc = vm.runInContext('sortMarketTableRows(rows, "d1_pct", "asc")', Object.assign(sandbox, { rows: makeMarketRows() }));
+  assert.deepEqual(Array.from(asc).map(r => r.name).slice(-1), ['YM (Dow Jones)']);
 });
 
-test('sortFuturesRows: 5D sorts by the numeric return_5d endpoint, not by sparkline SVG/string', () => {
-  const desc = vm.runInContext('sortFuturesRows(rows, "return_5d", "desc")', Object.assign(sandbox, { rows: makeFuturesRows() }));
+test('sortMarketTableRows: 5D sorts by the numeric return_5d endpoint, not by sparkline SVG/string', () => {
+  const desc = vm.runInContext('sortMarketTableRows(rows, "return_5d", "desc")', Object.assign(sandbox, { rows: makeMarketRows() }));
   const names = Array.from(desc).map(r => r.name);
   // ES: 104/100-1=+4%, NQ: 90/100-1=-10%, YM: 100/100-1=0%, RTY: null hist_5d -> null return_5d, always last.
   assert.deepEqual(names, ['ES (S&P 500)', 'YM (Dow Jones)', 'NQ (Nasdaq 100)', 'RTY (Russell 2000)']);
 });
 
-test('sortFuturesRows: sorts a COPY, never mutates the original array or its row objects', () => {
-  const original = makeFuturesRows();
+test('sortMarketTableRows: sorts a COPY, entire row (incl. sparkline data) stays together, never mutated', () => {
+  const original = makeMarketRows();
   const originalOrder = original.map(r => r.name);
-  const sorted = vm.runInContext('sortFuturesRows(rows, "price", "asc")', Object.assign(sandbox, { rows: original }));
-  assert.deepEqual(original.map(r => r.name), originalOrder); // unchanged
-  assert.notEqual(sorted, original); // different array reference
-});
-
-test('sortFuturesRows: the entire row (incl. sparkline data + all other fields) stays together when re-sorted', () => {
-  const rows = makeFuturesRows();
-  const sorted = vm.runInContext('sortFuturesRows(rows, "price", "asc")', Object.assign(sandbox, { rows }));
+  const sorted = vm.runInContext('sortMarketTableRows(rows, "price", "asc")', Object.assign(sandbox, { rows: original }));
+  assert.deepEqual(original.map(r => r.name), originalOrder);
+  assert.notEqual(sorted, original);
   const rty = Array.from(sorted).find(r => r.name === 'RTY (Russell 2000)');
-  // RTY's own field values (its "color"/sparkline-driving data) must travel
-  // with it, never get scrambled/mixed with another row's fields by the sort.
   assert.equal(rty.d1_pct, -0.18);
   assert.equal(rty.ytd_pct, 8.7);
   assert.equal(rty.hist_5d, null);
+});
+
+test('MARKET_TABLE_IDS: all five market tables (Futures/DAX-Europe/Global/Krypto/Commodities) share the one generic system', () => {
+  const ids = vm.runInContext('MARKET_TABLE_IDS', sandbox);
+  assert.deepEqual(Object.assign({}, ids), {
+    futures: 'futuresTable', europe: 'europeTable', global: 'globalTable',
+    crypto: 'cryptoTable', commodities: 'commoditiesTable',
+  });
+});
+
+test('index.html: each of the five market tables has its own independent per-table sort state (marketTableSort keyed by tableKey)', () => {
+  assert.match(html, /const marketTableSort = \{\};/);
+  assert.match(html, /marketTableSortBy\('futures',/);
+  assert.match(html, /marketTableSortBy\('europe',/);
+  assert.match(html, /marketTableSortBy\('global',/);
+  assert.match(html, /marketTableSortBy\('crypto',/);
+  assert.match(html, /marketTableSortBy\('commodities',/);
+});
+
+// ── Strength Screeners 3M/6M Union Patch point 12A: MTD %/YTD % display ──
+
+test('ncFmtPctOrDash: null/undefined render as "—", real numbers use fmtPct (German comma, signed)', () => {
+  assert.equal(vm.runInContext('ncFmtPctOrDash(v)', Object.assign(sandbox, { v: null })), '—');
+  assert.equal(vm.runInContext('ncFmtPctOrDash(v)', Object.assign(sandbox, { v: undefined })), '—');
+  assert.match(vm.runInContext('ncFmtPctOrDash(v)', Object.assign(sandbox, { v: 12.44 })), /\+12,44%/);
+  assert.match(vm.runInContext('ncFmtPctOrDash(v)', Object.assign(sandbox, { v: -3.05 })), /-3,05%/);
+});
+
+test('ncPctColorClassStrict: positive -> pos, negative -> neg, EXACT ZERO -> neutral (unlike pctClass), null/undefined -> neutral', () => {
+  assert.equal(vm.runInContext('ncPctColorClassStrict(v)', Object.assign(sandbox, { v: 5.0 })), 'pos');
+  assert.equal(vm.runInContext('ncPctColorClassStrict(v)', Object.assign(sandbox, { v: -5.0 })), 'neg');
+  assert.equal(vm.runInContext('ncPctColorClassStrict(v)', Object.assign(sandbox, { v: 0 })), 'muted'); // point 12A: exactly 0 is neutral
+  assert.equal(vm.runInContext('ncPctColorClassStrict(v)', Object.assign(sandbox, { v: null })), 'muted');
+  assert.equal(vm.runInContext('ncPctColorClassStrict(v)', Object.assign(sandbox, { v: undefined })), 'muted');
+});
+
+// ── Strength Screeners 3M/6M Union Patch point 5/6: 3 Month / 6 Month
+// Strength presets -- EMA10/EMA20 (never EMA21), no SMA gate ──
+
+test('SCREENER_PRESET_TAGS: 3 Month / 6 Month Strength chips are exact, no SMA chip (no SMA gate for these two presets)', () => {
+  const threeM = vm.runInContext('SCREENER_PRESET_TAGS.three_month_strength', sandbox);
+  assert.deepEqual(Array.from(threeM), ['Strength 3M ≥ 85', 'EMA10 oder EMA20 innerhalb ±5%']);
+  const sixM = vm.runInContext('SCREENER_PRESET_TAGS.six_month_strength', sandbox);
+  assert.deepEqual(Array.from(sixM), ['Strength 6M ≥ 85', 'EMA10 oder EMA20 innerhalb ±5%']);
+  assert.doesNotMatch(JSON.stringify(Array.from(threeM).concat(Array.from(sixM))), /SMA|EMA21/);
+});
+
+test('SCREENER_PRESET_COLUMNS: 3M uses rs_percentile_3m, 6M uses rs_percentile_6m, both EMA10+EMA20 never EMA21, no SMA column', () => {
+  const threeM = vm.runInContext('SCREENER_PRESET_COLUMNS.three_month_strength', sandbox);
+  const sixM = vm.runInContext('SCREENER_PRESET_COLUMNS.six_month_strength', sandbox);
+  const threeMKeys = Array.from(threeM).map(c => c.key);
+  const sixMKeys = Array.from(sixM).map(c => c.key);
+  assert.ok(threeMKeys.includes('rs_percentile_3m'));
+  assert.ok(threeMKeys.includes('ema10_distance_pct'));
+  assert.ok(threeMKeys.includes('ema20_distance_pct'));
+  assert.ok(!threeMKeys.some(k => k.includes('sma') || k.includes('ema21')));
+  assert.ok(sixMKeys.includes('rs_percentile_6m'));
+  assert.ok(!sixMKeys.some(k => k.includes('sma') || k.includes('ema21')));
+});
+
+test('index.html: every Strength-Screener-Card carries the informational ADR20/base-universe chip line', () => {
+  assert.match(html, /STOCKS · NO HEALTHCARE\/BIOTECH · MCAP ≥ ?\$1B · ADR20 > ?4%/);
+  assert.match(html, /class="screener-basis-line"/);
+});
+
+// ── Strength Screeners 3M/6M Union Patch point 12B: all 4 Screener result
+// tables are header-click sortable too, per-preset independent state ──
+
+test('index.html: screenerPresetHtml builds sortable headers for every preset column via screenerHeaderCell', () => {
+  assert.match(screenerPresetHtmlSrc, /function screenerHeaderCell\(key, label\)/);
+  assert.match(screenerPresetHtmlSrc, /onclick="screenerTableSortBy\('\$\{presetId\}','\$\{key\}'\)"/);
+  assert.match(screenerPresetHtmlSrc, /screenerHeaderCell\('symbol', 'Ticker'\)/);
+  assert.match(screenerPresetHtmlSrc, /columns\.map\(col => screenerHeaderCell\(col\.key, col\.label\)\)/);
+  // Sorts a COPY on top of the server-side default order, never mutates preset.tickers.
+  assert.match(screenerPresetHtmlSrc, /sortTableRows\(preset\.tickers,/);
+});
+
+test('screenerColumnType: symbol/Ticker is text, everything else numeric', () => {
+  assert.equal(vm.runInContext('screenerColumnType("symbol")', sandbox), 'text');
+  assert.equal(vm.runInContext('screenerColumnType("rs_percentile_3m")', sandbox), 'number');
+  assert.equal(vm.runInContext('screenerColumnType("adr20")', sandbox), 'number');
+});
+
+test('index.html: each of the 4 Screener preset tables keeps its OWN independent sort state (screenerTableSort keyed by presetId)', () => {
+  assert.match(html, /const screenerTableSort = \{\};/);
+  assert.match(html, /screenerTableSort\[presetId\] = sortTableNextState\(screenerTableSort\[presetId\]/);
+});
+
+// ── Strength Screeners 3M/6M Union Patch point 8: global union copy button ──
+
+test('screenerUnionTickers: dedups across ALL 4 CURRENT Strength presets, alphabetical, no history/no duplicates', () => {
+  // Spec's own worked synthetic example: A/B/C ∪ B/C/D ∪ C/D/E ∪ A/E/F = A,B,C,D,E,F.
+  const data = {
+    screeners: {
+      weekly_strength: { tickers: [{ symbol: 'A' }, { symbol: 'B' }, { symbol: 'C' }] },
+      monthly_strength: { tickers: [{ symbol: 'B' }, { symbol: 'C' }, { symbol: 'D' }] },
+      three_month_strength: { tickers: [{ symbol: 'C' }, { symbol: 'D' }, { symbol: 'E' }] },
+      six_month_strength: { tickers: [{ symbol: 'A' }, { symbol: 'E' }, { symbol: 'F' }] },
+    },
+  };
+  const union = vm.runInContext('screenerUnionTickers(data)', Object.assign(sandbox, { data }));
+  assert.deepEqual(Array.from(union), ['A', 'B', 'C', 'D', 'E', 'F']);
+  assert.deepEqual([...new Set(Array.from(union))], Array.from(union)); // no duplicates
+});
+
+test('screenerUnionTickers: missing/empty screeners data degrades gracefully to an empty list', () => {
+  assert.deepEqual(Array.from(vm.runInContext('screenerUnionTickers(data)', Object.assign(sandbox, { data: null }))), []);
+  assert.deepEqual(Array.from(vm.runInContext('screenerUnionTickers(data)', Object.assign(sandbox, { data: {} }))), []);
+});
+
+test('SCREENER_STRENGTH_PRESET_IDS: exactly the 4 current Strength horizons (1W/1M/3M/6M), not a historical snapshot union', () => {
+  const ids = vm.runInContext('SCREENER_STRENGTH_PRESET_IDS', sandbox);
+  assert.deepEqual(Array.from(ids), ['weekly_strength', 'monthly_strength', 'three_month_strength', 'six_month_strength']);
+});
+
+test('screenerCopyUnion: copies the deduplicated union to the clipboard and sets "Kopiert (N)" feedback on the button', async () => {
+  sandbox.clipboardWrites = [];
+  const screenersRaw = {
+    screeners: {
+      weekly_strength: { tickers: [{ symbol: 'MU' }, { symbol: 'AAPL' }] },
+      monthly_strength: { tickers: [{ symbol: 'MU' }] },
+      three_month_strength: { tickers: [] },
+      six_month_strength: { tickers: [{ symbol: 'DELL' }] },
+    },
+  };
+  const btn = { textContent: 'Alle Strength-Kandidaten kopieren' };
+  vm.runInContext('screenerCopyUnion(btn)', Object.assign(sandbox, { screenersRaw, btn }));
+  await Promise.resolve().then(() => {}).then(() => {}); // flush the clipboard.writeText().then(...) microtask
+  assert.deepEqual(sandbox.clipboardWrites, ['AAPL,DELL,MU']); // alphabetical, deduplicated, comma-separated
+  assert.equal(btn.textContent, 'Kopiert (3)');
+});
+
+test('index.html: the union copy button reads the JS data state, not the DOM -- works identically whether cards are collapsed or expanded', () => {
+  const fn = extractFunction(html, 'screenerCopyUnion');
+  assert.doesNotMatch(fn, /getElementById|querySelector/);
+  assert.match(fn, /screenerUnionTickers\(screenersRaw\)/);
+});
+
+test('index.html: union button + count sit above the 4 preset cards, before the Screener container', () => {
+  const screenerSectionIdx = html.indexOf('id="screenerContainer"');
+  const unionBtnIdx = html.search(/onclick="screenerCopyUnion\(this\)"/);
+  const unionCountIdx = html.indexOf('id="screenerUnionCount"');
+  assert.ok(unionBtnIdx > -1 && unionBtnIdx < screenerSectionIdx);
+  assert.ok(unionCountIdx > -1 && unionCountIdx < screenerSectionIdx);
+});
+
+// ── Strength Screeners 3M/6M Union Patch point 10: info-popup overlay fix ──
+
+test('index.html: .nc-info-popup stacks ABOVE the sticky .narrative-controls bar (z-index 100 > 40), .nc-info itself above 40 too', () => {
+  const controlsMatch = html.match(/\.narrative-controls\s*\{[^}]*\}/);
+  assert.ok(controlsMatch, '.narrative-controls CSS rule not found');
+  const controlsZ = Number(controlsMatch[0].match(/z-index:\s*(\d+)/)[1]);
+  const hoverMatch = html.match(/\.nc-info:hover,\s*\.nc-info:focus,\s*\.nc-info\.open\s*\{[^}]*\}/);
+  assert.ok(hoverMatch, '.nc-info:hover/:focus/.open CSS rule not found');
+  const hoverZ = Number(hoverMatch[0].match(/z-index:\s*(\d+)/)[1]);
+  const popupMatch = html.match(/\.nc-info-popup\s*\{[^}]*\}/);
+  assert.ok(popupMatch, '.nc-info-popup CSS rule not found');
+  const popupZ = Number(popupMatch[0].match(/z-index:\s*(\d+)/)[1]);
+  assert.ok(hoverZ > controlsZ, `.nc-info:hover/:focus/.open z-index (${hoverZ}) must exceed .narrative-controls (${controlsZ})`);
+  assert.ok(popupZ > controlsZ, `.nc-info-popup z-index (${popupZ}) must exceed .narrative-controls (${controlsZ})`);
+  assert.ok(popupZ < 999999 && hoverZ < 999999); // no arbitrary blanket z-index:999999 escape hatch
+});
+
+test('index.html: popup open/close is wired for click (delegated), hover/focus (CSS) and closes on outside click', () => {
+  assert.match(html, /\.nc-info:hover \.nc-info-popup, \.nc-info:focus \.nc-info-popup, \.nc-info\.open \.nc-info-popup \{ display: block; \}/);
+  assert.match(html, /document\.querySelectorAll\('\.nc-info'\)\.forEach\(icon => \{/);
+  assert.match(html, /icon\.classList\.toggle\('open'\)/);
+  assert.match(html, /if \(!icon\.contains\(e\.target\)\) icon\.classList\.remove\('open'\)/); // outside click closes it
+});
+
+// ── Strength Screeners 3M/6M Union Patch point 9: no person-name references
+// anywhere in the tracked source tree (case-insensitive "jeff" gate) ──
+
+test('source tree: case-insensitive "jeff" yields ZERO hits in authored source (index.html/config/scripts/tests/README/docs)', () => {
+  // Point 9's gate is scoped to the files the spec itself names as needing
+  // cleanup (index.html, config/, Python scripts/tests, README/docs) --
+  // deliberately EXCLUDING data/ (pipeline-generated market-data cache,
+  // which legitimately contains real company/ticker substrings like
+  // "Jefferies Financial Group"/"Jefferson ..." that have nothing to do
+  // with the removed "Jeff"/"Jeff Sun" methodology-attribution wording),
+  // and excluding THIS test file's own path (its prose necessarily names
+  // the term it's asserting zero occurrences of elsewhere).
+  const repoRoot = path.join(__dirname, '..');
+  const selfPath = fileURLToPath(import.meta.url);
+  const skipDirs = new Set(['.git', 'node_modules', '.pytest_cache', '__pycache__', 'data']);
+  const hits = [];
+  function walk(dir) {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (skipDirs.has(entry.name)) continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { walk(full); continue; }
+      if (full === selfPath) continue;
+      let content;
+      try { content = readFileSync(full, 'utf-8'); } catch { continue; } // skip unreadable/binary files
+      if (/jeff/i.test(content)) hits.push(path.relative(repoRoot, full));
+    }
+  }
+  walk(repoRoot);
+  assert.deepEqual(hits, []);
 });
 
 // ── RVOL/Screener/Benchmark/Futures Patch point 8: sticky Narrative controls ──

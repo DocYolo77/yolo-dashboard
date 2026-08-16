@@ -58,10 +58,9 @@ new RSP-based Narrative Strength/Thrust, replacing SPY as the benchmark:
 - RSP replaces SPY everywhere in this file (config rsp_benchmark.ticker).
   RSP is a benchmark ETF, NEVER eligible, NEVER a narrative member, NEVER
   in the stock RS percentile pool.
-- Narrative Strength ("Jeff-inspired Relative Strength gegen RSP", a
-  candidate v1 formula -- explicitly NOT claimed to be Jeff Sun's exact
-  unpublished formula): equal-weight MEAN daily return of a narrative's
-  currently-active members (compute_narrative_equal_weight_return_series)
+- Narrative Strength (Relative Strength candidate v1, gegen RSP): equal-weight
+  MEAN daily return of a narrative's currently-active members
+  (compute_narrative_equal_weight_return_series)
   compounded into a synthetic index starting at 100
   (build_synthetic_narrative_index), divided by the canonical RSP close on
   the same real trading sessions (compute_relative_strength_line), then
@@ -69,7 +68,7 @@ new RSP-based Narrative Strength/Thrust, replacing SPY as the benchmark:
   session window (percentile_rank_of_current, reusing the exact same
   sort-position convention as percentile_ranks() above) -> strength_rsp
   {1w,1m,3m,6m}, fully separate values, never averaged/composited.
-- Narrative Thrust ("Jeff-inspired Thrust candidate v1"):
+- Narrative Thrust (Thrust candidate v1):
   0.60*Strength_1W(today) + 0.40*Strength_1M(today) +
   0.10*(Strength_1W(today) - Strength_1W(3 real trading sessions ago)) ->
   thrust_rsp. NOT clamped to 0-100. thrust_rsp is None unless all three
@@ -503,7 +502,7 @@ def compute_narrative_rs_history(narratives, relative_strength_by_id, trading_da
 
 
 # ─────────────────────────────────────────────
-# V6: RSP-based Narrative Strength/Thrust ("Jeff-inspired" candidate v1)
+# V6: RSP-based Narrative Strength/Thrust (candidate v1)
 # ─────────────────────────────────────────────
 
 def compute_narrative_equal_weight_return_series(daily_ret, members):
@@ -616,7 +615,7 @@ def compute_narrative_rs(relative_strength_by_id, windows_sessions, sessions_ago
 
 
 def compute_narrative_thrust_rsp(strength_1w_today, strength_1m_today, strength_1w_n_sessions_ago, thrust_weights):
-    """Thrust ('Jeff-inspired Thrust candidate v1', point 12):
+    """Thrust ('Thrust candidate v1', point 12):
       0.60*Strength_1W(today) + 0.40*Strength_1M(today)
       + 0.10*(Strength_1W(today) - Strength_1W(N sessions ago))
     Deliberately NOT clamped to 0-100 (may legitimately exceed 100 or go
@@ -874,6 +873,12 @@ def main():
         # "Volumen (M)" column.
         m["volume"] = mf.get("volume")
         m["rvol_50"] = mf.get("rvol_50")
+        # Strength Screeners 3M/6M Union Patch point 12A: MTD %/YTD %,
+        # already computed from the canonical price cache in
+        # build_market_features.py -- pure passthrough, no per-narrative
+        # recomputation.
+        m["mtd_pct"] = mf.get("mtd_pct")
+        m["ytd_pct"] = mf.get("ytd_pct")
 
     # Full-Universe spec point 8: every narrative-level metric (Strength/
     # Thrust/Breadth/Leadership/Structural Leadership/Trend Participation/
@@ -1068,12 +1073,11 @@ def main():
             # V6.1 point 6-8: the headline metrics, now CROSS-SECTIONAL
             # (point 5-7 — see compute_narrative_rs/cross_sectional_percentile_ranks
             # above for why this replaces V6's self-window strength_rsp).
-            # "Jeff-inspired Relative Strength gegen RSP" / "Jeff-inspired
-            # Thrust candidate v1" remain candidate formulas, not a
-            # reproduction of Jeff Sun's unpublished original. The four
-            # narrative_rs timeframes stay fully separate (no averaging/
-            # composite, point 7). relative_performance_rsp carries the RAW
-            # ratio-based return behind each narrative_rs percentile (point 8).
+            # Relative Strength gegen RSP / Thrust candidate v1 remain
+            # candidate formulas. The four narrative_rs timeframes stay fully
+            # separate (no averaging/composite, point 7).
+            # relative_performance_rsp carries the RAW ratio-based return
+            # behind each narrative_rs percentile (point 8).
             "narrative_rs": narrative_rs_for_id,
             "relative_performance_rsp": relative_performance_for_id,
             "thrust_rsp": thrust_rsp,

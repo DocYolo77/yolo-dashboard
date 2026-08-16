@@ -554,6 +554,43 @@ def calc_rvol_fields(vol_aligned, lookback_sessions):
     return current_volume, average_volume_50, rvol_50
 
 
+def calc_mtd_ytd_fields(close):
+    """Strength Screeners 3M/6M Union Patch point 12A: MTD %/YTD %, computed
+    from the SAME canonical close-price Series everything else in this file
+    already uses (a ticker's own valid-date-only series, ascending, real
+    trading sessions only). The anchor is the last REAL trading close
+    strictly before the first trading day of the current calendar month
+    (MTD) / calendar year (YTD) -- since `close`'s own index already
+    contains only real trading sessions (weekends/holidays never appear as
+    entries), the most recent entry whose year-month/year is earlier than
+    the current one already IS that anchor; no calendar-day synthesis
+    needed. Returns (None, None) if no such anchor exists in the available
+    window (new IPO, or the window doesn't reach back far enough) -- never
+    fabricated from an earlier ad-hoc point like the first available close."""
+    if len(close) < 1:
+        return None, None
+    last = close.iloc[-1]
+    last_date = str(close.index[-1])
+    current_month = last_date[:7]  # "YYYY-MM"
+    current_year = last_date[:4]   # "YYYY"
+
+    mtd_pct = None
+    prev_month_dates = [d for d in close.index if str(d)[:7] < current_month]
+    if prev_month_dates:
+        anchor = close.loc[prev_month_dates[-1]]
+        if anchor:
+            mtd_pct = round(float((last - anchor) / anchor * 100), 2)
+
+    ytd_pct = None
+    prev_year_dates = [d for d in close.index if str(d)[:4] < current_year]
+    if prev_year_dates:
+        anchor = close.loc[prev_year_dates[-1]]
+        if anchor:
+            ytd_pct = round(float((last - anchor) / anchor * 100), 2)
+
+    return mtd_pct, ytd_pct
+
+
 def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
                           sma50_slope_lookback=20, sma50_persistence_lookback=20,
                           volume_df=None, volume_lookback_sessions=50):
@@ -633,6 +670,8 @@ def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
                 sma200 = round(float(sma200_raw), 2)
                 sma200_distance_pct = round(float((last - sma200_raw) / sma200_raw * 100), 2)
 
+        mtd_pct, ytd_pct = calc_mtd_ytd_fields(close)
+
         out[sym] = {
             "symbol": sym,
             "close": round(float(last), 2),
@@ -661,6 +700,8 @@ def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
             "volume": current_volume,
             "average_volume_50": average_volume_50,
             "rvol_50": rvol_50,
+            "mtd_pct": mtd_pct,
+            "ytd_pct": ytd_pct,
         }
     return out
 
@@ -1150,6 +1191,8 @@ def main():
             "stock_thrust_rs_computed_count": sum(1 for t in output_tickers.values() if t["stock_thrust_rs"] is not None),
             "rvol_50_computed_count": sum(1 for t in output_tickers.values() if t["rvol_50"] is not None),
             "sma200_computed_count": sum(1 for t in output_tickers.values() if t["sma200"] is not None),
+            "mtd_pct_computed_count": sum(1 for t in output_tickers.values() if t["mtd_pct"] is not None),
+            "ytd_pct_computed_count": sum(1 for t in output_tickers.values() if t["ytd_pct"] is not None),
         },
         "tickers": output_tickers,
     }

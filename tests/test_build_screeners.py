@@ -16,7 +16,8 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from build_screeners import (  # noqa: E402
     eval_rule, eval_preset, mic_to_tradingview_symbol,
-    build_screener_ticker_row, weekly_strength_sort_key, monthly_strength_sort_key, build_screener,
+    build_screener_ticker_row, weekly_strength_sort_key, monthly_strength_sort_key,
+    three_month_strength_sort_key, six_month_strength_sort_key, build_screener,
 )
 
 
@@ -39,6 +40,30 @@ MONTHLY_STRENGTH_CFG = {
     "all": [
         {"field": "sma200_distance_pct", "op": ">", "value": 0},
         {"field": "rs_percentile_1m", "op": ">=", "value": 85},
+    ],
+    "any": [
+        {"field": "ema10_distance_pct", "op": "between", "min": -5, "max": 5},
+        {"field": "ema20_distance_pct", "op": "between", "min": -5, "max": 5},
+    ],
+}
+
+THREE_MONTH_STRENGTH_CFG = {
+    "name": "3 Month Strength",
+    "enabled": True,
+    "all": [
+        {"field": "rs_percentile_3m", "op": ">=", "value": 85},
+    ],
+    "any": [
+        {"field": "ema10_distance_pct", "op": "between", "min": -5, "max": 5},
+        {"field": "ema20_distance_pct", "op": "between", "min": -5, "max": 5},
+    ],
+}
+
+SIX_MONTH_STRENGTH_CFG = {
+    "name": "6 Month Strength",
+    "enabled": True,
+    "all": [
+        {"field": "rs_percentile_6m", "op": ">=", "value": 85},
     ],
     "any": [
         {"field": "ema10_distance_pct", "op": "between", "min": -5, "max": 5},
@@ -95,7 +120,8 @@ def test_eval_preset_empty_any_imposes_no_extra_condition():
 
 def make_ticker(eligible=True, gain_from_sma50_pct=1.0, rs_percentile_1w=90.0,
                  ema10_distance_pct=0.0, ema20_distance_pct=0.0, ema21_distance_pct=None,
-                 sma200_distance_pct=1.0, rs_percentile_1m=90.0, healthcare_biotech_excluded=False):
+                 sma200_distance_pct=1.0, rs_percentile_1m=90.0,
+                 rs_percentile_3m=90.0, rs_percentile_6m=90.0, healthcare_biotech_excluded=False):
     t = {
         "eligible": eligible and not healthcare_biotech_excluded,
         "gain_from_sma50_pct": gain_from_sma50_pct,
@@ -104,6 +130,8 @@ def make_ticker(eligible=True, gain_from_sma50_pct=1.0, rs_percentile_1w=90.0,
         "ema20_distance_pct": ema20_distance_pct,
         "sma200_distance_pct": sma200_distance_pct,
         "rs_percentile_1m": rs_percentile_1m,
+        "rs_percentile_3m": rs_percentile_3m,
+        "rs_percentile_6m": rs_percentile_6m,
         "healthcare_biotech_excluded": healthcare_biotech_excluded,
     }
     if ema21_distance_pct is not None:
@@ -263,6 +291,147 @@ def test_build_screener_applies_monthly_strength_end_to_end():
     assert symbols == {"GOOD"}
 
 
+# ── 3 Month Strength (Strength Screeners 3M/6M Union Patch point 5/14) ──
+# No SMA50-/SMA200-gate — the ONLY additional condition beyond the base
+# eligible universe is Strength 3M >= 85 + near EMA10/EMA20.
+
+def test_3m_case_a_match_via_ema10():
+    t = make_ticker(rs_percentile_3m=90, ema10_distance_pct=2, ema20_distance_pct=7)
+    assert eval_preset(THREE_MONTH_STRENGTH_CFG, t) is True
+
+
+def test_3m_case_b_match_via_ema20():
+    t = make_ticker(rs_percentile_3m=90, ema10_distance_pct=8, ema20_distance_pct=-3)
+    assert eval_preset(THREE_MONTH_STRENGTH_CFG, t) is True
+
+
+def test_3m_below_threshold_no_match():
+    t = make_ticker(rs_percentile_3m=84.9, ema10_distance_pct=0, ema20_distance_pct=0)
+    assert eval_preset(THREE_MONTH_STRENGTH_CFG, t) is False
+
+
+def test_3m_both_emas_outside_band_no_match():
+    t = make_ticker(rs_percentile_3m=95, ema10_distance_pct=6, ema20_distance_pct=6)
+    assert eval_preset(THREE_MONTH_STRENGTH_CFG, t) is False
+
+
+def test_3m_ema21_only_never_matches_the_any_rule():
+    t = make_ticker(rs_percentile_3m=95, ema10_distance_pct=20, ema20_distance_pct=20, ema21_distance_pct=0.0)
+    assert eval_preset(THREE_MONTH_STRENGTH_CFG, t) is False
+
+
+def test_3m_has_no_sma_gate_at_all():
+    # Deeply below both SMA50 and SMA200 -- must still match, since 3 Month
+    # Strength deliberately has NO SMA50-/SMA200-Gate (unlike Weekly/Monthly).
+    t = make_ticker(rs_percentile_3m=95, ema10_distance_pct=2, ema20_distance_pct=99,
+                     gain_from_sma50_pct=-50.0, sma200_distance_pct=-50.0)
+    assert eval_preset(THREE_MONTH_STRENGTH_CFG, t) is True
+
+
+def test_3m_sort_order():
+    rows = [
+        {"symbol": "BBB", "rs_percentile_3m": 90, "structural_rs": 50},
+        {"symbol": "AAA", "rs_percentile_3m": 90, "structural_rs": 60},
+        {"symbol": "CCC", "rs_percentile_3m": 95, "structural_rs": 10},
+    ]
+    rows.sort(key=three_month_strength_sort_key)
+    assert [r["symbol"] for r in rows] == ["CCC", "AAA", "BBB"]
+
+
+def test_build_screener_applies_3m_strength_end_to_end():
+    tickers = {
+        "GOOD": make_ticker(rs_percentile_3m=95, ema10_distance_pct=1, ema20_distance_pct=99),
+        "LOW_STRENGTH": make_ticker(rs_percentile_3m=70, ema10_distance_pct=1, ema20_distance_pct=99),
+        "OUTSIDE_EMA": make_ticker(rs_percentile_3m=95, ema10_distance_pct=99, ema20_distance_pct=99),
+    }
+    result, _ = build_screener("three_month_strength", THREE_MONTH_STRENGTH_CFG, tickers, {}, MIC_MAP)
+    symbols = {row["symbol"] for row in result["tickers"]}
+    assert symbols == {"GOOD"}
+
+
+# ── 6 Month Strength (spec point 6/15) — analogous, no SMA gate ──
+
+def test_6m_case_a_match_via_ema10():
+    t = make_ticker(rs_percentile_6m=90, ema10_distance_pct=2, ema20_distance_pct=7)
+    assert eval_preset(SIX_MONTH_STRENGTH_CFG, t) is True
+
+
+def test_6m_case_b_match_via_ema20():
+    t = make_ticker(rs_percentile_6m=90, ema10_distance_pct=8, ema20_distance_pct=-3)
+    assert eval_preset(SIX_MONTH_STRENGTH_CFG, t) is True
+
+
+def test_6m_below_threshold_no_match():
+    t = make_ticker(rs_percentile_6m=84.9, ema10_distance_pct=0, ema20_distance_pct=0)
+    assert eval_preset(SIX_MONTH_STRENGTH_CFG, t) is False
+
+
+def test_6m_both_emas_outside_band_no_match():
+    t = make_ticker(rs_percentile_6m=95, ema10_distance_pct=6, ema20_distance_pct=6)
+    assert eval_preset(SIX_MONTH_STRENGTH_CFG, t) is False
+
+
+def test_6m_ema21_only_never_matches_the_any_rule():
+    t = make_ticker(rs_percentile_6m=95, ema10_distance_pct=20, ema20_distance_pct=20, ema21_distance_pct=0.0)
+    assert eval_preset(SIX_MONTH_STRENGTH_CFG, t) is False
+
+
+def test_6m_has_no_sma_gate_at_all():
+    t = make_ticker(rs_percentile_6m=95, ema10_distance_pct=2, ema20_distance_pct=99,
+                     gain_from_sma50_pct=-50.0, sma200_distance_pct=-50.0)
+    assert eval_preset(SIX_MONTH_STRENGTH_CFG, t) is True
+
+
+def test_6m_sort_order():
+    rows = [
+        {"symbol": "BBB", "rs_percentile_6m": 90, "structural_rs": 50},
+        {"symbol": "AAA", "rs_percentile_6m": 90, "structural_rs": 60},
+        {"symbol": "CCC", "rs_percentile_6m": 95, "structural_rs": 10},
+    ]
+    rows.sort(key=six_month_strength_sort_key)
+    assert [r["symbol"] for r in rows] == ["CCC", "AAA", "BBB"]
+
+
+def test_build_screener_applies_6m_strength_end_to_end():
+    tickers = {
+        "GOOD": make_ticker(rs_percentile_6m=95, ema10_distance_pct=1, ema20_distance_pct=99),
+        "LOW_STRENGTH": make_ticker(rs_percentile_6m=70, ema10_distance_pct=1, ema20_distance_pct=99),
+    }
+    result, _ = build_screener("six_month_strength", SIX_MONTH_STRENGTH_CFG, tickers, {}, MIC_MAP)
+    symbols = {row["symbol"] for row in result["tickers"]}
+    assert symbols == {"GOOD"}
+
+
+# ── ADR20 base-universe gate (spec point 13): only `eligible` matters here ──
+
+def test_adr_below_threshold_ticker_cannot_match_any_of_the_four_presets():
+    # adr20 itself isn't a preset field at all -- the base `eligible` gate
+    # (computed upstream in build_market_features.py) is the ONLY place
+    # ADR20 is enforced. A ticker with eligible=False (e.g. because its real
+    # adr20 was <= 4.0% upstream) can never match any preset's rules, no
+    # matter how strong its Strength/EMA values look.
+    t_ineligible = make_ticker(eligible=False, rs_percentile_1w=99, rs_percentile_1m=99,
+                                rs_percentile_3m=99, rs_percentile_6m=99)
+    for preset_id, cfg in [("weekly_strength", WEEKLY_STRENGTH_CFG), ("monthly_strength", MONTHLY_STRENGTH_CFG),
+                            ("three_month_strength", THREE_MONTH_STRENGTH_CFG),
+                            ("six_month_strength", SIX_MONTH_STRENGTH_CFG)]:
+        result, _ = build_screener(preset_id, cfg, {"X": t_ineligible}, {}, MIC_MAP)
+        assert result["count"] == 0
+
+
+def test_frontend_never_recomputes_eligibility_screener_output_has_no_adr_field():
+    # Point 13/5: the frontend must display the ADR20>4% chip purely as
+    # informational text, never recompute eligibility itself -- confirmed
+    # structurally here: adr20 IS exposed (for display), but eligibility
+    # itself is never part of the per-row output (only via the upstream
+    # `eligible` gate on the input dict, never re-serialized per row).
+    ticker = make_ticker()
+    ticker.update({"close": 1, "adr20": 5.0, "market_cap": 1, "structural_rs": 1, "sma50_distance_pct": 1})
+    row, _ = build_screener_ticker_row("AAPL", ticker, "XNAS", MIC_MAP)
+    assert "eligible" not in row
+    assert "adr20" in row  # informational display value only
+
+
 # ── TradingView MIC mapping / export safety (spec point 26) ────────
 
 def test_known_mic_maps_to_correct_prefix():
@@ -315,6 +484,7 @@ def test_build_screener_ticker_row_only_carries_documented_fields():
     ticker.update({"close": 1, "adr20": 1, "market_cap": 1, "structural_rs": 1, "sma50_distance_pct": 1})
     row, _ = build_screener_ticker_row("AAPL", ticker, "XNAS", MIC_MAP)
     expected_keys = {"symbol", "close", "adr20", "market_cap", "rs_percentile_1w", "rs_percentile_1m",
+                      "rs_percentile_3m", "rs_percentile_6m",
                       "structural_rs", "sma50_distance_pct", "sma200_distance_pct",
                       "ema10_distance_pct", "ema20_distance_pct",
                       "primary_exchange", "tradingview_symbol"}
