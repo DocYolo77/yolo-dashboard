@@ -1,5 +1,5 @@
 {
-  "as_of_date": "2026-08-15",
+  "as_of_date": "2026-08-16",
   "eligible_count": 809,
   "classified_eligible_count": 653,
   "coverage_pct": 80.7,
@@ -124,7 +124,6 @@
     "RYAN",
     "RZLV",
     "SAH",
-    "SENEA",
     "SID",
     "SM",
     "SNEX",
@@ -285,7 +284,6 @@
     "RYAN",
     "RZLV",
     "SAH",
-    "SENEA",
     "SID",
     "SM",
     "SNEX",
@@ -956,7 +954,8 @@
     "Retry-Runde 1 Batch (LOMA..SAH): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
     "Retry-Runde 2 Batch (AGQ..ECPG): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
     "Retry-Runde 2 Batch (EFX..LIND): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (LOMA..SAH): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 2 Batch (LOMA..SAH): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (SID..ZBRA): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
   "eligible_with_active_narrative": 563,
   "eligible_without_active_narrative": 246,
