@@ -487,6 +487,8 @@ def test_build_screener_ticker_row_only_carries_documented_fields():
                       "rs_percentile_3m", "rs_percentile_6m",
                       "structural_rs", "sma50_distance_pct", "sma200_distance_pct",
                       "ema10_distance_pct", "ema20_distance_pct",
+                      "change_abs", "d1_pct", "mtd_pct", "ytd_pct", "volume", "rvol_50",
+                      "atr_extension", "stock_thrust_rs",
                       "primary_exchange", "tradingview_symbol"}
     assert set(row.keys()) == expected_keys  # doesn't dump every Market Features field (spec point 23)
 

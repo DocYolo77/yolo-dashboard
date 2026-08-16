@@ -672,9 +672,17 @@ def calc_ticker_features(close_df, high_df, low_df, adr_lookback,
 
         mtd_pct, ytd_pct = calc_mtd_ytd_fields(close)
 
+        # Strength Screener Spalten-Umbau: Veraenderung absolut (letzter
+        # Close minus vorletzter Close), dieselbe Formel wie build_
+        # narratives.py's bereits vorhandenes members[].change_abs -- hier
+        # einmalig aus dem kanonischen Preis-Cache berechnet statt pro
+        # Konsument dupliziert.
+        change_abs = round(float(last - close.iloc[-2]), 2) if len(close) > 1 else None
+
         out[sym] = {
             "symbol": sym,
             "close": round(float(last), 2),
+            "change_abs": change_abs,
             "adr20": adr20,
             "sma50": round(float(sma50), 2) if sma50 and not np.isnan(sma50) else None,
             "gain_from_sma50_pct": gain_from_sma50_pct,

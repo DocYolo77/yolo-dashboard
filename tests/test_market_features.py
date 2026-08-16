@@ -1184,3 +1184,27 @@ def test_calc_ticker_features_exposes_mtd_ytd_fields_end_to_end():
     # Rising series spanning a real year boundary -> both computable and positive.
     assert out["ytd_pct"] is not None
     assert out["ytd_pct"] > 0
+
+
+def test_calc_ticker_features_exposes_change_abs():
+    # Strength Screener Spalten-Umbau: change_abs = last close - previous
+    # close, same formula build_narratives.py already uses for the
+    # Narrative-Member-Tabelle's "Veraenderung abs." column -- computed once
+    # here in the canonical Feature Engine instead of duplicated per consumer.
+    days = [(_dt(2025, 6, 1, tzinfo=_tz.utc) + pd.Timedelta(days=i)).date().isoformat() for i in range(90)]
+    close = [100.0 + i for i in range(90)]  # last=189, prev=188 -> change_abs=+1.0
+    close_df = pd.DataFrame({"AAPL": close}, index=days)
+    high_df = close_df + 1
+    low_df = close_df - 1
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)["AAPL"]
+    assert out["change_abs"] == pytest.approx(1.0, abs=0.005)
+
+
+def test_calc_ticker_features_change_abs_negative_move():
+    days = [(_dt(2025, 6, 1, tzinfo=_tz.utc) + pd.Timedelta(days=i)).date().isoformat() for i in range(90)]
+    close = [200.0 - i for i in range(90)]  # last=111, prev=112 -> change_abs=-1.0
+    close_df = pd.DataFrame({"AAPL": close}, index=days)
+    high_df = close_df + 1
+    low_df = close_df - 1
+    out = calc_ticker_features(close_df, high_df, low_df, adr_lookback=20)["AAPL"]
+    assert out["change_abs"] == pytest.approx(-1.0, abs=0.005)

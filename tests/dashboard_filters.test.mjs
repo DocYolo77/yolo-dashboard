@@ -101,7 +101,14 @@ const renderBenchmarkChartSrc = extractFunction(html, 'renderBenchmarkChart');
 const screenerTradingViewTxtContentSrc = extractFunction(html, 'screenerTradingViewTxtContent');
 const screenerFilenameSlugSrc = extractFunction(html, 'screenerFilenameSlug');
 const screenerFmtNumSrc = extractFunction(html, 'screenerFmtNum');
-const screenerFmtPctSignedSrc = extractFunction(html, 'screenerFmtPctSigned');
+// Screener-Ergebnistabellen-Umbau: screenerColumnCellHtml now mirrors the
+// Member table's own cell rendering (fmtPrice/pctClass alongside the
+// already-extracted fmtPct/ncFmtPctOrDash/ncVolumeColorClass/ncFmtVolumeM/
+// ncStrengthColorClass), and SCREENER_PRESET_COLUMNS is now built via the
+// screenerStandardColumns(...) factory instead of 4 hand-written arrays.
+const fmtPriceSrc = extractFunction(html, 'fmtPrice');
+const pctClassSrc = extractFunction(html, 'pctClass');
+const screenerStandardColumnsSrc = extractFunction(html, 'screenerStandardColumns');
 const screenerColumnCellHtmlSrc = extractFunction(html, 'screenerColumnCellHtml');
 const screenerPresetColumnsConstSrc = extractConst(html, 'SCREENER_PRESET_COLUMNS');
 const screenerPresetTagsConstSrc = extractConst(html, 'SCREENER_PRESET_TAGS');
@@ -134,6 +141,10 @@ const screenerPresetHtmlSrc = extractFunction(html, 'screenerPresetHtml');
 const screenerStrengthPresetIdsConstSrc = extractConst(html, 'SCREENER_STRENGTH_PRESET_IDS');
 const screenerUnionTickersSrc = extractFunction(html, 'screenerUnionTickers');
 const screenerCopyUnionSrc = extractFunction(html, 'screenerCopyUnion');
+// ATR-Extension-Ausschluss-Button: zweiter Union-Copy neben "Alle Strength-
+// Kandidaten kopieren", schliesst atr_extension > Schwelle aus.
+const screenerUnionTickersExcludingAtrExtendedSrc = extractFunction(html, 'screenerUnionTickersExcludingAtrExtended');
+const screenerCopyUnionAtrFilteredSrc = extractFunction(html, 'screenerCopyUnionAtrFiltered');
 const screenerBaseUniverseLineConstSrc = extractConst(html, 'SCREENER_BASE_UNIVERSE_LINE');
 const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
@@ -203,6 +214,14 @@ const sandbox = {
       writeText(text) { sandbox.clipboardWrites.push(text); return Promise.resolve(); },
     },
   },
+  // screenerCopyUnion/screenerCopyUnionAtrFiltered revert the button label
+  // back to its original text via setTimeout(…, 1500) after the clipboard
+  // write. Tests assert the button's "Kopiert (N)" state immediately after
+  // the write (well before 1500ms would elapse in a real browser), so this
+  // stub deliberately never fires `fn` -- it just needs to exist so the
+  // call doesn't throw ReferenceError in the vm sandbox.
+  setTimeout: () => 0,
+  clearTimeout: () => {},
   console,
 };
 vm.createContext(sandbox);
@@ -215,11 +234,12 @@ vm.runInContext(
   `${benchmarkColorsConstSrc}\n${renderBenchmarkPillsSrc}\n${ncToggleBenchmarkSrc}\n${benchmarkLineChartSrc}\n${renderBenchmarkChartSrc}\n` +
   `function qqqXAxis(){ return ''; }\n` +
   `${screenerTradingViewTxtContentSrc}\n${screenerFilenameSlugSrc}\n` +
-  `${screenerFmtNumSrc}\n${screenerFmtPctSignedSrc}\n${screenerPresetColumnsConstSrc}\n${screenerPresetTagsConstSrc}\n${screenerColumnCellHtmlSrc}\n` +
+  `${fmtPriceSrc}\n${pctClassSrc}\n${screenerFmtNumSrc}\n${screenerStandardColumnsSrc}\n${screenerPresetColumnsConstSrc}\n${screenerPresetTagsConstSrc}\n${screenerColumnCellHtmlSrc}\n` +
   `${sortTableRowsSrc}\n${sortTableNextStateSrc}\n` +
   `${marketTableIdsConstSrc}\n${marketTableReturn5dSrc}\n${marketTableSortValueSrc}\n${sortMarketTableRowsSrc}\n` +
   `${fmtSrc}\n${fmtPctSrc}\n${ncFmtPctOrDashSrc}\n${ncPctColorClassStrictSrc}\n${ncMemberColumnTypeSrc}\n${ncTableSortAccessorSrc}\n` +
   `${screenerColumnTypeSrc}\n${screenerStrengthPresetIdsConstSrc}\n${screenerUnionTickersSrc}\n${screenerCopyUnionSrc}\n` +
+  `${screenerUnionTickersExcludingAtrExtendedSrc}\n${screenerCopyUnionAtrFilteredSrc}\n` +
   `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
   `${positionTickerChartTooltipSrc}\n` +
@@ -1153,33 +1173,94 @@ test('SCREENER_PRESET_TAGS: no visible "YOLO RS" anywhere in the actual chip val
   assert.doesNotMatch(screenerPresetTagsConstSrc, /YOLO RS/);
 });
 
-test('screenerColumnCellHtml: Strength column uses ncStrengthColorClass, other columns stay muted', () => {
-  const strengthCol = { key: 'rs_percentile_1w', label: 'Strength 1W', fmt: 'num', strength: true };
-  const pctCol = { key: 'sma50_distance_pct', label: 'vs SMA50', fmt: 'pct' };
-  const cellPos = vm.runInContext('screenerColumnCellHtml(col, t)',
-    Object.assign(sandbox, { col: strengthCol, t: { rs_percentile_1w: 90 } }));
-  const cellNull = vm.runInContext('screenerColumnCellHtml(col, t)',
-    Object.assign(sandbox, { col: strengthCol, t: { rs_percentile_1w: null } }));
-  const cellPct = vm.runInContext('screenerColumnCellHtml(col, t)',
-    Object.assign(sandbox, { col: pctCol, t: { sma50_distance_pct: 3.5 } }));
-  assert.match(cellPos, /class="pos"/);
-  assert.match(cellNull, /class="muted"/);
-  assert.match(cellPct, /class="muted"/);
-  assert.match(cellPct, /\+3\.5%/);
+// ── Screener-Ergebnistabellen-Umbau: identisches Spalten-Set wie die
+// Narrative-Mitglieder-Tabelle (Kurs/Veränderung abs./Veränderung %/MTD %/
+// YTD %/Volumen (M)), PLUS eine ATR-Extension-Spalte nach Volumen, dann
+// Strength (preset-eigenes Zeitfenster) + Thrust. Structural RS/ADR20/
+// vs SMA/vs EMA sind keine sichtbaren Spalten mehr. ──
+
+test('screenerColumnCellHtml: close/change_abs/d1_pct render like the Member table (fmtPrice/pctClass/fmtPct)', () => {
+  const closeCell = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'close' }, t: { close: 123.456 } }));
+  assert.match(closeCell, /123[.,]/); // fmtPrice-formatted, not a bare number
+  const changeUp = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'change_abs' }, t: { change_abs: 2.5 } }));
+  assert.match(changeUp, /class="pos"/);
+  assert.match(changeUp, /\+2\.50/);
+  const changeDown = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'change_abs' }, t: { change_abs: -1.2 } }));
+  assert.match(changeDown, /class="neg"/);
+  const changeMissing = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'change_abs' }, t: { change_abs: null } }));
+  assert.match(changeMissing, />—</);
 });
 
-test('SCREENER_PRESET_COLUMNS: weekly uses rs_percentile_1w/sma50, monthly uses rs_percentile_1m/sma200, both EMA10+EMA20', () => {
-  const weekly = vm.runInContext('SCREENER_PRESET_COLUMNS.weekly_strength', sandbox);
-  const monthly = vm.runInContext('SCREENER_PRESET_COLUMNS.monthly_strength', sandbox);
-  const weeklyKeys = Array.from(weekly).map(c => c.key);
-  const monthlyKeys = Array.from(monthly).map(c => c.key);
-  assert.ok(weeklyKeys.includes('rs_percentile_1w'));
-  assert.ok(weeklyKeys.includes('sma50_distance_pct'));
-  assert.ok(weeklyKeys.includes('ema20_distance_pct'));
-  assert.ok(!weeklyKeys.includes('ema21_distance_pct'));
-  assert.ok(monthlyKeys.includes('rs_percentile_1m'));
-  assert.ok(monthlyKeys.includes('sma200_distance_pct'));
-  assert.ok(monthlyKeys.includes('ema20_distance_pct'));
+test('screenerColumnCellHtml: mtd_pct/ytd_pct use the null-safe strict helpers (exact 0 = neutral, null = dash)', () => {
+  const mtdZero = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'mtd_pct' }, t: { mtd_pct: 0 } }));
+  assert.match(mtdZero, /class="muted"/);
+  const ytdNull = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'ytd_pct' }, t: { ytd_pct: null } }));
+  assert.match(ytdNull, /class="muted"/);
+  assert.match(ytdNull, />—</);
+});
+
+test('screenerColumnCellHtml: volume uses ncVolumeColorClass/ncFmtVolumeM (same RVOL coloring as the Member table)', () => {
+  const cell = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'volume' }, t: { volume: 18420000, d1_pct: 1.2, rvol_50: 1.5 } }));
+  assert.match(cell, /class="pos"/); // up + RVOL 1.5 >= 1.30 threshold -> green, same as Member table
+  assert.match(cell, /18\.42/);
+});
+
+test('screenerColumnCellHtml: ATR Extension warns above the configured threshold, muted at/below it', () => {
+  const warn = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'atr_extension' }, t: { atr_extension: 6.2 } }));
+  assert.match(warn, /class="atr-ext-warn"/);
+  assert.match(warn, />6\.2</);
+  const ok = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'atr_extension' }, t: { atr_extension: 4.9 } }));
+  assert.match(ok, /class="muted"/);
+  const missing = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'atr_extension' }, t: { atr_extension: null } }));
+  assert.match(missing, /class="muted"/);
+  assert.match(missing, />—</);
+});
+
+test('screenerColumnCellHtml: Strength column (default branch) uses ncStrengthColorClass, Thrust is signed', () => {
+  const cellPos = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'rs_percentile_1w' }, t: { rs_percentile_1w: 90 } }));
+  const cellNull = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'rs_percentile_1w' }, t: { rs_percentile_1w: null } }));
+  assert.match(cellPos, /class="pos"/);
+  assert.match(cellNull, /class="muted"/);
+  const thrust = vm.runInContext('screenerColumnCellHtml(col, t)',
+    Object.assign(sandbox, { col: { key: 'stock_thrust_rs' }, t: { stock_thrust_rs: -3.5 } }));
+  assert.match(thrust, /class="neg"/);
+  assert.match(thrust, /-3\.50/);
+});
+
+test('SCREENER_PRESET_COLUMNS: all 4 presets share the same standard column set, no Structural RS/ADR20/SMA/EMA-distance columns', () => {
+  ['weekly_strength', 'monthly_strength', 'three_month_strength', 'six_month_strength'].forEach(presetId => {
+    const cols = vm.runInContext(`SCREENER_PRESET_COLUMNS.${presetId}`, sandbox);
+    const keys = Array.from(cols).map(c => c.key);
+    assert.deepEqual(keys, ['close', 'change_abs', 'd1_pct', 'mtd_pct', 'ytd_pct', 'volume', 'atr_extension', keys[7], 'stock_thrust_rs']);
+    assert.ok(!keys.includes('structural_rs'));
+    assert.ok(!keys.includes('adr20'));
+    assert.ok(!keys.some(k => k.startsWith('sma')));
+    assert.ok(!keys.some(k => k.startsWith('ema')));
+  });
+});
+
+test('SCREENER_PRESET_COLUMNS: each preset\'s Strength column reads its own rs_percentile_<window> field', () => {
+  const expected = {
+    weekly_strength: 'rs_percentile_1w', monthly_strength: 'rs_percentile_1m',
+    three_month_strength: 'rs_percentile_3m', six_month_strength: 'rs_percentile_6m',
+  };
+  Object.entries(expected).forEach(([presetId, strengthKey]) => {
+    const cols = vm.runInContext(`SCREENER_PRESET_COLUMNS.${presetId}`, sandbox);
+    const strengthCol = Array.from(cols).find(c => c.strength);
+    assert.equal(strengthCol.key, strengthKey);
+  });
 });
 
 // ── Strength Screeners 3M/6M Union Patch point 12B: ONE shared sort
@@ -1353,19 +1434,6 @@ test('SCREENER_PRESET_TAGS: 3 Month / 6 Month Strength chips are exact, no SMA c
   assert.doesNotMatch(JSON.stringify(Array.from(threeM).concat(Array.from(sixM))), /SMA|EMA21/);
 });
 
-test('SCREENER_PRESET_COLUMNS: 3M uses rs_percentile_3m, 6M uses rs_percentile_6m, both EMA10+EMA20 never EMA21, no SMA column', () => {
-  const threeM = vm.runInContext('SCREENER_PRESET_COLUMNS.three_month_strength', sandbox);
-  const sixM = vm.runInContext('SCREENER_PRESET_COLUMNS.six_month_strength', sandbox);
-  const threeMKeys = Array.from(threeM).map(c => c.key);
-  const sixMKeys = Array.from(sixM).map(c => c.key);
-  assert.ok(threeMKeys.includes('rs_percentile_3m'));
-  assert.ok(threeMKeys.includes('ema10_distance_pct'));
-  assert.ok(threeMKeys.includes('ema20_distance_pct'));
-  assert.ok(!threeMKeys.some(k => k.includes('sma') || k.includes('ema21')));
-  assert.ok(sixMKeys.includes('rs_percentile_6m'));
-  assert.ok(!sixMKeys.some(k => k.includes('sma') || k.includes('ema21')));
-});
-
 test('index.html: every Strength-Screener-Card carries the informational ADR20/base-universe chip line', () => {
   assert.match(html, /STOCKS · NO HEALTHCARE\/BIOTECH · MCAP ≥ ?\$1B · ADR20 > ?4%/);
   assert.match(html, /class="screener-basis-line"/);
@@ -1450,6 +1518,71 @@ test('index.html: union button + count sit above the 4 preset cards, before the 
   const unionCountIdx = html.indexOf('id="screenerUnionCount"');
   assert.ok(unionBtnIdx > -1 && unionBtnIdx < screenerSectionIdx);
   assert.ok(unionCountIdx > -1 && unionCountIdx < screenerSectionIdx);
+});
+
+// ── ATR-Extension-Ausschluss-Button: zweiter globaler Copy-Button neben
+// "Alle Strength-Kandidaten kopieren", schliesst Ticker mit atr_extension >
+// Schwelle aus (dieselbe Union-/Dedup-/Alphabetisch-Semantik) ──
+
+test('screenerUnionTickersExcludingAtrExtended: excludes only tickers whose ATR Extension exceeds the threshold', () => {
+  const data = {
+    screeners: {
+      weekly_strength: { tickers: [{ symbol: 'A', atr_extension: 3.0 }, { symbol: 'B', atr_extension: 8.0 }] },
+      monthly_strength: { tickers: [{ symbol: 'C', atr_extension: 5.0 }] }, // exactly at threshold -> kept ("> 5", not ">=")
+      three_month_strength: { tickers: [{ symbol: 'D', atr_extension: null }] }, // missing -> kept, never fabricated-excluded
+      six_month_strength: { tickers: [{ symbol: 'E', atr_extension: 5.01 }] },
+    },
+  };
+  const out = vm.runInContext('screenerUnionTickersExcludingAtrExtended(data, 5)', Object.assign(sandbox, { data }));
+  assert.deepEqual(Array.from(out), ['A', 'C', 'D']); // B (8.0) and E (5.01) excluded
+});
+
+test('screenerUnionTickersExcludingAtrExtended: same symbol appearing in multiple presets uses its (identical) atr_extension once, deduplicated', () => {
+  const data = {
+    screeners: {
+      weekly_strength: { tickers: [{ symbol: 'MU', atr_extension: 7.2 }] },
+      monthly_strength: { tickers: [{ symbol: 'MU', atr_extension: 7.2 }] },
+      three_month_strength: { tickers: [] },
+      six_month_strength: { tickers: [{ symbol: 'AAPL', atr_extension: 1.0 }] },
+    },
+  };
+  const out = vm.runInContext('screenerUnionTickersExcludingAtrExtended(data, 5)', Object.assign(sandbox, { data }));
+  assert.deepEqual(Array.from(out), ['AAPL']); // MU excluded (7.2 > 5), no duplicate MU/AAPL entries
+});
+
+test('screenerUnionTickersExcludingAtrExtended: missing/empty screeners data degrades gracefully to an empty list', () => {
+  assert.deepEqual(Array.from(vm.runInContext('screenerUnionTickersExcludingAtrExtended(data, 5)', Object.assign(sandbox, { data: null }))), []);
+  assert.deepEqual(Array.from(vm.runInContext('screenerUnionTickersExcludingAtrExtended(data, 5)', Object.assign(sandbox, { data: {} }))), []);
+});
+
+test('screenerCopyUnionAtrFiltered: copies the ATR-filtered union to the clipboard and sets "Kopiert (N)" feedback', async () => {
+  sandbox.clipboardWrites = [];
+  const screenersRaw = {
+    screeners: {
+      weekly_strength: { tickers: [{ symbol: 'MU', atr_extension: 7.2 }, { symbol: 'AAPL', atr_extension: 1.0 }] },
+      monthly_strength: { tickers: [{ symbol: 'MU', atr_extension: 7.2 }] },
+      three_month_strength: { tickers: [] },
+      six_month_strength: { tickers: [{ symbol: 'DELL', atr_extension: 4.9 }] },
+    },
+  };
+  const btn = { textContent: 'Strength-Kandidaten kopieren (ATR Extension ≤ 5)' };
+  vm.runInContext('screenerCopyUnionAtrFiltered(btn)', Object.assign(sandbox, { screenersRaw, btn }));
+  await Promise.resolve().then(() => {}).then(() => {});
+  assert.deepEqual(sandbox.clipboardWrites, ['AAPL,DELL']); // MU (7.2 > 5.0 threshold) excluded
+  assert.equal(btn.textContent, 'Kopiert (2)');
+});
+
+test('index.html: the ATR-filtered union button reads the JS data state, not the DOM, and uses engineConfig\'s ATR threshold', () => {
+  const fn = extractFunction(html, 'screenerCopyUnionAtrFiltered');
+  assert.doesNotMatch(fn, /getElementById|querySelector/);
+  assert.match(fn, /screenerUnionTickersExcludingAtrExtended\(screenersRaw,\s*maxAtrExtension\)/);
+  assert.match(fn, /engineConfig\.dashboard\.atr_extension_warning_threshold/);
+});
+
+test('index.html: the ATR-filtered union button sits next to the main union button, above the 4 preset cards', () => {
+  const screenerSectionIdx = html.indexOf('id="screenerContainer"');
+  const atrBtnIdx = html.search(/onclick="screenerCopyUnionAtrFiltered\(this\)"/);
+  assert.ok(atrBtnIdx > -1 && atrBtnIdx < screenerSectionIdx);
 });
 
 // ── Strength Screeners 3M/6M Union Patch point 10: info-popup overlay fix ──

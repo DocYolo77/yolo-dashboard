@@ -974,6 +974,7 @@ html { scroll-behavior: smooth; }
     </div>
     <div class="screener-union-row">
       <button class="nd-copy-btn" id="screenerUnionCopyBtn" onclick="screenerCopyUnion(this)">Alle Strength-Kandidaten kopieren</button>
+      <button class="nd-copy-btn" id="screenerUnionCopyAtrBtn" onclick="screenerCopyUnionAtrFiltered(this)">Strength-Kandidaten kopieren (ATR Extension ≤ 5)</button>
       <span class="screener-union-count" id="screenerUnionCount"></span>
     </div>
     <div id="screenerContainer">
@@ -2641,44 +2642,33 @@ const SCREENER_PRESET_TAGS = {
 // eligible-Universe wider, keine zweite Eligibility-Berechnung im Frontend.
 const SCREENER_BASE_UNIVERSE_LINE = 'STOCKS · NO HEALTHCARE/BIOTECH · MCAP ≥ $1B · ADR20 > 4%';
 
-// Per-preset table columns -- the two presets rank on different Strength
-// windows (1W vs 1M) and different long-term MA (SMA50 vs SMA200), so their
-// result tables show different fields (point 13). `strength: true` marks
-// the column that gets the shared ncStrengthColorClass helper instead of
-// plain `muted` (point 2: "ggf. sichtbare Strength-Werte im Screener").
+// Screener-Ergebnistabellen-Umbau: dasselbe Spalten-Set wie die Narrative-
+// Mitglieder-Tabelle (Kurs/Veränderung abs./Veränderung %/MTD %/YTD %/
+// Volumen (M)), PLUS eine zusätzliche ATR-Extension-Spalte (wie unter
+// Opportunities) direkt nach Volumen, dann das preset-eigene Strength-
+// Zeitfenster + Thrust. Structural RS/ADR20/vs SMA/vs EMA sind keine
+// sichtbaren Spalten mehr (bleiben unveraendert nur intern in
+// build_screeners.py fuer Sortierung/Basisfilter erhalten). Alle vier
+// Presets teilen sich exakt dieselbe Spaltenform, nur das Strength-Feld
+// unterscheidet sich je Preset-Zeitfenster.
+function screenerStandardColumns(strengthKey, strengthLabel) {
+  return [
+    { key: 'close', label: 'Kurs' },
+    { key: 'change_abs', label: 'Veränderung abs.' },
+    { key: 'd1_pct', label: 'Veränderung %' },
+    { key: 'mtd_pct', label: 'MTD %' },
+    { key: 'ytd_pct', label: 'YTD %' },
+    { key: 'volume', label: 'Volumen (M)' },
+    { key: 'atr_extension', label: 'ATR Extension' },
+    { key: strengthKey, label: strengthLabel, strength: true },
+    { key: 'stock_thrust_rs', label: 'Thrust' },
+  ];
+}
 const SCREENER_PRESET_COLUMNS = {
-  weekly_strength: [
-    { key: 'rs_percentile_1w', label: 'Strength 1W', fmt: 'num', strength: true },
-    { key: 'structural_rs', label: 'Structural RS', fmt: 'num' },
-    { key: 'adr20', label: 'ADR20', fmt: 'num' },
-    { key: 'sma50_distance_pct', label: 'vs SMA50', fmt: 'pct' },
-    { key: 'ema10_distance_pct', label: 'vs EMA10', fmt: 'pct' },
-    { key: 'ema20_distance_pct', label: 'vs EMA20', fmt: 'pct' },
-  ],
-  monthly_strength: [
-    { key: 'rs_percentile_1m', label: 'Strength 1M', fmt: 'num', strength: true },
-    { key: 'structural_rs', label: 'Structural RS', fmt: 'num' },
-    { key: 'adr20', label: 'ADR20', fmt: 'num' },
-    { key: 'sma200_distance_pct', label: 'vs SMA200', fmt: 'pct' },
-    { key: 'ema10_distance_pct', label: 'vs EMA10', fmt: 'pct' },
-    { key: 'ema20_distance_pct', label: 'vs EMA20', fmt: 'pct' },
-  ],
-  // Strength Screeners 3M/6M Union Patch point 5/6: kein SMA-Spalte, da
-  // kein SMA-Gate fuer diese beiden Presets.
-  three_month_strength: [
-    { key: 'rs_percentile_3m', label: 'Strength 3M', fmt: 'num', strength: true },
-    { key: 'structural_rs', label: 'Structural RS', fmt: 'num' },
-    { key: 'adr20', label: 'ADR20', fmt: 'num' },
-    { key: 'ema10_distance_pct', label: 'vs EMA10', fmt: 'pct' },
-    { key: 'ema20_distance_pct', label: 'vs EMA20', fmt: 'pct' },
-  ],
-  six_month_strength: [
-    { key: 'rs_percentile_6m', label: 'Strength 6M', fmt: 'num', strength: true },
-    { key: 'structural_rs', label: 'Structural RS', fmt: 'num' },
-    { key: 'adr20', label: 'ADR20', fmt: 'num' },
-    { key: 'ema10_distance_pct', label: 'vs EMA10', fmt: 'pct' },
-    { key: 'ema20_distance_pct', label: 'vs EMA20', fmt: 'pct' },
-  ],
+  weekly_strength: screenerStandardColumns('rs_percentile_1w', 'Strength 1W'),
+  monthly_strength: screenerStandardColumns('rs_percentile_1m', 'Strength 1M'),
+  three_month_strength: screenerStandardColumns('rs_percentile_3m', 'Strength 3M'),
+  six_month_strength: screenerStandardColumns('rs_percentile_6m', 'Strength 6M'),
 };
 
 function screenerPresetTagsHtml(presetId) {
@@ -2686,10 +2676,41 @@ function screenerPresetTagsHtml(presetId) {
   return tags.map(t => `<span class="screener-tag">${t}</span>`).join('');
 }
 
+// Mirrors renderNarrativeDetail's Member-table cell rendering exactly (same
+// helpers/thresholds), so a Screener row and a Narrative-Member row of the
+// SAME ticker render identically for every shared column.
 function screenerColumnCellHtml(col, t) {
-  const v = t[col.key];
-  if (col.strength) return `<td class="${ncStrengthColorClass(v)}">${screenerFmtNum(v, 1)}</td>`;
-  return col.fmt === 'pct' ? `<td class="muted">${screenerFmtPctSigned(v)}</td>` : `<td class="muted">${screenerFmtNum(v, 1)}</td>`;
+  const highRvolThreshold = engineConfig.volume_context.high_rvol_threshold;
+  const atrWarnThreshold = engineConfig.dashboard.atr_extension_warning_threshold;
+  switch (col.key) {
+    case 'close':
+      return `<td>${fmtPrice(t.close)}</td>`;
+    case 'change_abs': {
+      const v = t.change_abs;
+      const str = (v !== null && v !== undefined) ? (v >= 0 ? '+' : '') + v.toFixed(2) : '—';
+      return `<td class="${pctClass(v)}">${str}</td>`;
+    }
+    case 'd1_pct':
+      return `<td class="${pctClass(t.d1_pct)}">${fmtPct(t.d1_pct)}</td>`;
+    case 'mtd_pct':
+      return `<td class="${ncPctColorClassStrict(t.mtd_pct)}">${ncFmtPctOrDash(t.mtd_pct)}</td>`;
+    case 'ytd_pct':
+      return `<td class="${ncPctColorClassStrict(t.ytd_pct)}">${ncFmtPctOrDash(t.ytd_pct)}</td>`;
+    case 'volume':
+      return `<td class="${ncVolumeColorClass(t.d1_pct, t.rvol_50, highRvolThreshold)}">${ncFmtVolumeM(t.volume)}</td>`;
+    case 'atr_extension': {
+      const v = t.atr_extension;
+      const isWarn = v !== null && v !== undefined && v > atrWarnThreshold;
+      return `<td class="${isWarn ? 'atr-ext-warn' : 'muted'}">${screenerFmtNum(v, 1)}</td>`;
+    }
+    case 'stock_thrust_rs': {
+      const v = t.stock_thrust_rs;
+      const str = (v !== null && v !== undefined) ? (v >= 0 ? '+' : '') + v.toFixed(2) : '—';
+      return `<td class="${(v ?? 0) >= 0 ? 'pos' : 'neg'}">${str}</td>`;
+    }
+    default: // preset-specific rs_percentile_<window> ("Strength" column)
+      return `<td class="${ncStrengthColorClass(t[col.key])}">${screenerFmtNum(t[col.key], 1)}</td>`;
+  }
 }
 
 // Filename slug per spec point 26's exact example: "weekly-strength-YYYY-MM-DD-tradingview.txt".
@@ -2747,7 +2768,6 @@ function screenerShowMore(presetId) {
 }
 
 function screenerFmtNum(v, decimals) { return v == null ? '—' : v.toFixed(decimals); }
-function screenerFmtPctSigned(v) { return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
 
 function screenerPresetHtml(presetId, preset, opts) {
   const keepLimit = opts && opts.keepLimit;
@@ -2856,6 +2876,40 @@ function screenerCopyUnion(btn) {
     if (btn) {
       const original = btn.textContent;
       btn.textContent = `Kopiert (${union.length})`;
+      setTimeout(() => { btn.textContent = original; }, 1500);
+    }
+  }).catch(e => console.log('Clipboard-Fehler:', e));
+}
+
+// Same union/dedup/alphabetical semantics as screenerUnionTickers, minus
+// any ticker whose ATR Extension exceeds maxAtrExtension. atr_extension is
+// a per-ticker, single-day snapshot value (not preset-specific), so the
+// first preset row a symbol is found in already carries the right value --
+// no need to reconcile across presets. A missing/null atr_extension does
+// NOT get excluded (it doesn't satisfy "> maxAtrExtension" either), same
+// graceful-degradation convention as the rest of this pipeline.
+function screenerUnionTickersExcludingAtrExtended(data, maxAtrExtension) {
+  if (!data || !data.screeners) return [];
+  const atrBySymbol = new Map();
+  SCREENER_STRENGTH_PRESET_IDS.forEach(presetId => {
+    const preset = data.screeners[presetId];
+    if (!preset) return;
+    preset.tickers.forEach(t => { if (!atrBySymbol.has(t.symbol)) atrBySymbol.set(t.symbol, t.atr_extension); });
+  });
+  return Array.from(atrBySymbol.entries())
+    .filter(([, atr]) => !(atr !== null && atr !== undefined && atr > maxAtrExtension))
+    .map(([symbol]) => symbol)
+    .sort();
+}
+
+function screenerCopyUnionAtrFiltered(btn) {
+  if (!screenersRaw) return;
+  const maxAtrExtension = engineConfig.dashboard.atr_extension_warning_threshold;
+  const filtered = screenerUnionTickersExcludingAtrExtended(screenersRaw, maxAtrExtension);
+  navigator.clipboard.writeText(filtered.join(',')).then(() => {
+    if (btn) {
+      const original = btn.textContent;
+      btn.textContent = `Kopiert (${filtered.length})`;
       setTimeout(() => { btn.textContent = original; }, 1500);
     }
   }).catch(e => console.log('Clipboard-Fehler:', e));

@@ -112,6 +112,13 @@ SCREENER_TICKER_FIELDS = (
     "close", "adr20", "market_cap", "rs_percentile_1w", "rs_percentile_1m",
     "rs_percentile_3m", "rs_percentile_6m", "structural_rs",
     "sma50_distance_pct", "sma200_distance_pct", "ema10_distance_pct", "ema20_distance_pct",
+    # Strength Screener Spalten-Umbau: gleiches Spalten-Set wie die
+    # Narrative-Mitglieder-Tabelle (Kurs/Veraenderung abs./Veraenderung %/
+    # MTD %/YTD %/Volumen (M), inkl. rvol_50 fuer dieselbe Volumen-Faerbung)
+    # plus ATR Extension (wie unter Opportunities) und Thrust -- alles bereits
+    # in market_features.json vorhanden, keine neue Berechnung hier.
+    "change_abs", "d1_pct", "mtd_pct", "ytd_pct", "volume", "rvol_50",
+    "atr_extension", "stock_thrust_rs",
 )
 
 
