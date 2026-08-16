@@ -1,7 +1,7 @@
 {
   "meta": {
     "as_of_date": "2026-08-14",
-    "updated_at": "2026-08-16T09:02:14.535885+00:00",
+    "updated_at": "2026-08-16T10:00:55.224808+00:00",
     "dashboard_state_version": "v1.1",
     "first_run": false
   },
@@ -51,17 +51,17 @@
     }
   },
   "qqq_health": {
-    "score": 77.7,
+    "score": 77.2,
     "base_state": "HEALTHY",
     "modifiers": [],
     "prev_score": 81.4,
-    "score_delta": -3.7,
+    "score_delta": -4.2,
     "components": {
       "trend": 100,
-      "breadth": 68.0,
-      "mco": 82.6,
-      "mcsi": 62.5,
-      "high_low": 64.2
+      "breadth": 65.5,
+      "mco": 81.6,
+      "mcsi": 63.0,
+      "high_low": 68.3
     },
     "price_structure": {
       "close": 731.07,
