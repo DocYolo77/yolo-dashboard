@@ -137,7 +137,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AVGO": {
           "role": "core",
@@ -1355,7 +1355,7 @@
           "reason": "Calix develops appliance-based platforms and cloud/managed services enabling broadband service providers, fitting networking infrastructure narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1571,7 +1571,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "NOW": {
           "role": "core",
@@ -2372,7 +2372,7 @@
           "reason": "Progress Software provides software products for developing, deploying and managing applications - core enterprise software/SaaS company.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2383,7 +2383,7 @@
           "reason": "Toast provides a cloud-based SaaS platform purpose-built for restaurants, including payments and hardware - core vertical SaaS company.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3347,7 +3347,7 @@
           "reason": "Marqeta provides a card-issuing platform enabling digital and physical payment options via open APIs - core fintech/payments infrastructure business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6379,7 +6379,7 @@
           "reason": "Manufactures aerial work platforms, materials processing and specialty equipment for construction and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6892,7 +6892,7 @@
           "reason": "Seneca Foods packages fruits and vegetables and has significant farming/agricultural operations plus packaging (cans). Agriculture/Agribusiness fits well as a food processor with farming operations; closest existing category despite being more of packaged food company.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7045,7 +7045,7 @@
           "reason": "Quanta Services is a specialty contractor providing electrical and infrastructure construction services to utility, telecom, and energy markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7198,7 +7198,7 @@
           "reason": "Revolve Group is an online marketplace selling apparel, accessories and beauty products directly to consumers via e-commerce.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7318,6 +7318,17 @@
           "reason": "ESAB manufactures welding, cutting and joining equipment and consumables for industrial applications - fits well within Industrial Machinery given general industrial equipment manufacturing model.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TNC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Tennant designs and manufactures industrial/commercial cleaning equipment machinery - fits well under Industrial Machinery as a manufacturer of specialized equipment (floor cleaning machines) sold to commercial/industrial end markets, similar to the SIC classification of refrigeration & service industry machinery.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -7608,7 +7619,7 @@
           "reason": "Markets, distributes and retails upscale accessories and apparel brands (Michael Kors, Jimmy Choo, Versace).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7619,7 +7630,7 @@
           "reason": "Makes and sells branded children's and baby apparel through retail, e-commerce and wholesale channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7630,7 +7641,7 @@
           "reason": "Designs, markets and sells branded casual footwear across Crocs and HEYDUDE brands.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8176,7 +8187,7 @@
           "reason": "Werner Enterprises is a truckload transportation and logistics company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8810,6 +8821,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SNEX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "StoneX is a diversified brokerage/financial services firm offering execution, OTC market-making, clearing, and payments across commercial, institutional, and retail segments.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8974,6 +8996,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "MBC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "MasterBrand manufactures residential cabinetry sold through dealer/retail channels for kitchens and bathrooms, directly aligning with building products manufacturing/distribution serving residential construction markets.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8992,7 +9025,7 @@
           "reason": "Brink's provides secure logistics for cash and valuables, a distinct business model from generic freight/trucking logistics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -9570,7 +9603,7 @@
           "reason": "Herbalife develops and sells branded nutrition and wellness consumer products through a direct-selling channel, fitting branded nutrition/CPG narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9710,7 +9743,7 @@
           "reason": "Quaker Houghton manufactures industrial process fluids and specialty chemical products serving metalworking and industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10230,7 +10263,7 @@
           "reason": "Post-secondary education provider operating universities and job-skills programs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11121,6 +11154,207 @@
           "reason": "Boyd Group operates collision repair centers, a services business distinct from auto parts retail or component manufacturing. No existing catalog entry captures collision/body repair services specifically, so a new precise narrative is warranted rather than forcing into auto_parts_retail or automotive_parts_components_supplier.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "lpg_gas_shipping",
+      "name": "LPG / Gas Shipping",
+      "status": "emerging",
+      "classification_hint": "Companies that own and operate marine vessels (e.g., VLGCs) for the international transportation of liquefied petroleum gas and related energy commodities.",
+      "created_at": "2026-08-17",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "LPG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 82,
+          "reason": "Dorian LPG operates VLGC gas carriers transporting liquefied petroleum gas internationally - a shipping/transportation business tied to energy commodities, distinct from oilfield services equipment providers.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "lng_liquefaction_export_infrastructure",
+      "name": "LNG Liquefaction / Export Infrastructure",
+      "status": "emerging",
+      "classification_hint": "Companies developing and operating natural gas liquefaction facilities for LNG export, including associated carbon capture and storage operations.",
+      "created_at": "2026-08-17",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "NEXT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "NextDecade is developing an LNG liquefaction and export facility plus CO2 capture/storage, a distinct energy infrastructure business not matching existing narratives well.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "glass_container_manufacturing",
+      "name": "Glass Container Manufacturing",
+      "status": "emerging",
+      "classification_hint": "Manufacturers of glass packaging containers such as bottles and jars used primarily for beverages, food, and consumer products.",
+      "created_at": "2026-08-17",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "OI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "O-I Glass manufactures glass containers primarily for beer, wine, and other beverages, a distinct packaging material from paperboard/metal, warranting a specific glass packaging narrative.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "oil_gas_royalty_trust",
+      "name": "Oil & Gas Royalty Trust",
+      "status": "emerging",
+      "classification_hint": "Passive trusts holding royalty and mineral interests in producing oil and gas properties, distributing income derived from production revenues to unit holders.",
+      "created_at": "2026-08-17",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "PBT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Permian Basin Royalty Trust holds royalty/mineral interests in oil fields, a distinct passive income vehicle from operating E&P companies or service providers.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TPL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Texas Pacific Land Corp manages land and retains oil & gas royalty interests plus water services, generating royalty income akin to a royalty trust model even though structured as a corporation. This is the closest existing narrative economically, capturing the royalty income stream from oil and gas production on its land.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "poultry_meat_processing",
+      "name": "Poultry / Meat Processing",
+      "status": "emerging",
+      "classification_hint": "Companies engaged in the production, slaughtering, processing, and sale of poultry and other meat products to food service, retail and distribution customers.",
+      "created_at": "2026-08-17",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "PPC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Pilgrim's Pride is a large poultry producer/processor, a distinct food production/protein processing business not well captured by general agribusiness definition.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "theme_park_entertainment_operator",
+      "name": "Theme Park / Entertainment Operator",
+      "status": "emerging",
+      "classification_hint": "Companies that own and operate theme parks, water parks, and entertainment facilities, generating revenue from admissions, food & beverage, and merchandise sales.",
+      "created_at": "2026-08-17",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "PRKS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "United Parks & Resorts operates theme parks (SeaWorld, Busch Gardens) - fundamentally different from movie theaters, warranting a distinct theme park operator narrative.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "auto_dealership_group",
+      "name": "Auto Dealership Group",
+      "status": "emerging",
+      "classification_hint": "Companies operating networks of franchised and used-vehicle dealerships, collision repair centers, and powersports locations, generating revenue from vehicle sales, financing, and service.",
+      "created_at": "2026-08-17",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "SAH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Sonic Automotive operates franchised and used-vehicle dealerships plus collision centers, a distinct auto retail/dealership business model different from parts retail.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "oil_gas_exploration_and_production",
+      "name": "Oil & Gas Exploration and Production",
+      "status": "emerging",
+      "classification_hint": "Independent energy companies engaged in the acquisition, exploration, development, and production of crude oil, natural gas, and NGLs from onshore properties.",
+      "created_at": "2026-08-17",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "SM": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "SM Energy is an independent E&P company focused on oil, gas and NGL extraction, a distinct upstream business from oilfield services/equipment providers.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TALO": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Talos Energy is an independent offshore oil & gas E&P company operating in the Gulf of Mexico.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CRK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Comstock Resources is a pure-play independent natural gas E&P operator in the Haynesville shale, a clear and confident fit to this existing narrative.",
+          "added_at": "2026-08-17",
+          "last_reviewed_at": "2026-08-17",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
