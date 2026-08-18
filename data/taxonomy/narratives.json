@@ -377,7 +377,7 @@
           "reason": "Designs and supplies power semiconductors for consumer electronics, computing and industrial applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2361,7 +2361,7 @@
           "reason": "Open Text provides enterprise data management, information management and content services software - core enterprise software company.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2383,7 +2383,7 @@
           "reason": "Toast provides a cloud-based SaaS platform purpose-built for restaurants, including payments and hardware - core vertical SaaS company.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3369,6 +3369,17 @@
           "reason": "Flywire operates a global payments platform enabling cross-border payment processing for education, healthcare and travel verticals, a core fintech/payments business model.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "EVTC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "EVERTEC provides transaction processing and payment solutions across Latin America and the Caribbean, aligning with fintech/payments processing.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -3434,7 +3445,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "CRSP": {
           "role": "core",
@@ -4955,7 +4966,7 @@
           "reason": "Designs and manufactures lithium-ion battery cells for various applications, core EV/battery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5142,6 +5153,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "PLUG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Plug Power builds green hydrogen production, storage and fuel cell systems - a clean/alternative energy infrastructure company. While hydrogen is distinct from solar, it fits best under the broad clean energy narrative in the catalog as no dedicated hydrogen narrative exists.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5234,7 +5256,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "HYMC": {
           "role": "core",
@@ -5364,7 +5386,7 @@
           "reason": "Buenaventura is a Peruvian precious metals mining company engaged in exploration, development and production of gold and silver.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5913,6 +5935,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "GO": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Grocery Outlet operates discount grocery stores selling name-brand consumables, matching grocery/food retail directly.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -6150,7 +6183,7 @@
           "reason": "CEVA licenses signal-processing intellectual property to semiconductor companies and OEMs, matching the IP licensing narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6313,7 +6346,7 @@
           "reason": "Aebi Schmidt manufactures specialty vehicles for snow removal, sweeping, and fleet applications - industrial machinery, not tech.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6324,7 +6357,7 @@
           "reason": "Astec manufactures road construction and material processing equipment, fitting specialty industrial machinery for infrastructure.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6368,7 +6401,7 @@
           "reason": "Douglas Dynamics manufactures commercial vehicle attachments (snow/ice management, turf care equipment).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6455,7 +6488,7 @@
           "reason": "Republic Airways is a regional airline providing scheduled passenger air service under partnership with major carriers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -6729,7 +6762,7 @@
           "reason": "Valaris provides offshore contract drilling services (rigs, drillships) to oil and gas industry - core oilfield services model.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6740,6 +6773,17 @@
           "reason": "Helmerich & Payne provides contract drilling services and technology to oil and gas E&P companies, fitting oilfield services/equipment narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "FLOC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Flowco provides production optimization and artificial lift equipment/solutions for oil and gas wells, matching oil & gas services/equipment.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -6935,7 +6979,7 @@
           "reason": "Cardinal Infrastructure Group provides infrastructure construction services including utility installations and site work for various markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7100,6 +7144,17 @@
           "reason": "Ameresco provides energy infrastructure solutions, energy efficiency and decarbonization projects, aligning with construction/engineering services for energy infrastructure.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "IESC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "IES Holdings installs integrated electrical and technology systems and infrastructure products across residential, commercial and industrial markets, aligning with construction/engineering services.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -7361,7 +7416,7 @@
           "reason": "Mining exploration and development company focused on lithium and rare earth element deposits, aligning with critical metals mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7503,6 +7558,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "CNR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Core Natural Resources produces and exports metallurgical and thermal coal via mining operations.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7543,7 +7609,7 @@
           "reason": "Lazard is a financial advisory and asset management firm providing M&A advice, capital markets and restructuring services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7565,6 +7631,17 @@
           "reason": "H&R Block provides tax preparation and related financial services to consumers, fitting professional/financial advisory services category.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "HLI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Houlihan Lokey is an investment bank providing M&A advisory, restructuring, valuation and strategic consulting services.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -7641,7 +7718,7 @@
           "reason": "Designs, markets and sells branded casual footwear across Crocs and HEYDUDE brands.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7718,6 +7795,17 @@
           "reason": "Dillard's operates department stores selling apparel, cosmetics and home furnishings - closely matches apparel_retail definition of omnichannel branded apparel/accessories retailing despite department store format.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ZGN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Ermenegildo Zegna designs, manufactures and distributes luxury menswear, womenswear and accessories under branded labels (Zegna, Thom Browne) through owned retail and wholesale channels, which aligns economically with the Apparel Retail narrative covering branded apparel design/marketing/selling to consumers, despite being positioned at the luxury end. This is the best existing fit versus creating a narrow luxury-specific narrative, given moderate-high confidence after reconsideration of the omnichannel branded apparel definition matching Zegna's business model reasonably well.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -8418,6 +8506,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "HRTG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Heritage Insurance underwrites personal and commercial property & casualty insurance, matching specialty P&C insurance category.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8577,7 +8676,7 @@
           "reason": "Avantor supplies lab materials, consumables and equipment to biopharma and healthcare industries, a life sciences tools/consumables business distinct from medical devices or biotech.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8916,7 +9015,7 @@
           "reason": "Quanex Building Products manufactures window and door components sold to OEMs in the building products industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9025,7 +9124,7 @@
           "reason": "Brink's provides secure logistics for cash and valuables, a distinct business model from generic freight/trucking logistics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -9603,7 +9702,7 @@
           "reason": "Herbalife develops and sells branded nutrition and wellness consumer products through a direct-selling channel, fitting branded nutrition/CPG narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9743,7 +9842,7 @@
           "reason": "Quaker Houghton manufactures industrial process fluids and specialty chemical products serving metalworking and industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9798,7 +9897,7 @@
           "reason": "Tronox is a vertically integrated manufacturer of TiO2 pigment and titanium chemicals, matching the specialty chemicals definition directly.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9820,7 +9919,7 @@
           "reason": "Hawkins manufactures and distributes industrial and specialty chemicals across multiple end markets, matching the specialty chemicals narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9841,7 +9940,7 @@
           "reason": "Central Puerto is a power generation company with electric power generation and natural gas distribution segments, fitting a utilities narrative not present in the catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9996,6 +10095,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "GLIBK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Liberty Capital's subsidiary provides data, mobile, voice, and managed services, matching telecom/cable broadband services.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -10252,7 +10362,7 @@
           "reason": "Phoenix Education Partners is an online post-secondary education provider developing proprietary educational content and learning platforms.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10307,7 +10417,7 @@
           "reason": "Lincoln provides career-oriented post-secondary education programs (trade schools), which is closest to the existing Education Content/Publishing narrative even though it is more direct education delivery than content licensing; no dedicated for-profit vocational school narrative exists in catalog.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10489,7 +10599,7 @@
           "reason": "Playtika develops and operates mobile social casino/games (Slotomania, Bingo Blitz, Poker Heat), monetizing via virtual currency and in-game purchases - fits online gaming platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11070,7 +11180,7 @@
           "reason": "SharkNinja designs and sells branded small household appliances (vacuums, cooking, food prep, beauty devices), fitting well with the household appliances manufacturing narrative despite being smaller/consumer appliances rather than major appliances.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11154,6 +11264,17 @@
           "reason": "Boyd Group operates collision repair centers, a services business distinct from auto parts retail or component manufacturing. No existing catalog entry captures collision/body repair services specifically, so a new precise narrative is warranted rather than forcing into auto_parts_retail or automotive_parts_components_supplier.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "DRVN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Driven Brands offers automotive services including paint, collision, glass, and repair services across a franchise network, matching collision repair services more broadly automotive services.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11270,7 +11391,7 @@
           "reason": "Pilgrim's Pride is a large poultry producer/processor, a distinct food production/protein processing business not well captured by general agribusiness definition.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11294,6 +11415,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "FUN": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Six Flags operates amusement parks, water parks and resorts, directly matching theme park/entertainment operator category.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11312,6 +11444,28 @@
           "reason": "Sonic Automotive operates franchised and used-vehicle dealerships plus collision centers, a distinct auto retail/dealership business model different from parts retail.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GPI": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Group 1 Automotive operates franchised dealerships and collision centers, directly matching auto dealership group category.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "LAD": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Lithia Motors operates a large network of franchised auto dealerships selling new and used vehicles and related services.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11355,6 +11509,407 @@
           "reason": "Comstock Resources is a pure-play independent natural gas E&P operator in the Haynesville shale, a clear and confident fit to this existing narrative.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "KOS": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Kosmos Energy is a deepwater oil and gas exploration and production company with international offshore assets.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "MTDR": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 92,
+          "reason": "Matador Resources is an independent E&P company focused on oil and natural gas shale plays in the US.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "debt_collection_recovery_services",
+      "name": "Debt Collection / Recovery Services",
+      "status": "emerging",
+      "classification_hint": "Companies that purchase portfolios of defaulted consumer receivables at discounts and manage collection/recovery processes to generate returns.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "ECPG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Encore Capital purchases and manages defaulted consumer debt portfolios, a specialty finance/debt recovery model distinct from traditional banking; no exact existing narrative fits so a new one is created.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "insurance_management_services_attorney_in_fact_model",
+      "name": "Insurance Management Services (Attorney-in-Fact Model)",
+      "status": "emerging",
+      "classification_hint": "Companies that perform sales, underwriting, and policy issuance services on behalf of an affiliated insurance exchange, earning management fee revenue tied to the exchange's premium volume rather than underwriting risk directly.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "ERIE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Erie Indemnity acts as attorney-in-fact managing the Erie Insurance Exchange, earning management fees rather than underwriting risk itself, distinct from typical insurance agents/brokers or direct insurers.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "optical_retail",
+      "name": "Optical Retail",
+      "status": "emerging",
+      "classification_hint": "Retailers operating optical stores selling eyeglasses, sunglasses, contact lenses and related eyewear products and services to consumers.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "EYE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "National Vision is a specialty optical retailer, distinct from apparel retail; creating a precise new category for optical retail.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "hr_tech_background_screening_services",
+      "name": "HR Tech / Background Screening Services",
+      "status": "emerging",
+      "classification_hint": "Companies providing software and data-driven services for employment background screening, identity verification, and workforce risk monitoring for employers.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "FA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "First Advantage provides HR technology and background screening/verification services, a distinct niche not covered by IT services/consulting generically.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "credit_scoring_analytics_software",
+      "name": "Credit Scoring / Analytics Software",
+      "status": "emerging",
+      "classification_hint": "Companies providing applied analytics software and proprietary credit scoring models used by financial institutions to assess consumer creditworthiness.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "FICO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "FICO is best known for its analytics-driven credit scoring software/platform business, a distinct niche within software/analytics.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "electronics_manufacturing_services_ems",
+      "name": "Electronics Manufacturing Services (EMS)",
+      "status": "emerging",
+      "classification_hint": "Companies providing outsourced design, engineering, supply chain, and manufacturing services for electronic products across diverse end markets.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "FLEX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Flex is a contract electronics manufacturer offering end-to-end manufacturing services, distinct from component manufacturing per se.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "home_warranty_service_plans",
+      "name": "Home Warranty / Service Plans",
+      "status": "emerging",
+      "classification_hint": "Companies providing subscription-based home service plans that cover repair and replacement of home systems and appliances.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "FTDR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Frontdoor provides home warranty service plans, a distinct consumer subscription services model not matching healthcare or other categories.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "digital_prescription_price_comparison_platform",
+      "name": "Digital Prescription Price Comparison Platform",
+      "status": "emerging",
+      "classification_hint": "Companies operating digital platforms that provide consumers with prescription drug price comparisons and discount codes to reduce out-of-pocket healthcare costs.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "GDRX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "GoodRx operates a prescription price comparison and discount platform, a distinct digital healthcare consumer model.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "power_generation_equipment_manufacturing",
+      "name": "Power Generation Equipment Manufacturing",
+      "status": "emerging",
+      "classification_hint": "Manufacturers of standby, portable, and clean energy power generation equipment for residential, commercial, and industrial customers.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "GNRC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Generac's core business is designing/manufacturing power generation equipment (generators), a distinct category from HVAC.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "golf_equipment_apparel_manufacturing",
+      "name": "Golf Equipment & Apparel Manufacturing",
+      "status": "emerging",
+      "classification_hint": "Companies that design, manufacture and distribute golf equipment (clubs, balls) and related apparel/footwear under branded product lines.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "GOLF": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Acushnet designs/manufactures golf products across balls, clubs, shoes and apparel, a distinct sporting goods niche not matching general apparel retail.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "ethanol_biofuel_production",
+      "name": "Ethanol / Biofuel Production",
+      "status": "emerging",
+      "classification_hint": "Companies that produce ethanol and related biofuel byproducts from agricultural feedstocks such as corn, generating revenue from fuel, distillers grains, and agribusiness/energy services.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "GPRE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Green Plains manufactures ethanol and byproducts from corn, a distinct biofuel production business model.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "institutional_long_term_care_pharmacy_services",
+      "name": "Institutional / Long-Term Care Pharmacy Services",
+      "status": "emerging",
+      "classification_hint": "Pharmacy service providers delivering technology-enabled dispensing, clinical, and adherence support services tailored to residents of long-term care facilities.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "GRDN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Guardian Pharmacy provides specialized pharmacy services for long-term care facilities, distinct from general retail drug stores.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "motorcycle_manufacturing",
+      "name": "Motorcycle Manufacturing",
+      "status": "emerging",
+      "classification_hint": "Companies that design, manufacture and market motorcycles and related parts, accessories, and merchandise under branded product lines.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "HOG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Harley-Davidson manufactures heavyweight motorcycles, a distinct vehicle manufacturing category not matching auto parts supplier.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "personal_computing_printing_hardware",
+      "name": "Personal Computing & Printing Hardware",
+      "status": "emerging",
+      "classification_hint": "Manufacturers of personal computers, laptops, printers and related peripheral hardware for commercial and consumer markets.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "HPQ": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "HP focuses on PC and printing hardware markets, a distinct consumer/commercial technology hardware category.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "general_equipment_rental",
+      "name": "General Equipment Rental",
+      "status": "emerging",
+      "classification_hint": "Companies that rent out general construction and industrial equipment to businesses and contractors on a fleet-based rental model.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "HRI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Herc Holdings is a large equipment rental company serving construction and industrial customers, distinct from modular space leasing specifically.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "EQPT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 82,
+          "reason": "EquipmentShare is fundamentally an equipment rental company for the construction industry with a technology platform layered on top; core revenue model is equipment rental.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "lidar_autonomous_sensing_technology",
+      "name": "LiDAR / Autonomous Sensing Technology",
+      "status": "emerging",
+      "classification_hint": "Companies that develop and manufacture LiDAR sensing hardware and software used for autonomous vehicles, ADAS, robotics, and related applications.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "HSAI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Hesai develops LiDAR solutions for autonomous vehicles and robotics applications, a distinct sensing hardware category.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "MBLY": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Mobileye develops ADAS and autonomous driving technology using camera/sensor-based systems, closely aligned with autonomous sensing technology category.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "contract_research_organization_cro",
+      "name": "Contract Research Organization (CRO)",
+      "status": "emerging",
+      "classification_hint": "Companies providing outsourced clinical trial management and drug development services to pharmaceutical and biotechnology companies.",
+      "created_at": "2026-08-18",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "ICLR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "ICON is a global CRO offering outsourced clinical development services, distinct from life sciences tools/consumables but closely related in the life sciences services space.",
+          "added_at": "2026-08-18",
+          "last_reviewed_at": "2026-08-18",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
