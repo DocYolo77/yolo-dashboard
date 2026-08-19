@@ -52,7 +52,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "SIMO": {
           "role": "core",
@@ -608,7 +608,7 @@
           "reason": "Major semiconductor manufacturer producing analog chips, microcontrollers, sensors and power semiconductors.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1140,7 +1140,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "CBRS": {
           "role": "core",
@@ -1571,7 +1571,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "NOW": {
           "role": "core",
@@ -1921,7 +1921,7 @@
           "reason": "Unified AI-based SaaS platform enabling customer-facing teams to manage customer experience across digital channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2185,7 +2185,7 @@
           "reason": "PTC provides CAD, PLM, and augmented reality software solutions to industrial manufacturers, a core enterprise software business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2383,7 +2383,7 @@
           "reason": "Toast provides a cloud-based SaaS platform purpose-built for restaurants, including payments and hardware - core vertical SaaS company.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2394,7 +2394,7 @@
           "reason": "AvePoint provides SaaS-based data protection, governance and management software for cloud collaboration platforms.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2427,7 +2427,7 @@
           "reason": "Dropbox provides cloud storage and content collaboration as a SaaS subscription product for individuals and businesses.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3380,6 +3380,17 @@
           "reason": "EVERTEC provides transaction processing and payment solutions across Latin America and the Caribbean, aligning with fintech/payments processing.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ETOR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "eToro is a multi-asset trading and investing platform, fitting broadly under fintech/brokerage.",
+          "added_at": "2026-08-19",
+          "last_reviewed_at": "2026-08-19",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -5627,7 +5638,7 @@
           "reason": "Supplies engineered HVAC products as its largest segment, along with detection/measurement technologies and power equipment.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5975,7 +5986,7 @@
           "reason": "Booz Allen Hamilton provides technology consulting and IT/AI/cybersecurity solutions primarily to government agencies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6466,7 +6477,7 @@
           "reason": "Scheduled passenger and cargo airline operator (Alaska Airlines, Horizon).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -6718,7 +6729,7 @@
           "reason": "Weatherford International provides oilfield services and equipment to oil and gas operators globally.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6773,7 +6784,7 @@
           "reason": "Helmerich & Payne provides contract drilling services and technology to oil and gas E&P companies, fitting oilfield services/equipment narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7253,7 +7264,7 @@
           "reason": "Revolve Group is an online marketplace selling apparel, accessories and beauty products directly to consumers via e-commerce.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7384,6 +7395,17 @@
           "reason": "Tennant designs and manufactures industrial/commercial cleaning equipment machinery - fits well under Industrial Machinery as a manufacturer of specialized equipment (floor cleaning machines) sold to commercial/industrial end markets, similar to the SIC classification of refrigeration & service industry machinery.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GHM": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Graham Corp manufactures fluid, power, heat transfer and vacuum equipment for defense (nuclear propulsion), energy/process and space markets. Its core business model is engineered industrial equipment manufacturing (SIC 3560 General Industrial Machinery), while defense/space are end-markets rather than its core identity. Industrial Machinery captures the manufacturing/engineering nature best.",
+          "added_at": "2026-08-19",
+          "last_reviewed_at": "2026-08-19",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -7685,7 +7707,7 @@
           "reason": "Boot Barn operates specialty retail stores selling western boots, apparel and accessories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8644,7 +8666,7 @@
           "reason": "Constellium manufactures high value-added specialty rolled and extruded aluminum products for aerospace, defense, automotive and industrial end-markets - fits specialty metals/advanced materials producer profile.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9288,6 +9310,28 @@
           "reason": "Plexus is an electronics manufacturing services (EMS) provider designing and manufacturing complex electronic products for medical, aerospace/defense, industrial and semiconductor capital equipment customers. While not a pure passive-components maker, it fits best within the existing electronics manufacturing narrative as no dedicated EMS/contract manufacturing narrative exists in the catalog.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "APH": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Amphenol is a global manufacturer of connectors, sensors and interconnect systems serving diverse end markets, matching electronic components manufacturing definition closely.",
+          "added_at": "2026-08-19",
+          "last_reviewed_at": "2026-08-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Impinj manufactures RFID endpoint ICs and readers enabling wireless item identification - a specialized electronic component/IoT connectivity business.",
+          "added_at": "2026-08-19",
+          "last_reviewed_at": "2026-08-19",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10104,6 +10148,17 @@
           "reason": "Liberty Capital's subsidiary provides data, mobile, voice, and managed services, matching telecom/cable broadband services.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GLIBA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Liberty Capital/GCI Group provides data, mobile, voice, and managed services to residential and business customers - core cable/broadband/telecom service provider model, consistent with SIC 4813 telephone communications and the described broadband/voice/managed services bundle.",
+          "added_at": "2026-08-19",
+          "last_reviewed_at": "2026-08-19",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10936,6 +10991,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "CVI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "CVR Energy operates petroleum refineries and nitrogen fertilizer manufacturing, primarily matching petroleum refining with secondary fertilizer/agri exposure.",
+          "added_at": "2026-08-19",
+          "last_reviewed_at": "2026-08-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11391,7 +11457,7 @@
           "reason": "Pilgrim's Pride is a large poultry producer/processor, a distinct food production/protein processing business not well captured by general agribusiness definition.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11639,6 +11705,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "TRU": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Major credit bureau providing consumer credit information, analytics, and fraud detection services to financial institutions - direct fit with credit scoring/analytics category.",
+          "added_at": "2026-08-19",
+          "last_reviewed_at": "2026-08-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11657,6 +11734,17 @@
           "reason": "Flex is a contract electronics manufacturer offering end-to-end manufacturing services, distinct from component manufacturing per se.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CLS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Celestica provides outsourced supply chain and electronics manufacturing solutions across aerospace, industrial, and connectivity/cloud markets, matching EMS category directly.",
+          "added_at": "2026-08-19",
+          "last_reviewed_at": "2026-08-19",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
