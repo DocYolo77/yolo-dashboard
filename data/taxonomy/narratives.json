@@ -52,7 +52,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "SIMO": {
           "role": "core",
@@ -608,7 +608,7 @@
           "reason": "Major semiconductor manufacturer producing analog chips, microcontrollers, sensors and power semiconductors.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1056,6 +1056,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "WYFI": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "WhiteFiber owns high-performance computing data centers and provides cloud GPU services for AI/ML developers, directly matching AI infrastructure.",
+          "added_at": "2026-08-20",
+          "last_reviewed_at": "2026-08-20",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -1140,7 +1151,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "CBRS": {
           "role": "core",
@@ -1571,7 +1582,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "NOW": {
           "role": "core",
@@ -1800,7 +1811,7 @@
           "reason": "Provides cloud-based digital banking software platforms to financial institutions, blending fintech and SaaS.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1954,7 +1965,7 @@
           "reason": "Descartes Systems provides a transaction-based SaaS logistics/shipping communication network software solution.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2108,7 +2119,7 @@
           "reason": "nCino provides cloud-based SaaS software specifically for financial institutions' commercial and small business lending processes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3138,7 +3149,7 @@
           "reason": "Provides cloud-based digital banking software platforms to financial institutions, blending fintech and SaaS.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3394,6 +3405,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "FISV": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Fiserv provides core banking processing and payment processing technology for financial institutions and merchants, a classic fintech infrastructure business.",
+          "added_at": "2026-08-20",
+          "last_reviewed_at": "2026-08-20",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -3456,7 +3478,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "CRSP": {
           "role": "core",
@@ -5267,7 +5289,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "HYMC": {
           "role": "core",
@@ -5397,7 +5419,7 @@
           "reason": "Buenaventura is a Peruvian precious metals mining company engaged in exploration, development and production of gold and silver.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5573,6 +5595,17 @@
           "reason": "Highlander Silver is a mineral exploration company advancing a gold-silver project in Peru, fitting precious metals mining/exploration narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CGAU": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Centerra Gold operates gold and copper mining properties, deriving majority revenue from gold-focused Mount Milligan/Oksut segments - fits precious metals mining narrative.",
+          "added_at": "2026-08-20",
+          "last_reviewed_at": "2026-08-20",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -5921,7 +5954,7 @@
           "reason": "Albertsons is a major food and drug retailer operating supermarket chains across the US.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5932,7 +5965,7 @@
           "reason": "Specialty grocery retailer focused on fresh, natural and organic products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6784,7 +6817,7 @@
           "reason": "Helmerich & Payne provides contract drilling services and technology to oil and gas E&P companies, fitting oilfield services/equipment narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7409,6 +7442,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "POWL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Powell Industries designs and manufactures custom-engineered electrical distribution, control and monitoring equipment (switchgear) for industrial/utility customers. This is an industrial equipment manufacturer; no better-fitting existing category (e.g., HVAC, power generation equipment) captures switchgear specifically, but Industrial Machinery is the closest broad fit given the catalog lacks an electrical equipment/switchgear specific bucket.",
+          "added_at": "2026-08-20",
+          "last_reviewed_at": "2026-08-20",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7481,7 +7525,7 @@
           "reason": "Supplier of recyclable metal beverage cans and ends to brand owners; a packaging manufacturer, not fitting any existing tech/commodity narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -7588,7 +7632,7 @@
           "reason": "Core Natural Resources produces and exports metallurgical and thermal coal via mining operations.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7631,7 +7675,7 @@
           "reason": "Lazard is a financial advisory and asset management firm providing M&A advice, capital markets and restructuring services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7729,7 +7773,7 @@
           "reason": "Makes and sells branded children's and baby apparel through retail, e-commerce and wholesale channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7828,7 +7872,7 @@
           "reason": "Ermenegildo Zegna designs, manufactures and distributes luxury menswear, womenswear and accessories under branded labels (Zegna, Thom Browne) through owned retail and wholesale channels, which aligns economically with the Apparel Retail narrative covering branded apparel design/marketing/selling to consumers, despite being positioned at the luxury end. This is the best existing fit versus creating a narrow luxury-specific narrative, given moderate-high confidence after reconsideration of the omnichannel branded apparel definition matching Zegna's business model reasonably well.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8329,7 +8373,7 @@
           "reason": "One of the world's largest alternative-asset managers with credit, private equity, real estate and infrastructure strategies; investment advisory business model with no fitting existing narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8384,7 +8428,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9081,7 +9125,7 @@
           "reason": "Wholesale distributor of landscape supplies to professional landscapers, aligning with building products/materials distribution model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9146,7 +9190,7 @@
           "reason": "Brink's provides secure logistics for cash and valuables, a distinct business model from generic freight/trucking logistics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -9713,7 +9757,7 @@
           "reason": "Flowers Foods produces and markets branded packaged bakery foods (breads, snacks) sold through retail channels, fitting branded CPG food narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9963,7 +10007,7 @@
           "reason": "Hawkins manufactures and distributes industrial and specialty chemicals across multiple end markets, matching the specialty chemicals narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10406,7 +10450,7 @@
           "reason": "Perdoceo Education operates for-profit online and campus-based postsecondary education institutions, aligning with education content/services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11117,7 +11161,7 @@
           "reason": "FirstCash operates pawn stores generating revenue from pawn loans and resale of forfeited merchandise - direct match to pawn_lending_secondhand_retail definition.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11288,7 +11332,7 @@
           "reason": "Coca-Cola Consolidated is a bottler/distributor of Coca-Cola branded beverages, a distinct business model from generic branded CPG/nutrition companies; best captured by a dedicated beverage bottling narrative since no exact match exists in catalog.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11597,7 +11641,7 @@
           "reason": "Matador Resources is an independent E&P company focused on oil and natural gas shale plays in the US.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11892,7 +11936,7 @@
           "reason": "Harley-Davidson manufactures heavyweight motorcycles, a distinct vehicle manufacturing category not matching auto parts supplier.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11998,6 +12042,27 @@
           "reason": "ICON is a global CRO offering outsourced clinical development services, distinct from life sciences tools/consumables but closely related in the life sciences services space.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "identity_verification_biometric_security_platform",
+      "name": "Identity Verification / Biometric Security Platform",
+      "status": "emerging",
+      "classification_hint": "Companies operating biometric-based identity verification platforms that streamline secure access and authentication for travel, venues, and digital transactions, monetizing via consumer subscriptions and enterprise partnerships.",
+      "created_at": "2026-08-20",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "YOU": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 82,
+          "reason": "Clear Secure's core business is a subscription-based biometric identity verification platform (CLEAR lanes) used at airports and venues to speed identity checks while enhancing security. This is fundamentally different from generic prepackaged software despite the SIC code, and no existing catalog narrative captures biometric identity verification/security-as-a-service. Given the clear, well-documented business model, confidence is reasonably high despite creating a new narrative.",
+          "added_at": "2026-08-20",
+          "last_reviewed_at": "2026-08-20",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
