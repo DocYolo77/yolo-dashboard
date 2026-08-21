@@ -1,31 +1,33 @@
 {
-  "as_of_date": "2026-08-20",
-  "eligible_count": 789,
+  "as_of_date": "2026-08-21",
+  "eligible_count": 788,
   "classified_eligible_count": 669,
-  "coverage_pct": 84.8,
+  "coverage_pct": 84.9,
   "entered": [
     "AGQ",
+    "AIN",
     "ALNT",
     "AMSC",
+    "ARE",
     "ARLO",
     "AUR",
     "AVT",
     "AXON",
     "BBAI",
-    "BBWI",
     "BE",
     "BETA",
+    "BKV",
     "BLSH",
     "BRAI",
     "BRUN",
     "BVC",
     "BW",
     "BWIN",
+    "CAKE",
     "CAR",
     "CBRL",
     "CECO",
     "CERT",
-    "CGAU",
     "CHEF",
     "CIFR",
     "CLBT",
@@ -38,6 +40,7 @@
     "CSW",
     "CWK",
     "DAO",
+    "DAR",
     "DBD",
     "DFIN",
     "DGII",
@@ -48,10 +51,10 @@
     "FCEL",
     "FDS",
     "FG",
-    "FISV",
     "FRHC",
     "GLW",
     "GLXY",
+    "GOLD",
     "GPGI",
     "GSHD",
     "HAWK",
@@ -60,15 +63,12 @@
     "IE",
     "ITRI",
     "JOBY",
-    "KFRC",
     "LB",
     "LIND",
     "LOMA",
     "MAAS",
-    "MAN",
     "MC",
     "MGRT",
-    "MORN",
     "MRX",
     "MYE",
     "NGL",
@@ -80,13 +80,11 @@
     "NPO",
     "NSP",
     "NVT",
-    "OLLI",
     "ONDS",
     "P",
     "PCT",
     "PLBL",
     "PLPC",
-    "POWL",
     "PRLB",
     "RAL",
     "RDVT",
@@ -95,8 +93,8 @@
     "RYAN",
     "RZLV",
     "SCSC",
+    "SEB",
     "SID",
-    "SMG",
     "SONO",
     "SPOT",
     "SRAD",
@@ -112,10 +110,10 @@
     "TRI",
     "TRN",
     "TWFG",
+    "UI",
     "UPWK",
     "UWMC",
     "VAC",
-    "VFS",
     "VIRT",
     "VMET",
     "VPG",
@@ -125,66 +123,54 @@
     "WBTN",
     "WRD",
     "WT",
-    "WYFI",
     "XMTR",
-    "YOU",
     "ZBRA"
   ],
   "reentered": [
-    "BCO",
-    "BTG",
-    "BVN",
-    "CRI",
-    "ILMN",
-    "LAZ"
+    "CXM",
+    "FLO",
+    "LILA",
+    "NCNO",
+    "PLAB",
+    "SENEA",
+    "VAL"
   ],
   "exited": [
-    "ACI",
-    "ALKT",
-    "AMBP",
-    "ARES",
-    "CNR",
-    "COKE",
-    "CRM",
-    "DSGX",
-    "FCFS",
-    "FLO",
-    "HLNE",
-    "HOG",
-    "HP",
-    "HWKN",
-    "MTDR",
-    "NCNO",
-    "NTAP",
-    "PRDO",
-    "SFM",
-    "SITE",
-    "STM",
-    "ZGN"
+    "APH",
+    "BAH",
+    "CACI",
+    "CRI",
+    "CROX",
+    "DORM",
+    "LAZ",
+    "MGNI",
+    "TRU"
   ],
   "newly_classified": [
     "AGQ",
+    "AIN",
     "ALNT",
     "AMSC",
+    "ARE",
     "ARLO",
     "AUR",
     "AVT",
     "AXON",
     "BBAI",
-    "BBWI",
     "BE",
     "BETA",
+    "BKV",
     "BLSH",
     "BRAI",
     "BRUN",
     "BVC",
     "BW",
     "BWIN",
+    "CAKE",
     "CAR",
     "CBRL",
     "CECO",
     "CERT",
-    "CGAU",
     "CHEF",
     "CIFR",
     "CLBT",
@@ -197,6 +183,7 @@
     "CSW",
     "CWK",
     "DAO",
+    "DAR",
     "DBD",
     "DFIN",
     "DGII",
@@ -207,10 +194,10 @@
     "FCEL",
     "FDS",
     "FG",
-    "FISV",
     "FRHC",
     "GLW",
     "GLXY",
+    "GOLD",
     "GPGI",
     "GSHD",
     "HAWK",
@@ -219,15 +206,12 @@
     "IE",
     "ITRI",
     "JOBY",
-    "KFRC",
     "LB",
     "LIND",
     "LOMA",
     "MAAS",
-    "MAN",
     "MC",
     "MGRT",
-    "MORN",
     "MRX",
     "MYE",
     "NGL",
@@ -239,13 +223,11 @@
     "NPO",
     "NSP",
     "NVT",
-    "OLLI",
     "ONDS",
     "P",
     "PCT",
     "PLBL",
     "PLPC",
-    "POWL",
     "PRLB",
     "RAL",
     "RDVT",
@@ -254,8 +236,8 @@
     "RYAN",
     "RZLV",
     "SCSC",
+    "SEB",
     "SID",
-    "SMG",
     "SONO",
     "SPOT",
     "SRAD",
@@ -271,10 +253,10 @@
     "TRI",
     "TRN",
     "TWFG",
+    "UI",
     "UPWK",
     "UWMC",
     "VAC",
-    "VFS",
     "VIRT",
     "VMET",
     "VPG",
@@ -284,17 +266,17 @@
     "WBTN",
     "WRD",
     "WT",
-    "WYFI",
     "XMTR",
-    "YOU",
     "ZBRA"
   ],
-  "new_narratives_created": [
-    "identity_verification_biometric_security_platform"
-  ],
+  "new_narratives_created": [],
   "unresolved_after_retries": [
     {
       "ticker": "AGQ",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "AIN",
       "reason": "low_confidence_primary"
     },
     {
@@ -303,6 +285,10 @@
     },
     {
       "ticker": "AMSC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ARE",
       "reason": "low_confidence_primary"
     },
     {
@@ -326,15 +312,15 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "BBWI",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "BE",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "BETA",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BKV",
       "reason": "low_confidence_primary"
     },
     {
@@ -359,6 +345,10 @@
     },
     {
       "ticker": "BWIN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CAKE",
       "reason": "low_confidence_primary"
     },
     {
@@ -414,15 +404,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CSW",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CWK",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "DAO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DAR",
       "reason": "low_confidence_primary"
     },
     {
@@ -435,10 +421,6 @@
     },
     {
       "ticker": "DGII",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "DOCN",
       "reason": "low_confidence_primary"
     },
     {
@@ -478,6 +460,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "GOLD",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "GPGI",
       "reason": "low_confidence_primary"
     },
@@ -510,10 +496,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "KFRC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "LB",
       "reason": "low_confidence_primary"
     },
@@ -530,19 +512,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "MAN",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "MC",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "MGRT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MORN",
       "reason": "low_confidence_primary"
     },
     {
@@ -590,10 +564,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "OLLI",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "ONDS",
       "reason": "low_confidence_primary"
     },
@@ -622,10 +592,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "RDVT",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "RHI",
       "reason": "low_confidence_primary"
     },
@@ -646,11 +612,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "SID",
+      "ticker": "SEB",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "SMG",
+      "ticker": "SID",
       "reason": "low_confidence_primary"
     },
     {
@@ -714,6 +680,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "UI",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "UPWK",
       "reason": "low_confidence_primary"
     },
@@ -723,10 +693,6 @@
     },
     {
       "ticker": "VAC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "VFS",
       "reason": "low_confidence_primary"
     },
     {
@@ -775,12 +741,14 @@
     }
   ],
   "classification_errors": [
-    "Batch 1 (AGQ..ENS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..EVLV): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AGQ..ENS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (EVLV..RAL): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AGQ..ENS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (RHI..ZBRA): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 532,
-  "eligible_without_active_narrative": 257,
-  "active_narrative_coverage_pct": 67.4,
-  "active_narrative_count": 43,
-  "undersized_narrative_count": 75
+  "eligible_with_active_narrative": 536,
+  "eligible_without_active_narrative": 252,
+  "active_narrative_coverage_pct": 68.0,
+  "active_narrative_count": 44,
+  "undersized_narrative_count": 74
 }

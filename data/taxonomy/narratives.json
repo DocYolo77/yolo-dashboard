@@ -553,7 +553,7 @@
           "reason": "Photronics manufactures photomasks, a critical input for semiconductor and flat-panel display manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1932,7 +1932,7 @@
           "reason": "Unified AI-based SaaS platform enabling customer-facing teams to manage customer experience across digital channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2119,7 +2119,7 @@
           "reason": "nCino provides cloud-based SaaS software specifically for financial institutions' commercial and small business lending processes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2449,6 +2449,17 @@
           "reason": "Omnicell provides automation hardware plus business analytics software for pharmacy/medication management - closer to healthcare-focused software/automation solutions; software/SaaS captures the recurring software revenue model best given lack of a dedicated healthcare IT category.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "DOCN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "DigitalOcean is a cloud infrastructure-as-a-service platform providing on-demand computing resources to developers and SMBs, best captured under Software/SaaS given lack of a dedicated cloud IaaS category.",
+          "added_at": "2026-08-21",
+          "last_reviewed_at": "2026-08-21",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -2943,7 +2954,7 @@
           "reason": "CACI International provides technology and expertise supporting national security, intelligence, and defense customers, matching Defense/Aerospace narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6019,7 +6030,7 @@
           "reason": "Booz Allen Hamilton provides technology consulting and IT/AI/cybersecurity solutions primarily to government agencies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6336,7 +6347,7 @@
           "reason": "Dorman supplies automotive/heavy-duty replacement parts primarily to the aftermarket - fits automotive_parts_components_supplier well, though sold through distribution rather than direct OEM; still closest match given no dedicated aftermarket parts manufacturer category.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6806,7 +6817,7 @@
           "reason": "Valaris provides offshore contract drilling services (rigs, drillships) to oil and gas industry - core oilfield services model.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6980,7 +6991,7 @@
           "reason": "Seneca Foods packages fruits and vegetables and has significant farming/agricultural operations plus packaging (cans). Agriculture/Agribusiness fits well as a food processor with farming operations; closest existing category despite being more of packaged food company.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7675,7 +7686,7 @@
           "reason": "Lazard is a financial advisory and asset management firm providing M&A advice, capital markets and restructuring services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7773,7 +7784,7 @@
           "reason": "Makes and sells branded children's and baby apparel through retail, e-commerce and wholesale channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7784,7 +7795,7 @@
           "reason": "Designs, markets and sells branded casual footwear across Crocs and HEYDUDE brands.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8200,7 +8211,7 @@
           "reason": "Magnite is a supply-side advertising platform providing programmatic ad technology and yield management to publishers, directly matching the AdTech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9365,7 +9376,7 @@
           "reason": "Amphenol is a global manufacturer of connectors, sensors and interconnect systems serving diverse end markets, matching electronic components manufacturing definition closely.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9757,7 +9768,7 @@
           "reason": "Flowers Foods produces and markets branded packaged bakery foods (breads, snacks) sold through retail channels, fitting branded CPG food narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10148,7 +10159,7 @@
           "reason": "Liberty Latin America provides video, broadband internet, fixed-line telephony and mobile services across Latin American and Caribbean markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11757,6 +11768,17 @@
           "reason": "Major credit bureau providing consumer credit information, analytics, and fraud detection services to financial institutions - direct fit with credit scoring/analytics category.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "RDVT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Red Violet builds proprietary data analytics/identity intelligence software used for identity verification and risk assessment, closely matching the analytics/scoring software model even though its primary customer base is broader than credit. Software/SaaS is a secondary fit but the credit_scoring_analytics_software narrative captures the data-driven risk/identity analytics business model reasonably well.",
+          "added_at": "2026-08-21",
+          "last_reviewed_at": "2026-08-21",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
