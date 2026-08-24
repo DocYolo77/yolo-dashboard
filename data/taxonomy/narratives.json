@@ -553,7 +553,7 @@
           "reason": "Photronics manufactures photomasks, a critical input for semiconductor and flat-panel display manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1380,6 +1380,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "DGII": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Digi International provides IoT connectivity hardware, cellular routers/gateways, and embedded networking products plus SaaS connectivity services. Its core business is networking/communications equipment for IoT deployments, closely matching the Networking narrative.",
+          "added_at": "2026-08-24",
+          "last_reviewed_at": "2026-08-24",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -1932,7 +1943,7 @@
           "reason": "Unified AI-based SaaS platform enabling customer-facing teams to manage customer experience across digital channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2053,7 +2064,7 @@
           "reason": "Provides accounting, tax, and financial SaaS software products like QuickBooks and TurboTax.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2119,7 +2130,7 @@
           "reason": "nCino provides cloud-based SaaS software specifically for financial institutions' commercial and small business lending processes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2130,7 +2141,7 @@
           "reason": "NICE is an enterprise software company providing cloud-deployed customer engagement (CCaaS) and financial crime/compliance software solutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2229,7 +2240,7 @@
           "reason": "Cloud-based supply chain management software services for retailers, suppliers, and logistics firms.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2987,7 +2998,7 @@
           "reason": "Leonardo DRS provides defense products and technologies including sensing, network computing, and electric power/propulsion for land, air, sea, space and cyber domains.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3424,7 +3435,7 @@
           "reason": "Fiserv provides core banking processing and payment processing technology for financial institutions and merchants, a classic fintech infrastructure business.",
           "added_at": "2026-08-20",
           "last_reviewed_at": "2026-08-20",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -5976,7 +5987,7 @@
           "reason": "Specialty grocery retailer focused on fresh, natural and organic products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6380,7 +6391,7 @@
           "reason": "XPEL manufactures and supplies protective films and coatings (paint protection film, window film) sold through automotive aftermarket, dealership, and OEM channels. This is fundamentally an automotive-related product supplier business, aligning most closely with the Automotive Parts / Components Supplier narrative, even though it's a coating/film product rather than a mechanical component. The core economic driver (auto aftermarket/OEM distribution) is the same, so I'm raising confidence from before after reconsidering there's no better-fitting narrative like coating services in the catalog.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6707,7 +6718,7 @@
           "reason": "RPC Inc provides specialized oilfield services and equipment to oil and gas E&P companies, a classic oil & gas services/equipment business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7395,7 +7406,7 @@
           "reason": "Gorman-Rupp designs and manufactures pumps and pump systems for diverse industrial, water/wastewater, and other applications, fitting well within general industrial machinery manufacturing.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7568,7 +7579,7 @@
           "reason": "IMAX provides proprietary large-format cinema technology and systems licensed to theaters, tied directly to the movie exhibition/entertainment experience.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -7795,7 +7806,7 @@
           "reason": "Designs, markets and sells branded casual footwear across Crocs and HEYDUDE brands.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8319,7 +8330,7 @@
           "reason": "C.H. Robinson is a non-asset-based third-party logistics provider focused on freight brokerage across truck, rail, air and ocean modes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9854,7 +9865,7 @@
           "reason": "Restaurant chain serving burgers and related fare through company-owned and franchised locations; closest fit to fast-casual restaurant narrative despite being closer to quick-service burger format.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9985,7 +9996,7 @@
           "reason": "Diversified specialty chemicals company producing refrigerants and materials for HVAC, auto and other end markets, spun off from Honeywell.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10159,7 +10170,7 @@
           "reason": "Liberty Latin America provides video, broadband internet, fixed-line telephony and mobile services across Latin American and Caribbean markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10214,7 +10225,7 @@
           "reason": "Liberty Capital/GCI Group provides data, mobile, voice, and managed services to residential and business customers - core cable/broadband/telecom service provider model, consistent with SIC 4813 telephone communications and the described broadband/voice/managed services bundle.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10407,7 +10418,7 @@
           "reason": "Lyft operates a ridesharing marketplace connecting drivers and riders, a distinct business model not covered by the existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10881,7 +10892,7 @@
           "reason": "Graphic Packaging manufactures paperboard consumer packaging products - directly matches the Packaging/Paperboard Manufacturing narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11673,7 +11684,7 @@
           "reason": "Encore Capital purchases and manages defaulted consumer debt portfolios, a specialty finance/debt recovery model distinct from traditional banking; no exact existing narrative fits so a new one is created.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11832,7 +11843,7 @@
           "reason": "Frontdoor provides home warranty service plans, a distinct consumer subscription services model not matching healthcare or other categories.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
