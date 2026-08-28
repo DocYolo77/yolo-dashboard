@@ -1,9 +1,11 @@
 {
   "meta": {
-    "updated_at": "2026-08-28T14:19:29.528327+00:00",
+    "updated_at": "2026-08-28T15:04:29.723631+00:00",
     "source": "Massive /v3/reference/tickers/{ticker} (per-ticker, cached)",
     "n_tickers": 3328,
-    "max_age_days": 7
+    "max_age_days": 7,
+    "negative_max_age_days": 3,
+    "not_found_count": 13
   },
   "tickers": {
     "AACG": {
@@ -1017,14 +1019,8 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "AIHS": {
-      "market_cap": 21836233.5,
-      "share_class_shares_outstanding": 14557489,
-      "weighted_shares_outstanding": 14557489,
-      "sic_code": "7510",
-      "sic_description": "SERVICES-AUTO RENTAL & LEASING (NO DRIVERS)",
-      "description": "Senmiao Technology Ltd is a holding company. Along with its subsidiaries, it is engaged in facilitating automobile transactions and offering related services. The group's business activities include providing car rental services to individual customers with lease term no more than twelve months; leasing and servicing of new energy vehicles; offering services to automobile purchasers throughout the purchase process; providing management and related services to Partner Platforms and other companies; automobile financing; and providing other related supporting services to customers. The majority of the group's revenue is generated from its automobile rental business.",
-      "total_employees": 28,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "AIIO": {
       "market_cap": 398993968.76,
@@ -3427,14 +3423,8 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "BBBY": {
-      "market_cap": 442332958.55999994,
-      "share_class_shares_outstanding": 95330379,
-      "weighted_shares_outstanding": 95330379,
-      "sic_code": "5961",
-      "sic_description": "RETAIL-CATALOG & MAIL-ORDER HOUSES",
-      "description": "Bed Bath & Beyond Inc is an e-commerce-focused retailer with an affinity model that owns or has ownership interests in various retail brands, offering products and services that enable its customers to enhance everyday life through quality, style, and value. The company currently owns Bed Bath & Beyond, Overstock, buybuy BABY, and other related brands and websites, as well as a blockchain asset portfolio. Its e-commerce platforms, www.bedbathandbeyond.com and www.overstock.com, are targeted at customers seeking various products such as furniture, bedding, area rugs, tabletop and cookware, decor, storage, jewelry, etc, at affordable prices. In addition to products, the company also offers add-on services across platforms, including warranties, shipping insurance, and installation services.",
-      "total_employees": 389,
-      "cached_at": "2026-08-11T07:10:54.383308+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "BBGI": {
       "market_cap": 36549033.7019,
@@ -4327,14 +4317,8 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "BNRG": {
-      "market_cap": 970387.155,
-      "share_class_shares_outstanding": 4325329,
-      "weighted_shares_outstanding": 2570562,
-      "sic_code": null,
-      "sic_description": null,
-      "description": "Brenmiller Energy Ltd is a technology company that develops, produces, markets, and sells thermal energy storage. The technology of the company allows electrification and decarbonization of the industrial industry sector for integration with renewable energy sources and further reduction of carbon emissions. The projects of the company are Enel Project; Fortlev Project; Rotem 1 Project; Suny Purchase; Tempo; Wolfson Hospital; and PPF.",
-      "total_employees": 46,
-      "cached_at": "2026-08-11T07:10:54.383308+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "BNTC": {
       "market_cap": 435269411.78,
@@ -11117,14 +11101,8 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "FTRK": {
-      "market_cap": 3570321.2800000003,
-      "share_class_shares_outstanding": 22314508,
-      "weighted_shares_outstanding": 22314508,
-      "sic_code": null,
-      "sic_description": null,
-      "description": "Fast Track Group is a regional entertainment-focused event management and marketing company that provides a full range of services including experiential marketing, artiste endorsement and management, movie premiere organizations, grand openings and concerts. The company offer value-added services tailored to meet specific client demands. These include media planning and PR management to boost event visibility, technical production planning for seamless execution of audiovisual requirements, and event manpower support for logistical efficiency. The company has only one reportable segment.",
-      "total_employees": 10,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "FUBO": {
       "market_cap": 305063197.7,
@@ -11607,14 +11585,8 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "GGRP": {
-      "market_cap": 20396883.279999997,
-      "share_class_shares_outstanding": 21698812,
-      "weighted_shares_outstanding": 21698812,
-      "sic_code": "7371",
-      "sic_description": "SERVICES-COMPUTER PROGRAMMING SERVICES",
-      "description": "The Glimpse Group Inc is a diversified immersive technology platform company, focused on providing enterprise solutions in virtual reality (VR), augmented reality (AR), and spatial computing. The company operates multiple subsidiaries that develop VR and AR software and services across various industries, including corporate training, education, healthcare, government, defense, marketing, retail, and financial services. It also offers AI-driven spatial computing platforms that support simulations, social VR, behavioral health, and corporate events. The Company reports its revenues in three categories: Software Services, Software License and Software-as-a-Service (SaaS), and Royalty Income, with the majority being from the Software Services category.",
-      "total_employees": 40,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "GH": {
       "market_cap": 22614738568.4,
@@ -14347,14 +14319,8 @@
       "cached_at": "2026-08-11T07:10:54.383308+00:00"
     },
     "IPCX": {
-      "market_cap": 153061598.52,
-      "share_class_shares_outstanding": 26040000,
-      "weighted_shares_outstanding": 34473333,
-      "sic_code": "6770",
-      "sic_description": "BLANK CHECKS",
-      "description": "Inflection Point Acquisition Corp III is a special purpose acquisition company formed for the purpose of effecting a merger, share exchange, asset acquisition, share purchase, reorganization or similar business combination with one or more businesses.",
-      "total_employees": null,
-      "cached_at": "2026-08-11T07:10:54.383308+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "IPDN": {
       "market_cap": 1806290.375,
@@ -14567,14 +14533,8 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "ISSC": {
-      "market_cap": 443541506.94,
-      "share_class_shares_outstanding": 17892747,
-      "weighted_shares_outstanding": 17899173,
-      "sic_code": "7371",
-      "sic_description": "SERVICES-COMPUTER PROGRAMMING SERVICES",
-      "description": "Innovative Solutions and Support Inc is a systems integrator that designs, manufactures, sells, and services air data equipment, engine display systems, standby equipment, primary flight guidance, and cockpit display systems for retrofit applications and original equipment manufacturers. The company supplies integrated Flight Management Systems, Flat Panel Display Systems, Integrated Standby Units, Positioning System receivers that enable reduced carbon footprint navigation, and an Autothrottle, which allows a pilot to automatically control the power setting of the engine and is designed to reduce pilot workload and enhance safety. It sells its products to both the OEM and the retrofit markets.",
-      "total_employees": 147,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "IT": {
       "market_cap": 12415088681.6,
@@ -15847,24 +15807,12 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "LBRDA": {
-      "market_cap": 4870312956.2,
-      "share_class_shares_outstanding": 18254690,
-      "weighted_shares_outstanding": 143497730,
-      "sic_code": "4841",
-      "sic_description": "CABLE & OTHER PAY TELEVISION SERVICES",
-      "description": "Liberty Broadband Corp serves in the telecommunications industry in the United States. It provides cable services to both residential andsommercial businesses through its fiber, hybrid fiber, and coaxial cable infrastructure. The services provided by the company are residential services, including video, internet, voice, and mobile services; commercial services, including small and medium business and enterprise solutions; advertising services; and other services. The company's reportable segments are GCI Holdings and Charter. The firm derives the majority of its revenue from GCI Holdings.",
-      "total_employees": 1900,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "LBRDK": {
-      "market_cap": 4873182910.8,
-      "share_class_shares_outstanding": 124856052,
-      "weighted_shares_outstanding": 143497730,
-      "sic_code": "4841",
-      "sic_description": "CABLE & OTHER PAY TELEVISION SERVICES",
-      "description": "Liberty Broadband Corp serves in the telecommunications industry in the United States. It provides cable services to both residential andsommercial businesses through its fiber, hybrid fiber, and coaxial cable infrastructure. The services provided by the company are residential services, including video, internet, voice, and mobile services; commercial services, including small and medium business and enterprise solutions; advertising services; and other services. The company's reportable segments are GCI Holdings and Charter. The firm derives the majority of its revenue from GCI Holdings.",
-      "total_employees": 1900,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "LBRT": {
       "market_cap": 3143066672.1600003,
@@ -23757,14 +23705,8 @@
       "cached_at": "2026-08-18T20:32:00.427868+00:00"
     },
     "RMAX": {
-      "market_cap": 272867097.6,
-      "share_class_shares_outstanding": 21317742,
-      "weighted_shares_outstanding": 21317742,
-      "sic_code": "6531",
-      "sic_description": "REAL ESTATE AGENTS & MANAGERS (FOR OTHERS)",
-      "description": "RE/MAX Holdings Inc operates as a franchisor of real estate brokerage services. It recruits and retains agents and sells franchises. The company's operating segments include Real Estate, Mortgage, Marketing Funds, and Others. It generates maximum revenue from the Real Estate segment.",
-      "total_employees": 519,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "RMBS": {
       "market_cap": 9881936649.33,
@@ -24427,14 +24369,8 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "SBEV": {
-      "market_cap": 2381400.0,
-      "share_class_shares_outstanding": 6412521,
-      "weighted_shares_outstanding": 6300000,
-      "sic_code": "2080",
-      "sic_description": "BEVERAGES",
-      "description": "Splash Beverage Group Inc is a portfolio company managing multiple brands across several growth segments within the consumer beverage industry. The company's two reportable operating segments are: (1) the manufacture and distribution of non-alcoholic and alcoholic beverages, and (2) the retail sale of beverages and groceries online. The company generates the majority of its revenue from the E-Commerce.",
-      "total_employees": 3,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "SBFM": {
       "market_cap": 4924217.99,
@@ -31857,14 +31793,8 @@
       "cached_at": "2026-08-19T20:35:48.535696+00:00"
     },
     "NCL": {
-      "market_cap": null,
-      "share_class_shares_outstanding": 53733083,
-      "weighted_shares_outstanding": 53733083,
-      "sic_code": "3089",
-      "sic_description": "PLASTICS PRODUCTS, NEC",
-      "description": "Northann Corp specialized in 3D-printed flooring solutions under its flagship brand, Benchwick. The company's operations span the full spectrum of additive manufacturing, from sourcing recycled ocean plastics to the final production of intricate flooring designs. It offers an extensive range of proprietary solutions, including Infinite Glass, DSE, TruBevel, and MattMaster, mainly through its sales network in North America and Europe.",
-      "total_employees": 63,
-      "cached_at": "2026-08-19T20:35:48.535696+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "NRDS": {
       "market_cap": 636035581.3,
@@ -31877,14 +31807,8 @@
       "cached_at": "2026-08-19T20:35:48.535696+00:00"
     },
     "NTZ": {
-      "market_cap": 13547969.07,
-      "share_class_shares_outstanding": 11014609,
-      "weighted_shares_outstanding": 11014609,
-      "sic_code": null,
-      "sic_description": null,
-      "description": "Natuzzi SpA is an Italian firm that designs, manufactures, and sells contemporary and traditional leather and fabric-upholstered furniture. Its product portfolio includes sofas, loveseats, armchairs, sectional furniture, motion furniture, sofa beds, living room furnishings, and accessories. The company markets its products under several brands such as Natuzzi Italia, Private Label, and Natuzzi Editions. The Group operates in two operating segments, the Natuzzi brand and Private label. The Natuzzi brand segment includes net sales from the Natuzzi Italia, Natuzzi Editions, and Divani&Divani by Natuzzi product lines. Geographically, it derives a majority of its revenue from the United States of America and also has an international presence in Italy, Spain, the UK, China, and Other countries.",
-      "total_employees": 3193,
-      "cached_at": "2026-08-19T20:35:48.535696+00:00"
+      "not_found": true,
+      "cached_at": "2026-08-28T15:04:29.723631+00:00"
     },
     "NVA": {
       "market_cap": 218777416.50000003,

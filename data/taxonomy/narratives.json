@@ -2507,6 +2507,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "LZ": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "LegalZoom sells subscription-based online legal compliance, business formation and document services to consumers/SMBs via a digital platform - an online software/subscription service model closest to Software/SaaS despite not being pure enterprise SaaS.",
+          "added_at": "2026-08-28",
+          "last_reviewed_at": "2026-08-28",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -6035,6 +6046,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "NHP": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "National Healthcare Properties is a REIT owning senior housing operating properties and outpatient medical facilities - closely matches healthcare services/facilities real estate given the operating property focus, though hotel/lodging REIT structure analog exists for other REIT types this fits healthcare facilities better.",
+          "added_at": "2026-08-28",
+          "last_reviewed_at": "2026-08-28",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -6928,6 +6950,17 @@
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "NGL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "NGL Energy Partners operates crude oil, water solutions, and liquids logistics infrastructure - services/logistics supporting oil & gas production, best matched to oil & gas services/equipment given lack of a dedicated midstream logistics category.",
+          "added_at": "2026-08-28",
+          "last_reviewed_at": "2026-08-28",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10225,7 +10258,7 @@
           "reason": "Liberty Broadband provides cable, broadband internet, and telephone services via fiber/coaxial infrastructure to residential and commercial customers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10236,7 +10269,7 @@
           "reason": "Same as LBRDA - Liberty Broadband Class C shares, providing cable and broadband services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10884,6 +10917,17 @@
           "reason": "Life360 operates a family-focused location-sharing social network/app with nearly 100M MAU, monetizing via subscriptions and some advertising/data. Closest existing fit is social media/consumer platform model rather than pure software SaaS, though it also has strong subscription SaaS characteristics.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "WBTN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "WEBTOON operates a user-generated content platform connecting creators and readers of digital comics/webtoons, monetizing through advertising, IAP (coins for episodes), and licensing of IP. This is economically closest to a social/community content platform model (UGC + advertising + platform monetization) rather than traditional publishing, since content is created and consumed via a digital community platform with engagement-driven monetization similar to social media platforms. It does not fit narrower categories like education content or e-commerce. Confidence raised as the UGC/platform/ad model parallel to social_media_platform is the strongest fit in the existing catalog.",
+          "added_at": "2026-08-28",
+          "last_reviewed_at": "2026-08-28",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -12217,6 +12261,80 @@
           "reason": "Clear Secure's core business is a subscription-based biometric identity verification platform (CLEAR lanes) used at airports and venues to speed identity checks while enhancing security. This is fundamentally different from generic prepackaged software despite the SIC code, and no existing catalog narrative captures biometric identity verification/security-as-a-service. Given the clear, well-documented business model, confidence is reasonably high despite creating a new narrative.",
           "added_at": "2026-08-20",
           "last_reviewed_at": "2026-08-20",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "evtol_urban_air_mobility",
+      "name": "eVTOL / Urban Air Mobility",
+      "status": "emerging",
+      "classification_hint": "Companies developing electric vertical take-off and landing (eVTOL) aircraft for passenger air taxi and urban/regional air mobility services.",
+      "created_at": "2026-08-28",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "JOBY": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Joby develops eVTOL air taxis for commercial passenger service, a distinct emerging aerospace transportation category not covered by existing catalog entries like defense_aerospace or airlines.",
+          "added_at": "2026-08-28",
+          "last_reviewed_at": "2026-08-28",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "BETA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "BETA Technologies designs and manufactures electric aircraft (eVTOL) and propulsion systems, matching directly with the eVTOL/Urban Air Mobility narrative definition.",
+          "added_at": "2026-08-28",
+          "last_reviewed_at": "2026-08-28",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "expedition_cruise_adventure_travel",
+      "name": "Expedition Cruise / Adventure Travel",
+      "status": "emerging",
+      "classification_hint": "Companies operating small-ship expedition cruises and guided adventure travel experiences focused on nature, wildlife, and cultural exploration.",
+      "created_at": "2026-08-28",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "LIND": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Lindblad operates expedition cruising and adventure travel, distinct from mainstream cruise lines or online travel booking; no existing narrative captures expedition/adventure cruise operations.",
+          "added_at": "2026-08-28",
+          "last_reviewed_at": "2026-08-28",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "tobacco_alternative_nicotine_products",
+      "name": "Tobacco / Alternative Nicotine Products",
+      "status": "emerging",
+      "classification_hint": "Companies that manufacture and market tobacco and alternative nicotine consumer products including smokeless tobacco, cigarette papers, and related branded goods.",
+      "created_at": "2026-08-28",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "TPB": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Turning Point Brands manufactures and markets other tobacco products (moist snuff, chewing tobacco, papers), a distinct consumer packaged goods category not covered by existing narratives which focus on nutrition/beauty/apparel CPG.",
+          "added_at": "2026-08-28",
+          "last_reviewed_at": "2026-08-28",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
