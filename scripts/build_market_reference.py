@@ -42,6 +42,15 @@ import requests
 MASSIVE_BASE = "https://api.massive.com"
 REQUEST_DELAY_SEC = float(os.environ.get("MASSIVE_REQUEST_DELAY_MS", "150")) / 1000.0
 ENRICH_CACHE_MAX_AGE_DAYS = 7
+# Reliability fix (2026-08-28): a failed lookup (404 for a permanently
+# delisted/renamed ticker, or a transient network/API issue) was previously
+# NEVER cached, so build_market_features.py re-attempted the SAME doomed
+# request on every single daily run, forever -- observed to help push a
+# real run past the "Build full-market features" step's 20-minute timeout
+# when Massive's responses were unusually slow that day. A shorter TTL than
+# successful entries so a ticker that becomes resolvable again (rare, but
+# possible after a re-listing) isn't permanently skipped either.
+NEGATIVE_ENRICH_CACHE_MAX_AGE_DAYS = 3
 
 
 def massive_get(path, params=None, retries=3):
@@ -156,10 +165,19 @@ def load_enrich_cache(path):
         return json.load(f).get("tickers", {})
 
 
-def enrich_candidates(candidates, cache_path, max_age_days=ENRICH_CACHE_MAX_AGE_DAYS, max_calls=None):
+def enrich_candidates(candidates, cache_path, max_age_days=ENRICH_CACHE_MAX_AGE_DAYS,
+                       negative_max_age_days=NEGATIVE_ENRICH_CACHE_MAX_AGE_DAYS, max_calls=None):
     """Enrich only `candidates` (a list of tickers) that are missing from the
-    cache or whose cached entry is older than max_age_days. Merges into the
-    existing cache so unrelated tickers already cached are preserved."""
+    cache or whose cached entry has expired. Merges into the existing cache
+    so unrelated tickers already cached are preserved.
+
+    A candidate whose lookup fails (404 for a delisted/renamed ticker, or a
+    transient error) is now ALSO cached, as {"not_found": True, "cached_at":
+    ...} with its own shorter negative_max_age_days TTL -- previously only a
+    successful result was ever cached, so a permanently-dead ticker was
+    re-queried on every single run, forever. Downstream consumers read this
+    the same as "no entry" (plain dict .get() on missing fields), so no
+    other code needed to change."""
     cache = load_enrich_cache(cache_path)
     now = datetime.now(timezone.utc)
     to_fetch = []
@@ -173,20 +191,23 @@ def enrich_candidates(candidates, cache_path, max_age_days=ENRICH_CACHE_MAX_AGE_
             age_days = (now - datetime.fromisoformat(cached_at)).days if cached_at else 999
         except ValueError:
             age_days = 999
-        if age_days >= max_age_days:
+        ttl = negative_max_age_days if entry.get("not_found") else max_age_days
+        if age_days >= ttl:
             to_fetch.append(sym)
 
     if max_calls is not None:
         to_fetch = to_fetch[:max_calls]
 
     print(f"\n💰 Market-Cap/SIC-Enrichment: {len(to_fetch)} von {len(candidates)} Kandidaten benoetigen ein Update "
-          f"(Cache-Alter > {max_age_days} Tage oder neu)")
+          f"(Cache-Alter > {max_age_days} Tage bzw. {negative_max_age_days} Tage fuer nicht gefundene Ticker, oder neu)")
 
     for i, sym in enumerate(to_fetch, 1):
         overview = fetch_ticker_overview(sym)
         if overview is not None:
             overview["cached_at"] = now.isoformat()
             cache[sym] = overview
+        else:
+            cache[sym] = {"not_found": True, "cached_at": now.isoformat()}
         if i % 100 == 0:
             print(f"  → {i}/{len(to_fetch)} angereichert")
         time.sleep(REQUEST_DELAY_SEC)
@@ -199,6 +220,8 @@ def enrich_candidates(candidates, cache_path, max_age_days=ENRICH_CACHE_MAX_AGE_
                 "source": "Massive /v3/reference/tickers/{ticker} (per-ticker, cached)",
                 "n_tickers": len(cache),
                 "max_age_days": max_age_days,
+                "negative_max_age_days": negative_max_age_days,
+                "not_found_count": sum(1 for v in cache.values() if v.get("not_found")),
             },
             "tickers": cache,
         }, f, indent=2, ensure_ascii=False)
