@@ -1652,3 +1652,19 @@ test('index.html: .narrative-controls is sticky, reuses --jumpnav-h, scoped only
   const allMatches = html.match(/\.narrative-controls\s*\{/g) || [];
   assert.equal(allMatches.length, 1);
 });
+
+// ── Momentum Market Regime: "Stand DD.MM., HH:MM" timestamp next to the
+// section header, so it's visible when the underlying data was last built ──
+
+test('index.html: #regimeAsOf sits inside the Market Regime section-header, next to the info icon', () => {
+  const headerMatch = html.match(/<div class="section-header">\s*<span class="section-num">02<\/span>[\s\S]*?<\/div>/);
+  assert.ok(headerMatch, 'Market Regime section-header not found');
+  assert.match(headerMatch[0], /<span class="nc-meta" id="regimeAsOf"><\/span>/);
+});
+
+test('index.html: renderMarketRegime formats dashboardState.meta.updated_at the same way the Narrative "Stand" label does', () => {
+  const fn = extractFunction(html, 'renderMarketRegime');
+  assert.match(fn, /dashboardState\.meta\.updated_at/);
+  assert.match(fn, /toLocaleString\('de-DE',\s*\{\s*timeZone:\s*'Europe\/Berlin'/);
+  assert.match(fn, /`Stand \$\{dtStr\}`/);
+});

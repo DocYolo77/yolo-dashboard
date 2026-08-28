@@ -643,6 +643,7 @@ html { scroll-behavior: smooth; }
           <dd>Wie viele Narrative gerade positiv performen, beschleunigen und breit getragen werden.</dd>
         </dl>
       </span>
+      <span class="nc-meta" id="regimeAsOf"></span>
     </div>
 
     <div class="regime-score-card">
@@ -1603,6 +1604,12 @@ function setRegimeComponent(barId, valId, score) {
 function renderMarketRegime() {
   if (!dashboardState) return;
   const mr = dashboardState.market_regime;
+  const asOfEl = document.getElementById('regimeAsOf');
+  if (asOfEl && dashboardState.meta && dashboardState.meta.updated_at) {
+    const dt = new Date(dashboardState.meta.updated_at);
+    const dtStr = dt.toLocaleString('de-DE', { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    asOfEl.textContent = `Stand ${dtStr}`;
+  }
   const valEl = document.getElementById('regimeScoreValue');
   const stateEl = document.getElementById('regimeScoreState');
   const deltaEl = document.getElementById('regimeScoreDelta');
