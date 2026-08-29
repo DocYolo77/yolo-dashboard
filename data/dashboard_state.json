@@ -1,7 +1,7 @@
 {
   "meta": {
     "as_of_date": "2026-08-28",
-    "updated_at": "2026-08-28T15:14:55.999791+00:00",
+    "updated_at": "2026-08-29T11:09:52.754567+00:00",
     "dashboard_state_version": "v1.1",
     "first_run": false
   },
@@ -33,17 +33,17 @@
     },
     "eligible_universe_size": 616,
     "vix": {
-      "price": 14.2,
-      "d1_pct": -2.14,
-      "w1_pct": -6.15,
-      "hi52w_pct": -54.27,
-      "ytd_pct": -2.14,
+      "price": 14.51,
+      "d1_pct": -4.6,
+      "w1_pct": -9.37,
+      "hi52w_pct": -53.27,
+      "ytd_pct": 0.0,
       "hist_5d": [
+        15.13,
         15.85,
         15.45,
         15.21,
-        14.51,
-        14.2
+        14.51
       ],
       "symbol": "^VIX",
       "name": "VIX",
@@ -51,34 +51,36 @@
     }
   },
   "qqq_health": {
-    "score": 69.2,
-    "base_state": "MIXED",
-    "modifiers": [],
+    "score": 28.6,
+    "base_state": "RISK OFF",
+    "modifiers": [
+      "DETERIORATING"
+    ],
     "prev_score": 55.1,
-    "score_delta": 14.1,
+    "score_delta": -26.5,
     "components": {
-      "trend": 100,
-      "breadth": 59.9,
-      "mco": 49.2,
+      "trend": 20,
+      "breadth": 0.0,
+      "mco": 47.6,
       "mcsi": 67.8,
-      "high_low": 61.7
+      "high_low": 39.2
     },
     "price_structure": {
-      "close": 723.76,
-      "ema10": 716.74,
-      "ema20": 714.86,
-      "sma50": 712.19,
-      "sma200": 654.23,
-      "dist_ema10_pct": 0.98,
-      "dist_ema20_pct": 1.24,
+      "close": NaN,
+      "ema10": 715.18,
+      "ema20": 713.92,
+      "sma50": NaN,
+      "sma200": NaN,
+      "dist_ema10_pct": NaN,
+      "dist_ema20_pct": NaN,
       "ema10_above_ema20": true,
-      "close_above_ema10": true,
-      "close_above_ema20": true,
-      "close_above_sma50": true,
-      "close_above_sma200": true,
-      "atr14": 8.2608,
-      "atr_pct": 1.141,
-      "atr_extension": 1.42
+      "close_above_ema10": false,
+      "close_above_ema20": false,
+      "close_above_sma50": false,
+      "close_above_sma200": false,
+      "atr14": 8.0707,
+      "atr_pct": NaN,
+      "atr_extension": null
     }
   },
   "narratives": {
@@ -3797,7 +3799,7 @@
         "w1_pct": -1.95,
         "m1_pct": -16.29,
         "price": 86.53,
-        "market_cap": 2626646006.6,
+        "market_cap": 2394211774.35,
         "quality_v2": null,
         "state_v2": null,
         "above_ema10": false,
@@ -6793,7 +6795,7 @@
         "w1_pct": -2.57,
         "m1_pct": 5.0,
         "price": 64.05,
-        "market_cap": 10563327197.039999,
+        "market_cap": 10149883557.119999,
         "quality_v2": null,
         "state_v2": null,
         "above_ema10": true,
@@ -6953,7 +6955,7 @@
         "w1_pct": 2.37,
         "m1_pct": 5.65,
         "price": 636.37,
-        "market_cap": 9618073199.37,
+        "market_cap": 9687100564.789999,
         "quality_v2": null,
         "state_v2": null,
         "above_ema10": true,
@@ -10656,7 +10658,7 @@
         "w1_pct": 2.88,
         "m1_pct": 36.57,
         "price": 109.8,
-        "market_cap": 5546859239.349999,
+        "market_cap": 5653519455.089999,
         "quality_v2": null,
         "state_v2": null,
         "above_ema10": true,
@@ -16813,7 +16815,7 @@
         "w1_pct": -3.21,
         "m1_pct": -0.17,
         "price": 29.53,
-        "market_cap": 1810185528.6,
+        "market_cap": 1635063345.54,
         "quality_v2": null,
         "state_v2": null,
         "above_ema10": false,
@@ -19429,7 +19431,7 @@
         "w1_pct": 2.19,
         "m1_pct": 18.54,
         "price": 198.32,
-        "market_cap": 1301417244.54,
+        "market_cap": 1353008126.88,
         "quality_v2": null,
         "state_v2": null,
         "above_ema10": true,
@@ -21400,7 +21402,7 @@
         "w1_pct": 3.78,
         "m1_pct": 27.35,
         "price": 54.38,
-        "market_cap": 20449025088.22,
+        "market_cap": 8997609683.369999,
         "quality_v2": null,
         "state_v2": null,
         "above_ema10": true,
@@ -22066,7 +22068,7 @@
         "w1_pct": 7.05,
         "m1_pct": 12.22,
         "price": 598.4,
-        "market_cap": 35749185167.799995,
+        "market_cap": 36277685152.35,
         "quality_v2": null,
         "state_v2": null,
         "above_ema10": true,
@@ -24559,9 +24561,20 @@
       },
       {
         "category": "qqq_health",
+        "type": "base_state_change",
+        "from": "MIXED",
+        "to": "RISK OFF"
+      },
+      {
+        "category": "qqq_health",
+        "type": "modifier_gained",
+        "modifier": "DETERIORATING"
+      },
+      {
+        "category": "qqq_health",
         "type": "score_change",
         "from": 55.1,
-        "to": 69.2
+        "to": 28.6
       },
       {
         "category": "narrative",

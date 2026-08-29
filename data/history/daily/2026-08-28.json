@@ -5,9 +5,11 @@
     "state": "SELECTIVE"
   },
   "qqq_health": {
-    "score": 69.2,
-    "base_state": "MIXED",
-    "modifiers": [],
+    "score": 28.6,
+    "base_state": "RISK OFF",
+    "modifiers": [
+      "DETERIORATING"
+    ],
     "extended": false
   },
   "narratives": {

@@ -1,8 +1,8 @@
 {
-  "as_of_date": "2026-08-28",
+  "as_of_date": "2026-08-29",
   "eligible_count": 616,
-  "classified_eligible_count": 541,
-  "coverage_pct": 87.8,
+  "classified_eligible_count": 542,
+  "coverage_pct": 88.0,
   "entered": [
     "AGQ",
     "AIIR",
@@ -15,7 +15,6 @@
     "BBAI",
     "BBWI",
     "BE",
-    "BETA",
     "BLSH",
     "BRAI",
     "BRUN",
@@ -44,14 +43,9 @@
     "GLXY",
     "GPGI",
     "GSHD",
-    "JOBY",
-    "LIND",
-    "LZ",
     "MAAS",
     "MGRT",
     "MRX",
-    "NGL",
-    "NHP",
     "NIQ",
     "NMAX",
     "NN",
@@ -74,7 +68,6 @@
     "TIC",
     "TMC",
     "TOP",
-    "TPB",
     "TRI",
     "TRON",
     "UPWK",
@@ -84,15 +77,11 @@
     "VISN",
     "VMET",
     "VSAT",
-    "WBTN",
     "WRD",
     "XMTR"
   ],
   "reentered": [],
-  "exited": [
-    "LBRDA",
-    "LBRDK"
-  ],
+  "exited": [],
   "newly_classified": [
     "AGQ",
     "AIIR",
@@ -105,7 +94,6 @@
     "BBAI",
     "BBWI",
     "BE",
-    "BETA",
     "BLSH",
     "BRAI",
     "BRUN",
@@ -134,14 +122,9 @@
     "GLXY",
     "GPGI",
     "GSHD",
-    "JOBY",
-    "LIND",
-    "LZ",
     "MAAS",
     "MGRT",
     "MRX",
-    "NGL",
-    "NHP",
     "NIQ",
     "NMAX",
     "NN",
@@ -164,7 +147,6 @@
     "TIC",
     "TMC",
     "TOP",
-    "TPB",
     "TRI",
     "TRON",
     "UPWK",
@@ -174,22 +156,15 @@
     "VISN",
     "VMET",
     "VSAT",
-    "WBTN",
     "WRD",
     "XMTR"
   ],
   "new_narratives_created": [
-    "evtol_urban_air_mobility",
-    "expedition_cruise_adventure_travel",
-    "tobacco_alternative_nicotine_products"
+    "social_inhalation_shisha_products"
   ],
   "unresolved_after_retries": [
     {
       "ticker": "AGQ",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "AIIR",
       "reason": "low_confidence_primary"
     },
     {
@@ -486,12 +461,12 @@
     }
   ],
   "classification_errors": [
-    "Batch 2 (JOBY..VSAT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 1 Batch (AGQ..GSHD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
   "eligible_with_active_narrative": 391,
   "eligible_without_active_narrative": 225,
   "active_narrative_coverage_pct": 63.5,
   "active_narrative_count": 33,
-  "undersized_narrative_count": 88
+  "undersized_narrative_count": 89
 }

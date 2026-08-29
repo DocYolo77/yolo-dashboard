@@ -1,13 +1,13 @@
 {
   "meta": {
-    "updated_at": "2026-08-28T15:14:55.393682+00:00",
+    "updated_at": "2026-08-29T11:09:52.179073+00:00",
     "source": "Massive (api.massive.com)",
     "trading_days_used": 260,
     "date_range": [
       "2025-08-18",
       "2026-08-28"
     ],
-    "universe_size": 1000,
+    "universe_size": 1001,
     "eligible_universe_size": 616,
     "unique_classified_eligible_members": 391,
     "total_active_memberships": 401,
@@ -16,7 +16,7 @@
     "eligible_without_active_narrative": 225,
     "active_narrative_coverage_pct": 63.5,
     "active_narrative_count": 33,
-    "undersized_narrative_count": 88,
+    "undersized_narrative_count": 89,
     "undersized_narratives": [
       {
         "id": "memory_storage",
@@ -361,6 +361,11 @@
       {
         "id": "tobacco_alternative_nicotine_products",
         "name": "Tobacco / Alternative Nicotine Products",
+        "eligible_member_count": 1
+      },
+      {
+        "id": "social_inhalation_shisha_products",
+        "name": "Social Inhalation / Shisha Products",
         "eligible_member_count": 1
       },
       {
@@ -2468,7 +2473,7 @@
           "eligible": true,
           "structural_rs": 34.2,
           "trend_strength": 39.8,
-          "market_cap": 1810185528.6,
+          "market_cap": 1635063345.54,
           "stock_thrust_rs": 27.27,
           "volume": 67261,
           "rvol_50": 0.0525,
@@ -2991,7 +2996,7 @@
         "6m": 0.34279139568123873
       },
       "thrust_rsp": 18.8,
-      "aggregate_market_cap": 3076921570058.37,
+      "aggregate_market_cap": 3076746447875.31,
       "strength_rsp": {
         "1w": 21.2,
         "1m": 15.2,
@@ -6276,7 +6281,7 @@
           "eligible": true,
           "structural_rs": 43.8,
           "trend_strength": 67.0,
-          "market_cap": 35749185167.799995,
+          "market_cap": 36277685152.35,
           "stock_thrust_rs": 80.49,
           "volume": 4017,
           "rvol_50": 0.0334,
@@ -6372,7 +6377,7 @@
         "6m": 0.2209801754500864
       },
       "thrust_rsp": 51.21,
-      "aggregate_market_cap": 378753067907.72,
+      "aggregate_market_cap": 379281567892.27,
       "strength_rsp": {
         "1w": 60.6,
         "1m": 30.3,
@@ -22460,7 +22465,7 @@
           "eligible": true,
           "structural_rs": 52.0,
           "trend_strength": 75.1,
-          "market_cap": 9618073199.37,
+          "market_cap": 9687100564.789999,
           "stock_thrust_rs": 53.91,
           "volume": 4967,
           "rvol_50": 0.0367,
@@ -22861,7 +22866,7 @@
         "6m": -0.039005320769435525
       },
       "thrust_rsp": 62.15,
-      "aggregate_market_cap": 35545076881.71,
+      "aggregate_market_cap": 35614104247.13,
       "strength_rsp": {
         "1w": 75.8,
         "1m": 39.4,
