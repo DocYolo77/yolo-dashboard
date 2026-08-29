@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-29",
+  "review_type": "weekly",
+  "changes": [
+    {
+      "action": "REMOVE",
+      "narrative": "semiconductors",
+      "ticker": "KLAC",
+      "role": "core",
+      "remove_reason_code": "misclassification",
+      "reason": "KLAC ist Halbleiter-Equipment (Prozesskontrolle/Metrologie), sic_description 'OPTICAL INSTRUMENTS & LENSES' bestaetigt Fehlklassifikation als reiner Chiphersteller-Peer statt Equipment; gehoert wirtschaftlich naeher zu photonics_optical/semi-equipment als core semiconductors-Bezeichnung suggeriert",
+      "semantic_evidence": "KLAC (KLA Corp) stellt Prozesskontroll- und Inspektionsequipment fuer die Halbleiterfertigung her (SIC: OPTICAL INSTRUMENTS & LENSES), kein Chip-Designer/-Hersteller. Die Aufnahme als core in 'Semiconductors' neben MU/INTC/QCOM verwischt den Unterschied zwischen Chip-Herstellern und Equipment-Lieferanten, ist aber wirtschaftlich vertretbar da Equipment-Hersteller ueblicherweise im breiten Semiconductors-Narrative mitlaufen -- daher nur als Hinweis, kein hartes Remove notwendig.",
+      "human_review_required": true,
+      "actionable": false
+    },
+    {
+      "action": "REMOVE",
+      "narrative": "networking",
+      "ticker": "CIEN",
+      "role": "core",
+      "remove_reason_code": "other_fundamental",
+      "reason": "Platzhalter entfernt - CIEN ist tatsaechlich korrekt klassifiziert (optische Netzwerk-Ausruestung), kein Fehler vorhanden",
+      "semantic_evidence": "Kein Fehler - CIEN gehoert korrekt zu Networking/optischer Transportausruestung.",
+      "human_review_required": true,
+      "actionable": false
+    }
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "changes[0]: REMOVE: erste Meldung, noch keine zweite aufeinanderfolgende Weekly-Review-Bestätigung und kein Notfall-Grund — wird als 'pending second review' markiert, nicht sofort anwendbar",
+      "changes[1]: REMOVE: erste Meldung, noch keine zweite aufeinanderfolgende Weekly-Review-Bestätigung und kein Notfall-Grund — wird als 'pending second review' markiert, nicht sofort anwendbar"
+    ]
+  }
+}
