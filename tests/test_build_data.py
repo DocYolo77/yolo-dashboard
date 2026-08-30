@@ -16,7 +16,7 @@ import pandas as pd
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-from build_data import calc_atr_extension, calc_metrics  # noqa: E402
+from build_data import calc_atr_extension, calc_metrics, calc_moving_averages  # noqa: E402
 from build_market_features import calc_true_range  # noqa: E402  (independently-tested reference formula)
 
 
@@ -153,3 +153,46 @@ def test_calc_metrics_ytd_uses_dropna_close_not_raw_hist():
     result = calc_metrics(hist)
     assert result is not None
     assert result["ytd_pct"] == result["ytd_pct"]  # not NaN
+
+
+# ── 2026-08-30 incident: the same NaN-close class of bug as V6 point 29A,
+# but in the SPY/QQQ regime path (calc_moving_averages/calc_atr_extension),
+# which calc_metrics's dropna fix never covered. A trailing NaN QQQ close
+# from yfinance made price_structure.close (and everything derived from it:
+# dist_ema10_pct, atr_pct, atr_extension) a bare NaN, which blanked Market
+# Regime/QQQ Health/Opportunities all at once via a JSON.parse() failure on
+# the whole dashboard_state.json, not just the QQQ Health card. ──
+
+def test_calc_moving_averages_nan_trailing_close_does_not_propagate():
+    closes = [100.0 + i * 0.1 for i in range(60)] + [float('nan')]
+    hist = make_close_hist(closes)
+    result = calc_moving_averages(hist)
+    assert result is not None
+    assert all(v == v for v in result.values())  # none are NaN
+
+
+def test_calc_moving_averages_nan_drop_below_threshold_returns_none():
+    hist = make_close_hist([100.0] * 40 + [float('nan')] * 10)  # 40 valid < 50
+    assert calc_moving_averages(hist) is None
+
+
+def test_calc_atr_extension_nan_trailing_close_does_not_propagate():
+    closes = [100.0] * 60 + [100 + i * 2 for i in range(1, 21)] + [float('nan')]
+    hist = make_hist(closes, high_low_range_pct=2.0)
+    atr14, atr_pct, atr_extension = calc_atr_extension(hist)
+    assert atr14 is not None and atr14 == atr14
+    assert atr_pct is not None and atr_pct == atr_pct
+    assert atr_extension is not None and atr_extension == atr_extension
+    # Must match the value computed from the last VALID (non-NaN) close,
+    # i.e. dropping the trailing NaN row must not shift which close is "last".
+    atr14_clean, atr_pct_clean, atr_extension_clean = calc_atr_extension(hist.dropna(subset=["Close"]))
+    assert atr14 == pytest.approx(atr14_clean)
+    assert atr_pct == pytest.approx(atr_pct_clean)
+    assert atr_extension == pytest.approx(atr_extension_clean)
+
+
+def test_calc_atr_extension_result_is_json_serializable_without_nan_tokens():
+    closes = [100.0] * 60 + [100 + i * 2 for i in range(1, 21)] + [float('nan')]
+    hist = make_hist(closes, high_low_range_pct=2.0)
+    atr14, atr_pct, atr_extension = calc_atr_extension(hist)
+    json.dumps({"atr14": atr14, "atr_pct": atr_pct, "atr_extension": atr_extension}, allow_nan=False)

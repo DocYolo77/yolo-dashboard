@@ -441,7 +441,12 @@ def calc_moving_averages(hist):
     if hist is None or len(hist) < 50:
         return None
 
-    close = hist["Close"]
+    # Same dropna-first guard as calc_metrics (V6 point 29A): a NaN close
+    # anywhere in the window would otherwise propagate through .rolling()/
+    # .ewm() into every moving average built from it.
+    close = hist["Close"].dropna()
+    if len(close) < 50:
+        return None
     result = {}
 
     for label, n, is_ema in [("ema10", 10, True), ("ema20", 20, True),
@@ -493,6 +498,11 @@ def calc_atr_extension(hist):
     repo-wide (True Range, simple 14-day mean, no Wilder smoothing;
     Extension = %Gain-from-SMA50 / ATR%). Returns (atr14, atr_pct,
     atr_extension), any of which may be None if there isn't enough history."""
+    # Same dropna-first guard as calc_metrics (V6 point 29A): drop the whole
+    # row (not just the Close cell) so High/Low/Close stay aligned, so a
+    # trailing NaN close doesn't leak into `last` below and turn every
+    # value here (atr_pct/atr_extension) into NaN.
+    hist = hist.dropna(subset=["Close"])
     close = hist["Close"]
     if len(close) < 51:
         return None, None, None
@@ -525,6 +535,13 @@ def fetch_regime_data():
     for symbol in ["SPY", "QQQ"]:
         print(f"  → {symbol}")
         hist = fetch_ticker_data(symbol)
+        # Same NaN-close guard as calc_metrics (V6 point 29A) -- this path
+        # was missed there, and a NaN QQQ price sneaking into price_structure
+        # broke the browser's JSON.parse() for the ENTIRE dashboard_state.json
+        # (bare `NaN` is not valid JSON), blanking Market Regime/QQQ Health/
+        # Opportunities all at once even though the backend data was fine.
+        if hist is not None:
+            hist = hist.dropna(subset=["Close"])
         if hist is not None and len(hist) > 0:
             price = round(hist["Close"].iloc[-1], 2)
             mas = calc_moving_averages(hist)
@@ -610,7 +627,12 @@ def main():
 
     # 11. Write output
     with open(out_dir / "snapshot.json", "w", encoding="utf-8") as f:
-        json.dump(snapshot, f, indent=2, ensure_ascii=False)
+        # allow_nan=False: fail loudly here at the true source instead of
+        # letting a bare NaN silently propagate into dashboard_state.json
+        # and break JSON.parse() for the whole file in the browser (see the
+        # dropna guard added to fetch_regime_data() for the concrete case
+        # this caught: a NaN QQQ close from yfinance).
+        json.dump(snapshot, f, indent=2, ensure_ascii=False, allow_nan=False)
 
     print(f"\n✅ Snapshot geschrieben → {out_dir / 'snapshot.json'}")
     print(f"   Kategorien: {len(snapshot) - 1}")

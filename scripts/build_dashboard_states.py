@@ -1425,7 +1425,12 @@ def main():
 
     out_path = out_dir / "dashboard_state.json"
     with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(dashboard_state, f, indent=2, ensure_ascii=False)
+        # allow_nan=False: a bare NaN is not valid JSON and breaks the
+        # browser's JSON.parse() for this ENTIRE file (not just one field) --
+        # fail the build loudly here instead of silently shipping a
+        # dashboard_state.json that blanks Market Regime/QQQ Health/
+        # Opportunities all at once (the exact 2026-08-30 incident).
+        json.dump(dashboard_state, f, indent=2, ensure_ascii=False, allow_nan=False)
     size_kb = out_path.stat().st_size / 1024
     print(f"\n✅ dashboard_state.json geschrieben → {out_path} ({size_kb:.0f} KB)")
 
