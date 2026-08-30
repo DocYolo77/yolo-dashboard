@@ -46,7 +46,6 @@
     "MGRT",
     "MRX",
     "NIQ",
-    "NMAX",
     "NN",
     "NOVT",
     "NSP",
@@ -124,7 +123,6 @@
     "MGRT",
     "MRX",
     "NIQ",
-    "NMAX",
     "NN",
     "NOVT",
     "NSP",
@@ -453,7 +451,8 @@
     }
   ],
   "classification_errors": [
-    "Batch 1 (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Batch 1 (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
   "eligible_with_active_narrative": 391,
   "eligible_without_active_narrative": 225,
