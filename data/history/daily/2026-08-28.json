@@ -1,7 +1,7 @@
 {
   "date": "2026-08-28",
   "market_regime": {
-    "score": 49.3,
+    "score": 49.5,
     "state": "SELECTIVE"
   },
   "qqq_health": {
@@ -17,58 +17,58 @@
       "trend_participation": 0.0,
       "structural_leadership_pct": 2.5,
       "momentum_modifier": null,
-      "rank": 27,
+      "rank": 28,
       "fading_streak": 0,
       "dormant_streak": 6,
       "mature_streak": 0
     },
     "photonics_optical": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 22.0,
+      "structural_score": 22.3,
       "trend_participation": 0.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 28,
+      "rank": 29,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "ai_infrastructure": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 44.1,
-      "trend_participation": 14.3,
-      "structural_leadership_pct": 21.4,
+      "structural_score": 43.1,
+      "trend_participation": 13.3,
+      "structural_leadership_pct": 20.0,
       "momentum_modifier": null,
-      "rank": 10,
+      "rank": 13,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "data_center": {
       "lifecycle_state": "FADING",
-      "structural_score": 26.5,
+      "structural_score": 26.8,
       "trend_participation": 13.3,
       "structural_leadership_pct": 13.3,
       "momentum_modifier": null,
-      "rank": 26,
+      "rank": 27,
       "fading_streak": 5,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "networking": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 41.1,
+      "structural_score": 40.9,
       "trend_participation": 25.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 14,
+      "rank": 15,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "cybersecurity": {
       "lifecycle_state": "ACTIVE",
-      "structural_score": 80.1,
+      "structural_score": 80.2,
       "trend_participation": 85.7,
       "structural_leadership_pct": 35.7,
       "momentum_modifier": "ACCELERATING",
@@ -79,7 +79,7 @@
     },
     "software_saas": {
       "lifecycle_state": "ACTIVE",
-      "structural_score": 76.5,
+      "structural_score": 76.6,
       "trend_participation": 81.1,
       "structural_leadership_pct": 28.3,
       "momentum_modifier": "ACCELERATING",
@@ -90,22 +90,22 @@
     },
     "space": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 30.6,
+      "structural_score": 30.5,
       "trend_participation": 10.0,
       "structural_leadership_pct": 10.0,
       "momentum_modifier": null,
-      "rank": 22,
+      "rank": 23,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "uranium": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 48.1,
+      "structural_score": 47.7,
       "trend_participation": 50.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 9,
+      "rank": 10,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
@@ -116,18 +116,18 @@
       "trend_participation": 26.7,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 23,
+      "rank": 24,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "fintech": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 49.9,
+      "structural_score": 49.8,
       "trend_participation": 45.8,
       "structural_leadership_pct": 8.3,
       "momentum_modifier": null,
-      "rank": 7,
+      "rank": 8,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
@@ -138,36 +138,36 @@
       "trend_participation": 0.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 30,
+      "rank": 31,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "ev_battery": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 16.8,
+      "structural_score": 17.2,
       "trend_participation": 0.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": "ACCELERATING",
-      "rank": 32,
+      "rank": 33,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "solar_clean_energy": {
       "lifecycle_state": "DORMANT",
-      "structural_score": 12.0,
+      "structural_score": 11.8,
       "trend_participation": 0.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": "ACCELERATING",
-      "rank": 33,
+      "rank": 34,
       "fading_streak": 10,
       "dormant_streak": 11,
       "mature_streak": 0
     },
     "gold___precious_metals_miners": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 63.7,
+      "structural_score": 63.1,
       "trend_participation": 75.0,
       "structural_leadership_pct": 12.5,
       "momentum_modifier": null,
@@ -178,7 +178,7 @@
     },
     "it_services_consulting": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 59.9,
+      "structural_score": 59.7,
       "trend_participation": 66.7,
       "structural_leadership_pct": 16.7,
       "momentum_modifier": "ACCELERATING",
@@ -193,157 +193,157 @@
       "trend_participation": 28.6,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 24,
+      "rank": 25,
       "fading_streak": 5,
       "dormant_streak": 2,
       "mature_streak": 0
     },
     "oil_gas_services_equipment": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 41.9,
+      "structural_score": 42.3,
       "trend_participation": 26.7,
       "structural_leadership_pct": 6.7,
       "momentum_modifier": null,
-      "rank": 13,
+      "rank": 14,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "construction_engineering_services": {
       "lifecycle_state": "DORMANT",
-      "structural_score": 21.5,
+      "structural_score": 21.6,
       "trend_participation": 18.8,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 29,
+      "rank": 30,
       "fading_streak": 6,
       "dormant_streak": 5,
       "mature_streak": 0
     },
     "e_commerce_platform": {
       "lifecycle_state": "FADING",
-      "structural_score": 43.9,
+      "structural_score": 44.2,
       "trend_participation": 42.9,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 12,
+      "rank": 11,
       "fading_streak": 9,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "industrial_machinery": {
       "lifecycle_state": "FADING",
-      "structural_score": 31.1,
+      "structural_score": 30.8,
       "trend_participation": 14.3,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 21,
+      "rank": 22,
       "fading_streak": 8,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "apparel_retail": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 38.8,
+      "structural_score": 38.6,
       "trend_participation": 44.4,
       "structural_leadership_pct": 11.1,
       "momentum_modifier": null,
-      "rank": 16,
+      "rank": 17,
       "fading_streak": 1,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "adtech_digital_advertising_platform": {
       "lifecycle_state": "FADING",
-      "structural_score": 43.9,
+      "structural_score": 43.7,
       "trend_participation": 40.0,
       "structural_leadership_pct": 40.0,
       "momentum_modifier": "ACCELERATING",
-      "rank": 11,
+      "rank": 12,
       "fading_streak": 10,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "specialty_metals_advanced_materials": {
       "lifecycle_state": "FADING",
-      "structural_score": 28.2,
+      "structural_score": 28.1,
       "trend_participation": 0.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": "ACCELERATING",
-      "rank": 25,
+      "rank": 26,
       "fading_streak": 5,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "banking_financial_services": {
       "lifecycle_state": "DORMANT",
-      "structural_score": 19.6,
+      "structural_score": 19.7,
       "trend_participation": 20.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": "ACCELERATING",
-      "rank": 31,
+      "rank": 32,
       "fading_streak": 8,
       "dormant_streak": 8,
       "mature_streak": 0
     },
     "building_products_materials_distribution": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 39.3,
+      "structural_score": 39.1,
       "trend_participation": 33.3,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 15,
+      "rank": 16,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "electronic_components_manufacturing": {
       "lifecycle_state": "DORMANT",
-      "structural_score": 33.0,
+      "structural_score": 32.9,
       "trend_participation": 22.2,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": "ACCELERATING",
-      "rank": 19,
+      "rank": 20,
       "fading_streak": 0,
       "dormant_streak": 5,
       "mature_streak": 0
     },
     "crypto_mining_digital_asset_treasury": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 49.6,
+      "structural_score": 49.3,
       "trend_participation": 20.0,
       "structural_leadership_pct": 10.0,
       "momentum_modifier": null,
-      "rank": 8,
+      "rank": 9,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "branded_nutrition_consumer_packaged_goods": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 38.6,
+      "structural_score": 38.1,
       "trend_participation": 60.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 17,
+      "rank": 18,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "social_media_platform": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 33.5,
+      "structural_score": 33.6,
       "trend_participation": 16.7,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 18,
+      "rank": 19,
       "fading_streak": 1,
       "dormant_streak": 0,
       "mature_streak": 0
     },
     "copper_base_metals_mining": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 60.1,
+      "structural_score": 59.9,
       "trend_participation": 60.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
@@ -363,13 +363,24 @@
       "dormant_streak": 0,
       "mature_streak": 0
     },
+    "beauty_cosmetics_products": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 54.8,
+      "trend_participation": 80.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 7,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
     "real_estate_marketplace_platform": {
       "lifecycle_state": "NEUTRAL",
-      "structural_score": 33.0,
+      "structural_score": 32.6,
       "trend_participation": 40.0,
       "structural_leadership_pct": 0.0,
       "momentum_modifier": null,
-      "rank": 20,
+      "rank": 21,
       "fading_streak": 0,
       "dormant_streak": 0,
       "mature_streak": 0
@@ -385,7 +396,8 @@
       "laggard_narratives": [
         "photonics_optical"
       ],
-      "rs_1w": 2.4
+      "rs_1w": 2.4,
+      "extension_peak_history_v2": -0.88
     },
     "AAON": {
       "quality_state": "neutral",
@@ -394,7 +406,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 35.4
+      "rs_1w": 35.4,
+      "extension_peak_history_v2": -4.42
     },
     "AAP": {
       "quality_state": "neutral",
@@ -403,7 +416,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 64.6
+      "rs_1w": 64.6,
+      "extension_peak_history_v2": -2.85
     },
     "AAUC": {
       "quality_state": "neutral",
@@ -414,7 +428,8 @@
       "laggard_narratives": [
         "gold___precious_metals_miners"
       ],
-      "rs_1w": 60.1
+      "rs_1w": 60.1,
+      "extension_peak_history_v2": 2.28
     },
     "ABSI": {
       "quality_state": "leader",
@@ -423,7 +438,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 17.5
+      "rs_1w": 17.5,
+      "extension_peak_history_v2": -0.1
     },
     "ACHR": {
       "quality_state": "neutral",
@@ -434,7 +450,8 @@
       "laggard_narratives": [
         "defense_aerospace"
       ],
-      "rs_1w": 9.6
+      "rs_1w": 9.6,
+      "extension_peak_history_v2": 1.26
     },
     "ACLS": {
       "quality_state": "neutral",
@@ -443,7 +460,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 22.2
+      "rs_1w": 22.2,
+      "extension_peak_history_v2": -2.6
     },
     "ACMR": {
       "quality_state": "neutral",
@@ -452,7 +470,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 38.5
+      "rs_1w": 38.5,
+      "extension_peak_history_v2": -2.11
     },
     "ACN": {
       "quality_state": "neutral",
@@ -461,7 +480,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 70.0
+      "rs_1w": 70.0,
+      "extension_peak_history_v2": 6.31
     },
     "ACVA": {
       "quality_state": "neutral",
@@ -472,7 +492,8 @@
       "laggard_narratives": [
         "e_commerce_platform"
       ],
-      "rs_1w": 44.3
+      "rs_1w": 44.3,
+      "extension_peak_history_v2": 0.03
     },
     "ADEA": {
       "quality_state": "neutral",
@@ -481,7 +502,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 41.6
+      "rs_1w": 41.6,
+      "extension_peak_history_v2": -1.74
     },
     "ADNT": {
       "quality_state": "neutral",
@@ -490,7 +512,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 16.2
+      "rs_1w": 16.2,
+      "extension_peak_history_v2": -0.83
     },
     "AEHR": {
       "quality_state": "neutral",
@@ -499,7 +522,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 1.3
+      "rs_1w": 1.3,
+      "extension_peak_history_v2": -0.44
     },
     "AEIS": {
       "quality_state": "neutral",
@@ -508,7 +532,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 35.2
+      "rs_1w": 35.2,
+      "extension_peak_history_v2": -1.69
     },
     "AERO": {
       "quality_state": "neutral",
@@ -517,7 +542,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 94.5
+      "rs_1w": 94.5,
+      "extension_peak_history_v2": -1.02
     },
     "AESI": {
       "quality_state": "neutral",
@@ -526,7 +552,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 57.8
+      "rs_1w": 57.8,
+      "extension_peak_history_v2": -0.74
     },
     "AEVA": {
       "quality_state": "neutral",
@@ -537,7 +564,8 @@
       "laggard_narratives": [
         "photonics_optical"
       ],
-      "rs_1w": 1.6
+      "rs_1w": 1.6,
+      "extension_peak_history_v2": -1.93
     },
     "AFRM": {
       "quality_state": "neutral",
@@ -546,7 +574,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 98.7
+      "rs_1w": 98.7,
+      "extension_peak_history_v2": 3.48
     },
     "AG": {
       "quality_state": "neutral",
@@ -557,7 +586,8 @@
       "laggard_narratives": [
         "gold___precious_metals_miners"
       ],
-      "rs_1w": 73.9
+      "rs_1w": 73.9,
+      "extension_peak_history_v2": 5.41
     },
     "AGQ": {
       "quality_state": "neutral",
@@ -566,7 +596,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 67.9
+      "rs_1w": 67.9,
+      "extension_peak_history_v2": 5.75
     },
     "AGRO": {
       "quality_state": "neutral",
@@ -575,7 +606,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 23.5
+      "rs_1w": 23.5,
+      "extension_peak_history_v2": 1.71
     },
     "AGX": {
       "quality_state": "neutral",
@@ -586,7 +618,8 @@
       "laggard_narratives": [
         "construction_engineering_services"
       ],
-      "rs_1w": 4.2
+      "rs_1w": 4.2,
+      "extension_peak_history_v2": -4.14
     },
     "AI": {
       "quality_state": "neutral",
@@ -595,7 +628,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 71.6
+      "rs_1w": 71.6,
+      "extension_peak_history_v2": 2.91
     },
     "AIIR": {
       "quality_state": "neutral",
@@ -604,7 +638,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 98.5
+      "rs_1w": 98.5,
+      "extension_peak_history_v2": 3.62
     },
     "AIP": {
       "quality_state": "neutral",
@@ -613,7 +648,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 28.6
+      "rs_1w": 28.6,
+      "extension_peak_history_v2": -4.72
     },
     "AKAM": {
       "quality_state": "neutral",
@@ -622,7 +658,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 52.6
+      "rs_1w": 52.6,
+      "extension_peak_history_v2": -1.27
     },
     "ALAB": {
       "quality_state": "neutral",
@@ -631,7 +668,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 70.5
+      "rs_1w": 70.5,
+      "extension_peak_history_v2": -2.09
     },
     "ALGM": {
       "quality_state": "neutral",
@@ -640,7 +678,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 36.7
+      "rs_1w": 36.7,
+      "extension_peak_history_v2": -3.95
     },
     "ALGT": {
       "quality_state": "neutral",
@@ -649,7 +688,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 38.8
+      "rs_1w": 38.8,
+      "extension_peak_history_v2": -3.97
     },
     "ALM": {
       "quality_state": "neutral",
@@ -658,7 +698,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 55.5
+      "rs_1w": 55.5,
+      "extension_peak_history_v2": 3.7
     },
     "ALMR": {
       "quality_state": "leader",
@@ -667,7 +708,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 11.9
+      "rs_1w": 11.9,
+      "extension_peak_history_v2": 1.63
     },
     "ALNT": {
       "quality_state": "recent_leader",
@@ -676,7 +718,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 39.9
+      "rs_1w": 39.9,
+      "extension_peak_history_v2": -0.07
     },
     "AMBA": {
       "quality_state": "neutral",
@@ -687,7 +730,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 11.5
+      "rs_1w": 11.5,
+      "extension_peak_history_v2": -1.37
     },
     "AMBQ": {
       "quality_state": "neutral",
@@ -696,7 +740,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 48.4
+      "rs_1w": 48.4,
+      "extension_peak_history_v2": -2.9
     },
     "AMC": {
       "quality_state": "recent_leader",
@@ -705,7 +750,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 91.4
+      "rs_1w": 91.4,
+      "extension_peak_history_v2": 3.58
     },
     "AMKR": {
       "quality_state": "neutral",
@@ -714,7 +760,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 54.2
+      "rs_1w": 54.2,
+      "extension_peak_history_v2": -3.18
     },
     "AMN": {
       "quality_state": "neutral",
@@ -723,7 +770,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 59.9
+      "rs_1w": 59.9,
+      "extension_peak_history_v2": 1.15
     },
     "AMPL": {
       "quality_state": "leader",
@@ -732,7 +780,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 92.9
+      "rs_1w": 92.9,
+      "extension_peak_history_v2": 10.85
     },
     "AMPX": {
       "quality_state": "neutral",
@@ -741,7 +790,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 50.2
+      "rs_1w": 50.2,
+      "extension_peak_history_v2": -1.33
     },
     "AMR": {
       "quality_state": "neutral",
@@ -750,7 +800,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 92.5
+      "rs_1w": 92.5,
+      "extension_peak_history_v2": 8.42
     },
     "AMRC": {
       "quality_state": "neutral",
@@ -759,7 +810,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 83.1
+      "rs_1w": 83.1,
+      "extension_peak_history_v2": -1.18
     },
     "AMSC": {
       "quality_state": "neutral",
@@ -768,7 +820,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 40.6
+      "rs_1w": 40.6,
+      "extension_peak_history_v2": -2.8
     },
     "AMTM": {
       "quality_state": "neutral",
@@ -777,7 +830,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 16.4
+      "rs_1w": 16.4,
+      "extension_peak_history_v2": -0.92
     },
     "ANDG": {
       "quality_state": "leader",
@@ -786,7 +840,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 95.0
+      "rs_1w": 95.0,
+      "extension_peak_history_v2": 5.29
     },
     "ANET": {
       "quality_state": "neutral",
@@ -795,7 +850,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 80.0
+      "rs_1w": 80.0,
+      "extension_peak_history_v2": 2.55
     },
     "ANF": {
       "quality_state": "fresh_leader",
@@ -804,7 +860,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 100.0
+      "rs_1w": 100.0,
+      "extension_peak_history_v2": 8.11
     },
     "APLD": {
       "quality_state": "neutral",
@@ -815,7 +872,8 @@
       "laggard_narratives": [
         "ai_infrastructure"
       ],
-      "rs_1w": 31.8
+      "rs_1w": 31.8,
+      "extension_peak_history_v2": -1.97
     },
     "APPF": {
       "quality_state": "neutral",
@@ -824,7 +882,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 77.9
+      "rs_1w": 77.9,
+      "extension_peak_history_v2": 7.51
     },
     "APPN": {
       "quality_state": "leader",
@@ -833,7 +892,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 95.9
+      "rs_1w": 95.9,
+      "extension_peak_history_v2": 10.86
     },
     "APPS": {
       "quality_state": "leader",
@@ -842,7 +902,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 82.5
+      "rs_1w": 82.5,
+      "extension_peak_history_v2": 1.25
     },
     "ARCB": {
       "quality_state": "neutral",
@@ -851,7 +912,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 48.9
+      "rs_1w": 48.9,
+      "extension_peak_history_v2": -0.65
     },
     "ARHS": {
       "quality_state": "neutral",
@@ -860,7 +922,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 12.7
+      "rs_1w": 12.7,
+      "extension_peak_history_v2": 1.1
     },
     "ARLO": {
       "quality_state": "neutral",
@@ -869,7 +932,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 47.2
+      "rs_1w": 47.2,
+      "extension_peak_history_v2": -0.92
     },
     "ARM": {
       "quality_state": "neutral",
@@ -878,7 +942,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 65.6
+      "rs_1w": 65.6,
+      "extension_peak_history_v2": -2.33
     },
     "ARXS": {
       "quality_state": "leader",
@@ -889,7 +954,8 @@
         "electronic_components_manufacturing"
       ],
       "laggard_narratives": [],
-      "rs_1w": 60.4
+      "rs_1w": 60.4,
+      "extension_peak_history_v2": 2.63
     },
     "ASAN": {
       "quality_state": "neutral",
@@ -898,7 +964,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 92.4
+      "rs_1w": 92.4,
+      "extension_peak_history_v2": 5.45
     },
     "ASM": {
       "quality_state": "neutral",
@@ -907,7 +974,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 80.2
+      "rs_1w": 80.2,
+      "extension_peak_history_v2": 4.52
     },
     "ASST": {
       "quality_state": "neutral",
@@ -916,7 +984,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 99.7
+      "rs_1w": 99.7,
+      "extension_peak_history_v2": 10.36
     },
     "ASTE": {
       "quality_state": "neutral",
@@ -925,7 +994,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 65.1
+      "rs_1w": 65.1,
+      "extension_peak_history_v2": -4.19
     },
     "ASTH": {
       "quality_state": "neutral",
@@ -934,7 +1004,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 20.9
+      "rs_1w": 20.9,
+      "extension_peak_history_v2": -1.49
     },
     "ASTS": {
       "quality_state": "neutral",
@@ -945,7 +1016,8 @@
       "laggard_narratives": [
         "space"
       ],
-      "rs_1w": 2.6
+      "rs_1w": 2.6,
+      "extension_peak_history_v2": -1.75
     },
     "ATEN": {
       "quality_state": "neutral",
@@ -954,7 +1026,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 66.9
+      "rs_1w": 66.9,
+      "extension_peak_history_v2": -4.17
     },
     "ATEX": {
       "quality_state": "neutral",
@@ -963,7 +1036,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 59.7
+      "rs_1w": 59.7,
+      "extension_peak_history_v2": -0.04
     },
     "ATLC": {
       "quality_state": "neutral",
@@ -972,7 +1046,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 26.1
+      "rs_1w": 26.1,
+      "extension_peak_history_v2": -1.39
     },
     "ATRO": {
       "quality_state": "neutral",
@@ -981,7 +1056,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 42.9
+      "rs_1w": 42.9,
+      "extension_peak_history_v2": 0.26
     },
     "ATS": {
       "quality_state": "neutral",
@@ -990,7 +1066,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 33.8
+      "rs_1w": 33.8,
+      "extension_peak_history_v2": -7.6
     },
     "AUGO": {
       "quality_state": "neutral",
@@ -999,7 +1076,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 58.0
+      "rs_1w": 58.0,
+      "extension_peak_history_v2": 7.88
     },
     "AUR": {
       "quality_state": "neutral",
@@ -1008,7 +1086,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 5.4
+      "rs_1w": 5.4,
+      "extension_peak_history_v2": -1.76
     },
     "AVAV": {
       "quality_state": "neutral",
@@ -1019,7 +1098,8 @@
       "laggard_narratives": [
         "defense_aerospace"
       ],
-      "rs_1w": 11.4
+      "rs_1w": 11.4,
+      "extension_peak_history_v2": -0.91
     },
     "AVEX": {
       "quality_state": "neutral",
@@ -1028,7 +1108,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 49.8
+      "rs_1w": 49.8,
+      "extension_peak_history_v2": 0.37
     },
     "AVT": {
       "quality_state": "neutral",
@@ -1037,7 +1118,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 64.8
+      "rs_1w": 64.8,
+      "extension_peak_history_v2": 0.46
     },
     "AXON": {
       "quality_state": "neutral",
@@ -1046,7 +1128,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 28.2
+      "rs_1w": 28.2,
+      "extension_peak_history_v2": 2.0
     },
     "AXTI": {
       "quality_state": "neutral",
@@ -1055,7 +1138,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 6.0
+      "rs_1w": 6.0,
+      "extension_peak_history_v2": -0.07
     },
     "AYA": {
       "quality_state": "leader",
@@ -1064,7 +1148,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 94.2
+      "rs_1w": 94.2,
+      "extension_peak_history_v2": 6.5
     },
     "AZTA": {
       "quality_state": "neutral",
@@ -1073,7 +1158,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 3.9
+      "rs_1w": 3.9,
+      "extension_peak_history_v2": 3.46
     },
     "BAND": {
       "quality_state": "neutral",
@@ -1082,7 +1168,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 90.4
+      "rs_1w": 90.4,
+      "extension_peak_history_v2": -1.51
     },
     "BB": {
       "quality_state": "neutral",
@@ -1091,7 +1178,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 92.7
+      "rs_1w": 92.7,
+      "extension_peak_history_v2": -1.37
     },
     "BBAI": {
       "quality_state": "neutral",
@@ -1100,7 +1188,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 42.0
+      "rs_1w": 42.0,
+      "extension_peak_history_v2": 0.06
     },
     "BBAR": {
       "quality_state": "neutral",
@@ -1111,7 +1200,8 @@
       "laggard_narratives": [
         "banking_financial_services"
       ],
-      "rs_1w": 63.0
+      "rs_1w": 63.0,
+      "extension_peak_history_v2": -3.87
     },
     "BBWI": {
       "quality_state": "neutral",
@@ -1120,7 +1210,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 51.6
+      "rs_1w": 51.6,
+      "extension_peak_history_v2": -0.63
     },
     "BE": {
       "quality_state": "neutral",
@@ -1129,7 +1220,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 88.8
+      "rs_1w": 88.8,
+      "extension_peak_history_v2": -1.05
     },
     "BELFA": {
       "quality_state": "neutral",
@@ -1140,7 +1232,8 @@
       "laggard_narratives": [
         "electronic_components_manufacturing"
       ],
-      "rs_1w": 30.2
+      "rs_1w": 30.2,
+      "extension_peak_history_v2": -2.13
     },
     "BELFB": {
       "quality_state": "neutral",
@@ -1151,7 +1244,8 @@
       "laggard_narratives": [
         "electronic_components_manufacturing"
       ],
-      "rs_1w": 38.0
+      "rs_1w": 38.0,
+      "extension_peak_history_v2": -2.02
     },
     "BETA": {
       "quality_state": "leader",
@@ -1160,7 +1254,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 1.8
+      "rs_1w": 1.8,
+      "extension_peak_history_v2": 0.86
     },
     "BGSI": {
       "quality_state": "neutral",
@@ -1169,7 +1264,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 29.4
+      "rs_1w": 29.4,
+      "extension_peak_history_v2": -2.38
     },
     "BH": {
       "quality_state": "neutral",
@@ -1178,7 +1274,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 39.3
+      "rs_1w": 39.3,
+      "extension_peak_history_v2": -0.18
     },
     "BH.A": {
       "quality_state": "neutral",
@@ -1187,7 +1284,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 40.9
+      "rs_1w": 40.9,
+      "extension_peak_history_v2": -0.15
     },
     "BILL": {
       "quality_state": "neutral",
@@ -1196,7 +1294,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 71.9
+      "rs_1w": 71.9,
+      "extension_peak_history_v2": 3.01
     },
     "BIRK": {
       "quality_state": "neutral",
@@ -1205,7 +1304,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 54.4
+      "rs_1w": 54.4,
+      "extension_peak_history_v2": -2.13
     },
     "BKSY": {
       "quality_state": "neutral",
@@ -1216,7 +1316,8 @@
       "laggard_narratives": [
         "space"
       ],
-      "rs_1w": 1.9
+      "rs_1w": 1.9,
+      "extension_peak_history_v2": -0.9
     },
     "BL": {
       "quality_state": "neutral",
@@ -1225,7 +1326,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 83.0
+      "rs_1w": 83.0,
+      "extension_peak_history_v2": 2.84
     },
     "BLBD": {
       "quality_state": "neutral",
@@ -1234,7 +1336,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 27.8
+      "rs_1w": 27.8,
+      "extension_peak_history_v2": -4.33
     },
     "BLKB": {
       "quality_state": "neutral",
@@ -1243,7 +1346,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 67.4
+      "rs_1w": 67.4,
+      "extension_peak_history_v2": 8.35
     },
     "BLSH": {
       "quality_state": "neutral",
@@ -1252,7 +1356,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 89.9
+      "rs_1w": 89.9,
+      "extension_peak_history_v2": 4.96
     },
     "BMA": {
       "quality_state": "neutral",
@@ -1261,7 +1366,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 83.4
+      "rs_1w": 83.4,
+      "extension_peak_history_v2": -2.55
     },
     "BMNR": {
       "quality_state": "neutral",
@@ -1270,7 +1376,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 94.3
+      "rs_1w": 94.3,
+      "extension_peak_history_v2": 8.41
     },
     "BOBS": {
       "quality_state": "neutral",
@@ -1279,7 +1386,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 46.8
+      "rs_1w": 46.8,
+      "extension_peak_history_v2": 1.18
     },
     "BORR": {
       "quality_state": "neutral",
@@ -1288,7 +1396,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 54.1
+      "rs_1w": 54.1,
+      "extension_peak_history_v2": 1.45
     },
     "BRAI": {
       "quality_state": "neutral",
@@ -1297,7 +1406,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 17.4
+      "rs_1w": 17.4,
+      "extension_peak_history_v2": -2.08
     },
     "BRBR": {
       "quality_state": "neutral",
@@ -1306,7 +1416,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 76.3
+      "rs_1w": 76.3,
+      "extension_peak_history_v2": -2.14
     },
     "BRKR": {
       "quality_state": "neutral",
@@ -1315,7 +1426,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 32.5
+      "rs_1w": 32.5,
+      "extension_peak_history_v2": -0.04
     },
     "BRUN": {
       "quality_state": "neutral",
@@ -1324,7 +1436,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 80.8
+      "rs_1w": 80.8,
+      "extension_peak_history_v2": -1.59
     },
     "BRZE": {
       "quality_state": "neutral",
@@ -1333,7 +1446,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 96.9
+      "rs_1w": 96.9,
+      "extension_peak_history_v2": 7.89
     },
     "BTDR": {
       "quality_state": "neutral",
@@ -1342,7 +1456,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 11.7
+      "rs_1w": 11.7,
+      "extension_peak_history_v2": -1.34
     },
     "BTU": {
       "quality_state": "neutral",
@@ -1351,7 +1466,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 84.6
+      "rs_1w": 84.6,
+      "extension_peak_history_v2": 5.78
     },
     "BULL": {
       "quality_state": "neutral",
@@ -1360,7 +1476,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 90.3
+      "rs_1w": 90.3,
+      "extension_peak_history_v2": 4.23
     },
     "BVC": {
       "quality_state": "leader",
@@ -1369,7 +1486,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 10.6
+      "rs_1w": 10.6,
+      "extension_peak_history_v2": 0.7
     },
     "BW": {
       "quality_state": "neutral",
@@ -1378,7 +1496,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 4.9
+      "rs_1w": 4.9,
+      "extension_peak_history_v2": -2.57
     },
     "BWIN": {
       "quality_state": "recent_leader",
@@ -1387,7 +1506,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 14.6
+      "rs_1w": 14.6,
+      "extension_peak_history_v2": 2.21
     },
     "BZ": {
       "quality_state": "neutral",
@@ -1396,7 +1516,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 97.9
+      "rs_1w": 97.9,
+      "extension_peak_history_v2": 3.82
     },
     "CAMT": {
       "quality_state": "neutral",
@@ -1407,7 +1528,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 21.6
+      "rs_1w": 21.6,
+      "extension_peak_history_v2": -1.1
     },
     "CAVA": {
       "quality_state": "neutral",
@@ -1416,7 +1538,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 8.3
+      "rs_1w": 8.3,
+      "extension_peak_history_v2": -0.55
     },
     "CBRS": {
       "quality_state": "neutral",
@@ -1427,7 +1550,8 @@
       "laggard_narratives": [
         "data_center"
       ],
-      "rs_1w": 8.9
+      "rs_1w": 8.9,
+      "extension_peak_history_v2": -1.03
     },
     "CC": {
       "quality_state": "neutral",
@@ -1436,7 +1560,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 51.1
+      "rs_1w": 51.1,
+      "extension_peak_history_v2": -2.01
     },
     "CCC": {
       "quality_state": "leader",
@@ -1445,7 +1570,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 58.3
+      "rs_1w": 58.3,
+      "extension_peak_history_v2": 5.29
     },
     "CDE": {
       "quality_state": "neutral",
@@ -1454,7 +1580,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 82.1
+      "rs_1w": 82.1,
+      "extension_peak_history_v2": 6.79
     },
     "CDW": {
       "quality_state": "neutral",
@@ -1463,7 +1590,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 95.8
+      "rs_1w": 95.8,
+      "extension_peak_history_v2": 2.97
     },
     "CECO": {
       "quality_state": "neutral",
@@ -1472,7 +1600,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 43.3
+      "rs_1w": 43.3,
+      "extension_peak_history_v2": -1.51
     },
     "CELH": {
       "quality_state": "neutral",
@@ -1483,7 +1612,8 @@
       "laggard_narratives": [
         "branded_nutrition_consumer_packaged_goods"
       ],
-      "rs_1w": 35.6
+      "rs_1w": 35.6,
+      "extension_peak_history_v2": 1.98
     },
     "CENX": {
       "quality_state": "neutral",
@@ -1492,7 +1622,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 84.7
+      "rs_1w": 84.7,
+      "extension_peak_history_v2": 0.37
     },
     "CERT": {
       "quality_state": "neutral",
@@ -1501,7 +1632,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 48.7
+      "rs_1w": 48.7,
+      "extension_peak_history_v2": 4.19
     },
     "CHRN": {
       "quality_state": "neutral",
@@ -1510,7 +1642,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 4.1
+      "rs_1w": 4.1,
+      "extension_peak_history_v2": -0.3
     },
     "CHTR": {
       "quality_state": "neutral",
@@ -1519,7 +1652,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 41.7
+      "rs_1w": 41.7,
+      "extension_peak_history_v2": 1.22
     },
     "CHYM": {
       "quality_state": "leader",
@@ -1528,7 +1662,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 70.3
+      "rs_1w": 70.3,
+      "extension_peak_history_v2": 10.09
     },
     "CIEN": {
       "quality_state": "neutral",
@@ -1539,7 +1674,8 @@
       "laggard_narratives": [
         "networking"
       ],
-      "rs_1w": 45.5
+      "rs_1w": 45.5,
+      "extension_peak_history_v2": -0.74
     },
     "CIFR": {
       "quality_state": "neutral",
@@ -1548,7 +1684,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 64.0
+      "rs_1w": 64.0,
+      "extension_peak_history_v2": -2.23
     },
     "CLBT": {
       "quality_state": "neutral",
@@ -1557,7 +1694,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 96.1
+      "rs_1w": 96.1,
+      "extension_peak_history_v2": -1.55
     },
     "CLF": {
       "quality_state": "neutral",
@@ -1566,7 +1704,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 86.0
+      "rs_1w": 86.0,
+      "extension_peak_history_v2": 1.88
     },
     "CLMT": {
       "quality_state": "leader",
@@ -1575,7 +1714,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 28.9
+      "rs_1w": 28.9,
+      "extension_peak_history_v2": 3.23
     },
     "CLS": {
       "quality_state": "neutral",
@@ -1584,7 +1724,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 82.8
+      "rs_1w": 82.8,
+      "extension_peak_history_v2": -1.13
     },
     "CLSK": {
       "quality_state": "neutral",
@@ -1595,7 +1736,8 @@
       "laggard_narratives": [
         "crypto_mining_digital_asset_treasury"
       ],
-      "rs_1w": 63.1
+      "rs_1w": 63.1,
+      "extension_peak_history_v2": -1.21
     },
     "CLVT": {
       "quality_state": "neutral",
@@ -1604,7 +1746,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 29.7
+      "rs_1w": 29.7,
+      "extension_peak_history_v2": -0.53
     },
     "CMP": {
       "quality_state": "neutral",
@@ -1613,7 +1756,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 26.0
+      "rs_1w": 26.0,
+      "extension_peak_history_v2": -2.54
     },
     "CNH": {
       "quality_state": "neutral",
@@ -1622,7 +1766,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 26.5
+      "rs_1w": 26.5,
+      "extension_peak_history_v2": 2.05
     },
     "CNL": {
       "quality_state": "neutral",
@@ -1633,7 +1778,8 @@
       "laggard_narratives": [
         "gold___precious_metals_miners"
       ],
-      "rs_1w": 59.1
+      "rs_1w": 59.1,
+      "extension_peak_history_v2": 3.35
     },
     "CNXC": {
       "quality_state": "neutral",
@@ -1642,7 +1788,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 95.6
+      "rs_1w": 95.6,
+      "extension_peak_history_v2": 2.95
     },
     "COHR": {
       "quality_state": "neutral",
@@ -1651,7 +1798,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 27.1
+      "rs_1w": 27.1,
+      "extension_peak_history_v2": -1.33
     },
     "COHU": {
       "quality_state": "neutral",
@@ -1660,7 +1808,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 9.3
+      "rs_1w": 9.3,
+      "extension_peak_history_v2": -1.22
     },
     "COIN": {
       "quality_state": "neutral",
@@ -1669,7 +1818,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 46.9
+      "rs_1w": 46.9,
+      "extension_peak_history_v2": 3.01
     },
     "COMP": {
       "quality_state": "neutral",
@@ -1678,7 +1828,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 18.0
+      "rs_1w": 18.0,
+      "extension_peak_history_v2": -0.88
     },
     "CORZ": {
       "quality_state": "neutral",
@@ -1689,7 +1840,8 @@
       "laggard_narratives": [
         "data_center"
       ],
-      "rs_1w": 18.5
+      "rs_1w": 18.5,
+      "extension_peak_history_v2": -3.27
     },
     "COTY": {
       "quality_state": "neutral",
@@ -1698,7 +1850,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 74.4
+      "rs_1w": 74.4,
+      "extension_peak_history_v2": 2.13
     },
     "COUR": {
       "quality_state": "neutral",
@@ -1707,7 +1860,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 91.6
+      "rs_1w": 91.6,
+      "extension_peak_history_v2": 3.62
     },
     "CRCL": {
       "quality_state": "neutral",
@@ -1716,7 +1870,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 81.2
+      "rs_1w": 81.2,
+      "extension_peak_history_v2": 4.94
     },
     "CRCT": {
       "quality_state": "neutral",
@@ -1725,7 +1880,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 68.3
+      "rs_1w": 68.3,
+      "extension_peak_history_v2": 4.26
     },
     "CRDO": {
       "quality_state": "neutral",
@@ -1734,7 +1890,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 54.9
+      "rs_1w": 54.9,
+      "extension_peak_history_v2": -0.31
     },
     "CRML": {
       "quality_state": "neutral",
@@ -1743,7 +1900,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 98.2
+      "rs_1w": 98.2,
+      "extension_peak_history_v2": 1.21
     },
     "CRS": {
       "quality_state": "neutral",
@@ -1754,7 +1912,8 @@
       "laggard_narratives": [
         "specialty_metals_advanced_materials"
       ],
-      "rs_1w": 38.6
+      "rs_1w": 38.6,
+      "extension_peak_history_v2": -3.23
     },
     "CRSR": {
       "quality_state": "recent_leader",
@@ -1763,7 +1922,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 95.5
+      "rs_1w": 95.5,
+      "extension_peak_history_v2": 2.98
     },
     "CRWD": {
       "quality_state": "recent_leader",
@@ -1774,7 +1934,8 @@
         "cybersecurity"
       ],
       "laggard_narratives": [],
-      "rs_1w": 97.2
+      "rs_1w": 97.2,
+      "extension_peak_history_v2": 2.06
     },
     "CRWV": {
       "quality_state": "neutral",
@@ -1783,7 +1944,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 34.9
+      "rs_1w": 34.9,
+      "extension_peak_history_v2": -0.16
     },
     "CSAN": {
       "quality_state": "neutral",
@@ -1792,7 +1954,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 64.1
+      "rs_1w": 64.1,
+      "extension_peak_history_v2": -0.53
     },
     "CSGP": {
       "quality_state": "neutral",
@@ -1801,7 +1964,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 40.4
+      "rs_1w": 40.4,
+      "extension_peak_history_v2": 1.52
     },
     "CTOS": {
       "quality_state": "neutral",
@@ -1810,7 +1974,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 36.9
+      "rs_1w": 36.9,
+      "extension_peak_history_v2": -2.21
     },
     "CTRI": {
       "quality_state": "neutral",
@@ -1819,7 +1984,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 30.7
+      "rs_1w": 30.7,
+      "extension_peak_history_v2": -4.66
     },
     "CVI": {
       "quality_state": "neutral",
@@ -1828,7 +1994,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 63.3
+      "rs_1w": 63.3,
+      "extension_peak_history_v2": 4.96
     },
     "CVNA": {
       "quality_state": "neutral",
@@ -1837,7 +2004,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 91.2
+      "rs_1w": 91.2,
+      "extension_peak_history_v2": 2.42
     },
     "CVSA": {
       "quality_state": "neutral",
@@ -1846,7 +2014,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 87.5
+      "rs_1w": 87.5,
+      "extension_peak_history_v2": 3.64
     },
     "CXW": {
       "quality_state": "neutral",
@@ -1855,7 +2024,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 43.5
+      "rs_1w": 43.5,
+      "extension_peak_history_v2": 1.93
     },
     "CYD": {
       "quality_state": "neutral",
@@ -1864,7 +2034,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 53.6
+      "rs_1w": 53.6,
+      "extension_peak_history_v2": -2.49
     },
     "DAN": {
       "quality_state": "neutral",
@@ -1873,7 +2044,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 18.7
+      "rs_1w": 18.7,
+      "extension_peak_history_v2": 2.54
     },
     "DAO": {
       "quality_state": "recent_leader",
@@ -1882,7 +2054,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 3.1
+      "rs_1w": 3.1,
+      "extension_peak_history_v2": 1.13
     },
     "DAR": {
       "quality_state": "neutral",
@@ -1891,7 +2064,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 26.3
+      "rs_1w": 26.3,
+      "extension_peak_history_v2": 1.28
     },
     "DAVE": {
       "quality_state": "neutral",
@@ -1900,7 +2074,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 90.6
+      "rs_1w": 90.6,
+      "extension_peak_history_v2": 0.59
     },
     "DCH": {
       "quality_state": "neutral",
@@ -1909,7 +2084,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 9.1
+      "rs_1w": 9.1,
+      "extension_peak_history_v2": 2.09
     },
     "DDOG": {
       "quality_state": "neutral",
@@ -1918,7 +2094,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 76.9
+      "rs_1w": 76.9,
+      "extension_peak_history_v2": -0.28
     },
     "DDS": {
       "quality_state": "neutral",
@@ -1927,7 +2104,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 62.7
+      "rs_1w": 62.7,
+      "extension_peak_history_v2": 2.15
     },
     "DELL": {
       "quality_state": "leader",
@@ -1939,7 +2117,8 @@
         "data_center"
       ],
       "laggard_narratives": [],
-      "rs_1w": 85.7
+      "rs_1w": 85.7,
+      "extension_peak_history_v2": 1.77
     },
     "DFH": {
       "quality_state": "neutral",
@@ -1948,7 +2127,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 31.0
+      "rs_1w": 31.0,
+      "extension_peak_history_v2": -0.74
     },
     "DGII": {
       "quality_state": "neutral",
@@ -1957,7 +2137,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 76.5
+      "rs_1w": 76.5,
+      "extension_peak_history_v2": 2.45
     },
     "DINO": {
       "quality_state": "neutral",
@@ -1966,7 +2147,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 55.0
+      "rs_1w": 55.0,
+      "extension_peak_history_v2": 4.77
     },
     "DIOD": {
       "quality_state": "neutral",
@@ -1977,7 +2159,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 15.3
+      "rs_1w": 15.3,
+      "extension_peak_history_v2": -1.06
     },
     "DJT": {
       "quality_state": "neutral",
@@ -1986,7 +2169,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 89.4
+      "rs_1w": 89.4,
+      "extension_peak_history_v2": 2.19
     },
     "DK": {
       "quality_state": "leader",
@@ -1997,7 +2181,8 @@
         "petroleum_refining"
       ],
       "laggard_narratives": [],
-      "rs_1w": 51.5
+      "rs_1w": 51.5,
+      "extension_peak_history_v2": 3.45
     },
     "DKNG": {
       "quality_state": "neutral",
@@ -2006,7 +2191,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 10.4
+      "rs_1w": 10.4,
+      "extension_peak_history_v2": -0.33
     },
     "DKS": {
       "quality_state": "neutral",
@@ -2015,7 +2201,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 0.5
+      "rs_1w": 0.5,
+      "extension_peak_history_v2": -4.5
     },
     "DNN": {
       "quality_state": "neutral",
@@ -2024,7 +2211,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 72.4
+      "rs_1w": 72.4,
+      "extension_peak_history_v2": 3.29
     },
     "DOCN": {
       "quality_state": "neutral",
@@ -2035,7 +2223,8 @@
       "laggard_narratives": [
         "software_saas"
       ],
-      "rs_1w": 68.8
+      "rs_1w": 68.8,
+      "extension_peak_history_v2": -1.13
     },
     "DOCS": {
       "quality_state": "neutral",
@@ -2046,7 +2235,8 @@
       "laggard_narratives": [
         "software_saas"
       ],
-      "rs_1w": 79.5
+      "rs_1w": 79.5,
+      "extension_peak_history_v2": 3.86
     },
     "DOCU": {
       "quality_state": "neutral",
@@ -2055,7 +2245,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 81.5
+      "rs_1w": 81.5,
+      "extension_peak_history_v2": 5.48
     },
     "DUOL": {
       "quality_state": "neutral",
@@ -2064,7 +2255,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 46.3
+      "rs_1w": 46.3,
+      "extension_peak_history_v2": 2.1
     },
     "DXC": {
       "quality_state": "neutral",
@@ -2073,7 +2265,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 72.2
+      "rs_1w": 72.2,
+      "extension_peak_history_v2": 2.81
     },
     "DXPE": {
       "quality_state": "neutral",
@@ -2082,7 +2275,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 55.4
+      "rs_1w": 55.4,
+      "extension_peak_history_v2": 3.03
     },
     "DY": {
       "quality_state": "neutral",
@@ -2091,7 +2285,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 0.8
+      "rs_1w": 0.8,
+      "extension_peak_history_v2": -4.35
     },
     "EAT": {
       "quality_state": "leader",
@@ -2100,7 +2295,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 14.3
+      "rs_1w": 14.3,
+      "extension_peak_history_v2": 3.02
     },
     "ECG": {
       "quality_state": "neutral",
@@ -2111,7 +2307,8 @@
       "laggard_narratives": [
         "construction_engineering_services"
       ],
-      "rs_1w": 15.1
+      "rs_1w": 15.1,
+      "extension_peak_history_v2": -2.31
     },
     "EDN": {
       "quality_state": "neutral",
@@ -2120,7 +2317,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 85.6
+      "rs_1w": 85.6,
+      "extension_peak_history_v2": -0.82
     },
     "EFOR": {
       "quality_state": "leader",
@@ -2129,7 +2327,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 27.3
+      "rs_1w": 27.3,
+      "extension_peak_history_v2": 6.42
     },
     "EFXT": {
       "quality_state": "neutral",
@@ -2138,7 +2337,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 50.3
+      "rs_1w": 50.3,
+      "extension_peak_history_v2": -2.26
     },
     "EGO": {
       "quality_state": "neutral",
@@ -2147,7 +2347,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 77.8
+      "rs_1w": 77.8,
+      "extension_peak_history_v2": 9.54
     },
     "ELF": {
       "quality_state": "neutral",
@@ -2156,7 +2357,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 83.3
+      "rs_1w": 83.3,
+      "extension_peak_history_v2": 8.76
     },
     "EMAT": {
       "quality_state": "neutral",
@@ -2165,7 +2367,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 1.0
+      "rs_1w": 1.0,
+      "extension_peak_history_v2": -1.52
     },
     "ENPH": {
       "quality_state": "neutral",
@@ -2174,7 +2377,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 53.4
+      "rs_1w": 53.4,
+      "extension_peak_history_v2": -1.56
     },
     "ENR": {
       "quality_state": "neutral",
@@ -2183,7 +2387,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 77.1
+      "rs_1w": 77.1,
+      "extension_peak_history_v2": 1.33
     },
     "ENTG": {
       "quality_state": "neutral",
@@ -2192,7 +2397,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 43.7
+      "rs_1w": 43.7,
+      "extension_peak_history_v2": -0.43
     },
     "EOSE": {
       "quality_state": "neutral",
@@ -2203,7 +2409,8 @@
       "laggard_narratives": [
         "ev_battery"
       ],
-      "rs_1w": 2.8
+      "rs_1w": 2.8,
+      "extension_peak_history_v2": -2.85
     },
     "EPAM": {
       "quality_state": "neutral",
@@ -2214,7 +2421,8 @@
       "laggard_narratives": [
         "it_services_consulting"
       ],
-      "rs_1w": 69.0
+      "rs_1w": 69.0,
+      "extension_peak_history_v2": 5.2
     },
     "EPC": {
       "quality_state": "neutral",
@@ -2223,7 +2431,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 58.9
+      "rs_1w": 58.9,
+      "extension_peak_history_v2": 1.4
     },
     "EQPT": {
       "quality_state": "neutral",
@@ -2232,7 +2441,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 35.9
+      "rs_1w": 35.9,
+      "extension_peak_history_v2": -0.85
     },
     "EQX": {
       "quality_state": "neutral",
@@ -2243,7 +2453,8 @@
       "laggard_narratives": [
         "gold___precious_metals_miners"
       ],
-      "rs_1w": 34.4
+      "rs_1w": 34.4,
+      "extension_peak_history_v2": 6.93
     },
     "ERO": {
       "quality_state": "neutral",
@@ -2252,7 +2463,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 53.2
+      "rs_1w": 53.2,
+      "extension_peak_history_v2": 7.76
     },
     "ESAB": {
       "quality_state": "neutral",
@@ -2261,7 +2473,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 26.8
+      "rs_1w": 26.8,
+      "extension_peak_history_v2": -2.81
     },
     "ESTC": {
       "quality_state": "fresh_leader",
@@ -2270,7 +2483,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 99.5
+      "rs_1w": 99.5,
+      "extension_peak_history_v2": 10.27
     },
     "ETOR": {
       "quality_state": "neutral",
@@ -2279,7 +2493,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 75.2
+      "rs_1w": 75.2,
+      "extension_peak_history_v2": -2.32
     },
     "EVCM": {
       "quality_state": "neutral",
@@ -2290,7 +2505,8 @@
       "laggard_narratives": [
         "software_saas"
       ],
-      "rs_1w": 19.3
+      "rs_1w": 19.3,
+      "extension_peak_history_v2": -2.53
     },
     "EXK": {
       "quality_state": "neutral",
@@ -2299,7 +2515,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 87.3
+      "rs_1w": 87.3,
+      "extension_peak_history_v2": 5.12
     },
     "EXTR": {
       "quality_state": "neutral",
@@ -2308,7 +2525,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 46.6
+      "rs_1w": 46.6,
+      "extension_peak_history_v2": -5.19
     },
     "EYE": {
       "quality_state": "neutral",
@@ -2317,7 +2535,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 63.8
+      "rs_1w": 63.8,
+      "extension_peak_history_v2": -1.36
     },
     "EZPW": {
       "quality_state": "neutral",
@@ -2326,7 +2545,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 89.6
+      "rs_1w": 89.6,
+      "extension_peak_history_v2": 2.24
     },
     "FA": {
       "quality_state": "recent_leader",
@@ -2335,7 +2555,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 59.4
+      "rs_1w": 59.4,
+      "extension_peak_history_v2": 1.05
     },
     "FCEL": {
       "quality_state": "neutral",
@@ -2344,7 +2565,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 25.0
+      "rs_1w": 25.0,
+      "extension_peak_history_v2": -1.22
     },
     "FICO": {
       "quality_state": "neutral",
@@ -2353,7 +2575,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 47.7
+      "rs_1w": 47.7,
+      "extension_peak_history_v2": 0.1
     },
     "FIG": {
       "quality_state": "neutral",
@@ -2362,7 +2585,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 97.6
+      "rs_1w": 97.6,
+      "extension_peak_history_v2": 5.82
     },
     "FIGR": {
       "quality_state": "neutral",
@@ -2371,7 +2595,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 20.6
+      "rs_1w": 20.6,
+      "extension_peak_history_v2": 3.07
     },
     "FIGS": {
       "quality_state": "neutral",
@@ -2380,7 +2605,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 71.1
+      "rs_1w": 71.1,
+      "extension_peak_history_v2": 7.15
     },
     "FIVN": {
       "quality_state": "leader",
@@ -2389,7 +2615,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 86.5
+      "rs_1w": 86.5,
+      "extension_peak_history_v2": 6.11
     },
     "FIX": {
       "quality_state": "neutral",
@@ -2398,7 +2625,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 20.3
+      "rs_1w": 20.3,
+      "extension_peak_history_v2": -1.74
     },
     "FLEX": {
       "quality_state": "neutral",
@@ -2407,7 +2635,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 66.7
+      "rs_1w": 66.7,
+      "extension_peak_history_v2": -2.35
     },
     "FLNC": {
       "quality_state": "neutral",
@@ -2416,7 +2645,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 54.5
+      "rs_1w": 54.5,
+      "extension_peak_history_v2": -4.06
     },
     "FLO": {
       "quality_state": "neutral",
@@ -2425,7 +2655,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 55.2
+      "rs_1w": 55.2,
+      "extension_peak_history_v2": -2.09
     },
     "FLR": {
       "quality_state": "neutral",
@@ -2434,7 +2665,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 69.6
+      "rs_1w": 69.6,
+      "extension_peak_history_v2": 1.45
     },
     "FLUT": {
       "quality_state": "neutral",
@@ -2443,7 +2675,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 11.2
+      "rs_1w": 11.2,
+      "extension_peak_history_v2": -1.29
     },
     "FLY": {
       "quality_state": "neutral",
@@ -2454,7 +2687,8 @@
       "laggard_narratives": [
         "space"
       ],
-      "rs_1w": 2.3
+      "rs_1w": 2.3,
+      "extension_peak_history_v2": -1.42
     },
     "FMC": {
       "quality_state": "neutral",
@@ -2463,7 +2697,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 34.1
+      "rs_1w": 34.1,
+      "extension_peak_history_v2": -0.22
     },
     "FN": {
       "quality_state": "neutral",
@@ -2472,7 +2707,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 19.6
+      "rs_1w": 19.6,
+      "extension_peak_history_v2": -1.96
     },
     "FORM": {
       "quality_state": "neutral",
@@ -2483,7 +2719,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 12.3
+      "rs_1w": 12.3,
+      "extension_peak_history_v2": -1.23
     },
     "FOUR": {
       "quality_state": "neutral",
@@ -2494,7 +2731,8 @@
       "laggard_narratives": [
         "fintech"
       ],
-      "rs_1w": 7.8
+      "rs_1w": 7.8,
+      "extension_peak_history_v2": -1.24
     },
     "FPS": {
       "quality_state": "neutral",
@@ -2505,7 +2743,8 @@
       "laggard_narratives": [
         "electronic_components_manufacturing"
       ],
-      "rs_1w": 13.0
+      "rs_1w": 13.0,
+      "extension_peak_history_v2": -4.15
     },
     "FRHC": {
       "quality_state": "neutral",
@@ -2514,7 +2753,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 49.7
+      "rs_1w": 49.7,
+      "extension_peak_history_v2": 2.62
     },
     "FRMI": {
       "quality_state": "neutral",
@@ -2525,7 +2765,8 @@
       "laggard_narratives": [
         "data_center"
       ],
-      "rs_1w": 4.7
+      "rs_1w": 4.7,
+      "extension_peak_history_v2": -2.36
     },
     "FROG": {
       "quality_state": "fresh_leader",
@@ -2536,7 +2777,8 @@
         "software_saas"
       ],
       "laggard_narratives": [],
-      "rs_1w": 95.1
+      "rs_1w": 95.1,
+      "extension_peak_history_v2": 3.23
     },
     "FRPT": {
       "quality_state": "neutral",
@@ -2545,7 +2787,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 32.1
+      "rs_1w": 32.1,
+      "extension_peak_history_v2": 5.0
     },
     "FRSH": {
       "quality_state": "neutral",
@@ -2554,7 +2797,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 86.2
+      "rs_1w": 86.2,
+      "extension_peak_history_v2": 6.55
     },
     "FRVO": {
       "quality_state": "neutral",
@@ -2563,7 +2807,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 5.2
+      "rs_1w": 5.2,
+      "extension_peak_history_v2": -2.99
     },
     "FSLR": {
       "quality_state": "neutral",
@@ -2574,7 +2819,8 @@
       "laggard_narratives": [
         "solar_clean_energy"
       ],
-      "rs_1w": 27.4
+      "rs_1w": 27.4,
+      "extension_peak_history_v2": -1.72
     },
     "FSLY": {
       "quality_state": "recent_leader",
@@ -2585,7 +2831,8 @@
         "software_saas"
       ],
       "laggard_narratives": [],
-      "rs_1w": 30.5
+      "rs_1w": 30.5,
+      "extension_peak_history_v2": 1.58
     },
     "FTAI": {
       "quality_state": "neutral",
@@ -2594,7 +2841,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 14.9
+      "rs_1w": 14.9,
+      "extension_peak_history_v2": -2.08
     },
     "FUN": {
       "quality_state": "neutral",
@@ -2603,7 +2851,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 16.6
+      "rs_1w": 16.6,
+      "extension_peak_history_v2": -3.13
     },
     "GCT": {
       "quality_state": "neutral",
@@ -2612,7 +2861,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 75.8
+      "rs_1w": 75.8,
+      "extension_peak_history_v2": 6.44
     },
     "GDRX": {
       "quality_state": "neutral",
@@ -2621,7 +2871,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 61.9
+      "rs_1w": 61.9,
+      "extension_peak_history_v2": 2.46
     },
     "GDS": {
       "quality_state": "neutral",
@@ -2630,7 +2881,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 62.2
+      "rs_1w": 62.2,
+      "extension_peak_history_v2": 0.99
     },
     "GENI": {
       "quality_state": "recent_leader",
@@ -2639,7 +2891,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 59.3
+      "rs_1w": 59.3,
+      "extension_peak_history_v2": 3.33
     },
     "GEO": {
       "quality_state": "neutral",
@@ -2648,7 +2901,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 41.9
+      "rs_1w": 41.9,
+      "extension_peak_history_v2": 1.76
     },
     "GFS": {
       "quality_state": "neutral",
@@ -2659,7 +2913,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 17.7
+      "rs_1w": 17.7,
+      "extension_peak_history_v2": -5.46
     },
     "GGAL": {
       "quality_state": "neutral",
@@ -2668,7 +2923,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 69.5
+      "rs_1w": 69.5,
+      "extension_peak_history_v2": -2.7
     },
     "GHM": {
       "quality_state": "neutral",
@@ -2679,7 +2935,8 @@
       "laggard_narratives": [
         "industrial_machinery"
       ],
-      "rs_1w": 5.0
+      "rs_1w": 5.0,
+      "extension_peak_history_v2": -2.51
     },
     "GLIBK": {
       "quality_state": "neutral",
@@ -2688,7 +2945,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 68.0
+      "rs_1w": 68.0,
+      "extension_peak_history_v2": 3.73
     },
     "GLOB": {
       "quality_state": "neutral",
@@ -2697,7 +2955,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 73.1
+      "rs_1w": 73.1,
+      "extension_peak_history_v2": 3.48
     },
     "GLW": {
       "quality_state": "neutral",
@@ -2706,7 +2965,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 48.1
+      "rs_1w": 48.1,
+      "extension_peak_history_v2": -2.22
     },
     "GLXY": {
       "quality_state": "neutral",
@@ -2715,7 +2975,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 74.5
+      "rs_1w": 74.5,
+      "extension_peak_history_v2": 0.42
     },
     "GNRC": {
       "quality_state": "neutral",
@@ -2724,7 +2985,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 15.7
+      "rs_1w": 15.7,
+      "extension_peak_history_v2": -3.07
     },
     "GO": {
       "quality_state": "neutral",
@@ -2733,7 +2995,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 70.6
+      "rs_1w": 70.6,
+      "extension_peak_history_v2": 4.07
     },
     "GOLF": {
       "quality_state": "neutral",
@@ -2742,7 +3005,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 29.9
+      "rs_1w": 29.9,
+      "extension_peak_history_v2": -5.14
     },
     "GPGI": {
       "quality_state": "neutral",
@@ -2751,7 +3015,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 67.7
+      "rs_1w": 67.7,
+      "extension_peak_history_v2": -1.63
     },
     "GRDN": {
       "quality_state": "neutral",
@@ -2760,7 +3025,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 24.2
+      "rs_1w": 24.2,
+      "extension_peak_history_v2": -2.14
     },
     "GSHD": {
       "quality_state": "neutral",
@@ -2769,7 +3035,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 33.9
+      "rs_1w": 33.9,
+      "extension_peak_history_v2": 5.55
     },
     "GT": {
       "quality_state": "neutral",
@@ -2778,7 +3045,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 74.7
+      "rs_1w": 74.7,
+      "extension_peak_history_v2": -1.66
     },
     "GTLB": {
       "quality_state": "recent_leader",
@@ -2787,7 +3055,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 88.0
+      "rs_1w": 88.0,
+      "extension_peak_history_v2": 6.32
     },
     "GTM": {
       "quality_state": "neutral",
@@ -2796,7 +3065,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 87.8
+      "rs_1w": 87.8,
+      "extension_peak_history_v2": 4.52
     },
     "GWRE": {
       "quality_state": "neutral",
@@ -2805,7 +3075,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 89.1
+      "rs_1w": 89.1,
+      "extension_peak_history_v2": 8.97
     },
     "HAWK": {
       "quality_state": "neutral",
@@ -2814,7 +3085,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 20.1
+      "rs_1w": 20.1,
+      "extension_peak_history_v2": -0.36
     },
     "HCC": {
       "quality_state": "neutral",
@@ -2823,7 +3095,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 67.0
+      "rs_1w": 67.0,
+      "extension_peak_history_v2": 5.65
     },
     "HIMX": {
       "quality_state": "neutral",
@@ -2832,7 +3105,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 51.8
+      "rs_1w": 51.8,
+      "extension_peak_history_v2": -0.45
     },
     "HL": {
       "quality_state": "neutral",
@@ -2841,7 +3115,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 74.2
+      "rs_1w": 74.2,
+      "extension_peak_history_v2": 6.77
     },
     "HLF": {
       "quality_state": "neutral",
@@ -2850,7 +3125,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 41.2
+      "rs_1w": 41.2,
+      "extension_peak_history_v2": 0.35
     },
     "HLIT": {
       "quality_state": "neutral",
@@ -2861,7 +3137,8 @@
       "laggard_narratives": [
         "networking"
       ],
-      "rs_1w": 34.3
+      "rs_1w": 34.3,
+      "extension_peak_history_v2": -0.89
     },
     "HNGE": {
       "quality_state": "leader",
@@ -2870,7 +3147,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 76.0
+      "rs_1w": 76.0,
+      "extension_peak_history_v2": 2.44
     },
     "HOOD": {
       "quality_state": "neutral",
@@ -2879,7 +3157,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 51.0
+      "rs_1w": 51.0,
+      "extension_peak_history_v2": 1.39
     },
     "HPE": {
       "quality_state": "leader",
@@ -2891,7 +3170,8 @@
         "data_center"
       ],
       "laggard_narratives": [],
-      "rs_1w": 47.4
+      "rs_1w": 47.4,
+      "extension_peak_history_v2": 1.6
     },
     "HPK": {
       "quality_state": "neutral",
@@ -2900,7 +3180,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 19.0
+      "rs_1w": 19.0,
+      "extension_peak_history_v2": 1.46
     },
     "HPQ": {
       "quality_state": "neutral",
@@ -2909,7 +3190,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 67.5
+      "rs_1w": 67.5,
+      "extension_peak_history_v2": 3.35
     },
     "HRI": {
       "quality_state": "neutral",
@@ -2918,7 +3200,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 18.2
+      "rs_1w": 18.2,
+      "extension_peak_history_v2": 0.15
     },
     "HSAI": {
       "quality_state": "neutral",
@@ -2927,7 +3210,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 7.1
+      "rs_1w": 7.1,
+      "extension_peak_history_v2": 0.82
     },
     "HSLV": {
       "quality_state": "neutral",
@@ -2936,7 +3220,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 90.7
+      "rs_1w": 90.7,
+      "extension_peak_history_v2": 4.57
     },
     "HUBG": {
       "quality_state": "neutral",
@@ -2945,7 +3230,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 37.0
+      "rs_1w": 37.0,
+      "extension_peak_history_v2": -1.83
     },
     "HUBS": {
       "quality_state": "neutral",
@@ -2954,7 +3240,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 92.2
+      "rs_1w": 92.2,
+      "extension_peak_history_v2": 3.95
     },
     "HUT": {
       "quality_state": "neutral",
@@ -2963,7 +3250,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 78.6
+      "rs_1w": 78.6,
+      "extension_peak_history_v2": -1.73
     },
     "HYMC": {
       "quality_state": "neutral",
@@ -2974,7 +3262,8 @@
       "laggard_narratives": [
         "gold___precious_metals_miners"
       ],
-      "rs_1w": 18.8
+      "rs_1w": 18.8,
+      "extension_peak_history_v2": 1.78
     },
     "IAUX": {
       "quality_state": "neutral",
@@ -2983,7 +3272,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 82.6
+      "rs_1w": 82.6,
+      "extension_peak_history_v2": 6.25
     },
     "IBP": {
       "quality_state": "neutral",
@@ -2994,7 +3284,8 @@
       "laggard_narratives": [
         "building_products_materials_distribution"
       ],
-      "rs_1w": 39.4
+      "rs_1w": 39.4,
+      "extension_peak_history_v2": 1.44
     },
     "ICHR": {
       "quality_state": "neutral",
@@ -3005,7 +3296,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 13.6
+      "rs_1w": 13.6,
+      "extension_peak_history_v2": -4.37
     },
     "IE": {
       "quality_state": "neutral",
@@ -3014,7 +3306,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 72.6
+      "rs_1w": 72.6,
+      "extension_peak_history_v2": 3.66
     },
     "IESC": {
       "quality_state": "neutral",
@@ -3025,7 +3318,8 @@
       "laggard_narratives": [
         "construction_engineering_services"
       ],
-      "rs_1w": 0.2
+      "rs_1w": 0.2,
+      "extension_peak_history_v2": -2.78
     },
     "ILMN": {
       "quality_state": "leader",
@@ -3034,7 +3328,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 61.0
+      "rs_1w": 61.0,
+      "extension_peak_history_v2": 3.98
     },
     "INFQ": {
       "quality_state": "neutral",
@@ -3043,7 +3338,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 43.2
+      "rs_1w": 43.2,
+      "extension_peak_history_v2": 2.74
     },
     "INOD": {
       "quality_state": "neutral",
@@ -3054,7 +3350,8 @@
       "laggard_narratives": [
         "it_services_consulting"
       ],
-      "rs_1w": 5.7
+      "rs_1w": 5.7,
+      "extension_peak_history_v2": -2.01
     },
     "INTA": {
       "quality_state": "leader",
@@ -3063,7 +3360,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 85.9
+      "rs_1w": 85.9,
+      "extension_peak_history_v2": 10.12
     },
     "INTC": {
       "quality_state": "neutral",
@@ -3072,7 +3370,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 56.8
+      "rs_1w": 56.8,
+      "extension_peak_history_v2": -2.61
     },
     "INTR": {
       "quality_state": "neutral",
@@ -3083,7 +3382,8 @@
       "laggard_narratives": [
         "fintech"
       ],
-      "rs_1w": 44.2
+      "rs_1w": 44.2,
+      "extension_peak_history_v2": -0.37
     },
     "INVX": {
       "quality_state": "neutral",
@@ -3092,7 +3392,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 50.0
+      "rs_1w": 50.0,
+      "extension_peak_history_v2": 2.19
     },
     "IONQ": {
       "quality_state": "neutral",
@@ -3101,7 +3402,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 5.5
+      "rs_1w": 5.5,
+      "extension_peak_history_v2": -0.75
     },
     "IOT": {
       "quality_state": "neutral",
@@ -3110,7 +3412,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 83.6
+      "rs_1w": 83.6,
+      "extension_peak_history_v2": 3.25
     },
     "IPGP": {
       "quality_state": "neutral",
@@ -3119,7 +3422,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 91.9
+      "rs_1w": 91.9,
+      "extension_peak_history_v2": -3.0
     },
     "IREN": {
       "quality_state": "neutral",
@@ -3130,7 +3434,8 @@
       "laggard_narratives": [
         "data_center"
       ],
-      "rs_1w": 3.6
+      "rs_1w": 3.6,
+      "extension_peak_history_v2": -1.16
     },
     "IT": {
       "quality_state": "neutral",
@@ -3139,7 +3444,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 57.3
+      "rs_1w": 57.3,
+      "extension_peak_history_v2": 6.43
     },
     "JOBY": {
       "quality_state": "neutral",
@@ -3148,7 +3454,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 12.5
+      "rs_1w": 12.5,
+      "extension_peak_history_v2": -2.14
     },
     "KAI": {
       "quality_state": "neutral",
@@ -3159,7 +3466,8 @@
       "laggard_narratives": [
         "industrial_machinery"
       ],
-      "rs_1w": 22.9
+      "rs_1w": 22.9,
+      "extension_peak_history_v2": -0.79
     },
     "KALU": {
       "quality_state": "neutral",
@@ -3168,7 +3476,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 70.8
+      "rs_1w": 70.8,
+      "extension_peak_history_v2": -1.24
     },
     "KD": {
       "quality_state": "neutral",
@@ -3177,7 +3486,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 86.7
+      "rs_1w": 86.7,
+      "extension_peak_history_v2": 1.56
     },
     "KEEL": {
       "quality_state": "neutral",
@@ -3186,7 +3496,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 51.9
+      "rs_1w": 51.9,
+      "extension_peak_history_v2": -2.09
     },
     "KGS": {
       "quality_state": "neutral",
@@ -3197,7 +3508,8 @@
       "laggard_narratives": [
         "oil_gas_services_equipment"
       ],
-      "rs_1w": 19.5
+      "rs_1w": 19.5,
+      "extension_peak_history_v2": -1.8
     },
     "KLAC": {
       "quality_state": "neutral",
@@ -3206,7 +3518,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 33.3
+      "rs_1w": 33.3,
+      "extension_peak_history_v2": -3.55
     },
     "KLAR": {
       "quality_state": "neutral",
@@ -3215,7 +3528,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 77.3
+      "rs_1w": 77.3,
+      "extension_peak_history_v2": -2.56
     },
     "KLIC": {
       "quality_state": "neutral",
@@ -3226,7 +3540,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 21.8
+      "rs_1w": 21.8,
+      "extension_peak_history_v2": -3.59
     },
     "KMT": {
       "quality_state": "neutral",
@@ -3235,7 +3550,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 57.6
+      "rs_1w": 57.6,
+      "extension_peak_history_v2": -2.57
     },
     "KNF": {
       "quality_state": "neutral",
@@ -3244,7 +3560,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 62.8
+      "rs_1w": 62.8,
+      "extension_peak_history_v2": -3.3
     },
     "KOS": {
       "quality_state": "neutral",
@@ -3253,7 +3570,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 17.0
+      "rs_1w": 17.0,
+      "extension_peak_history_v2": 3.25
     },
     "KRMN": {
       "quality_state": "neutral",
@@ -3264,7 +3582,8 @@
       "laggard_narratives": [
         "defense_aerospace"
       ],
-      "rs_1w": 2.1
+      "rs_1w": 2.1,
+      "extension_peak_history_v2": -1.45
     },
     "KRO": {
       "quality_state": "neutral",
@@ -3273,7 +3592,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 93.5
+      "rs_1w": 93.5,
+      "extension_peak_history_v2": 5.34
     },
     "KSS": {
       "quality_state": "neutral",
@@ -3282,7 +3602,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 68.2
+      "rs_1w": 68.2,
+      "extension_peak_history_v2": -0.09
     },
     "KTOS": {
       "quality_state": "neutral",
@@ -3293,7 +3614,8 @@
       "laggard_narratives": [
         "defense_aerospace"
       ],
-      "rs_1w": 9.9
+      "rs_1w": 9.9,
+      "extension_peak_history_v2": 0.3
     },
     "KVYO": {
       "quality_state": "neutral",
@@ -3302,7 +3624,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 94.8
+      "rs_1w": 94.8,
+      "extension_peak_history_v2": 3.33
     },
     "LAC": {
       "quality_state": "neutral",
@@ -3311,7 +3634,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 57.5
+      "rs_1w": 57.5,
+      "extension_peak_history_v2": -0.64
     },
     "LAR": {
       "quality_state": "neutral",
@@ -3320,7 +3644,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 69.3
+      "rs_1w": 69.3,
+      "extension_peak_history_v2": 0.29
     },
     "LASR": {
       "quality_state": "neutral",
@@ -3329,7 +3654,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 8.4
+      "rs_1w": 8.4,
+      "extension_peak_history_v2": -4.0
     },
     "LB": {
       "quality_state": "neutral",
@@ -3338,7 +3664,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 43.0
+      "rs_1w": 43.0,
+      "extension_peak_history_v2": 3.5
     },
     "LBRT": {
       "quality_state": "neutral",
@@ -3349,7 +3676,8 @@
       "laggard_narratives": [
         "oil_gas_services_equipment"
       ],
-      "rs_1w": 26.6
+      "rs_1w": 26.6,
+      "extension_peak_history_v2": -3.14
     },
     "LBTYB": {
       "quality_state": "neutral",
@@ -3358,7 +3686,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 39.6
+      "rs_1w": 39.6,
+      "extension_peak_history_v2": 0.22
     },
     "LCID": {
       "quality_state": "neutral",
@@ -3369,7 +3698,8 @@
       "laggard_narratives": [
         "ev_battery"
       ],
-      "rs_1w": 7.5
+      "rs_1w": 7.5,
+      "extension_peak_history_v2": -2.38
     },
     "LEU": {
       "quality_state": "neutral",
@@ -3378,7 +3708,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 68.5
+      "rs_1w": 68.5,
+      "extension_peak_history_v2": 1.57
     },
     "LGIH": {
       "quality_state": "neutral",
@@ -3387,7 +3718,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 29.2
+      "rs_1w": 29.2,
+      "extension_peak_history_v2": -0.87
     },
     "LGN": {
       "quality_state": "neutral",
@@ -3398,7 +3730,8 @@
       "laggard_narratives": [
         "construction_engineering_services"
       ],
-      "rs_1w": 13.8
+      "rs_1w": 13.8,
+      "extension_peak_history_v2": -2.76
     },
     "LIF": {
       "quality_state": "neutral",
@@ -3409,7 +3742,8 @@
       "laggard_narratives": [
         "social_media_platform"
       ],
-      "rs_1w": 37.2
+      "rs_1w": 37.2,
+      "extension_peak_history_v2": -2.04
     },
     "LIFE": {
       "quality_state": "leader",
@@ -3418,7 +3752,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 98.9
+      "rs_1w": 98.9,
+      "extension_peak_history_v2": 10.1
     },
     "LIND": {
       "quality_state": "leader",
@@ -3427,7 +3762,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 28.1
+      "rs_1w": 28.1,
+      "extension_peak_history_v2": 0.83
     },
     "LITE": {
       "quality_state": "neutral",
@@ -3436,7 +3772,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 87.0
+      "rs_1w": 87.0,
+      "extension_peak_history_v2": 1.77
     },
     "LMND": {
       "quality_state": "neutral",
@@ -3445,7 +3782,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 62.3
+      "rs_1w": 62.3,
+      "extension_peak_history_v2": -2.05
     },
     "LOAR": {
       "quality_state": "neutral",
@@ -3454,7 +3792,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 25.8
+      "rs_1w": 25.8,
+      "extension_peak_history_v2": -0.18
     },
     "LRCX": {
       "quality_state": "neutral",
@@ -3463,7 +3802,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 46.4
+      "rs_1w": 46.4,
+      "extension_peak_history_v2": -1.13
     },
     "LSCC": {
       "quality_state": "neutral",
@@ -3472,7 +3812,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 49.2
+      "rs_1w": 49.2,
+      "extension_peak_history_v2": -2.17
     },
     "LU": {
       "quality_state": "neutral",
@@ -3483,7 +3824,8 @@
       "laggard_narratives": [
         "fintech"
       ],
-      "rs_1w": 8.0
+      "rs_1w": 8.0,
+      "extension_peak_history_v2": -1.52
     },
     "LUMN": {
       "quality_state": "neutral",
@@ -3492,7 +3834,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 65.9
+      "rs_1w": 65.9,
+      "extension_peak_history_v2": -1.68
     },
     "LUNR": {
       "quality_state": "neutral",
@@ -3503,7 +3846,8 @@
       "laggard_narratives": [
         "space"
       ],
-      "rs_1w": 1.5
+      "rs_1w": 1.5,
+      "extension_peak_history_v2": -0.51
     },
     "LUXE": {
       "quality_state": "neutral",
@@ -3512,7 +3856,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 44.5
+      "rs_1w": 44.5,
+      "extension_peak_history_v2": -0.36
     },
     "LZ": {
       "quality_state": "neutral",
@@ -3521,7 +3866,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 84.3
+      "rs_1w": 84.3,
+      "extension_peak_history_v2": -1.7
     },
     "MAAS": {
       "quality_state": "recent_leader",
@@ -3530,7 +3876,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 90.1
+      "rs_1w": 90.1,
+      "extension_peak_history_v2": -0.01
     },
     "MAIR": {
       "quality_state": "neutral",
@@ -3539,7 +3886,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 80.4
+      "rs_1w": 80.4,
+      "extension_peak_history_v2": -2.53
     },
     "MARA": {
       "quality_state": "neutral",
@@ -3550,7 +3898,8 @@
       "laggard_narratives": [
         "crypto_mining_digital_asset_treasury"
       ],
-      "rs_1w": 50.8
+      "rs_1w": 50.8,
+      "extension_peak_history_v2": -0.5
     },
     "MBC": {
       "quality_state": "neutral",
@@ -3561,7 +3910,8 @@
       "laggard_narratives": [
         "building_products_materials_distribution"
       ],
-      "rs_1w": 15.4
+      "rs_1w": 15.4,
+      "extension_peak_history_v2": -0.89
     },
     "MDA": {
       "quality_state": "neutral",
@@ -3570,7 +3920,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 24.7
+      "rs_1w": 24.7,
+      "extension_peak_history_v2": -2.25
     },
     "MDB": {
       "quality_state": "neutral",
@@ -3579,7 +3930,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 81.3
+      "rs_1w": 81.3,
+      "extension_peak_history_v2": 4.98
     },
     "MGRT": {
       "quality_state": "neutral",
@@ -3588,7 +3940,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 45.1
+      "rs_1w": 45.1,
+      "extension_peak_history_v2": 2.74
     },
     "MH": {
       "quality_state": "neutral",
@@ -3597,7 +3950,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 54.7
+      "rs_1w": 54.7,
+      "extension_peak_history_v2": 4.23
     },
     "MIAX": {
       "quality_state": "neutral",
@@ -3606,7 +3960,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 72.1
+      "rs_1w": 72.1,
+      "extension_peak_history_v2": 1.17
     },
     "MKSI": {
       "quality_state": "neutral",
@@ -3617,7 +3972,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 12.8
+      "rs_1w": 12.8,
+      "extension_peak_history_v2": -3.83
     },
     "MNDY": {
       "quality_state": "neutral",
@@ -3626,7 +3982,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 95.3
+      "rs_1w": 95.3,
+      "extension_peak_history_v2": 3.98
     },
     "MOD": {
       "quality_state": "neutral",
@@ -3637,7 +3994,8 @@
       "laggard_narratives": [
         "automotive_parts_components_supplier"
       ],
-      "rs_1w": 9.4
+      "rs_1w": 9.4,
+      "extension_peak_history_v2": -2.83
     },
     "MOS": {
       "quality_state": "neutral",
@@ -3646,7 +4004,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 33.0
+      "rs_1w": 33.0,
+      "extension_peak_history_v2": 1.84
     },
     "MP": {
       "quality_state": "neutral",
@@ -3655,7 +4014,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 27.9
+      "rs_1w": 27.9,
+      "extension_peak_history_v2": 2.27
     },
     "MPWR": {
       "quality_state": "neutral",
@@ -3664,7 +4024,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 30.8
+      "rs_1w": 30.8,
+      "extension_peak_history_v2": -1.12
     },
     "MRCY": {
       "quality_state": "neutral",
@@ -3673,7 +4034,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 32.3
+      "rs_1w": 32.3,
+      "extension_peak_history_v2": -2.49
     },
     "MRVL": {
       "quality_state": "neutral",
@@ -3682,7 +4044,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 12.0
+      "rs_1w": 12.0,
+      "extension_peak_history_v2": -0.3
     },
     "MRX": {
       "quality_state": "neutral",
@@ -3691,7 +4054,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 31.7
+      "rs_1w": 31.7,
+      "extension_peak_history_v2": 1.71
     },
     "MSTR": {
       "quality_state": "neutral",
@@ -3700,7 +4064,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 97.1
+      "rs_1w": 97.1,
+      "extension_peak_history_v2": 6.06
     },
     "MTA": {
       "quality_state": "recent_leader",
@@ -3709,7 +4074,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 33.4
+      "rs_1w": 33.4,
+      "extension_peak_history_v2": 7.05
     },
     "MTRN": {
       "quality_state": "neutral",
@@ -3718,7 +4084,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 87.7
+      "rs_1w": 87.7,
+      "extension_peak_history_v2": -0.51
     },
     "MTSI": {
       "quality_state": "neutral",
@@ -3727,7 +4094,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 58.8
+      "rs_1w": 58.8,
+      "extension_peak_history_v2": -1.7
     },
     "MTZ": {
       "quality_state": "neutral",
@@ -3738,7 +4106,8 @@
       "laggard_narratives": [
         "construction_engineering_services"
       ],
-      "rs_1w": 11.0
+      "rs_1w": 11.0,
+      "extension_peak_history_v2": -4.22
     },
     "MU": {
       "quality_state": "neutral",
@@ -3747,7 +4116,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 13.3
+      "rs_1w": 13.3,
+      "extension_peak_history_v2": -0.7
     },
     "MUX": {
       "quality_state": "neutral",
@@ -3756,7 +4126,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 79.9
+      "rs_1w": 79.9,
+      "extension_peak_history_v2": 4.65
     },
     "MWH": {
       "quality_state": "neutral",
@@ -3767,7 +4138,8 @@
       "laggard_narratives": [
         "solar_clean_energy"
       ],
-      "rs_1w": 32.8
+      "rs_1w": 32.8,
+      "extension_peak_history_v2": -1.06
     },
     "MXL": {
       "quality_state": "neutral",
@@ -3778,7 +4150,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 10.1
+      "rs_1w": 10.1,
+      "extension_peak_history_v2": -2.39
     },
     "MYRG": {
       "quality_state": "neutral",
@@ -3787,7 +4160,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 36.0
+      "rs_1w": 36.0,
+      "extension_peak_history_v2": -4.34
     },
     "NBIS": {
       "quality_state": "neutral",
@@ -3796,7 +4170,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 21.3
+      "rs_1w": 21.3,
+      "extension_peak_history_v2": -0.35
     },
     "NBR": {
       "quality_state": "neutral",
@@ -3805,7 +4180,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 31.3
+      "rs_1w": 31.3,
+      "extension_peak_history_v2": 1.71
     },
     "NCNO": {
       "quality_state": "neutral",
@@ -3814,7 +4190,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 96.8
+      "rs_1w": 96.8,
+      "extension_peak_history_v2": 6.48
     },
     "NEO": {
       "quality_state": "leader",
@@ -3823,7 +4200,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 92.0
+      "rs_1w": 92.0,
+      "extension_peak_history_v2": 5.65
     },
     "NESR": {
       "quality_state": "leader",
@@ -3834,7 +4212,8 @@
         "oil_gas_services_equipment"
       ],
       "laggard_narratives": [],
-      "rs_1w": 78.1
+      "rs_1w": 78.1,
+      "extension_peak_history_v2": 3.49
     },
     "NET": {
       "quality_state": "recent_leader",
@@ -3845,7 +4224,8 @@
         "cybersecurity"
       ],
       "laggard_narratives": [],
-      "rs_1w": 72.9
+      "rs_1w": 72.9,
+      "extension_peak_history_v2": 2.13
     },
     "NEWP": {
       "quality_state": "leader",
@@ -3854,7 +4234,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 97.4
+      "rs_1w": 97.4,
+      "extension_peak_history_v2": 9.61
     },
     "NEXA": {
       "quality_state": "neutral",
@@ -3865,7 +4246,8 @@
       "laggard_narratives": [
         "copper_base_metals_mining"
       ],
-      "rs_1w": 7.3
+      "rs_1w": 7.3,
+      "extension_peak_history_v2": 0.76
     },
     "NEXT": {
       "quality_state": "neutral",
@@ -3874,7 +4256,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 78.7
+      "rs_1w": 78.7,
+      "extension_peak_history_v2": 0.64
     },
     "NG": {
       "quality_state": "neutral",
@@ -3883,7 +4266,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 77.4
+      "rs_1w": 77.4,
+      "extension_peak_history_v2": 6.77
     },
     "NGL": {
       "quality_state": "neutral",
@@ -3892,7 +4276,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 84.1
+      "rs_1w": 84.1,
+      "extension_peak_history_v2": 2.19
     },
     "NHP": {
       "quality_state": "neutral",
@@ -3901,7 +4286,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 24.4
+      "rs_1w": 24.4,
+      "extension_peak_history_v2": 1.48
     },
     "NIQ": {
       "quality_state": "leader",
@@ -3910,7 +4296,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 75.5
+      "rs_1w": 75.5,
+      "extension_peak_history_v2": 10.89
     },
     "NMAX": {
       "quality_state": "neutral",
@@ -3919,7 +4306,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 31.5
+      "rs_1w": 31.5,
+      "extension_peak_history_v2": 2.91
     },
     "NN": {
       "quality_state": "neutral",
@@ -3928,7 +4316,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 2.9
+      "rs_1w": 2.9,
+      "extension_peak_history_v2": -0.21
     },
     "NNE": {
       "quality_state": "neutral",
@@ -3937,7 +4326,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 50.6
+      "rs_1w": 50.6,
+      "extension_peak_history_v2": 0.04
     },
     "NOVT": {
       "quality_state": "neutral",
@@ -3946,7 +4336,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 49.4
+      "rs_1w": 49.4,
+      "extension_peak_history_v2": -1.01
     },
     "NOW": {
       "quality_state": "neutral",
@@ -3955,7 +4346,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 93.2
+      "rs_1w": 93.2,
+      "extension_peak_history_v2": 6.21
     },
     "NRG": {
       "quality_state": "neutral",
@@ -3964,7 +4356,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 49.5
+      "rs_1w": 49.5,
+      "extension_peak_history_v2": -3.23
     },
     "NSIT": {
       "quality_state": "recent_leader",
@@ -3973,7 +4366,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 85.2
+      "rs_1w": 85.2,
+      "extension_peak_history_v2": 7.09
     },
     "NSP": {
       "quality_state": "recent_leader",
@@ -3982,7 +4376,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 42.4
+      "rs_1w": 42.4,
+      "extension_peak_history_v2": 2.03
     },
     "NSSC": {
       "quality_state": "neutral",
@@ -3991,7 +4386,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 8.1
+      "rs_1w": 8.1,
+      "extension_peak_history_v2": -0.96
     },
     "NTSK": {
       "quality_state": "neutral",
@@ -4000,7 +4396,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 66.2
+      "rs_1w": 66.2,
+      "extension_peak_history_v2": 2.68
     },
     "NUTX": {
       "quality_state": "leader",
@@ -4009,7 +4406,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 69.8
+      "rs_1w": 69.8,
+      "extension_peak_history_v2": 2.1
     },
     "NVMI": {
       "quality_state": "neutral",
@@ -4018,7 +4416,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 22.4
+      "rs_1w": 22.4,
+      "extension_peak_history_v2": -3.68
     },
     "NVT": {
       "quality_state": "neutral",
@@ -4027,7 +4426,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 58.6
+      "rs_1w": 58.6,
+      "extension_peak_history_v2": -0.67
     },
     "NVTS": {
       "quality_state": "neutral",
@@ -4038,7 +4438,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 10.7
+      "rs_1w": 10.7,
+      "extension_peak_history_v2": -1.76
     },
     "NWL": {
       "quality_state": "neutral",
@@ -4047,7 +4448,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 45.0
+      "rs_1w": 45.0,
+      "extension_peak_history_v2": 1.88
     },
     "NXE": {
       "quality_state": "neutral",
@@ -4058,7 +4460,8 @@
       "laggard_narratives": [
         "uranium"
       ],
-      "rs_1w": 61.2
+      "rs_1w": 61.2,
+      "extension_peak_history_v2": 2.94
     },
     "NXT": {
       "quality_state": "neutral",
@@ -4067,7 +4470,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 71.4
+      "rs_1w": 71.4,
+      "extension_peak_history_v2": -2.88
     },
     "OI": {
       "quality_state": "neutral",
@@ -4076,7 +4480,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 55.7
+      "rs_1w": 55.7,
+      "extension_peak_history_v2": -2.68
     },
     "OKLO": {
       "quality_state": "neutral",
@@ -4085,7 +4490,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 52.4
+      "rs_1w": 52.4,
+      "extension_peak_history_v2": -1.05
     },
     "OKTA": {
       "quality_state": "fresh_leader",
@@ -4096,7 +4502,8 @@
         "cybersecurity"
       ],
       "laggard_narratives": [],
-      "rs_1w": 99.8
+      "rs_1w": 99.8,
+      "extension_peak_history_v2": 3.99
     },
     "ONDS": {
       "quality_state": "neutral",
@@ -4105,7 +4512,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 23.7
+      "rs_1w": 23.7,
+      "extension_peak_history_v2": 0.62
     },
     "ONTO": {
       "quality_state": "neutral",
@@ -4114,7 +4522,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 30.0
+      "rs_1w": 30.0,
+      "extension_peak_history_v2": -0.69
     },
     "OPEN": {
       "quality_state": "neutral",
@@ -4125,7 +4534,8 @@
       "laggard_narratives": [
         "real_estate_marketplace_platform"
       ],
-      "rs_1w": 20.8
+      "rs_1w": 20.8,
+      "extension_peak_history_v2": -2.86
     },
     "ORCL": {
       "quality_state": "neutral",
@@ -4136,7 +4546,8 @@
       "laggard_narratives": [
         "software_saas"
       ],
-      "rs_1w": 75.0
+      "rs_1w": 75.0,
+      "extension_peak_history_v2": 1.96
     },
     "OUST": {
       "quality_state": "neutral",
@@ -4147,7 +4558,8 @@
       "laggard_narratives": [
         "photonics_optical"
       ],
-      "rs_1w": 8.8
+      "rs_1w": 8.8,
+      "extension_peak_history_v2": -1.64
     },
     "P": {
       "quality_state": "leader",
@@ -4156,7 +4568,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 4.5
+      "rs_1w": 4.5,
+      "extension_peak_history_v2": 2.08
     },
     "PANW": {
       "quality_state": "leader",
@@ -4167,7 +4580,8 @@
         "cybersecurity"
       ],
       "laggard_narratives": [],
-      "rs_1w": 62.5
+      "rs_1w": 62.5,
+      "extension_peak_history_v2": 1.43
     },
     "PARR": {
       "quality_state": "neutral",
@@ -4176,7 +4590,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 45.8
+      "rs_1w": 45.8,
+      "extension_peak_history_v2": 1.93
     },
     "PATH": {
       "quality_state": "leader",
@@ -4185,7 +4600,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 96.3
+      "rs_1w": 96.3,
+      "extension_peak_history_v2": 8.85
     },
     "PAY": {
       "quality_state": "recent_leader",
@@ -4194,7 +4610,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 3.7
+      "rs_1w": 3.7,
+      "extension_peak_history_v2": 1.94
     },
     "PAYP": {
       "quality_state": "neutral",
@@ -4205,7 +4622,8 @@
       "laggard_narratives": [
         "fintech"
       ],
-      "rs_1w": 27.6
+      "rs_1w": 27.6,
+      "extension_peak_history_v2": -0.1
     },
     "PBF": {
       "quality_state": "leader",
@@ -4216,7 +4634,8 @@
         "petroleum_refining"
       ],
       "laggard_narratives": [],
-      "rs_1w": 14.0
+      "rs_1w": 14.0,
+      "extension_peak_history_v2": 2.81
     },
     "PBT": {
       "quality_state": "recent_leader",
@@ -4225,7 +4644,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 45.6
+      "rs_1w": 45.6,
+      "extension_peak_history_v2": 4.04
     },
     "PCOR": {
       "quality_state": "neutral",
@@ -4234,7 +4654,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 58.1
+      "rs_1w": 58.1,
+      "extension_peak_history_v2": 7.13
     },
     "PCT": {
       "quality_state": "neutral",
@@ -4243,7 +4664,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 34.6
+      "rs_1w": 34.6,
+      "extension_peak_history_v2": -0.69
     },
     "PDFS": {
       "quality_state": "neutral",
@@ -4254,7 +4676,8 @@
       "laggard_narratives": [
         "software_saas"
       ],
-      "rs_1w": 36.5
+      "rs_1w": 36.5,
+      "extension_peak_history_v2": -2.4
     },
     "PENG": {
       "quality_state": "neutral",
@@ -4263,7 +4686,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 33.1
+      "rs_1w": 33.1,
+      "extension_peak_history_v2": -2.18
     },
     "PGY": {
       "quality_state": "recent_leader",
@@ -4272,7 +4696,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 90.9
+      "rs_1w": 90.9,
+      "extension_peak_history_v2": 5.25
     },
     "PI": {
       "quality_state": "neutral",
@@ -4281,7 +4706,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 80.7
+      "rs_1w": 80.7,
+      "extension_peak_history_v2": 3.58
     },
     "PICS": {
       "quality_state": "neutral",
@@ -4292,7 +4718,8 @@
       "laggard_narratives": [
         "fintech"
       ],
-      "rs_1w": 38.1
+      "rs_1w": 38.1,
+      "extension_peak_history_v2": -1.05
     },
     "PL": {
       "quality_state": "neutral",
@@ -4301,7 +4728,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 8.6
+      "rs_1w": 8.6,
+      "extension_peak_history_v2": -2.98
     },
     "PLAB": {
       "quality_state": "neutral",
@@ -4310,7 +4738,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 22.1
+      "rs_1w": 22.1,
+      "extension_peak_history_v2": -0.68
     },
     "PLBL": {
       "quality_state": "neutral",
@@ -4319,7 +4748,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 36.2
+      "rs_1w": 36.2,
+      "extension_peak_history_v2": -1.64
     },
     "PLPC": {
       "quality_state": "neutral",
@@ -4328,7 +4758,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 23.2
+      "rs_1w": 23.2,
+      "extension_peak_history_v2": 1.31
     },
     "PLTR": {
       "quality_state": "neutral",
@@ -4337,7 +4768,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 73.7
+      "rs_1w": 73.7,
+      "extension_peak_history_v2": 8.28
     },
     "PLUG": {
       "quality_state": "neutral",
@@ -4348,7 +4780,8 @@
       "laggard_narratives": [
         "solar_clean_energy"
       ],
-      "rs_1w": 41.4
+      "rs_1w": 41.4,
+      "extension_peak_history_v2": -0.28
     },
     "POET": {
       "quality_state": "neutral",
@@ -4357,7 +4790,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 25.3
+      "rs_1w": 25.3,
+      "extension_peak_history_v2": -0.99
     },
     "PONY": {
       "quality_state": "neutral",
@@ -4366,7 +4800,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 7.0
+      "rs_1w": 7.0,
+      "extension_peak_history_v2": 0.29
     },
     "POWI": {
       "quality_state": "neutral",
@@ -4375,7 +4810,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 34.7
+      "rs_1w": 34.7,
+      "extension_peak_history_v2": -3.91
     },
     "POWL": {
       "quality_state": "neutral",
@@ -4386,7 +4822,8 @@
       "laggard_narratives": [
         "industrial_machinery"
       ],
-      "rs_1w": 22.6
+      "rs_1w": 22.6,
+      "extension_peak_history_v2": -3.82
     },
     "PPTA": {
       "quality_state": "neutral",
@@ -4397,7 +4834,8 @@
       "laggard_narratives": [
         "gold___precious_metals_miners"
       ],
-      "rs_1w": 55.8
+      "rs_1w": 55.8,
+      "extension_peak_history_v2": 4.56
     },
     "PRCH": {
       "quality_state": "leader",
@@ -4406,7 +4844,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 70.1
+      "rs_1w": 70.1,
+      "extension_peak_history_v2": 4.89
     },
     "PRIM": {
       "quality_state": "neutral",
@@ -4415,7 +4854,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 39.0
+      "rs_1w": 39.0,
+      "extension_peak_history_v2": -2.74
     },
     "PRM": {
       "quality_state": "neutral",
@@ -4424,7 +4864,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 66.1
+      "rs_1w": 66.1,
+      "extension_peak_history_v2": -1.14
     },
     "PS": {
       "quality_state": "neutral",
@@ -4433,7 +4874,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 79.1
+      "rs_1w": 79.1,
+      "extension_peak_history_v2": 2.86
     },
     "PSKY": {
       "quality_state": "neutral",
@@ -4442,7 +4884,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 82.0
+      "rs_1w": 82.0,
+      "extension_peak_history_v2": 4.46
     },
     "PSNY": {
       "quality_state": "neutral",
@@ -4453,7 +4896,8 @@
       "laggard_narratives": [
         "ev_battery"
       ],
-      "rs_1w": 10.2
+      "rs_1w": 10.2,
+      "extension_peak_history_v2": -4.12
     },
     "PTEN": {
       "quality_state": "neutral",
@@ -4462,7 +4906,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 42.7
+      "rs_1w": 42.7,
+      "extension_peak_history_v2": 4.83
     },
     "PTRN": {
       "quality_state": "neutral",
@@ -4471,7 +4916,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 75.6
+      "rs_1w": 75.6,
+      "extension_peak_history_v2": -1.76
     },
     "PUMP": {
       "quality_state": "neutral",
@@ -4482,7 +4928,8 @@
       "laggard_narratives": [
         "oil_gas_services_equipment"
       ],
-      "rs_1w": 28.4
+      "rs_1w": 28.4,
+      "extension_peak_history_v2": -2.06
     },
     "PURR": {
       "quality_state": "neutral",
@@ -4491,7 +4938,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 99.2
+      "rs_1w": 99.2,
+      "extension_peak_history_v2": 7.5
     },
     "PWP": {
       "quality_state": "neutral",
@@ -4500,7 +4948,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 73.2
+      "rs_1w": 73.2,
+      "extension_peak_history_v2": 1.41
     },
     "PXED": {
       "quality_state": "neutral",
@@ -4509,7 +4958,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 61.7
+      "rs_1w": 61.7,
+      "extension_peak_history_v2": -1.3
     },
     "Q": {
       "quality_state": "neutral",
@@ -4518,7 +4968,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 25.2
+      "rs_1w": 25.2,
+      "extension_peak_history_v2": -2.43
     },
     "QBTS": {
       "quality_state": "neutral",
@@ -4529,7 +4980,8 @@
       "laggard_narratives": [
         "quantum_computing"
       ],
-      "rs_1w": 1.1
+      "rs_1w": 1.1,
+      "extension_peak_history_v2": -1.99
     },
     "QFIN": {
       "quality_state": "neutral",
@@ -4538,7 +4990,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 0.6
+      "rs_1w": 0.6,
+      "extension_peak_history_v2": -4.89
     },
     "QLYS": {
       "quality_state": "leader",
@@ -4549,7 +5002,8 @@
         "cybersecurity"
       ],
       "laggard_narratives": [],
-      "rs_1w": 62.0
+      "rs_1w": 62.0,
+      "extension_peak_history_v2": 4.51
     },
     "QNST": {
       "quality_state": "leader",
@@ -4560,7 +5014,8 @@
         "adtech_digital_advertising_platform"
       ],
       "laggard_narratives": [],
-      "rs_1w": 7.6
+      "rs_1w": 7.6,
+      "extension_peak_history_v2": 2.85
     },
     "QS": {
       "quality_state": "neutral",
@@ -4569,7 +5024,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 53.9
+      "rs_1w": 53.9,
+      "extension_peak_history_v2": -0.59
     },
     "QUBT": {
       "quality_state": "neutral",
@@ -4578,7 +5034,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 17.9
+      "rs_1w": 17.9,
+      "extension_peak_history_v2": -0.32
     },
     "QXO": {
       "quality_state": "neutral",
@@ -4587,7 +5044,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 67.2
+      "rs_1w": 67.2,
+      "extension_peak_history_v2": -1.1
     },
     "RBLX": {
       "quality_state": "neutral",
@@ -4596,7 +5054,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 48.5
+      "rs_1w": 48.5,
+      "extension_peak_history_v2": -3.81
     },
     "RBRK": {
       "quality_state": "leader",
@@ -4607,7 +5066,8 @@
         "cybersecurity"
       ],
       "laggard_narratives": [],
-      "rs_1w": 56.5
+      "rs_1w": 56.5,
+      "extension_peak_history_v2": 3.34
     },
     "RCAT": {
       "quality_state": "neutral",
@@ -4616,7 +5076,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 12.2
+      "rs_1w": 12.2,
+      "extension_peak_history_v2": -0.05
     },
     "RDDT": {
       "quality_state": "neutral",
@@ -4627,7 +5088,8 @@
       "laggard_narratives": [
         "social_media_platform"
       ],
-      "rs_1w": 56.7
+      "rs_1w": 56.7,
+      "extension_peak_history_v2": -1.62
     },
     "RDVT": {
       "quality_state": "neutral",
@@ -4636,7 +5098,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 65.3
+      "rs_1w": 65.3,
+      "extension_peak_history_v2": 2.39
     },
     "RDW": {
       "quality_state": "neutral",
@@ -4645,7 +5108,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 6.7
+      "rs_1w": 6.7,
+      "extension_peak_history_v2": 0.11
     },
     "REAL": {
       "quality_state": "neutral",
@@ -4654,7 +5118,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 40.1
+      "rs_1w": 40.1,
+      "extension_peak_history_v2": -0.97
     },
     "RELY": {
       "quality_state": "neutral",
@@ -4663,7 +5128,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 24.8
+      "rs_1w": 24.8,
+      "extension_peak_history_v2": 2.2
     },
     "REZI": {
       "quality_state": "neutral",
@@ -4672,7 +5138,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 37.3
+      "rs_1w": 37.3,
+      "extension_peak_history_v2": -4.57
     },
     "RGC": {
       "quality_state": "neutral",
@@ -4681,7 +5148,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 65.4
+      "rs_1w": 65.4,
+      "extension_peak_history_v2": -1.67
     },
     "RGTI": {
       "quality_state": "neutral",
@@ -4692,7 +5160,8 @@
       "laggard_narratives": [
         "quantum_computing"
       ],
-      "rs_1w": 4.4
+      "rs_1w": 4.4,
+      "extension_peak_history_v2": -0.75
     },
     "RH": {
       "quality_state": "neutral",
@@ -4701,7 +5170,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 17.2
+      "rs_1w": 17.2,
+      "extension_peak_history_v2": -2.42
     },
     "RHLD": {
       "quality_state": "neutral",
@@ -4710,7 +5180,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 76.8
+      "rs_1w": 76.8,
+      "extension_peak_history_v2": 0.01
     },
     "RIOT": {
       "quality_state": "neutral",
@@ -4721,7 +5192,8 @@
       "laggard_narratives": [
         "crypto_mining_digital_asset_treasury"
       ],
-      "rs_1w": 48.2
+      "rs_1w": 48.2,
+      "extension_peak_history_v2": -1.06
     },
     "RKLB": {
       "quality_state": "neutral",
@@ -4730,7 +5202,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 5.8
+      "rs_1w": 5.8,
+      "extension_peak_history_v2": -2.45
     },
     "RKT": {
       "quality_state": "neutral",
@@ -4739,7 +5212,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 71.3
+      "rs_1w": 71.3,
+      "extension_peak_history_v2": 0.32
     },
     "RMBS": {
       "quality_state": "neutral",
@@ -4748,7 +5222,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 25.5
+      "rs_1w": 25.5,
+      "extension_peak_history_v2": -3.04
     },
     "RMIX": {
       "quality_state": "neutral",
@@ -4757,7 +5232,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 52.8
+      "rs_1w": 52.8,
+      "extension_peak_history_v2": -1.46
     },
     "RNG": {
       "quality_state": "leader",
@@ -4766,7 +5242,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 77.6
+      "rs_1w": 77.6,
+      "extension_peak_history_v2": 8.71
     },
     "ROAD": {
       "quality_state": "neutral",
@@ -4775,7 +5252,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 61.5
+      "rs_1w": 61.5,
+      "extension_peak_history_v2": 1.02
     },
     "ROCK": {
       "quality_state": "neutral",
@@ -4784,7 +5262,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 42.5
+      "rs_1w": 42.5,
+      "extension_peak_history_v2": 0.64
     },
     "RSI": {
       "quality_state": "neutral",
@@ -4793,7 +5272,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 57.1
+      "rs_1w": 57.1,
+      "extension_peak_history_v2": -2.87
     },
     "RUM": {
       "quality_state": "neutral",
@@ -4802,7 +5282,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 76.6
+      "rs_1w": 76.6,
+      "extension_peak_history_v2": 4.62
     },
     "RUN": {
       "quality_state": "neutral",
@@ -4813,7 +5294,8 @@
       "laggard_narratives": [
         "solar_clean_energy"
       ],
-      "rs_1w": 37.8
+      "rs_1w": 37.8,
+      "extension_peak_history_v2": -3.65
     },
     "RXO": {
       "quality_state": "neutral",
@@ -4822,7 +5304,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 45.3
+      "rs_1w": 45.3,
+      "extension_peak_history_v2": -1.86
     },
     "RYZ": {
       "quality_state": "neutral",
@@ -4831,7 +5314,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 68.7
+      "rs_1w": 68.7,
+      "extension_peak_history_v2": -1.08
     },
     "RZLV": {
       "quality_state": "neutral",
@@ -4840,7 +5324,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 99.4
+      "rs_1w": 99.4,
+      "extension_peak_history_v2": 2.86
     },
     "S": {
       "quality_state": "neutral",
@@ -4849,7 +5334,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 52.3
+      "rs_1w": 52.3,
+      "extension_peak_history_v2": 2.03
     },
     "SA": {
       "quality_state": "neutral",
@@ -4858,7 +5344,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 96.6
+      "rs_1w": 96.6,
+      "extension_peak_history_v2": 3.54
     },
     "SAIL": {
       "quality_state": "recent_leader",
@@ -4867,7 +5354,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 93.7
+      "rs_1w": 93.7,
+      "extension_peak_history_v2": 5.18
     },
     "SANM": {
       "quality_state": "neutral",
@@ -4876,7 +5364,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 83.8
+      "rs_1w": 83.8,
+      "extension_peak_history_v2": -0.99
     },
     "SBET": {
       "quality_state": "neutral",
@@ -4885,7 +5374,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 91.1
+      "rs_1w": 91.1,
+      "extension_peak_history_v2": 7.41
     },
     "SBGI": {
       "quality_state": "neutral",
@@ -4894,7 +5384,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 37.5
+      "rs_1w": 37.5,
+      "extension_peak_history_v2": 0.22
     },
     "SBH": {
       "quality_state": "neutral",
@@ -4902,8 +5393,11 @@
       "exit_streak": 0,
       "extended": false,
       "constructive_reset_narratives": [],
-      "laggard_narratives": [],
-      "rs_1w": 46.1
+      "laggard_narratives": [
+        "beauty_cosmetics_products"
+      ],
+      "rs_1w": 46.1,
+      "extension_peak_history_v2": 2.54
     },
     "SCSC": {
       "quality_state": "neutral",
@@ -4912,7 +5406,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 85.4
+      "rs_1w": 85.4,
+      "extension_peak_history_v2": 1.44
     },
     "SEDG": {
       "quality_state": "neutral",
@@ -4921,7 +5416,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 84.9
+      "rs_1w": 84.9,
+      "extension_peak_history_v2": -4.43
     },
     "SEI": {
       "quality_state": "neutral",
@@ -4932,7 +5428,8 @@
       "laggard_narratives": [
         "oil_gas_services_equipment"
       ],
-      "rs_1w": 28.7
+      "rs_1w": 28.7,
+      "extension_peak_history_v2": -2.44
     },
     "SENEA": {
       "quality_state": "neutral",
@@ -4941,7 +5438,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 60.9
+      "rs_1w": 60.9,
+      "extension_peak_history_v2": 3.76
     },
     "SEZL": {
       "quality_state": "neutral",
@@ -4950,7 +5448,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 93.0
+      "rs_1w": 93.0,
+      "extension_peak_history_v2": -3.09
     },
     "SGML": {
       "quality_state": "neutral",
@@ -4959,7 +5458,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 88.5
+      "rs_1w": 88.5,
+      "extension_peak_history_v2": 2.3
     },
     "SHAZ": {
       "quality_state": "neutral",
@@ -4971,7 +5471,8 @@
         "ai_infrastructure",
         "data_center"
       ],
-      "rs_1w": 6.3
+      "rs_1w": 6.3,
+      "extension_peak_history_v2": -1.61
     },
     "SHLS": {
       "quality_state": "neutral",
@@ -4980,7 +5481,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 79.2
+      "rs_1w": 79.2,
+      "extension_peak_history_v2": -3.01
     },
     "SID": {
       "quality_state": "neutral",
@@ -4989,7 +5491,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 79.7
+      "rs_1w": 79.7,
+      "extension_peak_history_v2": 0.93
     },
     "SII": {
       "quality_state": "neutral",
@@ -4998,7 +5501,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 73.4
+      "rs_1w": 73.4,
+      "extension_peak_history_v2": 5.03
     },
     "SIMO": {
       "quality_state": "neutral",
@@ -5007,7 +5511,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 24.0
+      "rs_1w": 24.0,
+      "extension_peak_history_v2": -1.44
     },
     "SITM": {
       "quality_state": "neutral",
@@ -5018,7 +5523,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 14.1
+      "rs_1w": 14.1,
+      "extension_peak_history_v2": -0.94
     },
     "SLSR": {
       "quality_state": "neutral",
@@ -5029,7 +5535,8 @@
       "laggard_narratives": [
         "copper_base_metals_mining"
       ],
-      "rs_1w": 43.8
+      "rs_1w": 43.8,
+      "extension_peak_history_v2": 2.67
     },
     "SM": {
       "quality_state": "neutral",
@@ -5038,7 +5545,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 40.7
+      "rs_1w": 40.7,
+      "extension_peak_history_v2": 5.27
     },
     "SMCI": {
       "quality_state": "neutral",
@@ -5047,7 +5555,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 75.3
+      "rs_1w": 75.3,
+      "extension_peak_history_v2": 3.65
     },
     "SMR": {
       "quality_state": "neutral",
@@ -5056,7 +5565,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 74.0
+      "rs_1w": 74.0,
+      "extension_peak_history_v2": 0.82
     },
     "SMTC": {
       "quality_state": "neutral",
@@ -5065,7 +5575,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 96.4
+      "rs_1w": 96.4,
+      "extension_peak_history_v2": 0.37
     },
     "SNAP": {
       "quality_state": "neutral",
@@ -5074,7 +5585,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 81.8
+      "rs_1w": 81.8,
+      "extension_peak_history_v2": 2.33
     },
     "SNDK": {
       "quality_state": "neutral",
@@ -5083,7 +5595,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 6.8
+      "rs_1w": 6.8,
+      "extension_peak_history_v2": -1.03
     },
     "SOFI": {
       "quality_state": "neutral",
@@ -5092,7 +5605,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 63.5
+      "rs_1w": 63.5,
+      "extension_peak_history_v2": 2.13
     },
     "SOUN": {
       "quality_state": "neutral",
@@ -5103,7 +5617,8 @@
       "laggard_narratives": [
         "software_saas"
       ],
-      "rs_1w": 36.4
+      "rs_1w": 36.4,
+      "extension_peak_history_v2": 1.77
     },
     "SPCX": {
       "quality_state": "leader",
@@ -5114,7 +5629,8 @@
         "space"
       ],
       "laggard_narratives": [],
-      "rs_1w": 66.4
+      "rs_1w": 66.4,
+      "extension_peak_history_v2": 0.45
     },
     "SPHR": {
       "quality_state": "neutral",
@@ -5123,7 +5639,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 6.2
+      "rs_1w": 6.2,
+      "extension_peak_history_v2": -1.14
     },
     "SPOT": {
       "quality_state": "neutral",
@@ -5132,7 +5649,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 52.9
+      "rs_1w": 52.9,
+      "extension_peak_history_v2": 2.53
     },
     "SRAD": {
       "quality_state": "neutral",
@@ -5141,7 +5659,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 52.1
+      "rs_1w": 52.1,
+      "extension_peak_history_v2": -2.04
     },
     "SSRM": {
       "quality_state": "neutral",
@@ -5150,7 +5669,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 64.4
+      "rs_1w": 64.4,
+      "extension_peak_history_v2": 7.72
     },
     "STAA": {
       "quality_state": "neutral",
@@ -5159,7 +5679,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 15.6
+      "rs_1w": 15.6,
+      "extension_peak_history_v2": -2.67
     },
     "STEP": {
       "quality_state": "neutral",
@@ -5168,7 +5689,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 56.2
+      "rs_1w": 56.2,
+      "extension_peak_history_v2": 2.69
     },
     "STRL": {
       "quality_state": "neutral",
@@ -5177,7 +5699,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 21.4
+      "rs_1w": 21.4,
+      "extension_peak_history_v2": -4.03
     },
     "STUB": {
       "quality_state": "neutral",
@@ -5188,7 +5711,8 @@
       "laggard_narratives": [
         "e_commerce_platform"
       ],
-      "rs_1w": 37.7
+      "rs_1w": 37.7,
+      "extension_peak_history_v2": -4.25
     },
     "STX": {
       "quality_state": "neutral",
@@ -5197,7 +5721,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 39.1
+      "rs_1w": 39.1,
+      "extension_peak_history_v2": -0.61
     },
     "SVM": {
       "quality_state": "neutral",
@@ -5206,7 +5731,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 89.3
+      "rs_1w": 89.3,
+      "extension_peak_history_v2": 5.84
     },
     "SVV": {
       "quality_state": "neutral",
@@ -5215,7 +5741,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 39.8
+      "rs_1w": 39.8,
+      "extension_peak_history_v2": 0.78
     },
     "SYM": {
       "quality_state": "neutral",
@@ -5224,7 +5751,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 38.3
+      "rs_1w": 38.3,
+      "extension_peak_history_v2": -0.37
     },
     "TALO": {
       "quality_state": "neutral",
@@ -5233,7 +5761,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 20.5
+      "rs_1w": 20.5,
+      "extension_peak_history_v2": 3.69
     },
     "TBBB": {
       "quality_state": "neutral",
@@ -5242,7 +5771,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 19.2
+      "rs_1w": 19.2,
+      "extension_peak_history_v2": 3.14
     },
     "TBLA": {
       "quality_state": "neutral",
@@ -5251,7 +5781,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 60.7
+      "rs_1w": 60.7,
+      "extension_peak_history_v2": -4.34
     },
     "TDC": {
       "quality_state": "neutral",
@@ -5262,7 +5793,8 @@
       "laggard_narratives": [
         "software_saas"
       ],
-      "rs_1w": 81.0
+      "rs_1w": 81.0,
+      "extension_peak_history_v2": -1.23
     },
     "TDTH": {
       "quality_state": "neutral",
@@ -5271,7 +5803,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 85.1
+      "rs_1w": 85.1,
+      "extension_peak_history_v2": -0.87
     },
     "TDW": {
       "quality_state": "neutral",
@@ -5280,7 +5813,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 25.6
+      "rs_1w": 25.6,
+      "extension_peak_history_v2": 5.58
     },
     "TE": {
       "quality_state": "neutral",
@@ -5289,7 +5823,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 98.1
+      "rs_1w": 98.1,
+      "extension_peak_history_v2": -2.28
     },
     "TEAM": {
       "quality_state": "leader",
@@ -5298,7 +5833,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 94.6
+      "rs_1w": 94.6,
+      "extension_peak_history_v2": 14.65
     },
     "TEM": {
       "quality_state": "neutral",
@@ -5307,7 +5843,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 23.1
+      "rs_1w": 23.1,
+      "extension_peak_history_v2": 4.26
     },
     "TENB": {
       "quality_state": "neutral",
@@ -5316,7 +5853,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 91.7
+      "rs_1w": 91.7,
+      "extension_peak_history_v2": 1.08
     },
     "TER": {
       "quality_state": "neutral",
@@ -5325,7 +5863,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 29.1
+      "rs_1w": 29.1,
+      "extension_peak_history_v2": -0.61
     },
     "TGB": {
       "quality_state": "neutral",
@@ -5334,7 +5873,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 79.4
+      "rs_1w": 79.4,
+      "extension_peak_history_v2": 6.25
     },
     "TH": {
       "quality_state": "neutral",
@@ -5343,7 +5883,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 89.8
+      "rs_1w": 89.8,
+      "extension_peak_history_v2": 1.92
     },
     "TIC": {
       "quality_state": "neutral",
@@ -5352,7 +5893,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 74.8
+      "rs_1w": 74.8,
+      "extension_peak_history_v2": 4.25
     },
     "TLN": {
       "quality_state": "neutral",
@@ -5361,7 +5903,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 23.4
+      "rs_1w": 23.4,
+      "extension_peak_history_v2": -3.01
     },
     "TMC": {
       "quality_state": "neutral",
@@ -5370,7 +5913,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 93.3
+      "rs_1w": 93.3,
+      "extension_peak_history_v2": 3.77
     },
     "TNC": {
       "quality_state": "neutral",
@@ -5379,7 +5923,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 71.8
+      "rs_1w": 71.8,
+      "extension_peak_history_v2": -3.5
     },
     "TOP": {
       "quality_state": "leader",
@@ -5388,7 +5933,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 94.0
+      "rs_1w": 94.0,
+      "extension_peak_history_v2": 5.89
     },
     "TPB": {
       "quality_state": "neutral",
@@ -5397,7 +5943,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 65.7
+      "rs_1w": 65.7,
+      "extension_peak_history_v2": 0.74
     },
     "TPC": {
       "quality_state": "neutral",
@@ -5406,7 +5953,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 50.5
+      "rs_1w": 50.5,
+      "extension_peak_history_v2": 2.05
     },
     "TPG": {
       "quality_state": "neutral",
@@ -5415,7 +5963,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 72.7
+      "rs_1w": 72.7,
+      "extension_peak_history_v2": 5.19
     },
     "TPL": {
       "quality_state": "neutral",
@@ -5424,7 +5973,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 24.5
+      "rs_1w": 24.5,
+      "extension_peak_history_v2": -0.94
     },
     "TRI": {
       "quality_state": "neutral",
@@ -5433,7 +5983,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 51.3
+      "rs_1w": 51.3,
+      "extension_peak_history_v2": 2.97
     },
     "TRIP": {
       "quality_state": "neutral",
@@ -5442,7 +5993,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 35.7
+      "rs_1w": 35.7,
+      "extension_peak_history_v2": -5.8
     },
     "TRON": {
       "quality_state": "neutral",
@@ -5451,7 +6003,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 86.4
+      "rs_1w": 86.4,
+      "extension_peak_history_v2": 4.64
     },
     "TSEM": {
       "quality_state": "neutral",
@@ -5460,7 +6013,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 26.9
+      "rs_1w": 26.9,
+      "extension_peak_history_v2": -1.4
     },
     "TTAN": {
       "quality_state": "neutral",
@@ -5469,7 +6023,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 88.6
+      "rs_1w": 88.6,
+      "extension_peak_history_v2": 5.43
     },
     "TTD": {
       "quality_state": "neutral",
@@ -5478,7 +6033,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 60.6
+      "rs_1w": 60.6,
+      "extension_peak_history_v2": -5.11
     },
     "TTI": {
       "quality_state": "neutral",
@@ -5489,7 +6045,8 @@
       "laggard_narratives": [
         "oil_gas_services_equipment"
       ],
-      "rs_1w": 16.1
+      "rs_1w": 16.1,
+      "extension_peak_history_v2": -4.2
     },
     "TTMI": {
       "quality_state": "neutral",
@@ -5498,7 +6055,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 93.8
+      "rs_1w": 93.8,
+      "extension_peak_history_v2": -2.11
     },
     "TWLO": {
       "quality_state": "recent_leader",
@@ -5509,7 +6067,8 @@
         "software_saas"
       ],
       "laggard_narratives": [],
-      "rs_1w": 88.1
+      "rs_1w": 88.1,
+      "extension_peak_history_v2": 3.34
     },
     "TXG": {
       "quality_state": "leader",
@@ -5518,7 +6077,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 33.6
+      "rs_1w": 33.6,
+      "extension_peak_history_v2": 6.05
     },
     "U": {
       "quality_state": "leader",
@@ -5527,7 +6087,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 9.7
+      "rs_1w": 9.7,
+      "extension_peak_history_v2": 6.82
     },
     "UA": {
       "quality_state": "neutral",
@@ -5536,7 +6097,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 16.7
+      "rs_1w": 16.7,
+      "extension_peak_history_v2": -4.59
     },
     "UAA": {
       "quality_state": "neutral",
@@ -5545,7 +6107,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 14.8
+      "rs_1w": 14.8,
+      "extension_peak_history_v2": -4.41
     },
     "UCTT": {
       "quality_state": "neutral",
@@ -5556,7 +6119,8 @@
       "laggard_narratives": [
         "semiconductors"
       ],
-      "rs_1w": 14.4
+      "rs_1w": 14.4,
+      "extension_peak_history_v2": -3.15
     },
     "UEC": {
       "quality_state": "neutral",
@@ -5565,7 +6129,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 81.7
+      "rs_1w": 81.7,
+      "extension_peak_history_v2": 5.17
     },
     "UI": {
       "quality_state": "neutral",
@@ -5574,7 +6139,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 86.9
+      "rs_1w": 86.9,
+      "extension_peak_history_v2": 1.58
     },
     "ULCC": {
       "quality_state": "neutral",
@@ -5583,7 +6149,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 47.6
+      "rs_1w": 47.6,
+      "extension_peak_history_v2": -2.73
     },
     "UMAC": {
       "quality_state": "leader",
@@ -5594,7 +6161,8 @@
         "defense_aerospace"
       ],
       "laggard_narratives": [],
-      "rs_1w": 6.5
+      "rs_1w": 6.5,
+      "extension_peak_history_v2": 0.89
     },
     "UPST": {
       "quality_state": "neutral",
@@ -5603,7 +6171,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 78.4
+      "rs_1w": 78.4,
+      "extension_peak_history_v2": 0.64
     },
     "UPWK": {
       "quality_state": "neutral",
@@ -5612,7 +6181,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 76.1
+      "rs_1w": 76.1,
+      "extension_peak_history_v2": 0.28
     },
     "UROY": {
       "quality_state": "neutral",
@@ -5621,7 +6191,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 29.5
+      "rs_1w": 29.5,
+      "extension_peak_history_v2": 6.1
     },
     "USAR": {
       "quality_state": "neutral",
@@ -5632,7 +6203,8 @@
       "laggard_narratives": [
         "specialty_metals_advanced_materials"
       ],
-      "rs_1w": 42.2
+      "rs_1w": 42.2,
+      "extension_peak_history_v2": 0.72
     },
     "USAS": {
       "quality_state": "neutral",
@@ -5641,7 +6213,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 84.4
+      "rs_1w": 84.4,
+      "extension_peak_history_v2": 4.71
     },
     "UTI": {
       "quality_state": "neutral",
@@ -5650,7 +6223,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 44.0
+      "rs_1w": 44.0,
+      "extension_peak_history_v2": -6.48
     },
     "UUUU": {
       "quality_state": "neutral",
@@ -5659,7 +6233,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 70.9
+      "rs_1w": 70.9,
+      "extension_peak_history_v2": 2.6
     },
     "UWMC": {
       "quality_state": "neutral",
@@ -5668,7 +6243,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 89.0
+      "rs_1w": 89.0,
+      "extension_peak_history_v2": -2.33
     },
     "VAC": {
       "quality_state": "leader",
@@ -5677,7 +6253,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 44.8
+      "rs_1w": 44.8,
+      "extension_peak_history_v2": 1.96
     },
     "VECO": {
       "quality_state": "neutral",
@@ -5686,7 +6263,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 21.9
+      "rs_1w": 21.9,
+      "extension_peak_history_v2": -3.23
     },
     "VERX": {
       "quality_state": "neutral",
@@ -5695,7 +6273,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 87.2
+      "rs_1w": 87.2,
+      "extension_peak_history_v2": 4.01
     },
     "VG": {
       "quality_state": "neutral",
@@ -5704,7 +6283,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 57.0
+      "rs_1w": 57.0,
+      "extension_peak_history_v2": 2.42
     },
     "VGNT": {
       "quality_state": "neutral",
@@ -5713,7 +6293,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 40.3
+      "rs_1w": 40.3,
+      "extension_peak_history_v2": 3.51
     },
     "VIA": {
       "quality_state": "leader",
@@ -5722,7 +6303,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 83.9
+      "rs_1w": 83.9,
+      "extension_peak_history_v2": 8.35
     },
     "VIAV": {
       "quality_state": "neutral",
@@ -5733,7 +6315,8 @@
       "laggard_narratives": [
         "networking"
       ],
-      "rs_1w": 22.7
+      "rs_1w": 22.7,
+      "extension_peak_history_v2": -1.31
     },
     "VICR": {
       "quality_state": "neutral",
@@ -5744,7 +6327,8 @@
       "laggard_narratives": [
         "electronic_components_manufacturing"
       ],
-      "rs_1w": 35.1
+      "rs_1w": 35.1,
+      "extension_peak_history_v2": -2.84
     },
     "VIRT": {
       "quality_state": "neutral",
@@ -5753,7 +6337,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 41.1
+      "rs_1w": 41.1,
+      "extension_peak_history_v2": 2.41
     },
     "VISN": {
       "quality_state": "neutral",
@@ -5762,7 +6347,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 0.3
+      "rs_1w": 0.3,
+      "extension_peak_history_v2": -4.02
     },
     "VMET": {
       "quality_state": "neutral",
@@ -5771,7 +6357,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 49.0
+      "rs_1w": 49.0,
+      "extension_peak_history_v2": 1.1
     },
     "VNET": {
       "quality_state": "neutral",
@@ -5780,7 +6367,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 47.9
+      "rs_1w": 47.9,
+      "extension_peak_history_v2": -1.63
     },
     "VOYG": {
       "quality_state": "neutral",
@@ -5791,7 +6379,8 @@
       "laggard_narratives": [
         "defense_aerospace"
       ],
-      "rs_1w": 3.2
+      "rs_1w": 3.2,
+      "extension_peak_history_v2": 0.5
     },
     "VRNS": {
       "quality_state": "neutral",
@@ -5800,7 +6389,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 88.3
+      "rs_1w": 88.3,
+      "extension_peak_history_v2": 0.86
     },
     "VRT": {
       "quality_state": "neutral",
@@ -5809,7 +6399,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 56.3
+      "rs_1w": 56.3,
+      "extension_peak_history_v2": -1.75
     },
     "VSAT": {
       "quality_state": "neutral",
@@ -5818,7 +6409,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 13.1
+      "rs_1w": 13.1,
+      "extension_peak_history_v2": -1.11
     },
     "VSEC": {
       "quality_state": "neutral",
@@ -5827,7 +6419,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 59.6
+      "rs_1w": 59.6,
+      "extension_peak_history_v2": 0.58
     },
     "VSH": {
       "quality_state": "neutral",
@@ -5836,7 +6429,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 45.9
+      "rs_1w": 45.9,
+      "extension_peak_history_v2": -3.96
     },
     "VVX": {
       "quality_state": "neutral",
@@ -5845,7 +6439,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 53.7
+      "rs_1w": 53.7,
+      "extension_peak_history_v2": -0.07
     },
     "VYX": {
       "quality_state": "neutral",
@@ -5854,7 +6449,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 99.0
+      "rs_1w": 99.0,
+      "extension_peak_history_v2": 3.24
     },
     "VZLA": {
       "quality_state": "neutral",
@@ -5863,7 +6459,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 80.5
+      "rs_1w": 80.5,
+      "extension_peak_history_v2": 5.13
     },
     "W": {
       "quality_state": "neutral",
@@ -5872,7 +6469,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 73.5
+      "rs_1w": 73.5,
+      "extension_peak_history_v2": 2.72
     },
     "WBTN": {
       "quality_state": "neutral",
@@ -5881,7 +6479,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 97.7
+      "rs_1w": 97.7,
+      "extension_peak_history_v2": -0.04
     },
     "WD": {
       "quality_state": "neutral",
@@ -5892,7 +6491,8 @@
       "laggard_narratives": [
         "banking_financial_services"
       ],
-      "rs_1w": 56.0
+      "rs_1w": 56.0,
+      "extension_peak_history_v2": -4.13
     },
     "WDAY": {
       "quality_state": "recent_leader",
@@ -5903,7 +6503,8 @@
         "software_saas"
       ],
       "laggard_narratives": [],
-      "rs_1w": 19.8
+      "rs_1w": 19.8,
+      "extension_peak_history_v2": 4.05
     },
     "WDC": {
       "quality_state": "neutral",
@@ -5912,7 +6513,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 53.1
+      "rs_1w": 53.1,
+      "extension_peak_history_v2": -1.89
     },
     "WEN": {
       "quality_state": "neutral",
@@ -5921,7 +6523,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 3.4
+      "rs_1w": 3.4,
+      "extension_peak_history_v2": 0.39
     },
     "WHR": {
       "quality_state": "neutral",
@@ -5930,7 +6533,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 47.1
+      "rs_1w": 47.1,
+      "extension_peak_history_v2": 0.63
     },
     "WING": {
       "quality_state": "neutral",
@@ -5939,7 +6543,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 23.9
+      "rs_1w": 23.9,
+      "extension_peak_history_v2": -3.35
     },
     "WIX": {
       "quality_state": "neutral",
@@ -5948,7 +6553,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 82.3
+      "rs_1w": 82.3,
+      "extension_peak_history_v2": 8.03
     },
     "WK": {
       "quality_state": "neutral",
@@ -5957,7 +6563,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 78.2
+      "rs_1w": 78.2,
+      "extension_peak_history_v2": 7.88
     },
     "WLDN": {
       "quality_state": "neutral",
@@ -5966,7 +6573,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 66.6
+      "rs_1w": 66.6,
+      "extension_peak_history_v2": 3.8
     },
     "WLFC": {
       "quality_state": "neutral",
@@ -5975,7 +6583,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 58.4
+      "rs_1w": 58.4,
+      "extension_peak_history_v2": -3.68
     },
     "WOLF": {
       "quality_state": "neutral",
@@ -5984,7 +6593,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 63.6
+      "rs_1w": 63.6,
+      "extension_peak_history_v2": -2.04
     },
     "WRBY": {
       "quality_state": "neutral",
@@ -5993,7 +6603,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 10.9
+      "rs_1w": 10.9,
+      "extension_peak_history_v2": -0.82
     },
     "WRD": {
       "quality_state": "neutral",
@@ -6002,7 +6613,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 13.5
+      "rs_1w": 13.5,
+      "extension_peak_history_v2": 0.87
     },
     "WS": {
       "quality_state": "neutral",
@@ -6011,7 +6623,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 44.6
+      "rs_1w": 44.6,
+      "extension_peak_history_v2": -0.56
     },
     "WSC": {
       "quality_state": "neutral",
@@ -6020,7 +6633,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 15.9
+      "rs_1w": 15.9,
+      "extension_peak_history_v2": -3.76
     },
     "WTTR": {
       "quality_state": "neutral",
@@ -6029,7 +6643,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 30.4
+      "rs_1w": 30.4,
+      "extension_peak_history_v2": -0.33
     },
     "WULF": {
       "quality_state": "neutral",
@@ -6038,7 +6653,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 64.9
+      "rs_1w": 64.9,
+      "extension_peak_history_v2": -2.42
     },
     "WWW": {
       "quality_state": "neutral",
@@ -6047,7 +6663,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 20.0
+      "rs_1w": 20.0,
+      "extension_peak_history_v2": 1.73
     },
     "XE": {
       "quality_state": "neutral",
@@ -6056,7 +6673,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 18.3
+      "rs_1w": 18.3,
+      "extension_peak_history_v2": -0.03
     },
     "XMTR": {
       "quality_state": "neutral",
@@ -6065,7 +6683,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 98.4
+      "rs_1w": 98.4,
+      "extension_peak_history_v2": 1.08
     },
     "XNDU": {
       "quality_state": "neutral",
@@ -6074,7 +6693,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 16.9
+      "rs_1w": 16.9,
+      "extension_peak_history_v2": -0.86
     },
     "XXI": {
       "quality_state": "neutral",
@@ -6085,7 +6705,8 @@
       "laggard_narratives": [
         "crypto_mining_digital_asset_treasury"
       ],
-      "rs_1w": 21.1
+      "rs_1w": 21.1,
+      "extension_peak_history_v2": 3.65
     },
     "XZO": {
       "quality_state": "neutral",
@@ -6096,7 +6717,8 @@
       "laggard_narratives": [
         "software_saas"
       ],
-      "rs_1w": 32.6
+      "rs_1w": 32.6,
+      "extension_peak_history_v2": 0.56
     },
     "YELP": {
       "quality_state": "neutral",
@@ -6105,7 +6727,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 31.2
+      "rs_1w": 31.2,
+      "extension_peak_history_v2": -1.84
     },
     "YOU": {
       "quality_state": "neutral",
@@ -6114,7 +6737,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 69.2
+      "rs_1w": 69.2,
+      "extension_peak_history_v2": -3.67
     },
     "YSS": {
       "quality_state": "neutral",
@@ -6123,7 +6747,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 32.0
+      "rs_1w": 32.0,
+      "extension_peak_history_v2": -4.79
     },
     "Z": {
       "quality_state": "neutral",
@@ -6132,7 +6757,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 64.3
+      "rs_1w": 64.3,
+      "extension_peak_history_v2": 2.13
     },
     "ZETA": {
       "quality_state": "leader",
@@ -6141,7 +6767,8 @@
       "extended": true,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 78.9
+      "rs_1w": 78.9,
+      "extension_peak_history_v2": 6.46
     },
     "ZG": {
       "quality_state": "neutral",
@@ -6150,7 +6777,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 61.4
+      "rs_1w": 61.4,
+      "extension_peak_history_v2": 2.62
     },
     "ZS": {
       "quality_state": "neutral",
@@ -6159,7 +6787,8 @@
       "extended": false,
       "constructive_reset_narratives": [],
       "laggard_narratives": [],
-      "rs_1w": 60.2
+      "rs_1w": 60.2,
+      "extension_peak_history_v2": 4.0
     }
   }
 }

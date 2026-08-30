@@ -1067,6 +1067,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "BRUN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Boost Run is an NVIDIA Cloud Provider offering GPU compute and managed infrastructure for AI workloads, directly fitting the AI infrastructure narrative.",
+          "added_at": "2026-08-30",
+          "last_reviewed_at": "2026-08-30",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11305,6 +11316,17 @@
           "reason": "Edgewell makes personal care products (shaving, sun/skin care, feminine care) sold under brands - closely aligned with beauty/cosmetics products branded CPG model even though broader than pure cosmetics.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "BBWI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Bath & Body Works is a specialty retailer of fragrance and body care products, closely aligned with beauty/cosmetics products retail model.",
+          "added_at": "2026-08-30",
+          "last_reviewed_at": "2026-08-30",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1

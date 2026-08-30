@@ -1,8 +1,8 @@
 {
   "as_of_date": "2026-08-30",
   "eligible_count": 616,
-  "classified_eligible_count": 543,
-  "coverage_pct": 88.1,
+  "classified_eligible_count": 545,
+  "coverage_pct": 88.5,
   "entered": [
     "AGQ",
     "ALNT",
@@ -190,10 +190,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "BBWI",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "BE",
       "reason": "low_confidence_primary"
     },
@@ -203,10 +199,6 @@
     },
     {
       "ticker": "BRAI",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "BRUN",
       "reason": "low_confidence_primary"
     },
     {
@@ -451,12 +443,12 @@
     }
   ],
   "classification_errors": [
-    "Batch 1 (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AGQ..NIQ): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AGQ..NIQ): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 391,
-  "eligible_without_active_narrative": 225,
-  "active_narrative_coverage_pct": 63.5,
-  "active_narrative_count": 33,
-  "undersized_narrative_count": 89
+  "eligible_with_active_narrative": 397,
+  "eligible_without_active_narrative": 219,
+  "active_narrative_coverage_pct": 64.4,
+  "active_narrative_count": 34,
+  "undersized_narrative_count": 88
 }
