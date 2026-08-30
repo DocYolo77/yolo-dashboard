@@ -1,13 +1,13 @@
 {
   "meta": {
-    "updated_at": "2026-08-29T11:09:52.179073+00:00",
+    "updated_at": "2026-08-30T08:07:01.412062+00:00",
     "source": "Massive (api.massive.com)",
     "trading_days_used": 260,
     "date_range": [
       "2025-08-18",
       "2026-08-28"
     ],
-    "universe_size": 1001,
+    "universe_size": 1002,
     "eligible_universe_size": 616,
     "unique_classified_eligible_members": 391,
     "total_active_memberships": 401,
@@ -99,6 +99,11 @@
         "eligible_member_count": 4
       },
       {
+        "id": "media_entertainment_conglomerate",
+        "name": "Media & Entertainment Conglomerate",
+        "eligible_member_count": 4
+      },
+      {
         "id": "beauty_cosmetics_products",
         "name": "Beauty / Cosmetics Products",
         "eligible_member_count": 4
@@ -136,11 +141,6 @@
       {
         "id": "insurtech_digital_insurance_distribution",
         "name": "Insurtech Digital Insurance Distribution",
-        "eligible_member_count": 3
-      },
-      {
-        "id": "media_entertainment_conglomerate",
-        "name": "Media & Entertainment Conglomerate",
         "eligible_member_count": 3
       },
       {

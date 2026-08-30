@@ -10791,6 +10791,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "NMAX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Newsmax is a multi-platform media company operating cable/OTT news channels, publishing and e-commerce, similar to diversified media/broadcasting operators.",
+          "added_at": "2026-08-30",
+          "last_reviewed_at": "2026-08-30",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },

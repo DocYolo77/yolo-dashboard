@@ -1,11 +1,10 @@
 {
-  "as_of_date": "2026-08-29",
+  "as_of_date": "2026-08-30",
   "eligible_count": 616,
-  "classified_eligible_count": 542,
-  "coverage_pct": 88.0,
+  "classified_eligible_count": 543,
+  "coverage_pct": 88.1,
   "entered": [
     "AGQ",
-    "AIIR",
     "ALNT",
     "AMSC",
     "ARLO",
@@ -84,7 +83,6 @@
   "exited": [],
   "newly_classified": [
     "AGQ",
-    "AIIR",
     "ALNT",
     "AMSC",
     "ARLO",
@@ -159,9 +157,7 @@
     "WRD",
     "XMTR"
   ],
-  "new_narratives_created": [
-    "social_inhalation_shisha_products"
-  ],
+  "new_narratives_created": [],
   "unresolved_after_retries": [
     {
       "ticker": "AGQ",
@@ -332,10 +328,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "NMAX",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "NN",
       "reason": "low_confidence_primary"
     },
@@ -461,8 +453,7 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Batch 1 (AGQ..MGRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
   "eligible_with_active_narrative": 391,
   "eligible_without_active_narrative": 225,
