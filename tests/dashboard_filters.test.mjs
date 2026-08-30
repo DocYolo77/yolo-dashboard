@@ -150,6 +150,17 @@ const oppTabFilterSrc = extractFunction(html, 'oppTabFilter');
 const oppApplyFiltersSrc = extractFunction(html, 'oppApplyFilters');
 const oppSortItemsSrc = extractFunction(html, 'oppSortItems');
 const oppVisibleSortedItemsSrc = extractFunction(html, 'oppVisibleSortedItems');
+// Calibration-aware Opportunities UI v1, spec point 1: the central
+// Structural-RS-Timeframe selector state + the per-horizon field pickers
+// oppApplyFilters/oppSortItems (via OPP_DYNAMIC_ACCESSORS) depend on.
+const oppRsHorizonLetSrc = extractLet(html, 'oppRsHorizon');
+const oppRsFieldSrc = extractFunction(html, 'oppRsField');
+const oppRelativeStrengthFieldSrc = extractFunction(html, 'oppRelativeStrengthField');
+const oppThrustFieldSrc = extractFunction(html, 'oppThrustField');
+const oppDynamicAccessorsConstSrc = extractConst(html, 'OPP_DYNAMIC_ACCESSORS');
+const oppQualityLabelConstSrc = extractConst(html, 'QUALITY_V2_LABEL');
+const oppQualityHtmlSrc = extractFunction(html, 'oppQualityHtml');
+const oppStructureBadgesHtmlSrc = extractFunction(html, 'oppStructureBadgesHtml');
 // Spec point 4: Opportunities collapse/windowed-rendering state + actions.
 const oppTableOpenLetSrc = extractLet(html, 'oppTableOpen');
 const oppRenderLimitLetSrc = extractLet(html, 'oppRenderLimit');
@@ -240,6 +251,8 @@ vm.runInContext(
   `${fmtSrc}\n${fmtPctSrc}\n${ncFmtPctOrDashSrc}\n${ncPctColorClassStrictSrc}\n${ncMemberColumnTypeSrc}\n${ncTableSortAccessorSrc}\n` +
   `${screenerColumnTypeSrc}\n${screenerStrengthPresetIdsConstSrc}\n${screenerUnionTickersSrc}\n${screenerCopyUnionSrc}\n` +
   `${screenerUnionTickersExcludingAtrExtendedSrc}\n${screenerCopyUnionAtrFilteredSrc}\n` +
+  `${oppRsHorizonLetSrc}\n${oppRsFieldSrc}\n${oppRelativeStrengthFieldSrc}\n${oppThrustFieldSrc}\n${oppDynamicAccessorsConstSrc}\n` +
+  `${oppQualityLabelConstSrc}\n${oppQualityHtmlSrc}\n${oppStructureBadgesHtmlSrc}\n` +
   `${oppTabFilterSrc}\n${oppApplyFiltersSrc}\n${oppSortItemsSrc}\n${oppVisibleSortedItemsSrc}\n` +
   `${tcColorsConstSrc}\n${tcDimsConstSrc}\n${tcPolylineSegmentsSrc}\n${tickerChartSvgSrc}\n${tickerChartTooltipHtmlSrc}\n` +
   `${positionTickerChartTooltipSrc}\n` +
@@ -249,7 +262,7 @@ vm.runInContext(
 
 function setOppFilterInputs(overrides) {
   const defaults = {
-    oppFilterNarrative: '', oppFilterStructuralRs: '', oppFilterRs: '', oppFilterThrust: '', oppFilterAtr: '', oppFilterCap: '',
+    oppFilterNarrative: '', oppFilterStructuralRs: '', oppFilterRelativeStrength: '', oppFilterThrust: '', oppFilterAtr: '', oppFilterCap: '',
   };
   const values = Object.assign({}, defaults, overrides);
   Object.entries(values).forEach(([id, value]) => { sandbox.document._elements[id] = { value }; });
@@ -378,32 +391,63 @@ test('ncMomentumTickerList: returns empty list gracefully when opportunities dat
 
 // ── Opportunities: Tabs, Filter, Sortierung, Copy (Punkt 30-31) ────────
 
+// Calibration-aware Opportunities UI v1: every item now also carries the
+// per-horizon rs_1w/1m/3m/6m (Structural RS, already existed),
+// relative_strength_1w/1m/3m/6m (new) and thrust_percentile_1w/1m/3m/6m
+// (1w already existed, 3m/6m new) fields the central oppRsHorizon selector
+// picks between, plus the new Structure/Quality fields (quality_v2,
+// ema10_pullback, ema20_pullback, resetting, extended_v2). Legacy fields
+// (quality_state, near_emas, extended, structural_rs, laggard_narratives,
+// constructive_reset_narratives) are UNCHANGED -- the 6 legacy tabs still
+// filter on them (spec point 19: not redefined here).
 function makeOppItems() {
   return [
     { symbol: 'MU', narratives: ['memory'], quality_state: 'fresh_leader', near_emas: true, extended: false,
       constructive_reset_narratives: ['memory'], laggard_narratives: [], structural_rs: 95, trend_strength: 82,
-      leadership_score: 92, rs_1w: 90, rs_1m: 88,
-      thrust_percentile_1d: 90, thrust_percentile_1w: 85, ema10_distance_pct: 1.0, ema20_distance_pct: 2.0,
-      atr_extension: 3.0, w1_pct: 8.0, m1_pct: 20.0, market_cap: 120e9 },
+      leadership_score: 92,
+      rs_1w: 90, rs_1m: 88, rs_3m: 80, rs_6m: 75,
+      relative_strength_1w: 85, relative_strength_1m: 80, relative_strength_3m: 70, relative_strength_6m: 65,
+      thrust_percentile_1d: 90, thrust_percentile_1w: 85, thrust_percentile_1m: 80, thrust_percentile_3m: 70, thrust_percentile_6m: 60,
+      ema10_distance_pct: 1.0, ema20_distance_pct: 2.0,
+      atr_extension: 3.0, w1_pct: 8.0, m1_pct: 20.0, market_cap: 120e9,
+      quality_v2: 'leader', ema10_pullback: true, ema20_pullback: false, resetting: false, extended_v2: false },
     { symbol: 'VRT', narratives: ['ai_infra'], quality_state: 'leader', near_emas: false, extended: true,
       constructive_reset_narratives: [], laggard_narratives: [], structural_rs: 90, trend_strength: 78,
-      leadership_score: 88, rs_1w: 85, rs_1m: 80,
-      thrust_percentile_1d: 60, thrust_percentile_1w: 55, ema10_distance_pct: 12.0, ema20_distance_pct: 15.0,
-      atr_extension: 6.5, w1_pct: 15.0, m1_pct: 30.0, market_cap: 40e9 },
+      leadership_score: 88,
+      rs_1w: 85, rs_1m: 80, rs_3m: 75, rs_6m: 70,
+      relative_strength_1w: 75, relative_strength_1m: 70, relative_strength_3m: 65, relative_strength_6m: 60,
+      thrust_percentile_1d: 60, thrust_percentile_1w: 55, thrust_percentile_1m: 50, thrust_percentile_3m: 45, thrust_percentile_6m: 40,
+      ema10_distance_pct: 12.0, ema20_distance_pct: 15.0,
+      atr_extension: 6.5, w1_pct: 15.0, m1_pct: 30.0, market_cap: 40e9,
+      // Deliberately NOT extended_v2 (6.5 < the new 8.0 threshold) even
+      // though the LEGACY hysteresis-based `extended` is true (enter 5.0) --
+      // proves the two thresholds are genuinely independent (spec point 12).
+      quality_v2: 'leader', ema10_pullback: false, ema20_pullback: false, resetting: false, extended_v2: true },
     { symbol: 'SNDK', narratives: ['memory'], quality_state: 'neutral', near_emas: true, extended: false,
       constructive_reset_narratives: [], laggard_narratives: ['memory'], structural_rs: 45, trend_strength: 30,
-      leadership_score: 40, rs_1w: 35, rs_1m: 30,
-      thrust_percentile_1d: 20, thrust_percentile_1w: 25, ema10_distance_pct: -1.5, ema20_distance_pct: -1.0,
-      atr_extension: 1.0, w1_pct: -3.0, m1_pct: -5.0, market_cap: 8e9 },
+      leadership_score: 40,
+      rs_1w: 35, rs_1m: 30, rs_3m: 25, rs_6m: 20,
+      relative_strength_1w: 30, relative_strength_1m: 25, relative_strength_3m: 20, relative_strength_6m: 15,
+      thrust_percentile_1d: 20, thrust_percentile_1w: 25, thrust_percentile_1m: 22, thrust_percentile_3m: 18, thrust_percentile_6m: 15,
+      ema10_distance_pct: -1.5, ema20_distance_pct: -1.0,
+      atr_extension: 1.0, w1_pct: -3.0, m1_pct: -5.0, market_cap: 8e9,
+      // Both Pullback badges true simultaneously (spec point 11).
+      quality_v2: 'laggard', ema10_pullback: true, ema20_pullback: true, resetting: false, extended_v2: false },
     // Isolated from the memory/near-EMA/RS1W/ATR/cap fixtures above on
     // purpose, so it only shows up where a test specifically means to
     // exercise it (the 'recent' tab and the Structural RS filter below) —
     // every OTHER existing filter test's expected list stays unchanged.
     { symbol: 'WDC', narratives: ['ai_infra'], quality_state: 'recent_leader', near_emas: false, extended: false,
       constructive_reset_narratives: [], laggard_narratives: [], structural_rs: 88, trend_strength: 60,
-      leadership_score: 70, rs_1w: 60, rs_1m: 65,
-      thrust_percentile_1d: 50, thrust_percentile_1w: 45, ema10_distance_pct: 9.0, ema20_distance_pct: 9.0,
-      atr_extension: 8.0, w1_pct: -1.0, m1_pct: 5.0, market_cap: 15e9 },
+      leadership_score: 70,
+      rs_1w: 60, rs_1m: 65, rs_3m: 68, rs_6m: 70,
+      relative_strength_1w: 55, relative_strength_1m: 60, relative_strength_3m: 63, relative_strength_6m: 65,
+      thrust_percentile_1d: 50, thrust_percentile_1w: 45, thrust_percentile_1m: 48, thrust_percentile_3m: 50, thrust_percentile_6m: 52,
+      ema10_distance_pct: 9.0, ema20_distance_pct: 9.0,
+      atr_extension: 8.0, w1_pct: -1.0, m1_pct: 5.0, market_cap: 15e9,
+      // Resetting alongside a "recent leader" quality -- proves Structure
+      // and Quality never gate each other (spec point 16).
+      quality_v2: 'leader', ema10_pullback: false, ema20_pullback: false, resetting: true, extended_v2: false },
   ];
 }
 
@@ -436,7 +480,9 @@ test('oppApplyFilters: Narrative-Filter "__NONE__" zeigt nur Ticker ohne aktives
   const items = makeOppItems().concat([
     { symbol: 'ZZZ', narratives: [], quality_state: 'neutral', near_emas: false, extended: false,
       constructive_reset_narratives: [], laggard_narratives: [], structural_rs: 50, trend_strength: 40,
-      rs_1w: 40, rs_1m: 40, thrust_percentile_1d: 40, thrust_percentile_1w: 40,
+      rs_1w: 40, rs_1m: 40, rs_3m: 40, rs_6m: 40,
+      relative_strength_1w: 40, relative_strength_1m: 40, relative_strength_3m: 40, relative_strength_6m: 40,
+      thrust_percentile_1d: 40, thrust_percentile_1w: 40, thrust_percentile_1m: 40, thrust_percentile_3m: 40, thrust_percentile_6m: 40,
       atr_extension: 2.0, w1_pct: 0.5, m1_pct: 1.0, market_cap: 2e9 },
   ]);
   const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
@@ -444,19 +490,61 @@ test('oppApplyFilters: Narrative-Filter "__NONE__" zeigt nur Ticker ohne aktives
   setOppFilterInputs({});
 });
 
-test('oppApplyFilters: Min Structural RS', () => {
-  setOppFilterInputs({ oppFilterStructuralRs: '87' });
+// ── Calibration-aware Opportunities UI v1, spec point 1: Structural RS/
+// Relative Strength/Thrust and their Min. filters all follow ONE central
+// 1W/1M/3M/6M selector, fully separate horizons, never averaged ──
+
+test('oppRsField/oppRelativeStrengthField/oppThrustField: map each horizon to its own, separate field', () => {
+  const map = (fn, h) => vm.runInContext(`${fn}('${h}')`, sandbox);
+  assert.equal(map('oppRsField', '1w'), 'rs_1w');
+  assert.equal(map('oppRsField', '1m'), 'rs_1m');
+  assert.equal(map('oppRsField', '3m'), 'rs_3m');
+  assert.equal(map('oppRsField', '6m'), 'rs_6m');
+  assert.equal(map('oppRelativeStrengthField', '1w'), 'relative_strength_1w');
+  assert.equal(map('oppRelativeStrengthField', '6m'), 'relative_strength_6m');
+  assert.equal(map('oppThrustField', '1w'), 'thrust_percentile_1w');
+  assert.equal(map('oppThrustField', '3m'), 'thrust_percentile_3m');
+  assert.equal(map('oppThrustField', '6m'), 'thrust_percentile_6m');
+});
+
+test('oppApplyFilters: Min Structural RS reads rs_1m under the default 1M horizon', () => {
+  vm.runInContext("oppRsHorizon = '1m'", sandbox);
+  setOppFilterInputs({ oppFilterStructuralRs: '70' });
   const items = makeOppItems();
   const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
-  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'VRT', 'WDC']); // 95, 90, 88 pass; SNDK's 45 excluded
+  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'VRT']); // rs_1m 88, 80 pass; WDC 65 / SNDK 30 excluded
   setOppFilterInputs({});
 });
 
-test('oppApplyFilters: Min RS1W', () => {
-  setOppFilterInputs({ oppFilterRs: '80' });
+test('oppApplyFilters: Min Structural RS switches to rs_6m when the horizon toggle is 6M', () => {
+  // Same filter value, DIFFERENT field read, DIFFERENT result set -- proves
+  // the timeframe switch actually changes what "Structural RS" means here,
+  // not just its label. rs_6m: MU 75, VRT 70, WDC 70, SNDK 20.
+  vm.runInContext("oppRsHorizon = '6m'", sandbox);
+  setOppFilterInputs({ oppFilterStructuralRs: '70' });
   const items = makeOppItems();
   const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
-  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'VRT']);
+  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'VRT', 'WDC']); // SNDK's 20 excluded
+  vm.runInContext("oppRsHorizon = '1m'", sandbox); // reset for subsequent tests
+  setOppFilterInputs({});
+});
+
+test('oppApplyFilters: Min Relative Strength (renamed from the fixed Min RS1W filter) follows the same horizon selector', () => {
+  vm.runInContext("oppRsHorizon = '1m'", sandbox);
+  setOppFilterInputs({ oppFilterRelativeStrength: '65' });
+  const items = makeOppItems();
+  const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(out).map(it => it.symbol).sort(), ['MU', 'VRT']); // relative_strength_1m 80, 70 pass
+  setOppFilterInputs({});
+});
+
+test('oppApplyFilters: Min Thrust follows the horizon selector too', () => {
+  vm.runInContext("oppRsHorizon = '3m'", sandbox);
+  setOppFilterInputs({ oppFilterThrust: '60' });
+  const items = makeOppItems();
+  const out = vm.runInContext('oppApplyFilters(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(out).map(it => it.symbol), ['MU']); // thrust_percentile_3m: MU 70 passes; others (45/18/50) don't
+  vm.runInContext("oppRsHorizon = '1m'", sandbox);
   setOppFilterInputs({});
 });
 
@@ -494,11 +582,86 @@ test('oppSortItems: numeric field descending/ascending', () => {
   assert.deepEqual(Array.from(asc).map(it => it.symbol), ['SNDK', 'WDC', 'VRT', 'MU']);
 });
 
-test('oppSortItems: sorts by structural_rs (the V1.1 default sort field)', () => {
+test('oppSortItems: sorts by structural_rs_dyn (the new default sort field), following the 1M default horizon', () => {
   const items = makeOppItems();
-  sandbox.oppSortState = { field: 'structural_rs', dir: 'desc' };
+  vm.runInContext("oppRsHorizon = '1m'", sandbox);
+  sandbox.oppSortState = { field: 'structural_rs_dyn', dir: 'desc' };
   const desc = vm.runInContext('oppSortItems(items)', Object.assign(sandbox, { items }));
-  assert.deepEqual(Array.from(desc).map(it => it.symbol), ['MU', 'VRT', 'WDC', 'SNDK']); // 95, 90, 88, 45
+  assert.deepEqual(Array.from(desc).map(it => it.symbol), ['MU', 'VRT', 'WDC', 'SNDK']); // rs_1m: 88, 80, 65, 30
+});
+
+test('oppSortItems: structural_rs_dyn re-sorts by a different field when the horizon changes', () => {
+  // rs_3m (no ties, unlike 6m): MU 80, VRT 75, WDC 68, SNDK 25.
+  const items = makeOppItems();
+  vm.runInContext("oppRsHorizon = '3m'", sandbox);
+  sandbox.oppSortState = { field: 'structural_rs_dyn', dir: 'desc' };
+  const desc = vm.runInContext('oppSortItems(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(desc).map(it => it.symbol), ['MU', 'VRT', 'WDC', 'SNDK']);
+  vm.runInContext("oppRsHorizon = '1m'", sandbox); // reset for subsequent tests
+});
+
+test('oppSortItems: relative_strength_dyn sorts by the horizon-selected Relative Strength field', () => {
+  const items = makeOppItems();
+  vm.runInContext("oppRsHorizon = '1m'", sandbox);
+  sandbox.oppSortState = { field: 'relative_strength_dyn', dir: 'desc' };
+  const desc = vm.runInContext('oppSortItems(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(desc).map(it => it.symbol), ['MU', 'VRT', 'WDC', 'SNDK']); // relative_strength_1m: 80, 70, 60, 25
+});
+
+test('oppSortItems: thrust_dyn sorts by the horizon-selected Thrust field', () => {
+  // thrust_percentile_6m: MU 60, WDC 52, VRT 40, SNDK 15.
+  const items = makeOppItems();
+  vm.runInContext("oppRsHorizon = '6m'", sandbox);
+  sandbox.oppSortState = { field: 'thrust_dyn', dir: 'desc' };
+  const desc = vm.runInContext('oppSortItems(items)', Object.assign(sandbox, { items }));
+  assert.deepEqual(Array.from(desc).map(it => it.symbol), ['MU', 'WDC', 'VRT', 'SNDK']);
+  vm.runInContext("oppRsHorizon = '1m'", sandbox); // reset for subsequent tests
+});
+
+// ── Calibration-aware Opportunities UI v1, spec point 3/8: Quality
+// (Leader/Neutral/Laggard) and Structure (independent markers) ──
+
+test('oppQualityHtml: renders the quality_v2 bucket label, defaulting to Neutral when missing', () => {
+  const leader = vm.runInContext('oppQualityHtml(it)', Object.assign(sandbox, { it: { quality_v2: 'leader' } }));
+  const laggard = vm.runInContext('oppQualityHtml(it)', Object.assign(sandbox, { it: { quality_v2: 'laggard' } }));
+  const missing = vm.runInContext('oppQualityHtml(it)', Object.assign(sandbox, { it: {} }));
+  assert.match(leader, /class="opp-quality leader"/);
+  assert.match(leader, />Leader</);
+  assert.match(laggard, /class="opp-quality laggard"/);
+  assert.match(missing, /class="opp-quality neutral"/);
+});
+
+test('oppStructureBadgesHtml: no badge is rendered when nothing applies (spec point 15: no visible "Normal" badge)', () => {
+  const html = vm.runInContext('oppStructureBadgesHtml(it)',
+    Object.assign(sandbox, { it: { ema10_pullback: false, ema20_pullback: false, resetting: false, extended_v2: false } }));
+  assert.doesNotMatch(html, /<span class="opp-badge/);
+});
+
+test('oppStructureBadgesHtml: missing/undefined flags produce no false badges', () => {
+  const html = vm.runInContext('oppStructureBadgesHtml(it)', Object.assign(sandbox, { it: {} }));
+  assert.doesNotMatch(html, /<span class="opp-badge/);
+});
+
+test('oppStructureBadgesHtml: EMA10 and EMA20 Pullback can both be shown at once', () => {
+  const html = vm.runInContext('oppStructureBadgesHtml(it)',
+    Object.assign(sandbox, { it: { ema10_pullback: true, ema20_pullback: true, resetting: false, extended_v2: false } }));
+  assert.match(html, /EMA10 Pullback/);
+  assert.match(html, /EMA20 Pullback/);
+});
+
+test('oppStructureBadgesHtml: Resetting and a Pullback badge coexist (spec point 14)', () => {
+  const html = vm.runInContext('oppStructureBadgesHtml(it)',
+    Object.assign(sandbox, { it: { ema10_pullback: false, ema20_pullback: true, resetting: true, extended_v2: false } }));
+  assert.match(html, /EMA20 Pullback/);
+  assert.match(html, /Resetting/);
+});
+
+test('oppStructureBadgesHtml: Extended renders independently and can coexist with everything else', () => {
+  const html = vm.runInContext('oppStructureBadgesHtml(it)',
+    Object.assign(sandbox, { it: { ema10_pullback: true, ema20_pullback: false, resetting: true, extended_v2: true } }));
+  assert.match(html, /EMA10 Pullback/);
+  assert.match(html, /Resetting/);
+  assert.match(html, /Extended/);
 });
 
 test('oppVisibleSortedItems: combines tab + filters + sort into one visible/copyable list', () => {
@@ -1700,32 +1863,53 @@ test('index.html: renderMarketRegime populates the current-tactic card and toggl
   assert.match(fn, /el\.dataset\.state === mr\.state/);
 });
 
-// ── Opportunities: Structural RS broken out by timeframe (1M/3M/6M/12M) —
-// structural_rs is the ONLY place this composite is shown/filtered
-// (Screener/Narrative tables already show rs_percentile_1w/1m/3m/6m
-// directly), so the individual weighted-sum inputs are now exposed
-// alongside the composite instead of only the blended number. ──
+// ── Calibration-aware Opportunities UI v1, spec point 17: Ticker | Primary
+// Narrative | Secondary Narratives | Quality | Structure | Structural RS |
+// Relative Strength | Thrust | 50MA ATR Ext. -- Structural RS/Relative
+// Strength/Thrust are virtual columns (structural_rs_dyn/
+// relative_strength_dyn/thrust_dyn), their actual field picked at render
+// time by oppRsHorizon (tested above via oppSortItems/oppApplyFilters). ──
 
-test('index.html: OPP_COLUMNS lists Structural RS followed by its RS 1M/3M/6M/12M components', () => {
+test('index.html: OPP_COLUMNS matches the spec point 17 target structure exactly', () => {
   const src = extractConst(html, 'OPP_COLUMNS');
   const ctx = {};
   vm.createContext(ctx);
   const keys = Array.from(vm.runInContext(`${src}\nOPP_COLUMNS.map(c => c.key)`, ctx));
-  const rsIdx = keys.indexOf('structural_rs');
-  assert.ok(rsIdx !== -1);
-  assert.deepEqual(keys.slice(rsIdx, rsIdx + 5), ['structural_rs', 'rs_1m', 'rs_3m', 'rs_6m', 'rs_12m']);
+  assert.deepEqual(keys, [
+    'symbol', 'primary_narrative_name', 'secondary_narrative_names',
+    'quality_v2', 'structure', 'structural_rs_dyn', 'relative_strength_dyn',
+    'thrust_dyn', 'atr_extension',
+  ]);
 });
 
-test('index.html: the Opportunities row template renders a <td> for each of rs_3m/rs_6m/rs_12m, in the same order as OPP_COLUMNS', () => {
+test('index.html: the Opportunities row template renders the 9 target columns, in OPP_COLUMNS order, using the horizon-selected fields', () => {
   const bodyMatch = html.match(/let rows = windowed\.map\(it => `[\s\S]*?`\)\.join\(''\);/);
   assert.ok(bodyMatch, 'Opportunities row template not found');
   const tpl = bodyMatch[0];
-  const rsIdx = tpl.indexOf('it.structural_rs');
-  const m1Idx = tpl.indexOf('it.rs_1m');
-  const m3Idx = tpl.indexOf('it.rs_3m');
-  const m6Idx = tpl.indexOf('it.rs_6m');
-  const m12Idx = tpl.indexOf('it.rs_12m');
-  assert.ok(rsIdx < m1Idx && m1Idx < m3Idx && m3Idx < m6Idx && m6Idx < m12Idx);
+  assert.match(tpl, /data-ticker="\$\{it\.symbol\}"/);
+  assert.match(tpl, /oppPrimaryNarrativeHtml\(it\)/);
+  assert.match(tpl, /oppSecondaryNarrativeHtml\(it\)/);
+  assert.match(tpl, /oppQualityHtml\(it\)/);
+  assert.match(tpl, /oppStructureBadgesHtml\(it\)/);
+  assert.match(tpl, /it\[oppRsField\(oppRsHorizon\)\]/);
+  assert.match(tpl, /it\[oppRelativeStrengthField\(oppRsHorizon\)\]/);
+  assert.match(tpl, /it\[oppThrustField\(oppRsHorizon\)\]/);
+  assert.match(tpl, /it\.atr_extension/);
+  const symbolIdx = tpl.indexOf('it.symbol');
+  const qualityIdx = tpl.indexOf('oppQualityHtml');
+  const structureIdx = tpl.indexOf('oppStructureBadgesHtml');
+  const rsIdx = tpl.indexOf('oppRsField');
+  const relIdx = tpl.indexOf('oppRelativeStrengthField');
+  const thrustIdx = tpl.indexOf('oppThrustField');
+  const atrIdx = tpl.lastIndexOf('it.atr_extension');
+  assert.ok(symbolIdx < qualityIdx && qualityIdx < structureIdx && structureIdx < rsIdx &&
+    rsIdx < relIdx && relIdx < thrustIdx && thrustIdx < atrIdx);
+});
+
+test('index.html: the "50MA ATR Ext." cell is warn-colored by extended_v2 (the new 8.0 threshold), not the legacy hysteresis `extended` flag', () => {
+  const bodyMatch = html.match(/let rows = windowed\.map\(it => `[\s\S]*?`\)\.join\(''\);/);
+  const tpl = bodyMatch[0];
+  assert.match(tpl, /it\.extended_v2 \? 'atr-ext-warn'/);
 });
 
 test('index.html: Market Regime card renders an "Empfohlenes Vorgehen" block and a "Taktisches Vorgehen" legend with all 5 states, in section 02', () => {

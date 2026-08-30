@@ -222,6 +222,17 @@
     "constructive_reset": { "max_below_ema20_pct": -2.0, "max_below_sma50_pct": -2.0 },
     "laggard": { "structural_rs_max": 60, "bottom_pct_of_narrative": 40, "thrust_percentile_1d_max": 80, "thrust_percentile_1w_max": 80, "exit_structural_rs_min": 65 }
   },
+  "opportunity_calibration_v2": {
+    "_comment": "Calibration-aware Opportunities UI v1: the single central place for every threshold behind the new Structure badges (EMA10/EMA20 Pullback, Resetting, Extended). Never duplicate these numbers elsewhere in frontend/backend -- read them from here. extendedAtrThreshold/reset* are 2024 calibration + 2023 robustness-tested candidates; the ema10/ema20 pullback range is a 2024 provisional candidate (not yet robustness-tested). Quality (Leader/Neutral/Laggard) intentionally has NO new thresholds here -- it is a pure relabeling of the existing opportunity_v1_1 quality_state/laggard_narratives outputs, computed with the SAME thresholds already defined above.",
+    "ema10_pullback_min": -5.0,
+    "ema10_pullback_max": 5.0,
+    "ema20_pullback_min": -5.0,
+    "ema20_pullback_max": 5.0,
+    "extended_atr_threshold": 8.0,
+    "reset_previous_extension_min": 8.0,
+    "reset_current_extension_max": 4.0,
+    "reset_ema_distance_max": 0.0
+  },
   "narrative_structural_v1_1": {
     "_comment": "Narrative Structural Score (0-100) — ersetzt den 1W-lastigen Narrative Momentum Score als primaeren Score (Thrust bleibt sichtbar, ist aber Acceleration, kein Bestandteil mehr). Punkt 17-22 der V1.1-Spec.",
     "structural_price_strength_weights": { "strength_percentile_1m": 0.25, "strength_percentile_3m": 0.40, "strength_percentile_6m": 0.35 },

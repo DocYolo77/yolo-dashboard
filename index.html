@@ -383,15 +383,21 @@ html { scroll-behavior: smooth; }
 .screener-actions { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
 .screener-union-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
 .screener-union-count { font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); }
+/* Calibration-aware Opportunities UI v1: Quality (Leader/Neutral/Laggard,
+   quality_v2) and Structure (independent markers, never a composite) are
+   two SEPARATE dimensions -- see spec point 16, "Quality und Structure
+   niemals vermischen". */
+.opp-controls { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.opp-quality { font-family: var(--mono-font); font-size: 9.5px; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; white-space: nowrap; }
+.opp-quality.leader { background: rgba(47,126,216,0.15); color: #2f7ed8; }
+.opp-quality.neutral { background: rgba(255,255,255,0.06); color: var(--ink-muted); }
+.opp-quality.laggard { background: rgba(240,96,92,0.12); color: var(--negative); }
 .opp-badges { display: flex; gap: 4px; flex-wrap: wrap; }
 .opp-badge { font-family: var(--mono-font); font-size: 8.5px; letter-spacing: 0.3px; padding: 2px 6px; border-radius: 2px; white-space: nowrap; }
-.opp-badge.fresh { background: rgba(61,220,115,0.18); color: var(--positive); }
-.opp-badge.leader { background: rgba(47,126,216,0.15); color: #2f7ed8; }
-.opp-badge.recent { background: rgba(47,126,216,0.08); color: #6ea8dc; }
-.opp-badge.near-ema { background: rgba(255,255,255,0.06); color: var(--ink-light); }
+.opp-badge.ema10-pullback { background: rgba(61,220,115,0.15); color: var(--positive); }
+.opp-badge.ema20-pullback { background: rgba(47,126,216,0.12); color: #2f7ed8; }
+.opp-badge.resetting { background: rgba(155,127,201,0.18); color: #9b7fc9; }
 .opp-badge.extended { background: rgba(226,146,92,0.15); color: #e2925c; }
-.opp-badge.reset { background: rgba(155,127,201,0.18); color: #9b7fc9; }
-.opp-badge.laggard { background: rgba(240,96,92,0.12); color: var(--negative); }
 .opp-narr-tag { font-family: var(--mono-font); font-size: 9px; padding: 1px 6px; border-radius: 2px; background: rgba(255,255,255,0.05); color: var(--ink-muted); white-space: nowrap; margin: 1px; display: inline-block; }
 .opp-narr-tag.primary { background: rgba(47,126,216,0.15); color: #2f7ed8; font-weight: 600; }
 .opp-narr-tag.secondary { background: rgba(255,255,255,0.04); color: var(--ink-muted); }
@@ -939,25 +945,33 @@ html { scroll-behavior: smooth; }
       <span class="nc-info" id="opportunityInfo" tabindex="0">ⓘ
         <dl class="nc-info-popup">
           <dt>Structural RS</dt>
-          <dd>Multi-Timeframe relative Stärke (1M–12M) gegenüber dem eligible Universe — die primäre strukturelle Qualitätskennzahl.</dd>
-          <dt>Trend Strength</dt>
-          <dd>Trendqualität auf Basis der SMA50-Steigung und ihrer Persistenz, unabhängig von der aktuellen Distanz/Extension.</dd>
-          <dt>Leader</dt>
-          <dd>Eine Aktie mit struktureller relativer Stärke UND intakter Trendqualität.</dd>
-          <dt>Fresh Leader</dt>
-          <dd>Ein neuer struktureller Leader, der zusätzlich kurzfristige Beschleunigung (RS/Thrust) zeigt.</dd>
-          <dt>Recent Leader</dt>
-          <dd>War innerhalb der letzten Handelstage ein Leader — ein normaler Pullback allein beendet diesen Status nicht sofort.</dd>
-          <dt>Constructive Reset</dt>
-          <dd>Ein aktueller oder kürzlicher Leader, der wieder näher an seine Trendstruktur (EMA20/SMA50) zurückgekehrt ist, ohne extended zu sein.</dd>
-          <dt>Extended</dt>
-          <dd>Eine starke Aktie, die bereits deutlich von ihrer mittelfristigen Basis weggelaufen ist.</dd>
-          <dt>Laggard</dt>
-          <dd>Ein strukturell schwaches Mitglied eines Narratives, das innerhalb dieses Narratives deutlich hinterherhinkt.</dd>
+          <dd>Perzentilrang der Rendite dieses Zeitfensters gegenüber dem eligible Universe — folgt dem Structural-RS-Zeitfenster-Selector oben (1W/1M/3M/6M, strikt getrennt, keine Mittelung).</dd>
+          <dt>Relative Strength</dt>
+          <dd>Individuelle relative Entwicklung der Aktie gegenüber RSP (S&amp;P 500 Equal Weight), dieselbe Methodik wie bei den Narratives — ebenfalls nach demselben Zeitfenster-Selector.</dd>
+          <dt>Thrust</dt>
+          <dd>Kurzfristige Beschleunigung im gewählten Zeitfenster-Kontext. Ohne validen Wert für ein Zeitfenster: „—", nie aus einem anderen Zeitfenster improvisiert.</dd>
+          <dt>Quality</dt>
+          <dd>Leader/Neutral/Laggard — reine Umbenennung der bestehenden Quality-State-Maschine, keine neuen Schwellen.</dd>
+          <dt>Structure</dt>
+          <dd>Unabhängige Marker (kein Composite-Score): EMA10 Pullback und EMA20 Pullback (Kurs innerhalb ±5% des jeweiligen EMA, Candidate v1, provisorisch), Resetting (war stark extended, jetzt zurückgesetzt — 2024 Calibration + 2023 robustness-tested) und Extended (50MA ATR Ext. ≥ 8, 2024 Calibration + 2023 robustness-tested). Mehrere Marker gleichzeitig möglich; Extended ist kein Werturteil über die Quality.</dd>
+          <dt>50MA ATR Ext.</dt>
+          <dd>(Close − SMA50) / SMA50% ÷ (ATR14 / Close × 100) — wie weit der Kurs, in ATR-Einheiten, oberhalb seines SMA50 gelaufen ist.</dd>
           <dt>Primary / Secondary Narrative</dt>
-          <dd>Jede eligible Aktie hat genau ein Primary Narrative (wirtschaftlich wichtigste Klassifikation) und optional bis zu zwei Secondary Narratives (materielles Zusatz-Exposure). Rein informativ — kein Filter für Leader/Fresh/Recent/Reset/Extended/Laggard.</dd>
+          <dd>Jede eligible Aktie hat genau ein Primary Narrative (wirtschaftlich wichtigste Klassifikation) und optional bis zu zwei Secondary Narratives (materielles Zusatz-Exposure). Rein informativ — kein Filter für Quality/Structure.</dd>
         </dl>
       </span>
+    </div>
+
+    <div class="opp-controls">
+      <div class="nc-group">
+        <span class="nc-label">Structural RS</span>
+        <div class="nc-toggle" id="oppRsHorizonToggle">
+          <button class="nc-btn" data-horizon="1w">1W</button>
+          <button class="nc-btn active" data-horizon="1m">1M</button>
+          <button class="nc-btn" data-horizon="3m">3M</button>
+          <button class="nc-btn" data-horizon="6m">6M</button>
+        </div>
+      </div>
     </div>
 
     <div class="opp-tabs" id="oppTabs">
@@ -980,15 +994,15 @@ html { scroll-behavior: smooth; }
         <input type="number" id="oppFilterStructuralRs" placeholder="—" min="0" max="100" oninput="oppRender()">
       </div>
       <div class="opp-filter-group">
-        <label>Min. RS 1W</label>
-        <input type="number" id="oppFilterRs" placeholder="—" min="0" max="100" oninput="oppRender()">
+        <label>Min. Relative Strength</label>
+        <input type="number" id="oppFilterRelativeStrength" placeholder="—" min="0" max="100" oninput="oppRender()">
       </div>
       <div class="opp-filter-group">
-        <label>Min. Thrust% 1W</label>
+        <label>Min. Thrust</label>
         <input type="number" id="oppFilterThrust" placeholder="—" min="0" max="100" oninput="oppRender()">
       </div>
       <div class="opp-filter-group">
-        <label>Max. ATR Ext.</label>
+        <label>Max. 50MA ATR Ext.</label>
         <input type="number" id="oppFilterAtr" placeholder="—" step="0.5" oninput="oppRender()">
       </div>
       <div class="opp-filter-group">
@@ -1821,31 +1835,42 @@ function renderExecSummary() {
 // OPPORTUNITIES (Punkt 20-31)
 // ══════════════════════════════════════════════
 let oppTab = 'all';
-let oppSortState = { field: 'structural_rs', dir: 'desc' };
+// Calibration-aware Opportunities UI v1, spec point 1: ONE central
+// Structural-RS-Timeframe selector (1W/1M/3M/6M, default 1M) drives
+// Structural RS, its Min. filter, Relative Strength and Thrust together --
+// the four horizons stay fully separate, never averaged/weighted (point 1).
+let oppRsHorizon = '1m';
+let oppSortState = { field: 'structural_rs_dyn', dir: 'desc' };
 
+// rs_1w/rs_1m/rs_3m/rs_6m already exist on every opportunity item (the
+// per-horizon RS percentiles build_market_features.py computes upstream);
+// this just picks which one "Structural RS" currently displays/sorts/
+// filters by -- no averaging, no new calculation (spec point 2).
+function oppRsField(horizon) { return { '1w': 'rs_1w', '1m': 'rs_1m', '3m': 'rs_3m', '6m': 'rs_6m' }[horizon]; }
+// relative_strength_<horizon> is the new per-stock RSP-relative percentile
+// (build_market_features.py's compute_stock_relative_strength_pct, reusing
+// build_narratives.py's Narrative RS methodology unchanged -- spec point 4).
+function oppRelativeStrengthField(horizon) { return 'relative_strength_' + horizon; }
+// thrust_percentile_1d has no horizon-selector equivalent (no 1D button);
+// 1w/1m already existed, 3m/6m were already computed upstream and are now
+// exposed too (spec point 5) -- None/missing stays None, never improvised.
+function oppThrustField(horizon) { return { '1w': 'thrust_percentile_1w', '1m': 'thrust_percentile_1m', '3m': 'thrust_percentile_3m', '6m': 'thrust_percentile_6m' }[horizon]; }
+
+// Spec point 17: Ticker | Primary Narrative | Secondary Narratives |
+// Quality | Structure | Structural RS | Relative Strength | Thrust |
+// 50MA ATR Ext. -- Structural RS/Relative Strength/Thrust are virtual
+// columns (structural_rs_dyn/relative_strength_dyn/thrust_dyn); their
+// actual field depends on oppRsHorizon (see oppSortItems/oppRowCellHtml).
 const OPP_COLUMNS = [
   { key: 'symbol', label: 'Ticker', sortable: true },
   { key: 'primary_narrative_name', label: 'Primary Narrative', sortable: true },
   { key: 'secondary_narrative_names', label: 'Secondary Narratives', sortable: false },
-  { key: 'quality_state', label: 'Quality', sortable: true },
-  { key: 'badges', label: 'Badges', sortable: false },
-  { key: 'structural_rs', label: 'Structural RS', sortable: true },
-  { key: 'rs_1m', label: 'RS 1M', sortable: true },
-  { key: 'rs_3m', label: 'RS 3M', sortable: true },
-  { key: 'rs_6m', label: 'RS 6M', sortable: true },
-  { key: 'rs_12m', label: 'RS 12M', sortable: true },
-  { key: 'trend_strength', label: 'Trend Strength', sortable: true },
-  { key: 'rs_1w', label: 'RS 1W', sortable: true },
-  { key: 'thrust_percentile_1d', label: 'Thrust% 1D', sortable: true },
-  { key: 'thrust_percentile_1w', label: 'Thrust% 1W', sortable: true },
-  { key: 'sma50_distance_pct', label: 'SMA50 Dist', sortable: true },
-  { key: 'sma50_slope_20d_pct', label: 'SMA50 Slope', sortable: true },
-  { key: 'pct_sessions_above_sma50_20d', label: 'SMA50 Persist.', sortable: true },
-  { key: 'ema10_distance_pct', label: 'EMA10', sortable: true },
-  { key: 'ema20_distance_pct', label: 'EMA20', sortable: true },
-  { key: 'atr_extension', label: 'ATR Ext', sortable: true },
-  { key: 'w1_pct', label: '1W%', sortable: true },
-  { key: 'm1_pct', label: '1M%', sortable: true },
+  { key: 'quality_v2', label: 'Quality', sortable: true },
+  { key: 'structure', label: 'Structure', sortable: false },
+  { key: 'structural_rs_dyn', label: 'Structural RS', sortable: true },
+  { key: 'relative_strength_dyn', label: 'Relative Strength', sortable: true },
+  { key: 'thrust_dyn', label: 'Thrust', sortable: true },
+  { key: 'atr_extension', label: '50MA ATR Ext.', sortable: true },
 ];
 
 function oppTabFilter(item, tab) {
@@ -1862,24 +1887,36 @@ function oppTabFilter(item, tab) {
 function oppApplyFilters(items) {
   const narrativeFilter = document.getElementById('oppFilterNarrative').value;
   const structuralRsMin = parseFloat(document.getElementById('oppFilterStructuralRs').value);
-  const rsMin = parseFloat(document.getElementById('oppFilterRs').value);
+  const relativeStrengthMin = parseFloat(document.getElementById('oppFilterRelativeStrength').value);
   const thrustMin = parseFloat(document.getElementById('oppFilterThrust').value);
   const atrMax = parseFloat(document.getElementById('oppFilterAtr').value);
   const capMinB = parseFloat(document.getElementById('oppFilterCap').value);
   const nearEmaOnly = document.getElementById('oppFilterNearEma').checked;
 
+  // Spec point 1: Min. Structural RS/Min. Relative Strength/Min. Thrust all
+  // follow the SAME central oppRsHorizon selector as the columns they filter.
+  const rsField = oppRsField(oppRsHorizon);
+  const relStrengthField = oppRelativeStrengthField(oppRsHorizon);
+  const thrustField = oppThrustField(oppRsHorizon);
+
   return items.filter(it => {
     if (narrativeFilter === '__NONE__' && it.narratives.length > 0) return false;
     else if (narrativeFilter && narrativeFilter !== '__NONE__' && !it.narratives.includes(narrativeFilter)) return false;
-    if (!Number.isNaN(structuralRsMin) && (it.structural_rs == null || it.structural_rs < structuralRsMin)) return false;
-    if (!Number.isNaN(rsMin) && (it.rs_1w == null || it.rs_1w < rsMin)) return false;
-    if (!Number.isNaN(thrustMin) && (it.thrust_percentile_1w == null || it.thrust_percentile_1w < thrustMin)) return false;
+    if (!Number.isNaN(structuralRsMin) && (it[rsField] == null || it[rsField] < structuralRsMin)) return false;
+    if (!Number.isNaN(relativeStrengthMin) && (it[relStrengthField] == null || it[relStrengthField] < relativeStrengthMin)) return false;
+    if (!Number.isNaN(thrustMin) && (it[thrustField] == null || it[thrustField] < thrustMin)) return false;
     if (!Number.isNaN(atrMax) && (it.atr_extension == null || it.atr_extension > atrMax)) return false;
     if (!Number.isNaN(capMinB) && (it.market_cap == null || it.market_cap < capMinB * 1e9)) return false;
     if (nearEmaOnly && !it.near_emas) return false;
     return true;
   });
 }
+
+const OPP_DYNAMIC_ACCESSORS = {
+  structural_rs_dyn: it => it[oppRsField(oppRsHorizon)],
+  relative_strength_dyn: it => it[oppRelativeStrengthField(oppRsHorizon)],
+  thrust_dyn: it => it[oppThrustField(oppRsHorizon)],
+};
 
 // Strength Screeners 3M/6M Union Patch point 12B: consolidated onto the
 // shared sortTableRows primitive -- fixes a real pre-existing bug where
@@ -1888,7 +1925,9 @@ function oppApplyFilters(items) {
 // matching the dashboard-wide convention, regardless of ASC/DESC.
 function oppSortItems(items) {
   const { field, dir } = oppSortState;
-  const isText = field === 'symbol' || field === 'quality_state' || field === 'primary_narrative_name';
+  const accessor = OPP_DYNAMIC_ACCESSORS[field];
+  if (accessor) return sortTableRows(items, { direction: dir, type: 'number', accessor });
+  const isText = field === 'symbol' || field === 'quality_v2' || field === 'primary_narrative_name';
   return sortTableRows(items, { direction: dir, type: isText ? 'text' : 'number', key: field });
 }
 
@@ -1899,15 +1938,24 @@ function oppVisibleSortedItems() {
   return oppSortItems(filtered);
 }
 
-function oppBadgesHtml(item) {
+// Calibration-aware Opportunities UI v1, spec point 3: pure relabeling of
+// the existing quality_v2 bucket (leader/neutral/laggard, computed
+// backend-side by calc_quality_v2 -- no new threshold here either).
+const QUALITY_V2_LABEL = { leader: 'Leader', neutral: 'Neutral', laggard: 'Laggard' };
+function oppQualityHtml(item) {
+  const q = item.quality_v2 || 'neutral';
+  return `<span class="opp-quality ${q}">${QUALITY_V2_LABEL[q] || q}</span>`;
+}
+// Spec point 8: independent MARKERS, never a composite score -- several can
+// appear together (point 11/14: EMA10+EMA20 Pullback simultaneously,
+// Resetting alongside a Pullback). Spec point 15: no visible "Normal" badge
+// when none of the four apply -- an empty <div> is enough.
+function oppStructureBadgesHtml(item) {
   const badges = [];
-  if (item.quality_state === 'fresh_leader') badges.push('<span class="opp-badge fresh">FRESH</span>');
-  else if (item.quality_state === 'leader') badges.push('<span class="opp-badge leader">LEADER</span>');
-  else if (item.quality_state === 'recent_leader') badges.push('<span class="opp-badge recent">RECENT</span>');
-  if (item.near_emas) badges.push('<span class="opp-badge near-ema">NEAR EMA</span>');
-  if (item.extended) badges.push('<span class="opp-badge extended">EXTENDED</span>');
-  if (item.constructive_reset_narratives.length) badges.push('<span class="opp-badge reset">RESET</span>');
-  if (item.laggard_narratives.length) badges.push('<span class="opp-badge laggard">LAGGARD</span>');
+  if (item.ema10_pullback) badges.push('<span class="opp-badge ema10-pullback">EMA10 Pullback</span>');
+  if (item.ema20_pullback) badges.push('<span class="opp-badge ema20-pullback">EMA20 Pullback</span>');
+  if (item.resetting) badges.push('<span class="opp-badge resetting">Resetting</span>');
+  if (item.extended_v2) badges.push('<span class="opp-badge extended">Extended</span>');
   return `<div class="opp-badges">${badges.join('')}</div>`;
 }
 function oppPrimaryNarrativeHtml(item) {
@@ -1920,7 +1968,6 @@ function oppSecondaryNarrativeHtml(item) {
 }
 function oppFmtNum(v, decimals) { return v == null ? '—' : v.toFixed(decimals); }
 function oppFmtPctSigned(v) { return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
-const QUALITY_LABEL = { fresh_leader: 'Fresh Leader', leader: 'Leader', recent_leader: 'Recent Leader', neutral: 'Neutral' };
 
 // Spec point 4: Opportunities-Tabelle ist per Default eingeklappt (lange
 // Listen muessen nicht sofort vollstaendig gerendert werden) und rendert,
@@ -1992,25 +2039,12 @@ function oppRender(opts) {
       <td><b data-ticker="${it.symbol}">${it.symbol}</b></td>
       <td>${oppPrimaryNarrativeHtml(it)}</td>
       <td>${oppSecondaryNarrativeHtml(it)}</td>
-      <td class="muted">${QUALITY_LABEL[it.quality_state] || it.quality_state}</td>
-      <td>${oppBadgesHtml(it)}</td>
-      <td class="muted">${oppFmtNum(it.structural_rs, 1)}</td>
-      <td class="muted">${oppFmtNum(it.rs_1m, 1)}</td>
-      <td class="muted">${oppFmtNum(it.rs_3m, 1)}</td>
-      <td class="muted">${oppFmtNum(it.rs_6m, 1)}</td>
-      <td class="muted">${oppFmtNum(it.rs_12m, 1)}</td>
-      <td class="muted">${oppFmtNum(it.trend_strength, 1)}</td>
-      <td class="muted">${oppFmtNum(it.rs_1w, 1)}</td>
-      <td class="muted">${oppFmtNum(it.thrust_percentile_1d, 1)}</td>
-      <td class="muted">${oppFmtNum(it.thrust_percentile_1w, 1)}</td>
-      <td class="muted">${oppFmtPctSigned(it.sma50_distance_pct)}</td>
-      <td class="muted">${oppFmtPctSigned(it.sma50_slope_20d_pct)}</td>
-      <td class="muted">${oppFmtNum(it.pct_sessions_above_sma50_20d, 0)}</td>
-      <td class="muted">${oppFmtPctSigned(it.ema10_distance_pct)}</td>
-      <td class="muted">${oppFmtPctSigned(it.ema20_distance_pct)}</td>
-      <td class="${it.extended ? 'atr-ext-warn' : 'muted'}">${oppFmtNum(it.atr_extension, 1)}</td>
-      <td class="${pctClass(it.w1_pct)}">${fmtPct(it.w1_pct)}</td>
-      <td class="${pctClass(it.m1_pct)}">${fmtPct(it.m1_pct)}</td>
+      <td>${oppQualityHtml(it)}</td>
+      <td>${oppStructureBadgesHtml(it)}</td>
+      <td class="muted">${oppFmtNum(it[oppRsField(oppRsHorizon)], 1)}</td>
+      <td class="muted">${oppFmtNum(it[oppRelativeStrengthField(oppRsHorizon)], 1)}</td>
+      <td class="muted">${oppFmtNum(it[oppThrustField(oppRsHorizon)], 1)}</td>
+      <td class="${it.extended_v2 ? 'atr-ext-warn' : 'muted'}">${oppFmtNum(it.atr_extension, 1)}</td>
     </tr>`).join('');
 
   if (visible.length > windowed.length) {
@@ -2032,9 +2066,22 @@ function oppSetTab(tab) {
 
 function oppSortBy(field) {
   if (oppSortState.field === field) oppSortState.dir = oppSortState.dir === 'asc' ? 'desc' : 'asc';
-  else oppSortState = { field, dir: field === 'symbol' || field === 'quality_state' ? 'asc' : 'desc' };
+  else oppSortState = { field, dir: field === 'symbol' || field === 'quality_v2' ? 'asc' : 'desc' };
   oppRender();
 }
+
+// Spec point 1: central Structural-RS-Timeframe selector (1W/1M/3M/6M,
+// default 1M) -- same event-delegation pattern as the Narrative section's
+// strengthWindowToggle. Re-renders in place; oppSortState.field is left
+// untouched since structural_rs_dyn/relative_strength_dyn/thrust_dyn
+// automatically re-resolve against the new oppRsHorizon on next render.
+document.getElementById('oppRsHorizonToggle').addEventListener('click', (e) => {
+  const btn = e.target.closest('.nc-btn');
+  if (!btn) return;
+  oppRsHorizon = btn.dataset.horizon;
+  document.querySelectorAll('#oppRsHorizonToggle .nc-btn').forEach(b => b.classList.toggle('active', b === btn));
+  oppRender();
+});
 
 // Kopiert exakt die aktuell gefilterten/sortierten Ticker (Tab + Filter +
 // Sortierung), dedupliziert, kommasepariert — analog zur Narrative-Copy-

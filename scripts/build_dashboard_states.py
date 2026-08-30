@@ -612,27 +612,131 @@ def calc_fresh_leader_label(base_state, leader_age_days, rs_1w_delta3d, thrust_p
     return "fresh_leader" if momentum_trigger else "leader"
 
 
-def compute_opportunity_v2_prep_fields(ema10_distance_pct, ema20_distance_pct):
-    """Architecture-ONLY preparation for the future Opportunity V2 model
-    (spec point 16-18: separate Quality [Leader/Neutral/Laggard] and State
-    [Normal/Extended/Resetting] dimensions). Explicitly NO new rule/
-    threshold/weighting is invented here — quality_v2/state_v2 stay null
-    until a later, separately-calibrated pass populates them, and are NEVER
-    derived/guessed from the legacy V1.1 quality_state/near_emas/extended.
-    above_ema10/above_ema20 are plain booleans derived from the ALREADY-
-    existing EMA distance fields (no new formula) — both EMA10 and EMA20
-    are explicitly relevant pullback/reset zones per the spec.
-    extension_peak_history_v2/repeat_offender_history_v2 don't exist
-    anywhere in this pipeline yet; per spec point 18 they are prepared here
-    ONLY as null placeholders (no ad-hoc definition invented) for a future
-    pass to populate."""
+def calc_ema_pullback(distance_pct, min_pct, max_pct):
+    """Calibration-aware Opportunities UI v1, EMA10/EMA20 Pullback badge
+    (spec point 9-11): distance_pct is the ALREADY-existing
+    ema10_distance_pct/ema20_distance_pct field, unchanged formula.
+    Boundaries are INCLUSIVE on both ends. min_pct/max_pct come from
+    config's opportunity_calibration_v2 (Candidate v1, provisional — never
+    hardcoded per call site) so EMA10 and EMA20 can share this one
+    function without duplicating the range check."""
+    if distance_pct is None:
+        return False
+    return min_pct <= distance_pct <= max_pct
+
+
+def calc_extended_v2(atr_extension, threshold):
+    """Calibration-aware Opportunities UI v1, Extended badge (spec point
+    12): a single non-hysteresis threshold (candidate >= 8.0, 2024
+    calibration + 2023 robustness-tested), DELIBERATELY separate from the
+    legacy `extended` field (opportunity_v1_1.extended enter/exit
+    hysteresis 5.0/4.5) which the existing Extended tab and Constructive-
+    Reset logic still depend on, unmodified."""
+    if atr_extension is None:
+        return False
+    return atr_extension >= threshold
+
+
+def calc_resetting(previous_extension_peak, current_atr_extension, ema10_distance_pct, ema20_distance_pct, cfg):
+    """Calibration-aware Opportunities UI v1, "Resetting" (spec point
+    13-14; semantically = the calibration's "Repeat Offender"): a stock
+    that WAS extended (previous_extension_peak, see calc_extension_peak_v2
+    for how that running peak is carried day-over-day) and has since
+    pulled back to at/below an EMA. EMA10/EMA20 evaluated SEPARATELY per
+    the spec — returns (resetting_ema10, resetting_ema20) so a stock can
+    trigger on either, both, or neither."""
+    if previous_extension_peak is None or current_atr_extension is None:
+        return False, False
+    was_extended_enough = previous_extension_peak >= cfg["reset_previous_extension_min"]
+    has_reset_enough = current_atr_extension < cfg["reset_current_extension_max"]
+    if not (was_extended_enough and has_reset_enough):
+        return False, False
+    resetting_ema10 = ema10_distance_pct is not None and ema10_distance_pct <= cfg["reset_ema_distance_max"]
+    resetting_ema20 = ema20_distance_pct is not None and ema20_distance_pct <= cfg["reset_ema_distance_max"]
+    return resetting_ema10, resetting_ema20
+
+
+def calc_extension_peak_v2(prev_peak, current_atr_extension, resetting):
+    """Day-over-day memory feeding calc_resetting's `previous_extension_peak`
+    tomorrow: the running max ATR Extension since the stock's last Resetting
+    event. This specific decay rule — clear the peak once Resetting fires,
+    so the badge marks a one-time event instead of persisting for weeks
+    after the actual pullback — is an implementation necessity to make the
+    stateful memory usable at all; it is NOT itself one of the given
+    calibration thresholds (those are only reset_previous_extension_min/
+    reset_current_extension_max/reset_ema_distance_max) and is kept as
+    simple as possible per spec point 21 (no further optimization of
+    Resetting)."""
+    if current_atr_extension is None:
+        return prev_peak
+    if resetting:
+        return current_atr_extension
+    return max(prev_peak, current_atr_extension) if prev_peak is not None else current_atr_extension
+
+
+def calc_quality_v2(quality_state, laggard_narratives):
+    """Calibration-aware Opportunities UI v1, Quality dimension (spec point
+    3): a pure relabeling of the ALREADY-existing V1.1 quality_state/
+    laggard_narratives outputs into the target Leader/Neutral/Laggard
+    architecture — explicitly NO new threshold. fresh_leader/leader/
+    recent_leader (all V1.1 gradations of "currently in a Leader episode")
+    collapse to Leader; a stock the existing, unmodified
+    calc_laggard_state_v1_1 already flagged in at least one narrative is
+    Laggard (checked before the Neutral fallback, since a stock's V1.1 base
+    state stays 'neutral' independent of laggard status); everything else
+    is Neutral."""
+    if quality_state in ("fresh_leader", "leader", "recent_leader"):
+        return "leader"
+    if laggard_narratives:
+        return "laggard"
+    return "neutral"
+
+
+def compute_opportunity_v2_prep_fields(ema10_distance_pct, ema20_distance_pct, atr_extension,
+                                        quality_state, laggard_narratives, prev_extension_peak, cfg):
+    """Calibration-aware Opportunities UI v1: fills in the architecture-only
+    V2 prep fields (quality_v2, above_ema10/above_ema20,
+    extension_peak_history_v2, repeat_offender_history_v2) with real,
+    config-driven (opportunity_calibration_v2) values per the exact
+    Candidate v1 rules — no new formula invented, no threshold
+    optimization. state_v2 stays None deliberately: the new Structure
+    dimension is a set of independent MARKERS (EMA10/EMA20 Pullback,
+    Resetting, Extended, spec point 8), never collapsed into one composite
+    state. above_ema10/above_ema20 are unchanged from the original prep
+    (V6 point 16-18)."""
+    above_ema10 = (ema10_distance_pct > 0) if ema10_distance_pct is not None else None
+    above_ema20 = (ema20_distance_pct > 0) if ema20_distance_pct is not None else None
+
+    ema10_pullback = calc_ema_pullback(ema10_distance_pct, cfg["ema10_pullback_min"], cfg["ema10_pullback_max"])
+    ema20_pullback = calc_ema_pullback(ema20_distance_pct, cfg["ema20_pullback_min"], cfg["ema20_pullback_max"])
+    extended_v2 = calc_extended_v2(atr_extension, cfg["extended_atr_threshold"])
+    resetting_ema10, resetting_ema20 = calc_resetting(
+        prev_extension_peak, atr_extension, ema10_distance_pct, ema20_distance_pct, cfg)
+    resetting = resetting_ema10 or resetting_ema20
+    if resetting_ema10 and resetting_ema20:
+        resetting_trigger = "both"
+    elif resetting_ema10:
+        resetting_trigger = "ema10"
+    elif resetting_ema20:
+        resetting_trigger = "ema20"
+    else:
+        resetting_trigger = None
+
     return {
-        "quality_v2": None,
+        "quality_v2": calc_quality_v2(quality_state, laggard_narratives),
         "state_v2": None,
-        "above_ema10": (ema10_distance_pct > 0) if ema10_distance_pct is not None else None,
-        "above_ema20": (ema20_distance_pct > 0) if ema20_distance_pct is not None else None,
-        "extension_peak_history_v2": None,
-        "repeat_offender_history_v2": None,
+        "above_ema10": above_ema10,
+        "above_ema20": above_ema20,
+        "ema10_pullback": ema10_pullback,
+        "ema20_pullback": ema20_pullback,
+        "extended_v2": extended_v2,
+        "resetting": resetting,
+        "repeat_offender_history_v2": resetting_trigger,
+        # Persisted to history (see main()) so tomorrow's calc_resetting call
+        # gets "previous_extension_peak" — NOT filtered out as a "_"-prefixed
+        # internal field since the spec's own prep-field name already carries
+        # the "_v2" convention used for these still-experimental fields.
+        "extension_peak_history_v2": calc_extension_peak_v2(prev_extension_peak, atr_extension, resetting),
     }
 
 
@@ -1372,15 +1476,26 @@ def main():
             # Acceleration metrics — still shown, explicitly non-gating (V1.1 point 6).
             "rs_1w": rs_1w, "rs_1m": rs_1m,
             "thrust_percentile_1d": thrust_pct_1d, "thrust_percentile_1w": thrust_pct_1w,
+            # Calibration-aware Opportunities UI v1: Thrust/Relative Strength
+            # exposed for every horizon the new central 1W/1M/3M/6M selector
+            # can pick (thrust_percentile_1w already above; 3M/6M added here
+            # were already computed upstream, just never read before —
+            # relative_strength_* is genuinely new, see build_market_features.py).
+            "thrust_percentile_3m": f.get("thrust_percentile_3m"), "thrust_percentile_6m": f.get("thrust_percentile_6m"),
+            "relative_strength_1w": f.get("relative_strength_1w"), "relative_strength_1m": f.get("relative_strength_1m"),
+            "relative_strength_3m": f.get("relative_strength_3m"), "relative_strength_6m": f.get("relative_strength_6m"),
             "ema10_distance_pct": f.get("ema10_distance_pct"), "ema20_distance_pct": f.get("ema20_distance_pct"),
             "atr_extension": f.get("atr_extension"), "w1_pct": f.get("w1_pct"), "m1_pct": f.get("m1_pct"),
             "price": f.get("close"), "market_cap": f.get("market_cap"),
-            # V6 point 16-18: architecture-ONLY Opportunity V2 preparation —
-            # see compute_opportunity_v2_prep_fields' docstring. "Fresh" is
+            # V6 point 16-18 architecture / Calibration-aware Opportunities UI
+            # v1 (this task fills it in for real) — see
+            # compute_opportunity_v2_prep_fields' docstring. "Fresh" is
             # deliberately NOT used as a V2 target-state name (spec point
-            # 17) — the legacy fresh_leader value above is untouched but
-            # has no V2 successor defined yet.
-            **compute_opportunity_v2_prep_fields(f.get("ema10_distance_pct"), f.get("ema20_distance_pct")),
+            # 17) — the legacy fresh_leader value above is untouched.
+            **compute_opportunity_v2_prep_fields(
+                f.get("ema10_distance_pct"), f.get("ema20_distance_pct"), f.get("atr_extension"),
+                quality_state, laggard_narratives, prev_stock.get("extension_peak_history_v2"),
+                cfg["opportunity_calibration_v2"]),
             "_leader_age_days": leader_age_days, "_exit_streak": exit_streak,  # persisted to history only
         }
         opportunity_items.append(item)
@@ -1467,6 +1582,10 @@ def main():
             "exit_streak": item["_exit_streak"], "extended": item["extended"],
             "constructive_reset_narratives": item["constructive_reset_narratives"],
             "laggard_narratives": item["laggard_narratives"], "rs_1w": item["rs_1w"],
+            # Calibration-aware Opportunities UI v1: today's updated ATR
+            # Extension peak, read back tomorrow as calc_resetting's
+            # "previous_extension_peak" (see compute_opportunity_v2_prep_fields).
+            "extension_peak_history_v2": item["extension_peak_history_v2"],
         }
     history_narratives = {}
     for nid, item in narrative_items.items():

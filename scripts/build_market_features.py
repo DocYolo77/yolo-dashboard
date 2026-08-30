@@ -146,7 +146,10 @@ import pandas as pd
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent))
-from build_narratives import percentile_ranks, HORIZONS, compute_narrative_thrust_rsp  # noqa: E402  (reuse canonical logic)
+from build_narratives import (  # noqa: E402  (reuse canonical logic)
+    percentile_ranks, HORIZONS, compute_narrative_thrust_rsp,
+    compute_relative_strength_line, compute_narrative_rs,
+)
 import build_market_reference as ref  # noqa: E402
 
 MASSIVE_BASE = "https://api.massive.com"
@@ -925,6 +928,37 @@ def compute_recent_leader_bootstrap(close_df, eligible_by_symbol, structural_wei
     return {sym: bool(was_leader.get(sym, False)) for sym in eligible_cols}
 
 
+def compute_stock_relative_strength_pct(close_df, eligible_by_symbol, rsp_ticker, windows_sessions):
+    """Calibration-aware Opportunities UI v1, "Relative Strength": the exact
+    SAME RSP-relative-performance-then-cross-sectional-percentile
+    methodology build_narratives.py already uses for Narrative RS
+    (compute_relative_strength_line + compute_narrative_rs), generalized to
+    individual stocks instead of narrative baskets -- no second formula. A
+    stock's own close series stands in for what would be a narrative's
+    equal-weight basket index; compute_narrative_rs is id-agnostic despite
+    its name (it just percentile-ranks whatever {id: relative_strength
+    pd.Series} dict it's given), so it is reused UNCHANGED here. Restricted
+    to the eligible universe for the cross-sectional ranking population,
+    consistent with every other RS/Thrust percentile in this file (point 7
+    fix: never rank against the full untradeable market).
+
+    Returns {"1w": {symbol: percentile}, "1m": {...}, "3m": {...}, "6m": {...}}
+    (whatever labels `windows_sessions` defines) -- {} for every label if
+    the benchmark itself isn't in the price cache."""
+    if rsp_ticker not in close_df.columns:
+        return {label: {} for label in windows_sessions}
+    rsp_close = close_df[rsp_ticker]
+    eligible_relative_strength = {}
+    for sym in close_df.columns:
+        if sym == rsp_ticker or not eligible_by_symbol.get(sym):
+            continue
+        line = compute_relative_strength_line(close_df[sym], rsp_close)
+        if not line.empty:
+            eligible_relative_strength[sym] = line
+    stock_relative_strength_pct, _ = compute_narrative_rs(eligible_relative_strength, windows_sessions)
+    return stock_relative_strength_pct
+
+
 # ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
@@ -1114,6 +1148,14 @@ def main():
     rs_pct = cfg["discovery"]["rs_candidate_percentile"]
     thrust_pct = cfg["discovery"]["thrust_candidate_percentile"]
 
+    stock_relative_strength_pct = compute_stock_relative_strength_pct(
+        close_df, eligible_by_symbol, RSP_TICKER, rsp_cfg["strength_windows_sessions"])
+    if stock_relative_strength_pct.get("1m"):
+        print(f"  ✅ Stock Relative Strength (vs. {RSP_TICKER}, cross-sectional): "
+              f"{len(stock_relative_strength_pct['1m'])} eligible Ticker gerankt, je 1W/1M/3M/6M")
+    else:
+        print(f"  ⚠ {RSP_TICKER} nicht im Preis-Cache — Relative Strength wird uebersprungen (alle None)")
+
     output_tickers = {}
     for sym, f in features.items():
         eligible = eligible_by_symbol[sym]
@@ -1165,6 +1207,26 @@ def main():
             "thrust_percentile_1d": thrust_1d_pct,
             "thrust_percentile_1w": thrust_1w_pct,
             "thrust_percentile_1m": thrust_1m_pct,
+            # Calibration-aware Opportunities UI v1: 3M/6M Thrust were already
+            # computed above (thrust_by_horizon/thrust_percentiles iterate
+            # ALL of HORIZONS, which includes 3m/6m) but never previously
+            # exposed on a ticker -- no new formula, just wiring the existing
+            # values through so the Opportunities Thrust column can follow
+            # the same 1W/1M/3M/6M selector as Structural RS/Relative Strength.
+            "thrust_3m": thrust_by_horizon["3m"].get(sym),
+            "thrust_6m": thrust_by_horizon["6m"].get(sym),
+            "thrust_percentile_3m": thrust_percentiles["3m"].get(sym),
+            "thrust_percentile_6m": thrust_percentiles["6m"].get(sym),
+            # Calibration-aware Opportunities UI v1, "Relative Strength": per-
+            # stock RSP-relative percentile, computed further above via
+            # compute_relative_strength_line/compute_narrative_rs (reused
+            # unchanged from build_narratives.py's Narrative RS). None for a
+            # stock with insufficient price history for a given window --
+            # never improvised from another horizon.
+            "relative_strength_1w": stock_relative_strength_pct.get("1w", {}).get(sym),
+            "relative_strength_1m": stock_relative_strength_pct.get("1m", {}).get(sym),
+            "relative_strength_3m": stock_relative_strength_pct.get("3m", {}).get(sym),
+            "relative_strength_6m": stock_relative_strength_pct.get("6m", {}).get(sym),
             "sic_code": overview.get("sic_code"),
             "sic_description": overview.get("sic_description"),
             # V6.1 point 18/19: exposed additively so both
@@ -1201,6 +1263,7 @@ def main():
             "sma200_computed_count": sum(1 for t in output_tickers.values() if t["sma200"] is not None),
             "mtd_pct_computed_count": sum(1 for t in output_tickers.values() if t["mtd_pct"] is not None),
             "ytd_pct_computed_count": sum(1 for t in output_tickers.values() if t["ytd_pct"] is not None),
+            "relative_strength_1m_computed_count": sum(1 for t in output_tickers.values() if t["relative_strength_1m"] is not None),
         },
         "tickers": output_tickers,
     }
