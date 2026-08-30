@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updated_at": "2026-08-11T09:21:25.741064+00:00",
+    "updated_at": "2026-08-29T12:51:32.537773+00:00",
     "source": "Massive /v3/reference/tickers (bulk, market=stocks, active=true)",
-    "n_tickers": 13080
+    "n_tickers": 13151
   },
   "tickers": {
     "A": {
@@ -53,28 +53,22 @@
       "name": "Goldman Sachs Physical Gold ETF Shares",
       "locale": "us"
     },
+    "AAC": {
+      "type": "CS",
+      "primary_exchange": "XNYS",
+      "name": "Ares Acquisition Corporation III",
+      "locale": "us"
+    },
     "AAC.U": {
       "type": "UNIT",
       "primary_exchange": "XNYS",
       "name": "Ares Acquisition Corporation III Units, each consisting of one Class A ordinary share and one-tenth of one redeemable warrant",
       "locale": "us"
     },
-    "AACB": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Artius II Acquisition Inc. Class A Ordinary Shares",
-      "locale": "us"
-    },
-    "AACBR": {
-      "type": "RIGHT",
-      "primary_exchange": "XNAS",
-      "name": "Artius II Acquisition Inc. Rights",
-      "locale": "us"
-    },
-    "AACBU": {
-      "type": "UNIT",
-      "primary_exchange": "XNAS",
-      "name": "Artius II Acquisition Inc. Units",
+    "AAC.WS": {
+      "type": "WARRANT",
+      "primary_exchange": "XNYS",
+      "name": "Ares Acquisition Corporation III Redeemable warrants, each whole warrant exercisable for one Class A ordinary share at an exercise price of $11.50",
       "locale": "us"
     },
     "AACG": {
@@ -869,6 +863,12 @@
       "name": "abrdn Income Credit Strategies Fund  5.250% Series A Perpetual Preferred Stock",
       "locale": "us"
     },
+    "ACQQ": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "ProShares Nasdaq-100 Autocallable Income ETF",
+      "locale": "us"
+    },
     "ACR": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -885,6 +885,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Aclaris Therapeutics, Inc.",
+      "locale": "us"
+    },
+    "ACRT": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "ProShares Russell 2000 Autocallable Income ETF",
       "locale": "us"
     },
     "ACRV": {
@@ -915,6 +921,12 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "American Customer Satisfaction ETF",
+      "locale": "us"
+    },
+    "ACSP": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "ProShares S&P 500 Autocallable Income ETF",
       "locale": "us"
     },
     "ACSV": {
@@ -1079,6 +1091,12 @@
       "name": "Adamas Trust, Inc. 9.125% Senior Notes Due 2029",
       "locale": "us"
     },
+    "ADAMK": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Adamas Trust, Inc. 9.600% Senior Notes Due 2031",
+      "locale": "us"
+    },
     "ADAML": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -1119,6 +1137,12 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "Leverage Shares 2X Long ADBE Daily ETF",
+      "locale": "us"
+    },
+    "ADBT": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Advasa Holdings, Inc. Common Stock",
       "locale": "us"
     },
     "ADBU": {
@@ -1397,10 +1421,28 @@
       "name": "Agnico Eagle Mines Ltd.",
       "locale": "us"
     },
+    "AEMC": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Harbor AlphaEdge Mid Cap Core ETF",
+      "locale": "us"
+    },
     "AEMD": {
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "AETHLON MEDICAL INC",
+      "locale": "us"
+    },
+    "AEMG": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Harbor AlphaEdge Mid Cap Growth ETF",
+      "locale": "us"
+    },
+    "AEMV": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Harbor AlphaEdge Mid Cap Value ETF",
       "locale": "us"
     },
     "AENT": {
@@ -1463,10 +1505,28 @@
       "name": "AES Corporation",
       "locale": "us"
     },
+    "AESB": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Harbor AlphaEdge Small Cap Core ETF",
+      "locale": "us"
+    },
+    "AESG": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Harbor AlphaEdge Small Cap Growth ETF",
+      "locale": "us"
+    },
     "AESI": {
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "Atlas Energy Solutions Inc.",
+      "locale": "us"
+    },
+    "AESL": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Harbor AlphaEdge Small Cap Value ETF",
       "locale": "us"
     },
     "AESP": {
@@ -1931,12 +1991,6 @@
       "name": "First Trust Active Global Quality Income ETF",
       "locale": "us"
     },
-    "AGRH": {
-      "type": "ETF",
-      "primary_exchange": "ARCX",
-      "name": "iShares Interest Rate Hedged U.S. Aggregate Bond ETF",
-      "locale": "us"
-    },
     "AGRO": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -1977,6 +2031,12 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "WisdomTree Trust WisdomTree Interest Rate Hedged U.S. Aggregate Bond Fund",
+      "locale": "us"
+    },
+    "AHBM": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Amplify Top 10 Asia Memory ETF",
       "locale": "us"
     },
     "AHCO": {
@@ -2177,12 +2237,6 @@
       "name": "American International Group, Inc.",
       "locale": "us"
     },
-    "AIHS": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Senmiao Technology Limited Common Stock",
-      "locale": "us"
-    },
     "AIHY": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -2259,6 +2313,12 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "Albany International Corp Class A",
+      "locale": "us"
+    },
+    "AINF": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "Defiance Inference AI Chip ETF",
       "locale": "us"
     },
     "AINP": {
@@ -3716,7 +3776,7 @@
     "ANL": {
       "type": "ADRC",
       "primary_exchange": "XNAS",
-      "name": "Adlai Nortye Ltd. American Depositary Shares",
+      "name": "Adlai Nortye Group Ltd. American Depositary Shares",
       "locale": "us"
     },
     "ANNA": {
@@ -3749,28 +3809,16 @@
       "name": "Alto Neuroscience Inc.",
       "locale": "us"
     },
-    "ANSC": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Agriculture & Natural Solutions Acquisition Corporation Class A Ordinary Shares",
-      "locale": "us"
-    },
-    "ANSCU": {
-      "type": "UNIT",
-      "primary_exchange": "XNAS",
-      "name": "Agriculture & Natural Solutions Acquisition Corporation Unit",
-      "locale": "us"
-    },
-    "ANSCW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "Agriculture & Natural Solutions Acquisition Corporation Warrant",
-      "locale": "us"
-    },
     "ANTA": {
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Antalpha Platform Holding Company Class A Ordinary Shares",
+      "locale": "us"
+    },
+    "ANTW": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Anthropic AI Lab Ecosystem ETF",
       "locale": "us"
     },
     "ANTX": {
@@ -3885,12 +3933,6 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "AOT Growth and Innovation ETF",
-      "locale": "us"
-    },
-    "AOTS": {
-      "type": "ETF",
-      "primary_exchange": "ARCX",
-      "name": "AOT Software Platform ETF",
       "locale": "us"
     },
     "AOUT": {
@@ -4623,6 +4665,12 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "ARK Space & Defense Innovation ETF",
+      "locale": "us"
+    },
+    "ARKY": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "ARK Active Autocallable Income ETF",
       "locale": "us"
     },
     "ARL": {
@@ -5735,12 +5783,6 @@
       "name": "2x Avalanche ETF",
       "locale": "us"
     },
-    "AVB": {
-      "type": "CS",
-      "primary_exchange": "XNYS",
-      "name": "AvalonBay Communities, Inc.",
-      "locale": "us"
-    },
     "AVBC": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -6255,6 +6297,12 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "Leverage Shares 2X Long AXTI Daily ETF",
+      "locale": "us"
+    },
+    "AXTQ": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Tradr 2X Short AXTI Daily ETF",
       "locale": "us"
     },
     "AXTU": {
@@ -6845,16 +6893,10 @@
       "name": "BondBloxx BBB Rated 1-5 Year Corporate Bond ETF",
       "locale": "us"
     },
-    "BBBY": {
-      "type": "CS",
-      "primary_exchange": "XNYS",
-      "name": "Bed Bath & Beyond, Inc.",
-      "locale": "us"
-    },
-    "BBBY.WS": {
+    "BBBYW": {
       "type": "WARRANT",
-      "primary_exchange": "XNYS",
-      "name": "Bed Bath & Beyond, Inc. Warrants to Purchase Common Stock",
+      "primary_exchange": "XNAS",
+      "name": "Neighborhood Intelligence, Inc. Warrants",
       "locale": "us"
     },
     "BBC": {
@@ -6999,6 +7041,12 @@
       "type": "WARRANT",
       "primary_exchange": "XNAS",
       "name": "Bone Biologics Corp Warrants",
+      "locale": "us"
+    },
+    "BBLS": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Munificent Seven ETF",
       "locale": "us"
     },
     "BBLU": {
@@ -7263,12 +7311,6 @@
       "type": "ADRC",
       "primary_exchange": "XNYS",
       "name": "Banco de ChileAmerican Depositary Shares (Each representing 200 shares of Common Stock)",
-      "locale": "us"
-    },
-    "BCHI": {
-      "type": "ETF",
-      "primary_exchange": "ARCX",
-      "name": "GMO Beyond China ETF",
       "locale": "us"
     },
     "BCHP": {
@@ -7661,12 +7703,6 @@
       "name": "BNY Mellon Enhanced Dividend and Income ETF",
       "locale": "us"
     },
-    "BEDZ": {
-      "type": "ETF",
-      "primary_exchange": "ARCX",
-      "name": "AdvisorShares Hotel ETF",
-      "locale": "us"
-    },
     "BEEM": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -7721,22 +7757,22 @@
       "name": "Bel Fuse Inc",
       "locale": "us"
     },
-    "BELT": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "BlackRock ETF Trust iShares U.S. Select Equity Active ETF",
-      "locale": "us"
-    },
     "BEMB": {
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "iShares J.P. Morgan Broad USD Emerging Markets Bond ETF",
       "locale": "us"
     },
+    "BEMD": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "BNY Mellon Emerging Markets Debt ETF",
+      "locale": "us"
+    },
     "BEN": {
       "type": "CS",
       "primary_exchange": "XNYS",
-      "name": "Franklin Resources, Inc.",
+      "name": "Franklin Templeton, Inc.",
       "locale": "us"
     },
     "BENF": {
@@ -8963,12 +8999,6 @@
       "name": "BlackSky Technology Inc.",
       "locale": "us"
     },
-    "BKSY.WS": {
-      "type": "WARRANT",
-      "primary_exchange": "XNYS",
-      "name": "BlackSky Technology Inc. Redeemable Warrants, each whole Warrant exercisable for one-eighth (1/8th) of a share of Class A Common Stock at an exercise price of $92.00 per whole share",
-      "locale": "us"
-    },
     "BKT": {
       "type": "FUND",
       "primary_exchange": "XNYS",
@@ -9524,7 +9554,7 @@
     "BNDC": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Core Select Bond Fund",
+      "name": "Northern Trust Core Bond ETF",
       "locale": "us"
     },
     "BNDD": {
@@ -9645,12 +9675,6 @@
       "type": "ADRC",
       "primary_exchange": "XNAS",
       "name": "Burning Rock Biotech Limited American Depositary Shares",
-      "locale": "us"
-    },
-    "BNRG": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Brenmiller Energy Ltd Ordinary Shares",
       "locale": "us"
     },
     "BNS": {
@@ -10241,6 +10265,12 @@
       "name": "Barinthus Biotherapeutics plc American Depositary Shares",
       "locale": "us"
     },
+    "BRNX": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "BrenX Ltd. Ordinary Shares",
+      "locale": "us"
+    },
     "BRNY": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -10337,12 +10367,6 @@
       "name": "Boost Run Inc. Class A Common Stock",
       "locale": "us"
     },
-    "BRUNW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "Boost Run Inc. Warrant",
-      "locale": "us"
-    },
     "BRVE": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -10361,10 +10385,22 @@
       "name": "BRIXMOR PROPERTY GROUP INC.",
       "locale": "us"
     },
+    "BRZD": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors -3x Short Brazil ETNs",
+      "locale": "us"
+    },
     "BRZE": {
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Braze, Inc. Class A Common Stock",
+      "locale": "us"
+    },
+    "BRZL": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors 3x Long Brazil ETNs",
       "locale": "us"
     },
     "BRZU": {
@@ -10739,6 +10775,12 @@
       "name": "Bentley Systems, Incorporated Class B Common Stock",
       "locale": "us"
     },
+    "BTA": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Beacon Tactical Alternatives Risk ETF",
+      "locale": "us"
+    },
     "BTAI": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -10881,6 +10923,12 @@
       "type": "ADRC",
       "primary_exchange": "XNYS",
       "name": "British American Tobacco p.l.c. American Depositary Shares, American Depositary Shares, each representing one Ordinary Share",
+      "locale": "us"
+    },
+    "BTLN": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Brightline Interactive, Inc. Common Stock",
       "locale": "us"
     },
     "BTMD": {
@@ -11349,12 +11397,6 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "Betterware de Mexico, S.A.P.I. de C.V.",
-      "locale": "us"
-    },
-    "BWNB": {
-      "type": "SP",
-      "primary_exchange": "XNYS",
-      "name": "Babcock & Wilcox Enterprises, Inc. 6.50% Senior Notes due 2026",
       "locale": "us"
     },
     "BWOW": {
@@ -11829,6 +11871,12 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "Alpha Architect Tail Risk ETF",
+      "locale": "us"
+    },
+    "CAPA": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Defiance AI Capacitors Leaders ETF",
       "locale": "us"
     },
     "CAPE": {
@@ -12848,7 +12896,7 @@
     "CEFS": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "Saba Closed-End Funds ETF",
+      "name": "Saba Opportunistically Hedged Closed-End Funds ETF",
       "locale": "us"
     },
     "CEFZ": {
@@ -13157,10 +13205,22 @@
       "name": "Capital Group Core Bond ETF",
       "locale": "us"
     },
+    "CGCF": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Cartesian Growth Corporation IV Class A Ordinary Shares",
+      "locale": "us"
+    },
     "CGCFU": {
       "type": "UNIT",
       "primary_exchange": "XNAS",
       "name": "Cartesian Growth Corporation IV Unit",
+      "locale": "us"
+    },
+    "CGCFW": {
+      "type": "WARRANT",
+      "primary_exchange": "XNAS",
+      "name": "Cartesian Growth Corporation IV Warrants",
       "locale": "us"
     },
     "CGCP": {
@@ -13305,6 +13365,12 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "Corgi 0-3 Month T-Bill ETF",
+      "locale": "us"
+    },
+    "CGPT": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "VegaShares AI Inference ETF",
       "locale": "us"
     },
     "CGRO": {
@@ -13695,6 +13761,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Charter Comm Inc Del CL A New",
+      "locale": "us"
+    },
+    "CHTRP": {
+      "type": "PFD",
+      "primary_exchange": "XNAS",
+      "name": "Charter Communications, Inc. Series A Cumulative Redeemable Preferred Stock",
       "locale": "us"
     },
     "CHW": {
@@ -14471,24 +14543,6 @@
       "name": "Cummins Inc.",
       "locale": "us"
     },
-    "CMII": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Columbus Circle Capital Corp II Class A Ordinary Shares",
-      "locale": "us"
-    },
-    "CMIIU": {
-      "type": "UNIT",
-      "primary_exchange": "XNAS",
-      "name": "Columbus Circle Capital Corp II Unit",
-      "locale": "us"
-    },
-    "CMIIW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "Columbus Circle Capital Corp II Warrant",
-      "locale": "us"
-    },
     "CMMB": {
       "type": "ADRC",
       "primary_exchange": "XNAS",
@@ -14701,8 +14755,8 @@
     },
     "CNL": {
       "type": "CS",
-      "primary_exchange": "XASE",
-      "name": "Collective Mining Ltd.",
+      "primary_exchange": "XNAS",
+      "name": "Collective Mining Ltd. Common Shares",
       "locale": "us"
     },
     "CNM": {
@@ -15005,6 +15059,12 @@
       "name": "Cohen & Company Inc",
       "locale": "us"
     },
+    "COHQ": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Tradr 2X Short COHR Daily ETF",
+      "locale": "us"
+    },
     "COHR": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -15177,6 +15237,12 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "Traeger, Inc.",
+      "locale": "us"
+    },
+    "COOL": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "VegaShares AI Thermal, Cooling & Power Management ETF",
       "locale": "us"
     },
     "COOT": {
@@ -16079,6 +16145,12 @@
       "name": "Crinetics Pharmaceuticals, Inc.",
       "locale": "us"
     },
+    "CROB": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "Defiance China Robotics ETF",
+      "locale": "us"
+    },
     "CRON": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -16389,6 +16461,12 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "Centerspace",
+      "locale": "us"
+    },
+    "CSRA": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Cohen & Steers Real Assets Active ETF",
       "locale": "us"
     },
     "CSRE": {
@@ -17291,6 +17369,12 @@
       "name": "Danaos Corporation",
       "locale": "us"
     },
+    "DACL": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "REX Defensive Autocallable Income ETF",
+      "locale": "us"
+    },
     "DADS": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -18035,12 +18119,6 @@
       "name": "Acquirers Small and Micro Deep Value ETF",
       "locale": "us"
     },
-    "DEFI": {
-      "type": "ETV",
-      "primary_exchange": "ARCX",
-      "name": "Hashdex Commodities Trust",
-      "locale": "us"
-    },
     "DEFR": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -18087,6 +18165,12 @@
       "type": "ADRC",
       "primary_exchange": "XNYS",
       "name": "Diageo plc",
+      "locale": "us"
+    },
+    "DEPW": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Google DeepMind AI Lab Ecosystem ETF",
       "locale": "us"
     },
     "DERM": {
@@ -19607,12 +19691,6 @@
       "name": "Dermata Therapeutics, Inc. Common Stock",
       "locale": "us"
     },
-    "DRMAW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "Dermata Therapeutics, Inc. Warrant",
-      "locale": "us"
-    },
     "DRMP": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -19779,6 +19857,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Viant Technology Inc. Class A Common Stock",
+      "locale": "us"
+    },
+    "DSPC": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Leverage Shares 1X Short SPCX Daily ETF",
       "locale": "us"
     },
     "DSPY": {
@@ -20033,6 +20117,12 @@
       "name": "DUKE Robotics Corp. Warrant",
       "locale": "us"
     },
+    "DUKU": {
+      "type": "SP",
+      "primary_exchange": "XNYS",
+      "name": "Duke Energy Corporation Corporate Units",
+      "locale": "us"
+    },
     "DUKX": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -20159,12 +20249,6 @@
       "name": "DAC 3D Dividend Growth ETF",
       "locale": "us"
     },
-    "DVIN": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Industrials XLI Defined Volatility ETF",
-      "locale": "us"
-    },
     "DVLT": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -20201,76 +20285,16 @@
       "name": "WEBs ETF Trust WEBs QQQ Defined Volatility ETF",
       "locale": "us"
     },
-    "DVRE": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Real Estate XLRE Defined Volatility ETF",
-      "locale": "us"
-    },
     "DVSP": {
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "WEBs ETF Trust WEBs SPY Defined Volatility ETF",
       "locale": "us"
     },
-    "DVUT": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Utilities XLU Defined Volatility ETF",
-      "locale": "us"
-    },
     "DVVY": {
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "Invesco Diversified Dividend Opportunities ETF",
-      "locale": "us"
-    },
-    "DVXB": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Materials XLB Defined Volatility ETF",
-      "locale": "us"
-    },
-    "DVXC": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Communication Services XLC Defined Volatility ETF",
-      "locale": "us"
-    },
-    "DVXE": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Energy XLE Defined Volatility ETF",
-      "locale": "us"
-    },
-    "DVXF": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Financial XLF Defined Volatility ETF",
-      "locale": "us"
-    },
-    "DVXK": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Technology XLK Defined Volatility ETF",
-      "locale": "us"
-    },
-    "DVXP": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Consumer Staples XLP Defined Volatility ETF",
-      "locale": "us"
-    },
-    "DVXV": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Health Care XLV Defined Volatility ETF",
-      "locale": "us"
-    },
-    "DVXY": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "WEBs ETF Trust WEBs Consumer Discretionary XLY Defined Volatility ETF",
       "locale": "us"
     },
     "DVY": {
@@ -20583,30 +20607,6 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "Innovator U.S. Equity 5 to 15 Buffer ETF - Quarterly",
-      "locale": "us"
-    },
-    "EAOA": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "iShares ESG Aware 80/20 Aggressive Allocation ETF",
-      "locale": "us"
-    },
-    "EAOK": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "iShares ESG Aware 30/70 Conservative Allocation ETF",
-      "locale": "us"
-    },
-    "EAOM": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "iShares ESG Aware 40/60 Moderate Allocation ETF",
-      "locale": "us"
-    },
-    "EAOR": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "iShares ESG Aware 60/40 Balanced Allocation ETF",
       "locale": "us"
     },
     "EAPR": {
@@ -21015,6 +21015,12 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "Vanguard World Funds Extended Duration ETF",
+      "locale": "us"
+    },
+    "EDVA": {
+      "type": "CS",
+      "primary_exchange": "XASE",
+      "name": "Endovia Health Sciences, Inc.",
       "locale": "us"
     },
     "EDZ": {
@@ -21452,13 +21458,13 @@
     "EIC": {
       "type": "FUND",
       "primary_exchange": "XNYS",
-      "name": "Eagle Point Income Company Inc.",
+      "name": "Eagle Point Income Company",
       "locale": "us"
     },
     "EICA": {
       "type": "SP",
       "primary_exchange": "XNYS",
-      "name": "Eagle Point Income Company Inc. 5.00% Series A Term Preferred Stock due 2026",
+      "name": "Eagle Point Income Company 5.00% Series A Term Preferred Shares due 2026",
       "locale": "us"
     },
     "EIDO": {
@@ -22595,12 +22601,6 @@
       "name": "ProShares Ultra QQQ Equal Weight",
       "locale": "us"
     },
-    "EQR": {
-      "type": "CS",
-      "primary_exchange": "XNYS",
-      "name": "Equity Residential",
-      "locale": "us"
-    },
     "EQRR": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -22772,7 +22772,7 @@
     "ESG": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "FlexShares STOXX US ESG Select Index Fund",
+      "name": "Northern Trust STOXX US ESG Select ETF",
       "locale": "us"
     },
     "ESGD": {
@@ -22790,7 +22790,7 @@
     "ESGG": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "FlexShares STOXX Global ESG Select Index Fund",
+      "name": "Northern Trust STOXX Global ESG Select ETF",
       "locale": "us"
     },
     "ESGU": {
@@ -23543,6 +23543,18 @@
       "name": "iShares MSCI Australia ETF",
       "locale": "us"
     },
+    "EWAV": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "East West Ave Acquisition Corp. Common Stock",
+      "locale": "us"
+    },
+    "EWAVR": {
+      "type": "RIGHT",
+      "primary_exchange": "XNAS",
+      "name": "East West Ave Acquisition Corp. Rights",
+      "locale": "us"
+    },
     "EWAVU": {
       "type": "UNIT",
       "primary_exchange": "XNAS",
@@ -23787,6 +23799,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Expedia Group, Inc. Common Stock",
+      "locale": "us"
+    },
+    "EXPN": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Horizon Expansion Leaders ETF",
       "locale": "us"
     },
     "EXPO": {
@@ -24111,6 +24129,12 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "FT Confluence BDC & Specialty Finance Income ETF",
+      "locale": "us"
+    },
+    "FBDT": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "First Breach Inc. Common Stock",
       "locale": "us"
     },
     "FBGL": {
@@ -24800,7 +24824,7 @@
     "FEDM": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares ESG & Climate Developed Markets ex-US Core Index Fund",
+      "name": "Northern Trust ESG & Climate Developed Markets ex-US Core ETF",
       "locale": "us"
     },
     "FEDU": {
@@ -24824,7 +24848,7 @@
     "FEIG": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares ESG & Climate Investment Grade Corporate Core Index Fund",
+      "name": "Northern Trust ESG & Climate Investment Grade Corporate Core ETF",
       "locale": "us"
     },
     "FEIM": {
@@ -25004,7 +25028,7 @@
     "FEUS": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares ESG & Climate US Large Cap Core Index Fund",
+      "name": "Northern Trust ESG & Climate US Large Cap Core ETF",
       "locale": "us"
     },
     "FEUZ": {
@@ -25649,6 +25673,12 @@
       "name": "TCW Core Plus Bond ETF",
       "locale": "us"
     },
+    "FIXX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Leverage Shares 2X Long FIX Daily ETF",
+      "locale": "us"
+    },
     "FIYY": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -25839,6 +25869,12 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "Franklin FTSE Europe ETF",
+      "locale": "us"
+    },
+    "FLEL": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Leverage Shares 2X Long FLEX Daily ETF",
       "locale": "us"
     },
     "FLEU": {
@@ -26211,12 +26247,6 @@
       "type": "WARRANT",
       "primary_exchange": "XASE",
       "name": "flyExclusive, Inc. Redeemable warrants, each whole warrant exercisable for one Class A common stock at an exercise price of $11.50 per share",
-      "locale": "us"
-    },
-    "FLZH": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Flash Sports & Media Holdings, Inc. Common Stock",
       "locale": "us"
     },
     "FMAC": {
@@ -26619,6 +26649,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Hang Feng Technology Innovation Co., Ltd. Ordinary Shares",
+      "locale": "us"
+    },
+    "FOIL": {
+      "type": "ADRC",
+      "primary_exchange": "XNYS",
+      "name": "Londian Wason New Energy Tech Inc. American Depositary Shares, each representing five Ordinary Shares",
       "locale": "us"
     },
     "FOMG": {
@@ -27359,6 +27395,12 @@
       "name": "Future FinTech Group Inc.",
       "locale": "us"
     },
+    "FTG": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "FullerThaler Behavioral Growth ETF",
+      "locale": "us"
+    },
     "FTGC": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -27561,12 +27603,6 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "First Trust Exchange-Traded Fund II First Trust Indxx Global Natural Resources Income ETF",
-      "locale": "us"
-    },
-    "FTRK": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "FAST TRACK GROUP Ordinary shares",
       "locale": "us"
     },
     "FTS": {
@@ -28169,6 +28205,12 @@
       "name": "Gladstone Investment Corporation 4.875% Notes due 2028",
       "locale": "us"
     },
+    "GAIQ": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Guinness Atkinson Global Innovators Fund ETF Class Shares",
+      "locale": "us"
+    },
     "GAL": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -28427,6 +28469,12 @@
       "name": "GCL Global Holdings Ltd Ordinary Shares",
       "locale": "us"
     },
+    "GCLO": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Guggenheim Investment Grade CLO ETF",
+      "locale": "us"
+    },
     "GCLWW": {
       "type": "WARRANT",
       "primary_exchange": "XNAS",
@@ -28533,12 +28581,6 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "GDEV Inc. Ordinary Shares",
-      "locale": "us"
-    },
-    "GDEVW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "GDEV Inc. Warrant",
       "locale": "us"
     },
     "GDHG": {
@@ -28713,6 +28755,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Great Elm Capital Corp. 8.50% NOTES DUE 2029",
+      "locale": "us"
+    },
+    "GEEQ": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Guggenheim Enhanced Equity Income ETF",
       "locale": "us"
     },
     "GEF": {
@@ -28979,6 +29027,12 @@
       "name": "Greenfire Resources Ltd.",
       "locale": "us"
     },
+    "GFRr": {
+      "type": "RIGHT",
+      "primary_exchange": "XNYS",
+      "name": "Greenfire Resources Ltd. Rights (expiring September 15, 2026)",
+      "locale": "us"
+    },
     "GFS": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -29075,12 +29129,6 @@
       "name": "Gogoro Inc. Warrant",
       "locale": "us"
     },
-    "GGRP": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "The Glimpse Group, Inc. Common Stock",
-      "locale": "us"
-    },
     "GGRW": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -29165,10 +29213,22 @@
       "name": "Goose Hollow Tactical Allocation ETF",
       "locale": "us"
     },
+    "GHXI": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Gores Holdings XI, Inc. Class A Ordinary Shares",
+      "locale": "us"
+    },
     "GHXIU": {
       "type": "UNIT",
       "primary_exchange": "XNAS",
       "name": "Gores Holdings XI, Inc. Units",
+      "locale": "us"
+    },
+    "GHXIW": {
+      "type": "WARRANT",
+      "primary_exchange": "XNAS",
+      "name": "Gores Holdings XI, Inc. Warrant",
       "locale": "us"
     },
     "GHY": {
@@ -30482,7 +30542,7 @@
     "GQRE": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Global Quality Real Estate Index Fund",
+      "name": "Northern Trust Global Quality Real Estate ETF",
       "locale": "us"
     },
     "GRAB": {
@@ -31238,7 +31298,7 @@
     "GUNR": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Global Upstream Natural Resources Index Fund",
+      "name": "Northern Trust Morningstar Global Upstream Natural Resources ETF",
       "locale": "us"
     },
     "GURE": {
@@ -31643,6 +31703,12 @@
       "name": "Harvard Ave Acquisition Corporation Unit",
       "locale": "us"
     },
+    "HAWG": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "HCM Hedged Equity ETF",
+      "locale": "us"
+    },
     "HAWK": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -31709,10 +31775,22 @@
       "name": "Hilton BDC Corporate Bond ETF",
       "locale": "us"
     },
+    "HBIL": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Harbor Short Term Treasury ETF",
+      "locale": "us"
+    },
     "HBIO": {
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Harvard Bioscience Inc",
+      "locale": "us"
+    },
+    "HBIT": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Hedgeye Hedged Bitcoin ETF",
       "locale": "us"
     },
     "HBM": {
@@ -32313,6 +32391,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Harte-Hanks, Inc. Common Stock",
+      "locale": "us"
+    },
+    "HIAI": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Ai Funds High Conviction US Equity AI-Managed ETF",
       "locale": "us"
     },
     "HIBL": {
@@ -33335,12 +33419,6 @@
       "name": "Humacyte, Inc. Common Stock",
       "locale": "us"
     },
-    "HUMAW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "Humacyte, Inc. Warrant",
-      "locale": "us"
-    },
     "HUMN": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -33467,6 +33545,12 @@
       "name": "Hancock Whitney Corporation 6.25% Subordinated Notes due 2060",
       "locale": "us"
     },
+    "HWGV": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "Hotchkis & Wiley Global Value Fund",
+      "locale": "us"
+    },
     "HWH": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -33501,6 +33585,24 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "Hotchkis & Wiley SMID Cap Diversified Value Fund",
+      "locale": "us"
+    },
+    "HXA": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Mast HedgeIndex Corporate Arbitrage ETF",
+      "locale": "us"
+    },
+    "HXC": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Mast HedgeIndex Strategic Commodities ETF",
+      "locale": "us"
+    },
+    "HXE": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Mast HedgeIndex Adaptive Equities ETF",
       "locale": "us"
     },
     "HXHX": {
@@ -33599,6 +33701,12 @@
       "name": "iShares iBoxx $ High Yield Corporate Bond ETF",
       "locale": "us"
     },
+    "HYGD": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors -3x Short High Yield Corporate Bond (HYG) ETNs",
+      "locale": "us"
+    },
     "HYGH": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -33611,10 +33719,16 @@
       "name": "Amplify HYG High Yield 10% Target Income ETF",
       "locale": "us"
     },
+    "HYGU": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors 3x Long High Yield Corporate Bond (HYG) ETNs",
+      "locale": "us"
+    },
     "HYGV": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares High Yield Value-Scored Bond Index Fund",
+      "name": "Northern Trust High Yield Value-Scored Bond ETF",
       "locale": "us"
     },
     "HYGW": {
@@ -33765,6 +33879,18 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "MarineMax, Inc.",
+      "locale": "us"
+    },
+    "IA": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Innovative Solutions & Support",
+      "locale": "us"
+    },
+    "IACL": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "GraniteShares US 100 Autocallable Income ETF",
       "locale": "us"
     },
     "IACO": {
@@ -34779,12 +34905,6 @@
       "type": "UNIT",
       "primary_exchange": "XNAS",
       "name": "Infinite Eagle Acquisition Corp. Unit",
-      "locale": "us"
-    },
-    "IEDI": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "iShares U.S. Consumer Focused ETF",
       "locale": "us"
     },
     "IEF": {
@@ -36299,24 +36419,6 @@
       "name": "Merrill Lynch Depositor Inc. 6.0518% Index Plus Trust Certificates Series 2003-1",
       "locale": "us"
     },
-    "IPCX": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Inflection Point Acquisition Corp. III Class A Ordinary Shares",
-      "locale": "us"
-    },
-    "IPCXR": {
-      "type": "RIGHT",
-      "primary_exchange": "XNAS",
-      "name": "Inflection Point Acquisition Corp. III Rights",
-      "locale": "us"
-    },
-    "IPCXU": {
-      "type": "UNIT",
-      "primary_exchange": "XNAS",
-      "name": "Inflection Point Acquisition Corp. III Units",
-      "locale": "us"
-    },
     "IPDN": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -36449,6 +36551,24 @@
       "name": "IperionX Limited American Depositary Share",
       "locale": "us"
     },
+    "IPXG": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Inflection Point Acquisition Corp. VII Class A Ordinary Shares",
+      "locale": "us"
+    },
+    "IPXGU": {
+      "type": "UNIT",
+      "primary_exchange": "XNAS",
+      "name": "Inflection Point Acquisition Corp. VII Unit",
+      "locale": "us"
+    },
+    "IPXGW": {
+      "type": "WARRANT",
+      "primary_exchange": "XNAS",
+      "name": "Inflection Point Acquisition Corp. VII Warrant",
+      "locale": "us"
+    },
     "IQ": {
       "type": "ADRC",
       "primary_exchange": "XNAS",
@@ -36458,7 +36578,7 @@
     "IQDF": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares International Quality Dividend Index Fund",
+      "name": "Northern Trust International Quality Dividend ETF",
       "locale": "us"
     },
     "IQDG": {
@@ -36470,7 +36590,7 @@
     "IQDY": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares International Quality Dividend Dynamic Index Fund",
+      "name": "Northern Trust International Quality Dividend Dynamic ETF",
       "locale": "us"
     },
     "IQHI": {
@@ -36857,12 +36977,6 @@
       "name": "IncomeSTKd 1x US Stocks & 1x Bitcoin Premium ETF",
       "locale": "us"
     },
-    "ISSC": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Innovative Solutions & Support",
-      "locale": "us"
-    },
     "ISTB": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -37193,12 +37307,6 @@
       "name": "Invesco Mortgage Capital Inc.",
       "locale": "us"
     },
-    "IVRS": {
-      "type": "ETF",
-      "primary_exchange": "ARCX",
-      "name": "iShares Future Metaverse Tech and Communications ETF",
-      "locale": "us"
-    },
     "IVRpC": {
       "type": "PFD",
       "primary_exchange": "XNYS",
@@ -37289,12 +37397,6 @@
       "name": "iShares Russell 1000 Value ETF",
       "locale": "us"
     },
-    "IWDL": {
-      "type": "ETN",
-      "primary_exchange": "ARCX",
-      "name": "ETRACS 2x Leveraged US Value Factor TR ETN",
-      "locale": "us"
-    },
     "IWF": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -37305,12 +37407,6 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "NYLI Winslow Focused Large Cap Growth ETF",
-      "locale": "us"
-    },
-    "IWFL": {
-      "type": "ETN",
-      "primary_exchange": "ARCX",
-      "name": "ETRACS 2x Leveraged US Growth Factor TR ETN",
       "locale": "us"
     },
     "IWL": {
@@ -37335,12 +37431,6 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "NEOS Russell 2000 High Income ETF",
-      "locale": "us"
-    },
-    "IWML": {
-      "type": "ETN",
-      "primary_exchange": "ARCX",
-      "name": "ETRACS 2x Leveraged US Size Factor TR ETN",
       "locale": "us"
     },
     "IWMW": {
@@ -38633,6 +38723,18 @@
       "name": "JPMorgan Chase & Co. Depositary Shares, each representing a 1/400th interest in a share of 4.20% Non-Cumulative Preferred Stock, Series MM",
       "locale": "us"
     },
+    "JPND": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors -3x Short Japan ETNs",
+      "locale": "us"
+    },
+    "JPNU": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors 3x Long Japan ETNs",
+      "locale": "us"
+    },
     "JPO": {
       "type": "ETS",
       "primary_exchange": "ARCX",
@@ -38789,6 +38891,12 @@
       "name": "JPMorgan New York Tax Free Bond ETF",
       "locale": "us"
     },
+    "JTTT": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "JATT III Acquisition Corp Ordinary Shares",
+      "locale": "us"
+    },
     "JUCY": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -38859,6 +38967,12 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "AllianzIM U.S. Equity Buffer15 Uncapped Jul ETF",
+      "locale": "us"
+    },
+    "JULV": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "VanEck U.S. Equity Buffer ETF - July",
       "locale": "us"
     },
     "JULW": {
@@ -39003,6 +39117,12 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "Kadant Inc.",
+      "locale": "us"
+    },
+    "KAIT": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "KraneShares Asia AI Technology ETF",
       "locale": "us"
     },
     "KALA": {
@@ -39743,6 +39863,12 @@
       "name": "KLX Energy Services Holdings, Inc. Common Stock",
       "locale": "us"
     },
+    "KLXER": {
+      "type": "RIGHT",
+      "primary_exchange": "XNAS",
+      "name": "KLX Energy Services Holdings, Inc. Rights",
+      "locale": "us"
+    },
     "KMAR": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -40307,6 +40433,12 @@
       "name": "Kurv Silver Enhanced Income ETF",
       "locale": "us"
     },
+    "KSMH": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "xETFs Korea AI Semiconductor",
+      "locale": "us"
+    },
     "KSPI": {
       "type": "ADRC",
       "primary_exchange": "XNAS",
@@ -40817,22 +40949,10 @@
       "name": "WHITEWOLF Publicly Listed Private Equity ETF",
       "locale": "us"
     },
-    "LBRDA": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Liberty Broadband Corporation Class A",
-      "locale": "us"
-    },
-    "LBRDK": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Liberty Broadband Corporation Class C",
-      "locale": "us"
-    },
-    "LBRDP": {
-      "type": "PFD",
-      "primary_exchange": "XNAS",
-      "name": "Liberty Broadband Corporation Series A Cumulative Redeemable Preferred Stock",
+    "LBOX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "GraniteShares Short Term Box ETF",
       "locale": "us"
     },
     "LBRT": {
@@ -41091,12 +41211,6 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Lee Enterprises, Inc.",
-      "locale": "us"
-    },
-    "LEG": {
-      "type": "CS",
-      "primary_exchange": "XNYS",
-      "name": "Leggett & Platt, Inc.",
       "locale": "us"
     },
     "LEGH": {
@@ -41525,12 +41639,6 @@
       "name": "AEye, Inc. Class A Common Stock",
       "locale": "us"
     },
-    "LIDRW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "AEye, Inc. Warrant",
-      "locale": "us"
-    },
     "LIEN": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -41675,6 +41783,12 @@
       "name": "Lumentum Holdings Inc. Common Stock",
       "locale": "us"
     },
+    "LITG": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Leverage Shares 2X Long LITE Daily ETF",
+      "locale": "us"
+    },
     "LITL": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -41750,7 +41864,7 @@
     "LKOR": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "FlexShares Credit-Scored US Long Corporate Bond Index Fund",
+      "name": "Northern Trust Credit-Scored US Long Corporate Bond ETF",
       "locale": "us"
     },
     "LKQ": {
@@ -42263,6 +42377,12 @@
       "name": "iShares BBB Rated Corporate Bond ETF",
       "locale": "us"
     },
+    "LQDD": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors -3x Short Investment Grade Corporate Bond (LQD) ETNs",
+      "locale": "us"
+    },
     "LQDH": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -42285,6 +42405,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Liquidity Services, Inc.",
+      "locale": "us"
+    },
+    "LQDU": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors 3x Long Investment Grade Corporate Bond (LQD) ETNs",
       "locale": "us"
     },
     "LQDW": {
@@ -42767,6 +42893,12 @@
       "name": "Lightwave Logic, Inc. Common Stock",
       "locale": "us"
     },
+    "LWLX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Tradr 2X Long LWLG Daily ETF",
+      "locale": "us"
+    },
     "LX": {
       "type": "ADRC",
       "primary_exchange": "XNAS",
@@ -42843,6 +42975,12 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "Cambria Large Cap Shareholder Yield ETF",
+      "locale": "us"
+    },
+    "LYNX": {
+      "type": "CS",
+      "primary_exchange": "XNYS",
+      "name": "Lyntris Inc.",
       "locale": "us"
     },
     "LYTE": {
@@ -43430,7 +43568,7 @@
     "MBSD": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Disciplined Duration MBS Index Fund",
+      "name": "Northern Trust Disciplined Duration MBS ETF",
       "locale": "us"
     },
     "MBSF": {
@@ -43811,18 +43949,6 @@
       "name": "MDU Resources Group, Inc.",
       "locale": "us"
     },
-    "MDV": {
-      "type": "CS",
-      "primary_exchange": "XNYS",
-      "name": "Modiv Industrial, Inc.",
-      "locale": "us"
-    },
-    "MDVpA": {
-      "type": "PFD",
-      "primary_exchange": "XNYS",
-      "name": "Modiv Industrial, Inc. 7.375% Series A Cumulative Redeemable Perpetual Preferred Stock",
-      "locale": "us"
-    },
     "MDWD": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -43911,6 +44037,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Magic Empire Global Limited Class A Ordinary Shares",
+      "locale": "us"
+    },
+    "MEGX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Corgi U.S. Mega-Cap Growth 2x Daily ETF",
       "locale": "us"
     },
     "MEI": {
@@ -44067,6 +44199,12 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "Sprott Active Metals & Miners ETF",
+      "locale": "us"
+    },
+    "METQ": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Tradr 2X Short META Daily ETF",
       "locale": "us"
     },
     "METU": {
@@ -44345,12 +44483,6 @@
       "name": "Vanguard Morningstar Mega Cap Growth ETF",
       "locale": "us"
     },
-    "MGKX": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "Corgi U.S. Mega-Cap Growth 2x Daily ETF",
-      "locale": "us"
-    },
     "MGLD": {
       "type": "CS",
       "primary_exchange": "XASE",
@@ -44555,10 +44687,22 @@
       "name": "NFT Limited",
       "locale": "us"
     },
+    "MIAC": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Meridian3 Industrials Aquisition Corp Class A Ordinary Shares",
+      "locale": "us"
+    },
     "MIACU": {
       "type": "UNIT",
       "primary_exchange": "XNAS",
       "name": "Meridian3 Industrials Aquisition Corp Units",
+      "locale": "us"
+    },
+    "MIACW": {
+      "type": "WARRANT",
+      "primary_exchange": "XNAS",
+      "name": "Meridian3 Industrials Aquisition Corp Warrant",
       "locale": "us"
     },
     "MIAX": {
@@ -45227,6 +45371,12 @@
       "name": "monday.com Ltd. Ordinary Shares",
       "locale": "us"
     },
+    "MNGU": {
+      "type": "ETN",
+      "primary_exchange": "ARCX",
+      "name": "MicroSectors 3X Long MANGOS ex Private Companies ETNs",
+      "locale": "us"
+    },
     "MNKD": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -45309,12 +45459,6 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Momentus Inc. Class A Common Stock",
-      "locale": "us"
-    },
-    "MNTSW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "Momentus Inc. Warrant",
       "locale": "us"
     },
     "MNVR": {
@@ -45533,10 +45677,34 @@
       "name": "MARATHON PETROLEUM CORPORATION",
       "locale": "us"
     },
+    "MPDB": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "m+ DynaBuffer ETF",
+      "locale": "us"
+    },
+    "MPDY": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "m+ DualYield Autocall ETF",
+      "locale": "us"
+    },
     "MPG": {
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "Leverage Shares 2X Long MP Daily ETF",
+      "locale": "us"
+    },
+    "MPIA": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "m Nasdaq-100 Accelerator Autocall ETF",
+      "locale": "us"
+    },
+    "MPIM": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "m+ Income Momentum Autocall ETF",
       "locale": "us"
     },
     "MPL": {
@@ -45647,16 +45815,34 @@
       "name": "Everspin Technologies, Inc",
       "locale": "us"
     },
+    "MRAX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Tradr 2X Long MRAM Daily ETF",
+      "locale": "us"
+    },
     "MRBK": {
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Meridian Corporation",
       "locale": "us"
     },
+    "MRCO": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Mercator Acquisition Corp. Class A Ordinary Shares",
+      "locale": "us"
+    },
     "MRCOU": {
       "type": "UNIT",
       "primary_exchange": "XNAS",
       "name": "Mercator Acquisition Corp. Units",
+      "locale": "us"
+    },
+    "MRCOW": {
+      "type": "WARRANT",
+      "primary_exchange": "XNAS",
+      "name": "Mercator Acquisition Corp. Warrant",
       "locale": "us"
     },
     "MRCP": {
@@ -46229,6 +46415,12 @@
       "name": "Metals Acquisition Corp. II Warrants, each whole warrant exercisable for one Class A ordinary share at an exercise price of $11.50 per share",
       "locale": "us"
     },
+    "MTAW": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Meta AI Lab Ecosystem ETF",
+      "locale": "us"
+    },
     "MTB": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -46403,12 +46595,6 @@
       "name": "MACOM Technology Solutions Holdings, Inc",
       "locale": "us"
     },
-    "MTUL": {
-      "type": "ETN",
-      "primary_exchange": "ARCX",
-      "name": "ETRACS 2x Leveraged MSCI US Momentum Factor TR ETN",
-      "locale": "us"
-    },
     "MTUM": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -46463,12 +46649,6 @@
       "name": "Blackrock Muni Assets Fund, Inc.",
       "locale": "us"
     },
-    "MUAr": {
-      "type": "RIGHT",
-      "primary_exchange": "XNYS",
-      "name": "BlackRock MuniAssets Fund, Inc. Rights (expiring August 20, 2026)",
-      "locale": "us"
-    },
     "MUB": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -46491,6 +46671,12 @@
       "type": "ADRC",
       "primary_exchange": "XNYS",
       "name": "Mitsubishi UFJ Financial Group, Inc.",
+      "locale": "us"
+    },
+    "MUG": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Leverage Shares 2X Long MU Daily ETF",
       "locale": "us"
     },
     "MUIB": {
@@ -46541,10 +46727,34 @@
       "name": "Northern Trust 2055 Tax-Exempt Distributing Ladder ETF",
       "locale": "us"
     },
+    "MUNF": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Northern Trust 2036 Tax-Exempt Distributing Ladder ETF",
+      "locale": "us"
+    },
+    "MUNG": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Northern Trust 2046 Tax-Exempt Distributing Ladder ETF",
+      "locale": "us"
+    },
+    "MUNH": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Northern Trust 2056 Tax-Exempt Distributing Ladder ETF",
+      "locale": "us"
+    },
     "MUNI": {
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "PIMCO Intermediate Municipal Bond Active Exchange-Traded Fund",
+      "locale": "us"
+    },
+    "MUNJ": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Northern Trust 2031 Tax-Exempt Distributing Ladder ETF",
       "locale": "us"
     },
     "MUNX": {
@@ -46781,6 +46991,12 @@
       "name": "MaxLinear, Inc. Common Stock",
       "locale": "us"
     },
+    "MXLL": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Leverage Shares 2X Long MXL Daily ETF",
+      "locale": "us"
+    },
     "MYCF": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -46971,12 +47187,6 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Myseum.AI, Inc. Common Stock",
-      "locale": "us"
-    },
-    "MYSEW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "Myseum.AI, Inc. Series A Warrant",
       "locale": "us"
     },
     "MYSZ": {
@@ -47475,12 +47685,6 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "Hashdex Nasdaq CME Crypto Index ETF Shares of Beneficial Interest",
-      "locale": "us"
-    },
-    "NCL": {
-      "type": "CS",
-      "primary_exchange": "XASE",
-      "name": "Northann Corp.",
       "locale": "us"
     },
     "NCLD": {
@@ -48005,6 +48209,18 @@
       "name": "Virtus Newfleet Multi-Sector Bond ETF",
       "locale": "us"
     },
+    "NFLU": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "T-Rex 2X Long NFLX Daily Target ETF",
+      "locale": "us"
+    },
+    "NFLW": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Roundhill NFLX WeeklyPay ETF",
+      "locale": "us"
+    },
     "NFLX": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -48020,7 +48236,7 @@
     "NFRA": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares STOXX Global Broad Infrastructure Index Fund",
+      "name": "Northern Trust STOXX Global Broad Infrastructure ETF",
       "locale": "us"
     },
     "NFRX": {
@@ -49085,6 +49301,12 @@
       "name": "Neuraxis, Inc.",
       "locale": "us"
     },
+    "NSAIU": {
+      "type": "UNIT",
+      "primary_exchange": "XNAS",
+      "name": "NorthStrive Acquisition Corp I. Units",
+      "locale": "us"
+    },
     "NSC": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -49355,12 +49577,6 @@
       "name": "Newbury Street II Acquisition Corp Warrant",
       "locale": "us"
     },
-    "NTZ": {
-      "type": "ADRC",
-      "primary_exchange": "XNYS",
-      "name": "Natuzzi, S.p.A",
-      "locale": "us"
-    },
     "NU": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -49517,6 +49733,12 @@
       "name": "Nuveen ESG Mid-Cap Value ETF",
       "locale": "us"
     },
+    "NUR": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Nuran Wireless Inc. Common Shares",
+      "locale": "us"
+    },
     "NURE": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -49545,12 +49767,6 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "Nuveen ESG Small-Cap ETF",
-      "locale": "us"
-    },
-    "NUTR": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Nusatrip Incorporated Common Stock",
       "locale": "us"
     },
     "NUTX": {
@@ -50003,6 +50219,12 @@
       "name": "NexGel, Inc Warrant",
       "locale": "us"
     },
+    "NXH": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Neighborhood Intelligence, Inc. Common Stock",
+      "locale": "us"
+    },
     "NXL": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -50054,7 +50276,7 @@
     "NXT": {
       "type": "CS",
       "primary_exchange": "XNAS",
-      "name": "Nextpower Inc. Class A Common Stock",
+      "name": "Nextpower Inc. Common Stock",
       "locale": "us"
     },
     "NXTC": {
@@ -50223,6 +50445,12 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "OneAscent International Equity ETF",
+      "locale": "us"
+    },
+    "OAIW": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "OpenAI Lab Ecosystem ETF",
       "locale": "us"
     },
     "OAKG": {
@@ -51677,22 +51905,22 @@
       "name": "OneSpan Inc. Common Stock",
       "locale": "us"
     },
+    "OSPR": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Osprey Acquisition Corp. III Class A Ordinary Shares",
+      "locale": "us"
+    },
     "OSPRU": {
       "type": "UNIT",
       "primary_exchange": "XNAS",
       "name": "Osprey Acquisition Corp. III Units",
       "locale": "us"
     },
-    "OSRH": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "OSR Health, Inc. Common Stock",
-      "locale": "us"
-    },
-    "OSRHW": {
+    "OSPRW": {
       "type": "WARRANT",
       "primary_exchange": "XNAS",
-      "name": "OSR Health, Inc. Warrant",
+      "name": "Osprey Acquisition Corp. III Warrants",
       "locale": "us"
     },
     "OSS": {
@@ -51747,6 +51975,12 @@
       "type": "RIGHT",
       "primary_exchange": "XNYS",
       "name": "Starlink AI Acquisition Corporation Rights, each entitling the holder to receive one-fourth (1/4) of one ordinary share",
+      "locale": "us"
+    },
+    "OTAX": {
+      "type": "ETF",
+      "primary_exchange": "XNYS",
+      "name": "Optimal Tax Managed Equity ETF",
       "locale": "us"
     },
     "OTEX": {
@@ -52817,12 +53051,6 @@
       "name": "PCB Bancorp Common Stock",
       "locale": "us"
     },
-    "PCCE": {
-      "type": "ETF",
-      "primary_exchange": "ARCX",
-      "name": "Polen Capital China Growth ETF",
-      "locale": "us"
-    },
     "PCEB": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -52851,12 +53079,6 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "PG&E Corporation",
-      "locale": "us"
-    },
-    "PCGG": {
-      "type": "ETF",
-      "primary_exchange": "ARCX",
-      "name": "Polen Capital Global Growth ETF",
       "locale": "us"
     },
     "PCGpA": {
@@ -52925,12 +53147,6 @@
       "name": "PGIM Corporate Bond 5-10 Year ETF",
       "locale": "us"
     },
-    "PCIG": {
-      "type": "ETF",
-      "primary_exchange": "ARCX",
-      "name": "Polen Capital International Growth ETF",
-      "locale": "us"
-    },
     "PCL": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -52989,6 +53205,12 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "Procore Technologies, Inc.",
+      "locale": "us"
+    },
+    "PCOV": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Principal Equity Premium Income ETF",
       "locale": "us"
     },
     "PCPI": {
@@ -53837,6 +54059,18 @@
       "name": "Phoenix Asia Holdings Limited Ordinary Shares",
       "locale": "us"
     },
+    "PHOS": {
+      "type": "ADRC",
+      "primary_exchange": "XNAS",
+      "name": "First Phosphate Corp. American Depositary Shares",
+      "locale": "us"
+    },
+    "PHOX": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Aura AI Photonics ETF",
+      "locale": "us"
+    },
     "PHR": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -54177,6 +54411,18 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Children's Place, Inc.",
+      "locale": "us"
+    },
+    "PLCI": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Pelican Acquisition II Corporation Ordinary Shares",
+      "locale": "us"
+    },
+    "PLCIR": {
+      "type": "RIGHT",
+      "primary_exchange": "XNAS",
+      "name": "Pelican Acquisition II Corporation Right",
       "locale": "us"
     },
     "PLCIU": {
@@ -55121,6 +55367,12 @@
       "name": "PlanRock Alternative Growth ETF",
       "locale": "us"
     },
+    "PRAM": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Defiance Memory & Photonics ETF",
+      "locale": "us"
+    },
     "PRAX": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -55875,6 +56127,12 @@
       "type": "ADRC",
       "primary_exchange": "XNYS",
       "name": "Pearson plc",
+      "locale": "us"
+    },
+    "PSOX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Tema MLCC & PowerSemi ETF",
       "locale": "us"
     },
     "PSP": {
@@ -56714,7 +56972,7 @@
     "QDEF": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Quality Dividend Defensive Index Fund",
+      "name": "Northern Trust Quality Dividend Defensive ETF",
       "locale": "us"
     },
     "QDEL": {
@@ -56726,7 +56984,7 @@
     "QDF": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Quality Dividend Index Fund",
+      "name": "Northern Trust Quality Dividend ETF",
       "locale": "us"
     },
     "QDIV": {
@@ -56918,7 +57176,7 @@
     "QLC": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "FlexShares US Quality Large Cap Index Fund",
+      "name": "Northern Trust US Quality Large Cap ETF",
       "locale": "us"
     },
     "QLD": {
@@ -56966,19 +57224,19 @@
     "QLV": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares US Quality Low Volatility Index Fund",
+      "name": "Northern Trust US Quality Low Volatility ETF",
       "locale": "us"
     },
     "QLVD": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Developed Markets ex-US Quality Low Volatility Index Fund",
+      "name": "Northern Trust Developed Markets ex-US Quality Low Volatility ETF",
       "locale": "us"
     },
     "QLVE": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Emerging Markets Quality Low Volatility Index Fund",
+      "name": "Northern Trust Emerging Markets Quality Low Volatility ETF",
       "locale": "us"
     },
     "QLYS": {
@@ -57023,12 +57281,6 @@
       "name": "QumulusAI, Inc. Common Stock",
       "locale": "us"
     },
-    "QMMM": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "QMMM Holdings Limited Class A Ordinary Shares",
-      "locale": "us"
-    },
     "QMMY": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -57051,6 +57303,12 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "Corgi Growth & Technology 10% Structured Buffer ETF - May Series",
+      "locale": "us"
+    },
+    "QNBC": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "QNB Corp. Common Stock",
       "locale": "us"
     },
     "QNC": {
@@ -57563,12 +57821,6 @@
       "name": "Zacks Quality International ETF",
       "locale": "us"
     },
-    "QULL": {
-      "type": "ETN",
-      "primary_exchange": "ARCX",
-      "name": "ETRACS 2x Leveraged MSCI US Quality Factor TR ETN",
-      "locale": "us"
-    },
     "QUMS": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -57902,7 +58154,7 @@
     "RAVI": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Ultra-Short Income Fund",
+      "name": "Northern Trust Ultra-Short Fixed Income ETF",
       "locale": "us"
     },
     "RAY": {
@@ -58364,7 +58616,7 @@
     "REAX": {
       "type": "CS",
       "primary_exchange": "XNAS",
-      "name": "REAL BROKERAGE INC",
+      "name": "Real REMAX Group Inc. Common Stock",
       "locale": "us"
     },
     "REBN": {
@@ -59369,12 +59621,6 @@
       "name": "REGIONAL MANAGEMENT CORP",
       "locale": "us"
     },
-    "RMAX": {
-      "type": "CS",
-      "primary_exchange": "XNYS",
-      "name": "RE/MAX HOLDINGS, INC.",
-      "locale": "us"
-    },
     "RMBC": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -59531,6 +59777,12 @@
       "name": "Cartesian Therapeutics, Inc. Common Stock",
       "locale": "us"
     },
+    "RNAQU": {
+      "type": "UNIT",
+      "primary_exchange": "XNAS",
+      "name": "Rainier Acquisition Corporation Units",
+      "locale": "us"
+    },
     "RNAZ": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -59645,12 +59897,6 @@
       "name": "ReNew Energy Global plc Class A Ordinary Shares",
       "locale": "us"
     },
-    "RNWWW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "ReNew Energy Global plc Warrant",
-      "locale": "us"
-    },
     "RNXT": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -59685,6 +59931,12 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "First Trust Nasdaq Artificial Intelligence and Robotics ETF",
+      "locale": "us"
+    },
+    "ROBX": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Amplify Top 10 Robotics ETF",
       "locale": "us"
     },
     "ROC": {
@@ -60315,6 +60567,12 @@
       "type": "FUND",
       "primary_exchange": "XNYS",
       "name": "Robinhood Ventures Fund I",
+      "locale": "us"
+    },
+    "RVII": {
+      "type": "CS",
+      "primary_exchange": "XNYS",
+      "name": "Robinhood Ventures Fund II",
       "locale": "us"
     },
     "RVLV": {
@@ -60995,6 +61253,12 @@
       "name": "AAM Sawgrass US Small Cap Quality Growth ETF",
       "locale": "us"
     },
+    "SAX": {
+      "type": "SP",
+      "primary_exchange": "XNYS",
+      "name": "Saratoga Investment Corp. 8.00% Notes due 2031",
+      "locale": "us"
+    },
     "SAY": {
       "type": "SP",
       "primary_exchange": "XNYS",
@@ -61053,12 +61317,6 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Sharplink, Inc. Common Stock",
-      "locale": "us"
-    },
-    "SBEV": {
-      "type": "CS",
-      "primary_exchange": "XASE",
-      "name": "Splash Beverage Group, Inc.",
       "locale": "us"
     },
     "SBFG": {
@@ -61247,6 +61505,12 @@
       "name": "Infrastructure Capital Small Cap Income ETF",
       "locale": "us"
     },
+    "SCATU": {
+      "type": "UNIT",
+      "primary_exchange": "XNAS",
+      "name": "Southern Cross Acquisition II Corp. Units",
+      "locale": "us"
+    },
     "SCAU": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -61299,12 +61563,6 @@
       "type": "FUND",
       "primary_exchange": "XNYS",
       "name": "LMP Capital and Income Fund, Inc.",
-      "locale": "us"
-    },
-    "SCDL": {
-      "type": "ETN",
-      "primary_exchange": "ARCX",
-      "name": "ETRACS 2x Leveraged US Dividend Factor TR ETN",
       "locale": "us"
     },
     "SCDS": {
@@ -62141,6 +62399,12 @@
       "name": "PGIM S&P 500 Buffer 12 ETF - September",
       "locale": "us"
     },
+    "SEPQ": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "STF Tactical Growth & Income ETF",
+      "locale": "us"
+    },
     "SEPT": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -62187,12 +62451,6 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "SES AI Corporation",
-      "locale": "us"
-    },
-    "SES.WS": {
-      "type": "WARRANT",
-      "primary_exchange": "XNYS",
-      "name": "SES AI Corporation  Warrants, each whole warrant exercisable for one share of Class A Common Stock at an exercise price of $11.50 per share",
       "locale": "us"
     },
     "SETH": {
@@ -62987,6 +63245,12 @@
       "name": "SiTime Corporation Common Stock",
       "locale": "us"
     },
+    "SITX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Tradr 2X Long SITM Daily ETF",
+      "locale": "us"
+    },
     "SIVR": {
       "type": "ETV",
       "primary_exchange": "ARCX",
@@ -63194,7 +63458,7 @@
     "SKOR": {
       "type": "ETF",
       "primary_exchange": "XNAS",
-      "name": "FlexShares Credit-Scored US Corporate Bond Index Fund",
+      "name": "FlexShares Trust Northern Trust Credit-Scored US Corporate Bond ETF",
       "locale": "us"
     },
     "SKRE": {
@@ -64187,6 +64451,12 @@
       "name": "Synopsys Inc",
       "locale": "us"
     },
+    "SNSC": {
+      "type": "CS",
+      "primary_exchange": "XASE",
+      "name": "SunScout Holding Limited",
+      "locale": "us"
+    },
     "SNSR": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -64221,6 +64491,18 @@
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "MRP SynthEquity Nasdaq 100 ETF",
+      "locale": "us"
+    },
+    "SNUSpH": {
+      "type": "PFD",
+      "primary_exchange": "XNYS",
+      "name": "Santander Holdings USA, Inc. Depositary Shares, Each Representing a 1/1,000th Interest in a Share of Fixed-Rate Reset Non-Cumulative Perpetual Preferred Stock, Series H",
+      "locale": "us"
+    },
+    "SNUSpI": {
+      "type": "PFD",
+      "primary_exchange": "XNYS",
+      "name": "Santander Holdings USA, Inc. Depositary Shares, Each Representing a 1/40th Interest in a Share of Fixed-Rate Reset Non-Cumulative Perpetual Preferred Stock, Series I",
       "locale": "us"
     },
     "SNWV": {
@@ -65339,6 +65621,12 @@
       "name": "State Street SPDR S&P 500 Fossil Fuel Reserves Free ETF",
       "locale": "us"
     },
+    "SQBA": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "FT Vest U.S. Equity Quarterly 15 Buffer ETF",
+      "locale": "us"
+    },
     "SQFT": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -65939,6 +66227,12 @@
       "name": "Steel Dynamics Inc",
       "locale": "us"
     },
+    "STLL": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Leverage Shares 2X Long STRL Daily ETF",
+      "locale": "us"
+    },
     "STLN": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -65967,6 +66261,12 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "STMicroelectronics N.V.",
+      "locale": "us"
+    },
+    "STMX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Leverage Shares 2X Long STM Daily ETF",
       "locale": "us"
     },
     "STN": {
@@ -66911,12 +67211,6 @@
       "name": "TAL Education Group",
       "locale": "us"
     },
-    "TALK": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "Talkspace, Inc. Common Stock",
-      "locale": "us"
-    },
     "TALO": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -67025,6 +67319,12 @@
       "name": "Tavia Acquisition Corp. Unit",
       "locale": "us"
     },
+    "TAWN": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors 3x Long Taiwan ETNs",
+      "locale": "us"
+    },
     "TAX": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -67101,6 +67401,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "Turtle Beach Corporation Common Stock",
+      "locale": "us"
+    },
+    "TBCVU": {
+      "type": "UNIT",
+      "primary_exchange": "XNAS",
+      "name": "Thunder Bridge Capital Partners V, Ltd. Units",
       "locale": "us"
     },
     "TBF": {
@@ -67448,7 +67754,7 @@
     "TDOT": {
       "type": "ETF",
       "primary_exchange": "XNAS",
-      "name": "21shares Polkadot ETF Shares of Beneficial Interest",
+      "name": "21shares Polkadot Staking ETF Shares of Beneficial Interest",
       "locale": "us"
     },
     "TDS": {
@@ -67484,7 +67790,7 @@
     "TDTF": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares iBoxx 5-Year Target Duration TIPS Index Fund",
+      "name": "Northern Trust iBoxx 5-Year Target Duration TIPS ETF",
       "locale": "us"
     },
     "TDTH": {
@@ -67496,7 +67802,7 @@
     "TDTT": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares iBoxx 3-Year Target Duration TIPS Index Fund",
+      "name": "Northern Trust iBoxx 3-Year Target Duration TIPS ETF",
       "locale": "us"
     },
     "TDUP": {
@@ -67802,7 +68108,7 @@
     "TETH": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "21Shares Ethereum ETF",
+      "name": "21Shares Ethereum Staking ETF",
       "locale": "us"
     },
     "TEUP": {
@@ -68021,6 +68327,12 @@
       "name": "T. Rowe Price Growth Stock ETF",
       "locale": "us"
     },
+    "TGRZ": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "China AI Tigers LLM ETF",
+      "locale": "us"
+    },
     "TGS": {
       "type": "ADRC",
       "primary_exchange": "XNYS",
@@ -68061,6 +68373,18 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "iShares MSCI Thailand ETF",
+      "locale": "us"
+    },
+    "THEO": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "BOA Acquisition Corp. II Class A Ordinary Shares",
+      "locale": "us"
+    },
+    "THEOR": {
+      "type": "RIGHT",
+      "primary_exchange": "XNAS",
+      "name": "BOA Acquisition Corp. II Rights",
       "locale": "us"
     },
     "THEOU": {
@@ -68210,7 +68534,7 @@
     "THYP": {
       "type": "ETF",
       "primary_exchange": "XNAS",
-      "name": "21Shares Hyperliquid ETF",
+      "name": "21shares Hyperliquid Staking ETF",
       "locale": "us"
     },
     "TIC": {
@@ -68282,7 +68606,7 @@
     "TILT": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "FlexShares Morningstar US Market Factors Tilt Index Fund",
+      "name": "Northern Trust Morningstar US Market Factor Tilt ETF",
       "locale": "us"
     },
     "TIMB": {
@@ -68345,6 +68669,30 @@
       "name": "Northern Trust 2055 Inflation-Linked Distributing Ladder ETF",
       "locale": "us"
     },
+    "TIPE": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Northern Trust 2031 Inflation-Linked Distributing Ladder ETF",
+      "locale": "us"
+    },
+    "TIPF": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Northern Trust 2036 Inflation-Linked Distributing Ladder ETF",
+      "locale": "us"
+    },
+    "TIPG": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Northern Trust 2046 Inflation-Linked Distributing Ladder ETF",
+      "locale": "us"
+    },
+    "TIPH": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Northern Trust 2056 Inflation-Linked Distributing Ladder ETF",
+      "locale": "us"
+    },
     "TIPT": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -68390,7 +68738,7 @@
     "TJGC": {
       "type": "CS",
       "primary_exchange": "XNAS",
-      "name": "TJGC Group Limited Ordinary Shares",
+      "name": "TJGC Group Limited Class A Ordinary Shares",
       "locale": "us"
     },
     "TJUL": {
@@ -68582,13 +68930,13 @@
     "TLTD": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Morningstar Developed Markets ex-US Factor Tilt Index Fund",
+      "name": "Northern Trust Morningstar Developed Markets ex-US Factor Tilt ETF",
       "locale": "us"
     },
     "TLTE": {
       "type": "ETF",
       "primary_exchange": "ARCX",
-      "name": "FlexShares Morningstar Emerging Markets Factor Tilt Index Fund",
+      "name": "Northern Trust Morningstar Emerging Markets Factor Tilt ETF",
       "locale": "us"
     },
     "TLTI": {
@@ -69197,6 +69545,12 @@
       "name": "Techprecision Corporation",
       "locale": "us"
     },
+    "TPEI": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "MicroSectors -3x Short Taiwan ETNs",
+      "locale": "us"
+    },
     "TPET": {
       "type": "CS",
       "primary_exchange": "XASE",
@@ -69405,6 +69759,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "LendingTree, Inc.",
+      "locale": "us"
+    },
+    "TREO": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Tactical Resources Corp. Common Shares",
       "locale": "us"
     },
     "TREX": {
@@ -70040,7 +70400,7 @@
     "TSOL": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "21Shares Solana ETF",
+      "name": "21Shares Solana Staking ETF",
       "locale": "us"
     },
     "TSPA": {
@@ -70088,7 +70448,7 @@
     "TSUI": {
       "type": "ETF",
       "primary_exchange": "XNAS",
-      "name": "21shares Sui ETF Common Shares of Beneficial Interest Shares",
+      "name": "21Shares Sui Staking ETF Common Shares of Beneficial Interest Shares",
       "locale": "us"
     },
     "TSXD": {
@@ -70257,12 +70617,6 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "STF Tactical Growth ETF",
-      "locale": "us"
-    },
-    "TUGN": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "STF Tactical Growth & Income ETF",
       "locale": "us"
     },
     "TULP": {
@@ -70485,12 +70839,6 @@
       "type": "FUND",
       "primary_exchange": "XNYS",
       "name": "Taiwan Fund, Inc.",
-      "locale": "us"
-    },
-    "TWO": {
-      "type": "CS",
-      "primary_exchange": "XNYS",
-      "name": "Two Harbors Investment Corp.",
       "locale": "us"
     },
     "TWOD": {
@@ -71309,6 +71657,12 @@
       "name": "United Microelectronic Corp.",
       "locale": "us"
     },
+    "UMCU": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Tradr 2X Long UMC Daily ETF",
+      "locale": "us"
+    },
     "UMCX": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -71897,6 +72251,12 @@
       "name": "U.S. GoldMining Inc. Common stock",
       "locale": "us"
     },
+    "USGX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Corgi U.S. Growth 2x Daily ETF",
+      "locale": "us"
+    },
     "USHY": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -71945,6 +72305,12 @@
       "name": "DIREXION DAILY SILVER BULL 2X ETF",
       "locale": "us"
     },
+    "USLX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Corgi U.S. Large-Cap 2x Daily ETF",
+      "locale": "us"
+    },
     "USMC": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -71963,16 +72329,16 @@
       "name": "WisdomTree U.S. Multifactor Fund",
       "locale": "us"
     },
-    "USML": {
-      "type": "ETN",
-      "primary_exchange": "ARCX",
-      "name": "ETRACS 2x Leveraged MSCI US Minimum Volatility Factor TR ETN",
-      "locale": "us"
-    },
     "USMV": {
       "type": "ETF",
       "primary_exchange": "BATS",
       "name": "iShares MSCI USA Min Vol Factor ETF",
+      "locale": "us"
+    },
+    "USMX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Corgi U.S. Mid-Cap 2x Daily ETF",
       "locale": "us"
     },
     "USNA": {
@@ -72045,6 +72411,12 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "WisdomTree 1-3 Year Laddered Treasury Fund",
+      "locale": "us"
+    },
+    "USSX": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Corgi U.S. Small-Cap 2x Daily ETF",
       "locale": "us"
     },
     "UST": {
@@ -72401,6 +72773,12 @@
       "name": "Viking Acquisition Corp. I Warrants to purchase one Class A Ordinary Share",
       "locale": "us"
     },
+    "VAI": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Valor Energy Incorporated Common Stock",
+      "locale": "us"
+    },
     "VAIE": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -72591,12 +72969,6 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "Vanguard Morningstar Small-Cap Value ETF",
-      "locale": "us"
-    },
-    "VBX": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "Corgi U.S. Small-Cap 2x Daily ETF",
       "locale": "us"
     },
     "VC": {
@@ -73151,12 +73523,6 @@
       "name": "Viavi Solutions Inc. Common Stock",
       "locale": "us"
     },
-    "VICE": {
-      "type": "ETF",
-      "primary_exchange": "ARCX",
-      "name": "AdvisorShares Vice ETF",
-      "locale": "us"
-    },
     "VICI": {
       "type": "CS",
       "primary_exchange": "XNYS",
@@ -73499,6 +73865,12 @@
       "name": "Invesco Municipal Opportunity Trust",
       "locale": "us"
     },
+    "VMRK": {
+      "type": "CS",
+      "primary_exchange": "XNYS",
+      "name": "Vivmark Residential",
+      "locale": "us"
+    },
     "VMSB": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -73661,6 +74033,12 @@
       "name": "Vanguard Morningstar Mid-Cap Value ETF",
       "locale": "us"
     },
+    "VOGX": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Vogenx Inc Common Stock",
+      "locale": "us"
+    },
     "VOLT": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -73701,12 +74079,6 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "Vanguard S&P 500 Value ETF",
-      "locale": "us"
-    },
-    "VOOX": {
-      "type": "ETF",
-      "primary_exchange": "BATS",
-      "name": "Corgi U.S. Large-Cap 2x Daily ETF",
       "locale": "us"
     },
     "VOR": {
@@ -74513,6 +74885,12 @@
       "name": "Waters Corp",
       "locale": "us"
     },
+    "WATR": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Air Water Ventures Limited Ordinary Shares",
+      "locale": "us"
+    },
     "WATS": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -74577,24 +74955,6 @@
       "type": "ETF",
       "primary_exchange": "XNYS",
       "name": "WBI Power Factor High Dividend ETF",
-      "locale": "us"
-    },
-    "WBS": {
-      "type": "CS",
-      "primary_exchange": "XNYS",
-      "name": "Webster Financial Corporation Waterbury",
-      "locale": "us"
-    },
-    "WBSpF": {
-      "type": "PFD",
-      "primary_exchange": "XNYS",
-      "name": "Webster Financial Corporation Depositary Shares, Each Representing 1/1,000th Interest in a Share of 5.25% Series F Non-Cumulative Perpetual Preferred Stock",
-      "locale": "us"
-    },
-    "WBSpG": {
-      "type": "PFD",
-      "primary_exchange": "XNYS",
-      "name": "Webster Financial Corporation Depositary Shares, each representing a 1/40th interest in a share of 6.50% Series G noncumulative perpetual preferred stock",
       "locale": "us"
     },
     "WBTN": {
@@ -75038,7 +75398,7 @@
     "WGMI": {
       "type": "ETF",
       "primary_exchange": "XNAS",
-      "name": "CoinShares ETF Trust CoinShares Bitcoin Mining ETF",
+      "name": "CoinShares ETF Trust CoinShares Bitcoin Mining and Digital Power ETF",
       "locale": "us"
     },
     "WGO": {
@@ -75135,12 +75495,6 @@
       "type": "FUND",
       "primary_exchange": "XNYS",
       "name": "Western Asset Inflation-Linked Income Fund",
-      "locale": "us"
-    },
-    "WILC": {
-      "type": "CS",
-      "primary_exchange": "XNAS",
-      "name": "G Willi-Food International Ltd",
       "locale": "us"
     },
     "WIMA": {
@@ -76025,6 +76379,12 @@
       "name": "Beyond Air, Inc. Common Stock",
       "locale": "us"
     },
+    "XAIW": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "SpaceXAI Lab Ecosystem ETF",
+      "locale": "us"
+    },
     "XAIX": {
       "type": "ETF",
       "primary_exchange": "XNAS",
@@ -76227,6 +76587,12 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "FundX ETF",
+      "locale": "us"
+    },
+    "XCSH": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "XFUNDS 1-3 Month BOX ETF",
       "locale": "us"
     },
     "XCUR": {
@@ -76907,12 +77273,6 @@
       "name": "Xos, Inc. Common Stock",
       "locale": "us"
     },
-    "XOSWW": {
-      "type": "WARRANT",
-      "primary_exchange": "XNAS",
-      "name": "Xos, Inc. Warrants",
-      "locale": "us"
-    },
     "XOVL": {
       "type": "ETF",
       "primary_exchange": "BATS",
@@ -77013,6 +77373,12 @@
       "type": "CS",
       "primary_exchange": "XNYS",
       "name": "Expro Ltd",
+      "locale": "us"
+    },
+    "XQBT": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Amplify Top 10 Quantum ETF",
       "locale": "us"
     },
     "XQQI": {
@@ -77273,6 +77639,24 @@
       "name": "BondBloxx Bloomberg Ten Year Target Duration US Treasury ETF",
       "locale": "us"
     },
+    "XTER": {
+      "type": "CS",
+      "primary_exchange": "XNAS",
+      "name": "Karman Line Acquisition Corp. Class A Ordinary Shares",
+      "locale": "us"
+    },
+    "XTERU": {
+      "type": "UNIT",
+      "primary_exchange": "XNAS",
+      "name": "Karman Line Acquisition Corp. Units",
+      "locale": "us"
+    },
+    "XTERW": {
+      "type": "WARRANT",
+      "primary_exchange": "XNAS",
+      "name": "Karman Line Acquisition Corp. Warrants",
+      "locale": "us"
+    },
     "XTIA": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -77363,16 +77747,28 @@
       "name": "Simplify Target 15 Distribution ETF",
       "locale": "us"
     },
-    "XVO": {
+    "XVAP": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "Corgi U.S. Mid-Cap 2x Daily ETF",
+      "name": "FT Vest AAPL & Target Income ETF",
       "locale": "us"
     },
-    "XVUG": {
+    "XVNV": {
       "type": "ETF",
       "primary_exchange": "BATS",
-      "name": "Corgi U.S. Growth 2x Daily ETF",
+      "name": "FT Vest NVDA & Target Income ETF",
+      "locale": "us"
+    },
+    "XVSP": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "FT Vest SPCX & Target Income ETF",
+      "locale": "us"
+    },
+    "XVTS": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "FT Vest TSLA & Target Income ETF",
       "locale": "us"
     },
     "XVV": {
@@ -77391,6 +77787,12 @@
       "type": "CS",
       "primary_exchange": "XNAS",
       "name": "XWELL, Inc. Common Stock",
+      "locale": "us"
+    },
+    "XWNG": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Amplify Top 10 Space ETF",
       "locale": "us"
     },
     "XXI": {
@@ -77511,12 +77913,6 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "YieldMax Bitcoin Option Income Strategy ETF",
-      "locale": "us"
-    },
-    "YBMN": {
-      "type": "ETF",
-      "primary_exchange": "XNAS",
-      "name": "Defiance BMNR Option Income ETF",
       "locale": "us"
     },
     "YBST": {
@@ -77753,6 +78149,12 @@
       "name": "Westwood Enhanced Income Opportunity ETF",
       "locale": "us"
     },
+    "YLDY": {
+      "type": "ETF",
+      "primary_exchange": "BATS",
+      "name": "Horizon High Income ETF",
+      "locale": "us"
+    },
     "YMAG": {
       "type": "ETF",
       "primary_exchange": "ARCX",
@@ -77841,6 +78243,12 @@
       "type": "ETF",
       "primary_exchange": "XNAS",
       "name": "YieldMax Short N100 Option Income Strategy ETF",
+      "locale": "us"
+    },
+    "YRAM": {
+      "type": "ETF",
+      "primary_exchange": "XNAS",
+      "name": "YieldMax Memory and Storage Portfolio Option Income ETF",
       "locale": "us"
     },
     "YRD": {
@@ -78059,6 +78467,12 @@
       "name": "Zhongchao Inc. Class A Ordinary Shares",
       "locale": "us"
     },
+    "ZCSH": {
+      "type": "ETV",
+      "primary_exchange": "ARCX",
+      "name": "The Zcash ETF",
+      "locale": "us"
+    },
     "ZD": {
       "type": "CS",
       "primary_exchange": "XNAS",
@@ -78081,6 +78495,12 @@
       "type": "CS",
       "primary_exchange": "XASE",
       "name": "Zedge, Inc.",
+      "locale": "us"
+    },
+    "ZDIS": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Virtus Zevenbergen Discovery Growth ETF",
       "locale": "us"
     },
     "ZECP": {
@@ -78177,6 +78597,12 @@
       "type": "ETF",
       "primary_exchange": "ARCX",
       "name": "Zacks Income ETF",
+      "locale": "us"
+    },
+    "ZINN": {
+      "type": "ETF",
+      "primary_exchange": "ARCX",
+      "name": "Virtus Zevenbergen Innovative Growth ETF",
       "locale": "us"
     },
     "ZION": {
