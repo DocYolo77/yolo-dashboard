@@ -309,6 +309,24 @@ html { scroll-behavior: smooth; }
 .vix-label-inline { color: var(--ink-muted); margin-right: 4px; }
 .regime-vix-context { display: flex; align-items: center; gap: 8px; }
 
+.regime-tactics { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--card-border); }
+.rt-label { font-family: var(--mono-font); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 10px; }
+.regime-tactic-current { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding: 12px 16px; border-radius: 2px; background: rgba(255,255,255,0.04); margin-bottom: 18px; }
+.regime-tactic-current.state-strong-offensive, .regime-tactic-current.state-offensive { background: var(--positive-bg); }
+.regime-tactic-current.state-selective { background: var(--neutral-bg); }
+.regime-tactic-current.state-defensive, .regime-tactic-current.state-risk-off { background: var(--negative-bg); }
+.rtc-state { font-family: var(--header-font); font-weight: 600; font-size: 13px; }
+.rtc-text { font-family: var(--mono-font); font-size: 12px; color: var(--ink-light); }
+.rt-legend-list { display: flex; flex-direction: column; gap: 10px; }
+.rt-legend-item { display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: baseline; padding: 6px 8px; border-radius: 2px; opacity: 0.55; transition: opacity 0.2s, background 0.2s; }
+.rt-legend-item.active { opacity: 1; background: rgba(255,255,255,0.04); }
+.rt-legend-item dt { font-family: var(--header-font); font-weight: 600; font-size: 12px; }
+.rt-legend-item dd { font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); margin: 0; }
+.rt-legend-item.active dd { color: var(--ink-light); }
+@media (max-width: 640px) {
+  .rt-legend-item { grid-template-columns: 1fr; gap: 2px; }
+}
+
 /* QQQ HEALTH (Punkt 03) */
 .qqq-health-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 28px; margin-bottom: 20px; display: grid; grid-template-columns: 220px 1fr; gap: 28px; }
 .qqq-health-main { display: flex; flex-direction: column; gap: 8px; }
@@ -675,6 +693,36 @@ html { scroll-behavior: smooth; }
           <span class="vix-label-inline">VIX</span> <b id="regimeVixVal">—</b>
           <span class="vix-zone low" id="regimeVixZone">—</span>
         </span>
+      </div>
+      <div class="regime-tactics">
+        <div class="rt-label">Empfohlenes Vorgehen</div>
+        <div class="regime-tactic-current" id="regimeTacticCurrent">
+          <span class="rtc-state" id="regimeTacticCurrentState">—</span>
+          <span class="rtc-text" id="regimeTacticCurrentText"></span>
+        </div>
+        <div class="rt-label">Taktisches Vorgehen</div>
+        <dl class="rt-legend-list" id="regimeTacticsLegend">
+          <div class="rt-legend-item" data-state="STRONG OFFENSIVE">
+            <dt>Strong Offensive</dt>
+            <dd>Erhöhtes Risiko, Addons und mehrere neue Positionen in einer Session erlaubt</dd>
+          </div>
+          <div class="rt-legend-item" data-state="OFFENSIVE">
+            <dt>Offensive</dt>
+            <dd>Je nach bisheriger Traktion, neues Risiko und weitere Positionen erlaubt</dd>
+          </div>
+          <div class="rt-legend-item" data-state="SELECTIVE">
+            <dt>Selective</dt>
+            <dd>Bei positivem Feedback, langsames Erhöhen der Exposition bei normalem bis reduziertem Risiko</dd>
+          </div>
+          <div class="rt-legend-item" data-state="DEFENSIVE">
+            <dt>Defensiv</dt>
+            <dd>Reduziertes Risiko, ausgewählte Trades, nur bei positivem Feedback Erhöhung des Risikos</dd>
+          </div>
+          <div class="rt-legend-item" data-state="RISK OFF">
+            <dt>Risk Off</dt>
+            <dd>Cash als bevorzugte Position, wenn Trades, dann nur kleine Starter oder Scouts</dd>
+          </div>
+        </dl>
       </div>
     </div>
   </div>
@@ -1587,6 +1635,15 @@ const REGIME_STATE_CLASS = {
   'STRONG OFFENSIVE': 'state-strong-offensive', 'OFFENSIVE': 'state-offensive',
   'SELECTIVE': 'state-selective', 'DEFENSIVE': 'state-defensive', 'RISK OFF': 'state-risk-off',
 };
+// Taktisches Vorgehen je Market-Regime-Zustand -- reines Anzeige-Mapping,
+// beeinflusst keine Berechnung. Labels/Texte exakt wie vom User vorgegeben.
+const REGIME_TACTICS = {
+  'STRONG OFFENSIVE': { label: 'Strong Offensive', text: 'Erhöhtes Risiko, Addons und mehrere neue Positionen in einer Session erlaubt' },
+  'OFFENSIVE': { label: 'Offensive', text: 'Je nach bisheriger Traktion, neues Risiko und weitere Positionen erlaubt' },
+  'SELECTIVE': { label: 'Selective', text: 'Bei positivem Feedback, langsames Erhöhen der Exposition bei normalem bis reduziertem Risiko' },
+  'DEFENSIVE': { label: 'Defensiv', text: 'Reduziertes Risiko, ausgewählte Trades, nur bei positivem Feedback Erhöhung des Risikos' },
+  'RISK OFF': { label: 'Risk Off', text: 'Cash als bevorzugte Position, wenn Trades, dann nur kleine Starter oder Scouts' },
+};
 const QQQ_HEALTH_STATE_CLASS = {
   'HEALTHY': 'state-healthy', 'MIXED': 'state-mixed', 'FRAGILE': 'state-fragile', 'RISK OFF': 'state-risk-off',
 };
@@ -1639,6 +1696,17 @@ function renderMarketRegime() {
       vixZoneEl.className = 'vix-zone ' + (zoneMap[vix.zone] || 'low');
     }
   }
+
+  const tacticStateEl = document.getElementById('regimeTacticCurrentState');
+  const tacticTextEl = document.getElementById('regimeTacticCurrentText');
+  const tacticCardEl = document.getElementById('regimeTacticCurrent');
+  const tactic = REGIME_TACTICS[mr.state];
+  if (tacticCardEl) tacticCardEl.className = 'regime-tactic-current ' + (REGIME_STATE_CLASS[mr.state] || '');
+  if (tacticStateEl) tacticStateEl.textContent = tactic ? tactic.label : (mr.state || '—');
+  if (tacticTextEl) tacticTextEl.textContent = tactic ? tactic.text : '';
+  document.querySelectorAll('#regimeTacticsLegend .rt-legend-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.state === mr.state);
+  });
 }
 
 function renderQqqHealth() {
@@ -1762,9 +1830,12 @@ const OPP_COLUMNS = [
   { key: 'quality_state', label: 'Quality', sortable: true },
   { key: 'badges', label: 'Badges', sortable: false },
   { key: 'structural_rs', label: 'Structural RS', sortable: true },
+  { key: 'rs_1m', label: 'RS 1M', sortable: true },
+  { key: 'rs_3m', label: 'RS 3M', sortable: true },
+  { key: 'rs_6m', label: 'RS 6M', sortable: true },
+  { key: 'rs_12m', label: 'RS 12M', sortable: true },
   { key: 'trend_strength', label: 'Trend Strength', sortable: true },
   { key: 'rs_1w', label: 'RS 1W', sortable: true },
-  { key: 'rs_1m', label: 'RS 1M', sortable: true },
   { key: 'thrust_percentile_1d', label: 'Thrust% 1D', sortable: true },
   { key: 'thrust_percentile_1w', label: 'Thrust% 1W', sortable: true },
   { key: 'sma50_distance_pct', label: 'SMA50 Dist', sortable: true },
@@ -1924,9 +1995,12 @@ function oppRender(opts) {
       <td class="muted">${QUALITY_LABEL[it.quality_state] || it.quality_state}</td>
       <td>${oppBadgesHtml(it)}</td>
       <td class="muted">${oppFmtNum(it.structural_rs, 1)}</td>
+      <td class="muted">${oppFmtNum(it.rs_1m, 1)}</td>
+      <td class="muted">${oppFmtNum(it.rs_3m, 1)}</td>
+      <td class="muted">${oppFmtNum(it.rs_6m, 1)}</td>
+      <td class="muted">${oppFmtNum(it.rs_12m, 1)}</td>
       <td class="muted">${oppFmtNum(it.trend_strength, 1)}</td>
       <td class="muted">${oppFmtNum(it.rs_1w, 1)}</td>
-      <td class="muted">${oppFmtNum(it.rs_1m, 1)}</td>
       <td class="muted">${oppFmtNum(it.thrust_percentile_1d, 1)}</td>
       <td class="muted">${oppFmtNum(it.thrust_percentile_1w, 1)}</td>
       <td class="muted">${oppFmtPctSigned(it.sma50_distance_pct)}</td>

@@ -1355,6 +1355,20 @@ def main():
             "structural_rs": structural_rs, "trend_strength": trend_strength,
             "sma50_distance_pct": sma50_distance_pct, "sma50_slope_20d_pct": f.get("sma50_slope_20d_pct"),
             "pct_sessions_above_sma50_20d": f.get("pct_sessions_above_sma50_20d"),
+            # Structural RS broken out by timeframe (Opportunities is the
+            # only place structural_rs is actually shown/filtered -- the
+            # Screener/Narrative tables already display rs_percentile_1w/1m/
+            # 3m/6m directly and never structural_rs itself). structural_rs
+            # itself is the weighted composite (rs_1m 20% + rs_3m 35% +
+            # rs_6m 30% + rs_12m 15%, see structural_rs_v1_1 config) --
+            # exposing the individual inputs lets a user see WHICH horizon
+            # is driving (or dragging down) a given ticker's composite score
+            # instead of only the blended number. rs_3m/rs_6m/rs_12m were
+            # already computed upstream in market_features.json; rs_1m is
+            # the same value already exposed below as the 1M acceleration
+            # metric, reused rather than duplicated.
+            "rs_3m": f.get("rs_percentile_3m"), "rs_6m": f.get("rs_percentile_6m"),
+            "rs_12m": f.get("rs_percentile_12m"),
             # Acceleration metrics — still shown, explicitly non-gating (V1.1 point 6).
             "rs_1w": rs_1w, "rs_1m": rs_1m,
             "thrust_percentile_1d": thrust_pct_1d, "thrust_percentile_1w": thrust_pct_1w,

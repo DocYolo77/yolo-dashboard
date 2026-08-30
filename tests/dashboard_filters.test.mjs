@@ -1668,3 +1668,72 @@ test('index.html: renderMarketRegime formats dashboardState.meta.updated_at the 
   assert.match(fn, /toLocaleString\('de-DE',\s*\{\s*timeZone:\s*'Europe\/Berlin'/);
   assert.match(fn, /`Stand \$\{dtStr\}`/);
 });
+
+// ── Market Regime: "Empfohlenes Vorgehen" / "Taktisches Vorgehen" — a
+// display-only mapping from mr.state to a recommended-action text, plus a
+// reference legend of all 5 states. Never influences the score/state
+// calculation itself, purely presentational (spec: exact wording as given
+// by the user, one entry per market_regime_v1 state). ──
+
+test('index.html: REGIME_TACTICS covers exactly the 5 market_regime_v1 states with the exact user-specified wording', () => {
+  const src = extractConst(html, 'REGIME_TACTICS');
+  const ctx = {};
+  vm.createContext(ctx);
+  // Top-level const/let in a vm context lives in that context's lexical
+  // environment, not as an own property of the sandbox object -- read it
+  // back via a second runInContext expression on the SAME context instead
+  // of `ctx.REGIME_TACTICS` (which is always undefined for a const).
+  const tactics = vm.runInContext(`${src}\nREGIME_TACTICS`, ctx);
+  assert.deepEqual(Object.keys(tactics), ['STRONG OFFENSIVE', 'OFFENSIVE', 'SELECTIVE', 'DEFENSIVE', 'RISK OFF']);
+  assert.equal(tactics['STRONG OFFENSIVE'].text, 'Erhöhtes Risiko, Addons und mehrere neue Positionen in einer Session erlaubt');
+  assert.equal(tactics['OFFENSIVE'].text, 'Je nach bisheriger Traktion, neues Risiko und weitere Positionen erlaubt');
+  assert.equal(tactics['SELECTIVE'].text, 'Bei positivem Feedback, langsames Erhöhen der Exposition bei normalem bis reduziertem Risiko');
+  assert.equal(tactics['DEFENSIVE'].text, 'Reduziertes Risiko, ausgewählte Trades, nur bei positivem Feedback Erhöhung des Risikos');
+  assert.equal(tactics['RISK OFF'].text, 'Cash als bevorzugte Position, wenn Trades, dann nur kleine Starter oder Scouts');
+});
+
+test('index.html: renderMarketRegime populates the current-tactic card and toggles the matching legend item active', () => {
+  const fn = extractFunction(html, 'renderMarketRegime');
+  assert.match(fn, /REGIME_TACTICS\[mr\.state\]/);
+  assert.match(fn, /regimeTacticCurrentState/);
+  assert.match(fn, /regimeTacticCurrentText/);
+  assert.match(fn, /el\.dataset\.state === mr\.state/);
+});
+
+// ── Opportunities: Structural RS broken out by timeframe (1M/3M/6M/12M) —
+// structural_rs is the ONLY place this composite is shown/filtered
+// (Screener/Narrative tables already show rs_percentile_1w/1m/3m/6m
+// directly), so the individual weighted-sum inputs are now exposed
+// alongside the composite instead of only the blended number. ──
+
+test('index.html: OPP_COLUMNS lists Structural RS followed by its RS 1M/3M/6M/12M components', () => {
+  const src = extractConst(html, 'OPP_COLUMNS');
+  const ctx = {};
+  vm.createContext(ctx);
+  const keys = Array.from(vm.runInContext(`${src}\nOPP_COLUMNS.map(c => c.key)`, ctx));
+  const rsIdx = keys.indexOf('structural_rs');
+  assert.ok(rsIdx !== -1);
+  assert.deepEqual(keys.slice(rsIdx, rsIdx + 5), ['structural_rs', 'rs_1m', 'rs_3m', 'rs_6m', 'rs_12m']);
+});
+
+test('index.html: the Opportunities row template renders a <td> for each of rs_3m/rs_6m/rs_12m, in the same order as OPP_COLUMNS', () => {
+  const bodyMatch = html.match(/let rows = windowed\.map\(it => `[\s\S]*?`\)\.join\(''\);/);
+  assert.ok(bodyMatch, 'Opportunities row template not found');
+  const tpl = bodyMatch[0];
+  const rsIdx = tpl.indexOf('it.structural_rs');
+  const m1Idx = tpl.indexOf('it.rs_1m');
+  const m3Idx = tpl.indexOf('it.rs_3m');
+  const m6Idx = tpl.indexOf('it.rs_6m');
+  const m12Idx = tpl.indexOf('it.rs_12m');
+  assert.ok(rsIdx < m1Idx && m1Idx < m3Idx && m3Idx < m6Idx && m6Idx < m12Idx);
+});
+
+test('index.html: Market Regime card renders an "Empfohlenes Vorgehen" block and a "Taktisches Vorgehen" legend with all 5 states, in section 02', () => {
+  const regimeSection = html.match(/<div class="section fade-in" id="market-regime">[\s\S]*?(?=<!-- ═══ 03)/);
+  assert.ok(regimeSection, 'Market Regime section not found');
+  const section = regimeSection[0];
+  assert.match(section, /<div class="rt-label">Empfohlenes Vorgehen<\/div>/);
+  assert.match(section, /<div class="rt-label">Taktisches Vorgehen<\/div>/);
+  const legendItems = [...section.matchAll(/<div class="rt-legend-item" data-state="([^"]+)">/g)].map(m => m[1]);
+  assert.deepEqual(legendItems, ['STRONG OFFENSIVE', 'OFFENSIVE', 'SELECTIVE', 'DEFENSIVE', 'RISK OFF']);
+});
