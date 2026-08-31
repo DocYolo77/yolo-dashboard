@@ -214,7 +214,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AMAT": {
           "role": "core",
@@ -498,7 +498,7 @@
           "reason": "Monolithic Power Systems is a fabless semiconductor company specializing in power management chips for data center, automotive, industrial and consumer markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -531,7 +531,7 @@
           "reason": "Nova Ltd provides metrology and process control solutions specifically for semiconductor manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1866,7 +1866,7 @@
           "reason": "Cloud-based property management software solutions provider for real estate industry, a clear vertical SaaS company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2185,7 +2185,7 @@
           "reason": "Oracle provides enterprise database, applications and cloud infrastructure software.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2836,7 +2836,7 @@
           "reason": "NexGen Energy is a uranium exploration and development company with major uranium projects in Canada.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -3152,7 +3152,7 @@
           "reason": "V2X provides facility/logistics support, IT mission support, and engineering/digital integration services almost exclusively to the U.S. government and military, a classic government services contractor model closely tied to defense spending. This is a well-established economic category typically bucketed with defense/aerospace given its client base and end markets, even though SIC code is facilities support services. Confidence raised given the near-total dependency on defense/government contracts as disclosed in the description.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -3195,7 +3195,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AFRM": {
           "role": "core",
@@ -3380,7 +3380,7 @@
           "reason": "PayPay operates a mobile code-payment app platform in Japan, a digital payments/fintech business model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5443,7 +5443,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "IAG": {
           "role": "secondary",
@@ -5485,7 +5485,7 @@
           "reason": "First Majestic Silver operates silver and gold producing mines in North America.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5639,7 +5639,7 @@
           "reason": "Precious metals mining company producing gold and silver from multiple mines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6108,7 +6108,7 @@
           "reason": "BBB Foods operates a grocery hard discount retail model in Mexico through multiple store banners - core grocery/food retail business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6413,7 +6413,7 @@
           "reason": "Supplies drive systems, electrodynamic technologies and sealing solutions to vehicle manufacturers worldwide.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6599,7 +6599,7 @@
           "reason": "CNH Industrial manufactures agricultural machinery and construction equipment (Case, New Holland brands). Agricultural machinery is closest to Agriculture/Agribusiness in end-market but the company itself is a heavy equipment manufacturer, best matched to Industrial/Specialty Vehicle Machinery given its construction machinery SIC code and specialty vehicle/equipment manufacturing model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -7101,7 +7101,7 @@
           "reason": "FMC is a pure-play crop protection company developing agricultural chemical products for farming, fitting agribusiness/agriculture narrative most closely despite chemical manufacturing base.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7210,7 +7210,7 @@
           "reason": "Fluor is a global engineering, procurement, and construction (EPC) services firm serving energy, mining, and infrastructure markets, matching this narrative directly.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7320,7 +7320,7 @@
           "reason": "Willdan provides engineering, energy consulting, and infrastructure program implementation services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7516,7 +7516,7 @@
           "reason": "Kadant supplies process and engineering equipment (flow control, industrial processing, material handling) for papermaking, recycling and lumber manufacturing - core industrial machinery manufacturer for process industries.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7982,7 +7982,7 @@
           "reason": "Wolverine World Wide designs, manufactures and distributes branded footwear, apparel and accessories - fits apparel/branded consumer goods retail category.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8582,7 +8582,7 @@
           "reason": "TPG is a large alternative asset management firm investing across private equity, credit, real estate and other alternative strategies, directly matching the alternative asset management narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8798,7 +8798,7 @@
           "reason": "Supplies specialty alloys and advanced materials to aerospace, defense, medical and energy end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9191,7 +9191,7 @@
           "reason": "Knife River provides construction materials (crushed stone, sand, gravel) and contracting services for infrastructure, aligning with building products/materials distribution.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9900,7 +9900,7 @@
           "reason": "Flowers Foods produces and markets branded packaged bakery foods (breads, snacks) sold through retail channels, fitting branded CPG food narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10106,7 +10106,7 @@
           "reason": "Qnity Electronics is a specialty chemicals company supplying materials science products/chemicals to the semiconductor and electronics industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10410,7 +10410,7 @@
           "reason": "LGI Homes designs, constructs and sells new homes across entry-level, move-up and luxury segments.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10475,7 +10475,7 @@
           "reason": "Rush Street Interactive operates online casinos and sports betting platforms, matching the online gaming/sports betting narrative directly.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -10507,7 +10507,7 @@
           "reason": "Lemonade operates a digital AI-based insurance platform for policy issuance and claims settlement, a strong direct match for insurtech digital insurance distribution.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10615,7 +10615,7 @@
           "reason": "Phoenix Education Partners is an online post-secondary education provider developing proprietary educational content and learning platforms.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11305,7 +11305,7 @@
           "reason": "Sally Beauty is a specialty retailer of professional beauty and cosmetics products across many countries, directly matching the beauty/cosmetics products narrative from a retail distribution perspective.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11710,7 +11710,7 @@
           "reason": "Pilgrim's Pride is a large poultry producer/processor, a distinct food production/protein processing business not well captured by general agribusiness definition.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11817,7 +11817,7 @@
           "reason": "Talos Energy is an independent offshore oil & gas E&P company operating in the Gulf of Mexico.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11966,7 +11966,7 @@
           "reason": "FICO is best known for its analytics-driven credit scoring software/platform business, a distinct niche within software/analytics.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12083,7 +12083,7 @@
           "reason": "Generac's core business is designing/manufacturing power generation equipment (generators), a distinct category from HVAC.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12389,6 +12389,101 @@
           "reason": "AIR Global operates across shisha molasses, hookah devices, and e-commerce platforms in the social inhalation products sector, which does not match any existing consumer products or tobacco narrative precisely.",
           "added_at": "2026-08-29",
           "last_reviewed_at": "2026-08-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "iot_solutions_platform",
+      "name": "IoT Solutions Platform",
+      "status": "emerging",
+      "classification_hint": "Companies providing Internet of Things (IoT) platforms, tools and services that help enterprises implement, scale, and integrate connected device solutions for digital transformation.",
+      "created_at": "2026-08-31",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "MGRT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Mega Fortune is an IoT solution provider helping enterprises with digital transformation via IoT platforms and tools - no existing narrative captures IoT platform businesses specifically.",
+          "added_at": "2026-08-31",
+          "last_reviewed_at": "2026-08-31",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "security_alarm_systems_manufacturing",
+      "name": "Security Alarm Systems Manufacturing",
+      "status": "emerging",
+      "classification_hint": "Companies that develop, manufacture and distribute physical security products such as access control, intrusion/fire alarm systems, video surveillance and related communication services for commercial and residential markets.",
+      "created_at": "2026-08-31",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "NSSC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "NAPCO manufactures physical security/alarm/surveillance hardware and related communication services - distinct from cybersecurity software; no existing catalog entry captures physical security hardware manufacturing.",
+          "added_at": "2026-08-31",
+          "last_reviewed_at": "2026-08-31",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ARLO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Arlo provides cloud-based video security/surveillance cameras and monitoring solutions for homes and businesses - closely matches security alarm/surveillance systems manufacturing narrative with recurring subscription model.",
+          "added_at": "2026-08-31",
+          "last_reviewed_at": "2026-08-31",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "testing_inspection_certification_services",
+      "name": "Testing, Inspection & Certification Services",
+      "status": "emerging",
+      "classification_hint": "Companies providing tech-enabled testing, inspection, certification, compliance, engineering and geospatial services essential to safety and reliability of industrial assets, buildings and public infrastructure.",
+      "created_at": "2026-08-31",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "TIC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "TIC Solutions provides testing/inspection/certification/compliance and engineering services for infrastructure - distinct business model not covered by existing catalog entries.",
+          "added_at": "2026-08-31",
+          "last_reviewed_at": "2026-08-31",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "metals_royalty_streaming",
+      "name": "Metals Royalty & Streaming",
+      "status": "emerging",
+      "classification_hint": "Companies that acquire and hold royalty and streaming interests across a diversified portfolio of metal and mineral projects, generating revenue from a share of production or purchased metal at below-market prices without operating the underlying mines.",
+      "created_at": "2026-08-31",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "VMET": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Versamet is a diversified metals royalty and streaming company with exposure across gold, silver, copper, zinc, graphite, uranium - a distinct royalty/streaming business model not covered by mining production narratives.",
+          "added_at": "2026-08-31",
+          "last_reviewed_at": "2026-08-31",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
