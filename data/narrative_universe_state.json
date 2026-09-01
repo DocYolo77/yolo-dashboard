@@ -1,7 +1,7 @@
 {
   "as_of_date": "2026-09-01",
-  "eligible_count": 563,
-  "classified_eligible_count": 503,
+  "eligible_count": 568,
+  "classified_eligible_count": 507,
   "coverage_pct": 89.3,
   "entered": [
     "AGQ",
@@ -11,12 +11,13 @@
     "AVT",
     "AXON",
     "BBAI",
-    "BE",
     "BLSH",
     "BRAI",
     "BVC",
     "BW",
+    "BWIN",
     "BZ",
+    "CAR",
     "CBRL",
     "CECO",
     "CIFR",
@@ -31,7 +32,6 @@
     "DAR",
     "DKS",
     "ENR",
-    "FCEL",
     "FRHC",
     "FRVO",
     "GLW",
@@ -67,7 +67,11 @@
     "WRD",
     "XMTR"
   ],
-  "reentered": [],
+  "reentered": [
+    "ADNT",
+    "HRI",
+    "PLTR"
+  ],
   "exited": [],
   "newly_classified": [
     "AGQ",
@@ -77,12 +81,13 @@
     "AVT",
     "AXON",
     "BBAI",
-    "BE",
     "BLSH",
     "BRAI",
     "BVC",
     "BW",
+    "BWIN",
     "BZ",
+    "CAR",
     "CBRL",
     "CECO",
     "CIFR",
@@ -97,7 +102,6 @@
     "DAR",
     "DKS",
     "ENR",
-    "FCEL",
     "FRHC",
     "FRVO",
     "GLW",
@@ -133,9 +137,7 @@
     "WRD",
     "XMTR"
   ],
-  "new_narratives_created": [
-    "fuel_cell_power_generation"
-  ],
+  "new_narratives_created": [],
   "unresolved_after_retries": [
     {
       "ticker": "AGQ",
@@ -182,7 +184,15 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "BWIN",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "BZ",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CAR",
       "reason": "low_confidence_primary"
     },
     {
@@ -294,10 +304,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "PCT",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "PLBL",
       "reason": "low_confidence_primary"
     },
@@ -379,12 +385,12 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..PCT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..PCT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AGQ..NSP): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AGQ..NSP): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 358,
-  "eligible_without_active_narrative": 205,
-  "active_narrative_coverage_pct": 63.6,
-  "active_narrative_count": 32,
-  "undersized_narrative_count": 95
+  "eligible_with_active_narrative": 364,
+  "eligible_without_active_narrative": 204,
+  "active_narrative_coverage_pct": 64.1,
+  "active_narrative_count": 33,
+  "undersized_narrative_count": 94
 }

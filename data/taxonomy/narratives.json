@@ -1780,7 +1780,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "U": {
           "role": "secondary",
@@ -6402,7 +6402,7 @@
           "reason": "Adient is a leading global automotive seating supplier to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10175,6 +10175,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "PCT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "PureCycle uses a patented chemical dissolution process to recycle polypropylene into resin, which is a specialty chemicals/plastics processing business producing performance materials.",
+          "added_at": "2026-09-01",
+          "last_reviewed_at": "2026-09-01",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -12220,7 +12231,7 @@
           "reason": "Herc Holdings is a large equipment rental company serving construction and industrial customers, distinct from modular space leasing specifically.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },

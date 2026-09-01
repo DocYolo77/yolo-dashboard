@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updated_at": "2026-09-01T18:13:00.938506+00:00",
+    "updated_at": "2026-09-01T22:33:46.065949+00:00",
     "source": "Massive /v3/reference/tickers/{ticker} (per-ticker, cached)",
-    "n_tickers": 3334,
+    "n_tickers": 3336,
     "max_age_days": 7,
     "negative_max_age_days": 3,
     "not_found_count": 13
@@ -23475,14 +23475,14 @@
       "cached_at": "2026-08-11T07:10:54.383308+00:00"
     },
     "RGEN": {
-      "market_cap": 9539877373.84,
+      "market_cap": 10213718688.58,
       "share_class_shares_outstanding": 56435621,
       "weighted_shares_outstanding": 56435621,
       "sic_code": "2836",
       "sic_description": "BIOLOGICAL PRODUCTS, (NO DIAGNOSTIC SUBSTANCES)",
       "description": "Repligen, headquartered in Waltham, Massachusetts, is a global life sciences company that develops and sells bioprocessing equipment and supplies used in the manufacturing of biologic drugs, including monoclonal antibodies, recombinant proteins, vaccines, and cell and gene therapies. Its customers include biopharmaceutical companies, contract development and manufacturing organizations, and other life science companies. It sells four main product categories: filtration (including fluid management) is the largest category (about 55% of total revenue), while chromatography, proteins, and process analytics are 21%, 11%, and 13%, respectively. Customers in North America, Europe, and Asia-Pacific contribute about 44%, 37%, and 19% of revenue, respectively.",
       "total_employees": 2000,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "cached_at": "2026-09-01T22:33:46.065949+00:00"
     },
     "RGNT": {
       "market_cap": 14469277.26,
@@ -31313,14 +31313,14 @@
       "cached_at": "2026-08-19T20:35:48.535696+00:00"
     },
     "MBI": {
-      "market_cap": 253551726.67999998,
+      "market_cap": 246409424.52,
       "share_class_shares_outstanding": 50934039,
       "weighted_shares_outstanding": 51016444,
       "sic_code": "6351",
       "sic_description": "SURETY INSURANCE",
       "description": "MBIA Inc provides financial guaranty insurance for municipal bonds and asset-backed securities in the United States and internationally. It offers an unconditional guarantee to repay the principal and interest on these securities if the issuer defaults. MBIA insures bonds sold in the primary and secondary markets, as well as those held in unit investment trusts and mutual funds. It operates in three segments: the United States Public Finance Insurance, which derives maximum revenue, Corporate, and International & Structured Finance Insurance. The U.S. public finance insurance portfolio is managed through the National Public Finance Guarantee Corporation. International & structured finance insurance business is managed through MBIA Insurance Corporation and its subsidiaries.",
       "total_employees": 57,
-      "cached_at": "2026-08-19T20:35:48.535696+00:00"
+      "cached_at": "2026-09-01T22:33:46.065949+00:00"
     },
     "MCS": {
       "market_cap": 917873373.43,
@@ -33269,6 +33269,26 @@
       "description": "Regis Corporation owns, franchises, and operates beauty salons in North America and the U.K., serving mainly price-conscious customers. Its salons, located mostly in strip malls, shopping centers, and Walmart stores, offer services like haircutting, styling, shampooing, conditioning, and hair coloring, along with hair care and beauty products. The company's primary brands include Supercuts, SmartStyle, and Cost Cutters. Regis generates the majority of its revenue from these mass-market locations and reports operations in two segments: franchise and company-owned, with services making up about 94% of company-owned salon sales.",
       "total_employees": 1655,
       "cached_at": "2026-09-01T17:53:50.469801+00:00"
+    },
+    "MLP": {
+      "market_cap": 314569015.2,
+      "share_class_shares_outstanding": 19859155,
+      "weighted_shares_outstanding": 19859155,
+      "sic_code": "6500",
+      "sic_description": "REAL ESTATE",
+      "description": "Maui Land & Pineapple Co Inc is a landholding and operating parent company that owns land and commercial property on the island of Maui, Hawaii. The Company puts its assets into productive use by planning, managing, developing, and selling residential, resort, commercial, agricultural, and industrial real estate. Its segments include land development and sales, which cover land planning, entitlement, development, construction, and sales of land assets; leasing, which generates revenue from real property leasing, license fees and royalties, and includes maintenance of real estate assets, conservation activities, and management of water systems in West and Upcountry Maui; and resort amenities, which include a membership program offering benefits within the Kapalua Resort.",
+      "total_employees": 20,
+      "cached_at": "2026-09-01T22:33:46.065949+00:00"
+    },
+    "VRA": {
+      "market_cap": 96690056.8,
+      "share_class_shares_outstanding": 28438252,
+      "weighted_shares_outstanding": 28438252,
+      "sic_code": "3100",
+      "sic_description": "LEATHER & LEATHER PRODUCTS",
+      "description": "Vera Bradley Inc designs women's handbags, luggage, and travel items, fashion and home accessories, and gifts. Each category comprises a substantial component of total sales, with the bags category comprising the majority of the company's sales are made directly to customers through Vera Bradley's retail stores and e-commerce sites. The company also has a substantial wholesale business selling to specialty retail and department stores. Almost all company sales are in the United States. Vera Bradley uses third-party manufacturers in Asia to produce its products, and the company distributes the products through its distribution center in Indiana. The Company has three reportable segments: Vera Bradley Direct and Vera Bradley Indirect.",
+      "total_employees": 1360,
+      "cached_at": "2026-09-01T22:33:46.065949+00:00"
     }
   }
 }
