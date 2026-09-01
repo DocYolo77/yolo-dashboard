@@ -1,13 +1,13 @@
 {
   "meta": {
-    "updated_at": "2026-09-01T18:01:35.663682+00:00",
+    "updated_at": "2026-09-01T18:20:31.206841+00:00",
     "source": "Massive (api.massive.com)",
     "trading_days_used": 260,
     "date_range": [
       "2025-08-20",
       "2026-09-01"
     ],
-    "universe_size": 1010,
+    "universe_size": 1012,
     "eligible_universe_size": 563,
     "unique_classified_eligible_members": 358,
     "total_active_memberships": 368,
@@ -16,7 +16,7 @@
     "eligible_without_active_narrative": 205,
     "active_narrative_coverage_pct": 63.6,
     "active_narrative_count": 32,
-    "undersized_narrative_count": 94,
+    "undersized_narrative_count": 95,
     "undersized_narratives": [
       {
         "id": "memory_storage",
@@ -191,6 +191,11 @@
       {
         "id": "security_alarm_systems_manufacturing",
         "name": "Security Alarm Systems Manufacturing",
+        "eligible_member_count": 2
+      },
+      {
+        "id": "fuel_cell_power_generation",
+        "name": "Fuel Cell Power Generation",
         "eligible_member_count": 2
       },
       {

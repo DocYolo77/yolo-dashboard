@@ -12500,6 +12500,38 @@
           "classification_version": 1
         }
       }
+    },
+    {
+      "id": "fuel_cell_power_generation",
+      "name": "Fuel Cell Power Generation",
+      "status": "emerging",
+      "classification_hint": "Companies that design, manufacture and sell fuel cell-based on-site power generation systems fueled by natural gas, biogas, or hydrogen for stationary electricity production.",
+      "created_at": "2026-09-01",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "BE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Bloom Energy designs and sells solid oxide fuel cell systems for on-site power generation - a distinct clean energy technology model not directly covered by existing catalog entries like solar/nuclear/power generation equipment.",
+          "added_at": "2026-09-01",
+          "last_reviewed_at": "2026-09-01",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "FCEL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "FuelCell Energy develops molten carbonate fuel cell systems for clean electric power generation, matching the newly defined fuel cell power generation narrative used for BE.",
+          "added_at": "2026-09-01",
+          "last_reviewed_at": "2026-09-01",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
     }
   ]
 }

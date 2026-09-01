@@ -1,12 +1,12 @@
 {
   "meta": {
-    "updated_at": "2026-09-01T17:49:55.653902+00:00",
+    "updated_at": "2026-09-01T18:07:57.198063+00:00",
     "entry_date": "2026-08-25",
     "days_since_entry": 8,
     "cash_pct": 67,
     "invested_pct": 33,
-    "weighted_position_pct": null,
-    "portfolio_impact_pct": null
+    "weighted_position_pct": -1.35,
+    "portfolio_impact_pct": -0.45
   },
   "positions": [
     {
@@ -14,32 +14,32 @@
       "label": "BTC",
       "allocation_pct": 50,
       "avg_entry": 79679,
-      "current_price": 77405.9531,
-      "delta_pct": -2.85
+      "current_price": 77206.8828,
+      "delta_pct": -3.1
     },
     {
       "symbol": "ETH-USD",
       "label": "ETH",
       "allocation_pct": 20,
       "avg_entry": 2460,
-      "current_price": 2426.8999,
-      "delta_pct": -1.35
+      "current_price": 2416.05,
+      "delta_pct": -1.79
     },
     {
       "symbol": "SOL-USD",
       "label": "SOL",
       "allocation_pct": 15,
       "avg_entry": 99.6,
-      "current_price": 100.87,
-      "delta_pct": 1.28
+      "current_price": 100.54,
+      "delta_pct": 0.94
     },
     {
-      "symbol": "HYPE-USD",
+      "symbol": "HYPE32196-USD",
       "label": "HYPE",
       "allocation_pct": 15,
       "avg_entry": 79.6,
-      "current_price": null,
-      "delta_pct": null
+      "current_price": 81.83,
+      "delta_pct": 2.8
     }
   ]
 }

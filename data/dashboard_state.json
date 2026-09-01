@@ -1,7 +1,7 @@
 {
   "meta": {
     "as_of_date": "2026-09-01",
-    "updated_at": "2026-09-01T18:01:36.126852+00:00",
+    "updated_at": "2026-09-01T18:20:31.823378+00:00",
     "dashboard_state_version": "v1.1",
     "first_run": false
   },
@@ -33,17 +33,17 @@
     },
     "eligible_universe_size": 563,
     "vix": {
-      "price": 16.0,
-      "d1_pct": 7.24,
-      "w1_pct": 0.95,
-      "hi52w_pct": -48.47,
-      "ytd_pct": 10.27,
+      "price": 15.96,
+      "d1_pct": 6.97,
+      "w1_pct": 0.69,
+      "hi52w_pct": -48.6,
+      "ytd_pct": 9.99,
       "hist_5d": [
         15.45,
         15.21,
         14.51,
         14.92,
-        16.0
+        15.96
       ],
       "symbol": "^VIX",
       "name": "VIX",
@@ -51,28 +51,28 @@
     }
   },
   "qqq_health": {
-    "score": 27.9,
+    "score": 28.1,
     "base_state": "RISK OFF",
     "modifiers": [
       "DETERIORATING"
     ],
     "prev_score": 55.2,
-    "score_delta": -27.3,
+    "score_delta": -27.1,
     "components": {
       "trend": 35,
-      "breadth": 32.2,
-      "mco": 14.5,
-      "mcsi": 32.5,
+      "breadth": 32.7,
+      "mco": 14.7,
+      "mcsi": 32.2,
       "high_low": 17.5
     },
     "price_structure": {
-      "close": 707.76,
-      "ema10": 714.22,
-      "ema20": 713.78,
+      "close": 707.47,
+      "ema10": 714.17,
+      "ema20": 713.75,
       "sma50": 710.98,
       "sma200": 655.12,
-      "dist_ema10_pct": -0.9,
-      "dist_ema20_pct": -0.84,
+      "dist_ema10_pct": -0.94,
+      "dist_ema20_pct": -0.88,
       "ema10_above_ema20": true,
       "close_above_ema10": false,
       "close_above_ema20": false,
@@ -80,7 +80,7 @@
       "close_above_sma200": true,
       "atr14": 8.3286,
       "atr_pct": 1.177,
-      "atr_extension": -0.39
+      "atr_extension": -0.42
     }
   },
   "narratives": {
@@ -29847,7 +29847,7 @@
         "category": "qqq_health",
         "type": "score_change",
         "from": 55.2,
-        "to": 27.9
+        "to": 28.1
       },
       {
         "category": "narrative",

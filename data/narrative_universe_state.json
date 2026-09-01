@@ -1,8 +1,8 @@
 {
   "as_of_date": "2026-09-01",
   "eligible_count": 563,
-  "classified_eligible_count": 501,
-  "coverage_pct": 89.0,
+  "classified_eligible_count": 503,
+  "coverage_pct": 89.3,
   "entered": [
     "AGQ",
     "ALNT",
@@ -44,7 +44,6 @@
     "NN",
     "NOVT",
     "NSP",
-    "ONDS",
     "P",
     "PCT",
     "PLBL",
@@ -68,38 +67,8 @@
     "WRD",
     "XMTR"
   ],
-  "reentered": [
-    "AG",
-    "CRK",
-    "FLR",
-    "RSI",
-    "TALO"
-  ],
-  "exited": [
-    "ACN",
-    "ADEA",
-    "ADNT",
-    "BLKB",
-    "CTOS",
-    "DXC",
-    "ESAB",
-    "EXTR",
-    "FRPT",
-    "HRI",
-    "INVX",
-    "LIND",
-    "NHP",
-    "NRG",
-    "NSIT",
-    "PCOR",
-    "PLTR",
-    "PPC",
-    "SENEA",
-    "TDC",
-    "TDW",
-    "TPB",
-    "VGNT"
-  ],
+  "reentered": [],
+  "exited": [],
   "newly_classified": [
     "AGQ",
     "ALNT",
@@ -141,7 +110,6 @@
     "NN",
     "NOVT",
     "NSP",
-    "ONDS",
     "P",
     "PCT",
     "PLBL",
@@ -165,7 +133,9 @@
     "WRD",
     "XMTR"
   ],
-  "new_narratives_created": [],
+  "new_narratives_created": [
+    "fuel_cell_power_generation"
+  ],
   "unresolved_after_retries": [
     {
       "ticker": "AGQ",
@@ -193,10 +163,6 @@
     },
     {
       "ticker": "BBAI",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "BE",
       "reason": "low_confidence_primary"
     },
     {
@@ -273,10 +239,6 @@
     },
     {
       "ticker": "ENR",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "FCEL",
       "reason": "low_confidence_primary"
     },
     {
@@ -417,12 +379,12 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..NSP): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..NSP): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AGQ..PCT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AGQ..PCT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
   "eligible_with_active_narrative": 358,
   "eligible_without_active_narrative": 205,
   "active_narrative_coverage_pct": 63.6,
   "active_narrative_count": 32,
-  "undersized_narrative_count": 94
+  "undersized_narrative_count": 95
 }
