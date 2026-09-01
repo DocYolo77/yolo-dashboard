@@ -153,54 +153,6 @@ html { scroll-behavior: smooth; }
 .ai-summary-text strong { color: var(--ink); font-weight: 600; }
 .ai-divider { height: 1px; background: var(--card-border); margin: 8px 0; }
 
-/* KRYPTO-PORTFOLIO (07) — manuell gepflegtes Positions-Tracking, siehe
-   scripts/build_crypto_portfolio.py. Eigenstaendig gestylte Karte (statt
-   der generischen .card-bg-Bausteine), damit sie als in sich geschlossene,
-   teilbare Zusammenfassung funktioniert. */
-.crypto-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 28px 32px; }
-.crypto-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
-.crypto-eyebrow { font-family: var(--mono-font); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-muted); }
-.crypto-title { font-family: var(--header-font); font-size: 26px; font-weight: 700; margin-top: 4px; }
-.crypto-asof { text-align: right; }
-.crypto-asof-label { font-family: var(--mono-font); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-muted); }
-.crypto-asof-value { font-family: var(--mono-font); font-size: 13px; font-weight: 600; color: var(--ink-light); margin-top: 2px; }
-.crypto-hero { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-bottom: 28px; }
-.crypto-hero-value { font-family: var(--header-font); font-size: 52px; font-weight: 700; line-height: 1; }
-.crypto-hero-detail { font-family: var(--mono-font); font-size: 12px; line-height: 1.7; color: var(--ink-muted); }
-.crypto-hero-sub { margin-top: 2px; }
-.crypto-hero-sub span.pos, .crypto-hero-sub span.neg { font-weight: 600; }
-.crypto-table-wrap { overflow-x: auto; }
-.crypto-table { width: 100%; border-collapse: collapse; }
-.crypto-table th { font-family: var(--mono-font); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--card-border); }
-.crypto-table th:first-child { text-align: left; }
-.crypto-table td { padding: 16px 10px; border-bottom: 1px solid rgba(255,255,255,0.06); text-align: right; vertical-align: middle; }
-.crypto-table td:first-child { text-align: left; }
-.crypto-coin { font-family: var(--header-font); font-size: 16px; font-weight: 700; }
-.crypto-coin-alloc { font-family: var(--mono-font); font-size: 10px; color: #2f7ed8; margin-top: 2px; }
-.crypto-price { font-family: var(--mono-font); font-size: 13px; color: var(--ink-light); }
-.crypto-current { font-family: var(--mono-font); font-size: 14px; font-weight: 600; color: var(--ink); }
-.crypto-bar-track { height: 6px; min-width: 90px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
-.crypto-bar { height: 100%; border-radius: 3px; }
-.crypto-bar.pos { background: var(--positive); }
-.crypto-bar.neg { background: var(--negative); }
-.crypto-delta { font-family: var(--mono-font); font-size: 14px; font-weight: 600; }
-.crypto-ammo { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--card-border); }
-.crypto-ammo-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
-.crypto-ammo-label { font-family: var(--mono-font); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-muted); }
-.crypto-ammo-value { font-family: var(--mono-font); font-size: 13px; font-weight: 700; color: var(--neutral); }
-.crypto-ammo-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-bottom: 14px; }
-.crypto-ammo-cell { aspect-ratio: 1; border-radius: 2px; background: rgba(255,255,255,0.08); }
-.crypto-ammo-cell.filled { background: var(--neutral); }
-.crypto-ammo-legend { display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--mono-font); font-size: 11px; color: var(--ink-muted); }
-.crypto-ammo-legend span:first-child { display: inline-flex; align-items: center; }
-.crypto-ammo-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; }
-.crypto-ammo-dot.invested { background: rgba(255,255,255,0.08); }
-.crypto-ammo-dot.cash { background: var(--neutral); }
-@media (max-width: 640px) {
-  .crypto-hero { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .crypto-ammo-grid { grid-template-columns: repeat(10, 1fr); }
-}
-
 /* POSITION SIZER */
 .pos-sizer { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 32px; }
 .sizer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -519,8 +471,7 @@ html { scroll-behavior: smooth; }
     <a href="#narratives">04 Narratives</a>
     <a href="#opportunities">05 Opportunities</a>
     <a href="#screener">06 Screener</a>
-    <a href="#crypto-portfolio">07 Krypto-Portfolio</a>
-    <a href="#trade-calculator">08 Traderechner</a>
+    <a href="#trade-calculator">07 Traderechner</a>
   </div>
 </nav>
 
@@ -1095,70 +1046,10 @@ html { scroll-behavior: smooth; }
     </div>
   </div>
 
-  <!-- ═══ 07 · KRYPTO-PORTFOLIO ═══ -->
-  <div class="section fade-in" id="crypto-portfolio">
-    <div class="section-header">
-      <span class="section-num">07</span>
-      <span class="section-title">Krypto-Portfolio</span>
-      <span class="section-sub">Gewichtete Performance der Positionen seit Einstieg</span>
-      <span class="nc-info" id="cryptoPortfolioInfo" tabindex="0">ⓘ
-        <dl class="nc-info-popup">
-          <dt>Gewichtete Performance</dt>
-          <dd>Summe aus Allokation × Δ Einstieg je Position — die Allokationen beziehen sich auf den investierten Anteil (summieren zu 100%), nicht auf das Gesamtdepot.</dd>
-          <dt>Auf das Gesamtdepot</dt>
-          <dd>Gewichtete Performance × investierter Anteil am Gesamtdepot (Cash-Quote).</dd>
-          <dt>Munition</dt>
-          <dd>Manuell hinterlegte Cash-Quote — eine eigene Zahl, nicht aus den Positionsgrößen berechnet.</dd>
-        </dl>
-      </span>
-    </div>
-
-    <div class="crypto-card">
-      <div class="crypto-card-header">
-        <div>
-          <div class="crypto-eyebrow">Yolo Investing</div>
-          <div class="crypto-title">Krypto-Portfolio</div>
-        </div>
-        <div class="crypto-asof">
-          <div class="crypto-asof-label">Stand</div>
-          <div class="crypto-asof-value" id="cryptoAsOf">—</div>
-        </div>
-      </div>
-
-      <div class="crypto-hero">
-        <div class="crypto-hero-value muted" id="cryptoWeightedPct">—</div>
-        <div class="crypto-hero-detail">
-          <div>gewichtete Performance der Positionen<br>seit Einstieg</div>
-          <div class="crypto-hero-sub">≙ <span id="cryptoPortfolioPct">—</span> auf das Gesamtdepot</div>
-          <div class="crypto-hero-sub" id="cryptoEntryInfo">—</div>
-        </div>
-      </div>
-
-      <div class="crypto-table-wrap">
-        <table class="crypto-table">
-          <thead><tr><th>Coin</th><th>Ø Einstieg</th><th>Aktuell</th><th></th><th>Δ Einstieg</th></tr></thead>
-          <tbody id="cryptoPortfolioBody"><tr><td colspan="5" class="narrative-empty">Lade Krypto-Portfolio…</td></tr></tbody>
-        </table>
-      </div>
-
-      <div class="crypto-ammo">
-        <div class="crypto-ammo-header">
-          <span class="crypto-ammo-label">Munition</span>
-          <span class="crypto-ammo-value" id="cryptoAmmoValue">—</span>
-        </div>
-        <div class="crypto-ammo-grid" id="cryptoAmmoGrid"></div>
-        <div class="crypto-ammo-legend">
-          <span><span class="crypto-ammo-dot invested"></span><span id="cryptoInvestedLegend">—</span> im Markt</span>
-          <span><span class="crypto-ammo-dot cash"></span><span id="cryptoCashLegend">—</span> Cash</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ 08 · TRADERECHNER ═══ -->
+  <!-- ═══ 07 · TRADERECHNER ═══ -->
   <div class="section fade-in" id="trade-calculator">
     <div class="section-header">
-      <span class="section-num">08</span>
+      <span class="section-num">07</span>
       <span class="section-title">Traderechner</span>
       <span class="section-sub">Risikobasiert</span>
     </div>
@@ -3395,105 +3286,6 @@ document.body.addEventListener('click', (e) => {
     }
   });
 })();
-
-// ══════════════════════════════════════════════
-// KRYPTO-PORTFOLIO (07) — reines Rendering. Alle Werte (Preise/Δ/gewichtete
-// Performance/Cash-Quote) kommen fertig berechnet aus data/crypto_portfolio.json
-// (scripts/build_crypto_portfolio.py); dieses Skript rechnet nichts nach.
-// ══════════════════════════════════════════════
-let cryptoPortfolioRaw = null;
-
-// >= 1000: ganzzahlig mit Tausenderpunkt (BTC/ETH-Groessenordnung); sonst
-// 2 Nachkommastellen (SOL/HYPE-Groessenordnung) -- gleiche Konvention wie
-// im Referenz-Screenshot des Users.
-function cryptoFmtPrice(v) {
-  if (v == null) return '—';
-  return v >= 1000 ? fmtInt(Math.round(v)) : fmt(v);
-}
-
-function cryptoAmmoGridHtml(cashPct) {
-  const TOTAL_CELLS = 20;
-  const filled = Math.round((cashPct / 100) * TOTAL_CELLS);
-  let html = '';
-  for (let i = 0; i < TOTAL_CELLS; i++) {
-    html += `<div class="crypto-ammo-cell${i < filled ? ' filled' : ''}"></div>`;
-  }
-  return html;
-}
-
-function cryptoPortfolioRowHtml(pos, maxAbsDelta) {
-  const sign = pos.delta_pct == null ? '' : (pos.delta_pct >= 0 ? 'pos' : 'neg');
-  const barPct = (pos.delta_pct == null || !maxAbsDelta) ? 0 : Math.abs(pos.delta_pct) / maxAbsDelta * 100;
-  return `
-    <tr>
-      <td>
-        <div class="crypto-coin">${pos.label}</div>
-        <div class="crypto-coin-alloc">${fmtInt(pos.allocation_pct)} % Allokation</div>
-      </td>
-      <td class="crypto-price">${cryptoFmtPrice(pos.avg_entry)}</td>
-      <td class="crypto-current">${cryptoFmtPrice(pos.current_price)}</td>
-      <td><div class="crypto-bar-track"><div class="crypto-bar ${sign}" style="width:${barPct}%;"></div></div></td>
-      <td class="crypto-delta ${sign || 'muted'}">${pos.delta_pct == null ? '—' : fmtPct(pos.delta_pct)}</td>
-    </tr>`;
-}
-
-function renderCryptoPortfolio() {
-  if (!cryptoPortfolioRaw) return;
-  const meta = cryptoPortfolioRaw.meta || {};
-  const positions = cryptoPortfolioRaw.positions || [];
-
-  const asOfEl = document.getElementById('cryptoAsOf');
-  if (asOfEl && meta.updated_at) {
-    const dt = new Date(meta.updated_at);
-    asOfEl.textContent = dt.toLocaleString('de-DE', { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + ' Uhr';
-  }
-
-  const heroEl = document.getElementById('cryptoWeightedPct');
-  if (heroEl) {
-    heroEl.textContent = meta.weighted_position_pct == null ? '—' : fmtPct(meta.weighted_position_pct);
-    heroEl.className = 'crypto-hero-value ' + (meta.weighted_position_pct == null ? 'muted' : pctClass(meta.weighted_position_pct));
-  }
-  const portfolioPctEl = document.getElementById('cryptoPortfolioPct');
-  if (portfolioPctEl) {
-    portfolioPctEl.textContent = meta.portfolio_impact_pct == null ? '—' : fmtPct(meta.portfolio_impact_pct);
-    portfolioPctEl.className = meta.portfolio_impact_pct == null ? 'muted' : pctClass(meta.portfolio_impact_pct);
-  }
-  const entryInfoEl = document.getElementById('cryptoEntryInfo');
-  if (entryInfoEl && meta.entry_date) {
-    const entryDt = new Date(meta.entry_date + 'T00:00:00Z');
-    const entryStr = entryDt.toLocaleDateString('de-DE', { timeZone: 'UTC', day: '2-digit', month: '2-digit', year: 'numeric' });
-    entryInfoEl.textContent = `Einstieg ${entryStr} · ${fmtInt(meta.days_since_entry)} Tage`;
-  }
-
-  const maxAbsDelta = Math.max(0, ...positions.map(p => p.delta_pct == null ? 0 : Math.abs(p.delta_pct)));
-  const bodyEl = document.getElementById('cryptoPortfolioBody');
-  if (bodyEl) {
-    bodyEl.innerHTML = positions.length
-      ? positions.map(p => cryptoPortfolioRowHtml(p, maxAbsDelta)).join('')
-      : '<tr><td colspan="5" class="narrative-empty">Keine Positionen hinterlegt.</td></tr>';
-  }
-
-  const ammoValueEl = document.getElementById('cryptoAmmoValue');
-  if (ammoValueEl && meta.cash_pct != null) ammoValueEl.textContent = `${fmtInt(meta.cash_pct)} % Schießpulver übrig`;
-  const ammoGridEl = document.getElementById('cryptoAmmoGrid');
-  if (ammoGridEl && meta.cash_pct != null) ammoGridEl.innerHTML = cryptoAmmoGridHtml(meta.cash_pct);
-  const investedLegendEl = document.getElementById('cryptoInvestedLegend');
-  if (investedLegendEl && meta.invested_pct != null) investedLegendEl.textContent = fmtInt(meta.invested_pct) + ' %';
-  const cashLegendEl = document.getElementById('cryptoCashLegend');
-  if (cashLegendEl && meta.cash_pct != null) cashLegendEl.textContent = fmtInt(meta.cash_pct) + ' %';
-}
-
-async function loadCryptoPortfolio() {
-  try {
-    const r = await fetch('data/crypto_portfolio.json');
-    if (!r.ok) { console.log('crypto_portfolio.json nicht gefunden.'); return; }
-    cryptoPortfolioRaw = await r.json();
-    renderCryptoPortfolio();
-  } catch (e) {
-    console.log('crypto_portfolio.json konnte nicht geladen werden:', e);
-  }
-}
-loadCryptoPortfolio();
 
 // ══════════════════════════════════════════════
 // TRADERECHNER
