@@ -1921,3 +1921,242 @@ test('index.html: Market Regime card renders an "Empfohlenes Vorgehen" block and
   const legendItems = [...section.matchAll(/<div class="rt-legend-item" data-state="([^"]+)">/g)].map(m => m[1]);
   assert.deepEqual(legendItems, ['STRONG OFFENSIVE', 'OFFENSIVE', 'SELECTIVE', 'DEFENSIVE', 'RISK OFF']);
 });
+
+// ══════════════════════════════════════════════════════════════════════
+// KRYPTO-PORTFOLIO (07) — manuell gepflegtes Positions-Tracking, reines
+// Rendering aus data/crypto_portfolio.json (scripts/build_crypto_portfolio.py
+// berechnet, das Frontend rechnet nichts nach).
+// ══════════════════════════════════════════════════════════════════════
+
+function makeCryptoSandbox() {
+  const fmtSrc = extractFunction(html, 'fmt');
+  const fmtIntSrc = extractFunction(html, 'fmtInt');
+  const fmtPctSrc = extractFunction(html, 'fmtPct');
+  const pctClassSrc = extractFunction(html, 'pctClass');
+  const cryptoFmtPriceSrc = extractFunction(html, 'cryptoFmtPrice');
+  const cryptoAmmoGridHtmlSrc = extractFunction(html, 'cryptoAmmoGridHtml');
+  const cryptoPortfolioRowHtmlSrc = extractFunction(html, 'cryptoPortfolioRowHtml');
+  const cryptoPortfolioRawLetSrc = extractLet(html, 'cryptoPortfolioRaw');
+  const renderCryptoPortfolioSrc = extractFunction(html, 'renderCryptoPortfolio');
+
+  const sandbox = {
+    document: {
+      _elements: {},
+      getElementById(id) {
+        if (!this._elements[id]) this._elements[id] = { value: '', checked: false, innerHTML: '', textContent: '', className: '' };
+        return this._elements[id];
+      },
+    },
+    console,
+  };
+  vm.createContext(sandbox);
+  vm.runInContext(
+    `${fmtSrc}\n${fmtIntSrc}\n${fmtPctSrc}\n${pctClassSrc}\n${cryptoFmtPriceSrc}\n` +
+    `${cryptoAmmoGridHtmlSrc}\n${cryptoPortfolioRowHtmlSrc}\n${cryptoPortfolioRawLetSrc}\n${renderCryptoPortfolioSrc}`,
+    sandbox
+  );
+  return sandbox;
+}
+
+test('cryptoFmtPrice: >=1000 formats without decimals with thousands separator, <1000 with 2 decimals', () => {
+  const sandbox = makeCryptoSandbox();
+  assert.equal(vm.runInContext('cryptoFmtPrice(78021)', sandbox), '78.021');
+  assert.equal(vm.runInContext('cryptoFmtPrice(2460)', sandbox), '2.460');
+  assert.equal(vm.runInContext('cryptoFmtPrice(99.6)', sandbox), '99,60');
+});
+
+test('cryptoFmtPrice: null renders as em dash', () => {
+  const sandbox = makeCryptoSandbox();
+  assert.equal(vm.runInContext('cryptoFmtPrice(null)', sandbox), '—');
+});
+
+test('cryptoAmmoGridHtml: fills exactly round(cash_pct/100*20) cells', () => {
+  const sandbox = makeCryptoSandbox();
+  const html67 = vm.runInContext('cryptoAmmoGridHtml(67)', sandbox);
+  const filled67 = (html67.match(/crypto-ammo-cell filled/g) || []).length;
+  assert.equal(filled67, 13); // round(0.67*20) = 13.4 -> 13
+  const html50 = vm.runInContext('cryptoAmmoGridHtml(50)', sandbox);
+  assert.equal((html50.match(/crypto-ammo-cell filled/g) || []).length, 10);
+  const totalCells = (html67.match(/crypto-ammo-cell/g) || []).length;
+  assert.equal(totalCells, 20);
+});
+
+test('cryptoAmmoGridHtml: 0% and 100% are the all-empty / all-filled extremes', () => {
+  const sandbox = makeCryptoSandbox();
+  assert.equal((vm.runInContext('cryptoAmmoGridHtml(0)', sandbox).match(/filled/g) || []).length, 0);
+  assert.equal((vm.runInContext('cryptoAmmoGridHtml(100)', sandbox).match(/crypto-ammo-cell filled/g) || []).length, 20);
+});
+
+test('cryptoPortfolioRowHtml: renders label, allocation, prices, and a positive delta', () => {
+  const sandbox = makeCryptoSandbox();
+  const pos = { label: 'SOL', allocation_pct: 15, avg_entry: 99.6, current_price: 104.64, delta_pct: 5.06 };
+  const html = vm.runInContext('cryptoPortfolioRowHtml(pos, maxAbsDelta)', Object.assign(sandbox, { pos, maxAbsDelta: 5.06 }));
+  assert.match(html, />SOL</);
+  assert.match(html, /15 % Allokation/);
+  assert.match(html, /99,60/);
+  assert.match(html, /104,64/);
+  assert.match(html, /class="crypto-delta pos"/);
+  assert.match(html, /\+5,06%/);
+  assert.match(html, /crypto-bar pos" style="width:100%/); // this IS the max abs delta -> full bar
+});
+
+test('cryptoPortfolioRowHtml: negative delta gets the neg class and a proportionally scaled bar', () => {
+  const sandbox = makeCryptoSandbox();
+  const pos = { label: 'BTC', allocation_pct: 50, avg_entry: 79679, current_price: 78021, delta_pct: -2.08 };
+  const html = vm.runInContext('cryptoPortfolioRowHtml(pos, maxAbsDelta)', Object.assign(sandbox, { pos, maxAbsDelta: 5.06 }));
+  assert.match(html, /class="crypto-delta neg"/);
+  assert.match(html, /-2,08%/);
+  assert.match(html, /crypto-bar neg" style="width:41\.1/); // 2.08/5.06*100 ≈ 41.1%
+});
+
+test('cryptoPortfolioRowHtml: missing current_price/delta_pct renders an em dash, not a false badge/number', () => {
+  const sandbox = makeCryptoSandbox();
+  const pos = { label: 'HYPE', allocation_pct: 15, avg_entry: 79.6, current_price: null, delta_pct: null };
+  const html = vm.runInContext('cryptoPortfolioRowHtml(pos, maxAbsDelta)', Object.assign(sandbox, { pos, maxAbsDelta: 0 }));
+  assert.match(html, /class="crypto-delta muted">—/);
+  assert.match(html, /<td class="crypto-current">—<\/td>/);
+});
+
+test('renderCryptoPortfolio: populates hero/table/ammo from a full sample payload (reference screenshot shape)', () => {
+  const sandbox = makeCryptoSandbox();
+  const sample = {
+    meta: {
+      updated_at: '2026-09-01T17:33:00Z', entry_date: '2026-08-25', days_since_entry: 8,
+      cash_pct: 67, invested_pct: 33, weighted_position_pct: 0.38, portfolio_impact_pct: 0.13,
+    },
+    positions: [
+      { symbol: 'BTC-USD', label: 'BTC', allocation_pct: 50, avg_entry: 79679, current_price: 78021, delta_pct: -2.08 },
+      { symbol: 'SOL-USD', label: 'SOL', allocation_pct: 15, avg_entry: 99.6, current_price: 104.64, delta_pct: 5.06 },
+    ],
+  };
+  vm.runInContext('cryptoPortfolioRaw = sample', Object.assign(sandbox, { sample }));
+  vm.runInContext('renderCryptoPortfolio()', sandbox);
+  assert.equal(sandbox.document._elements['cryptoWeightedPct'].textContent, '+0,38%');
+  assert.equal(sandbox.document._elements['cryptoWeightedPct'].className, 'crypto-hero-value pos');
+  assert.equal(sandbox.document._elements['cryptoPortfolioPct'].textContent, '+0,13%');
+  assert.match(sandbox.document._elements['cryptoEntryInfo'].textContent, /25\.08\.2026/);
+  assert.match(sandbox.document._elements['cryptoEntryInfo'].textContent, /8 Tage/);
+  assert.match(sandbox.document._elements['cryptoPortfolioBody'].innerHTML, /BTC/);
+  assert.match(sandbox.document._elements['cryptoPortfolioBody'].innerHTML, /SOL/);
+  assert.equal(sandbox.document._elements['cryptoAmmoValue'].textContent, '67 % Schießpulver übrig');
+  assert.equal(sandbox.document._elements['cryptoInvestedLegend'].textContent, '33 %');
+  assert.equal(sandbox.document._elements['cryptoCashLegend'].textContent, '67 %');
+  assert.match(sandbox.document._elements['cryptoAmmoGrid'].innerHTML, /crypto-ammo-cell/);
+});
+
+test('renderCryptoPortfolio: null dashboardState-equivalent (no data loaded yet) is a no-op, never throws', () => {
+  const sandbox = makeCryptoSandbox();
+  vm.runInContext('cryptoPortfolioRaw = null', sandbox);
+  assert.doesNotThrow(() => vm.runInContext('renderCryptoPortfolio()', sandbox));
+});
+
+// ══════════════════════════════════════════════════════════════════════
+// TRADERECHNER — Waehrungs-Umschalter ($/€) und Stop-Modus-Umschalter
+// (2-Stop-System vs. Single Stop)
+// ══════════════════════════════════════════════════════════════════════
+
+function makeTraderechnerSandbox() {
+  const fmtSrc = extractFunction(html, 'fmt');
+  const fmtIntSrc = extractFunction(html, 'fmtInt');
+  const fmtPnLSrc = extractFunction(html, 'fmtPnL');
+  const directionLetSrc = extractLet(html, 'direction');
+  const assetCurrencyLetSrc = extractLet(html, 'assetCurrency');
+  const stopModeLetSrc = extractLet(html, 'stopMode');
+  const setDirectionSrc = extractFunction(html, 'setDirection');
+  const setCurrencySrc = extractFunction(html, 'setCurrency');
+  const setStopModeSrc = extractFunction(html, 'setStopMode');
+  const calculateSrc = extractFunction(html, 'calculate');
+
+  const sandbox = {
+    document: {
+      _elements: {},
+      getElementById(id) {
+        if (!this._elements[id]) this._elements[id] = { value: '', checked: false, innerHTML: '', textContent: '', className: '' };
+        return this._elements[id];
+      },
+    },
+    console,
+  };
+  vm.createContext(sandbox);
+  vm.runInContext(
+    `${fmtSrc}\n${fmtIntSrc}\n${fmtPnLSrc}\n${directionLetSrc}\n${assetCurrencyLetSrc}\n${stopModeLetSrc}\n` +
+    `${setDirectionSrc}\n${setCurrencySrc}\n${setStopModeSrc}\n${calculateSrc}`,
+    sandbox
+  );
+  return sandbox;
+}
+
+function setTraderechnerInputs(sandbox, { equity = '100000', riskPct = '0.5', entryPrice = '150.00', stopLoss = '142.50' } = {}) {
+  sandbox.document._elements['equity'] = { value: equity };
+  sandbox.document._elements['riskPct'] = { value: riskPct };
+  sandbox.document._elements['entryPrice'] = { value: entryPrice };
+  sandbox.document._elements['stopLoss'] = { value: stopLoss };
+}
+
+test('calculate: default 2-Stop/USD math matches the known reference numbers (regression guard)', () => {
+  const sandbox = makeTraderechnerSandbox();
+  setTraderechnerInputs(sandbox);
+  vm.runInContext('calculate()', sandbox);
+  assert.equal(sandbox.document._elements['resShares'].textContent, '66');
+  assert.equal(sandbox.document._elements['resMaxRisk'].textContent, '€500');
+  assert.equal(sandbox.document._elements['resPosVal'].textContent, '$9.900');
+  assert.equal(sandbox.document._elements['resRiskShare'].textContent, '$7,50');
+  assert.match(sandbox.document._elements['stopsTableBody'].innerHTML, /Stop 1 \(½ Pos\.\)/);
+  assert.match(sandbox.document._elements['stopsTableBody'].innerHTML, /Stop 2 \(komplett\)/);
+  assert.match(sandbox.document._elements['stopsTableBody'].innerHTML, /Gesamtrisiko/);
+});
+
+test('setCurrency("EUR"): asset-side values switch to €, Max. Risiko stays € (account currency, unaffected either way)', () => {
+  const sandbox = makeTraderechnerSandbox();
+  setTraderechnerInputs(sandbox);
+  vm.runInContext("setCurrency('EUR')", sandbox);
+  assert.equal(sandbox.document._elements['entryCcyLabel'].textContent, '€');
+  assert.equal(sandbox.document._elements['stopCcyLabel'].textContent, '€');
+  assert.equal(sandbox.document._elements['resPosVal'].textContent, '€9.900');
+  assert.equal(sandbox.document._elements['resRiskShare'].textContent, '€7,50');
+  assert.equal(sandbox.document._elements['resMaxRisk'].textContent, '€500'); // unchanged
+  assert.match(sandbox.document._elements['stopsTableBody'].innerHTML, /€146,25/);
+});
+
+test('setCurrency("USD") after EUR reverts the asset-side symbol back to $', () => {
+  const sandbox = makeTraderechnerSandbox();
+  setTraderechnerInputs(sandbox);
+  vm.runInContext("setCurrency('EUR')", sandbox);
+  vm.runInContext("setCurrency('USD')", sandbox);
+  assert.equal(sandbox.document._elements['entryCcyLabel'].textContent, '$');
+  assert.equal(sandbox.document._elements['resPosVal'].textContent, '$9.900');
+});
+
+test('setStopMode("single"): ONE full-position stop row, PnL equals Gesamtrisiko', () => {
+  const sandbox = makeTraderechnerSandbox();
+  setTraderechnerInputs(sandbox);
+  vm.runInContext("setStopMode('single')", sandbox);
+  const tbody = sandbox.document._elements['stopsTableBody'].innerHTML;
+  assert.match(tbody, /Stop \(komplett\)/);
+  assert.doesNotMatch(tbody, /Stop 1/);
+  assert.doesNotMatch(tbody, /Stop 2/);
+  // 66 shares * $7.50 risk/share = $495 total risk, all in one row.
+  assert.match(tbody, /-\$495,00/);
+  assert.match(sandbox.document._elements['stopsTitle'].textContent, /Single Stop/);
+});
+
+test('setStopMode("two") after single reverts to the staggered 2-row table', () => {
+  const sandbox = makeTraderechnerSandbox();
+  setTraderechnerInputs(sandbox);
+  vm.runInContext("setStopMode('single')", sandbox);
+  vm.runInContext("setStopMode('two')", sandbox);
+  const tbody = sandbox.document._elements['stopsTableBody'].innerHTML;
+  assert.match(tbody, /Stop 1 \(½ Pos\.\)/);
+  assert.match(tbody, /Stop 2 \(komplett\)/);
+  assert.match(sandbox.document._elements['stopsTitle'].textContent, /2-Stop-System/);
+});
+
+test('setStopMode("single") respects direction=short (stop above entry, PnL sign still correct)', () => {
+  const sandbox = makeTraderechnerSandbox();
+  setTraderechnerInputs(sandbox, { entryPrice: '100', stopLoss: '105' }); // short: stop ABOVE entry
+  vm.runInContext("setDirection('short')", sandbox);
+  vm.runInContext("setStopMode('single')", sandbox);
+  const tbody = sandbox.document._elements['stopsTableBody'].innerHTML;
+  // eq=100000, risk=0.5% -> maxR=500; rps=5 -> sh=100; short PnL at stop = sh*(en-sl) = 100*(100-105) = -500
+  assert.match(tbody, /-\$500,00/);
+});

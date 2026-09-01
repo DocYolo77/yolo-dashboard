@@ -74,6 +74,16 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/build_data.py --out-dir data
 
+      # Krypto-Portfolio-Karte: liest die manuell gepflegte
+      # config/crypto_portfolio.json (Positionen/Allokation/Ø Einstieg/
+      # Cash-Quote kommen vom User per Chat, keine Markt-API) und holt nur
+      # die aktuellen Kurse live per yfinance dazu -- unabhaengig vom
+      # oeffentlichen Krypto-Markttable oben (kein MASSIVE_API_KEY noetig).
+      - name: Build crypto portfolio card
+        if: steps.tzguard.outputs.should_run == 'true'
+        timeout-minutes: 5
+        run: python scripts/build_crypto_portfolio.py
+
       # V1.1: persistenter, inkrementell aktualisierter Preis-History-Cache
       # (260 Handelstage) — lebt ausserhalb von Git, wird zwischen Laeufen
       # per actions/cache persistiert. Save-Key ist pro Run eindeutig (GH-

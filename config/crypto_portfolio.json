@@ -1,0 +1,11 @@
+{
+  "_comment": "Manuell gepflegtes YOLO-Investing-Krypto-Portfolio -- Positionen (Coin/Allokation/Ø Einstieg/Einstiegsdatum) kommen ausschliesslich vom User per Chat, keine Markt-API kennt diese Daten. cash_pct ist bewusst eine EIGENE manuelle Zahl, NICHT aus den Positionsgroessen berechnet (User-Entscheidung 2026-09-01) -- der User haelt ggf. bewusst mehr/weniger Cash zurueck, unabhaengig von der Allokation innerhalb des investierten Anteils. scripts/build_crypto_portfolio.py liest diese Datei und holt nur die AKTUELLEN Kurse live (yfinance) dazu.",
+  "entry_date": "2026-08-25",
+  "cash_pct": 67,
+  "positions": [
+    { "symbol": "BTC-USD", "label": "BTC", "allocation_pct": 50, "avg_entry": 79679 },
+    { "symbol": "ETH-USD", "label": "ETH", "allocation_pct": 20, "avg_entry": 2460 },
+    { "symbol": "SOL-USD", "label": "SOL", "allocation_pct": 15, "avg_entry": 99.60 },
+    { "symbol": "HYPE-USD", "label": "HYPE", "allocation_pct": 15, "avg_entry": 79.60 }
+  ]
+}
