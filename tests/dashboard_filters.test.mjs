@@ -1927,6 +1927,12 @@ test('index.html: Market Regime card renders an "Empfohlenes Vorgehen" block and
 // (2-Stop-System vs. Single Stop)
 // ══════════════════════════════════════════════════════════════════════
 
+test('index.html: unselected .dir-btn has an explicit light text color (not the browser default black button text)', () => {
+  const rule = html.match(/\.dir-btn \{[^}]*\}/);
+  assert.ok(rule, '.dir-btn base rule not found');
+  assert.match(rule[0], /color:\s*var\(--ink\)/);
+});
+
 function makeTraderechnerSandbox() {
   const fmtSrc = extractFunction(html, 'fmt');
   const fmtIntSrc = extractFunction(html, 'fmtInt');
