@@ -1324,7 +1324,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "CIEN": {
           "role": "core",
@@ -1780,7 +1780,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "U": {
           "role": "secondary",
@@ -1910,7 +1910,7 @@
           "reason": "Blackbaud provides software solutions (SaaS) for nonprofits and social good organizations.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2207,7 +2207,7 @@
           "reason": "Procore is a cloud-based subscription software platform for construction management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2284,7 +2284,7 @@
           "reason": "Provides enterprise data and analytics software platform (VantageCloud) delivered via cloud and on-prem licensing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5381,6 +5381,17 @@
           "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "ONDS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Ondas Autonomous Systems (its largest revenue segment) develops drone/robotic systems for industrial and defense applications, while Ondas Networks provides private wireless networking. The autonomous systems/drone hardware business is the dominant economic driver, fitting Robotics/Automation best.",
+          "added_at": "2026-09-01",
+          "last_reviewed_at": "2026-09-01",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5485,7 +5496,7 @@
           "reason": "First Majestic Silver operates silver and gold producing mines in North America.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6065,7 +6076,7 @@
           "reason": "National Healthcare Properties is a REIT owning senior housing operating properties and outpatient medical facilities - closely matches healthcare services/facilities real estate given the operating property focus, though hotel/lodging REIT structure analog exists for other REIT types this fits healthcare facilities better.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6140,7 +6151,7 @@
           "reason": "Accenture is a diversified global IT consulting and outsourcing services firm.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6195,7 +6206,7 @@
           "reason": "DXC Technology is a vendor-independent IT services provider offering cloud, security, IT outsourcing, and modern workplace services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6261,7 +6272,7 @@
           "reason": "Insight Enterprises is an IT solutions provider helping enterprises, government, and healthcare with technology procurement and services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6348,7 +6359,7 @@
           "reason": "Adeia's core business is licensing intellectual property to entertainment and technology companies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6391,7 +6402,7 @@
           "reason": "Adient is a leading global automotive seating supplier to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6457,7 +6468,7 @@
           "reason": "Versigent designs and manufactures electrical architecture components (signal, power, data distribution) for automotive, commercial vehicle, agriculture and energy storage sectors, fitting components supplier narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6555,7 +6566,7 @@
           "reason": "Provides specialty equipment and trucks for utility, telecom, forestry and infrastructure end markets, matching specialty vehicle/machinery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6740,7 +6751,7 @@
           "reason": "Designs and manufactures engineered products for oil and gas wellhead and production applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6861,7 +6872,7 @@
           "reason": "Provides marine vessel support services to offshore oil, gas and windfarm energy industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7123,7 +7134,7 @@
           "reason": "Seneca Foods packages fruits and vegetables and has significant farming/agricultural operations plus packaging (cans). Agriculture/Agribusiness fits well as a food processor with farming operations; closest existing category despite being more of packaged food company.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7210,7 +7221,7 @@
           "reason": "Fluor is a global engineering, procurement, and construction (EPC) services firm serving energy, mining, and infrastructure markets, matching this narrative directly.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7560,7 +7571,7 @@
           "reason": "ESAB manufactures welding, cutting and joining equipment and consumables for industrial applications - fits well within Industrial Machinery given general industrial equipment manufacturing model.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9911,7 +9922,7 @@
           "reason": "Freshpet produces and markets premium branded fresh pet food, a branded consumer packaged goods business sold through retail channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10204,7 +10215,7 @@
           "reason": "NRG is a major independent power producer and retail energy provider with significant generation capacity.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10475,7 +10486,7 @@
           "reason": "Rush Street Interactive operates online casinos and sports betting platforms, matching the online gaming/sports betting narrative directly.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -11710,7 +11721,7 @@
           "reason": "Pilgrim's Pride is a large poultry producer/processor, a distinct food production/protein processing business not well captured by general agribusiness definition.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11817,7 +11828,7 @@
           "reason": "Talos Energy is an independent offshore oil & gas E&P company operating in the Gulf of Mexico.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11828,7 +11839,7 @@
           "reason": "Comstock Resources is a pure-play independent natural gas E&P operator in the Haynesville shale, a clear and confident fit to this existing narrative.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12209,7 +12220,7 @@
           "reason": "Herc Holdings is a large equipment rental company serving construction and industrial customers, distinct from modular space leasing specifically.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12347,7 +12358,7 @@
           "reason": "Lindblad operates expedition cruising and adventure travel, distinct from mainstream cruise lines or online travel booking; no existing narrative captures expedition/adventure cruise operations.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12368,7 +12379,7 @@
           "reason": "Turning Point Brands manufactures and markets other tobacco products (moist snuff, chewing tobacco, papers), a distinct consumer packaged goods category not covered by existing narratives which focus on nutrition/beauty/apparel CPG.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
