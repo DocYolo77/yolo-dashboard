@@ -48,11 +48,11 @@ SCREENSHOT_CFG = {
         {"symbol": "BTC-USD", "label": "BTC", "allocation_pct": 50, "avg_entry": 79679},
         {"symbol": "ETH-USD", "label": "ETH", "allocation_pct": 20, "avg_entry": 2460},
         {"symbol": "SOL-USD", "label": "SOL", "allocation_pct": 15, "avg_entry": 99.60},
-        {"symbol": "HYPE-USD", "label": "HYPE", "allocation_pct": 15, "avg_entry": 79.60},
+        {"symbol": "HYPE32196-USD", "label": "HYPE", "allocation_pct": 15, "avg_entry": 79.60},
     ],
 }
 SCREENSHOT_PRICES = {
-    "BTC-USD": 78021.0, "ETH-USD": 2454.0, "SOL-USD": 104.64, "HYPE-USD": 83.41,
+    "BTC-USD": 78021.0, "ETH-USD": 2454.0, "SOL-USD": 104.64, "HYPE32196-USD": 83.41,
 }
 
 
@@ -62,7 +62,7 @@ def test_build_positions_matches_reference_deltas():
     assert by_symbol["BTC-USD"]["delta_pct"] == pytest.approx(-2.08, abs=0.01)
     assert by_symbol["ETH-USD"]["delta_pct"] == pytest.approx(-0.24, abs=0.02)
     assert by_symbol["SOL-USD"]["delta_pct"] == pytest.approx(5.06, abs=0.01)
-    assert by_symbol["HYPE-USD"]["delta_pct"] == pytest.approx(4.79, abs=0.01)
+    assert by_symbol["HYPE32196-USD"]["delta_pct"] == pytest.approx(4.79, abs=0.01)
 
 
 def test_weighted_pct_matches_reference_screenshot():
