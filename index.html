@@ -490,7 +490,7 @@ html { scroll-behavior: smooth; }
       </div>
     </div>
     <div class="track-records">
-      <a href="https://docs.google.com/spreadsheets/d/1tYQuhw312-yHe5rdwIpUDF9dHZYhwhiNKT1e86Y5RWk/edit?usp=sharing" class="track-link" target="_blank">Track Record Stocks <span class="arrow">↗</span></a>
+      <a href="https://docs.google.com/spreadsheets/d/14zUwPJt7z9iwRPCU32SXeamqhJMuP9tJOsnqyfmp0Xg/edit?gid=1517010748#gid=1517010748" class="track-link" target="_blank">Track Record Stocks <span class="arrow">↗</span></a>
       <a href="https://docs.google.com/spreadsheets/d/1einl__1lG8TABYqRZtHs62auoDGCvnABLltgIXMBFT4/edit?usp=sharing" class="track-link" target="_blank">Track Record Cryptos <span class="arrow">↗</span></a>
       <a href="https://docs.google.com/spreadsheets/d/1SzaqcIoO8OPJSZkh_gTczKrn_hvVC0lj1R2YMrXlg14/edit?usp=sharing" class="track-link" target="_blank">Track Record TradFi <span class="arrow">↗</span></a>
     </div>
@@ -3249,8 +3249,8 @@ document.body.addEventListener('click', (e) => {
 (function() {
   // SHA-256 hash of current password — change monthly
   // To generate: echo -n "YourPassword" | sha256sum
-  // Current: "yolo2026" → update this hash each month
-  const PW_HASH = '5b9d639c316d59216b8c82e7d27426c1abb7b95daee2f4daf4ae8b9339a16422'; // "yolo2026"
+  // Current: "kleiderstange" (gültig bis 30.09.2026) → update this hash each month
+  const PW_HASH = '562fdb82fbf495e8704b366ee0305cd7018a8a2d18eeb7d215ba3cf223892fec'; // "kleiderstange"
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
