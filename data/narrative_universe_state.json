@@ -1,14 +1,13 @@
 {
-  "as_of_date": "2026-09-01",
-  "eligible_count": 568,
-  "classified_eligible_count": 507,
-  "coverage_pct": 89.3,
+  "as_of_date": "2026-09-02",
+  "eligible_count": 554,
+  "classified_eligible_count": 495,
+  "coverage_pct": 89.4,
   "entered": [
     "AGQ",
     "ALNT",
     "AMSC",
     "AUR",
-    "AVT",
     "AXON",
     "BBAI",
     "BLSH",
@@ -20,6 +19,7 @@
     "CAR",
     "CBRL",
     "CECO",
+    "CF",
     "CIFR",
     "CLBT",
     "CLMT",
@@ -31,32 +31,30 @@
     "DAO",
     "DAR",
     "DKS",
-    "ENR",
     "FRHC",
     "FRVO",
     "GLW",
     "GLXY",
-    "GOLD",
     "GPGI",
     "MAAS",
     "MRX",
     "NIQ",
     "NN",
-    "NOVT",
     "NSP",
+    "NU",
+    "OLLI",
     "P",
-    "PCT",
     "PLBL",
     "PLPC",
     "RHLD",
     "RZLV",
     "SCSC",
-    "SEB",
     "SID",
+    "SONO",
+    "STNE",
     "TEM",
     "TMC",
     "TOP",
-    "TRI",
     "TRON",
     "UPWK",
     "UWMC",
@@ -68,17 +66,47 @@
     "XMTR"
   ],
   "reentered": [
-    "ADNT",
-    "HRI",
-    "PLTR"
+    "CNH",
+    "CXM",
+    "DXC",
+    "FLO",
+    "FMC",
+    "FTNT",
+    "HP",
+    "LIND",
+    "NXE",
+    "SWKS"
   ],
-  "exited": [],
+  "exited": [
+    "ADNT",
+    "AMTM",
+    "ANET",
+    "ASTE",
+    "BELFB",
+    "CTRI",
+    "DINO",
+    "DOCU",
+    "EPC",
+    "FLEX",
+    "FLR",
+    "FRSH",
+    "GOLF",
+    "HIMX",
+    "KMT",
+    "LRCX",
+    "MBC",
+    "PRIM",
+    "RMBS",
+    "ROCK",
+    "RSI",
+    "SM",
+    "TALO"
+  ],
   "newly_classified": [
     "AGQ",
     "ALNT",
     "AMSC",
     "AUR",
-    "AVT",
     "AXON",
     "BBAI",
     "BLSH",
@@ -90,6 +118,7 @@
     "CAR",
     "CBRL",
     "CECO",
+    "CF",
     "CIFR",
     "CLBT",
     "CLMT",
@@ -101,32 +130,30 @@
     "DAO",
     "DAR",
     "DKS",
-    "ENR",
     "FRHC",
     "FRVO",
     "GLW",
     "GLXY",
-    "GOLD",
     "GPGI",
     "MAAS",
     "MRX",
     "NIQ",
     "NN",
-    "NOVT",
     "NSP",
+    "NU",
+    "OLLI",
     "P",
-    "PCT",
     "PLBL",
     "PLPC",
     "RHLD",
     "RZLV",
     "SCSC",
-    "SEB",
     "SID",
+    "SONO",
+    "STNE",
     "TEM",
     "TMC",
     "TOP",
-    "TRI",
     "TRON",
     "UPWK",
     "UWMC",
@@ -153,10 +180,6 @@
     },
     {
       "ticker": "AUR",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "AVT",
       "reason": "low_confidence_primary"
     },
     {
@@ -204,6 +227,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "CF",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "CIFR",
       "reason": "low_confidence_primary"
     },
@@ -248,10 +275,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "ENR",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "FRHC",
       "reason": "low_confidence_primary"
     },
@@ -265,10 +288,6 @@
     },
     {
       "ticker": "GLXY",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GOLD",
       "reason": "low_confidence_primary"
     },
     {
@@ -292,11 +311,15 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "NOVT",
+      "ticker": "NSP",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "NSP",
+      "ticker": "NU",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OLLI",
       "reason": "low_confidence_primary"
     },
     {
@@ -324,11 +347,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "SEB",
+      "ticker": "SID",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "SID",
+      "ticker": "SONO",
       "reason": "low_confidence_primary"
     },
     {
@@ -341,10 +364,6 @@
     },
     {
       "ticker": "TOP",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "TRI",
       "reason": "low_confidence_primary"
     },
     {
@@ -385,12 +404,12 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..NSP): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..NSP): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AGQ..P): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AGQ..P): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 364,
-  "eligible_without_active_narrative": 204,
-  "active_narrative_coverage_pct": 64.1,
-  "active_narrative_count": 33,
-  "undersized_narrative_count": 94
+  "eligible_with_active_narrative": 335,
+  "eligible_without_active_narrative": 219,
+  "active_narrative_coverage_pct": 60.5,
+  "active_narrative_count": 28,
+  "undersized_narrative_count": 99
 }

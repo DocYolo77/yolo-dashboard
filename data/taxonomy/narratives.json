@@ -203,7 +203,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "KLAC": {
           "role": "core",
@@ -269,7 +269,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "ACLS": {
           "role": "core",
@@ -575,7 +575,7 @@
           "reason": "Rambus provides semiconductor chips and silicon IP for data-intensive computing systems including AI infrastructure.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -674,7 +674,7 @@
           "reason": "Himax is a semiconductor solutions provider specializing in display driver ICs and related non-driver semiconductor products, a clear fit for the Semiconductors narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -1313,7 +1313,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "EXTR": {
           "role": "core",
@@ -1475,7 +1475,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "S": {
           "role": "core",
@@ -1976,7 +1976,7 @@
           "reason": "Unified AI-based SaaS platform enabling customer-facing teams to manage customer experience across digital channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1998,7 +1998,7 @@
           "reason": "DocuSign offers a cloud-based SaaS suite for e-signature and agreement automation.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2075,7 +2075,7 @@
           "reason": "Freshworks provides a SaaS platform for customer support, IT service management, sales and marketing automation targeting SMBs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2836,7 +2836,7 @@
           "reason": "NexGen Energy is a uranium exploration and development company with major uranium projects in Canada.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -3523,6 +3523,17 @@
           "reason": "Qfin Holdings operates a fintech platform matching borrowers with credit supply from financial institutions, a fintech lending marketplace model.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "STNE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "StoneCo provides financial technology solutions, payments and business management tools to MSMBs via a cloud-based fintech platform, core financial technology business model.",
+          "added_at": "2026-09-02",
+          "last_reviewed_at": "2026-09-02",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -6206,7 +6217,7 @@
           "reason": "DXC Technology is a vendor-independent IT services provider offering cloud, security, IT outsourcing, and modern workplace services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6402,7 +6413,7 @@
           "reason": "Adient is a leading global automotive seating supplier to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6544,7 +6555,7 @@
           "reason": "Astec manufactures road construction and material processing equipment, fitting specialty industrial machinery for infrastructure.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6610,7 +6621,7 @@
           "reason": "CNH Industrial manufactures agricultural machinery and construction equipment (Case, New Holland brands). Agricultural machinery is closest to Agriculture/Agribusiness in end-market but the company itself is a heavy equipment manufacturer, best matched to Industrial/Specialty Vehicle Machinery given its construction machinery SIC code and specialty vehicle/equipment manufacturing model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -6960,7 +6971,7 @@
           "reason": "Helmerich & Payne provides contract drilling services and technology to oil and gas E&P companies, fitting oilfield services/equipment narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7112,7 +7123,7 @@
           "reason": "FMC is a pure-play crop protection company developing agricultural chemical products for farming, fitting agribusiness/agriculture narrative most closely despite chemical manufacturing base.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7166,7 +7177,7 @@
           "reason": "Engineering and technology solutions provider serving government/defense/space/energy sectors, similar to EPC/technical consulting services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7188,7 +7199,7 @@
           "reason": "Provides utility infrastructure maintenance, upgrade and construction services partnering with regulated utilities.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7221,7 +7232,7 @@
           "reason": "Fluor is a global engineering, procurement, and construction (EPC) services firm serving energy, mining, and infrastructure markets, matching this narrative directly.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7265,7 +7276,7 @@
           "reason": "Primoris provides critical infrastructure construction, maintenance, and engineering services across utilities and other sectors.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7505,7 +7516,7 @@
           "reason": "Kennametal manufactures metalworking/metal cutting tools and wear-resistant components - core industrial machinery/tooling manufacturer.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9268,7 +9279,7 @@
           "reason": "Gibraltar Industries manufactures building products for residential, infrastructure, and renewable energy markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9323,7 +9334,7 @@
           "reason": "MasterBrand manufactures residential cabinetry sold through dealer/retail channels for kitchens and bathrooms, directly aligning with building products manufacturing/distribution serving residential construction markets.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9376,7 +9387,7 @@
           "reason": "Bel Fuse designs and manufactures electronic components (magnetics, power, connectivity solutions) for diverse industrial and tech end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9911,7 +9922,7 @@
           "reason": "Flowers Foods produces and markets branded packaged bakery foods (breads, snacks) sold through retail channels, fitting branded CPG food narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10497,7 +10508,7 @@
           "reason": "Rush Street Interactive operates online casinos and sports betting platforms, matching the online gaming/sports betting narrative directly.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -11219,7 +11230,7 @@
           "reason": "HF Sinclair operates seven refineries with crude oil throughput and produces renewable diesel - directly matches the petroleum_refining narrative definition despite pipeline SIC code.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11338,7 +11349,7 @@
           "reason": "Edgewell makes personal care products (shaving, sun/skin care, feminine care) sold under brands - closely aligned with beauty/cosmetics products branded CPG model even though broader than pure cosmetics.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11828,7 +11839,7 @@
           "reason": "SM Energy is an independent E&P company focused on oil, gas and NGL extraction, a distinct upstream business from oilfield services/equipment providers.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11839,7 +11850,7 @@
           "reason": "Talos Energy is an independent offshore oil & gas E&P company operating in the Gulf of Mexico.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12031,7 +12042,7 @@
           "reason": "Flex is a contract electronics manufacturer offering end-to-end manufacturing services, distinct from component manufacturing per se.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12126,7 +12137,7 @@
           "reason": "Acushnet designs/manufactures golf products across balls, clubs, shoes and apparel, a distinct sporting goods niche not matching general apparel retail.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12369,7 +12380,7 @@
           "reason": "Lindblad operates expedition cruising and adventure travel, distinct from mainstream cruise lines or online travel booking; no existing narrative captures expedition/adventure cruise operations.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
