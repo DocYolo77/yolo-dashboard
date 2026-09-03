@@ -1,8 +1,8 @@
 {
-  "as_of_date": "2026-09-02",
-  "eligible_count": 554,
-  "classified_eligible_count": 495,
-  "coverage_pct": 89.4,
+  "as_of_date": "2026-09-03",
+  "eligible_count": 530,
+  "classified_eligible_count": 471,
+  "coverage_pct": 88.9,
   "entered": [
     "AGQ",
     "ALNT",
@@ -16,10 +16,8 @@
     "BW",
     "BWIN",
     "BZ",
-    "CAR",
     "CBRL",
     "CECO",
-    "CF",
     "CIFR",
     "CLBT",
     "CLMT",
@@ -33,9 +31,12 @@
     "DKS",
     "FRHC",
     "FRVO",
+    "FUTU",
     "GLW",
     "GLXY",
+    "GOLD",
     "GPGI",
+    "GSHD",
     "MAAS",
     "MRX",
     "NIQ",
@@ -51,56 +52,59 @@
     "SCSC",
     "SID",
     "SONO",
-    "STNE",
     "TEM",
     "TMC",
     "TOP",
     "TRON",
     "UPWK",
     "UWMC",
-    "VAC",
     "VIRT",
-    "VISN",
     "VSAT",
     "WRD",
-    "XMTR"
+    "XMTR",
+    "XP"
   ],
   "reentered": [
-    "CNH",
-    "CXM",
-    "DXC",
-    "FLO",
-    "FMC",
-    "FTNT",
-    "HP",
-    "LIND",
-    "NXE",
-    "SWKS"
+    "COCO",
+    "DOCU",
+    "INTU",
+    "LYFT",
+    "NTAP",
+    "PAYP",
+    "SOFI"
   ],
   "exited": [
-    "ADNT",
-    "AMTM",
-    "ANET",
-    "ASTE",
-    "BELFB",
-    "CTRI",
-    "DINO",
-    "DOCU",
-    "EPC",
-    "FLEX",
-    "FLR",
-    "FRSH",
-    "GOLF",
-    "HIMX",
-    "KMT",
-    "LRCX",
-    "MBC",
-    "PRIM",
-    "RMBS",
-    "ROCK",
-    "RSI",
-    "SM",
-    "TALO"
+    "AAUC",
+    "ATEN",
+    "ATS",
+    "BB",
+    "BELFA",
+    "DGII",
+    "DXPE",
+    "EQX",
+    "FSLR",
+    "GEO",
+    "GFS",
+    "GLIBK",
+    "HLIT",
+    "HP",
+    "IBP",
+    "LOAR",
+    "LSCC",
+    "MKSI",
+    "MUX",
+    "NXE",
+    "PBT",
+    "SBGI",
+    "SII",
+    "SYM",
+    "TNC",
+    "TPC",
+    "TPL",
+    "TRIP",
+    "U",
+    "WD",
+    "YOU"
   ],
   "newly_classified": [
     "AGQ",
@@ -115,10 +119,8 @@
     "BW",
     "BWIN",
     "BZ",
-    "CAR",
     "CBRL",
     "CECO",
-    "CF",
     "CIFR",
     "CLBT",
     "CLMT",
@@ -132,9 +134,12 @@
     "DKS",
     "FRHC",
     "FRVO",
+    "FUTU",
     "GLW",
     "GLXY",
+    "GOLD",
     "GPGI",
+    "GSHD",
     "MAAS",
     "MRX",
     "NIQ",
@@ -150,19 +155,17 @@
     "SCSC",
     "SID",
     "SONO",
-    "STNE",
     "TEM",
     "TMC",
     "TOP",
     "TRON",
     "UPWK",
     "UWMC",
-    "VAC",
     "VIRT",
-    "VISN",
     "VSAT",
     "WRD",
-    "XMTR"
+    "XMTR",
+    "XP"
   ],
   "new_narratives_created": [],
   "unresolved_after_retries": [
@@ -215,19 +218,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CAR",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "CBRL",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "CECO",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CF",
       "reason": "low_confidence_primary"
     },
     {
@@ -283,6 +278,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "FUTU",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "GLW",
       "reason": "low_confidence_primary"
     },
@@ -291,7 +290,15 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "GOLD",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "GPGI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GSHD",
       "reason": "low_confidence_primary"
     },
     {
@@ -379,15 +386,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "VAC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "VIRT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "VISN",
       "reason": "low_confidence_primary"
     },
     {
@@ -401,15 +400,18 @@
     {
       "ticker": "XMTR",
       "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "XP",
+      "reason": "low_confidence_primary"
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..P): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..P): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Batch 1 (AGQ..OLLI): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 335,
-  "eligible_without_active_narrative": 219,
-  "active_narrative_coverage_pct": 60.5,
+  "eligible_with_active_narrative": 323,
+  "eligible_without_active_narrative": 207,
+  "active_narrative_coverage_pct": 60.9,
   "active_narrative_count": 28,
   "undersized_narrative_count": 99
 }

@@ -52,7 +52,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "SIMO": {
           "role": "core",
@@ -454,7 +454,7 @@
           "reason": "GlobalFoundries is a contract semiconductor manufacturer (foundry) serving multiple chip end markets, directly matching the semiconductors narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -487,7 +487,7 @@
           "reason": "Lattice Semiconductor develops and sells FPGA semiconductor products for computing, communications, and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -696,7 +696,7 @@
           "reason": "MKS Inc provides instruments, subsystems and specialty chemicals for semiconductor manufacturing and related industrial applications, fitting semiconductors equipment supply chain narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -1162,7 +1162,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "CBRS": {
           "role": "core",
@@ -1399,7 +1399,7 @@
           "reason": "Digi International provides IoT connectivity hardware, cellular routers/gateways, and embedded networking products plus SaaS connectivity services. Its core business is networking/communications equipment for IoT deployments, closely matching the Networking narrative.",
           "added_at": "2026-08-24",
           "last_reviewed_at": "2026-08-24",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -1421,7 +1421,7 @@
           "reason": "Harmonic provides broadband access infrastructure equipment (cable/video delivery hardware/software) for network operators - core networking/telecom infrastructure equipment business.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -1528,7 +1528,7 @@
           "reason": "A10 Networks provides secure application delivery and DDoS protection solutions, core cybersecurity/network security offering.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1539,7 +1539,7 @@
           "reason": "BlackBerry now focuses on secure communications and endpoint management software for enterprises, a cybersecurity software business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1791,7 +1791,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AMPL": {
           "role": "secondary",
@@ -1998,7 +1998,7 @@
           "reason": "DocuSign offers a cloud-based SaaS suite for e-signature and agreement automation.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2097,7 +2097,7 @@
           "reason": "Provides accounting, tax, and financial SaaS software products like QuickBooks and TurboTax.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2836,7 +2836,7 @@
           "reason": "NexGen Energy is a uranium exploration and development company with major uranium projects in Canada.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -3064,7 +3064,7 @@
           "reason": "Loar Holdings designs and manufactures niche aerospace and defense components essential to aircraft systems.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3195,7 +3195,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AFRM": {
           "role": "core",
@@ -3380,7 +3380,7 @@
           "reason": "PayPay operates a mobile code-payment app platform in Japan, a digital payments/fintech business model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5207,7 +5207,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "ENPH": {
           "role": "core",
@@ -5369,7 +5369,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "ATS": {
           "role": "secondary",
@@ -5378,7 +5378,7 @@
           "reason": "ATS Corp designs and builds automated manufacturing systems and automation products across multiple industries.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5496,7 +5496,7 @@
           "reason": "Allied Gold operates gold mines in Africa, directly fitting the gold miners narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5595,7 +5595,7 @@
           "reason": "Gold mining company focused on operation, exploration and development of gold properties.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5617,7 +5617,7 @@
           "reason": "McEwen Inc is a gold and silver mining and exploration company generating revenue from precious metals production, directly matching the gold/precious metals miners narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6971,7 +6971,7 @@
           "reason": "Helmerich & Payne provides contract drilling services and technology to oil and gas E&P companies, fitting oilfield services/equipment narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7331,7 +7331,7 @@
           "reason": "Tutor Perini provides general contracting, construction management and civil/building/specialty construction services for infrastructure projects.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7571,7 +7571,7 @@
           "reason": "DXP distributes MRO products, equipment and services (industrial machinery/equipment wholesale) to industrial end markets - closest existing fit is Industrial Machinery given SIC 5084 wholesale industrial machinery & equipment.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7593,7 +7593,7 @@
           "reason": "Tennant designs and manufactures industrial/commercial cleaning equipment machinery - fits well under Industrial Machinery as a manufacturer of specialized equipment (floor cleaning machines) sold to commercial/industrial end markets, similar to the SIC classification of refrigeration & service industry machinery.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8571,7 +8571,7 @@
           "reason": "Alternative asset manager operating exchange-listed physical trusts, ETFs and managed equities, earning management fees.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9148,7 +9148,7 @@
           "reason": "Walker & Dunlop originates, sells and services multifamily/commercial real estate loans through Fannie Mae, Freddie Mac, Ginnie Mae programs. This is a specialty commercial real estate finance/mortgage banking business. No catalog entry precisely covers commercial mortgage banking, but Banking/Financial Services is the closest broad economic fit given its role as a financial intermediary originating and servicing loans.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9323,7 +9323,7 @@
           "reason": "Installed Building Products installs insulation and other building products for residential construction; closest existing narrative is building products/materials distribution given its focus on construction materials installation, though it is more an installer/contractor than distributor.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9376,7 +9376,7 @@
           "reason": "Bel Fuse designs and manufactures electronic components (magnetics, power, connectivity solutions) for diverse industrial and tech end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9911,7 +9911,7 @@
           "reason": "Branded functional hydration and beverage consumer products company selling coconut water and related products through retail channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10379,7 +10379,7 @@
           "reason": "Liberty Capital's subsidiary provides data, mobile, voice, and managed services, matching telecom/cable broadband services.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10583,7 +10583,7 @@
           "reason": "Lyft operates a ridesharing marketplace connecting drivers and riders, a distinct business model not covered by the existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10756,7 +10756,7 @@
           "reason": "TripAdvisor operates a travel metasearch and review platform generating revenue from hotel bookings, restaurants and experiences.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10788,7 +10788,7 @@
           "reason": "Sinclair owns and operates a large portfolio of television broadcast stations affiliated with major networks, fitting media/broadcast conglomerate narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11187,7 +11187,7 @@
           "reason": "GEO Group operates private detention facilities, secure services, and electronic monitoring under government contracts - a distinct economic model not covered by existing catalog categories (miscategorized under residential building SIC code but actual business is corrections/detention services).",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11700,7 +11700,7 @@
           "reason": "Permian Basin Royalty Trust holds royalty/mineral interests in oil fields, a distinct passive income vehicle from operating E&P companies or service providers.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11711,7 +11711,7 @@
           "reason": "Texas Pacific Land Corp manages land and retains oil & gas royalty interests plus water services, generating royalty income akin to a royalty trust model even though structured as a corporation. This is the closest existing narrative economically, capturing the royalty income stream from oil and gas production on its land.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12327,7 +12327,7 @@
           "reason": "Clear Secure's core business is a subscription-based biometric identity verification platform (CLEAR lanes) used at airports and venues to speed identity checks while enhancing security. This is fundamentally different from generic prepackaged software despite the SIC code, and no existing catalog narrative captures biometric identity verification/security-as-a-service. Given the clear, well-documented business model, confidence is reasonably high despite creating a new narrative.",
           "added_at": "2026-08-20",
           "last_reviewed_at": "2026-08-20",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
