@@ -1,20 +1,19 @@
 {
-  "as_of_date": "2026-09-03",
-  "eligible_count": 530,
-  "classified_eligible_count": 471,
-  "coverage_pct": 88.9,
+  "as_of_date": "2026-09-04",
+  "eligible_count": 495,
+  "classified_eligible_count": 439,
+  "coverage_pct": 88.7,
   "entered": [
     "AGQ",
     "ALNT",
-    "AMSC",
     "AUR",
     "AXON",
     "BBAI",
+    "BJRI",
     "BLSH",
     "BRAI",
     "BVC",
     "BW",
-    "BWIN",
     "BZ",
     "CBRL",
     "CECO",
@@ -22,7 +21,6 @@
     "CLBT",
     "CLMT",
     "CLVT",
-    "CMP",
     "CRCT",
     "CRSR",
     "CSAN",
@@ -31,13 +29,13 @@
     "DKS",
     "FRHC",
     "FRVO",
-    "FUTU",
     "GLW",
     "GLXY",
     "GOLD",
     "GPGI",
     "GSHD",
     "MAAS",
+    "MNTN",
     "MRX",
     "NIQ",
     "NN",
@@ -45,79 +43,77 @@
     "NU",
     "OLLI",
     "P",
+    "PD",
     "PLBL",
     "PLPC",
     "RHLD",
-    "RZLV",
     "SCSC",
     "SID",
     "SONO",
     "TEM",
     "TMC",
     "TOP",
-    "TRON",
     "UPWK",
     "UWMC",
+    "VAC",
     "VIRT",
     "VSAT",
     "WRD",
-    "XMTR",
-    "XP"
+    "XMTR"
   ],
   "reentered": [
-    "COCO",
-    "DOCU",
-    "INTU",
-    "LYFT",
-    "NTAP",
-    "PAYP",
-    "SOFI"
+    "GPRE",
+    "SAIA",
+    "WWW"
   ],
   "exited": [
-    "AAUC",
-    "ATEN",
-    "ATS",
-    "BB",
-    "BELFA",
-    "DGII",
-    "DXPE",
-    "EQX",
-    "FSLR",
-    "GEO",
-    "GFS",
-    "GLIBK",
-    "HLIT",
-    "HP",
-    "IBP",
-    "LOAR",
-    "LSCC",
-    "MKSI",
-    "MUX",
-    "NXE",
-    "PBT",
-    "SBGI",
-    "SII",
-    "SYM",
-    "TNC",
-    "TPC",
-    "TPL",
-    "TRIP",
-    "U",
-    "WD",
-    "YOU"
+    "AKAM",
+    "AVEX",
+    "BH.A",
+    "BKSY",
+    "CC",
+    "CHYM",
+    "COCO",
+    "CVSA",
+    "ELF",
+    "ENPH",
+    "EPAM",
+    "FIX",
+    "FTNT",
+    "GDRX",
+    "GT",
+    "ILMN",
+    "KRO",
+    "LYFT",
+    "MTA",
+    "NNE",
+    "NXT",
+    "POWL",
+    "PRM",
+    "PSKY",
+    "QS",
+    "RKT",
+    "ROAD",
+    "SANM",
+    "SOFI",
+    "SVV",
+    "TBLA",
+    "UA",
+    "UAA",
+    "VMET",
+    "WTTR"
   ],
   "newly_classified": [
     "AGQ",
     "ALNT",
-    "AMSC",
     "AUR",
     "AXON",
     "BBAI",
+    "BJRI",
     "BLSH",
     "BRAI",
     "BVC",
     "BW",
-    "BWIN",
     "BZ",
     "CBRL",
     "CECO",
@@ -125,7 +121,6 @@
     "CLBT",
     "CLMT",
     "CLVT",
-    "CMP",
     "CRCT",
     "CRSR",
     "CSAN",
@@ -134,13 +129,13 @@
     "DKS",
     "FRHC",
     "FRVO",
-    "FUTU",
     "GLW",
     "GLXY",
     "GOLD",
     "GPGI",
     "GSHD",
     "MAAS",
+    "MNTN",
     "MRX",
     "NIQ",
     "NN",
@@ -148,24 +143,23 @@
     "NU",
     "OLLI",
     "P",
+    "PD",
     "PLBL",
     "PLPC",
     "RHLD",
-    "RZLV",
     "SCSC",
     "SID",
     "SONO",
     "TEM",
     "TMC",
     "TOP",
-    "TRON",
     "UPWK",
     "UWMC",
+    "VAC",
     "VIRT",
     "VSAT",
     "WRD",
-    "XMTR",
-    "XP"
+    "XMTR"
   ],
   "new_narratives_created": [],
   "unresolved_after_retries": [
@@ -178,10 +172,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "AMSC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "AUR",
       "reason": "low_confidence_primary"
     },
@@ -191,6 +181,10 @@
     },
     {
       "ticker": "BBAI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BJRI",
       "reason": "low_confidence_primary"
     },
     {
@@ -207,10 +201,6 @@
     },
     {
       "ticker": "BW",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "BWIN",
       "reason": "low_confidence_primary"
     },
     {
@@ -239,10 +229,6 @@
     },
     {
       "ticker": "CLVT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CMP",
       "reason": "low_confidence_primary"
     },
     {
@@ -278,10 +264,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "FUTU",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "GLW",
       "reason": "low_confidence_primary"
     },
@@ -303,6 +285,10 @@
     },
     {
       "ticker": "MAAS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MNTN",
       "reason": "low_confidence_primary"
     },
     {
@@ -334,6 +320,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "PD",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "PLBL",
       "reason": "low_confidence_primary"
     },
@@ -343,10 +333,6 @@
     },
     {
       "ticker": "RHLD",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "RZLV",
       "reason": "low_confidence_primary"
     },
     {
@@ -364,54 +350,15 @@
     {
       "ticker": "TEM",
       "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "TMC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "TOP",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "TRON",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "UPWK",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "UWMC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "VIRT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "VSAT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "WRD",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "XMTR",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "XP",
-      "reason": "low_confidence_primary"
     }
   ],
   "classification_errors": [
-    "Batch 1 (AGQ..OLLI): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AGQ..PD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AGQ..PD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 323,
-  "eligible_without_active_narrative": 207,
-  "active_narrative_coverage_pct": 60.9,
-  "active_narrative_count": 28,
-  "undersized_narrative_count": 99
+  "eligible_with_active_narrative": 299,
+  "eligible_without_active_narrative": 196,
+  "active_narrative_coverage_pct": 60.4,
+  "active_narrative_count": 26,
+  "undersized_narrative_count": 101
 }

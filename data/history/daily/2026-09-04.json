@@ -1,0 +1,5474 @@
+{
+  "date": "2026-09-04",
+  "market_regime": {
+    "score": 43.6,
+    "state": "DEFENSIVE"
+  },
+  "qqq_health": {
+    "score": 45.1,
+    "base_state": "FRAGILE",
+    "modifiers": [
+      "NARROWING"
+    ],
+    "extended": false
+  },
+  "narratives": {
+    "memory_storage": {
+      "lifecycle_state": "FADING",
+      "structural_score": 45.0,
+      "trend_participation": 20.0,
+      "structural_leadership_pct": 20.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 8,
+      "fading_streak": 2,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "semiconductors": {
+      "lifecycle_state": "DORMANT",
+      "structural_score": 20.7,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 3.1,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 19,
+      "fading_streak": 5,
+      "dormant_streak": 11,
+      "mature_streak": 0
+    },
+    "photonics_optical": {
+      "lifecycle_state": "DORMANT",
+      "structural_score": 12.7,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 22,
+      "fading_streak": 4,
+      "dormant_streak": 5,
+      "mature_streak": 0
+    },
+    "ai_infrastructure": {
+      "lifecycle_state": "FADING",
+      "structural_score": 38.6,
+      "trend_participation": 13.3,
+      "structural_leadership_pct": 6.7,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 13,
+      "fading_streak": 5,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "data_center": {
+      "lifecycle_state": "FADING",
+      "structural_score": 33.2,
+      "trend_participation": 18.8,
+      "structural_leadership_pct": 6.2,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 15,
+      "fading_streak": 10,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "cybersecurity": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 66.3,
+      "trend_participation": 75.0,
+      "structural_leadership_pct": 8.3,
+      "momentum_modifier": "COOLING",
+      "rank": 2,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 2
+    },
+    "software_saas": {
+      "lifecycle_state": "MATURE",
+      "structural_score": 69.9,
+      "trend_participation": 72.9,
+      "structural_leadership_pct": 16.7,
+      "momentum_modifier": "COOLING",
+      "rank": 1,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 5
+    },
+    "space": {
+      "lifecycle_state": "FADING",
+      "structural_score": 13.3,
+      "trend_participation": 11.1,
+      "structural_leadership_pct": 11.1,
+      "momentum_modifier": null,
+      "rank": 20,
+      "fading_streak": 5,
+      "dormant_streak": 4,
+      "mature_streak": 0
+    },
+    "uranium": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 43.8,
+      "trend_participation": 40.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 11,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "defense_aerospace": {
+      "lifecycle_state": "FADING",
+      "structural_score": 13.1,
+      "trend_participation": 25.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 21,
+      "fading_streak": 5,
+      "dormant_streak": 4,
+      "mature_streak": 0
+    },
+    "fintech": {
+      "lifecycle_state": "FADING",
+      "structural_score": 44.1,
+      "trend_participation": 39.1,
+      "structural_leadership_pct": 13.0,
+      "momentum_modifier": null,
+      "rank": 10,
+      "fading_streak": 4,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "quantum_computing": {
+      "lifecycle_state": "FADING",
+      "structural_score": 12.6,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 23,
+      "fading_streak": 4,
+      "dormant_streak": 4,
+      "mature_streak": 0
+    },
+    "ev_battery": {
+      "lifecycle_state": "FADING",
+      "structural_score": 11.1,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 24,
+      "fading_streak": 5,
+      "dormant_streak": 4,
+      "mature_streak": 0
+    },
+    "solar_clean_energy": {
+      "lifecycle_state": "DORMANT",
+      "structural_score": 9.2,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 25,
+      "fading_streak": 15,
+      "dormant_streak": 16,
+      "mature_streak": 0
+    },
+    "gold___precious_metals_miners": {
+      "lifecycle_state": "ACTIVE",
+      "structural_score": 66.2,
+      "trend_participation": 88.9,
+      "structural_leadership_pct": 5.6,
+      "momentum_modifier": "COOLING",
+      "rank": 3,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 1
+    },
+    "it_services_consulting": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 56.0,
+      "trend_participation": 77.8,
+      "structural_leadership_pct": 11.1,
+      "momentum_modifier": null,
+      "rank": 5,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "oil_gas_services_equipment": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 44.3,
+      "trend_participation": 25.0,
+      "structural_leadership_pct": 8.3,
+      "momentum_modifier": null,
+      "rank": 9,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "construction_engineering_services": {
+      "lifecycle_state": "DORMANT",
+      "structural_score": 8.8,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 26,
+      "fading_streak": 11,
+      "dormant_streak": 10,
+      "mature_streak": 0
+    },
+    "e_commerce_platform": {
+      "lifecycle_state": "FADING",
+      "structural_score": 36.0,
+      "trend_participation": 28.6,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 14,
+      "fading_streak": 14,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "apparel_retail": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 55.7,
+      "trend_participation": 71.4,
+      "structural_leadership_pct": 14.3,
+      "momentum_modifier": null,
+      "rank": 6,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "specialty_metals_advanced_materials": {
+      "lifecycle_state": "DORMANT",
+      "structural_score": 29.4,
+      "trend_participation": 0.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 17,
+      "fading_streak": 10,
+      "dormant_streak": 5,
+      "mature_streak": 0
+    },
+    "electronic_components_manufacturing": {
+      "lifecycle_state": "DORMANT",
+      "structural_score": 27.6,
+      "trend_participation": 33.3,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": "ACCELERATING",
+      "rank": 18,
+      "fading_streak": 5,
+      "dormant_streak": 10,
+      "mature_streak": 0
+    },
+    "crypto_mining_digital_asset_treasury": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 64.6,
+      "trend_participation": 40.0,
+      "structural_leadership_pct": 20.0,
+      "momentum_modifier": null,
+      "rank": 4,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "social_media_platform": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 43.0,
+      "trend_participation": 33.3,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 12,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "copper_base_metals_mining": {
+      "lifecycle_state": "NEUTRAL",
+      "structural_score": 53.8,
+      "trend_participation": 60.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 7,
+      "fading_streak": 0,
+      "dormant_streak": 0,
+      "mature_streak": 0
+    },
+    "real_estate_marketplace_platform": {
+      "lifecycle_state": "DORMANT",
+      "structural_score": 33.2,
+      "trend_participation": 40.0,
+      "structural_leadership_pct": 0.0,
+      "momentum_modifier": null,
+      "rank": 16,
+      "fading_streak": 0,
+      "dormant_streak": 5,
+      "mature_streak": 0
+    }
+  },
+  "stocks": {
+    "AAOI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "photonics_optical"
+      ],
+      "rs_1w": 39.4,
+      "extension_peak_history_v2": -0.88
+    },
+    "AAON": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 71.5,
+      "extension_peak_history_v2": -3.81
+    },
+    "AAP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 71.1,
+      "extension_peak_history_v2": -2.85
+    },
+    "ABSI": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 37.6,
+      "extension_peak_history_v2": -0.1
+    },
+    "ACHR": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 44.2,
+      "extension_peak_history_v2": 1.43
+    },
+    "ACLS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 21.8,
+      "extension_peak_history_v2": -2.6
+    },
+    "ACMR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 29.5,
+      "extension_peak_history_v2": -2.11
+    },
+    "ACVA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform"
+      ],
+      "rs_1w": 25.7,
+      "extension_peak_history_v2": 0.03
+    },
+    "AEHR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 52.9,
+      "extension_peak_history_v2": -0.44
+    },
+    "AEIS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 59.2,
+      "extension_peak_history_v2": -1.38
+    },
+    "AERO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 81.6,
+      "extension_peak_history_v2": 0.15
+    },
+    "AESI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 86.7,
+      "extension_peak_history_v2": 0.69
+    },
+    "AEVA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 57.2,
+      "extension_peak_history_v2": -1.93
+    },
+    "AFRM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
+      "rs_1w": 1.4,
+      "extension_peak_history_v2": 3.48
+    },
+    "AG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 34.7,
+      "extension_peak_history_v2": 3.57
+    },
+    "AGQ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 6.1,
+      "extension_peak_history_v2": 5.75
+    },
+    "AGRO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 93.5,
+      "extension_peak_history_v2": 4.34
+    },
+    "AGX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "construction_engineering_services"
+      ],
+      "rs_1w": 17.8,
+      "extension_peak_history_v2": -4.14
+    },
+    "AI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 49.1,
+      "extension_peak_history_v2": 3.28
+    },
+    "AIIR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 2.0,
+      "extension_peak_history_v2": 3.62
+    },
+    "AIP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 13.9,
+      "extension_peak_history_v2": -4.59
+    },
+    "ALAB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 87.5,
+      "extension_peak_history_v2": -1.01
+    },
+    "ALGM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 60.8,
+      "extension_peak_history_v2": -3.74
+    },
+    "ALGT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 39.8,
+      "extension_peak_history_v2": -3.83
+    },
+    "ALM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 22.8,
+      "extension_peak_history_v2": 3.7
+    },
+    "ALMR": {
+      "quality_state": "leader",
+      "leader_age_days": 15,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 32.5,
+      "extension_peak_history_v2": 1.63
+    },
+    "ALNT": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 60.0,
+      "extension_peak_history_v2": -0.01
+    },
+    "AMBA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 10.1,
+      "extension_peak_history_v2": -1.37
+    },
+    "AMBQ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 42.2,
+      "extension_peak_history_v2": -2.9
+    },
+    "AMC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 33.7,
+      "extension_peak_history_v2": 3.58
+    },
+    "AMKR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 24.0,
+      "extension_peak_history_v2": -3.17
+    },
+    "AMN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 37.4,
+      "extension_peak_history_v2": 1.15
+    },
+    "AMPL": {
+      "quality_state": "leader",
+      "leader_age_days": 16,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 8.1,
+      "extension_peak_history_v2": 10.85
+    },
+    "AMPX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 31.1,
+      "extension_peak_history_v2": -1.33
+    },
+    "AMR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 48.7,
+      "extension_peak_history_v2": 8.91
+    },
+    "AMRC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 76.0,
+      "extension_peak_history_v2": -0.63
+    },
+    "ANDG": {
+      "quality_state": "leader",
+      "leader_age_days": 9,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 69.1,
+      "extension_peak_history_v2": 6.15
+    },
+    "ANF": {
+      "quality_state": "leader",
+      "leader_age_days": 6,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 73.1,
+      "extension_peak_history_v2": 8.11
+    },
+    "APLD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "data_center"
+      ],
+      "rs_1w": 53.1,
+      "extension_peak_history_v2": -1.52
+    },
+    "APPN": {
+      "quality_state": "leader",
+      "leader_age_days": 16,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 8.5,
+      "extension_peak_history_v2": 10.86
+    },
+    "APPS": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 19.8,
+      "extension_peak_history_v2": 1.25
+    },
+    "ARCB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 66.3,
+      "extension_peak_history_v2": -0.48
+    },
+    "ARHS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 50.9,
+      "extension_peak_history_v2": 1.1
+    },
+    "ARLO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 89.7,
+      "extension_peak_history_v2": 0.72
+    },
+    "ARM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 70.1,
+      "extension_peak_history_v2": -1.44
+    },
+    "ARXS": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "electronic_components_manufacturing"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 53.7,
+      "extension_peak_history_v2": 2.63
+    },
+    "ASAN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 3.2,
+      "extension_peak_history_v2": 5.45
+    },
+    "ASM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 25.5,
+      "extension_peak_history_v2": 4.52
+    },
+    "ASST": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 98.8,
+      "extension_peak_history_v2": 11.46
+    },
+    "ASTH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 71.7,
+      "extension_peak_history_v2": -1.36
+    },
+    "ASTS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 78.6,
+      "extension_peak_history_v2": -1.08
+    },
+    "ATEX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 10.5,
+      "extension_peak_history_v2": -0.04
+    },
+    "ATLC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 59.0,
+      "extension_peak_history_v2": -0.64
+    },
+    "ATRO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 51.5,
+      "extension_peak_history_v2": 0.26
+    },
+    "AUGO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 34.5,
+      "extension_peak_history_v2": 7.88
+    },
+    "AUR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.4,
+      "extension_peak_history_v2": 0.02
+    },
+    "AVAV": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 36.8,
+      "extension_peak_history_v2": -0.91
+    },
+    "AXON": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 3.0,
+      "extension_peak_history_v2": 2.0
+    },
+    "AXTI": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "photonics_optical"
+      ],
+      "rs_1w": 34.1,
+      "extension_peak_history_v2": -0.07
+    },
+    "AYA": {
+      "quality_state": "leader",
+      "leader_age_days": 12,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "gold___precious_metals_miners"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 48.1,
+      "extension_peak_history_v2": 6.5
+    },
+    "AZTA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 22.4,
+      "extension_peak_history_v2": 3.46
+    },
+    "BAND": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 3.6,
+      "extension_peak_history_v2": -1.51
+    },
+    "BBAI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 12.3,
+      "extension_peak_history_v2": 0.06
+    },
+    "BBAR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 79.4,
+      "extension_peak_history_v2": -3.01
+    },
+    "BBWI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 60.2,
+      "extension_peak_history_v2": -0.52
+    },
+    "BE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 98.2,
+      "extension_peak_history_v2": 1.85
+    },
+    "BETA": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 80.6,
+      "extension_peak_history_v2": 1.24
+    },
+    "BGSI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 85.1,
+      "extension_peak_history_v2": -1.79
+    },
+    "BH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 61.8,
+      "extension_peak_history_v2": 0.19
+    },
+    "BILL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 57.4,
+      "extension_peak_history_v2": 3.42
+    },
+    "BIRK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "apparel_retail"
+      ],
+      "rs_1w": 26.3,
+      "extension_peak_history_v2": -2.13
+    },
+    "BJRI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 23.0,
+      "extension_peak_history_v2": -1.79
+    },
+    "BL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 42.8,
+      "extension_peak_history_v2": 2.84
+    },
+    "BLBD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 87.3,
+      "extension_peak_history_v2": -2.74
+    },
+    "BLSH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 93.9,
+      "extension_peak_history_v2": 7.04
+    },
+    "BMA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 74.5,
+      "extension_peak_history_v2": -2.01
+    },
+    "BMNR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 53.9,
+      "extension_peak_history_v2": 8.41
+    },
+    "BOBS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 68.9,
+      "extension_peak_history_v2": 1.18
+    },
+    "BORR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "oil_gas_services_equipment"
+      ],
+      "rs_1w": 61.4,
+      "extension_peak_history_v2": 2.84
+    },
+    "BRAI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 91.9,
+      "extension_peak_history_v2": 0.5
+    },
+    "BRBR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 47.1,
+      "extension_peak_history_v2": -1.96
+    },
+    "BRKR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 63.6,
+      "extension_peak_history_v2": 0.23
+    },
+    "BRUN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure"
+      ],
+      "rs_1w": 5.1,
+      "extension_peak_history_v2": -1.59
+    },
+    "BRZE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 12.5,
+      "extension_peak_history_v2": 7.89
+    },
+    "BTDR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 98.0,
+      "extension_peak_history_v2": 0.9
+    },
+    "BTU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 51.1,
+      "extension_peak_history_v2": 5.8
+    },
+    "BULL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 76.8,
+      "extension_peak_history_v2": 4.57
+    },
+    "BVC": {
+      "quality_state": "leader",
+      "leader_age_days": 13,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 99.6,
+      "extension_peak_history_v2": 2.7
+    },
+    "BW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 29.3,
+      "extension_peak_history_v2": -2.57
+    },
+    "BZ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 21.0,
+      "extension_peak_history_v2": 3.82
+    },
+    "CAMT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 77.6,
+      "extension_peak_history_v2": -0.28
+    },
+    "CAVA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 7.7,
+      "extension_peak_history_v2": -0.55
+    },
+    "CBRL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 43.0,
+      "extension_peak_history_v2": 0.39
+    },
+    "CBRS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 97.8,
+      "extension_peak_history_v2": 0.5
+    },
+    "CCC": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "software_saas"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 55.8,
+      "extension_peak_history_v2": 5.29
+    },
+    "CDE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 35.4,
+      "extension_peak_history_v2": 6.79
+    },
+    "CDW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 56.8,
+      "extension_peak_history_v2": 2.97
+    },
+    "CECO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 83.8,
+      "extension_peak_history_v2": -0.51
+    },
+    "CELH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 19.4,
+      "extension_peak_history_v2": 1.98
+    },
+    "CENX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "specialty_metals_advanced_materials"
+      ],
+      "rs_1w": 65.9,
+      "extension_peak_history_v2": 0.81
+    },
+    "CHRN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 28.5,
+      "extension_peak_history_v2": -0.3
+    },
+    "CHTR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 74.7,
+      "extension_peak_history_v2": 2.5
+    },
+    "CIEN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 1.8,
+      "extension_peak_history_v2": -0.74
+    },
+    "CIFR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 94.1,
+      "extension_peak_history_v2": -1.09
+    },
+    "CLBT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 17.6,
+      "extension_peak_history_v2": -1.55
+    },
+    "CLF": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 82.4,
+      "extension_peak_history_v2": 2.49
+    },
+    "CLMT": {
+      "quality_state": "leader",
+      "leader_age_days": 15,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 95.4,
+      "extension_peak_history_v2": 5.39
+    },
+    "CLS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 59.4,
+      "extension_peak_history_v2": -0.88
+    },
+    "CLSK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 81.0,
+      "extension_peak_history_v2": -0.39
+    },
+    "CLVT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 73.3,
+      "extension_peak_history_v2": 0.35
+    },
+    "CNH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 99.8,
+      "extension_peak_history_v2": 7.27
+    },
+    "CNL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 86.1,
+      "extension_peak_history_v2": 4.55
+    },
+    "CNXC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 97.0,
+      "extension_peak_history_v2": 5.43
+    },
+    "COHR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 63.2,
+      "extension_peak_history_v2": -1.27
+    },
+    "COHU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 66.5,
+      "extension_peak_history_v2": -0.78
+    },
+    "COIN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
+      "rs_1w": 56.0,
+      "extension_peak_history_v2": 3.01
+    },
+    "COMP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 52.3,
+      "extension_peak_history_v2": -0.88
+    },
+    "CORZ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 84.6,
+      "extension_peak_history_v2": -2.42
+    },
+    "COTY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 78.0,
+      "extension_peak_history_v2": 2.13
+    },
+    "COUR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 7.5,
+      "extension_peak_history_v2": 3.62
+    },
+    "CRCL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 94.3,
+      "extension_peak_history_v2": 6.35
+    },
+    "CRCT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 37.2,
+      "extension_peak_history_v2": 5.11
+    },
+    "CRDO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure"
+      ],
+      "rs_1w": 0.2,
+      "extension_peak_history_v2": -0.31
+    },
+    "CRK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 79.8,
+      "extension_peak_history_v2": 4.14
+    },
+    "CRML": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 8.3,
+      "extension_peak_history_v2": 1.21
+    },
+    "CRSR": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 83.4,
+      "extension_peak_history_v2": 4.11
+    },
+    "CRWD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 49.5,
+      "extension_peak_history_v2": 3.25
+    },
+    "CRWV": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 79.6,
+      "extension_peak_history_v2": 0.77
+    },
+    "CSAN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 78.2,
+      "extension_peak_history_v2": 0.59
+    },
+    "CSGP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 40.0,
+      "extension_peak_history_v2": 1.54
+    },
+    "CVI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 94.5,
+      "extension_peak_history_v2": 6.23
+    },
+    "CVNA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 49.9,
+      "extension_peak_history_v2": 2.42
+    },
+    "CXM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 0.4,
+      "extension_peak_history_v2": 2.07
+    },
+    "CXW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 76.2,
+      "extension_peak_history_v2": 2.49
+    },
+    "CYD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 18.8,
+      "extension_peak_history_v2": -2.49
+    },
+    "DAO": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 10.7,
+      "extension_peak_history_v2": 1.14
+    },
+    "DAR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 74.3,
+      "extension_peak_history_v2": 2.27
+    },
+    "DAVE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 56.6,
+      "extension_peak_history_v2": 0.63
+    },
+    "DCH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 92.9,
+      "extension_peak_history_v2": 3.99
+    },
+    "DDOG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 5.5,
+      "extension_peak_history_v2": -0.28
+    },
+    "DDS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 80.0,
+      "extension_peak_history_v2": 3.61
+    },
+    "DELL": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 2,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "ai_infrastructure",
+        "data_center"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 95.6,
+      "extension_peak_history_v2": 3.47
+    },
+    "DFH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 25.3,
+      "extension_peak_history_v2": -0.74
+    },
+    "DIOD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 75.8,
+      "extension_peak_history_v2": -0.38
+    },
+    "DJT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "social_media_platform"
+      ],
+      "rs_1w": 15.4,
+      "extension_peak_history_v2": 2.19
+    },
+    "DK": {
+      "quality_state": "leader",
+      "leader_age_days": 14,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 63.8,
+      "extension_peak_history_v2": 3.88
+    },
+    "DKNG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 48.9,
+      "extension_peak_history_v2": -0.33
+    },
+    "DKS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 86.9,
+      "extension_peak_history_v2": -3.85
+    },
+    "DNN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 25.9,
+      "extension_peak_history_v2": 3.29
+    },
+    "DOCN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 26.5,
+      "extension_peak_history_v2": -1.13
+    },
+    "DOCS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 57.8,
+      "extension_peak_history_v2": 4.87
+    },
+    "DOCU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 84.8,
+      "extension_peak_history_v2": 5.97
+    },
+    "DUOL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 88.5,
+      "extension_peak_history_v2": 3.99
+    },
+    "DXC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 84.2,
+      "extension_peak_history_v2": 3.6
+    },
+    "DY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 52.5,
+      "extension_peak_history_v2": -4.2
+    },
+    "EAT": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 51.9,
+      "extension_peak_history_v2": 3.23
+    },
+    "ECG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 46.1,
+      "extension_peak_history_v2": -2.3
+    },
+    "EDN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 80.2,
+      "extension_peak_history_v2": 0.29
+    },
+    "EFOR": {
+      "quality_state": "leader",
+      "leader_age_days": 15,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 75.2,
+      "extension_peak_history_v2": 6.91
+    },
+    "EFXT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 92.3,
+      "extension_peak_history_v2": 0.06
+    },
+    "EMAT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 23.4,
+      "extension_peak_history_v2": -0.85
+    },
+    "ENTG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 41.4,
+      "extension_peak_history_v2": -0.43
+    },
+    "EOSE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 97.6,
+      "extension_peak_history_v2": -0.58
+    },
+    "EQPT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 90.1,
+      "extension_peak_history_v2": 0.75
+    },
+    "ERO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 6.3,
+      "extension_peak_history_v2": 7.76
+    },
+    "ESTC": {
+      "quality_state": "leader",
+      "leader_age_days": 6,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "software_saas"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 6.9,
+      "extension_peak_history_v2": 10.27
+    },
+    "ETOR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 77.8,
+      "extension_peak_history_v2": -1.75
+    },
+    "EVCM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 4.2,
+      "extension_peak_history_v2": -2.53
+    },
+    "EXK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 46.7,
+      "extension_peak_history_v2": 5.12
+    },
+    "EYE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 12.7,
+      "extension_peak_history_v2": -1.36
+    },
+    "EZPW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 35.6,
+      "extension_peak_history_v2": 2.24
+    },
+    "FA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 66.7,
+      "extension_peak_history_v2": 1.05
+    },
+    "FCEL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 1.0,
+      "extension_peak_history_v2": -1.22
+    },
+    "FIG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 0.8,
+      "extension_peak_history_v2": 5.82
+    },
+    "FIGR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 31.7,
+      "extension_peak_history_v2": 3.07
+    },
+    "FIGS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 30.3,
+      "extension_peak_history_v2": 7.69
+    },
+    "FIVN": {
+      "quality_state": "leader",
+      "leader_age_days": 14,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "software_saas"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 30.7,
+      "extension_peak_history_v2": 6.11
+    },
+    "FLNC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "solar_clean_energy"
+      ],
+      "rs_1w": 9.5,
+      "extension_peak_history_v2": -4.06
+    },
+    "FLO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 7.9,
+      "extension_peak_history_v2": -2.93
+    },
+    "FLUT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 83.6,
+      "extension_peak_history_v2": -0.01
+    },
+    "FLY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 72.7,
+      "extension_peak_history_v2": -1.26
+    },
+    "FMC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 99.2,
+      "extension_peak_history_v2": 4.88
+    },
+    "FN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 40.2,
+      "extension_peak_history_v2": -1.96
+    },
+    "FORM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 37.8,
+      "extension_peak_history_v2": -1.23
+    },
+    "FOUR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 82.2,
+      "extension_peak_history_v2": -0.81
+    },
+    "FPS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 62.4,
+      "extension_peak_history_v2": -3.24
+    },
+    "FRHC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 35.8,
+      "extension_peak_history_v2": 2.89
+    },
+    "FRMI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "data_center"
+      ],
+      "rs_1w": 34.3,
+      "extension_peak_history_v2": -2.36
+    },
+    "FROG": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 3.8,
+      "extension_peak_history_v2": 3.23
+    },
+    "FRVO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 98.4,
+      "extension_peak_history_v2": -1.8
+    },
+    "FSLY": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 2.8,
+      "extension_peak_history_v2": 1.58
+    },
+    "FTAI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 49.7,
+      "extension_peak_history_v2": -1.56
+    },
+    "FUN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 40.6,
+      "extension_peak_history_v2": -2.52
+    },
+    "GCT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 64.0,
+      "extension_peak_history_v2": 6.44
+    },
+    "GDS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "data_center"
+      ],
+      "rs_1w": 20.6,
+      "extension_peak_history_v2": 0.99
+    },
+    "GENI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 11.9,
+      "extension_peak_history_v2": 3.33
+    },
+    "GGAL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 82.0,
+      "extension_peak_history_v2": -1.52
+    },
+    "GHM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 33.5,
+      "extension_peak_history_v2": -2.51
+    },
+    "GLOB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
+      "rs_1w": 31.3,
+      "extension_peak_history_v2": 3.48
+    },
+    "GLW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 77.2,
+      "extension_peak_history_v2": -1.44
+    },
+    "GLXY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 90.5,
+      "extension_peak_history_v2": 2.03
+    },
+    "GO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 80.4,
+      "extension_peak_history_v2": 5.02
+    },
+    "GOLD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 68.3,
+      "extension_peak_history_v2": 1.49
+    },
+    "GPGI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 81.4,
+      "extension_peak_history_v2": -0.04
+    },
+    "GPRE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 93.1,
+      "extension_peak_history_v2": -0.75
+    },
+    "GRDN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 94.9,
+      "extension_peak_history_v2": 0.72
+    },
+    "GSHD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 11.7,
+      "extension_peak_history_v2": 2.16
+    },
+    "GTLB": {
+      "quality_state": "fresh_leader",
+      "leader_age_days": 3,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.2,
+      "extension_peak_history_v2": 7.5
+    },
+    "GTM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 40.8,
+      "extension_peak_history_v2": 4.52
+    },
+    "GWRE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 1.2,
+      "extension_peak_history_v2": 0.16
+    },
+    "HAWK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace"
+      ],
+      "rs_1w": 2.6,
+      "extension_peak_history_v2": -0.36
+    },
+    "HCC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 31.5,
+      "extension_peak_history_v2": 5.65
+    },
+    "HL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 36.6,
+      "extension_peak_history_v2": 6.77
+    },
+    "HLF": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 53.5,
+      "extension_peak_history_v2": 0.35
+    },
+    "HNGE": {
+      "quality_state": "leader",
+      "leader_age_days": 7,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 66.1,
+      "extension_peak_history_v2": 2.44
+    },
+    "HOOD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.6,
+      "extension_peak_history_v2": 3.87
+    },
+    "HPE": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "ai_infrastructure",
+        "data_center"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 43.8,
+      "extension_peak_history_v2": 1.73
+    },
+    "HPK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 67.5,
+      "extension_peak_history_v2": 2.53
+    },
+    "HPQ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 89.9,
+      "extension_peak_history_v2": 4.63
+    },
+    "HRI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 9.7,
+      "extension_peak_history_v2": 0.15
+    },
+    "HSAI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 91.3,
+      "extension_peak_history_v2": 1.88
+    },
+    "HSLV": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 61.0,
+      "extension_peak_history_v2": 4.57
+    },
+    "HUBG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 11.5,
+      "extension_peak_history_v2": -1.83
+    },
+    "HUBS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 28.1,
+      "extension_peak_history_v2": 3.95
+    },
+    "HUT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 94.7,
+      "extension_peak_history_v2": -0.32
+    },
+    "HYMC": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
+      "rs_1w": 5.7,
+      "extension_peak_history_v2": 1.78
+    },
+    "IAUX": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "gold___precious_metals_miners"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 21.2,
+      "extension_peak_history_v2": 6.25
+    },
+    "ICHR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 54.3,
+      "extension_peak_history_v2": -4.0
+    },
+    "IE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "copper_base_metals_mining"
+      ],
+      "rs_1w": 4.4,
+      "extension_peak_history_v2": 3.66
+    },
+    "IESC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 51.7,
+      "extension_peak_history_v2": -2.75
+    },
+    "INFQ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "quantum_computing"
+      ],
+      "rs_1w": 13.1,
+      "extension_peak_history_v2": 2.74
+    },
+    "INOD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
+      "rs_1w": 32.3,
+      "extension_peak_history_v2": -2.01
+    },
+    "INTA": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 27.5,
+      "extension_peak_history_v2": 10.12
+    },
+    "INTC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 85.7,
+      "extension_peak_history_v2": -1.13
+    },
+    "INTR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 87.1,
+      "extension_peak_history_v2": 1.65
+    },
+    "INTU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 33.3,
+      "extension_peak_history_v2": 2.11
+    },
+    "IONQ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 41.2,
+      "extension_peak_history_v2": -0.69
+    },
+    "IOT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 30.1,
+      "extension_peak_history_v2": 3.25
+    },
+    "IPGP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 46.5,
+      "extension_peak_history_v2": -2.85
+    },
+    "IREN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 99.4,
+      "extension_peak_history_v2": 1.59
+    },
+    "IT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
+      "rs_1w": 22.6,
+      "extension_peak_history_v2": 6.43
+    },
+    "JOBY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 27.9,
+      "extension_peak_history_v2": -2.14
+    },
+    "KALU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 79.0,
+      "extension_peak_history_v2": -0.47
+    },
+    "KD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 48.3,
+      "extension_peak_history_v2": 1.56
+    },
+    "KEEL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 82.6,
+      "extension_peak_history_v2": -1.48
+    },
+    "KGS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 88.1,
+      "extension_peak_history_v2": -0.26
+    },
+    "KLAR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
+      "rs_1w": 38.6,
+      "extension_peak_history_v2": -2.56
+    },
+    "KLIC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 52.7,
+      "extension_peak_history_v2": -3.43
+    },
+    "KOS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 48.5,
+      "extension_peak_history_v2": 4.05
+    },
+    "KRMN": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace"
+      ],
+      "rs_1w": 4.8,
+      "extension_peak_history_v2": -1.45
+    },
+    "KSS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 90.7,
+      "extension_peak_history_v2": 1.15
+    },
+    "KTOS": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace"
+      ],
+      "rs_1w": 8.9,
+      "extension_peak_history_v2": 0.3
+    },
+    "KVYO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 12.1,
+      "extension_peak_history_v2": 3.53
+    },
+    "LAC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "ev_battery"
+      ],
+      "rs_1w": 25.1,
+      "extension_peak_history_v2": -0.64
+    },
+    "LAR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 39.0,
+      "extension_peak_history_v2": 0.29
+    },
+    "LASR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "photonics_optical"
+      ],
+      "rs_1w": 11.3,
+      "extension_peak_history_v2": -4.0
+    },
+    "LB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 41.8,
+      "extension_peak_history_v2": 3.5
+    },
+    "LBRT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 92.7,
+      "extension_peak_history_v2": -0.89
+    },
+    "LBTYB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 38.0,
+      "extension_peak_history_v2": 0.7
+    },
+    "LCID": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "ev_battery"
+      ],
+      "rs_1w": 15.6,
+      "extension_peak_history_v2": -2.38
+    },
+    "LEU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "uranium"
+      ],
+      "rs_1w": 9.9,
+      "extension_peak_history_v2": 1.57
+    },
+    "LGN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "construction_engineering_services"
+      ],
+      "rs_1w": 24.4,
+      "extension_peak_history_v2": -2.76
+    },
+    "LIF": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 65.5,
+      "extension_peak_history_v2": -2.04
+    },
+    "LIFE": {
+      "quality_state": "leader",
+      "leader_age_days": 14,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 62.6,
+      "extension_peak_history_v2": 10.1
+    },
+    "LIND": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 4.0,
+      "extension_peak_history_v2": -2.33
+    },
+    "LITE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 30.5,
+      "extension_peak_history_v2": 1.77
+    },
+    "LU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
+      "rs_1w": 44.4,
+      "extension_peak_history_v2": -1.52
+    },
+    "LUMN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 95.8,
+      "extension_peak_history_v2": 1.31
+    },
+    "LUNR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "space"
+      ],
+      "rs_1w": 22.2,
+      "extension_peak_history_v2": -0.51
+    },
+    "LUXE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 60.4,
+      "extension_peak_history_v2": -0.36
+    },
+    "LZ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 55.6,
+      "extension_peak_history_v2": -0.74
+    },
+    "MAAS": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 40.4,
+      "extension_peak_history_v2": 0.55
+    },
+    "MAIR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 29.1,
+      "extension_peak_history_v2": -2.53
+    },
+    "MARA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "crypto_mining_digital_asset_treasury"
+      ],
+      "rs_1w": 63.4,
+      "extension_peak_history_v2": 0.1
+    },
+    "MDA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 50.5,
+      "extension_peak_history_v2": -2.25
+    },
+    "MDB": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 1.6,
+      "extension_peak_history_v2": 4.98
+    },
+    "MGRT": {
+      "quality_state": "leader",
+      "leader_age_days": 4,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 97.4,
+      "extension_peak_history_v2": 5.07
+    },
+    "MH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 55.2,
+      "extension_peak_history_v2": 4.53
+    },
+    "MIAX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 36.4,
+      "extension_peak_history_v2": 1.17
+    },
+    "MNDY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 9.1,
+      "extension_peak_history_v2": 3.98
+    },
+    "MNTN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 62.0,
+      "extension_peak_history_v2": 3.63
+    },
+    "MOD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 88.3,
+      "extension_peak_history_v2": -1.62
+    },
+    "MOS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 91.7,
+      "extension_peak_history_v2": 3.55
+    },
+    "MP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 19.0,
+      "extension_peak_history_v2": 2.27
+    },
+    "MRCY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace"
+      ],
+      "rs_1w": 14.3,
+      "extension_peak_history_v2": -2.49
+    },
+    "MRVL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 64.4,
+      "extension_peak_history_v2": 0.17
+    },
+    "MRX": {
+      "quality_state": "leader",
+      "leader_age_days": 4,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 92.5,
+      "extension_peak_history_v2": 4.09
+    },
+    "MSTR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 88.9,
+      "extension_peak_history_v2": 6.31
+    },
+    "MTRN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 49.3,
+      "extension_peak_history_v2": -0.51
+    },
+    "MTSI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 57.0,
+      "extension_peak_history_v2": -1.29
+    },
+    "MTZ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "construction_engineering_services"
+      ],
+      "rs_1w": 30.9,
+      "extension_peak_history_v2": -4.22
+    },
+    "MU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 95.2,
+      "extension_peak_history_v2": 1.82
+    },
+    "MWH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "solar_clean_energy"
+      ],
+      "rs_1w": 10.3,
+      "extension_peak_history_v2": -1.06
+    },
+    "MXL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 70.3,
+      "extension_peak_history_v2": -2.31
+    },
+    "MYRG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "construction_engineering_services"
+      ],
+      "rs_1w": 20.8,
+      "extension_peak_history_v2": -4.32
+    },
+    "NBIS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 90.3,
+      "extension_peak_history_v2": 0.92
+    },
+    "NBR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "oil_gas_services_equipment"
+      ],
+      "rs_1w": 65.1,
+      "extension_peak_history_v2": 2.96
+    },
+    "NCNO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 59.6,
+      "extension_peak_history_v2": 6.48
+    },
+    "NEO": {
+      "quality_state": "leader",
+      "leader_age_days": 10,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 23.6,
+      "extension_peak_history_v2": 5.65
+    },
+    "NESR": {
+      "quality_state": "leader",
+      "leader_age_days": 6,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "oil_gas_services_equipment"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 67.7,
+      "extension_peak_history_v2": 3.91
+    },
+    "NET": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 14.5,
+      "extension_peak_history_v2": 2.13
+    },
+    "NEWP": {
+      "quality_state": "leader",
+      "leader_age_days": 11,
+      "exit_streak": 1,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 2.4,
+      "extension_peak_history_v2": 2.14
+    },
+    "NEXA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 43.6,
+      "extension_peak_history_v2": 0.76
+    },
+    "NEXT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 52.1,
+      "extension_peak_history_v2": 1.11
+    },
+    "NG": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "gold___precious_metals_miners"
+      ],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
+      "rs_1w": 7.3,
+      "extension_peak_history_v2": 6.77
+    },
+    "NGL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 58.6,
+      "extension_peak_history_v2": 3.69
+    },
+    "NIQ": {
+      "quality_state": "leader",
+      "leader_age_days": 10,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 23.8,
+      "extension_peak_history_v2": 13.53
+    },
+    "NMAX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 67.9,
+      "extension_peak_history_v2": 3.23
+    },
+    "NN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 45.7,
+      "extension_peak_history_v2": 0.03
+    },
+    "NOW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 65.3,
+      "extension_peak_history_v2": 7.31
+    },
+    "NSP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 56.4,
+      "extension_peak_history_v2": 2.3
+    },
+    "NSSC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 86.3,
+      "extension_peak_history_v2": -0.12
+    },
+    "NTAP": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "memory_storage",
+        "data_center"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 42.6,
+      "extension_peak_history_v2": 0.93
+    },
+    "NTSK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 21.4,
+      "extension_peak_history_v2": 3.13
+    },
+    "NU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 85.3,
+      "extension_peak_history_v2": 2.76
+    },
+    "NUTX": {
+      "quality_state": "leader",
+      "leader_age_days": 11,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 68.5,
+      "extension_peak_history_v2": 3.22
+    },
+    "NVTS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 43.2,
+      "extension_peak_history_v2": -1.28
+    },
+    "NWL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 67.3,
+      "extension_peak_history_v2": 2.56
+    },
+    "OI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 50.3,
+      "extension_peak_history_v2": -2.57
+    },
+    "OKLO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 43.4,
+      "extension_peak_history_v2": -1.0
+    },
+    "OKTA": {
+      "quality_state": "leader",
+      "leader_age_days": 6,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "cybersecurity"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 63.0,
+      "extension_peak_history_v2": 3.99
+    },
+    "OLLI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 92.1,
+      "extension_peak_history_v2": 1.26
+    },
+    "ONDS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 9.3,
+      "extension_peak_history_v2": 0.62
+    },
+    "ONTO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "photonics_optical"
+      ],
+      "rs_1w": 20.0,
+      "extension_peak_history_v2": -0.69
+    },
+    "OPEN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "real_estate_marketplace_platform"
+      ],
+      "rs_1w": 17.2,
+      "extension_peak_history_v2": -2.86
+    },
+    "OUST": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 75.4,
+      "extension_peak_history_v2": -1.64
+    },
+    "P": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 74.1,
+      "extension_peak_history_v2": 2.13
+    },
+    "PANW": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 10.9,
+      "extension_peak_history_v2": 2.32
+    },
+    "PARR": {
+      "quality_state": "leader",
+      "leader_age_days": 2,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 79.2,
+      "extension_peak_history_v2": 2.06
+    },
+    "PATH": {
+      "quality_state": "leader",
+      "leader_age_days": 16,
+      "exit_streak": 1,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 2.2,
+      "extension_peak_history_v2": 1.48
+    },
+    "PAY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 72.1,
+      "extension_peak_history_v2": 2.0
+    },
+    "PAYP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 97.2,
+      "extension_peak_history_v2": 2.77
+    },
+    "PBF": {
+      "quality_state": "leader",
+      "leader_age_days": 15,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 89.3,
+      "extension_peak_history_v2": 3.91
+    },
+    "PCT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 31.9,
+      "extension_peak_history_v2": -0.69
+    },
+    "PD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 73.5,
+      "extension_peak_history_v2": 5.12
+    },
+    "PDFS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 71.3,
+      "extension_peak_history_v2": -1.69
+    },
+    "PENG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "ai_infrastructure"
+      ],
+      "rs_1w": 64.2,
+      "extension_peak_history_v2": -2.01
+    },
+    "PGY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 47.3,
+      "extension_peak_history_v2": 5.25
+    },
+    "PI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 56.2,
+      "extension_peak_history_v2": 3.58
+    },
+    "PICS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 93.3,
+      "extension_peak_history_v2": 0.36
+    },
+    "PL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "space"
+      ],
+      "rs_1w": 5.9,
+      "extension_peak_history_v2": -2.98
+    },
+    "PLAB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 54.7,
+      "extension_peak_history_v2": -0.61
+    },
+    "PLBL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 12.9,
+      "extension_peak_history_v2": -1.64
+    },
+    "PLPC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 35.2,
+      "extension_peak_history_v2": 1.31
+    },
+    "PLTR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 20.4,
+      "extension_peak_history_v2": 5.35
+    },
+    "PLUG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 38.2,
+      "extension_peak_history_v2": -0.28
+    },
+    "POET": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 54.5,
+      "extension_peak_history_v2": -0.58
+    },
+    "PONY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 41.6,
+      "extension_peak_history_v2": 0.29
+    },
+    "POWI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 18.2,
+      "extension_peak_history_v2": -3.91
+    },
+    "PPTA": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "gold___precious_metals_miners"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 39.2,
+      "extension_peak_history_v2": 4.56
+    },
+    "PRCH": {
+      "quality_state": "leader",
+      "leader_age_days": 11,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 73.7,
+      "extension_peak_history_v2": 4.89
+    },
+    "PS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 19.6,
+      "extension_peak_history_v2": 3.28
+    },
+    "PSNY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "ev_battery"
+      ],
+      "rs_1w": 0.6,
+      "extension_peak_history_v2": -3.76
+    },
+    "PTEN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 71.9,
+      "extension_peak_history_v2": 6.12
+    },
+    "PTRN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform"
+      ],
+      "rs_1w": 18.6,
+      "extension_peak_history_v2": -1.76
+    },
+    "PUMP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 81.8,
+      "extension_peak_history_v2": -0.96
+    },
+    "PURR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 42.0,
+      "extension_peak_history_v2": 7.5
+    },
+    "PWP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 45.5,
+      "extension_peak_history_v2": 1.41
+    },
+    "QBTS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 33.1,
+      "extension_peak_history_v2": -1.99
+    },
+    "QFIN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 70.7,
+      "extension_peak_history_v2": -4.48
+    },
+    "QLYS": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 16.4,
+      "extension_peak_history_v2": 4.51
+    },
+    "QNST": {
+      "quality_state": "leader",
+      "leader_age_days": 11,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 51.3,
+      "extension_peak_history_v2": 3.57
+    },
+    "QUBT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 22.0,
+      "extension_peak_history_v2": -0.32
+    },
+    "QXO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 26.7,
+      "extension_peak_history_v2": -1.1
+    },
+    "RBLX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.8,
+      "extension_peak_history_v2": -1.01
+    },
+    "RBRK": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "cybersecurity"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 16.8,
+      "extension_peak_history_v2": 3.34
+    },
+    "RCAT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "defense_aerospace"
+      ],
+      "rs_1w": 15.8,
+      "extension_peak_history_v2": -0.05
+    },
+    "RDDT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 58.2,
+      "extension_peak_history_v2": -1.18
+    },
+    "RDVT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 84.4,
+      "extension_peak_history_v2": 3.5
+    },
+    "RDW": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "space"
+      ],
+      "rs_1w": 32.7,
+      "extension_peak_history_v2": 0.11
+    },
+    "REAL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "e_commerce_platform"
+      ],
+      "rs_1w": 8.7,
+      "extension_peak_history_v2": -0.97
+    },
+    "RELY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 69.9,
+      "extension_peak_history_v2": 3.06
+    },
+    "REZI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 57.6,
+      "extension_peak_history_v2": -4.57
+    },
+    "RGC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 100.0,
+      "extension_peak_history_v2": 2.76
+    },
+    "RGTI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 26.1,
+      "extension_peak_history_v2": -0.75
+    },
+    "RH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 68.7,
+      "extension_peak_history_v2": -2.25
+    },
+    "RHLD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 76.6,
+      "extension_peak_history_v2": 0.56
+    },
+    "RIOT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 93.7,
+      "extension_peak_history_v2": 0.46
+    },
+    "RKLB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "space"
+      ],
+      "rs_1w": 44.0,
+      "extension_peak_history_v2": -2.45
+    },
+    "RMIX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 26.9,
+      "extension_peak_history_v2": -1.46
+    },
+    "RNG": {
+      "quality_state": "leader",
+      "leader_age_days": 15,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 85.9,
+      "extension_peak_history_v2": 11.18
+    },
+    "RUM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 11.1,
+      "extension_peak_history_v2": 4.62
+    },
+    "RUN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 50.1,
+      "extension_peak_history_v2": -3.24
+    },
+    "RXO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 14.9,
+      "extension_peak_history_v2": -1.86
+    },
+    "RYZ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 72.5,
+      "extension_peak_history_v2": -0.63
+    },
+    "S": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 19.2,
+      "extension_peak_history_v2": 2.63
+    },
+    "SA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
+      "rs_1w": 23.2,
+      "extension_peak_history_v2": 3.54
+    },
+    "SAIA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 61.2,
+      "extension_peak_history_v2": -1.8
+    },
+    "SAIL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "cybersecurity"
+      ],
+      "rs_1w": 14.1,
+      "extension_peak_history_v2": 5.18
+    },
+    "SBET": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 70.9,
+      "extension_peak_history_v2": 7.41
+    },
+    "SCSC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 69.5,
+      "extension_peak_history_v2": 1.44
+    },
+    "SEDG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 84.0,
+      "extension_peak_history_v2": -3.46
+    },
+    "SEI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 87.7,
+      "extension_peak_history_v2": -1.31
+    },
+    "SEZL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
+      "rs_1w": 16.6,
+      "extension_peak_history_v2": -3.09
+    },
+    "SGML": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 37.0,
+      "extension_peak_history_v2": 2.32
+    },
+    "SHAZ": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 81.2,
+      "extension_peak_history_v2": -1.3
+    },
+    "SHLS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 36.0,
+      "extension_peak_history_v2": -3.01
+    },
+    "SID": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 99.0,
+      "extension_peak_history_v2": 5.15
+    },
+    "SIMO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 75.6,
+      "extension_peak_history_v2": -0.72
+    },
+    "SITM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 85.5,
+      "extension_peak_history_v2": 0.05
+    },
+    "SLSR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 15.2,
+      "extension_peak_history_v2": 2.67
+    },
+    "SMCI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 74.9,
+      "extension_peak_history_v2": 4.35
+    },
+    "SMR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 58.4,
+      "extension_peak_history_v2": 1.07
+    },
+    "SMTC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 88.7,
+      "extension_peak_history_v2": 1.52
+    },
+    "SNAP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 55.4,
+      "extension_peak_history_v2": 2.47
+    },
+    "SNDK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 98.6,
+      "extension_peak_history_v2": 1.98
+    },
+    "SONO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 69.3,
+      "extension_peak_history_v2": 1.81
+    },
+    "SOUN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 20.2,
+      "extension_peak_history_v2": 1.77
+    },
+    "SPCX": {
+      "quality_state": "leader",
+      "leader_age_days": 15,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "space"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 86.5,
+      "extension_peak_history_v2": 2.45
+    },
+    "SPHR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 53.3,
+      "extension_peak_history_v2": -1.14
+    },
+    "STAA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 89.1,
+      "extension_peak_history_v2": -1.54
+    },
+    "STEP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 67.1,
+      "extension_peak_history_v2": 3.7
+    },
+    "STNE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 91.1,
+      "extension_peak_history_v2": -0.41
+    },
+    "STRL": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 45.3,
+      "extension_peak_history_v2": -3.33
+    },
+    "STUB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 64.6,
+      "extension_peak_history_v2": -4.25
+    },
+    "STX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 70.5,
+      "extension_peak_history_v2": -0.09
+    },
+    "SVM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 17.0,
+      "extension_peak_history_v2": 5.84
+    },
+    "SWKS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 96.0,
+      "extension_peak_history_v2": 3.56
+    },
+    "TDTH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "it_services_consulting"
+      ],
+      "rs_1w": 29.7,
+      "extension_peak_history_v2": -0.87
+    },
+    "TE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "solar_clean_energy"
+      ],
+      "rs_1w": 13.3,
+      "extension_peak_history_v2": -2.28
+    },
+    "TEAM": {
+      "quality_state": "leader",
+      "leader_age_days": 16,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 58.0,
+      "extension_peak_history_v2": 14.65
+    },
+    "TEM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 14.7,
+      "extension_peak_history_v2": 4.26
+    },
+    "TENB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 13.5,
+      "extension_peak_history_v2": 1.34
+    },
+    "TER": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 42.4,
+      "extension_peak_history_v2": -0.61
+    },
+    "TGB": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 6.5,
+      "extension_peak_history_v2": 6.25
+    },
+    "TH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 72.3,
+      "extension_peak_history_v2": 2.43
+    },
+    "TIC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 28.3,
+      "extension_peak_history_v2": 4.25
+    },
+    "TLN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 83.2,
+      "extension_peak_history_v2": -1.93
+    },
+    "TMC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 3.4,
+      "extension_peak_history_v2": 3.77
+    },
+    "TOP": {
+      "quality_state": "leader",
+      "leader_age_days": 11,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 34.9,
+      "extension_peak_history_v2": 6.69
+    },
+    "TSEM": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 76.4,
+      "extension_peak_history_v2": -0.68
+    },
+    "TTAN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 5.3,
+      "extension_peak_history_v2": 5.43
+    },
+    "TTD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 90.9,
+      "extension_peak_history_v2": -2.59
+    },
+    "TTI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "oil_gas_services_equipment"
+      ],
+      "rs_1w": 66.9,
+      "extension_peak_history_v2": -3.72
+    },
+    "TTMI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 77.4,
+      "extension_peak_history_v2": -0.99
+    },
+    "TWLO": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [
+        "software_saas"
+      ],
+      "laggard_narratives": [],
+      "rs_1w": 38.4,
+      "extension_peak_history_v2": 3.34
+    },
+    "TXG": {
+      "quality_state": "leader",
+      "leader_age_days": 15,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 46.3,
+      "extension_peak_history_v2": 6.05
+    },
+    "UCTT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 59.8,
+      "extension_peak_history_v2": -2.91
+    },
+    "UEC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "uranium"
+      ],
+      "rs_1w": 4.6,
+      "extension_peak_history_v2": 5.17
+    },
+    "UI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 41.0,
+      "extension_peak_history_v2": 1.58
+    },
+    "ULCC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 62.8,
+      "extension_peak_history_v2": -2.38
+    },
+    "UMAC": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 28.7,
+      "extension_peak_history_v2": 0.89
+    },
+    "UPST": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "fintech"
+      ],
+      "rs_1w": 7.1,
+      "extension_peak_history_v2": 0.64
+    },
+    "UPWK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 47.9,
+      "extension_peak_history_v2": 0.87
+    },
+    "UROY": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 80.8,
+      "extension_peak_history_v2": 6.45
+    },
+    "USAR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "specialty_metals_advanced_materials"
+      ],
+      "rs_1w": 16.2,
+      "extension_peak_history_v2": 0.72
+    },
+    "USAS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "gold___precious_metals_miners"
+      ],
+      "rs_1w": 21.6,
+      "extension_peak_history_v2": 4.71
+    },
+    "UTI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 60.6,
+      "extension_peak_history_v2": -5.66
+    },
+    "UUUU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 17.4,
+      "extension_peak_history_v2": 2.6
+    },
+    "UWMC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 45.1,
+      "extension_peak_history_v2": -2.33
+    },
+    "VAC": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 29.9,
+      "extension_peak_history_v2": 0.3
+    },
+    "VECO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "semiconductors"
+      ],
+      "rs_1w": 39.6,
+      "extension_peak_history_v2": -2.76
+    },
+    "VERX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 32.9,
+      "extension_peak_history_v2": 4.01
+    },
+    "VG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 64.8,
+      "extension_peak_history_v2": 3.94
+    },
+    "VIA": {
+      "quality_state": "leader",
+      "leader_age_days": 14,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 50.7,
+      "extension_peak_history_v2": 8.35
+    },
+    "VIAV": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 18.0,
+      "extension_peak_history_v2": -1.31
+    },
+    "VICR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "electronic_components_manufacturing"
+      ],
+      "rs_1w": 32.1,
+      "extension_peak_history_v2": -2.67
+    },
+    "VIRT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 33.9,
+      "extension_peak_history_v2": 2.41
+    },
+    "VNET": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "data_center"
+      ],
+      "rs_1w": 27.7,
+      "extension_peak_history_v2": -1.63
+    },
+    "VOYG": {
+      "quality_state": "recent_leader",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 58.8,
+      "extension_peak_history_v2": 0.5
+    },
+    "VRNS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 83.0,
+      "extension_peak_history_v2": 1.66
+    },
+    "VRT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 87.9,
+      "extension_peak_history_v2": -0.19
+    },
+    "VSAT": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 89.5,
+      "extension_peak_history_v2": -0.12
+    },
+    "VSEC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 16.0,
+      "extension_peak_history_v2": 0.58
+    },
+    "VSH": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 68.1,
+      "extension_peak_history_v2": -2.98
+    },
+    "VYX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 54.9,
+      "extension_peak_history_v2": 3.24
+    },
+    "VZLA": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 36.2,
+      "extension_peak_history_v2": 5.13
+    },
+    "W": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 27.1,
+      "extension_peak_history_v2": 2.72
+    },
+    "WBTN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 62.2,
+      "extension_peak_history_v2": 0.99
+    },
+    "WDAY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 72.9,
+      "extension_peak_history_v2": 6.8
+    },
+    "WDC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 69.7,
+      "extension_peak_history_v2": -1.34
+    },
+    "WEN": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 65.7,
+      "extension_peak_history_v2": 0.97
+    },
+    "WHR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 44.8,
+      "extension_peak_history_v2": 0.96
+    },
+    "WING": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 45.9,
+      "extension_peak_history_v2": -2.76
+    },
+    "WIX": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "software_saas"
+      ],
+      "rs_1w": 6.7,
+      "extension_peak_history_v2": 3.02
+    },
+    "WK": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 47.5,
+      "extension_peak_history_v2": 8.47
+    },
+    "WLFC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 73.9,
+      "extension_peak_history_v2": -3.68
+    },
+    "WOLF": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 91.5,
+      "extension_peak_history_v2": -0.87
+    },
+    "WRBY": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "apparel_retail"
+      ],
+      "rs_1w": 28.9,
+      "extension_peak_history_v2": -0.82
+    },
+    "WRD": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 46.9,
+      "extension_peak_history_v2": 0.87
+    },
+    "WS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 82.8,
+      "extension_peak_history_v2": 0.47
+    },
+    "WSC": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 27.3,
+      "extension_peak_history_v2": -3.76
+    },
+    "WULF": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 78.4,
+      "extension_peak_history_v2": -1.5
+    },
+    "WWW": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 77.0,
+      "extension_peak_history_v2": 2.57
+    },
+    "XE": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 54.1,
+      "extension_peak_history_v2": 0.26
+    },
+    "XMTR": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 38.8,
+      "extension_peak_history_v2": 1.08
+    },
+    "XNDU": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "quantum_computing"
+      ],
+      "rs_1w": 18.4,
+      "extension_peak_history_v2": -0.3
+    },
+    "XXI": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "crypto_mining_digital_asset_treasury"
+      ],
+      "rs_1w": 44.6,
+      "extension_peak_history_v2": 3.65
+    },
+    "XZO": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 61.6,
+      "extension_peak_history_v2": 0.72
+    },
+    "YELP": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 24.2,
+      "extension_peak_history_v2": -1.84
+    },
+    "YSS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 47.7,
+      "extension_peak_history_v2": -4.75
+    },
+    "Z": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 24.8,
+      "extension_peak_history_v2": 2.13
+    },
+    "ZETA": {
+      "quality_state": "leader",
+      "leader_age_days": 14,
+      "exit_streak": 0,
+      "extended": true,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [],
+      "rs_1w": 78.8,
+      "extension_peak_history_v2": 7.75
+    },
+    "ZG": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "real_estate_marketplace_platform"
+      ],
+      "rs_1w": 24.6,
+      "extension_peak_history_v2": 2.62
+    },
+    "ZS": {
+      "quality_state": "neutral",
+      "leader_age_days": 0,
+      "exit_streak": 0,
+      "extended": false,
+      "constructive_reset_narratives": [],
+      "laggard_narratives": [
+        "cybersecurity"
+      ],
+      "rs_1w": 13.7,
+      "extension_peak_history_v2": 4.31
+    }
+  }
+}

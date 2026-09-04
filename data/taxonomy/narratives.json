@@ -1366,7 +1366,7 @@
           "reason": "Akamai operates a content delivery network (CDN) leveraging distributed servers for internet traffic delivery.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1475,7 +1475,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "S": {
           "role": "core",
@@ -2622,7 +2622,7 @@
           "reason": "BlackSky operates satellite-based imaging and space intelligence services, fitting the Space narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2720,7 +2720,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "GEV": {
           "role": "core",
@@ -3009,7 +3009,7 @@
           "reason": "AEVEX Corp is a defense technology company providing navigation, autonomy and uncrewed systems for military applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3195,7 +3195,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AFRM": {
           "role": "core",
@@ -3281,7 +3281,7 @@
           "reason": "Chime Financial is a fintech providing digital banking services via technology platform in partnership with banks.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3599,7 +3599,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "CRSP": {
           "role": "core",
@@ -5153,7 +5153,7 @@
           "reason": "QuantumScape develops solid-state lithium-metal batteries for electric vehicles, directly matching EV/Battery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5218,7 +5218,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "SEDG": {
           "role": "core",
@@ -5282,7 +5282,7 @@
           "reason": "Nextpower provides solar tracker and software solutions for utility-scale and distributed solar projects, core solar/clean energy exposure.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5749,7 +5749,7 @@
           "reason": "Metalla Royalty & Streaming acquires and manages precious metal (and copper) royalties/streams, aligning with the precious metals mining/royalty economic exposure.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -5781,7 +5781,7 @@
           "reason": "Provides mechanical contracting services including HVAC, plumbing and electrical for commercial and industrial buildings.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6228,7 +6228,7 @@
           "reason": "Global IT services firm focused on platform engineering, software development and consulting.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6501,7 +6501,7 @@
           "reason": "Goodyear manufactures tires supplied to and used by vehicles across many end markets, an automotive component/parts business, though tires specifically warrant close review; no closer tire-specific narrative exists in catalog.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6927,7 +6927,7 @@
           "reason": "Select Water Solutions provides water management infrastructure and services to the energy/oilfield industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7309,7 +7309,7 @@
           "reason": "Construction Partners is a civil infrastructure company building and maintaining roadways, bridges, and airports.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7615,7 +7615,7 @@
           "reason": "Powell Industries designs and manufactures custom-engineered electrical distribution, control and monitoring equipment (switchgear) for industrial/utility customers. This is an industrial equipment manufacturer; no better-fitting existing category (e.g., HVAC, power generation equipment) captures switchgear specifically, but Industrial Machinery is the closest broad fit given the catalog lacks an electrical equipment/switchgear specific bucket.",
           "added_at": "2026-08-20",
           "last_reviewed_at": "2026-08-20",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7971,7 +7971,7 @@
           "reason": "Under Armour develops, markets and distributes athletic apparel, footwear and accessories, matching apparel retail definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7982,7 +7982,7 @@
           "reason": "Under Armour develops, markets and distributes athletic apparel, footwear and accessories, matching apparel retail definition (dual share class of same company as UA).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8004,7 +8004,7 @@
           "reason": "Wolverine World Wide designs, manufactures and distributes branded footwear, apparel and accessories - fits apparel/branded consumer goods retail category.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8387,7 +8387,7 @@
           "reason": "Native advertising network/platform connecting advertisers and publishers, classic adtech business model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8495,7 +8495,7 @@
           "reason": "Saia is a major less-than-truckload (LTL) trucking carrier providing freight transportation services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9137,7 +9137,7 @@
           "reason": "Rocket Companies is fundamentally a mortgage origination and servicing financial services company (Rocket Mortgage), a core lending/financial services business best captured by Banking/Financial Services given no more specific mortgage-lending narrative exists in the catalog.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9453,7 +9453,7 @@
           "reason": "Sanmina provides integrated electronics manufacturing solutions and components for communications, storage, industrial, defense and aerospace markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9573,7 +9573,7 @@
           "reason": "Same entity as BH (different share class) - Biglari Holdings owns restaurant, insurance, and oil & gas operating businesses, directly matching this diversified holding company narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -9911,7 +9911,7 @@
           "reason": "Branded functional hydration and beverage consumer products company selling coconut water and related products through retail channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10062,7 +10062,7 @@
           "reason": "Chemours produces industrial and specialty chemicals across multiple end markets, fitting a specialty chemicals manufacturer profile not covered in existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10117,7 +10117,7 @@
           "reason": "Perimeter Solutions manufactures fire retardants and firefighting foams, a specialty chemical product line serving fire safety end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10183,7 +10183,7 @@
           "reason": "Kronos Worldwide manufactures titanium dioxide pigments, a specialty/industrial chemical product, matching the specialty chemicals narrative definition directly (mentions titanium dioxide).",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10583,7 +10583,7 @@
           "reason": "Lyft operates a ridesharing marketplace connecting drivers and riders, a distinct business model not covered by the existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10692,7 +10692,7 @@
           "reason": "Covista operates accredited universities and medical/veterinary schools delivering healthcare-focused higher education - fits education content/publishing (curriculum and learning delivery) despite healthcare focus, since there's no dedicated for-profit university narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10810,7 +10810,7 @@
           "reason": "Paramount Skydance operates TV media (CBS, cable networks), filmed entertainment, and direct-to-consumer streaming - a textbook match for Media & Entertainment Conglomerate definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11036,7 +11036,7 @@
           "reason": "For-profit thrift store operator selling secondhand goods, distinct value retail model not matching existing apparel/home furnishings categories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11316,7 +11316,7 @@
           "reason": "e.l.f. Beauty makes and sells cosmetics/skincare products - no existing catalog narrative covers beauty/cosmetics products specifically (branded_nutrition_consumer_packaged_goods is food/nutrition-focused), warranting a new precise narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12095,7 +12095,7 @@
           "reason": "GoodRx operates a prescription price comparison and discount platform, a distinct digital healthcare consumer model.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12158,7 +12158,7 @@
           "reason": "Green Plains manufactures ethanol and byproducts from corn, a distinct biofuel production business model.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12517,7 +12517,7 @@
           "reason": "Versamet is a diversified metals royalty and streaming company with exposure across gold, silver, copper, zinc, graphite, uranium - a distinct royalty/streaming business model not covered by mining production narratives.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
