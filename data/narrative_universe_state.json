@@ -1,5 +1,5 @@
 {
-  "as_of_date": "2026-09-04",
+  "as_of_date": "2026-09-07",
   "eligible_count": 495,
   "classified_eligible_count": 439,
   "coverage_pct": 88.7,
@@ -61,48 +61,8 @@
     "WRD",
     "XMTR"
   ],
-  "reentered": [
-    "GPRE",
-    "SAIA",
-    "WWW"
-  ],
-  "exited": [
-    "AKAM",
-    "AVEX",
-    "BH.A",
-    "BKSY",
-    "CC",
-    "CHYM",
-    "COCO",
-    "CVSA",
-    "ELF",
-    "ENPH",
-    "EPAM",
-    "FIX",
-    "FTNT",
-    "GDRX",
-    "GT",
-    "ILMN",
-    "KRO",
-    "LYFT",
-    "MTA",
-    "NNE",
-    "NXT",
-    "POWL",
-    "PRM",
-    "PSKY",
-    "QS",
-    "RKT",
-    "ROAD",
-    "SANM",
-    "SOFI",
-    "SVV",
-    "TBLA",
-    "UA",
-    "UAA",
-    "VMET",
-    "WTTR"
-  ],
+  "reentered": [],
+  "exited": [],
   "newly_classified": [
     "AGQ",
     "ALNT",
@@ -349,6 +309,42 @@
     },
     {
       "ticker": "TEM",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TMC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TOP",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "UPWK",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "UWMC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VAC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VIRT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "VSAT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WRD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "XMTR",
       "reason": "low_confidence_primary"
     }
   ],

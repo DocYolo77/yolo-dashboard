@@ -1,7 +1,7 @@
 {
   "meta": {
     "as_of_date": "2026-09-04",
-    "updated_at": "2026-09-04T22:35:29.487698+00:00",
+    "updated_at": "2026-09-07T22:52:11.763231+00:00",
     "dashboard_state_version": "v1.1",
     "first_run": false
   },
@@ -33,37 +33,37 @@
     },
     "eligible_universe_size": 495,
     "vix": {
-      "price": 14.53,
-      "d1_pct": 1.47,
-      "w1_pct": 0.69,
-      "hi52w_pct": -53.2,
-      "ytd_pct": 0.14,
+      "price": 15.3,
+      "d1_pct": 5.3,
+      "w1_pct": 2.55,
+      "hi52w_pct": -50.72,
+      "ytd_pct": 5.44,
       "hist_5d": [
-        14.92,
         16.34,
         15.2,
         14.32,
-        14.53
+        14.53,
+        15.3
       ],
       "symbol": "^VIX",
       "name": "VIX",
-      "zone": "NIEDRIG"
+      "zone": "NORMAL"
     }
   },
   "qqq_health": {
-    "score": 45.1,
+    "score": 45.3,
     "base_state": "FRAGILE",
     "modifiers": [
       "NARROWING"
     ],
     "prev_score": 55.7,
-    "score_delta": -10.6,
+    "score_delta": -10.4,
     "components": {
       "trend": 100,
-      "breadth": 41.3,
+      "breadth": 41.6,
       "mco": 16.9,
       "mcsi": 18.3,
-      "high_low": 15.8
+      "high_low": 16.7
     },
     "price_structure": {
       "close": 718.96,
@@ -3933,7 +3933,7 @@
         "w1_pct": 4.56,
         "m1_pct": -13.21,
         "price": 90.47,
-        "market_cap": 2394211774.35,
+        "market_cap": 2518362274.45,
         "quality_v2": "neutral",
         "state_v2": null,
         "above_ema10": true,
@@ -7460,7 +7460,7 @@
         "w1_pct": 1.78,
         "m1_pct": 7.73,
         "price": 65.19,
-        "market_cap": 10149883557.119999,
+        "market_cap": 10287172094.039999,
         "quality_v2": "neutral",
         "state_v2": null,
         "above_ema10": false,
@@ -7670,7 +7670,7 @@
         "w1_pct": 3.19,
         "m1_pct": 6.42,
         "price": 656.69,
-        "market_cap": 9687100564.789999,
+        "market_cap": 10255561221.19,
         "quality_v2": "neutral",
         "state_v2": null,
         "above_ema10": true,
@@ -11346,7 +11346,7 @@
         "w1_pct": -4.87,
         "m1_pct": 16.55,
         "price": 104.45,
-        "market_cap": 5653519455.089999,
+        "market_cap": 5515177987.150001,
         "quality_v2": "neutral",
         "state_v2": null,
         "above_ema10": false,
@@ -18158,7 +18158,7 @@
         "w1_pct": -1.35,
         "m1_pct": -8.68,
         "price": 29.13,
-        "market_cap": 1635063345.54,
+        "market_cap": 1717612522.74,
         "quality_v2": "neutral",
         "state_v2": null,
         "above_ema10": true,
@@ -23270,7 +23270,7 @@
         "w1_pct": -3.13,
         "m1_pct": 2.19,
         "price": 579.66,
-        "market_cap": 36277685152.35,
+        "market_cap": 35085881330.46,
         "quality_v2": "neutral",
         "state_v2": null,
         "above_ema10": false,
@@ -26168,7 +26168,7 @@
         "category": "qqq_health",
         "type": "score_change",
         "from": 55.7,
-        "to": 45.1
+        "to": 45.3
       },
       {
         "category": "narrative",
