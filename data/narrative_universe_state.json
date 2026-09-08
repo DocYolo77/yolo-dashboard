@@ -1,10 +1,9 @@
 {
-  "as_of_date": "2026-09-07",
-  "eligible_count": 495,
-  "classified_eligible_count": 439,
-  "coverage_pct": 88.7,
+  "as_of_date": "2026-09-08",
+  "eligible_count": 498,
+  "classified_eligible_count": 445,
+  "coverage_pct": 89.4,
   "entered": [
-    "AGQ",
     "ALNT",
     "AUR",
     "AXON",
@@ -17,16 +16,18 @@
     "BZ",
     "CBRL",
     "CECO",
+    "CHA",
     "CIFR",
     "CLBT",
     "CLMT",
     "CLVT",
-    "CRCT",
     "CRSR",
     "CSAN",
     "DAO",
     "DAR",
     "DKS",
+    "EIX",
+    "ETSY",
     "FRHC",
     "FRVO",
     "GLW",
@@ -41,6 +42,7 @@
     "NN",
     "NSP",
     "NU",
+    "OCTV",
     "OLLI",
     "P",
     "PD",
@@ -55,16 +57,42 @@
     "TOP",
     "UPWK",
     "UWMC",
-    "VAC",
     "VIRT",
     "VSAT",
     "WRD",
     "XMTR"
   ],
-  "reentered": [],
-  "exited": [],
+  "reentered": [
+    "APP",
+    "APPF",
+    "BH.A",
+    "COCO",
+    "EPAM",
+    "GDDY",
+    "HLIT",
+    "MBC",
+    "NAVN",
+    "ORCL",
+    "PEGA",
+    "PSKY",
+    "SANM",
+    "SFM"
+  ],
+  "exited": [
+    "ARLO",
+    "AZTA",
+    "BLBD",
+    "DDS",
+    "ENTG",
+    "GRDN",
+    "KLIC",
+    "MYRG",
+    "QNST",
+    "SAIA",
+    "WK",
+    "WSC"
+  ],
   "newly_classified": [
-    "AGQ",
     "ALNT",
     "AUR",
     "AXON",
@@ -77,16 +105,18 @@
     "BZ",
     "CBRL",
     "CECO",
+    "CHA",
     "CIFR",
     "CLBT",
     "CLMT",
     "CLVT",
-    "CRCT",
     "CRSR",
     "CSAN",
     "DAO",
     "DAR",
     "DKS",
+    "EIX",
+    "ETSY",
     "FRHC",
     "FRVO",
     "GLW",
@@ -101,6 +131,7 @@
     "NN",
     "NSP",
     "NU",
+    "OCTV",
     "OLLI",
     "P",
     "PD",
@@ -115,7 +146,6 @@
     "TOP",
     "UPWK",
     "UWMC",
-    "VAC",
     "VIRT",
     "VSAT",
     "WRD",
@@ -123,10 +153,6 @@
   ],
   "new_narratives_created": [],
   "unresolved_after_retries": [
-    {
-      "ticker": "AGQ",
-      "reason": "low_confidence_primary"
-    },
     {
       "ticker": "ALNT",
       "reason": "low_confidence_primary"
@@ -176,6 +202,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "CHA",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "CIFR",
       "reason": "low_confidence_primary"
     },
@@ -189,10 +219,6 @@
     },
     {
       "ticker": "CLVT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CRCT",
       "reason": "low_confidence_primary"
     },
     {
@@ -268,7 +294,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "NU",
+      "ticker": "OCTV",
       "reason": "low_confidence_primary"
     },
     {
@@ -277,10 +303,6 @@
     },
     {
       "ticker": "P",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "PD",
       "reason": "low_confidence_primary"
     },
     {
@@ -328,10 +350,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "VAC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "VIRT",
       "reason": "low_confidence_primary"
     },
@@ -349,12 +367,11 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..PD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..PD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (ALNT..PLPC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 299,
-  "eligible_without_active_narrative": 196,
-  "active_narrative_coverage_pct": 60.4,
-  "active_narrative_count": 26,
-  "undersized_narrative_count": 101
+  "eligible_with_active_narrative": 309,
+  "eligible_without_active_narrative": 189,
+  "active_narrative_coverage_pct": 62.0,
+  "active_narrative_count": 27,
+  "undersized_narrative_count": 100
 }

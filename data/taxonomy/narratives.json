@@ -432,7 +432,7 @@
           "reason": "Supplier of purification solutions and advanced materials primarily to the semiconductor manufacturing industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -476,7 +476,7 @@
           "reason": "Designs and manufactures capital equipment used for assembling semiconductor devices.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1421,7 +1421,7 @@
           "reason": "Harmonic provides broadband access infrastructure equipment (cable/video delivery hardware/software) for network operators - core networking/telecom infrastructure equipment business.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -1866,7 +1866,7 @@
           "reason": "Cloud-based property management software solutions provider for real estate industry, a clear vertical SaaS company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2152,7 +2152,7 @@
           "reason": "Navan provides an AI-powered SaaS platform for managing business travel and expense, a software/SaaS business model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2185,7 +2185,7 @@
           "reason": "Oracle provides enterprise database, applications and cloud infrastructure software.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2229,7 +2229,7 @@
           "reason": "Pegasystems provides enterprise software for CRM and business process management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2350,7 +2350,7 @@
           "reason": "Workiva provides a cloud-based SaaS platform for finance, risk, and compliance reporting workflows.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2372,7 +2372,7 @@
           "reason": "GoDaddy provides an integrated cloud platform (domains, hosting, websites, commerce tools) monetized via subscriptions/recurring services to SMBs, functioning economically as a SaaS/cloud platform business rather than pure IT integration services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -2526,6 +2526,17 @@
           "reason": "LegalZoom sells subscription-based online legal compliance, business formation and document services to consumers/SMBs via a digital platform - an online software/subscription service model closest to Software/SaaS despite not being pure enterprise SaaS.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PD": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "PagerDuty operates a SaaS digital operations management platform (incident management, AIOps) sold on subscription basis, fitting Software/SaaS narrative.",
+          "added_at": "2026-09-08",
+          "last_reviewed_at": "2026-09-08",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -3534,6 +3545,17 @@
           "reason": "StoneCo provides financial technology solutions, payments and business management tools to MSMBs via a cloud-based fintech platform, core financial technology business model.",
           "added_at": "2026-09-02",
           "last_reviewed_at": "2026-09-02",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "NU": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Nu Holdings (Nubank) is a digital banking/fintech firm offering credit cards, savings accounts, loans, insurance and investments across Latin America, fitting fintech narrative well.",
+          "added_at": "2026-09-08",
+          "last_reviewed_at": "2026-09-08",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -6119,7 +6141,7 @@
           "reason": "Specialty grocery retailer focused on fresh, natural and organic products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6228,7 +6250,7 @@
           "reason": "Global IT services firm focused on platform engineering, software development and consulting.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6566,7 +6588,7 @@
           "reason": "Blue Bird designs and manufactures school buses, a specialty vehicle manufacturer.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7265,7 +7287,7 @@
           "reason": "MYR Group is a specialty electrical construction service provider serving electric utility, commercial and industrial construction markets, aligning with construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7496,6 +7518,17 @@
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ETSY": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Etsy operates a global online marketplace connecting buyers and sellers of handmade/vintage goods, directly fitting e-commerce platform narrative.",
+          "added_at": "2026-09-08",
+          "last_reviewed_at": "2026-09-08",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8026,7 +8059,7 @@
           "reason": "Dillard's operates department stores selling apparel, cosmetics and home furnishings - closely matches apparel_retail definition of omnichannel branded apparel/accessories retailing despite department store format.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8354,7 +8387,7 @@
           "reason": "Vertically integrated ad-tech company operating DSP/SSP/exchange for mobile advertising; distinct from generic software/SaaS or e-commerce categories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8376,7 +8409,7 @@
           "reason": "QuinStreet delivers performance marketing/lead generation for financial services and home services industries, closely aligned with digital advertising/marketplace model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8495,7 +8528,7 @@
           "reason": "Saia is a major less-than-truckload (LTL) trucking carrier providing freight transportation services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8918,7 +8951,7 @@
           "reason": "Azenta provides sample management, storage, and genomic services using automation, fitting life sciences tools/consumables narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9334,7 +9367,7 @@
           "reason": "MasterBrand manufactures residential cabinetry sold through dealer/retail channels for kitchens and bathrooms, directly aligning with building products manufacturing/distribution serving residential construction markets.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9453,7 +9486,7 @@
           "reason": "Sanmina provides integrated electronics manufacturing solutions and components for communications, storage, industrial, defense and aerospace markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9573,7 +9606,7 @@
           "reason": "Same entity as BH (different share class) - Biglari Holdings owns restaurant, insurance, and oil & gas operating businesses, directly matching this diversified holding company narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -9911,7 +9944,7 @@
           "reason": "Branded functional hydration and beverage consumer products company selling coconut water and related products through retail channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10272,6 +10305,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "EIX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Edison International is the parent of Southern California Edison, an electric utility distributing power to millions of customers - directly fits power generation/utilities category.",
+          "added_at": "2026-09-08",
+          "last_reviewed_at": "2026-09-08",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -10810,7 +10854,7 @@
           "reason": "Paramount Skydance operates TV media (CBS, cable networks), filmed entertainment, and direct-to-consumer streaming - a textbook match for Media & Entertainment Conglomerate definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11542,7 +11586,7 @@
           "reason": "WillScot provides turnkey modular space and portable storage solutions on a rental/leasing basis across multiple industries, a distinct equipment rental business model not matched by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12179,7 +12223,7 @@
           "reason": "Guardian Pharmacy provides specialized pharmacy services for long-term care facilities, distinct from general retail drug stores.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12475,7 +12519,7 @@
           "reason": "Arlo provides cloud-based video security/surveillance cameras and monitoring solutions for homes and businesses - closely matches security alarm/surveillance systems manufacturing narrative with recurring subscription model.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
