@@ -1421,7 +1421,7 @@
           "reason": "Harmonic provides broadband access infrastructure equipment (cable/video delivery hardware/software) for network operators - core networking/telecom infrastructure equipment business.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -1866,7 +1866,7 @@
           "reason": "Cloud-based property management software solutions provider for real estate industry, a clear vertical SaaS company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2185,7 +2185,7 @@
           "reason": "Oracle provides enterprise database, applications and cloud infrastructure software.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3206,7 +3206,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AFRM": {
           "role": "core",
@@ -3512,7 +3512,7 @@
           "reason": "eToro is a multi-asset trading and investing platform, fitting broadly under fintech/brokerage.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3621,7 +3621,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "CRSP": {
           "role": "core",
@@ -5175,7 +5175,7 @@
           "reason": "QuantumScape develops solid-state lithium-metal batteries for electric vehicles, directly matching EV/Battery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5240,7 +5240,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "SEDG": {
           "role": "core",
@@ -5304,7 +5304,7 @@
           "reason": "Nextpower provides solar tracker and software solutions for utility-scale and distributed solar projects, core solar/clean energy exposure.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5509,7 +5509,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AAUC": {
           "role": "core",
@@ -6250,7 +6250,7 @@
           "reason": "Global IT services firm focused on platform engineering, software development and consulting.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6719,7 +6719,7 @@
           "reason": "Frontier Group Holdings is an ultra-low-cost scheduled passenger airline carrier.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -7517,7 +7517,7 @@
           "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7776,7 +7776,7 @@
           "reason": "Provides healthcare workforce solutions and staffing services; distinct from direct healthcare service/facility providers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -8387,7 +8387,7 @@
           "reason": "Vertically integrated ad-tech company operating DSP/SSP/exchange for mobile advertising; distinct from generic software/SaaS or e-commerce categories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8453,7 +8453,7 @@
           "reason": "Yelp generates revenue primarily through local business advertising on its consumer review/content platform, monetizing via ad placements and sponsored listings - core economics resemble a local advertising platform rather than a pure e-commerce or social media play. This is a stronger fit than social media given ad-driven local business monetization model.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8702,7 +8702,7 @@
           "reason": "Wayfair is an e-commerce retailer selling home furnishings and related lifestyle products, with growing brick-and-mortar presence.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -9148,7 +9148,7 @@
           "reason": "Grupo Financiero Galicia is a financial services holding company providing banking, credit card, personal loans, and insurance services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9944,7 +9944,7 @@
           "reason": "Branded functional hydration and beverage consumer products company selling coconut water and related products through retail channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10303,7 +10303,7 @@
           "reason": "Venture Global operates LNG production/export facilities, converting natural gas into liquefied form for global energy supply. This is fundamentally an energy production/commodity export business. No existing narrative precisely covers LNG export, but Power Generation/Utilities and natural gas distribution economics are closest given SIC code 4924. Given the vertically integrated producer/supplier model, I classify as an LNG-focused variant of energy production.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10314,6 +10314,17 @@
           "reason": "Edison International is the parent of Southern California Edison, an electric utility distributing power to millions of customers - directly fits power generation/utilities category.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PCG": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "PG&E is a regulated electric and gas utility holding company serving millions of customers in California, directly matching power generation/utilities narrative.",
+          "added_at": "2026-09-09",
+          "last_reviewed_at": "2026-09-09",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10519,7 +10530,7 @@
           "reason": "DraftKings operates online sports betting and casino gambling platforms, a distinct economic category from generic e-commerce or amusement services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10627,7 +10638,7 @@
           "reason": "Lyft operates a ridesharing marketplace connecting drivers and riders, a distinct business model not covered by the existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11016,7 +11027,7 @@
           "reason": "Life360 operates a family-focused location-sharing social network/app with nearly 100M MAU, monetizing via subscriptions and some advertising/data. Closest existing fit is social media/consumer platform model rather than pure software SaaS, though it also has strong subscription SaaS characteristics.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11328,7 +11339,7 @@
           "reason": "Willis Lease Finance leases and services commercial aircraft engines and sells spare parts - a specialized aviation asset leasing business model not covered by existing catalog entries.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11360,7 +11371,7 @@
           "reason": "e.l.f. Beauty makes and sells cosmetics/skincare products - no existing catalog narrative covers beauty/cosmetics products specifically (branded_nutrition_consumer_packaged_goods is food/nutrition-focused), warranting a new precise narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12022,7 +12033,7 @@
           "reason": "First Advantage provides HR technology and background screening/verification services, a distinct niche not covered by IT services/consulting generically.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12043,7 +12054,7 @@
           "reason": "FICO is best known for its analytics-driven credit scoring software/platform business, a distinct niche within software/analytics.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12300,6 +12311,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SUNB": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Direct fit - large-scale equipment rental company operating fleet-based rental model to construction and industrial customers across US, Canada and UK.",
+          "added_at": "2026-09-09",
+          "last_reviewed_at": "2026-09-09",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -12519,7 +12541,7 @@
           "reason": "Arlo provides cloud-based video security/surveillance cameras and monitoring solutions for homes and businesses - closely matches security alarm/surveillance systems manufacturing narrative with recurring subscription model.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12561,7 +12583,7 @@
           "reason": "Versamet is a diversified metals royalty and streaming company with exposure across gold, silver, copper, zinc, graphite, uranium - a distinct royalty/streaming business model not covered by mining production narratives.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
