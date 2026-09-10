@@ -1987,7 +1987,7 @@
           "reason": "Doximity provides an online SaaS platform for physicians and healthcare professionals to collaborate, manage careers, and conduct telehealth.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2229,7 +2229,7 @@
           "reason": "Pegasystems provides enterprise software for CRM and business process management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3206,7 +3206,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AFRM": {
           "role": "core",
@@ -5529,7 +5529,7 @@
           "reason": "First Majestic Silver operates silver and gold producing mines in North America.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5694,7 +5694,7 @@
           "reason": "Mining company focused on silver and related precious metals exploration and production.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6675,7 +6675,7 @@
           "reason": "Allegiant Travel operates a low-cost passenger airline for leisure travelers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -6719,8 +6719,19 @@
           "reason": "Frontier Group Holdings is an ultra-low-cost scheduled passenger airline carrier.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "AZUL": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Azul operates passenger and cargo airline services, including charter and maintenance operations, squarely fitting the Airlines narrative.",
+          "added_at": "2026-09-10",
+          "last_reviewed_at": "2026-09-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -8553,6 +8564,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "FDXF": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "FedEx Freight is a less-than-truckload (LTL) freight carrier providing trucking transportation services, matching trucking/freight logistics.",
+          "added_at": "2026-09-10",
+          "last_reviewed_at": "2026-09-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8615,7 +8637,7 @@
           "reason": "Provides investment solutions and advisory across private equity, real estate, private debt and infrastructure - classic alternative asset manager.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9290,7 +9312,7 @@
           "reason": "QXO is a distributor of building products in North America, directly matching building products/materials distribution narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10030,7 +10052,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10063,7 +10085,7 @@
           "reason": "Wendy's is a quick-service restaurant franchisor/operator; while technically QSR rather than fast-casual, it is the closest existing restaurant category in the catalog given no dedicated QSR/quick-service narrative exists.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10074,7 +10096,7 @@
           "reason": "Brinker operates Chili's and Maggiano's, casual dining chains with franchised/company-owned restaurant growth model. While technically 'casual dining' rather than 'fast casual', this is the closest existing catalog fit as a restaurant chain operator narrative; economics (traffic, unit growth, menu pricing) are highly similar.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10379,7 +10401,7 @@
           "reason": "Liberty Global is a holding company with cable network interests across European geographies, providing broadband and telecom services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10638,7 +10660,7 @@
           "reason": "Lyft operates a ridesharing marketplace connecting drivers and riders, a distinct business model not covered by the existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10779,7 +10801,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -10865,7 +10887,7 @@
           "reason": "Paramount Skydance operates TV media (CBS, cable networks), filmed entertainment, and direct-to-consumer streaming - a textbook match for Media & Entertainment Conglomerate definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11253,7 +11275,7 @@
           "reason": "CoreCivic directly operates private prisons, detention centers, and reentry facilities under government contracts, matching this narrative precisely.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11777,7 +11799,7 @@
           "reason": "LandBridge generates revenue from land/resource management, surface use fees, and oil & gas royalties, closely matching the royalty trust/royalty income model even though structured as an LLC managing land.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12076,7 +12098,7 @@
           "reason": "Red Violet builds proprietary data analytics/identity intelligence software used for identity verification and risk assessment, closely matching the analytics/scoring software model even though its primary customer base is broader than credit. Software/SaaS is a secondary fit but the credit_scoring_analytics_software narrative captures the data-driven risk/identity analytics business model reasonably well.",
           "added_at": "2026-08-21",
           "last_reviewed_at": "2026-08-21",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12319,7 +12341,7 @@
           "reason": "Direct fit - large-scale equipment rental company operating fleet-based rental model to construction and industrial customers across US, Canada and UK.",
           "added_at": "2026-09-09",
           "last_reviewed_at": "2026-09-09",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12541,7 +12563,7 @@
           "reason": "Arlo provides cloud-based video security/surveillance cameras and monitoring solutions for homes and businesses - closely matches security alarm/surveillance systems manufacturing narrative with recurring subscription model.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
