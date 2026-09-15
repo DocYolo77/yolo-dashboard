@@ -1670,7 +1670,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "DDOG": {
           "role": "core",
@@ -1780,7 +1780,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "U": {
           "role": "secondary",
@@ -1855,7 +1855,7 @@
           "reason": "Provides cloud-based digital banking software platforms to financial institutions, blending fintech and SaaS.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1965,7 +1965,7 @@
           "reason": "Online learning platform delivering educational content via a unified software/technology platform to learners and institutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1998,7 +1998,7 @@
           "reason": "DocuSign offers a cloud-based SaaS suite for e-signature and agreement automation.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2328,7 +2328,7 @@
           "reason": "Waystar provides cloud-based technology platform for healthcare payments processing, a healthcare-focused SaaS business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3130,7 +3130,7 @@
           "reason": "VSE Corp provides aircraft/airframe parts supply, distribution and MRO services for aviation, serving both commercial and government/defense markets, core business is aerospace aftermarket parts and services.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3270,7 +3270,7 @@
           "reason": "Provides cloud-based digital banking software platforms to financial institutions, blending fintech and SaaS.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3369,7 +3369,7 @@
           "reason": "Technology-driven payments company offering buy-now-pay-later and merchant payment solutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3457,7 +3457,7 @@
           "reason": "Technology-driven BNPL/payments platform extending point-of-sale credit to consumers, a fintech business model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5082,6 +5082,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "QNT": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 92,
+          "reason": "Quantinuum provides full-stack quantum computing hardware/software solutions (Systems, Helios, Quantum Origin), directly matching the Quantum Computing narrative.",
+          "added_at": "2026-09-15",
+          "last_reviewed_at": "2026-09-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5197,7 +5208,7 @@
           "reason": "QuantumScape develops solid-state lithium-metal batteries for electric vehicles, directly matching EV/Battery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5796,6 +5807,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SSMR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Sunshine Silver Mining is a silver (and copper) mining/exploration/development company with SIC code Gold and Silver Ores, fitting the precious metals miners narrative.",
+          "added_at": "2026-09-15",
+          "last_reviewed_at": "2026-09-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5825,7 +5847,7 @@
           "reason": "Provides mechanical contracting services including HVAC, plumbing and electrical for commercial and industrial buildings.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5933,7 +5955,7 @@
           "reason": "Astrana Health is a population health management company coordinating physician-led care delivery, aligning with healthcare services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6185,7 +6207,7 @@
           "reason": "Grocery Outlet operates discount grocery stores selling name-brand consumables, matching grocery/food retail directly.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6272,7 +6294,7 @@
           "reason": "Global IT services firm focused on platform engineering, software development and consulting.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6872,7 +6894,7 @@
           "reason": "Oceaneering International provides engineered services and robotic solutions primarily to offshore oil and gas market.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7561,7 +7583,7 @@
           "reason": "Etsy operates a global online marketplace connecting buyers and sellers of handmade/vintage goods, directly fitting e-commerce platform narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7906,7 +7928,7 @@
           "reason": "Lazard is a financial advisory and asset management firm providing M&A advice, capital markets and restructuring services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7982,7 +8004,7 @@
           "reason": "Boot Barn operates specialty retail stores selling western boots, apparel and accessories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8431,7 +8453,7 @@
           "reason": "Vertically integrated ad-tech company operating DSP/SSP/exchange for mobile advertising; distinct from generic software/SaaS or e-commerce categories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8475,7 +8497,7 @@
           "reason": "The Trade Desk operates a demand-side programmatic advertising platform (DSP), directly matching the AdTech narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9192,7 +9214,7 @@
           "reason": "Banco Macro is a traditional retail and corporate bank in Argentina, fitting Banking/Financial Services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10085,7 +10107,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10358,7 +10380,7 @@
           "reason": "Venture Global operates LNG production/export facilities, converting natural gas into liquefied form for global energy supply. This is fundamentally an energy production/commodity export business. No existing narrative precisely covers LNG export, but Power Generation/Utilities and natural gas distribution economics are closest given SIC code 4924. Given the vertically integrated producer/supplier model, I classify as an LNG-focused variant of energy production.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10585,7 +10607,7 @@
           "reason": "DraftKings operates online sports betting and casino gambling platforms, a distinct economic category from generic e-commerce or amusement services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10596,7 +10618,7 @@
           "reason": "Flutter Entertainment operates leading online sports betting and gaming brands (FanDuel, Paddy Power, Sky Betting) generating revenue via betting handle and gaming margins.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11513,7 +11535,7 @@
           "reason": "EZCORP operates pawn stores and short-term consumer lending - no existing catalog narrative captures pawn lending specifically (off_price_thrift_retail is about donation/resale retail without lending); a new precise narrative is warranted.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11545,7 +11567,7 @@
           "reason": "Zillow ist ein digitales Marktplatz-Modell speziell fuer Immobilien (Listings, Agent-Vermittlung, Mortgage), das sich klar von generischen E-Commerce-Plattformen oder IT-Dienstleistern unterscheidet. Kein bestehendes Narrative im Katalog bildet 'Real Estate Marketplace' praezise ab (e_commerce_platform ist zu generisch fuer physische Produktmaerkte, healthcare/other passen nicht). Daher neues, praezises Narrative mit ehrlich mittelhoher confidence, da das Geschaeftsmodell gut dokumentiert und eindeutig ist.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12682,7 +12704,7 @@
           "reason": "Versamet is a diversified metals royalty and streaming company with exposure across gold, silver, copper, zinc, graphite, uranium - a distinct royalty/streaming business model not covered by mining production narratives.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
