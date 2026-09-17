@@ -278,7 +278,7 @@
           "reason": "Axcelis makes ion implantation and semiconductor fabrication equipment - core semiconductor capital equipment.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -366,7 +366,7 @@
           "reason": "OSAT provider offering outsourced semiconductor packaging and test services, core part of semiconductor supply chain.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -630,7 +630,7 @@
           "reason": "Provides automated test equipment primarily for semiconductor industry; core business tied to semiconductor testing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -707,6 +707,17 @@
           "reason": "Manufactures production tools, modules and subsystems for semiconductor capital equipment industry - core supplier to semiconductor manufacturing.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "QRVO": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Qorvo manufactures RF semiconductors including filters, power amplifiers and front-end modules for smartphones and other markets - core semiconductor company.",
+          "added_at": "2026-09-17",
+          "last_reviewed_at": "2026-09-17",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -792,7 +803,7 @@
           "reason": "Fabrinet provides advanced optical packaging and precision manufacturing for optical communication components, modules and lasers, matching photonics/optical narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -803,7 +814,7 @@
           "reason": "Manufacturer of fiber lasers, laser systems and optical components used across industrial and manufacturing applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1637,7 +1648,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "WDAY": {
           "role": "core",
@@ -1670,7 +1681,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "DDOG": {
           "role": "core",
@@ -1965,7 +1976,7 @@
           "reason": "Online learning platform delivering educational content via a unified software/technology platform to learners and institutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2655,7 +2666,7 @@
           "reason": "MDA Space develops satellite systems, robotics, and geo-intelligence technology for the space industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3053,7 +3064,7 @@
           "reason": "Ducommun provides engineering and manufacturing for aerospace and defense structural and electronic systems, primarily serving defense/aerospace end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3380,7 +3391,7 @@
           "reason": "Lufax is a Chinese financial technology platform providing retail credit, lending enablement, and wealth management services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3457,7 +3468,7 @@
           "reason": "Technology-driven BNPL/payments platform extending point-of-sale credit to consumers, a fintech business model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5208,7 +5219,7 @@
           "reason": "QuantumScape develops solid-state lithium-metal batteries for electric vehicles, directly matching EV/Battery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5262,7 +5273,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "ENPH": {
           "role": "core",
@@ -5836,7 +5847,7 @@
           "reason": "AAON manufactures air-conditioning, heating, and refrigeration equipment - not covered by existing tech-focused narratives.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6294,7 +6305,7 @@
           "reason": "Global IT services firm focused on platform engineering, software development and consulting.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6404,7 +6415,7 @@
           "reason": "Gartner provides IT research, analysis and consulting services to enterprises, fitting IT services/consulting category well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6817,7 +6828,7 @@
           "reason": "Enerflex engineers and manufactures natural gas compression equipment and systems, fitting oil & gas services/equipment.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7225,6 +7236,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "BG": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Bunge is a global agribusiness connecting farmers to consumers, processing oilseeds and grains - core agribusiness/commodity processing model.",
+          "added_at": "2026-09-17",
+          "last_reviewed_at": "2026-09-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7298,7 +7320,7 @@
           "reason": "Everus Construction Group provides specialty contracting services in electrical & mechanical and transmission & distribution segments, matching construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8627,7 +8649,7 @@
           "reason": "FedEx Freight is a less-than-truckload (LTL) freight carrier providing trucking transportation services, matching trucking/freight logistics.",
           "added_at": "2026-09-10",
           "last_reviewed_at": "2026-09-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8692,7 +8714,7 @@
           "reason": "Provides investment solutions and advisory across private equity, real estate, private debt and infrastructure - classic alternative asset manager.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8952,7 +8974,7 @@
           "reason": "Materion produces specialty metals, alloys, beryllium composites and advanced materials for aerospace, defense and industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8996,7 +9018,7 @@
           "reason": "Ryerson is a metals service center/distributor, processing and distributing industrial metals (steel, aluminum, etc.) to industrial customers. While not a producer of specialty metal alloys itself, it fits the closest catalog category as a metals-focused industrial supplier. There's no dedicated 'metals distribution' narrative in the catalog, so this is the best economic fit given its value-added processing role.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10010,7 +10032,7 @@
           "reason": "Celsius Holdings markets branded energy drinks (Celsius, Alani Nu, Rockstar) as consumer packaged goods, outsourcing manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10107,7 +10129,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10151,7 +10173,7 @@
           "reason": "Brinker operates Chili's and Maggiano's, casual dining chains with franchised/company-owned restaurant growth model. While technically 'casual dining' rather than 'fast casual', this is the closest existing catalog fit as a restaurant chain operator narrative; economics (traffic, unit growth, menu pricing) are highly similar.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10489,7 +10511,7 @@
           "reason": "Provides quadruple play services including mobile, cable TV, internet and fixed telephony.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10607,7 +10629,7 @@
           "reason": "DraftKings operates online sports betting and casino gambling platforms, a distinct economic category from generic e-commerce or amusement services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10642,6 +10664,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": false,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "SRAD": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Sportradar provides B2B technology and data solutions to the sports betting industry, generating subscription and revenue-sharing income tied to sports betting ecosystem.",
+          "added_at": "2026-09-17",
+          "last_reviewed_at": "2026-09-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -10856,7 +10889,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -10877,7 +10910,7 @@
           "reason": "MakeMyTrip is an online travel company providing booking solutions for air tickets, hotels, and packages, a distinct business model not present in the existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11276,7 +11309,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11578,7 +11611,7 @@
           "reason": "Identisches Geschaeftsmodell wie Z (Zillow Group Class C) - gleiche Firma, andere Aktienklasse. Digitale Immobilien-Marktplatzplattform, die Kaeufer/Verkaeufer/Mieter mit Agenten und Kreditgebern verbindet. Neues praezises Narrative passt besser als generische Kategorien.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12175,7 +12208,7 @@
           "reason": "FICO is best known for its analytics-driven credit scoring software/platform business, a distinct niche within software/analytics.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12218,7 +12251,7 @@
           "reason": "Flex is a contract electronics manufacturer offering end-to-end manufacturing services, distinct from component manufacturing per se.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
