@@ -137,7 +137,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AVGO": {
           "role": "core",
@@ -333,7 +333,7 @@
           "reason": "Allegro MicroSystems designs sensor and power ICs for automotive and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -564,7 +564,7 @@
           "reason": "Power Integrations designs analog/mixed-signal ICs for high-voltage power conversion applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1681,7 +1681,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "DDOG": {
           "role": "core",
@@ -1976,7 +1976,7 @@
           "reason": "Online learning platform delivering educational content via a unified software/technology platform to learners and institutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2009,7 +2009,7 @@
           "reason": "DocuSign offers a cloud-based SaaS suite for e-signature and agreement automation.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2339,7 +2339,7 @@
           "reason": "Waystar provides cloud-based technology platform for healthcare payments processing, a healthcare-focused SaaS business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2762,7 +2762,7 @@
           "reason": "Mirion provides products, services and software enabling safe use of ionizing radiation, with a significant Nuclear & Safety segment, aligning with the nuclear narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3064,7 +3064,7 @@
           "reason": "Ducommun provides engineering and manufacturing for aerospace and defense structural and electronic systems, primarily serving defense/aerospace end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3250,7 +3250,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "COIN": {
           "role": "core",
@@ -3314,7 +3314,7 @@
           "reason": "Chime Financial is a fintech providing digital banking services via technology platform in partnership with banks.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3468,7 +3468,7 @@
           "reason": "Technology-driven BNPL/payments platform extending point-of-sale credit to consumers, a fintech business model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3590,6 +3590,17 @@
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "WLTH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Wealthfront is a digital automated investing/wealth management platform (robo-advisor) for consumers, fitting the fintech narrative of technology-driven financial services.",
+          "added_at": "2026-09-18",
+          "last_reviewed_at": "2026-09-18",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -5219,7 +5230,7 @@
           "reason": "QuantumScape develops solid-state lithium-metal batteries for electric vehicles, directly matching EV/Battery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5923,7 +5934,7 @@
           "reason": "Advance Auto Parts is a pure auto parts retail chain, distinct from any existing tech/industrial narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -6490,7 +6501,7 @@
           "reason": "Adient is a leading global automotive seating supplier to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6501,7 +6512,7 @@
           "reason": "Manufactures, assembles and distributes diesel engines for vehicles and machinery, fitting automotive components supplier narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6905,7 +6916,7 @@
           "reason": "Oceaneering International provides engineered services and robotic solutions primarily to offshore oil and gas market.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7004,7 +7015,7 @@
           "reason": "Weatherford International provides oilfield services and equipment to oil and gas operators globally.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7026,7 +7037,7 @@
           "reason": "Expro provides well construction, intervention, and integrity services to oil and gas exploration and production companies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7561,7 +7572,7 @@
           "reason": "Revolve Group is an online marketplace selling apparel, accessories and beauty products directly to consumers via e-commerce.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7583,7 +7594,7 @@
           "reason": "ACV Auctions operates a digital marketplace/auction platform specifically for wholesale vehicle transactions between dealers, matching the online marketplace/platform economics of e_commerce_platform, though the definition is written more broadly for consumer e-commerce. This is the closest existing fit versus creating a niche new category.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8026,7 +8037,7 @@
           "reason": "Boot Barn operates specialty retail stores selling western boots, apparel and accessories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8996,7 +9007,7 @@
           "reason": "Worthington Steel is a value-added processor of carbon flat-rolled steel and electrical steel laminations serving diverse industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9050,7 +9061,7 @@
           "reason": "Azenta provides sample management, storage, and genomic services using automation, fitting life sciences tools/consumables narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9323,7 +9334,7 @@
           "reason": "Builders FirstSource manufactures and distributes building materials such as engineered wood, trusses, and millwork for residential construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10043,7 +10054,7 @@
           "reason": "Branded functional hydration and beverage consumer products company selling coconut water and related products through retail channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10402,7 +10413,7 @@
           "reason": "Venture Global operates LNG production/export facilities, converting natural gas into liquefied form for global energy supply. This is fundamentally an energy production/commodity export business. No existing narrative precisely covers LNG export, but Power Generation/Utilities and natural gas distribution economics are closest given SIC code 4924. Given the vertically integrated producer/supplier model, I classify as an LNG-focused variant of energy production.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10673,7 +10684,7 @@
           "reason": "Sportradar provides B2B technology and data solutions to the sports betting industry, generating subscription and revenue-sharing income tied to sports betting ecosystem.",
           "added_at": "2026-09-17",
           "last_reviewed_at": "2026-09-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10727,7 +10738,7 @@
           "reason": "Porch Group's majority revenue comes from Insurance Services segment operating as a vertical software company for home services and insurance - fits insurtech digital insurance distribution well given software-enabled insurance business model.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10869,6 +10880,17 @@
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "WLY": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "John Wiley & Sons publishes research and academic/professional learning content and courseware, directly matching the education content/publishing narrative.",
+          "added_at": "2026-09-18",
+          "last_reviewed_at": "2026-09-18",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11287,7 +11309,7 @@
           "reason": "North American copper producer with development pipeline of copper mining projects; no existing base metals mining category.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11600,7 +11622,7 @@
           "reason": "Zillow ist ein digitales Marktplatz-Modell speziell fuer Immobilien (Listings, Agent-Vermittlung, Mortgage), das sich klar von generischen E-Commerce-Plattformen oder IT-Dienstleistern unterscheidet. Kein bestehendes Narrative im Katalog bildet 'Real Estate Marketplace' praezise ab (e_commerce_platform ist zu generisch fuer physische Produktmaerkte, healthcare/other passen nicht). Daher neues, praezises Narrative mit ehrlich mittelhoher confidence, da das Geschaeftsmodell gut dokumentiert und eindeutig ist.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11792,7 +11814,7 @@
           "reason": "Boyd Group operates collision repair centers, a services business distinct from auto parts retail or component manufacturing. No existing catalog entry captures collision/body repair services specifically, so a new precise narrative is warranted rather than forcing into auto_parts_retail or automotive_parts_components_supplier.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12325,7 +12347,7 @@
           "reason": "Generac's core business is designing/manufacturing power generation equipment (generators), a distinct category from HVAC.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
