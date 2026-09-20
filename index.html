@@ -778,7 +778,7 @@ html { scroll-behavior: smooth; }
         <div class="bc-label-row">
           <span class="bc-label">McClellan Summation Index</span>
           <span class="chart-info" tabindex="0">ⓘ
-            <div class="chart-info-popup">Zeigt den mittelfristigen Trend der Marktbreite im Nasdaq 100. Die gestrichelten Linien markieren statistische Extrembereiche, kein festes Kauf-/Verkaufssignal. Die gelbe Linie ist die 10-Tage-SMA als Signallinie.</div>
+            <div class="chart-info-popup">Kumulierte Summe des McClellan Oszillators (Netto-Advance/Decline-Trend im Nasdaq 100) — zeigt den mittelfristigen Trend der Marktbreite.<br><br>Gezeigt wird hier nicht der rohe Indexwert, sondern ein Z-Score: wie viele Standardabweichungen (σ) der aktuelle Stand vom gleitenden 200-Tage-Durchschnitt des Index selbst entfernt ist. Die gestrichelten Linien bei ±1σ/±2σ markieren dadurch statistisch ungewöhnlich starke bzw. schwache Marktbreite — kein festes Kauf-/Verkaufssignal.<br><br>Die gelbe Linie ist die 10-Tage-SMA dieses Z-Scores als Signallinie.</div>
           </span>
         </div>
         <div style="font-family:var(--mono-font);font-size:11px;">
@@ -801,7 +801,7 @@ html { scroll-behavior: smooth; }
         <div class="bc-label-row">
           <span class="bc-label">McClellan Oszillator</span>
           <span class="chart-info" tabindex="0">ⓘ
-            <div class="chart-info-popup">Misst die kurzfristige Beschleunigung oder Abschwächung der Marktbreite im Nasdaq 100 — reagiert schneller als die Summation Index (MCSI). Die gestrichelten Linien markieren statistische Extrembereiche.</div>
+            <div class="chart-info-popup">Differenz aus 19-Tage- und 39-Tage-EMA der Netto-Advance/Decline-Linie im Nasdaq 100 — misst die kurzfristige Beschleunigung oder Abschwächung der Marktbreite und reagiert schneller als der Summation Index (MCSI).<br><br>Wie bei MCSI wird nicht der rohe Wert gezeigt, sondern ein Z-Score: wie viele Standardabweichungen (σ) der aktuelle Stand vom gleitenden 200-Tage-Durchschnitt des Oszillators selbst entfernt ist. Die gestrichelten Linien bei ±1σ/±2σ markieren dadurch statistische Extrembereiche.</div>
           </span>
         </div>
         <div style="font-family:var(--mono-font);font-size:11px;">

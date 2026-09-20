@@ -1922,6 +1922,19 @@ test('index.html: Market Regime card renders an "Empfohlenes Vorgehen" block and
   assert.deepEqual(legendItems, ['STRONG OFFENSIVE', 'OFFENSIVE', 'SELECTIVE', 'DEFENSIVE', 'RISK OFF']);
 });
 
+test('index.html: McClellan Summation Index and Oszillator tooltips explain the z-score/standard-deviation normalization', () => {
+  const mcsiCard = html.match(/<div class="breadth-card qqq-card" id="mcsi-card"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/);
+  assert.ok(mcsiCard, 'MCSI card not found');
+  assert.match(mcsiCard[0], /Standardabweichungen \(σ\)/);
+  assert.match(mcsiCard[0], /200-Tage-Durchschnitt/);
+  assert.match(mcsiCard[0], /10-Tage-SMA dieses Z-Scores/);
+
+  const mcoCard = html.match(/<div class="breadth-card qqq-card" id="mco-card"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/);
+  assert.ok(mcoCard, 'MCO card not found');
+  assert.match(mcoCard[0], /Standardabweichungen \(σ\)/);
+  assert.match(mcoCard[0], /200-Tage-Durchschnitt/);
+});
+
 // ══════════════════════════════════════════════════════════════════════
 // TRADERECHNER — Waehrungs-Umschalter ($/€) und Stop-Modus-Umschalter
 // (2-Stop-System vs. Single Stop)
