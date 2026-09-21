@@ -159,7 +159,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "MCHP": {
           "role": "core",
@@ -399,7 +399,7 @@
           "reason": "Camtek manufactures metrology and inspection equipment for semiconductor manufacturing, making it a semiconductor capital equipment company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -421,7 +421,7 @@
           "reason": "Diodes Inc manufactures discrete, logic, analog and mixed-signal semiconductor products, a clear semiconductor company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -564,7 +564,7 @@
           "reason": "Power Integrations designs analog/mixed-signal ICs for high-voltage power conversion applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -619,7 +619,7 @@
           "reason": "Semiconductor company providing human interface solutions for mobile, PC and IoT markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -663,7 +663,7 @@
           "reason": "Veeco manufactures thin-film process equipment used in semiconductor device manufacturing, fitting semiconductor equipment/capital equipment narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1377,7 +1377,7 @@
           "reason": "Akamai operates a content delivery network (CDN) leveraging distributed servers for internet traffic delivery.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1791,7 +1791,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "U": {
           "role": "secondary",
@@ -1976,7 +1976,7 @@
           "reason": "Online learning platform delivering educational content via a unified software/technology platform to learners and institutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2273,7 +2273,7 @@
           "reason": "Provides a Voice AI conversational intelligence platform for businesses, delivered as software/SaaS-like offering.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2526,7 +2526,7 @@
           "reason": "NCR Voyix provides software solutions (POS, digital commerce platforms) for retail and restaurant industries, transitioning from hardware to software/subscription-based commerce solutions. This is best captured as Software/SaaS given its focus on software platforms for retail and restaurant operations, though it retains some hardware/services legacy which introduces some uncertainty.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2762,7 +2762,7 @@
           "reason": "Mirion provides products, services and software enabling safe use of ionizing radiation, with a significant Nuclear & Safety segment, aligning with the nuclear narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3391,7 +3391,7 @@
           "reason": "Lufax is a Chinese financial technology platform providing retail credit, lending enablement, and wealth management services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3556,7 +3556,7 @@
           "reason": "Qfin Holdings operates a fintech platform matching borrowers with credit supply from financial institutions, a fintech lending marketplace model.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -5081,7 +5081,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "INFQ": {
           "role": "core",
@@ -6426,7 +6426,7 @@
           "reason": "Gartner provides IT research, analysis and consulting services to enterprises, fitting IT services/consulting category well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6741,7 +6741,7 @@
           "reason": "Allegiant Travel operates a low-cost passenger airline for leisure travelers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -6850,7 +6850,7 @@
           "reason": "Flotek Industries provides specialty chemistries and technology services to oil and gas companies and oilfield services companies, fitting oil & gas services/equipment narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6993,7 +6993,7 @@
           "reason": "TETRA Technologies provides completion fluids, water management and other oilfield services to oil and gas producers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7015,7 +7015,7 @@
           "reason": "Weatherford International provides oilfield services and equipment to oil and gas operators globally.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7255,7 +7255,7 @@
           "reason": "Bunge is a global agribusiness connecting farmers to consumers, processing oilseeds and grains - core agribusiness/commodity processing model.",
           "added_at": "2026-09-17",
           "last_reviewed_at": "2026-09-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7725,7 +7725,7 @@
           "reason": "Graham Corp manufactures fluid, power, heat transfer and vacuum equipment for defense (nuclear propulsion), energy/process and space markets. Its core business model is engineered industrial equipment manufacturing (SIC 3560 General Industrial Machinery), while defense/space are end-markets rather than its core identity. Industrial Machinery captures the manufacturing/engineering nature best.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8812,7 +8812,7 @@
           "reason": "Wayfair is an e-commerce retailer selling home furnishings and related lifestyle products, with growing brick-and-mortar presence.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -10054,7 +10054,7 @@
           "reason": "Branded functional hydration and beverage consumer products company selling coconut water and related products through retail channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10065,7 +10065,7 @@
           "reason": "Flowers Foods produces and markets branded packaged bakery foods (breads, snacks) sold through retail channels, fitting branded CPG food narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10151,7 +10151,7 @@
           "reason": "Restaurant chain serving burgers and related fare through company-owned and franchised locations; closest fit to fast-casual restaurant narrative despite being closer to quick-service burger format.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10184,7 +10184,7 @@
           "reason": "Brinker operates Chili's and Maggiano's, casual dining chains with franchised/company-owned restaurant growth model. While technically 'casual dining' rather than 'fast casual', this is the closest existing catalog fit as a restaurant chain operator narrative; economics (traffic, unit growth, menu pricing) are highly similar.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10413,7 +10413,7 @@
           "reason": "Venture Global operates LNG production/export facilities, converting natural gas into liquefied form for global energy supply. This is fundamentally an energy production/commodity export business. No existing narrative precisely covers LNG export, but Power Generation/Utilities and natural gas distribution economics are closest given SIC code 4924. Given the vertically integrated producer/supplier model, I classify as an LNG-focused variant of energy production.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10424,7 +10424,7 @@
           "reason": "Edison International is the parent of Southern California Edison, an electric utility distributing power to millions of customers - directly fits power generation/utilities category.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10558,6 +10558,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "TV": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Televisa's cable arm Izzi provides broadband and pay-TV services to millions of Mexican homes, and it also owns Sky Mexico satellite TV. Core business is telecom/cable broadband and pay-television distribution.",
+          "added_at": "2026-09-21",
+          "last_reviewed_at": "2026-09-21",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10640,7 +10651,7 @@
           "reason": "DraftKings operates online sports betting and casino gambling platforms, a distinct economic category from generic e-commerce or amusement services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10673,7 +10684,7 @@
           "reason": "Rush Street Interactive operates online casinos and sports betting platforms, matching the online gaming/sports betting narrative directly.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10738,7 +10749,7 @@
           "reason": "Porch Group's majority revenue comes from Insurance Services segment operating as a vertical software company for home services and insurance - fits insurtech digital insurance distribution well given software-enabled insurance business model.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10770,7 +10781,7 @@
           "reason": "Pony AI operates autonomous robotaxi fleets via its own app, a mobility platform business, though with an AI/AV technology base.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10986,7 +10997,7 @@
           "reason": "Live entertainment and media company operating the Sphere venue and MSG regional sports networks, generating revenue from live events and media/advertising.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10997,7 +11008,7 @@
           "reason": "Paramount Skydance operates TV media (CBS, cable networks), filmed entertainment, and direct-to-consumer streaming - a textbook match for Media & Entertainment Conglomerate definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11590,7 +11601,7 @@
           "reason": "EZCORP operates pawn stores and short-term consumer lending - no existing catalog narrative captures pawn lending specifically (off_price_thrift_retail is about donation/resale retail without lending); a new precise narrative is warranted.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11622,7 +11633,7 @@
           "reason": "Zillow ist ein digitales Marktplatz-Modell speziell fuer Immobilien (Listings, Agent-Vermittlung, Mortgage), das sich klar von generischen E-Commerce-Plattformen oder IT-Dienstleistern unterscheidet. Kein bestehendes Narrative im Katalog bildet 'Real Estate Marketplace' praezise ab (e_commerce_platform ist zu generisch fuer physische Produktmaerkte, healthcare/other passen nicht). Daher neues, praezises Narrative mit ehrlich mittelhoher confidence, da das Geschaeftsmodell gut dokumentiert und eindeutig ist.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11888,7 +11899,7 @@
           "reason": "O-I Glass manufactures glass containers primarily for beer, wine, and other beverages, a distinct packaging material from paperboard/metal, warranting a specific glass packaging narrative.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12114,7 +12125,7 @@
           "reason": "Natural gas E&P company with additional power generation assets.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12738,7 +12749,7 @@
           "reason": "TIC Solutions provides testing/inspection/certification/compliance and engineering services for infrastructure - distinct business model not covered by existing catalog entries.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }

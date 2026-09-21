@@ -1,11 +1,10 @@
 {
-  "as_of_date": "2026-09-18",
-  "eligible_count": 450,
-  "classified_eligible_count": 401,
+  "as_of_date": "2026-09-21",
+  "eligible_count": 440,
+  "classified_eligible_count": 392,
   "coverage_pct": 89.1,
   "entered": [
     "ALNT",
-    "ANGX",
     "AUR",
     "AXON",
     "BBAI",
@@ -17,15 +16,14 @@
     "CAR",
     "CBRL",
     "CECO",
-    "CERT",
     "CHA",
     "CIFR",
     "CLVT",
     "CRSR",
     "CSAN",
     "DAO",
-    "DAR",
     "DKS",
+    "EE",
     "FIVE",
     "FRVO",
     "GLW",
@@ -40,10 +38,12 @@
     "MRX",
     "NN",
     "NSP",
+    "OCTV",
     "P",
     "PLBL",
     "PLPC",
-    "RHLD",
+    "PSIX",
+    "RUSHB",
     "SID",
     "TEM",
     "TMC",
@@ -51,51 +51,55 @@
     "TV",
     "VCX",
     "VSAT",
-    "WLTH",
-    "WLY",
     "WT",
     "XMTR"
   ],
   "reentered": [
-    "ADNT",
-    "BLDR",
-    "COUR",
-    "DOCU",
-    "GNRC",
-    "MIR",
-    "QCOM",
-    "QS",
-    "TWLO",
-    "WAY"
-  ],
-  "exited": [
-    "AAP",
-    "ACVA",
-    "ALGM",
-    "AZTA",
-    "BGSI",
-    "BOOT",
-    "CHYM",
+    "AKAM",
     "COCO",
-    "CYD",
-    "DCO",
-    "OII",
+    "FTK",
+    "IT",
+    "LU",
+    "ON",
     "POWI",
     "PRCH",
-    "RVLV",
-    "SEZL",
-    "SRAD",
-    "TGB",
-    "UPST",
+    "PSKY",
+    "RSI",
+    "SHAK",
+    "SYNA",
     "VG",
     "WFRD",
-    "WS",
-    "XPRO",
     "Z"
+  ],
+  "exited": [
+    "ALGT",
+    "BG",
+    "BKV",
+    "CAMT",
+    "COUR",
+    "DIOD",
+    "DKNG",
+    "EAT",
+    "EIX",
+    "EZPW",
+    "FLO",
+    "GHM",
+    "MIR",
+    "OI",
+    "PLTR",
+    "PONY",
+    "QFIN",
+    "QUBT",
+    "SOUN",
+    "SPHR",
+    "TIC",
+    "TTI",
+    "VECO",
+    "VYX",
+    "W"
   ],
   "newly_classified": [
     "ALNT",
-    "ANGX",
     "AUR",
     "AXON",
     "BBAI",
@@ -107,15 +111,14 @@
     "CAR",
     "CBRL",
     "CECO",
-    "CERT",
     "CHA",
     "CIFR",
     "CLVT",
     "CRSR",
     "CSAN",
     "DAO",
-    "DAR",
     "DKS",
+    "EE",
     "FIVE",
     "FRVO",
     "GLW",
@@ -130,10 +133,12 @@
     "MRX",
     "NN",
     "NSP",
+    "OCTV",
     "P",
     "PLBL",
     "PLPC",
-    "RHLD",
+    "PSIX",
+    "RUSHB",
     "SID",
     "TEM",
     "TMC",
@@ -141,8 +146,6 @@
     "TV",
     "VCX",
     "VSAT",
-    "WLTH",
-    "WLY",
     "WT",
     "XMTR"
   ],
@@ -150,10 +153,6 @@
   "unresolved_after_retries": [
     {
       "ticker": "ALNT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ANGX",
       "reason": "low_confidence_primary"
     },
     {
@@ -201,10 +200,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CERT",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "CHA",
       "reason": "low_confidence_primary"
     },
@@ -229,11 +224,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "DAR",
+      "ticker": "DKS",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "DKS",
+      "ticker": "EE",
       "reason": "low_confidence_primary"
     },
     {
@@ -293,6 +288,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "OCTV",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "P",
       "reason": "low_confidence_primary"
     },
@@ -305,7 +304,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "RHLD",
+      "ticker": "PSIX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RUSHB",
       "reason": "low_confidence_primary"
     },
     {
@@ -322,10 +325,6 @@
     },
     {
       "ticker": "TOP",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "TV",
       "reason": "low_confidence_primary"
     },
     {
@@ -346,11 +345,11 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (ALNT..RHLD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 2 Batch (ALNT..RUSHB): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 276,
-  "eligible_without_active_narrative": 174,
-  "active_narrative_coverage_pct": 61.3,
-  "active_narrative_count": 25,
-  "undersized_narrative_count": 102
+  "eligible_with_active_narrative": 268,
+  "eligible_without_active_narrative": 172,
+  "active_narrative_coverage_pct": 60.9,
+  "active_narrative_count": 24,
+  "undersized_narrative_count": 103
 }
