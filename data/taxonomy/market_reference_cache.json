@@ -1,8 +1,8 @@
 {
   "meta": {
-    "updated_at": "2026-09-22T22:52:06.116348+00:00",
+    "updated_at": "2026-09-23T22:51:59.816163+00:00",
     "source": "Massive /v3/reference/tickers/{ticker} (per-ticker, cached)",
-    "n_tickers": 3427,
+    "n_tickers": 3433,
     "max_age_days": 7,
     "negative_max_age_days": 3,
     "not_found_count": 32
@@ -109,14 +109,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "ABEO": {
-      "market_cap": 339101220.81,
+      "market_cap": 332810978.94,
       "share_class_shares_outstanding": 57184017,
       "weighted_shares_outstanding": 57184017,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Abeona Therapeutics Inc is a commercial-stage biopharmaceutical company. The company is focused on developing cell and gene therapies for life-threatening diseases. The company's ZEVASKYN (prademagene zamikeracel) is an autologous cell-based gene therapy for the treatment of wounds in adults and pediatric patients with recessive dystrophic epidermolysis bullosa (RDEB). The company's development portfolio includes adeno-associated virus (AAV)-based gene therapies for ophthalmic diseases with high unmet medical need.",
       "total_employees": 226,
-      "cached_at": "2026-09-04T22:18:56.342194+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "ABLV": {
       "market_cap": 49704265.4826,
@@ -199,14 +199,14 @@
       "cached_at": "2026-09-22T22:52:06.116348+00:00"
     },
     "ACCL": {
-      "market_cap": 41570702.0,
+      "market_cap": 38780722.0,
       "share_class_shares_outstanding": null,
       "weighted_shares_outstanding": 13949900,
       "sic_code": null,
       "sic_description": null,
       "description": "Acco Group Holdings Ltd is a holding company. Through its Operating Subsidiaries, it is a multi-disciplinary, IT-driven corporate service provider with a presence in Hong Kong and Singapore. Under the Accolade brand, it specializes in offering corporate secretarial services and accounting services in Hong Kong, as well as intellectual properties (IP) registration services in Singapore. Leveraging developed IT solutions, It provides comprehensive, reliable and professional support to its clients, enabling them to focus on their core business activities while it manages and handles their corporate compliance needs. Its clientele ranges from individual clients, small and medium-sized enterprises to multinational corporations, reflecting its ability to cater to diverse business needs.",
       "total_employees": 22,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "ACCS": {
       "market_cap": 20016799.92,
@@ -1433,14 +1433,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "ALNY": {
-      "market_cap": 33450941408.82,
+      "market_cap": 33673064544.7,
       "share_class_shares_outstanding": 133809118,
       "weighted_shares_outstanding": 133809118,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Alnylam Pharmaceuticals is a leader in the study of RNA interference (RNAi) therapeutics. RNAi is a naturally occurring biological pathway within cells for sequence-specific silencing and regulation of gene expression. Alnylam's commercial RNAi therapeutic products include Onpattro and Amvuttra (for hATTR amyloidosis), Givlaari (for acute hepatic porphyria), and Oxlumo (for primary hyperoxaluria type 1), all developed and commercialized by Alnylam. Plus, Leqvio (for hypercholesterolemia) and Qfitlia (for hemophilia A or B), which are being commercialized by Alnylam's partners, Novartis and Sanofi, respectively. It also has several clinical programs across various therapeutic areas, including cardio-metabolic diseases, neuroscience, and hematology.",
       "total_employees": 2500,
-      "cached_at": "2026-09-15T22:51:28.310342+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "ALOY": {
       "market_cap": 573400370.06,
@@ -1473,14 +1473,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "ALT": {
-      "market_cap": 636072882.27,
+      "market_cap": 663305360.4100001,
       "share_class_shares_outstanding": 194517701,
       "weighted_shares_outstanding": 194517701,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Altimmune Inc is a late clinical-stage biopharmaceutical company developing therapies for patients with serious liver diseases. The Company's key candidate, pemvidutide, is a dual-action therapy targeting both glucagon and GLP-1 receptors in a balanced 1:1 ratio in development for the treatment of metabolic dysfunction-associated steatohepatitis (MASH), alcohol use disorder (AUD), and alcohol-associated liver disease (ALD). The company also plans to pursue additional indications for pemvidutide that leverage the differentiated clinical profile of pemvidutide.",
       "total_employees": 57,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "ALTG": {
       "market_cap": 198614581.76,
@@ -1653,14 +1653,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "AMKR": {
-      "market_cap": 12852446376.56,
+      "market_cap": 13563020446.480001,
       "share_class_shares_outstanding": 248452472,
       "weighted_shares_outstanding": 248452472,
       "sic_code": "3674",
       "sic_description": "SEMICONDUCTORS & RELATED DEVICES",
       "description": "Amkor Technology Inc is a OSAT (outsourced semiconductor assembly and test) service provider. It has pioneered the outsourcing of integrated circuit (IC) packaging and test services and is a strategic manufacturing partner for the semiconductor companies, foundries, and electronics original equipment manufacturers (OEMs). The firm's products are organized into two categories namely advanced products that include flip chip, fine pitch bumping, wafer-level processing, advanced SiPs, power modules, and others, and Mainstream products that includes wirebond packaging and testing. The company derives maximum revenue from the advanced products category. The company derives majority of its revenue from Foreign states.",
       "total_employees": 30800,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "AMLX": {
       "market_cap": 4136376420.6799994,
@@ -2027,14 +2027,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "AORT": {
-      "market_cap": 1217442838.37,
+      "market_cap": 1176487612.73,
       "share_class_shares_outstanding": 48756221,
       "weighted_shares_outstanding": 48756221,
       "sic_code": "3841",
       "sic_description": "SURGICAL & MEDICAL INSTRUMENTS & APPARATUS",
       "description": "Artivion Inc offers cardiac and vascular surgeons a suite of aortic-centric solutions. The company's products include Aortic Heart Valve, Mitral Heart Valve, Aortic Allograft, Pulmonary Human Heart Valve, Pulmonary Patch, and Surgical Adhesive among others. The company's has two reportable segments: Medical Devices and Preservation Services. The Medical Devices segment includes revenues from sales of aortic stent grafts, surgical sealants, On-X products, and other product revenues. The Preservation Services segment includes services revenues from the preservation of cardiac and vascular implantable human tissues. Company operates in North America, EMEA. LATAM, APAC. Maximum revenue is from North America.",
       "total_employees": 1800,
-      "cached_at": "2026-09-15T22:51:28.310342+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "AOSL": {
       "market_cap": 780083593.9,
@@ -2117,14 +2117,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "APP": {
-      "market_cap": 110923261690.65999,
+      "market_cap": 110009665768.33,
       "share_class_shares_outstanding": 304443000,
       "weighted_shares_outstanding": 334650521,
       "sic_code": "7370",
       "sic_description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
       "description": "AppLovin is a vertically integrated advertising technology company that serves as a demand-side platform for advertisers, a supply-side platform for publishers, and an exchange that facilitates transactions between the two. About 80% of AppLovin's revenue comes from the DSP, AppDiscovery, while the remainder comes from the SSP, Max. AppLovin's primary tool for future growth is Axon 2, an ad optimizer within the DSP that lets advertisers place ads based on specified return thresholds.",
       "total_employees": 898,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "APPF": {
       "market_cap": 7589153045.76,
@@ -3111,14 +3111,14 @@
       "cached_at": "2026-08-18T20:32:00.427868+00:00"
     },
     "AVR": {
-      "market_cap": 813778257.9,
+      "market_cap": 792337393.6200001,
       "share_class_shares_outstanding": 97458474,
       "weighted_shares_outstanding": 97458474,
       "sic_code": "3842",
       "sic_description": "ORTHOPEDIC, PROSTHETIC & SURGICAL APPLIANCES & SUPPLIES",
       "description": "Anteris Technologies Global Corp is a structural heart company focused on advancing cardiac care through science-driven innovations aimed at restoring heart valve patients to healthy function. Its key product, the DurAVR Transcatheter Heart Valve (THV), was designed in partnership with interventional cardiologists and cardiac surgeons to treat Aortic Stenosis, a potentially life-threatening condition caused by narrowing of the aortic valve. The balloon-expandable DurAVR THV is a biomimetic valve designed to mimic the performance of a healthy human aortic valve and replicate normal aortic blood flow. The company operates in United States, Germany, Australia, Switzerland, and Sweden, with the majority of its revenue generated from the United States.",
       "total_employees": 174,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "AVTR": {
       "market_cap": 9191716635.6,
@@ -3833,14 +3833,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "BH.A": {
-      "market_cap": 1228067307.95,
+      "market_cap": 1109904178.6000001,
       "share_class_shares_outstanding": 214482,
       "weighted_shares_outstanding": 636895,
       "sic_code": "5812",
       "sic_description": "RETAIL-EATING PLACES",
       "description": "Biglari Holdings Inc is a holding company that owns subsidiaries in a range of businesses. The company's reportable segments include Restaurant Operations, Insurance Operations, and Oil and Gas Operations. Its restaurant operations include Steak n Shake and Western Sizzlin. Its insurance operations include First Guard, Southern Pioneer, and Biglari Reinsurance. Oil and gas operations include Southern Oil and Abraxas Petroleum. The company also reports segment information for Maxim. The majority of revenue is derived from the Restaurant Operations Segment.",
       "total_employees": 2359,
-      "cached_at": "2026-09-08T22:31:52.689754+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "BHC": {
       "market_cap": 2120526480.87,
@@ -4263,14 +4263,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "BNED": {
-      "market_cap": 373341834.59999996,
+      "market_cap": 385821227.40000004,
       "share_class_shares_outstanding": 34664980,
       "weighted_shares_outstanding": 34664980,
       "sic_code": "5940",
       "sic_description": "RETAIL-MISCELLANEOUS SHOPPING GOODS STORES",
       "description": "Barnes & Noble Education Inc is contract operators of physical and virtual bookstores for college and university campuses and K-12 institutions across the United States. The company is also one of the textbook wholesalers and inventory management hardware and software providers The company operates physical and virtual bookstores that delivers essential educational content and general merchandise within a dynamic omnichannel retail environment. The Company currently operates as a single operating and reporting segment. The company's solutions are Academic Solutions, College Retail Solutions, College Insights, Wholesale & Store Technology Services.",
       "total_employees": 3613,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "BNKK": {
       "market_cap": 10801269.0,
@@ -5089,14 +5089,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "CAMT": {
-      "market_cap": 6905490150.69,
+      "market_cap": 7063695270.72,
       "share_class_shares_outstanding": null,
       "weighted_shares_outstanding": 46668177,
       "sic_code": null,
       "sic_description": null,
       "description": "Camtek Ltd is engaged in the manufacturing of metrology and inspection equipment and software solutions for the semiconductor industry. Its systems inspect wafers for various semiconductor market segments, including Advanced Packaging, Chiplets, HBM, Compound Semiconductors, Memory, CMOS Image Sensors, Power, RF and MEMS, serving the industry's IDMs, OSATs, and foundries. Geographically, it derives maximum revenue from China followed by Asia Pacific, Korea, United States, and Europe. The company's products and services include Surface Inspection, Bump Inspection and Metrology, and others.",
       "total_employees": 709,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "CAN": {
       "market_cap": 272853952.864,
@@ -5269,14 +5269,14 @@
       "cached_at": "2026-09-04T22:18:56.342194+00:00"
     },
     "CBNA": {
-      "market_cap": 298431437.15999997,
+      "market_cap": 323563196.27000004,
       "share_class_shares_outstanding": 3366667,
       "weighted_shares_outstanding": 6561817,
       "sic_code": "6021",
       "sic_description": "NATIONAL COMMERCIAL BANKS",
       "description": "Chain Bridge Bancorp Inc is engaged in banking industry. It offers commercial and personal banking services, including deposits, treasury management, payments, loans, commercial lending, residential mortgage financing, consumer loans, trusts and estate administration, wealth management, and asset custody.",
       "total_employees": 92,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "CBRL": {
       "market_cap": 1002910010.1999999,
@@ -5739,14 +5739,14 @@
       "cached_at": "2026-08-18T20:32:00.427868+00:00"
     },
     "CGON": {
-      "market_cap": 6835059316.25,
+      "market_cap": 6890902752.5,
       "share_class_shares_outstanding": 88640375,
       "weighted_shares_outstanding": 88640375,
       "sic_code": "2836",
       "sic_description": "BIOLOGICAL PRODUCTS, (NO DIAGNOSTIC SUBSTANCES)",
       "description": "CG Oncology Inc is a late-stage clinical biopharmaceutical company focused on developing and commercializing its product candidate, cretostimogene grenadenorepvec, for patients with bladder cancer. The company's candidate, cretostimogene grenadenorepvec, is a targeted oncolytic intravesically delivered immunotherapy agent that is in two phase three trials (one high-risk BCG unresponsive NMIBC trial and one intermediate-risk NMIBC trial) and a phase two clinical study with a checkpoint inhibitor for high-risk BCG unresponsive NMIBC disease.",
       "total_employees": 142,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "CGTL": {
       "market_cap": 6430013.7,
@@ -5899,14 +5899,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "CHWY": {
-      "market_cap": 8516838406.31,
+      "market_cap": 7901889715.34,
       "share_class_shares_outstanding": 225449020,
       "weighted_shares_outstanding": 401927249,
       "sic_code": "5961",
       "sic_description": "RETAIL-CATALOG & MAIL-ORDER HOUSES",
       "description": "Founded in 2011, Chewy is a leading e-commerce retailer of pet food, toys, supplies, and medications in North America. The firm offers a comprehensive selection of proprietary and third-party brands, anchored by its highly sticky autoship subscription program, which drives over 83% of its sales. Beyond core retail, Chewy is expanding into high-margin revenue streams, including its retail media network (Chewy Ads), specialized veterinary healthcare software, and brick-and-mortar veterinary clinics to further integrate customers into the Chewy ecosystem.",
       "total_employees": 18000,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "CHYM": {
       "market_cap": 11327266521.12,
@@ -6029,14 +6029,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "CLB": {
-      "market_cap": 563921021.18,
+      "market_cap": 501976889.47999996,
       "share_class_shares_outstanding": 45884542,
       "weighted_shares_outstanding": 45884542,
       "sic_code": "1389",
       "sic_description": "OIL & GAS FIELD SERVICES, NEC",
       "description": "Core Laboratories Inc is a providers of proprietary and patented reservoir description and production enhancement services and products to the oil and gas industry, through client relationships. The company operates its business in two segments; Reservoir Description, and Production Enhancement. It provides data and analytics to aid well operators in determining optimal methods for recovering, processing, and refining hydrocarbons from a well. It also manufactures the associated lab equipment for its services. The company generates majority of its revenue from Reservoir Description segment.",
       "total_employees": 3300,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "CLBT": {
       "market_cap": 2822560103.8,
@@ -6199,14 +6199,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "CLRB": {
-      "market_cap": 24008354.32,
+      "market_cap": 21078200.84,
       "share_class_shares_outstanding": 9452108,
       "weighted_shares_outstanding": 9452108,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Cellectar Biosciences Inc is a clinical-stage biopharmaceutical company. It is focused on the discovery, development, and commercialization of drugs for the treatment of cancer. The company's core objective is to leverage a proprietary phospholipid drug conjugate (PDC) delivery platform to develop PDCs that are designed to specifically target cancer cells and deliver improved efficacy and safety as a result of fewer off-target effects. The products under development include Iopofosine, CLR 121125 ,CLR 121225 and others. It has one operating and reportable segment focused on utilizing its PDC platform to develop drugs for the treatment of cancer.",
       "total_employees": 11,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "CLRO": {
       "market_cap": 11290238.639999999,
@@ -6699,14 +6699,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "COLL": {
-      "market_cap": 771568028.1,
+      "market_cap": 741616864.14,
       "share_class_shares_outstanding": 32555613,
       "weighted_shares_outstanding": 32555613,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Collegium Pharmaceutical Inc is a diversified biopharmaceutical company committed to improving the lives of people living with serious medical conditions. The company has developed, licensed, and acquired a portfolio of meaningfully differentiated products for the treatment of attention deficit hyperactivity disorder (ADHD) and moderate to severe pain. It commercializes its products in the United States, including Jornay PM, Belbuca, Xtampza ER, Nucynta ER, Nucynta IR (collectively, the Nucynta Products), and Symproic. The company's product portfolio includes Jornay PM, Belbuca, Xtampza ER, Nucynta IR, Nucynta ER, and Symproic.",
       "total_employees": 423,
-      "cached_at": "2026-09-04T22:18:56.342194+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "COMP": {
       "market_cap": 7737857870.4,
@@ -6979,14 +6979,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "CRI": {
-      "market_cap": 1366023193.8500001,
+      "market_cap": 1132907169.1,
       "share_class_shares_outstanding": 36711185,
       "weighted_shares_outstanding": 36711185,
       "sic_code": "2300",
       "sic_description": "APPAREL & OTHER FINISHD PRODS OF FABRICS & SIMILAR MATL",
       "description": "Carter's Inc makes apparel for babies and children under brand names including Carter's and OshKosh B'gosh. It sells its products through a multi-channel business model, which includes retail stores, eCommerce, and wholesale sales channels, as well as retail omnichannel capabilities in the United States and Canada, which enables it to reach a broad range of consumers around the world. The company operates in three segments; U.S. Retail, U.S. Wholesale, and International. The majority of revenue is derived from U.S. Wholesale segment. The company predominantly sources products through contract manufacturers in Asia. It has multiple distribution centers in the U.S., in addition to distribution centers in Canada and Asia that serve international customers.",
       "total_employees": 15400,
-      "cached_at": "2026-08-20T20:37:48.513312+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "CRIS": {
       "market_cap": 2425078.0,
@@ -7903,14 +7903,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "DBVT": {
-      "market_cap": 905608150.92,
-      "share_class_shares_outstanding": 62875076,
-      "weighted_shares_outstanding": 62845812,
+      "market_cap": 793776517.11,
+      "share_class_shares_outstanding": 62877761,
+      "weighted_shares_outstanding": 62848497,
       "sic_code": "2836",
       "sic_description": "BIOLOGICAL PRODUCTS, (NO DIAGNOSTIC SUBSTANCES)",
       "description": "DBV Technologies SA is a clinical-stage specialty biopharmaceutical company focused on changing the field of immunotherapy by developing a novel technology platform called Viaskin. The therapeutic approach is based on epicutaneous immunotherapy or EPIT, its proprietary method of delivering biologically active compounds to the immune system through intact skin using Viaskin, an epicutaneous patch (i.e., a skin patch). Its main product candidate under development is Viaskin Peanut for the treatment of peanut-allergic patients. In addition, the company also has earlier-stage food allergy programs, including Viaskin Milk and Eosinophilic Esophagitis, or EoE.",
       "total_employees": 170,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "DC": {
       "market_cap": 819796975.01,
@@ -8213,14 +8213,14 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "DINO": {
-      "market_cap": 19956237050.25,
+      "market_cap": 18967758849.81,
       "share_class_shares_outstanding": 177783849,
       "weighted_shares_outstanding": 177783849,
       "sic_code": "4610",
       "sic_description": "PIPE LINES (NO NATURAL GAS)",
       "description": "HF Sinclair is an integrated petroleum refiner that owns and operates seven refineries serving the Rockies, midcontinent, Southwest, and Pacific Northwest, with a total crude oil throughput capacity of 678,000 barrels per day. It can produce 380 million gallons of renewable diesel annually. It operates a marketing business with over 350 distributors and 1,700 branded wholesale sites across 30 states. It also owns and operates 4,500 miles of petroleum product pipelines and terminals principally in the Southwestern United States.",
       "total_employees": 5165,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "DIOD": {
       "market_cap": 4178271194.65,
@@ -8433,14 +8433,14 @@
       "cached_at": "2026-09-22T22:52:06.116348+00:00"
     },
     "DOGZ": {
-      "market_cap": 16087660.754,
+      "market_cap": 16034798.780000001,
       "share_class_shares_outstanding": 5441658,
       "weighted_shares_outstanding": 17620658,
       "sic_code": null,
       "sic_description": null,
       "description": "Dogness (International) Corp designs, manufactures pet products, including leashes and smart products, and lanyards. The company designs, processes, and manufactures fashionable and high-quality leashes, collars, and harnesses to complement cats' and dogs' appearances, as well as intelligent pet products. The company also provides dyeing services to external customers, as well as pet grooming services. The dyeing service is to utilize the existing production capacity and the pet grooming service is immaterial. Geographically, it generates maximum revenue from Mainland China and also has a presence in the United States, Europe, Australia, Canada, Central, and South America, Japan, and other Asian countries and regions.",
       "total_employees": 212,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "DOMH": {
       "market_cap": 59396932.7,
@@ -9183,14 +9183,14 @@
       "cached_at": "2026-08-18T20:32:00.427868+00:00"
     },
     "ELF": {
-      "market_cap": 5633493378.12,
+      "market_cap": 6025896551.52,
       "share_class_shares_outstanding": 59007996,
       "weighted_shares_outstanding": 59007996,
       "sic_code": "2844",
       "sic_description": "PERFUMES, COSMETICS & OTHER TOILET PREPARATIONS",
       "description": "e.l.f. Beauty Inc is a multi-brand beauty company that offers inclusive, accessible, clean, vegan, and cruelty-free cosmetics and skin care products. The Company's mission is to make beauty accessible to every eye, lip, face, and skin concern. The company offers cosmetic accessories for women, which include eyeliner, mascara, false eyelashes, lipstick, foundation for the face, moisturizer, cleanser, and other tools through its stores and e-commerce channels.",
       "total_employees": 849,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "ELLO": {
       "market_cap": 294961122.0,
@@ -9393,14 +9393,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "ENPH": {
-      "market_cap": 4852351474.559999,
+      "market_cap": 4548418784.16,
       "share_class_shares_outstanding": 132144648,
       "weighted_shares_outstanding": 132144648,
       "sic_code": "3674",
       "sic_description": "SEMICONDUCTORS & RELATED DEVICES",
       "description": "Enphase Energy is a global energy technology company. It delivers smart, easy-to-use solutions that manage solar generation, storage, and communication on one platform. The company's microinverter technology primarily serves the rooftop solar market and produces a fully integrated solar-plus-storage solution. Enphase derives a majority of revenue from the United States.",
       "total_employees": 2872,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "ENR": {
       "market_cap": 1514173214.07,
@@ -10283,14 +10283,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "FET": {
-      "market_cap": 952463470.9799999,
+      "market_cap": 928714984.0500001,
       "share_class_shares_outstanding": 11246295,
       "weighted_shares_outstanding": 11472699,
       "sic_code": "3533",
       "sic_description": "OIL & GAS FIELD MACHINERY & EQUIPMENT",
       "description": "Forum Energy Technologies Inc is a manufacturing company serving the oil, natural gas, industrial, and renewable energy industries. Its products include engineered capital equipment, as well as products that are consumed in the drilling, well construction, production, and transportation of oil and natural gas. The company operates in two reportable segments: Drilling and Completions, and Artificial Lift and Downhole. Maximum revenue is generated from the Drilling and Completions segment, which offers products used in the drilling process, and other products like hydraulic fracturing pumps, ROVs and trenchers, submarine rescue vehicles, etc. Geographically, the firm generates maximum revenue from the U.S., followed by Canada, Middle East, Europe and Africa, Asia-Pacific, and Latin America.",
       "total_employees": 1700,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "FF": {
       "market_cap": 232475585.4,
@@ -10363,14 +10363,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "FICO": {
-      "market_cap": 21294404204.600002,
+      "market_cap": 19750605254.8,
       "share_class_shares_outstanding": 21597635,
       "weighted_shares_outstanding": 21597635,
       "sic_code": "7389",
       "sic_description": "SERVICES-BUSINESS SERVICES, NEC",
       "description": "Founded in 1956, Fair Isaac is a leading applied analytics company. It is primarily known for its FICO credit scores, a widely used industry benchmark to determine the creditworthiness of an individual consumer. The firm's US-centric credit scores business accounts for most of the firm's revenue and profits and consists of business-to-business and business-to-consumer services. In addition to scores, Fair Isaac also sells software primarily to financial institutions for areas such as analytics, decision-making, customer workflows, and fraud.",
       "total_employees": 3876,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "FIEE": {
       "market_cap": 32408672.4,
@@ -11561,14 +11561,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "GHRS": {
-      "market_cap": 1914433384.43,
+      "market_cap": 1912374115.82,
       "share_class_shares_outstanding": 68608919,
       "weighted_shares_outstanding": 68642287,
       "sic_code": null,
       "sic_description": null,
       "description": "GH Research PLC is a clinical-stage biopharmaceutical company dedicated to transforming the lives of patients by developing a practice-changing treatment for depression. Its initial focus is on developing novel and proprietary mebufotenin therapies for the treatment of patients with Treatment-Resistant Depression, or TRD. Its portfolio currently includes GH001, a proprietary inhalable mebufotenin product candidate, and GH002, a proprietary intravenous mebufotenin product candidate. The group has only a single segment: Research and Development.",
       "total_employees": 73,
-      "cached_at": "2026-09-15T22:51:28.310342+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "GIBO": {
       "market_cap": 87075254.72,
@@ -12095,14 +12095,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "GRDN": {
-      "market_cap": 3040430592.0,
+      "market_cap": 2829500719.6800003,
       "share_class_shares_outstanding": 49798904,
       "weighted_shares_outstanding": 63342304,
       "sic_code": "5912",
       "sic_description": "RETAIL-DRUG STORES AND PROPRIETARY STORES",
       "description": "Guardian Pharmacy Services Inc is a pharmacy services company providing technology-enabled services to help residents of long-term health care facilities (LTCFs) adhere to appropriate drug regimens, reducing the cost of care and improving clinical outcomes. The Company provides high-touch clinical, drug dispensing, and administration services tailored to residents in assisted living facilities, behavioral health facilities, and group homes, while also serving residents in all types of LTCFs. It partners with residents, LTCFs, and health plan payors to help reduce errors in drug administration, manage drug regimens, and improve adherence. The Company derives its revenue mainly from the sale of pharmaceutical and medical products.",
       "total_employees": 3600,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "GRDX": {
       "market_cap": 22177792.529999997,
@@ -13339,14 +13339,14 @@
       "cached_at": "2026-08-18T20:32:00.427868+00:00"
     },
     "IAUX": {
-      "market_cap": 1549964012.57,
-      "share_class_shares_outstanding": 865901683,
+      "market_cap": 1619236147.21,
+      "share_class_shares_outstanding": 866032683,
       "weighted_shares_outstanding": 865901683,
       "sic_code": "1040",
       "sic_description": "GOLD AND SILVER ORES",
       "description": "i-80 Gold Corp is a well-financed gold and silver producer engaged in the exploration, development, and production of gold, silver, and poly-metallic deposits. The Company's principal assets include the Ruby Hill Mine, Lone Tree Mine, Granite Creek Mine, and McCoy-Cove Project.",
       "total_employees": 133,
-      "cached_at": "2026-09-04T22:18:56.342194+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "IBG": {
       "market_cap": 4262727.22,
@@ -13469,14 +13469,14 @@
       "cached_at": "2026-09-04T22:18:56.342194+00:00"
     },
     "ICON": {
-      "market_cap": 3192102.51455,
+      "market_cap": 3639942.1649999996,
       "share_class_shares_outstanding": 3214069,
       "weighted_shares_outstanding": 3621833,
       "sic_code": null,
       "sic_description": null,
       "description": "Icon Energy Corp is a growth-oriented shipping company providing seaborne transportation services for dry bulk cargoes via its fleet of oceangoing vessels. The company generates its revenues by chartering its vessels to regional and international dry bulk operators, commodity traders and end users. The cargos carried by the company are Grains, Minerals, Iron Ore, Coal and Bauxite.",
       "total_employees": null,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "ICU": {
       "market_cap": 15600217.14,
@@ -13639,14 +13639,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "ILMN": {
-      "market_cap": 33565790000.0,
+      "market_cap": 37366460000.0,
       "share_class_shares_outstanding": 151000000,
       "weighted_shares_outstanding": 151000000,
       "sic_code": "3826",
       "sic_description": "LABORATORY ANALYTICAL INSTRUMENTS",
       "description": "Illumina provides tools and services to analyze genetic material with life science and clinical lab applications. The company generates over 90% of its revenue from sequencing instruments, consumables, and services. Illumina's high-throughput technology enables whole genome sequencing in humans and other large organisms. Its lower throughput tools enable applications that require smaller data outputs, such as viral and cancer tumor screening. Illumina also sells microarrays that enable lower-cost, focused genetic screening with primarily consumer and agricultural applications.",
       "total_employees": 8650,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "IMA": {
       "market_cap": 55508619.839999996,
@@ -14049,14 +14049,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "INSP": {
-      "market_cap": 2156713975.0,
+      "market_cap": 2061309737.5,
       "share_class_shares_outstanding": 28910375,
       "weighted_shares_outstanding": 28910375,
       "sic_code": "3841",
       "sic_description": "SURGICAL & MEDICAL INSTRUMENTS & APPARATUS",
       "description": "Inspire Medical Systems Inc operates as a medical technology company. It focuses on the development and commercialization of minimally invasive solutions for patients with obstructive sleep apnea (OSA). It offers Inspire system, a neurostimulation technology that provides a safe and effective treatment for moderate to severe obstructive sleep apnea. The firm has operating footprints in the United States and All other countries wherein, it generates a majority of its revenue from the United States. Its segment revenues are derived from the sales of its product, the Inspire system, to hospitals and ambulatory surgery centers in the U.S. and in selected countries in Europe and the Asia Pacific region.",
       "total_employees": 1333,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "INTA": {
       "market_cap": 3298395590.2799997,
@@ -14403,14 +14403,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "IRON": {
-      "market_cap": 3073347162.2,
+      "market_cap": 2629141957.1200004,
       "share_class_shares_outstanding": 38392844,
       "weighted_shares_outstanding": 38392844,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Disc Medicine Inc is a clinical-stage biopharmaceutical company focused on the discovery, development, and commercialization of novel treatments for hematologic diseases. It aims to modify fundamental biological pathways associated with the formation and function of red blood cells, specifically heme biosynthesis and iron homeostasis. Its pipeline includes bitopertin for erythropoietic porphyrias (EPs), including erythropoietic protoporphyria (EPP), X-linked protoporphyria (XLP), and Diamond-Blackfan Anemia (DBA); DISC-0974 for the treatment of anemia of myelofibrosis (MF) and anemia of chronic kidney disease (CKD); and DISC-3405 for the treatment of polycythemia vera (PV) and other hematologic disorders. In addition, the Company's preclinical programs include DISC-0998.",
       "total_employees": 165,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "IRTC": {
       "market_cap": 3673067424.2900004,
@@ -14727,14 +14727,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "JF": {
-      "market_cap": 18523555.54,
+      "market_cap": 17789949.38,
       "share_class_shares_outstanding": 17127596,
       "weighted_shares_outstanding": 18340154,
       "sic_code": null,
       "sic_description": null,
       "description": "J and Friends Holdings Ltd providing merchant digitalization and commerce-enablement solutions to small and medium enterprises (SME). Its solutions feature critical functionality that SMEs need to engage with consumers, manage their operations, accept payments, and grow their business. Such solutions empower single- and multi-location retailers, restaurants, and other SMEs to compete successfully in an omni-channel market environment by engaging with consumers across online, mobile, and physical channels. The group conducts all of its current operations in Australia and generates revenues from continuing operations are derived from within Australia.",
       "total_employees": 30,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "JFB": {
       "not_found": true,
@@ -15635,14 +15635,14 @@
       "cached_at": "2026-08-18T20:32:00.427868+00:00"
     },
     "LAES": {
-      "market_cap": 517340297.2,
+      "market_cap": 528586825.40000004,
       "share_class_shares_outstanding": 191525129,
       "weighted_shares_outstanding": 224930564,
       "sic_code": null,
       "sic_description": null,
       "description": "SEALSQ Corp develops certified secure microcontrollers and implements post-quantum cryptography. The company develops solutions including post-quantum microchips and devices that can be used in a variety of applications, from multi-factor authentication, home automation, and IT network infrastructure to automotive, industrial automation, and control systems. The company's vaultIC range offers a set of ready-to-use secure elements designed to implement embedded security for any kind of device with fast time-to-market and high flexibility. The company's products include VaultIC155, VaultIV18x, VaultIC292, and VaultIC40x. The company generates a majority of its revenue from North America, while it also has its presence in Europe, Middle East & Africa, Asia Pacific, and Latin America.",
       "total_employees": 185,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "LAKE": {
       "market_cap": 103385311.86,
@@ -15783,14 +15783,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "LCLN": {
-      "market_cap": 920657000.24,
+      "market_cap": 837372737.1600001,
       "share_class_shares_outstanding": null,
       "weighted_shares_outstanding": 34846972,
       "sic_code": "6282",
       "sic_description": "INVESTMENT ADVICE",
       "description": "Lincoln International Inc is an independent investment banking advisory company focused on private capital markets. The company operates its business through its two operating segments: Investment Banking Advisory and Valuations and Opinions. The Investment Banking Advisory segment offers a range of services related to mergers and acquisitions, with key areas of focus including sell-side advisory, buy-side advisory, asset sales and divestitures, restructuring, primary and secondary capital raising, and merger-related engagements. The Valuations and Opinions segment provides valuation services to investment funds and financial institutions. The majority of revenue is derived from the Investment Banking Advisory segment. Geographically, the maximum revenue is derived from the Americas.",
       "total_employees": null,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "LCNB": {
       "market_cap": 283246611.56,
@@ -16253,14 +16253,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "LMND": {
-      "market_cap": 4173999446.95,
+      "market_cap": 3691044569.35,
       "share_class_shares_outstanding": 77396615,
       "weighted_shares_outstanding": 77396615,
       "sic_code": "6331",
       "sic_description": "FIRE, MARINE & CASUALTY INSURANCE",
       "description": "Lemonade Inc operates in the insurance industry. The company offers digital and artificial intelligence based platform for various insurances and for settling claims and paying premiums. The platform ensures transparency in issuing policies and settling disputes. The company is using technology, data, artificial intelligence, contemporary design, and social impact to deliver delightful and affordable insurances. The Company operates in one report segment providing personal property and casualty insurance products within the United States and Europe, including the UK.",
       "total_employees": 1282,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "LMRI": {
       "market_cap": 1064510734.08,
@@ -16393,14 +16393,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "LOVE": {
-      "market_cap": 215486089.01999998,
+      "market_cap": 210870590.45999998,
       "share_class_shares_outstanding": 14423433,
       "weighted_shares_outstanding": 14423433,
       "sic_code": "5712",
       "sic_description": "RETAIL-FURNITURE STORES",
       "description": "The Lovesac Co designs, manufactures and sells alternative furniture which is comprised of modular couches called sactionals and premium foam beanbag chairs called sacs. It also offers other accessories such as sactional-specific drink holders, Footsac blankets, decorative pillows, fitted seat tables, and ottomans. Its products are sold across the United States through its website or company-owned retail stores which are used in homes and offices. The majority of the firm's revenue is derived from the sale of Sactionals.",
       "total_employees": 1882,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "LPA": {
       "market_cap": 99533713.9,
@@ -16757,14 +16757,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "LXRX": {
-      "market_cap": 889911868.0,
+      "market_cap": 970003936.1200001,
       "share_class_shares_outstanding": 444955934,
       "weighted_shares_outstanding": 444955934,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Lexicon Pharmaceuticals Inc is a biopharmaceutical company. It is engaged in the discovery, development, and commercialization of pharmaceutical products for the treatment of human diseases. Some of its drug candidates are LX9211, an orally-delivered small molecule drug candidate, and LX9851, an orally-delivered small molecule drug candidate, as a treatment for obesity and associated cardiometabolic.",
       "total_employees": 81,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "LXU": {
       "market_cap": 794852444.16,
@@ -17407,14 +17407,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "MIAX": {
-      "market_cap": 4115105340.06,
+      "market_cap": 3647727810.48,
       "share_class_shares_outstanding": null,
       "weighted_shares_outstanding": 99230898,
       "sic_code": "6211",
       "sic_description": "SECURITY BROKERS, DEALERS & FLOTATION COMPANIES",
       "description": "Miami International Holdings Inc is engaged in operating regulated financial marketplaces across multiple asset classes using proprietary technology platforms. The company operates exchange markets for options, equities, futures, and international listings through its MIAX Exchanges, MIAX Futures Exchange, and the Bermuda Stock Exchange. The company operates through four reportable segments: Options, which provides trading and market data services for listed equity and ETP options; Equities, which provides trading services for U.S. equities and ETPs; Futures, which provides futures trading and clearing services through MIAX Futures; and International, which provides listing services for capital market instruments through the Bermuda Stock Exchange and The International Stock Exchange.",
       "total_employees": 439,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "MIMI": {
       "market_cap": 12078175.0465,
@@ -17567,14 +17567,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "MLKN": {
-      "market_cap": 1668338098.62,
-      "share_class_shares_outstanding": 68123238,
-      "weighted_shares_outstanding": 68123238,
+      "market_cap": 1394593848.27,
+      "share_class_shares_outstanding": 68733063,
+      "weighted_shares_outstanding": 68733063,
       "sic_code": "2520",
       "sic_description": "OFFICE FURNITURE",
       "description": "MillerKnoll Inc, formerly Herman Miller Inc researches, designs, manufactures, sells, and distributes interior furnishings across the globe. The Company has three reportable segments: Americas Contract, International Contract, and Global Retail. The company's products are sold through a variety of sources, including owned and independent contract furniture dealers, direct customer sales, owned and independent retailers, direct-mail catalogs, and the company's online stores. The independent retailer division generates the majority of the firm's overall sales.",
       "total_employees": 10544,
-      "cached_at": "2026-08-11T07:10:54.383308+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "MLSS": {
       "market_cap": 36924011.025,
@@ -17637,14 +17637,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "MMYT": {
-      "market_cap": 4711398379.58,
+      "market_cap": 4546795721.08,
       "share_class_shares_outstanding": 88762972,
       "weighted_shares_outstanding": 94058662,
       "sic_code": null,
       "sic_description": null,
       "description": "MakeMyTrip Ltd is an online travel company that provides online booking solutions for day-to-day travel needs. The company's operating segments include Air ticketing; Hotels and packages; Bus ticketing; and Others. It generates maximum revenue from the Hotels and packages segment. The Hotels and packages segment includes internet-based platforms, call centers, and branch offices, which provide holiday packages and hotel reservations. Its Air ticketing segment includes internet-based platforms and provides the facility to book domestic and international air tickets. Geographically, it derives a majority of revenue from India and also has a presence in the United States, Singapore, United Arab Emirates, Saudi Arabia, and many others.",
       "total_employees": 6152,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "MNDO": {
       "market_cap": 20790720.98,
@@ -19007,14 +19007,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "NICE": {
-      "market_cap": 5736664705.200001,
+      "market_cap": 6931461368.52,
       "share_class_shares_outstanding": 58442987,
       "weighted_shares_outstanding": 58597188,
       "sic_code": null,
       "sic_description": null,
       "description": "Nice is an enterprise software company that serves the customer engagement and financial crime and compliance markets. Software is deployed primarily on the cloud, but also on premises. Within customer engagement, Nice's CXone is the leading CCaaS platform providing solutions such as call routing, interactive voice response, digital self-service, and workforce engagement management. Within financial crime and compliance, Nice offers risk and investigation management, fraud prevention, anti-money-laundering, and compliance solutions.",
       "total_employees": 9626,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "NINE": {
       "market_cap": 147172394.5,
@@ -19047,14 +19047,14 @@
       "cached_at": "2026-09-04T22:18:56.342194+00:00"
     },
     "NIU": {
-      "market_cap": 159225258.64,
+      "market_cap": 165107965.24,
       "share_class_shares_outstanding": 70825078,
       "weighted_shares_outstanding": 78436088,
       "sic_code": null,
       "sic_description": null,
       "description": "Niu Technologies designs, manufactures, and sells high-performance electric motorcycles, scooters, bicycles, and kick-scooters. The company has a product portfolio consisting of electric motorcycles, mopeds, and bicycle series, including the NQi, MQi, UQi, FQi series, and others, and micro-mobility series, including the kick-scooter series KQi and the e-bike series BQi. The company's principal operations and geographic markets are predominantly in the People's Republic of China. It also generates revenue from Europe and other regions.",
       "total_employees": 671,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "NIVF": {
       "market_cap": 1535469.0614999998,
@@ -19357,14 +19357,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "NRIX": {
-      "market_cap": 2819748327.11,
+      "market_cap": 2664075802.61,
       "share_class_shares_outstanding": 103781683,
       "weighted_shares_outstanding": 103781683,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Nurix Therapeutics Inc is a clinical-stage biopharmaceutical company focused on the discovery, development, and potential commercialization of targeted protein degradation therapies for cancer and inflammatory diseases. It utilizes an integrated discovery platform that incorporates artificial intelligence and ligase expertise to support its research activities. The company's pipeline includes Bexobrutideg (NX-5948), Zelebrudomide (NX-2127), NX-1607 and BRAF degrader. These drug candidates target specific proteins involved in immune and cancer-related pathways. It operates in a single business segment.",
       "total_employees": 357,
-      "cached_at": "2026-08-18T20:32:00.427868+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "NRSN": {
       "market_cap": 12045327.7,
@@ -19657,14 +19657,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "NVRI": {
-      "market_cap": 628921554.89,
+      "market_cap": 580716451.4000001,
       "share_class_shares_outstanding": null,
       "weighted_shares_outstanding": 28190119,
       "sic_code": "4953",
       "sic_description": "REFUSE SYSTEMS",
       "description": "Enviri Corp provides environmental and operational solutions to the metal and rail industries. It is based in Philadelphia, Pennsylvania, and operates in more than 30 countries. The company leverages industrial expertise to help customers improve operational performance, recover value from byproducts, enhance sustainability, and maintain critical infrastructure. Its divisions are Harsco Environmental and Harsco Rail, which combine deep operational capabilities with technologies and world-wide scale to deliver long-term value for customers, communities, and shareholders.",
       "total_employees": 12000,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "NVT": {
       "market_cap": 25177002411.45,
@@ -19747,14 +19747,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "NXDR": {
-      "market_cap": 897488292.64,
+      "market_cap": 967121005.0,
       "share_class_shares_outstanding": 253892530,
       "weighted_shares_outstanding": 386848402,
       "sic_code": "7370",
       "sic_description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
       "description": "Nextdoor Holdings Inc is a neighborhood network that connects Verified Neighbors to the people, places, and information that matter in their local communities. The platform provides locally relevant content and services, including news, real-time safety alerts, neighbor recommendations, for sale and free listings, and events, supporting high-intent local engagement. Its platform is powered by geospatial technology and a proprietary advertising system that enables businesses of all sizes to reach audiences with a local focus. The company supports a broad ecosystem of partners, including small businesses, national brands, publishers, and civic and government agencies. It operates in the United States, which generates the majority of its revenue, as well as in International markets.",
       "total_employees": 463,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "NXE": {
       "market_cap": 7502963270.19,
@@ -19807,14 +19807,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "NXT": {
-      "market_cap": 12106498400.800001,
+      "market_cap": 12520719990.4,
       "share_class_shares_outstanding": 151729520,
       "weighted_shares_outstanding": 151729520,
       "sic_code": "3674",
       "sic_description": "SEMICONDUCTORS & RELATED DEVICES",
       "description": "Nextpower (and its subsidiaries) is a leading provider of intelligent, integrated solar tracker and software solutions used in utility-scale and distributed generation solar projects around the world. Nextpower's products enable solar panels in utility-scale power plants to follow the sun's movement across the sky and optimize plant performance. Nextpower has operations in the United States, Mexico, Spain and other countries in Europe, India, Australia, the Middle East, Africa, and Brazil.",
       "total_employees": 1993,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "NXTC": {
       "market_cap": 28013437.080000002,
@@ -20787,14 +20787,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "OXM": {
-      "market_cap": 444255606.84,
+      "market_cap": 421039282.14,
       "share_class_shares_outstanding": 14978274,
       "weighted_shares_outstanding": 14978274,
       "sic_code": "2320",
       "sic_description": "MEN'S & BOYS' FURNISHGS, WORK CLOTHG, & ALLIED GARMENTS",
       "description": "Oxford Industries Inc is an apparel manufacturing company that designs, sources, markets, and distributes products under the brand name Tommy Bahama, and Lilly Pulitzer. Tommy Bahama designs, sources, markets, and distributes men's and women's sportswear and related products. Lilly Pulitzer designs, sources, markets, and distributes upscale collections of women's and women's dresses, sportswear, and related products. The company's business is organized as: Tommy Bahama, Lilly Pulitzer, Johnny Was and Emerging Brands reportable segments. Geographically, the company operates in United States as well as Internationally.",
       "total_employees": 6000,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "P": {
       "market_cap": 34702285919.14,
@@ -21037,14 +21037,14 @@
       "cached_at": "2026-08-28T14:19:29.528327+00:00"
     },
     "PBYI": {
-      "market_cap": 470775001.91999996,
+      "market_cap": 506909048.12,
       "share_class_shares_outstanding": 51620066,
       "weighted_shares_outstanding": 51620066,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Puma Biotechnology Inc is a biopharmaceutical company that develops and commercializes inventive products to enhance cancer care and improve treatment outcomes for patients. It is currently commercializing NERLYNX, an oral version of neratinib, for the treatment of HER2-positive breast cancer. Also, it is developing Alisertib, a selective, small-molecule inhibitor of aurora kinase A that is designed to disrupt mitosis, resulting in apoptosis of rapidly proliferating tumor cells that are dependent on aurora kinase A.",
       "total_employees": 179,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "PCLA": {
       "market_cap": 66815944.75,
@@ -22925,14 +22925,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "RBBN": {
-      "market_cap": 326352617.4,
+      "market_cap": 329034967.68,
       "share_class_shares_outstanding": 178823352,
       "weighted_shares_outstanding": 178823352,
       "sic_code": "7373",
       "sic_description": "SERVICES-COMPUTER INTEGRATED SYSTEMS DESIGN",
       "description": "Ribbon Communications Inc provides communications technology to service providers and enterprises, offering software and high-performance hardware products, network solutions, and services for secure data and voice communications, as well as high-bandwidth networking for residential and enterprise customers across industries such as finance, education, government, utilities, and transportation. It operates through two segments: Cloud and Edge, which generate maximum revenue and deliver software-centric, cloud-native solutions for VoIP, VoLTE, VoNR, and unified communications, and IP Optical Networks, which support growing telecommunications traffic from 5G, distributed cloud computing, and other applications. The Company generates the majority of its revenue from the United States.",
       "total_employees": 3080,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "RBLX": {
       "market_cap": 34161457498.62,
@@ -23465,14 +23465,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "RIG": {
-      "market_cap": 6634267704.900001,
+      "market_cap": 6131671666.650001,
       "share_class_shares_outstanding": 1116880085,
       "weighted_shares_outstanding": 1116880085,
       "sic_code": "1381",
       "sic_description": "DRILLING OIL & GAS WELLS",
       "description": "Transocean Ltd. is an international provider of offshore contract drilling services for oil and gas wells. The company provides mobile offshore drilling rigs, related equipment, and crews to support the drilling of oil and gas wells. Its fleet mainly consists of offshore rigs, including drillships, semisubmersibles, and jackups.",
       "total_employees": 5600,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "RIGL": {
       "market_cap": 905973404.0,
@@ -23485,14 +23485,14 @@
       "cached_at": "2026-09-04T22:18:56.342194+00:00"
     },
     "RILY": {
-      "market_cap": 285418260.5,
+      "market_cap": 246424498.15,
       "share_class_shares_outstanding": 40199755,
       "weighted_shares_outstanding": 40199755,
       "sic_code": "6282",
       "sic_description": "INVESTMENT ADVICE",
       "description": "BRC Group Holdings Inc is a diversified holding company offering a platform of businesses, including financial services, telecom, retail, and investments in equity, debt, and venture capital. It serves retail, corporate, capital providers, and individual customers across various business lines. The Group has seven reportable business segments: Capital Markets, Wealth Management, Lingo, magicJack, Marconi Wireless, UOL, and Consumer Products. Maximum revenue is generated from the Capital Markets segment, which provides investment banking and institutional brokerage services, offers loans, trades in equity securities, and maintains an investment portfolio of public and private equities and debt securities. Geographically, the Group derives maximum revenue from its business in North America.",
       "total_employees": 1380,
-      "cached_at": "2026-09-04T22:18:56.342194+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "RIME": {
       "market_cap": 3652879.025,
@@ -23613,14 +23613,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "RMBS": {
-      "market_cap": 9881936649.33,
+      "market_cap": 11414499099.72,
       "share_class_shares_outstanding": 108461603,
       "weighted_shares_outstanding": 108461603,
       "sic_code": "3674",
       "sic_description": "SEMICONDUCTORS & RELATED DEVICES",
       "description": "Rambus Inc is a semiconductor company providing chips and silicon IP for data-intensive computing systems, focusing on data center and artificial intelligence (AI) infrastructure. The company is at the forefront of enabling the next era of AI-driven computing, addressing challenges of signal and power integrity at increasingly extreme data rates across the data center, edge, and client markets. It offers high-performance memory subsystems, with a balanced and diverse portfolio of products, IP, and patents that maximize performance and security in computationally intensive systems. The company operates in South Korea, Singapore, the United States, and other countries, with the majority of its revenue coming from South Korea.",
       "total_employees": 791,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "RMCF": {
       "market_cap": 8291733.220799999,
@@ -23753,14 +23753,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "ROCK": {
-      "market_cap": 1361006310.65,
+      "market_cap": 1264533671.4,
       "share_class_shares_outstanding": 29683889,
       "weighted_shares_outstanding": 29683889,
       "sic_code": "3310",
       "sic_description": "STEEL WORKS, BLAST FURNACES & ROLLING & FINISHING MILLS",
       "description": "Gibraltar Industries Inc manufactures and provides products and services for the Renewable energy, Residential, Agtech, and Infrastructure markets. The Renewable Segment is engaged in designing, engineering, manufacturing, and installing solar racking and electrical balance systems. Agtech Segment provides growing and processing solutions including the designing, engineering, manufacturing, full-scope construction, maintenance, and support of greenhouses and indoor growing operations, and botanical extraction systems. It derives key revenue from the Residential segment which offers roof and foundation ventilation products, single point and centralized mail systems electronic package solutions, and Retractable awnings and gutter guards, among other products.",
       "total_employees": 3300,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "ROG": {
       "market_cap": 2607704809.9,
@@ -23943,14 +23943,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "RVLV": {
-      "market_cap": 1502034924.6,
+      "market_cap": 1528336530.0,
       "share_class_shares_outstanding": 41061483,
       "weighted_shares_outstanding": 71085420,
       "sic_code": "5961",
       "sic_description": "RETAIL-CATALOG & MAIL-ORDER HOUSES",
       "description": "Revolve Group Inc is an emerging e-commerce retailer, selling women's dresses, handbags, shoes, beauty products, and incidentals across its marketplace properties, Revolve and FWRD. The platform is built to suit the \"next-generation customer,\" emphasizing mobile commerce, influencer marketing, and occupying an aspirational but attainable luxury niche. With $1.1 billion in 2024 net sales, the firm sits just outside the top 30 apparel retailers (by sales) in the U.S, but has consistently generated robust top-line growth as the industry continues to favor digital channels. Revolve generates approximately 18% of sales from private-label offerings, while focusing on building an inventory of distinctive products from emerging fashion brands with less than $10 million in annual sales.",
       "total_employees": 1664,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "RVMD": {
       "market_cap": 46296666288.0,
@@ -25831,14 +25831,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "SPRO": {
-      "market_cap": 70464140.67,
+      "market_cap": 79199364.72,
       "share_class_shares_outstanding": 58234827,
       "weighted_shares_outstanding": 58234827,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Spero Therapeutics Inc is a clinical-stage biopharmaceutical firm. It focuses on identifying, developing, and commercializing novel treatments for MDR (Multi-drug-resistant) bacterial infections and rare diseases. The company's product candidate, tebipenem pivoxil hydrobromide or tebipenem HBr, is designed to be an oral carbapenem-class antibiotic for use in adults to treat MDR Gram-negative infections. It is also developing SPR720, a novel oral antibiotic designed for the treatment of a rare, orphan disease caused by pulmonary non-tuberculous mycobacterial infections, or NTM disease. It is also focused on SPR206, a next-generation polymyxin investigational product candidate being developed as an IV-administered medicine to treat MDR Gram-negative infections in the hospital.",
       "total_employees": 25,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "SPRU": {
       "market_cap": 36771675.26,
@@ -26211,14 +26211,14 @@
       "cached_at": "2026-08-19T20:35:48.535696+00:00"
     },
     "STOK": {
-      "market_cap": 1873196805.26,
+      "market_cap": 1884166266.3999999,
       "share_class_shares_outstanding": 64526242,
       "weighted_shares_outstanding": 64526242,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Stoke Therapeutics Inc is a biotechnology company dedicated to restoring protein expression by harnessing the bodys potential with RNA medicine. Its proprietary TANGO (Targeted Augmentation of Nuclear Gene Output) approach, Stoke is developing antisense oligonucleotides (ASOs) to restore naturally-occurring protein levels selectively. Its first medicine in development, zorevunersen, has demonstrated the potential for disease modification in patients with Dravet syndrome. The company provides early programs focused on multiple targets, including haploinsufficiency diseases of the central nervous system and eye, to up-regulate the protein expression of the underlying disease gene in a mutation-agnostic manner.",
       "total_employees": 170,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "STRA": {
       "market_cap": 1919383715.9199998,
@@ -28121,14 +28121,14 @@
       "cached_at": "2026-08-18T20:32:00.427868+00:00"
     },
     "U": {
-      "market_cap": 19139467696.170002,
+      "market_cap": 18972233901.63,
       "share_class_shares_outstanding": 440088933,
       "weighted_shares_outstanding": 440088933,
       "sic_code": "7372",
       "sic_description": "SERVICES-PREPACKAGED SOFTWARE",
       "description": "Unity Software Inc provides a software platform for creating and operating interactive, real-time 3D content. The platform can be used to create, run, and monetize interactive, real-time 2D and 3D content for mobile phones, tablets, PCs, consoles, and augmented and virtual reality devices. The business is spread across the United States, Greater China, EMEA, APAC, and other Americas, and key revenue is derived from the EMEA region. Its products are used in the gaming industry, retail, automotive, architecture, engineering, and construction.",
       "total_employees": 4412,
-      "cached_at": "2026-08-28T14:19:29.528327+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "UA": {
       "market_cap": 2130545883.36,
@@ -28291,14 +28291,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "ULCC": {
-      "market_cap": 1282301844.47,
+      "market_cap": 1427337780.2,
       "share_class_shares_outstanding": 230215771,
       "weighted_shares_outstanding": 230215771,
       "sic_code": "4512",
       "sic_description": "AIR TRANSPORTATION, SCHEDULED",
       "description": "Frontier Group Holdings Inc is an ultra-low-cost carrier whose business is focused on Low Fares Done Right. The company owns a fleet of 120 Airbus single-aisle aircraft, consisting of 13 A320ceos, 82 A320neos, 21 A321ceos, and 4 A321neos. The use of these aircraft, their seating configuration, weight-saving tactics, and baggage process have all contributed to the ability to continue to be the fuel-efficient of all the U.S. The Company is managed as a single business unit that provides air transportation for passengers. The majority of revenue is from Domestic flight follow by International.",
       "total_employees": 8352,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "ULH": {
       "market_cap": 466710148.5,
@@ -28651,14 +28651,14 @@
       "cached_at": "2026-09-04T22:18:56.342194+00:00"
     },
     "VAL": {
-      "market_cap": 6126321251.610001,
+      "market_cap": 5743729955.04,
       "share_class_shares_outstanding": 69435807,
       "weighted_shares_outstanding": 69435807,
       "sic_code": "1381",
       "sic_description": "DRILLING OIL & GAS WELLS",
       "description": "Valaris Ltd is an offshore contract drilling company. The company provides offshore contract drilling services to the international oil and gas industry with operations in almost every offshore market across six continents. Its business consists of four operating segments: Floaters, which includes drillships and semisubmersible rigs; Jackups; ARO; and Other, which consists of management services on rigs owned by third parties. It generates the majority of its revenue from the Floaters segment.",
       "total_employees": 5070,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "VANI": {
       "market_cap": 107341993.64,
@@ -28721,14 +28721,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "VECO": {
-      "market_cap": 2740441761.2,
+      "market_cap": 2711710830.4,
       "share_class_shares_outstanding": 61129640,
       "weighted_shares_outstanding": 61129640,
       "sic_code": "3559",
       "sic_description": "SPECIAL INDUSTRY MACHINERY, NEC",
       "description": "Veeco Instruments Inc is a United States-based company engaged in designing, developing, and manufacturing thin-film process equipment, mainly used for producing electronic devices. The company focuses on semiconductor process equipment that addresses a range of challenging materials engineering problems for its customers. Its products include Laser Processing Systems, Lithography Systems, Ion Beam Systems, SiC CVD Systems, MOCVD Systems, Wet Processing Systems, MBE Technologies, Atomic Layer Deposition Systems, Physical Vapor Deposition Systems, Dicing and Lapping Systems, as well as Gas & Vapor Delivery Systems. The maximum of the company's revenue is generated from sales to the Semiconductor Industry and within China.",
       "total_employees": 1265,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "VEEA": {
       "market_cap": 13842650.6,
@@ -29011,14 +29011,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "VKTX": {
-      "market_cap": 3493755463.15,
+      "market_cap": 4765272476.45,
       "share_class_shares_outstanding": 116652937,
       "weighted_shares_outstanding": 116652937,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Viking Therapeutics Inc is a healthcare service provider. The company specializes in the area of biopharmaceutical development focused on metabolic and endocrine disorders. The company's clinical program pipeline consists of VK2809, VK5211, and VK0214 products. VK2809 and VK0214 are orally available, tissue and receptor-subtype-selective agonists of the thyroid hormone receptor beta. VK5211 is an orally available, non-steroidal selective androgen receptor modulator.",
       "total_employees": 65,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "VLN": {
       "market_cap": 178662092.39999998,
@@ -29041,14 +29041,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "VMET": {
-      "market_cap": 1031703726.36,
-      "share_class_shares_outstanding": 108829507,
+      "market_cap": 1067617463.6700001,
+      "share_class_shares_outstanding": null,
       "weighted_shares_outstanding": 108829507,
       "sic_code": null,
       "sic_description": null,
       "description": "Versamet Royalties Corp is a diversified metals royalty and streaming company with exposure to a range of resource royalties and streams including gold, silver, copper, zinc, graphite and uranium, across a variety of jurisdictions. The Company's operating segments are considered to be its individual royalties, streams and the Greenstone gold interest.",
       "total_employees": 8,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "VNCE": {
       "market_cap": 138508814.29999998,
@@ -29431,14 +29431,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "W": {
-      "market_cap": 13500942659.9,
+      "market_cap": 14703522314.5,
       "share_class_shares_outstanding": 111018505,
       "weighted_shares_outstanding": 136968070,
       "sic_code": "5961",
       "sic_description": "RETAIL-CATALOG & MAIL-ORDER HOUSES",
       "description": "Wayfair engages in e-commerce in the United States (88% of 2025 sales), Canada, the United Kingdom, and Ireland. It's also embarked on expansion into the brick-and-mortar landscape, with 13 stores (excluding outlets) between the AllModern, Birch Lane, Joss & Main, and Wayfair banners. The firm offers more than 40 million products from more than 20,000 suppliers under the brands Wayfair, Joss & Main, AllModern, Birch Lane, and Perigold. Its offerings include furniture, everyday and seasonal decor, decorative accents, housewares, as well as advertising and logistics services. Wayfair was founded in 2002 and began trading publicly in 2014.",
       "total_employees": 12800,
-      "cached_at": "2026-09-14T23:06:14.959902+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "WAFU": {
       "market_cap": 6218888.1899999995,
@@ -29641,14 +29641,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "WFRD": {
-      "market_cap": 6106418560.56,
+      "market_cap": 6007016736.0,
       "share_class_shares_outstanding": 71512104,
       "weighted_shares_outstanding": 71512104,
       "sic_code": "3533",
       "sic_description": "OIL & GAS FIELD MACHINERY & EQUIPMENT",
       "description": "Weatherford provides oilfield services and equipment to national, integrated, public, and private oil and gas operators. It operates across multiple upstream markets, including offshore, the rest of the world onshore, and US onshore, where Weatherford has limited exposure. The Middle East, North Africa, and Asia account for over 25% of sales. Weatherford also offers manufacturing, research, and training services. Performance is reported through three segments: drilling and evaluation, well construction and completions, and production and intervention.",
       "total_employees": 16700,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "WGS": {
       "market_cap": 3015058895.1,
@@ -29971,14 +29971,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "WT": {
-      "market_cap": 3348417653.1000004,
+      "market_cap": 3595382394.03,
       "share_class_shares_outstanding": 151512111,
       "weighted_shares_outstanding": 151512111,
       "sic_code": "6211",
       "sic_description": "SECURITY BROKERS, DEALERS & FLOTATION COMPANIES",
       "description": "WisdomTree Inc is a financial innovator, offering a diverse suite of Exchange-traded products (ETPs), models and solutions, private market investments and digital asset-related products. It also offers digital products and services related to tokenized real world assets and stablecoins, including tokenized mutual funds (Digital Funds), as well as its institutional platform, WisdomTree Connect, and blockchain-native digital wallet, WisdomTree Prime. The company's products are distributed across various asset management industry channels, including banks, brokerage firms, registered investment advisers, institutional investors, private wealth managers and online brokers. The majority of the company's revenue is generated from advisory fees earned from ETPs.",
       "total_employees": 360,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "WTF": {
       "market_cap": 121558429.44,
@@ -30351,14 +30351,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "XPRO": {
-      "market_cap": 1958245667.07,
+      "market_cap": 1840279060.62,
       "share_class_shares_outstanding": null,
       "weighted_shares_outstanding": 112349149,
       "sic_code": "1389",
       "sic_description": "OIL & GAS FIELD SERVICES, NEC",
       "description": "Expro Ltd is an energy services company that provides energy services and well solutions for the oil and gas industry. Its service portfolio includes well construction, well flow management, subsea well access, well intervention, and well integrity solutions. The company serves exploration and production companies in onshore and offshore environments across multiple countries.",
       "total_employees": 7000,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "XRAY": {
       "market_cap": 2200866791.04,
@@ -30461,14 +30461,14 @@
       "cached_at": "2026-09-21T23:07:42.591143+00:00"
     },
     "XZO": {
-      "market_cap": 1509839985.68,
+      "market_cap": 1489120224.5400002,
       "share_class_shares_outstanding": null,
       "weighted_shares_outstanding": 90085918,
       "sic_code": "7372",
       "sic_description": "SERVICES-PREPACKAGED SOFTWARE",
       "description": "Exzeo Group Inc provides turnkey insurance technology and operations solutions to insurance carriers and their agents based on a proprietary platform of purpose-built software and data analytics applications that are specifically designed for the property and casualty, or P&C, insurance ecosystem. Its Insurance-as-a-Service (IaaS) platform, which it refers to as the Exzeo Platform, currently includes nine configurable software and data analytics applications that are purpose-built to serve insurance companies and other customers in the insurance value chain. Through the Exzeo Platform, the company provides technology-based solutions and services for all operational and administrative activities and functions needed by P&C insurance carriers and their agents.",
       "total_employees": 354,
-      "cached_at": "2026-09-04T22:18:56.342194+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "YAAS": {
       "market_cap": 20900467.21,
@@ -31309,14 +31309,14 @@
       "cached_at": "2026-09-04T22:18:56.342194+00:00"
     },
     "NXB": {
-      "market_cap": 55817226.900000006,
+      "market_cap": 54308653.2,
       "share_class_shares_outstanding": null,
       "weighted_shares_outstanding": 25142895,
       "sic_code": "3730",
       "sic_description": "SHIP & BOAT BUILDING & REPAIRING",
       "description": "NextBoat Inc focused on AI-powered technology platform designed to modernize and scale the world-wide pre-owned marine marketplace.",
       "total_employees": 40,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "OMSE": {
       "market_cap": 185500836.48000002,
@@ -31339,14 +31339,14 @@
       "cached_at": "2026-09-04T22:18:56.342194+00:00"
     },
     "PSHG": {
-      "market_cap": 21383311.759999998,
+      "market_cap": 22626527.560000002,
       "share_class_shares_outstanding": 12432158,
       "weighted_shares_outstanding": 12432158,
       "sic_code": null,
       "sic_description": null,
       "description": "Performance Shipping Inc is a shipping company. The company is a provider of shipping transportation services through the ownership of tanker vessels. The company's vessels are employed on time charters with liner companies carrying container vessels and cargo along various shipping routes. It owns and operates Aframax and Suezmax tanker vessels.",
       "total_employees": 292,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "QH": {
       "market_cap": 10755991.63,
@@ -32777,14 +32777,14 @@
       "cached_at": "2026-08-21T20:32:31.797099+00:00"
     },
     "AYTU": {
-      "market_cap": 21359083.919999998,
+      "market_cap": 23935053.84,
       "share_class_shares_outstanding": 10733208,
       "weighted_shares_outstanding": 10733208,
       "sic_code": "2834",
       "sic_description": "PHARMACEUTICAL PREPARATIONS",
       "description": "Aytu BioPharma Inc is a specialty pharmaceutical company with a commercial portfolio of prescription therapeutics and consumer health products. The company's primary prescription products treat attention deficit hyperactivity disorder and other common pediatric conditions. It is building a complementary therapeutic development pipeline, including a prospective treatment (AR101/enzastaurin) for vascular Ehlers-Danlos Syndrome, a rare genetic disease resulting in high morbidity and a significantly shortened lifespan. The company operates one business segment consisting of various prescription pharmaceutical products sold through third parties.",
       "total_employees": 83,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "BKV": {
       "market_cap": 2651678620.9,
@@ -32947,14 +32947,14 @@
       "cached_at": "2026-09-17T22:46:28.770438+00:00"
     },
     "STRR": {
-      "market_cap": 38185321.05,
+      "market_cap": 36525089.7,
       "share_class_shares_outstanding": 3689403,
       "weighted_shares_outstanding": 3689403,
       "sic_code": "7363",
       "sic_description": "SERVICES-HELP SUPPLY SERVICES",
       "description": "Star Equity Holdings Inc is a diversified multi-industry holding company operating through four reportable segments: Building Solutions, Business Services, Energy Services, and Investments. The company derives majority of the revenue from Business Services segment that provides customized recruitment and contracting solutions to mid-to-large multinational companies. Service offerings include Recruitment Process Outsourcing, project-based RPO, contingent workforce solutions, recruitment consulting, outsourced professional contract staffing, and managed service provider services.",
       "total_employees": 1200,
-      "cached_at": "2026-09-15T22:51:28.310342+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "BHYP": {
       "market_cap": null,
@@ -33167,14 +33167,14 @@
       "cached_at": "2026-09-01T22:33:46.065949+00:00"
     },
     "VRA": {
-      "market_cap": 116312450.67999999,
-      "share_class_shares_outstanding": 28438252,
-      "weighted_shares_outstanding": 28438252,
+      "market_cap": 123074368.56,
+      "share_class_shares_outstanding": 28688664,
+      "weighted_shares_outstanding": 28688664,
       "sic_code": "3100",
       "sic_description": "LEATHER & LEATHER PRODUCTS",
       "description": "Vera Bradley Inc designs women's handbags, luggage, and travel items, fashion and home accessories, and gifts. Each category comprises a substantial component of total sales, with the bags category comprising the majority of the company's sales are made directly to customers through Vera Bradley's retail stores and e-commerce sites. The company also has a substantial wholesale business selling to specialty retail and department stores. Almost all company sales are in the United States. Vera Bradley uses third-party manufacturers in Asia to produce its products, and the company distributes the products through its distribution center in Indiana. The Company has three reportable segments: Vera Bradley Direct and Vera Bradley Indirect.",
       "total_employees": 1360,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "API": {
       "market_cap": 340312888.65000004,
@@ -33428,13 +33428,13 @@
     },
     "BOIL": {
       "market_cap": null,
-      "share_class_shares_outstanding": 21811140,
+      "share_class_shares_outstanding": 19511140,
       "weighted_shares_outstanding": null,
       "sic_code": "6221",
       "sic_description": "COMMODITY CONTRACTS BROKERS & DEALERS",
       "description": null,
       "total_employees": null,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "DOO": {
       "market_cap": 4494564577.34,
@@ -33447,34 +33447,34 @@
       "cached_at": "2026-09-09T22:27:04.186075+00:00"
     },
     "FIVE": {
-      "market_cap": 12996606042.449999,
+      "market_cap": 12787951249.8,
       "share_class_shares_outstanding": 55054035,
       "weighted_shares_outstanding": 55054035,
       "sic_code": "5331",
       "sic_description": "RETAIL-VARIETY STORES",
       "description": "Five Below Inc is a specialty value retailer offering a broad range of trend-right, high-quality products loved by the kid and the kid in all of customers. The Company's edited assortment of products includes select brands and licensed merchandise. The Company also sells its merchandise on the internet, through the Company's e-commerce website and mobile app, offering home delivery and the option to buy online and pick up in store. Additionally, the Company sells merchandise through on-demand third-party delivery services to enable its customers to shop online and receive convenient delivery. It derives revenue from sales of the Company's merchandise to customers.",
       "total_employees": 24600,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "KOLD": {
       "market_cap": null,
-      "share_class_shares_outstanding": 3283710,
+      "share_class_shares_outstanding": 3733710,
       "weighted_shares_outstanding": null,
       "sic_code": "6221",
       "sic_description": "COMMODITY CONTRACTS BROKERS & DEALERS",
       "description": null,
       "total_employees": null,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "PCG": {
-      "market_cap": 28961124813.9,
+      "market_cap": 38670485749.28,
       "share_class_shares_outstanding": 2680110496,
-      "weighted_shares_outstanding": 2202366906,
+      "weighted_shares_outstanding": 3002366906,
       "sic_code": "4931",
       "sic_description": "ELECTRIC & OTHER SERVICES COMBINED",
       "description": "PG&E is a holding company whose main subsidiary is Pacific Gas and Electric, a regulated utility operating in Central and Northern California that serves 5.7 million electricity customers and 4.6 million gas customers in 47 of the state's 58 counties. PG&E operated under bankruptcy court supervision in 2001-04 during California's energy crisis and in 2019-20 due to wildfire losses. In 2004, PG&E sold its unregulated assets as part of its first postbankruptcy reorganization.",
       "total_employees": 29000,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "SUNB": {
       "market_cap": 28417564581.92,
@@ -33787,24 +33787,24 @@
       "cached_at": "2026-09-22T22:52:06.116348+00:00"
     },
     "DLHC": {
-      "market_cap": 52609717.05,
+      "market_cap": 57537348.95,
       "share_class_shares_outstanding": 14493035,
       "weighted_shares_outstanding": 14493035,
       "sic_code": "7363",
       "sic_description": "SERVICES-HELP SUPPLY SERVICES",
       "description": "DLH Holdings Corp delivers health and readiness solutions for federal government customers through digital transformation and cyber security, science research and development, and systems engineering and integration. It provides technology-enabled business process, program management, and digital transformation solutions to U.S. government agencies, focusing on large-scale, technology-powered health and defense initiatives for agencies including HHS, VA, DoD, and their sub-agencies. Its revenues come from technology-enabled business process outsourcing, program management solutions, and public health research and analytics under time-and-materials, cost-reimbursable, and firm-fixed-price contracts.",
       "total_employees": 2300,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "EE": {
-      "market_cap": 1128136740.2,
+      "market_cap": 1081379473.3600001,
       "share_class_shares_outstanding": 31380716,
       "weighted_shares_outstanding": 31380716,
       "sic_code": "4924",
       "sic_description": "NATURAL GAS DISTRIBUTION",
       "description": "Excelerate Energy Inc. offers comprehensive LNG solutions by providing integrated services throughout the LNG value chain. The company delivers a full range of regasification services, including Floating Storage and Regasification Units (FSRUs), infrastructure development, and the supply of LNG and natural gas. With operational presence in several countries - Argentina, Bangladesh, Brazil, Finland, Germany, Pakistan, the United Arab Emirates (UAE), and the United States. The company generates revenue through Terminal Services, as well as from LNG, gas, and power. These revenues are derived from its vertically integrated activities in LNG sourcing, transportation, regasification, and power generation.",
       "total_employees": 1046,
-      "cached_at": "2026-09-16T22:48:12.997617+00:00"
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     },
     "GROW": {
       "market_cap": 36648624.08,
@@ -34085,6 +34085,66 @@
       "description": "Veraxa Biotech Holding AG focus on antibody therapies in medicine. The Company is an oncology-focused biotechnology Company with a clinical program in acute myeloid leukemia and two proprietary platform technologies that enable the development of new generations of antibody drug conjugates (ADC's) and T cell engagers. The Company operates in one reportable segment, focused on the research and development of products for the aging population.",
       "total_employees": null,
       "cached_at": "2026-09-22T22:52:06.116348+00:00"
+    },
+    "AMRX": {
+      "market_cap": 6791772526.5,
+      "share_class_shares_outstanding": 319353919,
+      "weighted_shares_outstanding": 348296027,
+      "sic_code": "2834",
+      "sic_description": "PHARMACEUTICAL PREPARATIONS",
+      "description": "Amneal Pharmaceuticals Inc is a pharmaceutical company operating in the U.S., India, and Ireland. With three reportable segments; Affordable Medicines, Specialty, and AvKARE. It develops, manufactures, and distributes a diverse portfolio of essential medicines. The Affordable Medicines segment, which derives maximum revenue, focuses on a wide range of dosage forms and delivery systems, contributing significantly to revenues. The Specialty segment promotes proprietary branded pharmaceuticals, particularly targeting the central nervous system and endocrine disorders. The AvKARE segment provides pharmaceuticals and medical products to governmental agencies, specializing in re-packaging and wholesale distribution, with a focus on offering consistent care and pricing to qualified entities.",
+      "total_employees": 8500,
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
+    },
+    "IH": {
+      "market_cap": 58268662.67999999,
+      "share_class_shares_outstanding": 22312862,
+      "weighted_shares_outstanding": 51112862,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "iHuman Inc is a Chinese company that uses artificial intelligence to create technology-driven puzzle products for children, making parenting easier and children happier. The company offers a range of intellectual development products that are designed to make the child-rearing experience more manageable for parents while turning intellectual development into a fun journey for children. Its revenue is generated from subscription fees paid by users for premium content on their self-directed and interactive online applications, as well as offline products and other sources. All of the groups revenue is generated from Chinese Mainland.",
+      "total_employees": 558,
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
+    },
+    "NAT": {
+      "market_cap": 1622010078.58,
+      "share_class_shares_outstanding": 211750663,
+      "weighted_shares_outstanding": 211750663,
+      "sic_code": null,
+      "sic_description": null,
+      "description": "Nordic American Tankers Ltd owns and operates double-hull crude oil tankers. It is an international tanker company that owns double-hull Suezmax tankers. It operates vessels in the spot market or on spot market-related charters according to cooperative arrangements with third parties. The company's fleet consists of crude oil tankers, and all of its vessels are employed in the spot market. The company has only one type of vessel - Suezmax crude oil tankers. It operates in markets that are very competitive and based mainly on supply and demand.",
+      "total_employees": 18,
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
+    },
+    "RWT": {
+      "market_cap": 516267095.52000004,
+      "share_class_shares_outstanding": 125612432,
+      "weighted_shares_outstanding": 125612432,
+      "sic_code": "6798",
+      "sic_description": "REAL ESTATE INVESTMENT TRUSTS",
+      "description": "Redwood Trust Inc is a specialty finance company focused on several distinct areas of housing credit. The company delivers customized housing credit investments to a diverse mix of investors through securitization platforms, whole-loan distribution activities, and its publicly traded securities. The company has four reportable segments: Sequoia Mortgage Banking, CoreVest Mortgage Banking, Redwood Investments, and Legacy Investments. Maximum revenue is generated from the Sequoia Mortgage Banking segment, comprising a mortgage loan conduit that acquires residential consumer loans from third-party originators for subsequent sale to whole loan buyers, securitization through its SEMT private-label securitization program, or transfer into its Redwood Investments portfolio.",
+      "total_employees": 351,
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
+    },
+    "SHOE": {
+      "market_cap": 363719444.70000005,
+      "share_class_shares_outstanding": 27183815,
+      "weighted_shares_outstanding": 27183815,
+      "sic_code": "5661",
+      "sic_description": "RETAIL-SHOE STORES",
+      "description": "Shoe Station Group Inc is a one-stop family footwear destination that offers an impressive selection from top brands. It is a fashion destination for footwear, southern-inspired accessories, and apparel. The group has physical stores throughout five Southern states and is available online at ShoeStation.com, shipping all across the U.S. Its offer products for Women's, Men's, and Kids.",
+      "total_employees": 5000,
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
+    },
+    "XENE": {
+      "market_cap": 3785492486.88,
+      "share_class_shares_outstanding": 96665550,
+      "weighted_shares_outstanding": 96840432,
+      "sic_code": "2834",
+      "sic_description": "PHARMACEUTICAL PREPARATIONS",
+      "description": "Xenon Pharmaceuticals Inc is a neuroscience-focused biopharmaceutical company committed to improving the lives of people living with neurological and psychiatric disorders. It is advancing a novel product pipeline to address areas of high unmet medical need, including epilepsy and depression. The product candidates of the group include XEN1101, NBI-921352, and XEN496 for Epilepsy and Nav1.7 oral inhibitors for Pain.",
+      "total_employees": 370,
+      "cached_at": "2026-09-23T22:51:59.816163+00:00"
     }
   }
 }

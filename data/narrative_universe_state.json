@@ -1,20 +1,17 @@
 {
-  "as_of_date": "2026-09-22",
-  "eligible_count": 457,
-  "classified_eligible_count": 407,
-  "coverage_pct": 89.1,
+  "as_of_date": "2026-09-23",
+  "eligible_count": 467,
+  "classified_eligible_count": 419,
+  "coverage_pct": 89.7,
   "entered": [
     "ALNT",
-    "ASO",
     "AUR",
     "AXON",
     "BBAI",
     "BLSH",
     "BRAI",
-    "BURL",
     "BVC",
     "BW",
-    "BZ",
     "CAR",
     "CBRL",
     "CECO",
@@ -24,7 +21,6 @@
     "CRSR",
     "CSAN",
     "DAO",
-    "DAR",
     "DKS",
     "EE",
     "FIVE",
@@ -34,20 +30,19 @@
     "GOLD",
     "GPGI",
     "GSHD",
-    "HBNB",
     "INIO",
     "LFTO",
     "MAAS",
     "MKC.V",
+    "MLKN",
     "MRX",
+    "NAT",
     "NN",
     "NSP",
     "OCTV",
     "P",
-    "PINS",
     "PLBL",
     "PLPC",
-    "PSIX",
     "SID",
     "SONO",
     "TEM",
@@ -59,59 +54,50 @@
     "XMTR"
   ],
   "reentered": [
-    "BB",
-    "CAVA",
-    "CHYM",
-    "CXW",
-    "DIOD",
-    "DKNG",
-    "EXPE",
-    "FLUT",
-    "GDDY",
-    "INTU",
-    "MGNI",
-    "NOW",
-    "NP",
-    "PRKS",
-    "SAH",
-    "SEZL",
-    "SHOP",
-    "SPHR",
-    "SPSC",
-    "SRAD",
-    "TER",
-    "TGB",
-    "TPB",
-    "VERX",
-    "ZG"
+    "AMKR",
+    "BH.A",
+    "CAMT",
+    "CRI",
+    "EAT",
+    "FICO",
+    "IAUX",
+    "LMND",
+    "LU",
+    "MIAX",
+    "MMYT",
+    "NICE",
+    "RMBS",
+    "ROCK",
+    "RVLV",
+    "SYNA",
+    "U",
+    "ULCC",
+    "VECO",
+    "W",
+    "XPRO",
+    "XZO"
   ],
   "exited": [
-    "ADNT",
-    "AGRO",
-    "EDN",
-    "FTAI",
-    "INTR",
-    "LU",
-    "NESR",
-    "NSSC",
-    "QS",
-    "SA",
-    "STNE",
-    "SYNA",
-    "ULCC"
+    "BLDR",
+    "BURL",
+    "CAVA",
+    "CDW",
+    "DY",
+    "NBR",
+    "NGL",
+    "NP",
+    "SPSC",
+    "TEO"
   ],
   "newly_classified": [
     "ALNT",
-    "ASO",
     "AUR",
     "AXON",
     "BBAI",
     "BLSH",
     "BRAI",
-    "BURL",
     "BVC",
     "BW",
-    "BZ",
     "CAR",
     "CBRL",
     "CECO",
@@ -121,7 +107,6 @@
     "CRSR",
     "CSAN",
     "DAO",
-    "DAR",
     "DKS",
     "EE",
     "FIVE",
@@ -131,20 +116,19 @@
     "GOLD",
     "GPGI",
     "GSHD",
-    "HBNB",
     "INIO",
     "LFTO",
     "MAAS",
     "MKC.V",
+    "MLKN",
     "MRX",
+    "NAT",
     "NN",
     "NSP",
     "OCTV",
     "P",
-    "PINS",
     "PLBL",
     "PLPC",
-    "PSIX",
     "SID",
     "SONO",
     "TEM",
@@ -159,10 +143,6 @@
   "unresolved_after_retries": [
     {
       "ticker": "ALNT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ASO",
       "reason": "low_confidence_primary"
     },
     {
@@ -191,10 +171,6 @@
     },
     {
       "ticker": "BW",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "BZ",
       "reason": "low_confidence_primary"
     },
     {
@@ -234,10 +210,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "DAR",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "DKS",
       "reason": "low_confidence_primary"
     },
@@ -274,10 +246,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "HBNB",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "INIO",
       "reason": "low_confidence_primary"
     },
@@ -294,7 +262,15 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "MLKN",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "MRX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NAT",
       "reason": "low_confidence_primary"
     },
     {
@@ -359,11 +335,11 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (ALNT..PLBL): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (ALNT..SID): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 283,
-  "eligible_without_active_narrative": 174,
-  "active_narrative_coverage_pct": 61.9,
+  "eligible_with_active_narrative": 291,
+  "eligible_without_active_narrative": 176,
+  "active_narrative_coverage_pct": 62.3,
   "active_narrative_count": 26,
   "undersized_narrative_count": 101
 }

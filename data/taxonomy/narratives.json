@@ -366,7 +366,7 @@
           "reason": "OSAT provider offering outsourced semiconductor packaging and test services, core part of semiconductor supply chain.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -399,7 +399,7 @@
           "reason": "Camtek manufactures metrology and inspection equipment for semiconductor manufacturing, making it a semiconductor capital equipment company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -575,7 +575,7 @@
           "reason": "Rambus provides semiconductor chips and silicon IP for data-intensive computing systems including AI infrastructure.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -619,7 +619,7 @@
           "reason": "Semiconductor company providing human interface solutions for mobile, PC and IoT markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -663,7 +663,7 @@
           "reason": "Veeco manufactures thin-film process equipment used in semiconductor device manufacturing, fitting semiconductor equipment/capital equipment narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1802,7 +1802,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AMPL": {
           "role": "secondary",
@@ -2185,7 +2185,7 @@
           "reason": "NICE is an enterprise software company providing cloud-deployed customer engagement (CCaaS) and financial crime/compliance software solutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2284,7 +2284,7 @@
           "reason": "Cloud-based supply chain management software services for retailers, suppliers, and logistics firms.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2372,7 +2372,7 @@
           "reason": "Exzeo provides insurance technology software (Insurance-as-a-Service) platform for P&C carriers and agents.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3391,7 +3391,7 @@
           "reason": "Lufax is a Chinese financial technology platform providing retail credit, lending enablement, and wealth management services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5564,7 +5564,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AAUC": {
           "role": "core",
@@ -6272,7 +6272,7 @@
           "reason": "CDW provides IT solutions, hardware/software products, and integrated services to businesses and institutions, fitting IT services/consulting and value-added reseller model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6785,7 +6785,7 @@
           "reason": "Frontier Group Holdings is an ultra-low-cost scheduled passenger airline carrier.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -6894,7 +6894,7 @@
           "reason": "Nabors Industries owns and operates land-based and offshore drilling rig fleets and provides drilling-related oilfield services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7037,7 +7037,7 @@
           "reason": "Expro provides well construction, intervention, and integrity services to oil and gas exploration and production companies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7092,7 +7092,7 @@
           "reason": "NGL Energy Partners operates crude oil, water solutions, and liquids logistics infrastructure - services/logistics supporting oil & gas production, best matched to oil & gas services/equipment given lack of a dedicated midstream logistics category.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7320,7 +7320,7 @@
           "reason": "Dycom Industries provides specialty contracting services for telecommunications infrastructure and utility industries, fitting construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7572,7 +7572,7 @@
           "reason": "Revolve Group is an online marketplace selling apparel, accessories and beauty products directly to consumers via e-commerce.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8059,7 +8059,7 @@
           "reason": "Makes and sells branded children's and baby apparel through retail, e-commerce and wholesale channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8812,7 +8812,7 @@
           "reason": "Wayfair is an e-commerce retailer selling home furnishings and related lifestyle products, with growing brick-and-mortar presence.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -8866,7 +8866,7 @@
           "reason": "Neptune is an MGA offering flood and earthquake insurance products, a specialty P&C insurance line distributed through agents.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9334,7 +9334,7 @@
           "reason": "Builders FirstSource manufactures and distributes building materials such as engineered wood, trusses, and millwork for residential construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9422,7 +9422,7 @@
           "reason": "Gibraltar Industries manufactures building products for residential, infrastructure, and renewable energy markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9716,7 +9716,7 @@
           "reason": "Same entity as BH (different share class) - Biglari Holdings owns restaurant, insurance, and oil & gas operating businesses, directly matching this diversified holding company narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -10140,7 +10140,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10184,7 +10184,7 @@
           "reason": "Brinker operates Chili's and Maggiano's, casual dining chains with franchised/company-owned restaurant growth model. While technically 'casual dining' rather than 'fast casual', this is the closest existing catalog fit as a restaurant chain operator narrative; economics (traffic, unit growth, menu pricing) are highly similar.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10522,7 +10522,7 @@
           "reason": "Provides quadruple play services including mobile, cable TV, internet and fixed telephony.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10727,7 +10727,7 @@
           "reason": "Lemonade operates a digital AI-based insurance platform for policy issuance and claims settlement, a strong direct match for insurtech digital insurance distribution.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10922,7 +10922,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -10943,7 +10943,7 @@
           "reason": "MakeMyTrip is an online travel company providing booking solutions for air tickets, hotels, and packages, a distinct business model not present in the existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11278,7 +11278,7 @@
           "reason": "Burlington is a classic off-price retailer selling discounted first-quality apparel and home goods.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12263,7 +12263,7 @@
           "reason": "FICO is best known for its analytics-driven credit scoring software/platform business, a distinct niche within software/analytics.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
