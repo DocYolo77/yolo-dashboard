@@ -399,7 +399,7 @@
           "reason": "Camtek manufactures metrology and inspection equipment for semiconductor manufacturing, making it a semiconductor capital equipment company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -553,7 +553,7 @@
           "reason": "Photronics manufactures photomasks, a critical input for semiconductor and flat-panel display manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1648,7 +1648,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "WDAY": {
           "role": "core",
@@ -2108,7 +2108,7 @@
           "reason": "Provides accounting, tax, and financial SaaS software products like QuickBooks and TurboTax.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2174,7 +2174,7 @@
           "reason": "nCino provides cloud-based SaaS software specifically for financial institutions' commercial and small business lending processes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3567,7 +3567,7 @@
           "reason": "StoneCo provides financial technology solutions, payments and business management tools to MSMBs via a cloud-based fintech platform, core financial technology business model.",
           "added_at": "2026-09-02",
           "last_reviewed_at": "2026-09-02",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -5531,7 +5531,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "EGO": {
           "role": "secondary",
@@ -5858,7 +5858,7 @@
           "reason": "AAON manufactures air-conditioning, heating, and refrigeration equipment - not covered by existing tech-focused narratives.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6501,7 +6501,7 @@
           "reason": "Adient is a leading global automotive seating supplier to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6512,7 +6512,7 @@
           "reason": "Manufactures, assembles and distributes diesel engines for vehicles and machinery, fitting automotive components supplier narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6612,6 +6612,17 @@
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ALNT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Allient designs and manufactures precision motion control components/systems for industrial, vehicle, aerospace & defense, and medical end markets. This is best captured as a specialty components supplier rather than a pure automotive parts supplier, but the closest existing catalog match is components/systems supplier to OEMs across multiple end markets.",
+          "added_at": "2026-09-24",
+          "last_reviewed_at": "2026-09-24",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6927,7 +6938,7 @@
           "reason": "Patterson-UTI provides contract drilling, completion, and directional drilling services to oil and gas E&P companies, a classic oilfield services business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7616,7 +7627,7 @@
           "reason": "Etsy operates a global online marketplace connecting buyers and sellers of handmade/vintage goods, directly fitting e-commerce platform narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7907,7 +7918,7 @@
           "reason": "Warrior Met Coal produces and exports metallurgical coal used in steel production, directly matching coal mining narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8497,7 +8508,7 @@
           "reason": "Magnite is a supply-side advertising platform providing programmatic ad technology and yield management to publishers, directly matching the AdTech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8736,7 +8747,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8866,7 +8877,7 @@
           "reason": "Neptune is an MGA offering flood and earthquake insurance products, a specialty P&C insurance line distributed through agents.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9007,7 +9018,7 @@
           "reason": "Worthington Steel is a value-added processor of carbon flat-rolled steel and electrical steel laminations serving diverse industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9280,7 +9291,7 @@
           "reason": "Rocket Companies is fundamentally a mortgage origination and servicing financial services company (Rocket Mortgage), a core lending/financial services business best captured by Banking/Financial Services given no more specific mortgage-lending narrative exists in the catalog.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10369,7 +10380,7 @@
           "reason": "Edenor distributes and sells electricity in Buenos Aires, matching the power generation/utilities narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10522,7 +10533,7 @@
           "reason": "Provides quadruple play services including mobile, cable TV, internet and fixed telephony.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10781,7 +10792,7 @@
           "reason": "Pony AI operates autonomous robotaxi fleets via its own app, a mobility platform business, though with an AI/AV technology base.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10792,7 +10803,7 @@
           "reason": "Grab operates ride-sharing, delivery, and mobile platform services connecting riders/merchants with consumers in Southeast Asia - core mobility platform business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10922,7 +10933,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -11537,7 +11548,7 @@
           "reason": "FTAI Aviation is an engine maintenance platform focused on repairing, rebuilding and leasing aircraft engines (CFM56, V2500) - directly matches the aircraft_engine_leasing_spare_parts narrative definition.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11763,7 +11774,7 @@
           "reason": "SharkNinja designs and sells branded small household appliances (vacuums, cooking, food prep, beauty devices), fitting well with the household appliances manufacturing narrative despite being smaller/consumer appliances rather than major appliances.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
