@@ -366,7 +366,7 @@
           "reason": "OSAT provider offering outsourced semiconductor packaging and test services, core part of semiconductor supply chain.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1486,7 +1486,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "S": {
           "role": "core",
@@ -2339,7 +2339,7 @@
           "reason": "Waystar provides cloud-based technology platform for healthcare payments processing, a healthcare-focused SaaS business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5661,7 +5661,7 @@
           "reason": "Elemental Royalty Corp is a gold-focused royalty and exploration company, fitting the gold/precious metals miners narrative given its royalty generation on gold assets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6752,7 +6752,7 @@
           "reason": "Allegiant Travel operates a low-cost passenger airline for leisure travelers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7026,7 +7026,7 @@
           "reason": "Weatherford International provides oilfield services and equipment to oil and gas operators globally.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8026,7 +8026,7 @@
           "reason": "Digitally-led omnichannel apparel retailer operating branded clothing stores; no existing catalog category for clothing retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8566,6 +8566,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "LFTO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Liftoff operates a mobile app growth/monetization advertising platform connecting advertisers and publishers, matching adtech/digital advertising.",
+          "added_at": "2026-09-25",
+          "last_reviewed_at": "2026-09-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8747,7 +8758,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8877,7 +8888,7 @@
           "reason": "Neptune is an MGA offering flood and earthquake insurance products, a specialty P&C insurance line distributed through agents.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9018,7 +9029,7 @@
           "reason": "Worthington Steel is a value-added processor of carbon flat-rolled steel and electrical steel laminations serving diverse industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9345,7 +9356,7 @@
           "reason": "Builders FirstSource manufactures and distributes building materials such as engineered wood, trusses, and millwork for residential construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10151,7 +10162,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10227,7 +10238,7 @@
           "reason": "Celanese produces acetic acid, specialty polymers and chemicals for diverse industrial end markets, fitting the specialty chemicals narrative alongside Chemours.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10936,6 +10947,17 @@
           "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "BLSH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Bullish operates institutional digital asset market infrastructure including trading and custody, akin to a crypto exchange/marketplace operator.",
+          "added_at": "2026-09-25",
+          "last_reviewed_at": "2026-09-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11008,7 +11030,7 @@
           "reason": "Live entertainment and media company operating the Sphere venue and MSG regional sports networks, generating revenue from live events and media/advertising.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11159,7 +11181,7 @@
           "reason": "Trump Media operates Truth Social, a social media platform, generating ad and subscription-like revenue from user engagement - fits social_media_platform well as primary business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11386,7 +11408,7 @@
           "reason": "Nexa Resources operates mining and smelting of zinc, copper concentrates and other base metals - fits base metals mining narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11429,7 +11451,7 @@
           "reason": "GEO Group operates private detention facilities, secure services, and electronic monitoring under government contracts - a distinct economic model not covered by existing catalog categories (miscategorized under residential building SIC code but actual business is corrections/detention services).",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11911,7 +11933,7 @@
           "reason": "NextDecade is developing an LNG liquefaction and export facility plus CO2 capture/storage, a distinct energy infrastructure business not matching existing narratives well.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12158,7 +12180,7 @@
           "reason": "Natural gas E&P company with additional power generation assets.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12169,6 +12191,17 @@
           "reason": "Tamboran is engaged in exploration and appraisal of unconventional natural gas resources in Australia, fitting the oil & gas E&P narrative despite being gas-focused and early-stage.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GFR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Greenfire explores, develops and produces oil (oil sands) in Canada, matching oil & gas E&P.",
+          "added_at": "2026-09-25",
+          "last_reviewed_at": "2026-09-25",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -12274,7 +12307,7 @@
           "reason": "FICO is best known for its analytics-driven credit scoring software/platform business, a distinct niche within software/analytics.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12317,7 +12350,7 @@
           "reason": "Flex is a contract electronics manufacturer offering end-to-end manufacturing services, distinct from component manufacturing per se.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12391,7 +12424,7 @@
           "reason": "Generac's core business is designing/manufacturing power generation equipment (generators), a distinct category from HVAC.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12402,6 +12435,17 @@
           "reason": "Power Solutions International manufactures power systems (engines) running on natural gas, propane, gasoline for power generation and industrial applications, fitting power generation equipment manufacturing.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "BW": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "B&W provides energy technology and emissions control equipment for power generation using coal, gas, biomass, hydrogen, closely matching power generation equipment manufacturing.",
+          "added_at": "2026-09-25",
+          "last_reviewed_at": "2026-09-25",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -12550,7 +12594,7 @@
           "reason": "Direct fit - large-scale equipment rental company operating fleet-based rental model to construction and industrial customers across US, Canada and UK.",
           "added_at": "2026-09-09",
           "last_reviewed_at": "2026-09-09",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12775,6 +12819,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "AXON": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Axon builds public safety hardware (TASER devices, body cameras, drones) plus cloud software (digital evidence management) for law enforcement/public safety. This is closest to security/public-safety equipment manufacturing with a software layer, similar economically to the security alarm systems manufacturing narrative (physical security hardware + connected software/services for institutional customers), though Axon serves government/public safety rather than commercial/residential. No better existing fit; defense_aerospace doesn't match its municipal/law enforcement customer base.",
+          "added_at": "2026-09-25",
+          "last_reviewed_at": "2026-09-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -12846,6 +12901,27 @@
           "reason": "FuelCell Energy develops molten carbonate fuel cell systems for clean electric power generation, matching the newly defined fuel cell power generation narrative used for BE.",
           "added_at": "2026-09-01",
           "last_reviewed_at": "2026-09-01",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "autonomous_trucking_technology",
+      "name": "Autonomous Trucking Technology",
+      "status": "emerging",
+      "classification_hint": "Companies developing self-driving hardware, software, and data systems specifically for autonomous operation of heavy trucks on long-haul routes.",
+      "created_at": "2026-09-25",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "AUR": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Aurora develops the Aurora Driver system for autonomous heavy trucks, a distinct business model from general robotics/automation or LiDAR component suppliers.",
+          "added_at": "2026-09-25",
+          "last_reviewed_at": "2026-09-25",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1

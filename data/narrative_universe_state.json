@@ -1,13 +1,11 @@
 {
-  "as_of_date": "2026-09-24",
-  "eligible_count": 476,
-  "classified_eligible_count": 425,
-  "coverage_pct": 89.3,
+  "as_of_date": "2026-09-25",
+  "eligible_count": 466,
+  "classified_eligible_count": 426,
+  "coverage_pct": 91.4,
   "entered": [
-    "ALNT",
     "AUR",
     "AXON",
-    "BBAI",
     "BLSH",
     "BRAI",
     "BVC",
@@ -22,11 +20,9 @@
     "CRSR",
     "CSAN",
     "DAO",
-    "FDS",
     "FIVE",
     "FRVO",
     "GFR",
-    "GLW",
     "GLXY",
     "GOLD",
     "GPGI",
@@ -40,7 +36,6 @@
     "MRX",
     "NN",
     "NSP",
-    "OPY",
     "P",
     "PLBL",
     "PLNT",
@@ -50,7 +45,6 @@
     "TEM",
     "TMC",
     "TOP",
-    "UNFI",
     "VCX",
     "VSAT",
     "WOR",
@@ -58,39 +52,35 @@
     "XMTR"
   ],
   "reentered": [
-    "AAON",
-    "ADNT",
-    "CYD",
-    "EDN",
-    "ETSY",
-    "FTAI",
-    "GRAB",
-    "HLNE",
-    "NP",
-    "PONY",
-    "RKT",
-    "SN",
-    "STNE",
-    "TEO",
-    "WS"
+    "ALGT",
+    "BKV",
+    "BLDR",
+    "CAVA",
+    "CE",
+    "ELE",
+    "FLEX",
+    "GEO",
+    "SUNB"
   ],
   "exited": [
-    "CAMT",
-    "HCC",
-    "INTU",
-    "MGNI",
-    "MIAX",
-    "NCNO",
-    "NOW",
-    "PLAB",
-    "PPTA",
-    "PTEN"
+    "AMKR",
+    "ANF",
+    "DJT",
+    "FICO",
+    "FTNT",
+    "GNRC",
+    "HLNE",
+    "NEXA",
+    "NEXT",
+    "NP",
+    "SPHR",
+    "WAY",
+    "WFRD",
+    "WS"
   ],
   "newly_classified": [
-    "ALNT",
     "AUR",
     "AXON",
-    "BBAI",
     "BLSH",
     "BRAI",
     "BVC",
@@ -105,11 +95,9 @@
     "CRSR",
     "CSAN",
     "DAO",
-    "FDS",
     "FIVE",
     "FRVO",
     "GFR",
-    "GLW",
     "GLXY",
     "GOLD",
     "GPGI",
@@ -123,7 +111,6 @@
     "MRX",
     "NN",
     "NSP",
-    "OPY",
     "P",
     "PLBL",
     "PLNT",
@@ -133,41 +120,22 @@
     "TEM",
     "TMC",
     "TOP",
-    "UNFI",
     "VCX",
     "VSAT",
     "WOR",
     "WT",
     "XMTR"
   ],
-  "new_narratives_created": [],
+  "new_narratives_created": [
+    "autonomous_trucking_technology"
+  ],
   "unresolved_after_retries": [
-    {
-      "ticker": "AUR",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "AXON",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "BBAI",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "BLSH",
-      "reason": "low_confidence_primary"
-    },
     {
       "ticker": "BRAI",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "BVC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "BW",
       "reason": "low_confidence_primary"
     },
     {
@@ -211,23 +179,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "FDS",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "FIVE",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "FRVO",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GFR",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GLW",
       "reason": "low_confidence_primary"
     },
     {
@@ -255,10 +211,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "LFTO",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "MAAS",
       "reason": "low_confidence_primary"
     },
@@ -280,10 +232,6 @@
     },
     {
       "ticker": "NSP",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "OPY",
       "reason": "low_confidence_primary"
     },
     {
@@ -323,10 +271,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "UNFI",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "VCX",
       "reason": "low_confidence_primary"
     },
@@ -348,9 +292,9 @@
     }
   ],
   "classification_errors": [],
-  "eligible_with_active_narrative": 292,
-  "eligible_without_active_narrative": 184,
-  "active_narrative_coverage_pct": 61.3,
+  "eligible_with_active_narrative": 288,
+  "eligible_without_active_narrative": 178,
+  "active_narrative_coverage_pct": 61.8,
   "active_narrative_count": 27,
-  "undersized_narrative_count": 100
+  "undersized_narrative_count": 101
 }
