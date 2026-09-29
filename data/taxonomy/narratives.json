@@ -377,7 +377,7 @@
           "reason": "OSAT provider offering outsourced semiconductor packaging and test services, core part of semiconductor supply chain.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -410,7 +410,7 @@
           "reason": "Camtek manufactures metrology and inspection equipment for semiconductor manufacturing, making it a semiconductor capital equipment company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -498,7 +498,7 @@
           "reason": "Lattice Semiconductor develops and sells FPGA semiconductor products for computing, communications, and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1497,7 +1497,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "S": {
           "role": "core",
@@ -1998,7 +1998,7 @@
           "reason": "Online learning platform delivering educational content via a unified software/technology platform to learners and institutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2196,7 +2196,7 @@
           "reason": "nCino provides cloud-based SaaS software specifically for financial institutions' commercial and small business lending processes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2240,7 +2240,7 @@
           "reason": "Procore is a cloud-based subscription software platform for construction management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2383,7 +2383,7 @@
           "reason": "Workiva provides a cloud-based SaaS platform for finance, risk, and compliance reporting workflows.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2688,7 +2688,7 @@
           "reason": "MDA Space develops satellite systems, robotics, and geo-intelligence technology for the space industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3031,7 +3031,7 @@
           "reason": "AAR Corp provides products and services to commercial aviation and government/defense aerospace markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6927,7 +6927,7 @@
           "reason": "Nabors Industries owns and operates land-based and offshore drilling rig fleets and provides drilling-related oilfield services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6938,7 +6938,7 @@
           "reason": "National Energy Services Reunited is an oilfield services provider offering hydraulic fracturing, coiled tubing, cementing and drilling services to oil and gas companies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7048,7 +7048,7 @@
           "reason": "Weatherford International provides oilfield services and equipment to oil and gas operators globally.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7769,7 +7769,7 @@
           "reason": "Powell Industries designs and manufactures custom-engineered electrical distribution, control and monitoring equipment (switchgear) for industrial/utility customers. This is an industrial equipment manufacturer; no better-fitting existing category (e.g., HVAC, power generation equipment) captures switchgear specifically, but Industrial Machinery is the closest broad fit given the catalog lacks an electrical equipment/switchgear specific bucket.",
           "added_at": "2026-08-20",
           "last_reviewed_at": "2026-08-20",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7951,7 +7951,7 @@
           "reason": "Warrior Met Coal produces and exports metallurgical coal used in steel production, directly matching coal mining narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8813,7 +8813,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8954,7 +8954,7 @@
           "reason": "Neptune is an MGA offering flood and earthquake insurance products, a specialty P&C insurance line distributed through agents.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9095,7 +9095,7 @@
           "reason": "Worthington Steel is a value-added processor of carbon flat-rolled steel and electrical steel laminations serving diverse industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9324,7 +9324,7 @@
           "reason": "Banco BBVA Argentina is a full-service commercial bank offering retail, corporate and investment banking services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9488,7 +9488,7 @@
           "reason": "QXO is a distributor of building products in North America, directly matching building products/materials distribution narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11302,7 +11302,7 @@
           "reason": "Pinterest is a social media/content discovery platform monetizing primarily through advertising.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11474,7 +11474,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11485,7 +11485,7 @@
           "reason": "Nexa Resources operates mining and smelting of zinc, copper concentrates and other base metals - fits base metals mining narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12032,7 +12032,7 @@
           "reason": "Provides LNG regasification, FSRUs and integrated LNG value chain services; closest match despite being import/regas rather than liquefaction/export focused.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12181,7 +12181,7 @@
           "reason": "Group 1 Automotive operates franchised dealerships and collision centers, directly matching auto dealership group category.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12534,7 +12534,7 @@
           "reason": "Generac's core business is designing/manufacturing power generation equipment (generators), a distinct category from HVAC.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12609,7 +12609,7 @@
           "reason": "Green Plains manufactures ethanol and byproducts from corn, a distinct biofuel production business model.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12810,7 +12810,7 @@
           "reason": "Joby develops eVTOL air taxis for commercial passenger service, a distinct emerging aerospace transportation category not covered by existing catalog entries like defense_aerospace or airlines.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
