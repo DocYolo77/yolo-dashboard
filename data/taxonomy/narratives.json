@@ -64,6 +64,17 @@
           "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
+        },
+        "QMCO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Delivers end-to-end data management and storage solutions for unstructured data including video/audio for AI era.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -278,7 +289,7 @@
           "reason": "Axcelis makes ion implantation and semiconductor fabrication equipment - core semiconductor capital equipment.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -333,7 +344,7 @@
           "reason": "Allegro MicroSystems designs sensor and power ICs for automotive and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -366,7 +377,7 @@
           "reason": "OSAT provider offering outsourced semiconductor packaging and test services, core part of semiconductor supply chain.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1486,7 +1497,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "S": {
           "role": "core",
@@ -1618,6 +1629,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "GEN": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 92,
+          "reason": "Consumer cybersecurity pure-play offering security, identity protection and privacy solutions (Norton, Avast, LifeLock).",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -1976,7 +1998,7 @@
           "reason": "Online learning platform delivering educational content via a unified software/technology platform to learners and institutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2339,7 +2361,7 @@
           "reason": "Waystar provides cloud-based technology platform for healthcare payments processing, a healthcare-focused SaaS business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2438,7 +2460,7 @@
           "reason": "Progress Software provides software products for developing, deploying and managing applications - core enterprise software/SaaS company.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2537,7 +2559,7 @@
           "reason": "LegalZoom sells subscription-based online legal compliance, business formation and document services to consumers/SMBs via a digital platform - an online software/subscription service model closest to Software/SaaS despite not being pure enterprise SaaS.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2762,7 +2784,7 @@
           "reason": "Mirion provides products, services and software enabling safe use of ionizing radiation, with a significant Nuclear & Safety segment, aligning with the nuclear narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3369,7 +3391,7 @@
           "reason": "Digital bank offering banking, investment, insurance brokerage and shopping services, a fintech/digital banking platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5081,7 +5103,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "INFQ": {
           "role": "core",
@@ -5230,7 +5252,7 @@
           "reason": "QuantumScape develops solid-state lithium-metal batteries for electric vehicles, directly matching EV/Battery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5252,7 +5274,7 @@
           "reason": "Lithium Americas develops lithium deposits and chemical processing facilities supporting battery supply chains, fitting EV/battery materials narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6393,7 +6415,7 @@
           "reason": "Rackspace Technology provides multi-cloud technology services including application, data, and colocation services to enterprises.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6905,7 +6927,7 @@
           "reason": "Nabors Industries owns and operates land-based and offshore drilling rig fleets and provides drilling-related oilfield services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7026,7 +7048,7 @@
           "reason": "Weatherford International provides oilfield services and equipment to oil and gas operators globally.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7750,6 +7772,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "CECO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Manufactures engineered industrial air/water treatment equipment (dampers, dust collectors, cyclones) serving industrial and energy transition markets.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7779,7 +7812,7 @@
           "reason": "Mining exploration and development company focused on lithium and rare earth element deposits, aligning with critical metals mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8048,7 +8081,7 @@
           "reason": "Boot Barn operates specialty retail stores selling western boots, apparel and accessories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8180,6 +8213,28 @@
           "reason": "Victoria's Secret retails women's intimate apparel and beauty products under branded names through omnichannel retail, fitting the apparel retail narrative well.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "AEO": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 92,
+          "reason": "Specialty retailer of branded apparel and accessories through company stores.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ASO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Academy Sports and Outdoors is a full-line sporting goods and outdoor recreation retailer selling apparel, footwear, and sports equipment through omnichannel stores - closely matches the Apparel Retail narrative definition of omnichannel branded apparel/accessories retailers, though it's more broadly sporting goods focused.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -8508,7 +8563,7 @@
           "reason": "Magnite is a supply-side advertising platform providing programmatic ad technology and yield management to publishers, directly matching the AdTech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8758,7 +8813,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8770,6 +8825,17 @@
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "WT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "WisdomTree is an asset manager that creates and manages exchange-traded products (ETPs), private market investments, and digital asset/tokenized products, earning management fees on assets under management. This model is economically closest to alternative asset management (fee-based investment management across diverse product structures including alternatives like private markets and digital assets), even though it also has a strong ETF/index-product component not perfectly captured elsewhere in the catalog.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8888,7 +8954,7 @@
           "reason": "Neptune is an MGA offering flood and earthquake insurance products, a specialty P&C insurance line distributed through agents.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9502,6 +9568,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "WOR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Worthington Enterprises manufactures and sells a diversified range of consumer and building products (tools, outdoor living, celebrations, and specialized building products) largely through retail channels, with a significant portion serving residential and non-residential construction markets. While it's diversified across consumer/retail and building products categories, the building products/materials distribution narrative captures the core steel-based building products business serving construction end-markets, which is the most economically material and precise fit given the SIC classification (steel works/rolling mills) and construction-focused product lines.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10109,7 +10186,7 @@
           "reason": "BellRing Brands (Premier Protein, Dymatize, PowerBar) directly matches branded nutrition/CPG narrative - ready-to-drink protein shakes, powders and bars sold via retail channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10391,7 +10468,7 @@
           "reason": "Edenor distributes and sells electricity in Buenos Aires, matching the power generation/utilities narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10641,7 +10718,7 @@
           "reason": "LGI Homes designs, constructs and sells new homes across entry-level, move-up and luxury segments.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10835,7 +10912,7 @@
           "reason": "McGraw Hill provides educational content, curriculum and software for K-12, higher education and professional learning markets, a distinct publishing/education business not covered in the catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10944,7 +11021,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11397,7 +11474,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11408,7 +11485,7 @@
           "reason": "Nexa Resources operates mining and smelting of zinc, copper concentrates and other base metals - fits base metals mining narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11538,6 +11615,17 @@
           "reason": "Produces specialty petroleum-based products, oils, waxes and fuel products, closely matches petroleum refining category.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "VLO": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Valero is one of the largest independent petroleum refiners, operating refineries converting crude oil into transportation fuels.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11753,7 +11841,7 @@
           "reason": "Vestis provides uniform rentals and workplace supplies through recurring service contracts, a distinct business model not covered by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11933,7 +12021,18 @@
           "reason": "NextDecade is developing an LNG liquefaction and export facility plus CO2 capture/storage, a distinct energy infrastructure business not matching existing narratives well.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": false,
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "EE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Provides LNG regasification, FSRUs and integrated LNG value chain services; closest match despite being import/regas rather than liquefaction/export focused.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12096,6 +12195,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "AN": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 96,
+          "reason": "Operates franchised dealerships, used-vehicle stores, collision centers, and captive lender - core auto dealership group model.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -12169,7 +12279,7 @@
           "reason": "HighPeak Energy is an independent E&P company focused on crude oil and natural gas development in the Midland Basin.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12191,7 +12301,7 @@
           "reason": "Tamboran is engaged in exploration and appraisal of unconventional natural gas resources in Australia, fitting the oil & gas E&P narrative despite being gas-focused and early-stage.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12307,7 +12417,7 @@
           "reason": "FICO is best known for its analytics-driven credit scoring software/platform business, a distinct niche within software/analytics.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12446,6 +12556,17 @@
           "reason": "B&W provides energy technology and emissions control equipment for power generation using coal, gas, biomass, hydrogen, closely matching power generation equipment manufacturing.",
           "added_at": "2026-09-25",
           "last_reviewed_at": "2026-09-25",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "INIO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Designs, manufactures and services high-performance distributed power systems (Jenbacher, Waukesha) for data centers and industrial applications.",
+          "added_at": "2026-09-29",
+          "last_reviewed_at": "2026-09-29",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -12626,7 +12747,7 @@
           "reason": "Mobileye develops ADAS and autonomous driving technology using camera/sensor-based systems, closely aligned with autonomous sensing technology category.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12848,7 +12969,7 @@
           "reason": "TIC Solutions provides testing/inspection/certification/compliance and engineering services for infrastructure - distinct business model not covered by existing catalog entries.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
