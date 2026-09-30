@@ -1,8 +1,8 @@
 {
-  "as_of_date": "2026-09-29",
-  "eligible_count": 501,
-  "classified_eligible_count": 461,
-  "coverage_pct": 92.0,
+  "as_of_date": "2026-09-30",
+  "eligible_count": 495,
+  "classified_eligible_count": 452,
+  "coverage_pct": 91.3,
   "entered": [
     "BRAI",
     "BVC",
@@ -13,16 +13,18 @@
     "CLVT",
     "CRSR",
     "DAO",
+    "ECO",
     "FDS",
     "FIVE",
     "FRVO",
-    "GIL",
     "GLW",
     "GLXY",
     "GOLD",
     "GPGI",
     "GSHD",
     "HBNB",
+    "KMX",
+    "M",
     "MAAS",
     "MKC.V",
     "MLKN",
@@ -37,45 +39,45 @@
     "PLPC",
     "RSKD",
     "SID",
+    "SIG",
     "SONO",
     "TEM",
+    "TEN",
     "TMC",
     "TOP",
     "VCX",
+    "VEON",
     "VSAT",
     "XMTR"
   ],
   "reentered": [
-    "AIR",
-    "CAMT",
-    "GNRC",
-    "GPI",
-    "HCC",
-    "JOBY",
-    "LSCC",
-    "MDA",
-    "NCNO",
-    "NESR",
-    "PCOR",
-    "POWL",
-    "QXO",
-    "WK",
-    "WS"
+    "AMKR",
+    "COUR",
+    "DXC",
+    "LAD",
+    "NP",
+    "ROG",
+    "UAA"
   ],
   "exited": [
-    "AMKR",
-    "BBAR",
-    "COUR",
-    "EE",
-    "FTNT",
-    "GPRE",
-    "HBM",
-    "HLNE",
-    "NBR",
-    "NEXA",
-    "NP",
-    "PINS",
-    "WFRD"
+    "BL",
+    "BLDR",
+    "CAMT",
+    "CAVA",
+    "CENX",
+    "CRI",
+    "GRAB",
+    "HLF",
+    "IAUX",
+    "INTR",
+    "LSCC",
+    "PCG",
+    "POWL",
+    "RVLV",
+    "SN",
+    "SUNB",
+    "VMET",
+    "WK"
   ],
   "newly_classified": [
     "BRAI",
@@ -87,16 +89,18 @@
     "CLVT",
     "CRSR",
     "DAO",
+    "ECO",
     "FDS",
     "FIVE",
     "FRVO",
-    "GIL",
     "GLW",
     "GLXY",
     "GOLD",
     "GPGI",
     "GSHD",
     "HBNB",
+    "KMX",
+    "M",
     "MAAS",
     "MKC.V",
     "MLKN",
@@ -111,11 +115,14 @@
     "PLPC",
     "RSKD",
     "SID",
+    "SIG",
     "SONO",
     "TEM",
+    "TEN",
     "TMC",
     "TOP",
     "VCX",
+    "VEON",
     "VSAT",
     "XMTR"
   ],
@@ -150,6 +157,18 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "CRSR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DAO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ECO",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "FDS",
       "reason": "low_confidence_primary"
     },
@@ -159,10 +178,6 @@
     },
     {
       "ticker": "FRVO",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GIL",
       "reason": "low_confidence_primary"
     },
     {
@@ -187,6 +202,10 @@
     },
     {
       "ticker": "HBNB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "M",
       "reason": "low_confidence_primary"
     },
     {
@@ -246,11 +265,19 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "SIG",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "SONO",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "TEM",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TEN",
       "reason": "low_confidence_primary"
     },
     {
@@ -275,11 +302,12 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 2 Batch (BRAI..XMTR): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Batch 1 (BRAI..TMC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (BRAI..TOP): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 308,
-  "eligible_without_active_narrative": 193,
-  "active_narrative_coverage_pct": 61.5,
-  "active_narrative_count": 27,
-  "undersized_narrative_count": 101
+  "eligible_with_active_narrative": 314,
+  "eligible_without_active_narrative": 181,
+  "active_narrative_coverage_pct": 63.4,
+  "active_narrative_count": 29,
+  "undersized_narrative_count": 99
 }
