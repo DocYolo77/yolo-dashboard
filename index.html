@@ -3254,8 +3254,8 @@ document.body.addEventListener('click', (e) => {
 (function() {
   // SHA-256 hash of current password — change monthly
   // To generate: echo -n "YourPassword" | sha256sum
-  // Current: "kleiderstange" (gültig bis 30.09.2026) → update this hash each month
-  const PW_HASH = '562fdb82fbf495e8704b366ee0305cd7018a8a2d18eeb7d215ba3cf223892fec'; // "kleiderstange"
+  // Current: "lehrermangel" (gültig bis 30.09.2026) → update this hash each month
+  const PW_HASH = '14d2a6f11bad6a5a3561f2a8a91f5c11d933a87104b6dcf70d49fc6e0ca44544'; // "lehrermangel"
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
