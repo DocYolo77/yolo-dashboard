@@ -52,7 +52,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "SIMO": {
           "role": "core",
@@ -410,7 +410,7 @@
           "reason": "Camtek manufactures metrology and inspection equipment for semiconductor manufacturing, making it a semiconductor capital equipment company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -836,7 +836,7 @@
           "reason": "nLIGHT designs and manufactures power semiconductor and fiber lasers for aerospace/defense, industrial, and microfabrication applications, fitting the photonics/semiconductor optics narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1195,7 +1195,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "CBRS": {
           "role": "core",
@@ -1943,7 +1943,7 @@
           "reason": "BlackLine provides SaaS financial close and accounting automation software, fitting Software/SaaS narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2031,7 +2031,7 @@
           "reason": "Doximity provides an online SaaS platform for physicians and healthcare professionals to collaborate, manage careers, and conduct telehealth.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2075,7 +2075,7 @@
           "reason": "Software company providing search, observability and security software via subscription model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3600,7 +3600,7 @@
           "reason": "StoneCo provides financial technology solutions, payments and business management tools to MSMBs via a cloud-based fintech platform, core financial technology business model.",
           "added_at": "2026-09-02",
           "last_reviewed_at": "2026-09-02",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -5177,7 +5177,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "LCID": {
           "role": "core",
@@ -5617,7 +5617,7 @@
           "reason": "First Majestic Silver operates silver and gold producing mines in North America.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6240,7 +6240,7 @@
           "reason": "Specialty grocery retailer focused on fresh, natural and organic products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6349,7 +6349,7 @@
           "reason": "Global IT services firm focused on platform engineering, software development and consulting.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6589,7 +6589,7 @@
           "reason": "Automotive parts manufacturer supplying climate comfort systems and cable systems to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7302,6 +7302,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "CTVA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Corteva develops and sells crop protection and seed products for agricultural markets, fitting agribusiness.",
+          "added_at": "2026-10-02",
+          "last_reviewed_at": "2026-10-02",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7962,7 +7973,7 @@
           "reason": "Warrior Met Coal produces and exports metallurgical coal used in steel production, directly matching coal mining narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8824,7 +8835,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9029,7 +9040,7 @@
           "reason": "ATI supplies specialty metals and advanced alloys to aerospace, defense and energy markets, distinct from generic steel pipe classification.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9106,7 +9117,7 @@
           "reason": "Worthington Steel is a value-added processor of carbon flat-rolled steel and electrical steel laminations serving diverse industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9160,7 +9171,7 @@
           "reason": "Azenta provides sample management, storage, and genomic services using automation, fitting life sciences tools/consumables narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9335,7 +9346,7 @@
           "reason": "Banco BBVA Argentina is a full-service commercial bank offering retail, corporate and investment banking services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9761,7 +9772,7 @@
           "reason": "Jabil is a large electronics manufacturing services (EMS) provider offering design, manufacturing and supply chain solutions across electronics/PCBs. Closest existing narrative is Electronic Components Manufacturing given SIC 3672 (Printed Circuit Boards) and its role supplying electronic manufacturing to OEMs across industries, though it's broader EMS/contract manufacturing rather than pure components.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10512,7 +10523,7 @@
           "reason": "Talen Energy is an independent power producer operating nuclear and fossil generation fleets, selling electricity and capacity.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10687,7 +10698,7 @@
           "reason": "VEON provides mobile and fixed-line telecommunications and broadband internet services to corporations and individuals across multiple markets, fitting the telecom/broadband services narrative despite being wireless-heavy rather than cable-based.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11280,7 +11291,7 @@
           "reason": "Trump Media operates Truth Social, a social media platform, generating ad and subscription-like revenue from user engagement - fits social_media_platform well as primary business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11324,7 +11335,7 @@
           "reason": "Pinterest is a social media/content discovery platform monetizing primarily through advertising.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11399,7 +11410,7 @@
           "reason": "Ollie's sells closeout and excess inventory merchandise at deep discounts, similar economic model to off-price/discount value retail, though not strictly secondhand/thrift.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12323,7 +12334,7 @@
           "reason": "Natural gas E&P company with additional power generation assets.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12748,7 +12759,7 @@
           "reason": "Direct fit - large-scale equipment rental company operating fleet-based rental model to construction and industrial customers across US, Canada and UK.",
           "added_at": "2026-09-09",
           "last_reviewed_at": "2026-09-09",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
