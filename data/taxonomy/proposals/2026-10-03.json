@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-03",
+  "review_type": "weekly",
+  "changes": [
+    {
+      "action": "ADD",
+      "narrative": "memory_storage",
+      "narrative_name": "Memory / Storage",
+      "ticker": "P",
+      "role": "secondary",
+      "confidence": 75,
+      "semantic_evidence": "P (Pono / Phison-ADR-artiges Ticker, SIC 'COMPUTER STORAGE DEVICES') ist laut SIC-Klassifikation ein Computer-Storage-Device-Hersteller, wirtschaftlich analog zu bestehenden Mitgliedern wie SNDK/STX/WDC/SIMO. Starkes Momentum (RS1w 94.1, RS1m 99.0) qualifiziert als Discovery-Kandidat.",
+      "reason": "Neuer Storage-Ticker mit passendem SIC-Code und starkem Momentum, noch keinem Narrative zugeordnet.",
+      "human_review_required": false
+    },
+    {
+      "action": "ADD",
+      "narrative": "semiconductors",
+      "narrative_name": "Semiconductors",
+      "ticker": "SNPS",
+      "role": "secondary",
+      "confidence": 72,
+      "semantic_evidence": "SNPS (Synopsys) ist zwar primär EDA-Software (SIC 'PREPACKAGED SOFTWARE'), aber als zentraler Enabler von Chipdesign (EDA-Tools) wirtschaftlich eng mit dem Semiconductor-Ökosystem verflochten und wird häufig als Halbleiter-Proxy gehandelt. Starkes Momentum (RS1w 97.8).",
+      "reason": "EDA/Chipdesign-Software mit enger wirtschaftlicher Verbindung zu Halbleitern, aber kein dominanter Chiphersteller-Bezug -> secondary statt core.",
+      "human_review_required": false
+    },
+    {
+      "action": "REMOVE",
+      "narrative": "cybersecurity",
+      "narrative_name": "Cybersecurity",
+      "ticker": "ATEN",
+      "role": "core",
+      "remove_reason_code": "misclassification",
+      "semantic_evidence": "ATEN (A10 Networks / ATEN-artiger Ticker im Datensatz, confidence nur 70, eligible) hat keinen erkennbaren dominanten Cybersecurity-Geschäftsbezug laut vorliegenden Daten; Grenzfall mit niedriger Confidence knapp über der Schwelle, der bei Review-Pruefung als fragwürdig auffällt.",
+      "reason": "Niedrige Confidence-Grenzfall-Membership ohne klaren Cybersecurity-Kernbezug.",
+      "human_review_required": true,
+      "actionable": false
+    }
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "changes[2]: REMOVE: erste Meldung, noch keine zweite aufeinanderfolgende Weekly-Review-Bestätigung und kein Notfall-Grund — wird als 'pending second review' markiert, nicht sofort anwendbar"
+    ]
+  }
+}
