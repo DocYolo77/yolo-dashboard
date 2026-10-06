@@ -1237,7 +1237,7 @@
           "reason": "GDS Holdings develops and operates data centers in China, offering colocation and managed services, a core data center business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1736,7 +1736,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "MDB": {
           "role": "core",
@@ -2042,7 +2042,7 @@
           "reason": "DocuSign offers a cloud-based SaaS suite for e-signature and agreement automation.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2317,7 +2317,7 @@
           "reason": "Cloud-based supply chain management software services for retailers, suppliers, and logistics firms.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3152,7 +3152,7 @@
           "reason": "Red Cat Holdings is a drone technology company producing ISR and precision strike drones for military and government operations, matching defense/aerospace.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3283,7 +3283,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "COIN": {
           "role": "core",
@@ -3402,7 +3402,7 @@
           "reason": "Digital bank offering banking, investment, insurance brokerage and shopping services, a fintech/digital banking platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3424,7 +3424,7 @@
           "reason": "Lufax is a Chinese financial technology platform providing retail credit, lending enablement, and wealth management services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3600,7 +3600,7 @@
           "reason": "StoneCo provides financial technology solutions, payments and business management tools to MSMBs via a cloud-based fintech platform, core financial technology business model.",
           "added_at": "2026-09-02",
           "last_reviewed_at": "2026-09-02",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3622,7 +3622,7 @@
           "reason": "XP Inc is a technology-driven financial services platform providing low-fee financial products in Brazil, fitting the fintech narrative.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -5564,7 +5564,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "EGO": {
           "role": "secondary",
@@ -5639,7 +5639,7 @@
           "reason": "Avino is a silver/gold/copper mining and exploration company, fitting precious metals mining narrative despite some copper revenue.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5749,7 +5749,7 @@
           "reason": "Seabridge Gold is a development-stage gold exploration company with gold properties in North America, directly matching gold/precious metals mining.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6240,7 +6240,7 @@
           "reason": "Specialty grocery retailer focused on fresh, natural and organic products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6916,7 +6916,7 @@
           "reason": "Operates contract natural gas compression infrastructure supporting oil and gas production.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7070,7 +7070,7 @@
           "reason": "Select Water Solutions provides water management infrastructure and services to the energy/oilfield industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7081,7 +7081,7 @@
           "reason": "Expro provides well construction, intervention, and integrity services to oil and gas exploration and production companies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7136,7 +7136,7 @@
           "reason": "NGL Energy Partners operates crude oil, water solutions, and liquids logistics infrastructure - services/logistics supporting oil & gas production, best matched to oil & gas services/equipment given lack of a dedicated midstream logistics category.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7224,6 +7224,17 @@
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TEM": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Tempus AI operates a technology/data platform that applies AI (including generative AI) to clinical and molecular diagnostic data to improve precision medicine. Its core business is best described as a healthcare technology/data services company rather than pure software or pure diagnostics. Given no existing narrative precisely captures 'AI-driven healthcare diagnostics data platform', Healthcare Services is the closest existing fit since its revenue stems from diagnostic testing and data services sold into the healthcare system. Secondary narrative captures the software/AI platform angle.",
+          "added_at": "2026-10-06",
+          "last_reviewed_at": "2026-10-06",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7441,7 +7452,7 @@
           "reason": "Primoris provides critical infrastructure construction, maintenance, and engineering services across utilities and other sectors.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7671,7 +7682,7 @@
           "reason": "Etsy operates a global online marketplace connecting buyers and sellers of handmade/vintage goods, directly fitting e-commerce platform narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7758,7 +7769,7 @@
           "reason": "ESAB manufactures welding, cutting and joining equipment and consumables for industrial applications - fits well within Industrial Machinery given general industrial equipment manufacturing model.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8158,7 +8169,7 @@
           "reason": "Under Armour develops, markets and distributes athletic apparel, footwear and accessories, matching apparel retail definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8618,7 +8629,7 @@
           "reason": "The Trade Desk operates a demand-side programmatic advertising platform (DSP), directly matching the AdTech narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9051,7 +9062,7 @@
           "reason": "Century Aluminum produces primary aluminum, a specialty/base metal producer serving industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9095,7 +9106,7 @@
           "reason": "Materion produces specialty metals, alloys, beryllium composites and advanced materials for aerospace, defense and industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9117,7 +9128,7 @@
           "reason": "Worthington Steel is a value-added processor of carbon flat-rolled steel and electrical steel laminations serving diverse industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9466,7 +9477,7 @@
           "reason": "Knife River provides construction materials (crushed stone, sand, gravel) and contracting services for infrastructure, aligning with building products/materials distribution.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9805,6 +9816,17 @@
           "reason": "Impinj manufactures RFID endpoint ICs and readers enabling wireless item identification - a specialized electronic component/IoT connectivity business.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "VPG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Vishay Precision Group manufactures sensors, strain gages, and specialty resistors - precision electronic components used across measurement and industrial applications, fitting well into electronic components manufacturing.",
+          "added_at": "2026-10-06",
+          "last_reviewed_at": "2026-10-06",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10261,7 +10283,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10458,7 +10480,7 @@
           "reason": "PureCycle uses a patented chemical dissolution process to recycle polypropylene into resin, which is a specialty chemicals/plastics processing business producing performance materials.",
           "added_at": "2026-09-01",
           "last_reviewed_at": "2026-09-01",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10698,7 +10720,7 @@
           "reason": "VEON provides mobile and fixed-line telecommunications and broadband internet services to corporations and individuals across multiple markets, fitting the telecom/broadband services narrative despite being wireless-heavy rather than cable-based.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10740,7 +10762,7 @@
           "reason": "Dream Finders Homes is a residential homebuilder, which is a distinct economic category not covered by existing narratives like construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11291,7 +11313,7 @@
           "reason": "Trump Media operates Truth Social, a social media platform, generating ad and subscription-like revenue from user engagement - fits social_media_platform well as primary business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11662,6 +11684,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "MPC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Marathon Petroleum operates 13 refineries converting crude oil into fuels, directly matching the petroleum refining narrative, with midstream operations as secondary.",
+          "added_at": "2026-10-06",
+          "last_reviewed_at": "2026-10-06",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11691,7 +11724,7 @@
           "reason": "FTAI Aviation is an engine maintenance platform focused on repairing, rebuilding and leasing aircraft engines (CFM56, V2500) - directly matches the aircraft_engine_leasing_spare_parts narrative definition.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12065,7 +12098,7 @@
           "reason": "Provides LNG regasification, FSRUs and integrated LNG value chain services; closest match despite being import/regas rather than liquefaction/export focused.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12334,7 +12367,7 @@
           "reason": "Natural gas E&P company with additional power generation assets.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12345,7 +12378,7 @@
           "reason": "Tamboran is engaged in exploration and appraisal of unconventional natural gas resources in Australia, fitting the oil & gas E&P narrative despite being gas-focused and early-stage.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },

@@ -1,131 +1,143 @@
 {
-  "as_of_date": "2026-10-02",
-  "eligible_count": 494,
-  "classified_eligible_count": 449,
-  "coverage_pct": 90.9,
+  "as_of_date": "2026-10-06",
+  "eligible_count": 504,
+  "classified_eligible_count": 460,
+  "coverage_pct": 91.3,
   "entered": [
     "AGQ",
-    "BRAI",
     "BVC",
     "CAR",
     "CBRL",
     "CERT",
     "CIFR",
-    "CLVT",
     "CRSR",
-    "CTVA",
     "DAO",
+    "DPC",
     "ECO",
     "FDS",
-    "FIVE",
     "FRVO",
     "GLW",
     "GLXY",
     "GME",
-    "GOLD",
     "GPGI",
     "GSHD",
     "HBNB",
+    "INSW",
     "MAAS",
     "MAN",
     "MAT",
     "MKC.V",
     "MLKN",
+    "MPC",
     "MRX",
     "NAT",
     "NN",
     "NSP",
+    "NVA",
     "OPY",
     "P",
     "PLBL",
     "PLNT",
+    "PLPC",
+    "RHI",
     "RSKD",
+    "SG",
     "SID",
     "SIG",
-    "SNPS",
     "TEM",
     "TEN",
     "TMC",
     "TOP",
-    "VCX",
+    "VPG",
     "VSAT",
     "XMTR"
   ],
   "reentered": [
-    "AZTA",
-    "DJT",
-    "DOCS",
-    "EPAM",
-    "HLNE",
-    "RIVN",
-    "SFM",
-    "THRM",
-    "TLN",
-    "VEON"
+    "BKV",
+    "CAVA",
+    "CENX",
+    "EE",
+    "ESAB",
+    "GDS",
+    "INTR",
+    "KGS",
+    "KNF",
+    "MTRN",
+    "NGL",
+    "PPTA",
+    "PRIM",
+    "SA",
+    "STNE",
+    "TBN",
+    "UA",
+    "UPST",
+    "WS",
+    "WTTR",
+    "XP",
+    "XPRO"
   ],
   "exited": [
-    "AG",
-    "ATI",
-    "BBAR",
-    "BKV",
-    "BL",
-    "CAMT",
-    "ESTC",
-    "HCC",
-    "JBL",
-    "LASR",
-    "NTAP",
-    "OLLI",
-    "PINS",
-    "STNE",
-    "SUNB",
-    "WS"
+    "ASM",
+    "DFH",
+    "DJT",
+    "DOCU",
+    "ETSY",
+    "FTAI",
+    "LU",
+    "PCT",
+    "RCAT",
+    "SFM",
+    "SNOW",
+    "SPSC",
+    "TTD",
+    "VEON"
   ],
   "newly_classified": [
     "AGQ",
-    "BRAI",
     "BVC",
     "CAR",
     "CBRL",
     "CERT",
     "CIFR",
-    "CLVT",
     "CRSR",
-    "CTVA",
     "DAO",
+    "DPC",
     "ECO",
     "FDS",
-    "FIVE",
     "FRVO",
     "GLW",
     "GLXY",
     "GME",
-    "GOLD",
     "GPGI",
     "GSHD",
     "HBNB",
+    "INSW",
     "MAAS",
     "MAN",
     "MAT",
     "MKC.V",
     "MLKN",
+    "MPC",
     "MRX",
     "NAT",
     "NN",
     "NSP",
+    "NVA",
     "OPY",
     "P",
     "PLBL",
     "PLNT",
+    "PLPC",
+    "RHI",
     "RSKD",
+    "SG",
     "SID",
     "SIG",
-    "SNPS",
     "TEM",
     "TEN",
     "TMC",
     "TOP",
-    "VCX",
+    "VPG",
     "VSAT",
     "XMTR"
   ],
@@ -133,10 +145,6 @@
   "unresolved_after_retries": [
     {
       "ticker": "AGQ",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "BRAI",
       "reason": "low_confidence_primary"
     },
     {
@@ -160,10 +168,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CLVT",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "CRSR",
       "reason": "low_confidence_primary"
     },
@@ -172,15 +176,15 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "DPC",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "ECO",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "FDS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "FIVE",
       "reason": "low_confidence_primary"
     },
     {
@@ -200,10 +204,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "GOLD",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "GPGI",
       "reason": "low_confidence_primary"
     },
@@ -213,6 +213,10 @@
     },
     {
       "ticker": "HBNB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "INSW",
       "reason": "low_confidence_primary"
     },
     {
@@ -252,6 +256,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "NVA",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "OPY",
       "reason": "low_confidence_primary"
     },
@@ -268,7 +276,19 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "PLPC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RHI",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "RSKD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SG",
       "reason": "low_confidence_primary"
     },
     {
@@ -277,14 +297,6 @@
     },
     {
       "ticker": "SIG",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "SNPS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "TEM",
       "reason": "low_confidence_primary"
     },
     {
@@ -300,10 +312,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "VCX",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "VSAT",
       "reason": "low_confidence_primary"
     },
@@ -313,12 +321,12 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..TEN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..TEN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Batch 1 (AGQ..SIG): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (AGQ..SIG): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 311,
-  "eligible_without_active_narrative": 183,
-  "active_narrative_coverage_pct": 63.0,
-  "active_narrative_count": 29,
-  "undersized_narrative_count": 99
+  "eligible_with_active_narrative": 324,
+  "eligible_without_active_narrative": 180,
+  "active_narrative_coverage_pct": 64.3,
+  "active_narrative_count": 30,
+  "undersized_narrative_count": 98
 }
