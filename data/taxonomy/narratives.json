@@ -410,7 +410,7 @@
           "reason": "Camtek manufactures metrology and inspection equipment for semiconductor manufacturing, making it a semiconductor capital equipment company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2075,7 +2075,7 @@
           "reason": "Software company providing search, observability and security software via subscription model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3141,7 +3141,7 @@
           "reason": "Mercury Systems provides secure processing and mission-critical electronic systems specifically for the aerospace and defense industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3446,7 +3446,7 @@
           "reason": "PayPay operates a mobile code-payment app platform in Japan, a digital payments/fintech business model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3633,6 +3633,17 @@
           "reason": "Wealthfront is a digital automated investing/wealth management platform (robo-advisor) for consumers, fitting the fintech narrative of technology-driven financial services.",
           "added_at": "2026-09-18",
           "last_reviewed_at": "2026-09-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "AGBK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "AGI Inc is a Brazilian tech-powered specialized financial services provider offering secured lending, banking, credit and insurance products via technology platform - fits fintech lending model.",
+          "added_at": "2026-10-06",
+          "last_reviewed_at": "2026-10-06",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -5597,7 +5608,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AAUC": {
           "role": "core",
@@ -5617,7 +5628,7 @@
           "reason": "First Majestic Silver operates silver and gold producing mines in North America.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5826,7 +5837,7 @@
           "reason": "Hecla Mining is a major silver and gold producer with additional base metals, fitting well within the gold/precious metals miners narrative given its core silver/gold operating segments.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -5870,6 +5881,17 @@
           "reason": "Sunshine Silver Mining is a silver (and copper) mining/exploration/development company with SIC code Gold and Silver Ores, fitting the precious metals miners narrative.",
           "added_at": "2026-09-15",
           "last_reviewed_at": "2026-09-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SIND": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Sinda Ltd is an exploration-stage company focused on silver-gold mining concessions in Mexico, directly matching the Gold/Precious Metals Miners narrative based on SIC code 1040 (Gold and Silver Ores).",
+          "added_at": "2026-10-06",
+          "last_reviewed_at": "2026-10-06",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -6502,7 +6524,7 @@
           "reason": "CEVA licenses signal-processing intellectual property to semiconductor companies and OEMs, matching the IP licensing narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7136,6 +7158,17 @@
           "reason": "NGL Energy Partners operates crude oil, water solutions, and liquids logistics infrastructure - services/logistics supporting oil & gas production, best matched to oil & gas services/equipment given lack of a dedicated midstream logistics category.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "FET": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Forum Energy Technologies manufactures engineered capital equipment and consumable products used in drilling, well construction and production for oil, gas and energy industries.",
+          "added_at": "2026-10-06",
+          "last_reviewed_at": "2026-10-06",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -8016,7 +8049,7 @@
           "reason": "Provides independent tax, valuation, and financial advisory services; not IT/consulting but professional financial services, no existing catalog match.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8169,7 +8202,7 @@
           "reason": "Under Armour develops, markets and distributes athletic apparel, footwear and accessories, matching apparel retail definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8868,7 +8901,7 @@
           "reason": "WisdomTree is an asset manager that creates and manages exchange-traded products (ETPs), private market investments, and digital asset/tokenized products, earning management fees on assets under management. This model is economically closest to alternative asset management (fee-based investment management across diverse product structures including alternatives like private markets and digital assets), even though it also has a strong ETF/index-product component not perfectly captured elsewhere in the catalog.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9455,7 +9488,7 @@
           "reason": "Builders FirstSource manufactures and distributes building materials such as engineered wood, trusses, and millwork for residential construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9783,7 +9816,7 @@
           "reason": "Jabil is a large electronics manufacturing services (EMS) provider offering design, manufacturing and supply chain solutions across electronics/PCBs. Closest existing narrative is Electronic Components Manufacturing given SIC 3672 (Printed Circuit Boards) and its role supplying electronic manufacturing to OEMs across industries, though it's broader EMS/contract manufacturing rather than pure components.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9848,7 +9881,7 @@
           "reason": "Biglari Holdings explicitly owns restaurant operations (Steak n Shake, Western Sizzlin), insurance operations, and oil & gas operations - a direct match to the diversified restaurant/insurance holding company narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9859,7 +9892,7 @@
           "reason": "Same entity as BH (different share class) - Biglari Holdings owns restaurant, insurance, and oil & gas operating businesses, directly matching this diversified holding company narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -10881,7 +10914,7 @@
           "reason": "Lemonade operates a digital AI-based insurance platform for policy issuance and claims settlement, a strong direct match for insurtech digital insurance distribution.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10946,7 +10979,7 @@
           "reason": "Grab operates ride-sharing, delivery, and mobile platform services connecting riders/merchants with consumers in Southeast Asia - core mobility platform business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11076,7 +11109,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11357,7 +11390,7 @@
           "reason": "Pinterest is a social media/content discovery platform monetizing primarily through advertising.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11529,7 +11562,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11724,7 +11757,7 @@
           "reason": "FTAI Aviation is an engine maintenance platform focused on repairing, rebuilding and leasing aircraft engines (CFM56, V2500) - directly matches the aircraft_engine_leasing_spare_parts narrative definition.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11745,7 +11778,7 @@
           "reason": "e.l.f. Beauty makes and sells cosmetics/skincare products - no existing catalog narrative covers beauty/cosmetics products specifically (branded_nutrition_consumer_packaged_goods is food/nutrition-focused), warranting a new precise narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11756,7 +11789,7 @@
           "reason": "Coty is a global beauty company with fragrance, cosmetics, and skincare brands - directly fits beauty/cosmetics products category with high confidence.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11789,7 +11822,7 @@
           "reason": "Bath & Body Works is a specialty retailer of fragrance and body care products, closely aligned with beauty/cosmetics products retail model.",
           "added_at": "2026-08-30",
           "last_reviewed_at": "2026-08-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11842,7 +11875,7 @@
           "reason": "Zillow ist ein digitales Marktplatz-Modell speziell fuer Immobilien (Listings, Agent-Vermittlung, Mortgage), das sich klar von generischen E-Commerce-Plattformen oder IT-Dienstleistern unterscheidet. Kein bestehendes Narrative im Katalog bildet 'Real Estate Marketplace' praezise ab (e_commerce_platform ist zu generisch fuer physische Produktmaerkte, healthcare/other passen nicht). Daher neues, praezises Narrative mit ehrlich mittelhoher confidence, da das Geschaeftsmodell gut dokumentiert und eindeutig ist.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11853,7 +11886,7 @@
           "reason": "Identisches Geschaeftsmodell wie Z (Zillow Group Class C) - gleiche Firma, andere Aktienklasse. Digitale Immobilien-Marktplatzplattform, die Kaeufer/Verkaeufer/Mieter mit Agenten und Kreditgebern verbindet. Neues praezises Narrative passt besser als generische Kategorien.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11939,7 +11972,7 @@
           "reason": "Newell Brands is a diversified branded consumer products company (Rubbermaid, Sharpie, Coleman, Oster, Graco) - closest existing fit is household appliances/consumer products manufacturing given branded consumer durable goods focus, though it's broader than pure appliances.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12845,7 +12878,7 @@
           "reason": "ICON is a global CRO offering outsourced clinical development services, distinct from life sciences tools/consumables but closely related in the life sciences services space.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13120,6 +13153,27 @@
           "reason": "Aurora develops the Aurora Driver system for autonomous heavy trucks, a distinct business model from general robotics/automation or LiDAR component suppliers.",
           "added_at": "2026-09-25",
           "last_reviewed_at": "2026-09-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "blank_check_spac",
+      "name": "Blank Check / SPAC",
+      "status": "emerging",
+      "classification_hint": "Shell companies formed to raise capital through an IPO for the purpose of acquiring or merging with an existing operating company, with no commercial operations of their own prior to a business combination.",
+      "created_at": "2026-10-06",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "XRPN": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Armada Acquisition Corp II is explicitly a blank check company (SPAC) with no operating business, per SIC code 6770; this is a distinct corporate structure not covered by any existing operating-business narrative.",
+          "added_at": "2026-10-06",
+          "last_reviewed_at": "2026-10-06",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
