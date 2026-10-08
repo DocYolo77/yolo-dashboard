@@ -956,7 +956,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "ARM": {
           "role": "core",
@@ -1151,7 +1151,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "SMCI": {
           "role": "core",
@@ -1317,6 +1317,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "CIFR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Cipher Digital focuses on developing and operating data centers for HPC/AI workloads, which is the primary described business; crypto mining heritage (formerly a bitcoin miner) suggests secondary digital asset exposure.",
+          "added_at": "2026-10-08",
+          "last_reviewed_at": "2026-10-08",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -1443,7 +1454,7 @@
           "reason": "Ubiquiti designs and sells networking hardware (routers, switches, wireless equipment) for enterprise, home and service provider use, sold via web stores.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2020,7 +2031,7 @@
           "reason": "Unified AI-based SaaS platform enabling customer-facing teams to manage customer experience across digital channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2075,7 +2086,7 @@
           "reason": "Software company providing search, observability and security software via subscription model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2699,7 +2710,7 @@
           "reason": "MDA Space develops satellite systems, robotics, and geo-intelligence technology for the space industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5760,7 +5771,7 @@
           "reason": "Seabridge Gold is a development-stage gold exploration company with gold properties in North America, directly matching gold/precious metals mining.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6481,7 +6492,7 @@
           "reason": "Gartner provides IT research, analysis and consulting services to enterprises, fitting IT services/consulting category well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7070,7 +7081,7 @@
           "reason": "WaterBridge Infrastructure provides produced water infrastructure management services supporting oil and gas operations in the Delaware Basin.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7718,6 +7729,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "HEPS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "D-MARKET (Hepsiburada) operates a broad e-commerce marketplace platform in Turkey selling electronics and other merchandise to retail customers.",
+          "added_at": "2026-10-08",
+          "last_reviewed_at": "2026-10-08",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7835,7 +7857,7 @@
           "reason": "Powell Industries designs and manufactures custom-engineered electrical distribution, control and monitoring equipment (switchgear) for industrial/utility customers. This is an industrial equipment manufacturer; no better-fitting existing category (e.g., HVAC, power generation equipment) captures switchgear specifically, but Industrial Machinery is the closest broad fit given the catalog lacks an electrical equipment/switchgear specific bucket.",
           "added_at": "2026-08-20",
           "last_reviewed_at": "2026-08-20",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8147,7 +8169,7 @@
           "reason": "Boot Barn operates specialty retail stores selling western boots, apparel and accessories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8301,7 +8323,7 @@
           "reason": "Academy Sports and Outdoors is a full-line sporting goods and outdoor recreation retailer selling apparel, footwear, and sports equipment through omnichannel stores - closely matches the Apparel Retail narrative definition of omnichannel branded apparel/accessories retailers, though it's more broadly sporting goods focused.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8879,7 +8901,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9084,7 +9106,7 @@
           "reason": "ATI supplies specialty metals and advanced alloys to aerospace, defense and energy markets, distinct from generic steel pipe classification.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9095,7 +9117,7 @@
           "reason": "Century Aluminum produces primary aluminum, a specialty/base metal producer serving industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9598,7 +9620,7 @@
           "reason": "Manufactures architectural glass and windows for residential and commercial construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9849,7 +9871,7 @@
           "reason": "Impinj manufactures RFID endpoint ICs and readers enabling wireless item identification - a specialized electronic component/IoT connectivity business.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10316,7 +10338,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10360,6 +10382,17 @@
           "reason": "Brinker operates Chili's and Maggiano's, casual dining chains with franchised/company-owned restaurant growth model. While technically 'casual dining' rather than 'fast casual', this is the closest existing catalog fit as a restaurant chain operator narrative; economics (traffic, unit growth, menu pricing) are highly similar.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Sweetgreen operates fast-casual restaurants serving healthy, made-to-order plant-forward meals at scale through company-owned locations - strong fit with fast casual restaurant chains definition.",
+          "added_at": "2026-10-08",
+          "last_reviewed_at": "2026-10-08",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10753,7 +10786,7 @@
           "reason": "VEON provides mobile and fixed-line telecommunications and broadband internet services to corporations and individuals across multiple markets, fitting the telecom/broadband services narrative despite being wireless-heavy rather than cable-based.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10979,7 +11012,7 @@
           "reason": "Grab operates ride-sharing, delivery, and mobile platform services connecting riders/merchants with consumers in Southeast Asia - core mobility platform business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11390,7 +11423,7 @@
           "reason": "Pinterest is a social media/content discovery platform monetizing primarily through advertising.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11562,7 +11595,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12131,7 +12164,7 @@
           "reason": "Provides LNG regasification, FSRUs and integrated LNG value chain services; closest match despite being import/regas rather than liquefaction/export focused.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12920,7 +12953,7 @@
           "reason": "Joby develops eVTOL air taxis for commercial passenger service, a distinct emerging aerospace transportation category not covered by existing catalog entries like defense_aerospace or airlines.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13047,7 +13080,7 @@
           "reason": "Arlo provides cloud-based video security/surveillance cameras and monitoring solutions for homes and businesses - closely matches security alarm/surveillance systems manufacturing narrative with recurring subscription model.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },

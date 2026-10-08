@@ -1,11 +1,10 @@
 {
-  "as_of_date": "2026-10-06",
-  "eligible_count": 505,
-  "classified_eligible_count": 462,
-  "coverage_pct": 91.5,
+  "as_of_date": "2026-10-08",
+  "eligible_count": 488,
+  "classified_eligible_count": 451,
+  "coverage_pct": 92.4,
   "entered": [
-    "AGBK",
-    "AGQ",
+    "AMSC",
     "BVC",
     "CAR",
     "CBRL",
@@ -16,19 +15,16 @@
     "DPC",
     "ECO",
     "FDS",
-    "FET",
     "FRVO",
     "GLW",
     "GLXY",
-    "GME",
     "GPGI",
     "GSHD",
     "HBNB",
+    "HEPS",
     "INSW",
     "MAAS",
-    "MAN",
     "MAT",
-    "MKC.V",
     "MLKN",
     "MRX",
     "NAT",
@@ -37,56 +33,48 @@
     "NVA",
     "OPY",
     "P",
-    "PENN",
     "PLBL",
     "PLNT",
     "RSKD",
     "SG",
     "SID",
-    "SIG",
-    "SIND",
     "TEN",
     "TMC",
     "TOP",
+    "VIRT",
     "VSAT",
-    "XMTR",
-    "XRPN"
+    "XMTR"
   ],
   "reentered": [
-    "AG",
-    "CAMT",
-    "CEVA",
-    "ESTC",
-    "FTAI",
-    "GRAB",
-    "HBM",
-    "HL",
-    "IAUX",
-    "ICLR",
-    "JBL",
-    "MIAX",
-    "PINS"
+    "ATI",
+    "POWL",
+    "TGLS",
+    "VEON",
+    "WBI"
   ],
   "exited": [
-    "ANDG",
-    "BBWI",
-    "BH",
-    "BH.A",
-    "BLDR",
-    "COTY",
-    "ELF",
-    "LMND",
-    "MRCY",
-    "NWL",
-    "PAYP",
-    "UA",
-    "WT",
-    "Z",
-    "ZG"
+    "ARLO",
+    "ASO",
+    "BOOT",
+    "CAVA",
+    "CENX",
+    "CXM",
+    "EE",
+    "ESTC",
+    "GRAB",
+    "HBM",
+    "HLNE",
+    "IT",
+    "JOBY",
+    "MDA",
+    "PI",
+    "PINS",
+    "SA",
+    "UI",
+    "VRT"
   ],
   "newly_classified": [
-    "AGBK",
-    "AGQ",
+    "AMSC",
     "BVC",
     "CAR",
     "CBRL",
@@ -97,19 +85,16 @@
     "DPC",
     "ECO",
     "FDS",
-    "FET",
     "FRVO",
     "GLW",
     "GLXY",
-    "GME",
     "GPGI",
     "GSHD",
     "HBNB",
+    "HEPS",
     "INSW",
     "MAAS",
-    "MAN",
     "MAT",
-    "MKC.V",
     "MLKN",
     "MRX",
     "NAT",
@@ -118,27 +103,22 @@
     "NVA",
     "OPY",
     "P",
-    "PENN",
     "PLBL",
     "PLNT",
     "RSKD",
     "SG",
     "SID",
-    "SIG",
-    "SIND",
     "TEN",
     "TMC",
     "TOP",
+    "VIRT",
     "VSAT",
-    "XMTR",
-    "XRPN"
+    "XMTR"
   ],
-  "new_narratives_created": [
-    "blank_check_spac"
-  ],
+  "new_narratives_created": [],
   "unresolved_after_retries": [
     {
-      "ticker": "AGQ",
+      "ticker": "AMSC",
       "reason": "low_confidence_primary"
     },
     {
@@ -155,10 +135,6 @@
     },
     {
       "ticker": "CERT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CIFR",
       "reason": "low_confidence_primary"
     },
     {
@@ -194,10 +170,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "GME",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "GPGI",
       "reason": "low_confidence_primary"
     },
@@ -218,15 +190,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "MAN",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "MAT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MKC.V",
       "reason": "low_confidence_primary"
     },
     {
@@ -262,10 +226,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "PENN",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "PLBL",
       "reason": "low_confidence_primary"
     },
@@ -278,15 +238,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "SG",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "SID",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "SIG",
       "reason": "low_confidence_primary"
     },
     {
@@ -302,6 +254,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "VIRT",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "VSAT",
       "reason": "low_confidence_primary"
     },
@@ -310,13 +266,10 @@
       "reason": "low_confidence_primary"
     }
   ],
-  "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..TMC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (AGQ..TMC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
-  ],
-  "eligible_with_active_narrative": 335,
-  "eligible_without_active_narrative": 170,
-  "active_narrative_coverage_pct": 66.3,
+  "classification_errors": [],
+  "eligible_with_active_narrative": 329,
+  "eligible_without_active_narrative": 159,
+  "active_narrative_coverage_pct": 67.4,
   "active_narrative_count": 31,
   "undersized_narrative_count": 98
 }
