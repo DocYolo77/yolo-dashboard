@@ -1,16 +1,17 @@
 {
-  "as_of_date": "2026-10-08",
-  "eligible_count": 488,
-  "classified_eligible_count": 451,
-  "coverage_pct": 92.4,
+  "as_of_date": "2026-10-09",
+  "eligible_count": 490,
+  "classified_eligible_count": 454,
+  "coverage_pct": 92.7,
   "entered": [
     "AMSC",
     "BVC",
     "CAR",
     "CBRL",
     "CERT",
-    "CIFR",
+    "CRL",
     "CRSR",
+    "CWK",
     "DAO",
     "DPC",
     "ECO",
@@ -21,11 +22,9 @@
     "GPGI",
     "GSHD",
     "HBNB",
-    "HEPS",
     "INSW",
     "MAAS",
     "MAT",
-    "MLKN",
     "MRX",
     "NAT",
     "NN",
@@ -36,7 +35,6 @@
     "PLBL",
     "PLNT",
     "RSKD",
-    "SG",
     "SID",
     "TEN",
     "TMC",
@@ -46,32 +44,33 @@
     "XMTR"
   ],
   "reentered": [
-    "ATI",
-    "POWL",
-    "TGLS",
-    "VEON",
-    "WBI"
+    "ACN",
+    "ANDG",
+    "BBAR",
+    "CAVA",
+    "CEG",
+    "FIX",
+    "IT",
+    "LSCC",
+    "MDA",
+    "TRIP",
+    "UNIT",
+    "Z",
+    "ZG"
   ],
   "exited": [
-    "ARLO",
-    "ASO",
-    "BOOT",
-    "CAVA",
-    "CENX",
-    "CXM",
-    "EE",
-    "ESTC",
-    "GRAB",
-    "HBM",
-    "HLNE",
-    "IT",
-    "JOBY",
-    "MDA",
-    "PI",
-    "PINS",
-    "SA",
-    "UI",
-    "VRT"
+    "AEO",
+    "ATI",
+    "BKV",
+    "CHYM",
+    "GO",
+    "HL",
+    "HNGE",
+    "NGL",
+    "QRVO",
+    "SLSR",
+    "SYNA",
+    "VEON"
   ],
   "newly_classified": [
     "AMSC",
@@ -79,8 +78,9 @@
     "CAR",
     "CBRL",
     "CERT",
-    "CIFR",
+    "CRL",
     "CRSR",
+    "CWK",
     "DAO",
     "DPC",
     "ECO",
@@ -91,11 +91,9 @@
     "GPGI",
     "GSHD",
     "HBNB",
-    "HEPS",
     "INSW",
     "MAAS",
     "MAT",
-    "MLKN",
     "MRX",
     "NAT",
     "NN",
@@ -106,7 +104,6 @@
     "PLBL",
     "PLNT",
     "RSKD",
-    "SG",
     "SID",
     "TEN",
     "TMC",
@@ -117,10 +114,6 @@
   ],
   "new_narratives_created": [],
   "unresolved_after_retries": [
-    {
-      "ticker": "AMSC",
-      "reason": "low_confidence_primary"
-    },
     {
       "ticker": "BVC",
       "reason": "low_confidence_primary"
@@ -139,6 +132,10 @@
     },
     {
       "ticker": "CRSR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CWK",
       "reason": "low_confidence_primary"
     },
     {
@@ -191,10 +188,6 @@
     },
     {
       "ticker": "MAT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MLKN",
       "reason": "low_confidence_primary"
     },
     {
@@ -267,9 +260,9 @@
     }
   ],
   "classification_errors": [],
-  "eligible_with_active_narrative": 329,
-  "eligible_without_active_narrative": 159,
-  "active_narrative_coverage_pct": 67.4,
+  "eligible_with_active_narrative": 327,
+  "eligible_without_active_narrative": 163,
+  "active_narrative_coverage_pct": 66.7,
   "active_narrative_count": 31,
   "undersized_narrative_count": 98
 }
