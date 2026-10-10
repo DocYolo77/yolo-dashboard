@@ -1,28 +1,31 @@
 {
-  "as_of_date": "2026-10-09",
-  "eligible_count": 490,
-  "classified_eligible_count": 454,
-  "coverage_pct": 92.7,
+  "as_of_date": "2026-10-10",
+  "eligible_count": 494,
+  "classified_eligible_count": 461,
+  "coverage_pct": 93.3,
   "entered": [
-    "AMSC",
+    "BBDO",
+    "BSP",
     "BVC",
     "CAR",
     "CBRL",
     "CERT",
-    "CRL",
     "CRSR",
     "CWK",
     "DAO",
     "DPC",
     "ECO",
     "FDS",
+    "FIVE",
     "FRVO",
     "GLW",
     "GLXY",
+    "GME",
     "GPGI",
     "GSHD",
     "HBNB",
     "INSW",
+    "LIME",
     "MAAS",
     "MAT",
     "MRX",
@@ -44,54 +47,55 @@
     "XMTR"
   ],
   "reentered": [
+    "ATEN",
+    "CHYM",
+    "CNH",
+    "CVLT",
+    "ETSY",
+    "GFS",
+    "JOBY",
+    "NGL",
+    "SNOW",
+    "VST",
+    "WD"
+  ],
+  "exited": [
     "ACN",
+    "AG",
     "ANDG",
     "BBAR",
     "CAVA",
-    "CEG",
+    "CHWY",
+    "FET",
     "FIX",
-    "IT",
-    "LSCC",
-    "MDA",
-    "TRIP",
-    "UNIT",
-    "Z",
-    "ZG"
-  ],
-  "exited": [
-    "AEO",
-    "ATI",
-    "BKV",
-    "CHYM",
-    "GO",
-    "HL",
-    "HNGE",
-    "NGL",
-    "QRVO",
-    "SLSR",
-    "SYNA",
-    "VEON"
+    "GT",
+    "ORCL",
+    "TGLS",
+    "WBI"
   ],
   "newly_classified": [
-    "AMSC",
+    "BBDO",
+    "BSP",
     "BVC",
     "CAR",
     "CBRL",
     "CERT",
-    "CRL",
     "CRSR",
     "CWK",
     "DAO",
     "DPC",
     "ECO",
     "FDS",
+    "FIVE",
     "FRVO",
     "GLW",
     "GLXY",
+    "GME",
     "GPGI",
     "GSHD",
     "HBNB",
     "INSW",
+    "LIME",
     "MAAS",
     "MAT",
     "MRX",
@@ -112,7 +116,14 @@
     "VSAT",
     "XMTR"
   ],
-  "new_narratives_created": [],
+  "new_narratives_created": [
+    "commercial_real_estate_services",
+    "deep_seabed_mineral_exploration",
+    "digital_business_acquisition_holding_company",
+    "micromobility_sharing_platform",
+    "on_demand_manufacturing_marketplace",
+    "toy_manufacturing"
+  ],
   "unresolved_after_retries": [
     {
       "ticker": "BVC",
@@ -127,15 +138,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CERT",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "CRSR",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CWK",
       "reason": "low_confidence_primary"
     },
     {
@@ -155,6 +158,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "FIVE",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "FRVO",
       "reason": "low_confidence_primary"
     },
@@ -164,6 +171,10 @@
     },
     {
       "ticker": "GLXY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GME",
       "reason": "low_confidence_primary"
     },
     {
@@ -184,10 +195,6 @@
     },
     {
       "ticker": "MAAS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MAT",
       "reason": "low_confidence_primary"
     },
     {
@@ -239,10 +246,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "TMC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "TOP",
       "reason": "low_confidence_primary"
     },
@@ -253,16 +256,12 @@
     {
       "ticker": "VSAT",
       "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "XMTR",
-      "reason": "low_confidence_primary"
     }
   ],
   "classification_errors": [],
-  "eligible_with_active_narrative": 327,
-  "eligible_without_active_narrative": 163,
-  "active_narrative_coverage_pct": 66.7,
-  "active_narrative_count": 31,
-  "undersized_narrative_count": 98
+  "eligible_with_active_narrative": 323,
+  "eligible_without_active_narrative": 171,
+  "active_narrative_coverage_pct": 65.4,
+  "active_narrative_count": 30,
+  "undersized_narrative_count": 105
 }

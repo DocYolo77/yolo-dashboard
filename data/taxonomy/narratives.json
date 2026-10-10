@@ -465,7 +465,7 @@
           "reason": "GlobalFoundries is a contract semiconductor manufacturer (foundry) serving multiple chip end markets, directly matching the semiconductors narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1572,7 +1572,7 @@
           "reason": "A10 Networks provides secure application delivery and DDoS protection solutions, core cybersecurity/network security offering.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1747,7 +1747,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "MDB": {
           "role": "core",
@@ -2240,7 +2240,7 @@
           "reason": "Oracle provides enterprise database, applications and cloud infrastructure software.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2515,7 +2515,7 @@
           "reason": "Commvault sells prepackaged data protection/cyber resiliency software (backup, recovery) delivered increasingly as SaaS/subscription. This is squarely enterprise software, closest existing catalog fit is Software/SaaS, with secondary cybersecurity exposure given its cyber recovery focus.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2593,6 +2593,17 @@
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CERT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Certara provides biosimulation software and modeling/simulation platforms (SaaS-like licensing) to pharma/biotech clients to accelerate drug development -- core business is software products, justifying software_saas as primary with reasonable confidence, while also touching CRO-like services.",
+          "added_at": "2026-10-10",
+          "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -2775,7 +2786,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "NNE": {
           "role": "core",
@@ -3358,7 +3369,7 @@
           "reason": "Chime Financial is a fintech providing digital banking services via technology platform in partnership with banks.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5639,7 +5650,7 @@
           "reason": "First Majestic Silver operates silver and gold producing mines in North America.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5935,7 +5946,7 @@
           "reason": "Provides mechanical contracting services including HVAC, plumbing and electrical for commercial and industrial buildings.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6316,7 +6327,7 @@
           "reason": "Accenture is a diversified global IT consulting and outsourcing services firm.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6655,7 +6666,7 @@
           "reason": "Goodyear manufactures tires supplied to and used by vehicles across many end markets, an automotive component/parts business, though tires specifically warrant close review; no closer tire-specific narrative exists in catalog.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6786,7 +6797,7 @@
           "reason": "CNH Industrial manufactures agricultural machinery and construction equipment (Case, New Holland brands). Agricultural machinery is closest to Agriculture/Agribusiness in end-market but the company itself is a heavy equipment manufacturer, best matched to Industrial/Specialty Vehicle Machinery given its construction machinery SIC code and specialty vehicle/equipment manufacturing model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -7081,7 +7092,7 @@
           "reason": "WaterBridge Infrastructure provides produced water infrastructure management services supporting oil and gas operations in the Delaware Basin.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7169,7 +7180,7 @@
           "reason": "NGL Energy Partners operates crude oil, water solutions, and liquids logistics infrastructure - services/logistics supporting oil & gas production, best matched to oil & gas services/equipment given lack of a dedicated midstream logistics category.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7180,7 +7191,7 @@
           "reason": "Forum Energy Technologies manufactures engineered capital equipment and consumable products used in drilling, well construction and production for oil, gas and energy industries.",
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7715,7 +7726,7 @@
           "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7726,7 +7737,7 @@
           "reason": "Etsy operates a global online marketplace connecting buyers and sellers of handmade/vintage goods, directly fitting e-commerce platform narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8071,7 +8082,7 @@
           "reason": "Provides independent tax, valuation, and financial advisory services; not IT/consulting but professional financial services, no existing catalog match.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9412,7 +9423,7 @@
           "reason": "Banco BBVA Argentina is a full-service commercial bank offering retail, corporate and investment banking services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9467,7 +9478,7 @@
           "reason": "Walker & Dunlop originates, sells and services multifamily/commercial real estate loans through Fannie Mae, Freddie Mac, Ginnie Mae programs. This is a specialty commercial real estate finance/mortgage banking business. No catalog entry precisely covers commercial mortgage banking, but Banking/Financial Services is the closest broad economic fit given its role as a financial intermediary originating and servicing loans.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9479,6 +9490,17 @@
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "BBDO": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Banco Bradesco is a major Brazilian private bank offering retail, corporate and investment banking services, also a large insurer.",
+          "added_at": "2026-10-10",
+          "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9620,7 +9642,7 @@
           "reason": "Manufactures architectural glass and windows for residential and commercial construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10338,7 +10360,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12975,7 +12997,7 @@
           "reason": "Joby develops eVTOL air taxis for commercial passenger service, a distinct emerging aerospace transportation category not covered by existing catalog entries like defense_aerospace or airlines.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13229,6 +13251,132 @@
           "reason": "Armada Acquisition Corp II is explicitly a blank check company (SPAC) with no operating business, per SIC code 6770; this is a distinct corporate structure not covered by any existing operating-business narrative.",
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "digital_business_acquisition_holding_company",
+      "name": "Digital Business Acquisition Holding Company",
+      "status": "emerging",
+      "classification_hint": "Companies that acquire, operationally optimize, and hold a portfolio of digital/internet businesses (software, apps, platforms) to drive efficiency and reinvest cash flows into further acquisitions.",
+      "created_at": "2026-10-10",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "BSP": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Bending Spoons acquires and operates a diversified portfolio of digital businesses (AOL, Evernote, Eventbrite, etc.), a holding-company model distinct from a single-product SaaS business.",
+          "added_at": "2026-10-10",
+          "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "commercial_real_estate_services",
+      "name": "Commercial Real Estate Services",
+      "status": "emerging",
+      "classification_hint": "Global firms providing brokerage, leasing, property management, capital markets advisory, and project management services to commercial real estate occupiers, owners, and investors.",
+      "created_at": "2026-10-10",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "CWK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Cushman & Wakefield is a global commercial real estate services firm providing leasing, capital markets and property management services, distinct from REITs or homebuilders in the catalog.",
+          "added_at": "2026-10-10",
+          "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "micromobility_sharing_platform",
+      "name": "Micromobility Sharing Platform",
+      "status": "emerging",
+      "classification_hint": "Companies operating app-based rental platforms for shared electric scooters and bikes used for short-distance urban transportation.",
+      "created_at": "2026-10-10",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "LIME": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Lime (Neutron Holdings) provides shared e-scooter/e-bike rentals via an app, a distinct micromobility business model not covered by ridesharing (driver-based) or other catalog entries.",
+          "added_at": "2026-10-10",
+          "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "toy_manufacturing",
+      "name": "Toy Manufacturing",
+      "status": "emerging",
+      "classification_hint": "Companies that design, manufacture and market toys, games, and related entertainment products for children and families sold through wholesale and retail channels.",
+      "created_at": "2026-10-10",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "MAT": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Mattel manufactures and markets toys and games for children/families, a distinct consumer products category not represented in catalog.",
+          "added_at": "2026-10-10",
+          "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "deep_seabed_mineral_exploration",
+      "name": "Deep Seabed Mineral Exploration",
+      "status": "emerging",
+      "classification_hint": "Companies focused on exploring, collecting and processing polymetallic nodules and minerals from the deep ocean seafloor for critical/battery metals supply.",
+      "created_at": "2026-10-10",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "TMC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "TMC is a deep seabed minerals developer collecting polymetallic nodules from international ocean waters, a distinct business model from land-based mining categories in the catalog.",
+          "added_at": "2026-10-10",
+          "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "on_demand_manufacturing_marketplace",
+      "name": "On-Demand Manufacturing Marketplace",
+      "status": "emerging",
+      "classification_hint": "Companies operating digital marketplace platforms that connect buyers with a network of manufacturing suppliers (CNC machining, injection molding, 3D printing, etc.), using AI-driven instant quoting and order routing to facilitate custom part production without owning significant manufacturing capacity themselves.",
+      "created_at": "2026-10-10",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "XMTR": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 82,
+          "reason": "Xometry operates an online marketplace/platform connecting engineers and businesses with a distributed network of manufacturing partners for custom part production (CNC, injection molding, 3D printing, etc.), monetizing via marketplace transaction fees rather than owning factories. This is distinct from traditional EMS (which directly manufactures) or generic software/SaaS. No existing catalog narrative captures the marketplace-for-manufacturing model, so a new precise narrative is warranted.",
+          "added_at": "2026-10-10",
+          "last_reviewed_at": "2026-10-10",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
