@@ -148,7 +148,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AVGO": {
           "role": "core",
@@ -498,7 +498,7 @@
           "reason": "Lattice Semiconductor develops and sells FPGA semiconductor products for computing, communications, and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -869,7 +869,7 @@
           "reason": "Aeva designs FMCW LiDAR-on-chip sensing technology, which is fundamentally a photonics/optical semiconductor product used in automotive and other sensing applications. This is closer to a semiconductor/photonics hardware company than a pure auto parts supplier, though SIC code is auto parts.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -1747,7 +1747,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "MDB": {
           "role": "core",
@@ -2075,7 +2075,7 @@
           "reason": "Duolingo develops a mobile learning SaaS platform for language learning powered by AI and data analytics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2262,7 +2262,7 @@
           "reason": "Procore is a cloud-based subscription software platform for construction management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2515,7 +2515,7 @@
           "reason": "Commvault sells prepackaged data protection/cyber resiliency software (backup, recovery) delivered increasingly as SaaS/subscription. This is squarely enterprise software, closest existing catalog fit is Software/SaaS, with secondary cybersecurity exposure given its cyber recovery focus.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3185,7 +3185,7 @@
           "reason": "York Space Systems develops space hardware and software solutions for national security, government, and commercial customers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3305,7 +3305,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "COIN": {
           "role": "core",
@@ -5181,6 +5181,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "IQMX": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "IQM Quantum Computers directly develops superconducting quantum computing systems and cloud platform access, a direct match to the quantum computing narrative.",
+          "added_at": "2026-10-13",
+          "last_reviewed_at": "2026-10-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5274,7 +5285,7 @@
           "reason": "Designs and manufactures zinc-based energy storage battery solutions for utility-scale applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5285,7 +5296,7 @@
           "reason": "Polestar is a pure-play premium electric vehicle manufacturer, directly matching the EV/Battery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5447,7 +5458,7 @@
           "reason": "Builds integrated US solar supply chain manufacturing photovoltaic solar modules and cells.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5957,7 +5968,7 @@
           "reason": "Madison Air Solutions is an HVAC and indoor air-quality technology company delivering engineered commercial and residential air quality systems.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6470,7 +6481,7 @@
           "reason": "Rackspace Technology provides multi-cloud technology services including application, data, and colocation services to enterprises.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6503,7 +6514,7 @@
           "reason": "Gartner provides IT research, analysis and consulting services to enterprises, fitting IT services/consulting category well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6797,7 +6808,7 @@
           "reason": "CNH Industrial manufactures agricultural machinery and construction equipment (Case, New Holland brands). Agricultural machinery is closest to Agriculture/Agribusiness in end-market but the company itself is a heavy equipment manufacturer, best matched to Industrial/Specialty Vehicle Machinery given its construction machinery SIC code and specialty vehicle/equipment manufacturing model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -6927,7 +6938,7 @@
           "reason": "Enerflex engineers and manufactures natural gas compression equipment and systems, fitting oil & gas services/equipment.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6938,7 +6949,7 @@
           "reason": "Flotek Industries provides specialty chemistries and technology services to oil and gas companies and oilfield services companies, fitting oil & gas services/equipment narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7616,7 +7627,7 @@
           "reason": "Akso Health Group operates a social e-commerce platform selling products, including medical devices, primarily an e-commerce business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7737,7 +7748,7 @@
           "reason": "Etsy operates a global online marketplace connecting buyers and sellers of handmade/vintage goods, directly fitting e-commerce platform narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8717,7 +8728,7 @@
           "reason": "Yelp generates revenue primarily through local business advertising on its consumer review/content platform, monetizing via ad placements and sponsored listings - core economics resemble a local advertising platform rather than a pure e-commerce or social media play. This is a stronger fit than social media given ad-driven local business monetization model.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8901,7 +8912,7 @@
           "reason": "Provides investment solutions and advisory across private equity, real estate, private debt and infrastructure - classic alternative asset manager.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9904,7 +9915,7 @@
           "reason": "Vishay Precision Group manufactures sensors, strain gages, and specialty resistors - precision electronic components used across measurement and industrial applications, fitting well into electronic components manufacturing.",
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10360,7 +10371,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10415,6 +10426,17 @@
           "reason": "Sweetgreen operates fast-casual restaurants serving healthy, made-to-order plant-forward meals at scale through company-owned locations - strong fit with fast casual restaurant chains definition.",
           "added_at": "2026-10-08",
           "last_reviewed_at": "2026-10-08",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CMG": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Chipotle is a leading fast-casual Mexican-inspired restaurant chain generating revenue from company-operated and licensed stores, a direct match to the narrative definition.",
+          "added_at": "2026-10-13",
+          "last_reviewed_at": "2026-10-13",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10731,7 +10753,7 @@
           "reason": "Liberty Global is a holding company with cable network interests across European geographies, providing broadband and telecom services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11157,6 +11179,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "DAO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Youdao develops learning content, applications, and solutions, with the majority of revenue from Learning services, matching the education content/publishing narrative.",
+          "added_at": "2026-10-13",
+          "last_reviewed_at": "2026-10-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11186,6 +11219,17 @@
           "reason": "Bullish operates institutional digital asset market infrastructure including trading and custody, akin to a crypto exchange/marketplace operator.",
           "added_at": "2026-09-25",
           "last_reviewed_at": "2026-09-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CBOE": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 97,
+          "reason": "Cboe operates the largest US options exchange and other securities exchanges, earning transaction and listing fees, directly matching the financial exchange operator narrative.",
+          "added_at": "2026-10-13",
+          "last_reviewed_at": "2026-10-13",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11272,7 +11316,7 @@
           "reason": "Paramount Skydance operates TV media (CBS, cable networks), filmed entertainment, and direct-to-consumer streaming - a textbook match for Media & Entertainment Conglomerate definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11823,7 +11867,7 @@
           "reason": "FTAI Aviation is an engine maintenance platform focused on repairing, rebuilding and leasing aircraft engines (CFM56, V2500) - directly matches the aircraft_engine_leasing_spare_parts narrative definition.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11855,7 +11899,7 @@
           "reason": "Coty is a global beauty company with fragrance, cosmetics, and skincare brands - directly fits beauty/cosmetics products category with high confidence.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12027,7 +12071,7 @@
           "reason": "Whirlpool manufactures and markets kitchen and laundry appliances globally under multiple brands, a distinct consumer durables manufacturing business not covered by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12455,7 +12499,7 @@
           "reason": "HighPeak Energy is an independent E&P company focused on crude oil and natural gas development in the Midland Basin.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12806,7 +12850,7 @@
           "reason": "Guardian Pharmacy provides specialized pharmacy services for long-term care facilities, distinct from general retail drug stores.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12955,7 +12999,7 @@
           "reason": "Charles River Labs is a leading provider of drug discovery and development services including animal models for research, a classic CRO business model.",
           "added_at": "2026-10-09",
           "last_reviewed_at": "2026-10-09",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }

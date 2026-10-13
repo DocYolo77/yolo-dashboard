@@ -1,21 +1,19 @@
 {
-  "as_of_date": "2026-10-10",
-  "eligible_count": 494,
-  "classified_eligible_count": 461,
-  "coverage_pct": 93.3,
+  "as_of_date": "2026-10-13",
+  "eligible_count": 480,
+  "classified_eligible_count": 447,
+  "coverage_pct": 93.1,
   "entered": [
-    "BBDO",
-    "BSP",
     "BVC",
     "CAR",
+    "CBOE",
     "CBRL",
-    "CERT",
+    "CLVT",
+    "CMG",
     "CRSR",
-    "CWK",
     "DAO",
     "DPC",
     "ECO",
-    "FDS",
     "FIVE",
     "FRVO",
     "GLW",
@@ -24,10 +22,9 @@
     "GPGI",
     "GSHD",
     "HBNB",
-    "INSW",
-    "LIME",
+    "IQMX",
     "MAAS",
-    "MAT",
+    "MPT",
     "MRX",
     "NAT",
     "NN",
@@ -38,54 +35,60 @@
     "PLBL",
     "PLNT",
     "RSKD",
+    "SECZ",
     "SID",
     "TEN",
-    "TMC",
     "TOP",
     "VIRT",
-    "VSAT",
-    "XMTR"
+    "VSAT"
   ],
   "reentered": [
-    "ATEN",
-    "CHYM",
-    "CNH",
-    "CVLT",
-    "ETSY",
-    "GFS",
-    "JOBY",
-    "NGL",
-    "SNOW",
-    "VST",
-    "WD"
+    "AHG",
+    "CAVA",
+    "COTY",
+    "EFXT",
+    "HPK",
+    "LBTYB",
+    "YELP"
   ],
   "exited": [
-    "ACN",
-    "AG",
-    "ANDG",
-    "BBAR",
-    "CAVA",
-    "CHWY",
-    "FET",
-    "FIX",
-    "GT",
-    "ORCL",
-    "TGLS",
-    "WBI"
+    "AEVA",
+    "CNH",
+    "CRL",
+    "CVLT",
+    "DUOL",
+    "EOSE",
+    "ETSY",
+    "FTAI",
+    "FTK",
+    "GRDN",
+    "IT",
+    "LSCC",
+    "MAIR",
+    "PCOR",
+    "PSKY",
+    "PSNY",
+    "QCOM",
+    "RXT",
+    "SNOW",
+    "STEP",
+    "TE",
+    "UPST",
+    "VPG",
+    "WHR",
+    "YSS"
   ],
   "newly_classified": [
-    "BBDO",
-    "BSP",
     "BVC",
     "CAR",
+    "CBOE",
     "CBRL",
-    "CERT",
+    "CLVT",
+    "CMG",
     "CRSR",
-    "CWK",
     "DAO",
     "DPC",
     "ECO",
-    "FDS",
     "FIVE",
     "FRVO",
     "GLW",
@@ -94,10 +97,9 @@
     "GPGI",
     "GSHD",
     "HBNB",
-    "INSW",
-    "LIME",
+    "IQMX",
     "MAAS",
-    "MAT",
+    "MPT",
     "MRX",
     "NAT",
     "NN",
@@ -108,22 +110,14 @@
     "PLBL",
     "PLNT",
     "RSKD",
+    "SECZ",
     "SID",
     "TEN",
-    "TMC",
     "TOP",
     "VIRT",
-    "VSAT",
-    "XMTR"
+    "VSAT"
   ],
-  "new_narratives_created": [
-    "commercial_real_estate_services",
-    "deep_seabed_mineral_exploration",
-    "digital_business_acquisition_holding_company",
-    "micromobility_sharing_platform",
-    "on_demand_manufacturing_marketplace",
-    "toy_manufacturing"
-  ],
+  "new_narratives_created": [],
   "unresolved_after_retries": [
     {
       "ticker": "BVC",
@@ -138,11 +132,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CRSR",
+      "ticker": "CLVT",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "DAO",
+      "ticker": "CRSR",
       "reason": "low_confidence_primary"
     },
     {
@@ -151,10 +145,6 @@
     },
     {
       "ticker": "ECO",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "FDS",
       "reason": "low_confidence_primary"
     },
     {
@@ -190,11 +180,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "INSW",
+      "ticker": "MAAS",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "MAAS",
+      "ticker": "MPT",
       "reason": "low_confidence_primary"
     },
     {
@@ -238,6 +228,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "SECZ",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "SID",
       "reason": "low_confidence_primary"
     },
@@ -259,9 +253,9 @@
     }
   ],
   "classification_errors": [],
-  "eligible_with_active_narrative": 323,
-  "eligible_without_active_narrative": 171,
-  "active_narrative_coverage_pct": 65.4,
-  "active_narrative_count": 30,
-  "undersized_narrative_count": 105
+  "eligible_with_active_narrative": 321,
+  "eligible_without_active_narrative": 159,
+  "active_narrative_coverage_pct": 66.9,
+  "active_narrative_count": 32,
+  "undersized_narrative_count": 103
 }
