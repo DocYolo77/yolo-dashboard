@@ -836,7 +836,7 @@
           "reason": "nLIGHT designs and manufactures power semiconductor and fiber lasers for aerospace/defense, industrial, and microfabrication applications, fitting the photonics/semiconductor optics narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1572,7 +1572,7 @@
           "reason": "A10 Networks provides secure application delivery and DDoS protection solutions, core cybersecurity/network security offering.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1649,7 +1649,7 @@
           "reason": "Varonis Systems is a cybersecurity vendor focused on data privacy and security, transitioning to cloud SaaS delivery.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1747,7 +1747,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "MDB": {
           "role": "core",
@@ -1868,7 +1868,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "SHOP": {
           "role": "secondary",
@@ -2240,7 +2240,7 @@
           "reason": "Oracle provides enterprise database, applications and cloud infrastructure software.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2449,7 +2449,7 @@
           "reason": "Guidewire provides cloud-based enterprise software (InsuranceSuite) for property & casualty insurers, fitting cleanly into the Software/SaaS narrative with an insurance-vertical focus.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -3457,7 +3457,7 @@
           "reason": "Paymentus provides SaaS-based electronic bill payment and customer communication platform, a payments fintech model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5221,7 +5221,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "LCID": {
           "role": "core",
@@ -5793,7 +5793,7 @@
           "reason": "Seabridge Gold is a development-stage gold exploration company with gold properties in North America, directly matching gold/precious metals mining.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5957,7 +5957,7 @@
           "reason": "Provides mechanical contracting services including HVAC, plumbing and electrical for commercial and industrial buildings.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8912,7 +8912,7 @@
           "reason": "Provides investment solutions and advisory across private equity, real estate, private debt and infrastructure - classic alternative asset manager.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8923,7 +8923,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9675,7 +9675,7 @@
           "reason": "Installed Building Products installs insulation and other building products for residential construction; closest existing narrative is building products/materials distribution given its focus on construction materials installation, though it is more an installer/contractor than distributor.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10371,7 +10371,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10437,7 +10437,7 @@
           "reason": "Chipotle is a leading fast-casual Mexican-inspired restaurant chain generating revenue from company-operated and licensed stores, a direct match to the narrative definition.",
           "added_at": "2026-10-13",
           "last_reviewed_at": "2026-10-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10830,7 +10830,7 @@
           "reason": "Televisa's cable arm Izzi provides broadband and pay-TV services to millions of Mexican homes, and it also owns Sky Mexico satellite TV. Core business is telecom/cable broadband and pay-television distribution.",
           "added_at": "2026-09-21",
           "last_reviewed_at": "2026-09-21",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11230,7 +11230,7 @@
           "reason": "Cboe operates the largest US options exchange and other securities exchanges, earning transaction and listing fees, directly matching the financial exchange operator narrative.",
           "added_at": "2026-10-13",
           "last_reviewed_at": "2026-10-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11251,7 +11251,7 @@
           "reason": "MakeMyTrip is an online travel company providing booking solutions for air tickets, hotels, and packages, a distinct business model not present in the existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11867,7 +11867,7 @@
           "reason": "FTAI Aviation is an engine maintenance platform focused on repairing, rebuilding and leasing aircraft engines (CFM56, V2500) - directly matches the aircraft_engine_leasing_spare_parts narrative definition.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12050,7 +12050,7 @@
           "reason": "Vestis provides uniform rentals and workplace supplies through recurring service contracts, a distinct business model not covered by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12521,7 +12521,7 @@
           "reason": "Tamboran is engaged in exploration and appraisal of unconventional natural gas resources in Australia, fitting the oil & gas E&P narrative despite being gas-focused and early-stage.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12595,7 +12595,7 @@
           "reason": "National Vision is a specialty optical retailer, distinct from apparel retail; creating a precise new category for optical retail.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13179,7 +13179,7 @@
           "reason": "Axon builds public safety hardware (TASER devices, body cameras, drones) plus cloud software (digital evidence management) for law enforcement/public safety. This is closest to security/public-safety equipment manufacturing with a software layer, similar economically to the security alarm systems manufacturing narrative (physical security hardware + connected software/services for institutional customers), though Axon serves government/public safety rather than commercial/residential. No better existing fit; defense_aerospace doesn't match its municipal/law enforcement customer base.",
           "added_at": "2026-09-25",
           "last_reviewed_at": "2026-09-25",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
