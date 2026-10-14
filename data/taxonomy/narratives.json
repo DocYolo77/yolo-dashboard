@@ -170,7 +170,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "MCHP": {
           "role": "core",
@@ -487,7 +487,7 @@
           "reason": "Designs and manufactures capital equipment used for assembling semiconductor devices.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1627,7 +1627,7 @@
           "reason": "Radware provides application security and delivery solutions for multi-cloud environments, protecting infrastructure and applications, matching cybersecurity narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2075,7 +2075,7 @@
           "reason": "Duolingo develops a mobile learning SaaS platform for language learning powered by AI and data analytics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2721,7 +2721,7 @@
           "reason": "MDA Space develops satellite systems, robotics, and geo-intelligence technology for the space industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2732,7 +2732,7 @@
           "reason": "Designs, manufactures and operates reusable rockets and satellite constellations for space launch services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -3369,7 +3369,7 @@
           "reason": "Chime Financial is a fintech providing digital banking services via technology platform in partnership with banks.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5523,7 +5523,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "ATS": {
           "role": "secondary",
@@ -5793,7 +5793,7 @@
           "reason": "Seabridge Gold is a development-stage gold exploration company with gold properties in North America, directly matching gold/precious metals mining.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6317,7 +6317,7 @@
           "reason": "Grocery Outlet operates discount grocery stores selling name-brand consumables, matching grocery/food retail directly.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6404,7 +6404,7 @@
           "reason": "Global IT services firm focused on platform engineering, software development and consulting.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6546,7 +6546,7 @@
           "reason": "Adeia's core business is licensing intellectual property to entertainment and technology companies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6557,7 +6557,7 @@
           "reason": "CEVA licenses signal-processing intellectual property to semiconductor companies and OEMs, matching the IP licensing narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6862,7 +6862,7 @@
           "reason": "Low-cost scheduled passenger airline serving domestic and international destinations.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7191,7 +7191,7 @@
           "reason": "NGL Energy Partners operates crude oil, water solutions, and liquids logistics infrastructure - services/logistics supporting oil & gas production, best matched to oil & gas services/equipment given lack of a dedicated midstream logistics category.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7507,7 +7507,7 @@
           "reason": "MYR Group is a specialty electrical construction service provider serving electric utility, commercial and industrial construction markets, aligning with construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7551,7 +7551,7 @@
           "reason": "Construction Partners is a civil infrastructure company building and maintaining roadways, bridges, and airports.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7737,7 +7737,7 @@
           "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7748,7 +7748,7 @@
           "reason": "Etsy operates a global online marketplace connecting buyers and sellers of handmade/vintage goods, directly fitting e-commerce platform narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8115,7 +8115,7 @@
           "reason": "Lazard is a financial advisory and asset management firm providing M&A advice, capital markets and restructuring services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8673,7 +8673,7 @@
           "reason": "Magnite is a supply-side advertising platform providing programmatic ad technology and yield management to publishers, directly matching the AdTech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8836,7 +8836,7 @@
           "reason": "Hub Group is a large intermodal and transportation/logistics solutions provider, fitting well within trucking/freight logistics despite being rail-intermodal-focused rather than pure trucking.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8923,7 +8923,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9697,7 +9697,7 @@
           "reason": "Worthington Enterprises manufactures and sells a diversified range of consumer and building products (tools, outdoor living, celebrations, and specialized building products) largely through retail channels, with a significant portion serving residential and non-residential construction markets. While it's diversified across consumer/retail and building products categories, the building products/materials distribution narrative captures the core steel-based building products business serving construction end-markets, which is the most economically material and precise fit given the SIC classification (steel works/rolling mills) and construction-focused product lines.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10633,7 +10633,7 @@
           "reason": "NRG is a major independent power producer and retail energy provider with significant generation capacity.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11251,7 +11251,7 @@
           "reason": "MakeMyTrip is an online travel company providing booking solutions for air tickets, hotels, and packages, a distinct business model not present in the existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11835,7 +11835,7 @@
           "reason": "Marathon Petroleum operates 13 refineries converting crude oil into fuels, directly matching the petroleum refining narrative, with midstream operations as secondary.",
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12892,7 +12892,7 @@
           "reason": "HP focuses on PC and printing hardware markets, a distinct consumer/commercial technology hardware category.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12999,7 +12999,7 @@
           "reason": "Charles River Labs is a leading provider of drug discovery and development services including animal models for research, a classic CRO business model.",
           "added_at": "2026-10-09",
           "last_reviewed_at": "2026-10-09",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13136,7 +13136,7 @@
           "reason": "Mega Fortune is an IoT solution provider helping enterprises with digital transformation via IoT platforms and tools - no existing narrative captures IoT platform businesses specifically.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13200,7 +13200,7 @@
           "reason": "TIC Solutions provides testing/inspection/certification/compliance and engineering services for infrastructure - distinct business model not covered by existing catalog entries.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13295,7 +13295,7 @@
           "reason": "Armada Acquisition Corp II is explicitly a blank check company (SPAC) with no operating business, per SIC code 6770; this is a distinct corporate structure not covered by any existing operating-business narrative.",
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
