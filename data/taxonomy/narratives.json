@@ -93,7 +93,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "NVDA": {
           "role": "core",
@@ -148,7 +148,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AVGO": {
           "role": "core",
@@ -443,7 +443,7 @@
           "reason": "Supplier of purification solutions and advanced materials primarily to the semiconductor manufacturing industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -498,7 +498,7 @@
           "reason": "Lattice Semiconductor develops and sells FPGA semiconductor products for computing, communications, and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -509,7 +509,7 @@
           "reason": "Monolithic Power Systems is a fabless semiconductor company specializing in power management chips for data center, automotive, industrial and consumer markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1497,7 +1497,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "ZS": {
           "role": "core",
@@ -1572,7 +1572,7 @@
           "reason": "A10 Networks provides secure application delivery and DDoS protection solutions, core cybersecurity/network security offering.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1649,7 +1649,7 @@
           "reason": "Varonis Systems is a cybersecurity vendor focused on data privacy and security, transitioning to cloud SaaS delivery.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2009,7 +2009,7 @@
           "reason": "CCC Intelligent Solutions provides a cloud SaaS platform for the property and casualty insurance industry, fitting software/SaaS model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2031,7 +2031,7 @@
           "reason": "Unified AI-based SaaS platform enabling customer-facing teams to manage customer experience across digital channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2262,7 +2262,7 @@
           "reason": "Procore is a cloud-based subscription software platform for construction management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2284,7 +2284,7 @@
           "reason": "Pegasystems provides enterprise software for CRM and business process management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2317,7 +2317,7 @@
           "reason": "Provides a Voice AI conversational intelligence platform for businesses, delivered as software/SaaS-like offering.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2449,7 +2449,7 @@
           "reason": "Guidewire provides cloud-based enterprise software (InsuranceSuite) for property & casualty insurers, fitting cleanly into the Software/SaaS narrative with an insurance-vertical focus.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -2721,7 +2721,7 @@
           "reason": "MDA Space develops satellite systems, robotics, and geo-intelligence technology for the space industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2732,7 +2732,7 @@
           "reason": "Designs, manufactures and operates reusable rockets and satellite constellations for space launch services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -3075,7 +3075,7 @@
           "reason": "Astronics provides electrical power, lighting, avionics, and test systems to aerospace and defense industries.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3305,7 +3305,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "COIN": {
           "role": "core",
@@ -3457,7 +3457,7 @@
           "reason": "Paymentus provides SaaS-based electronic bill payment and customer communication platform, a payments fintech model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5361,7 +5361,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "ENPH": {
           "role": "core",
@@ -5815,7 +5815,7 @@
           "reason": "Precious metals mining company producing gold and silver from multiple mines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6338,7 +6338,7 @@
           "reason": "Accenture is a diversified global IT consulting and outsourcing services firm.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6404,7 +6404,7 @@
           "reason": "Global IT services firm focused on platform engineering, software development and consulting.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7103,7 +7103,7 @@
           "reason": "WaterBridge Infrastructure provides produced water infrastructure management services supporting oil and gas operations in the Delaware Basin.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7463,7 +7463,7 @@
           "reason": "Everus Construction Group provides specialty contracting services in electrical & mechanical and transmission & distribution segments, matching construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8586,7 +8586,7 @@
           "reason": "Manufactures implantable lenses and delivery systems for ophthalmic surgery, a medical device business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8673,7 +8673,7 @@
           "reason": "Magnite is a supply-side advertising platform providing programmatic ad technology and yield management to publishers, directly matching the AdTech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8836,7 +8836,7 @@
           "reason": "Hub Group is a large intermodal and transportation/logistics solutions provider, fitting well within trucking/freight logistics despite being rail-intermodal-focused rather than pure trucking.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9434,7 +9434,7 @@
           "reason": "Banco BBVA Argentina is a full-service commercial bank offering retail, corporate and investment banking services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10469,7 +10469,7 @@
           "reason": "Celanese produces acetic acid, specialty polymers and chemicals for diverse industrial end markets, fitting the specialty chemicals narrative alongside Chemours.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10841,7 +10841,7 @@
           "reason": "VEON provides mobile and fixed-line telecommunications and broadband internet services to corporations and individuals across multiple markets, fitting the telecom/broadband services narrative despite being wireless-heavy rather than cable-based.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11002,7 +11002,7 @@
           "reason": "Lemonade operates a digital AI-based insurance platform for policy issuance and claims settlement, a strong direct match for insurtech digital insurance distribution.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11230,7 +11230,7 @@
           "reason": "Cboe operates the largest US options exchange and other securities exchanges, earning transaction and listing fees, directly matching the financial exchange operator narrative.",
           "added_at": "2026-10-13",
           "last_reviewed_at": "2026-10-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11370,7 +11370,7 @@
           "reason": "Peloton is the archetype of Connected Fitness Platform - connected hardware bundled with subscription content, exact match to existing narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -11456,7 +11456,7 @@
           "reason": "Trump Media operates Truth Social, a social media platform, generating ad and subscription-like revenue from user engagement - fits social_media_platform well as primary business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11932,7 +11932,7 @@
           "reason": "Bath & Body Works is a specialty retailer of fragrance and body care products, closely aligned with beauty/cosmetics products retail model.",
           "added_at": "2026-08-30",
           "last_reviewed_at": "2026-08-30",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12390,7 +12390,7 @@
           "reason": "Group 1 Automotive operates franchised dealerships and collision centers, directly matching auto dealership group category.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12401,7 +12401,7 @@
           "reason": "Lithia Motors operates a large network of franchised auto dealerships selling new and used vehicles and related services.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12412,7 +12412,7 @@
           "reason": "Operates franchised dealerships, used-vehicle stores, collision centers, and captive lender - core auto dealership group model.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12521,7 +12521,7 @@
           "reason": "Tamboran is engaged in exploration and appraisal of unconventional natural gas resources in Australia, fitting the oil & gas E&P narrative despite being gas-focused and early-stage.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12648,7 +12648,7 @@
           "reason": "Major credit bureau providing consumer credit information, analytics, and fraud detection services to financial institutions - direct fit with credit scoring/analytics category.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },

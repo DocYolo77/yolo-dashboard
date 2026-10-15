@@ -1,8 +1,8 @@
 {
-  "as_of_date": "2026-10-14",
-  "eligible_count": 477,
-  "classified_eligible_count": 441,
-  "coverage_pct": 92.5,
+  "as_of_date": "2026-10-15",
+  "eligible_count": 504,
+  "classified_eligible_count": 462,
+  "coverage_pct": 91.7,
   "entered": [
     "BVC",
     "CAR",
@@ -10,6 +10,8 @@
     "CBRL",
     "CLVT",
     "CRSR",
+    "DASH",
+    "DHT",
     "DPC",
     "ECO",
     "FRVO",
@@ -27,10 +29,14 @@
     "MRX",
     "NAT",
     "NN",
+    "NOVT",
+    "NSP",
     "NVA",
     "P",
+    "PENN",
     "PLBL",
     "PLNT",
+    "RRR",
     "RSKD",
     "SECZ",
     "SID",
@@ -42,40 +48,49 @@
     "WRD"
   ],
   "reentered": [
-    "ADEA",
-    "CHWY",
-    "CRL",
-    "DUOL",
-    "ETSY",
-    "GO",
-    "JBLU",
-    "KLIC",
-    "MGNI",
-    "MMYT",
-    "MYRG",
-    "NRG",
-    "RDWR",
-    "ROAD",
-    "SYM"
+    "ACN",
+    "ATEN",
+    "BBAR",
+    "BBWI",
+    "CBOE",
+    "CE",
+    "CXM",
+    "DJT",
+    "ECG",
+    "ENTG",
+    "EPAM",
+    "GWRE",
+    "HUBG",
+    "LMND",
+    "LSCC",
+    "MDA",
+    "MPWR",
+    "MU",
+    "PAY",
+    "PCOR",
+    "PEGA",
+    "PTON",
+    "QCOM",
+    "SOUN",
+    "SPCX",
+    "SSRM",
+    "TBN",
+    "TRU",
+    "UPST",
+    "VEON",
+    "WBI"
   ],
   "exited": [
-    "CEVA",
-    "CHYM",
-    "EPAM",
-    "HLNE",
-    "HPQ",
-    "HUBG",
-    "LAZ",
-    "MDA",
-    "MGRT",
-    "MPC",
-    "NGL",
-    "ON",
-    "SA",
-    "SPCX",
-    "TIC",
-    "WOR",
-    "XRPN"
+    "AN",
+    "ATRO",
+    "CCC",
+    "FSLR",
+    "GPI",
+    "LAD",
+    "MGNI",
+    "PANW",
+    "STAA",
+    "VRNS"
   ],
   "newly_classified": [
     "BVC",
@@ -84,6 +99,8 @@
     "CBRL",
     "CLVT",
     "CRSR",
+    "DASH",
+    "DHT",
     "DPC",
     "ECO",
     "FRVO",
@@ -101,10 +118,14 @@
     "MRX",
     "NAT",
     "NN",
+    "NOVT",
+    "NSP",
     "NVA",
     "P",
+    "PENN",
     "PLBL",
     "PLNT",
+    "RRR",
     "RSKD",
     "SECZ",
     "SID",
@@ -139,6 +160,14 @@
     },
     {
       "ticker": "CRSR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DASH",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "DHT",
       "reason": "low_confidence_primary"
     },
     {
@@ -210,6 +239,14 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "NOVT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NSP",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "NVA",
       "reason": "low_confidence_primary"
     },
@@ -218,11 +255,19 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "PENN",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "PLBL",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "PLNT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RRR",
       "reason": "low_confidence_primary"
     },
     {
@@ -262,10 +307,12 @@
       "reason": "low_confidence_primary"
     }
   ],
-  "classification_errors": [],
-  "eligible_with_active_narrative": 310,
-  "eligible_without_active_narrative": 167,
-  "active_narrative_coverage_pct": 65.0,
-  "active_narrative_count": 30,
-  "undersized_narrative_count": 105
+  "classification_errors": [
+    "Retry-Runde 2 Batch (BVC..VIRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+  ],
+  "eligible_with_active_narrative": 322,
+  "eligible_without_active_narrative": 182,
+  "active_narrative_coverage_pct": 63.9,
+  "active_narrative_count": 29,
+  "undersized_narrative_count": 106
 }
