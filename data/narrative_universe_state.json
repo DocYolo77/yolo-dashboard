@@ -1,8 +1,8 @@
 {
-  "as_of_date": "2026-10-15",
-  "eligible_count": 504,
-  "classified_eligible_count": 462,
-  "coverage_pct": 91.7,
+  "as_of_date": "2026-10-16",
+  "eligible_count": 518,
+  "classified_eligible_count": 473,
+  "coverage_pct": 91.3,
   "entered": [
     "BVC",
     "CAR",
@@ -15,6 +15,7 @@
     "DPC",
     "ECO",
     "FRVO",
+    "GLBE",
     "GLW",
     "GLXY",
     "GME",
@@ -25,6 +26,7 @@
     "MAAS",
     "MAN",
     "MFP",
+    "MLKN",
     "MRP",
     "MRX",
     "NAT",
@@ -32,10 +34,11 @@
     "NOVT",
     "NSP",
     "NVA",
+    "ODC",
     "P",
-    "PENN",
     "PLBL",
     "PLNT",
+    "RHI",
     "RRR",
     "RSKD",
     "SECZ",
@@ -48,49 +51,33 @@
     "WRD"
   ],
   "reentered": [
-    "ACN",
-    "ATEN",
-    "BBAR",
-    "BBWI",
-    "CBOE",
-    "CE",
-    "CXM",
-    "DJT",
-    "ECG",
-    "ENTG",
-    "EPAM",
-    "GWRE",
-    "HUBG",
-    "LMND",
-    "LSCC",
-    "MDA",
-    "MPWR",
-    "MU",
-    "PAY",
-    "PCOR",
-    "PEGA",
-    "PTON",
-    "QCOM",
-    "SOUN",
-    "SPCX",
-    "SSRM",
-    "TBN",
-    "TRU",
-    "UPST",
-    "VEON",
-    "WBI"
+    "ANDG",
+    "AVPT",
+    "CHYM",
+    "ESTC",
+    "HL",
+    "HLNE",
+    "HNGE",
+    "IBP",
+    "NOK",
+    "NOW",
+    "PANW",
+    "PI",
+    "SKE",
+    "STAA",
+    "TTD",
+    "VSTS",
+    "WHR",
+    "WSC"
   ],
   "exited": [
-    "AN",
-    "ATRO",
-    "CCC",
-    "FSLR",
-    "GPI",
-    "LAD",
-    "MGNI",
-    "PANW",
-    "STAA",
-    "VRNS"
+    "BBWI",
+    "CYD",
+    "HEPS",
+    "MPWR",
+    "QCOM",
+    "VEON",
+    "WBI"
   ],
   "newly_classified": [
     "BVC",
@@ -104,6 +91,7 @@
     "DPC",
     "ECO",
     "FRVO",
+    "GLBE",
     "GLW",
     "GLXY",
     "GME",
@@ -114,6 +102,7 @@
     "MAAS",
     "MAN",
     "MFP",
+    "MLKN",
     "MRP",
     "MRX",
     "NAT",
@@ -121,10 +110,11 @@
     "NOVT",
     "NSP",
     "NVA",
+    "ODC",
     "P",
-    "PENN",
     "PLBL",
     "PLNT",
+    "RHI",
     "RRR",
     "RSKD",
     "SECZ",
@@ -176,10 +166,14 @@
     },
     {
       "ticker": "ECO",
-      "reason": "low_confidence_primary"
+      "reason": "unresolvable:no_match"
     },
     {
       "ticker": "FRVO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GLBE",
       "reason": "low_confidence_primary"
     },
     {
@@ -204,7 +198,7 @@
     },
     {
       "ticker": "INSW",
-      "reason": "low_confidence_primary"
+      "reason": "unresolvable:no_match"
     },
     {
       "ticker": "LW",
@@ -223,6 +217,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "MLKN",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "MRP",
       "reason": "low_confidence_primary"
     },
@@ -232,7 +230,7 @@
     },
     {
       "ticker": "NAT",
-      "reason": "low_confidence_primary"
+      "reason": "unresolvable:no_match"
     },
     {
       "ticker": "NN",
@@ -251,11 +249,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "P",
+      "ticker": "ODC",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "PENN",
+      "ticker": "P",
       "reason": "low_confidence_primary"
     },
     {
@@ -264,6 +262,10 @@
     },
     {
       "ticker": "PLNT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "RHI",
       "reason": "low_confidence_primary"
     },
     {
@@ -308,11 +310,12 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 2 Batch (BVC..VIRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (BVC..TDAY): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (BVC..TDAY): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 322,
-  "eligible_without_active_narrative": 182,
-  "active_narrative_coverage_pct": 63.9,
-  "active_narrative_count": 29,
-  "undersized_narrative_count": 106
+  "eligible_with_active_narrative": 334,
+  "eligible_without_active_narrative": 184,
+  "active_narrative_coverage_pct": 64.5,
+  "active_narrative_count": 31,
+  "undersized_narrative_count": 104
 }

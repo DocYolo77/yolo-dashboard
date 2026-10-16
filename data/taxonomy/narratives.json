@@ -148,7 +148,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AVGO": {
           "role": "core",
@@ -509,7 +509,7 @@
           "reason": "Monolithic Power Systems is a fabless semiconductor company specializing in power management chips for data center, automotive, industrial and consumer markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1390,7 +1390,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "FFIV": {
           "role": "core",
@@ -1497,7 +1497,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "ZS": {
           "role": "core",
@@ -1692,7 +1692,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "WDAY": {
           "role": "core",
@@ -2086,7 +2086,7 @@
           "reason": "Software company providing search, observability and security software via subscription model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2504,7 +2504,7 @@
           "reason": "AvePoint provides SaaS-based data protection, governance and management software for cloud collaboration platforms.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3369,7 +3369,7 @@
           "reason": "Chime Financial is a fintech providing digital banking services via technology platform in partnership with banks.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5804,7 +5804,7 @@
           "reason": "Development-stage mining company focused on a high-grade gold and silver project.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5870,7 +5870,7 @@
           "reason": "Hecla Mining is a major silver and gold producer with additional base metals, fitting well within the gold/precious metals miners narrative given its core silver/gold operating segments.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6600,7 +6600,7 @@
           "reason": "Manufactures, assembles and distributes diesel engines for vehicles and machinery, fitting automotive components supplier narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7103,7 +7103,7 @@
           "reason": "WaterBridge Infrastructure provides produced water infrastructure management services supporting oil and gas operations in the Delaware Basin.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7267,7 +7267,7 @@
           "reason": "Hinge Health operates a digital health platform delivering MSK (musculoskeletal) care via software/AI, monetizing through enterprise/health plan contracts - fundamentally a healthcare services delivery model rather than a horizontal SaaS tool.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7759,7 +7759,7 @@
           "reason": "D-MARKET (Hepsiburada) operates a broad e-commerce marketplace platform in Turkey selling electronics and other merchandise to retail customers.",
           "added_at": "2026-10-08",
           "last_reviewed_at": "2026-10-08",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8093,7 +8093,7 @@
           "reason": "Provides independent tax, valuation, and financial advisory services; not IT/consulting but professional financial services, no existing catalog match.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8586,7 +8586,7 @@
           "reason": "Manufactures implantable lenses and delivery systems for ophthalmic surgery, a medical device business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8706,7 +8706,7 @@
           "reason": "The Trade Desk operates a demand-side programmatic advertising platform (DSP), directly matching the AdTech narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8923,7 +8923,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9675,7 +9675,7 @@
           "reason": "Installed Building Products installs insulation and other building products for residential construction; closest existing narrative is building products/materials distribution given its focus on construction materials installation, though it is more an installer/contractor than distributor.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9904,7 +9904,7 @@
           "reason": "Impinj manufactures RFID endpoint ICs and readers enabling wireless item identification - a specialized electronic component/IoT connectivity business.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10841,7 +10841,7 @@
           "reason": "VEON provides mobile and fixed-line telecommunications and broadband internet services to corporations and individuals across multiple markets, fitting the telecom/broadband services narrative despite being wireless-heavy rather than cable-based.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11932,7 +11932,7 @@
           "reason": "Bath & Body Works is a specialty retailer of fragrance and body care products, closely aligned with beauty/cosmetics products retail model.",
           "added_at": "2026-08-30",
           "last_reviewed_at": "2026-08-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12050,7 +12050,7 @@
           "reason": "Vestis provides uniform rentals and workplace supplies through recurring service contracts, a distinct business model not covered by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12071,7 +12071,7 @@
           "reason": "Whirlpool manufactures and markets kitchen and laundry appliances globally under multiple brands, a distinct consumer durables manufacturing business not covered by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12114,7 +12114,7 @@
           "reason": "WillScot provides turnkey modular space and portable storage solutions on a rental/leasing basis across multiple industries, a distinct equipment rental business model not matched by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
