@@ -498,7 +498,7 @@
           "reason": "Lattice Semiconductor develops and sells FPGA semiconductor products for computing, communications, and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1390,7 +1390,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "FFIV": {
           "role": "core",
@@ -2130,7 +2130,7 @@
           "reason": "Freshworks provides a SaaS platform for customer support, IT service management, sales and marketing automation targeting SMBs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2515,7 +2515,7 @@
           "reason": "Commvault sells prepackaged data protection/cyber resiliency software (backup, recovery) delivered increasingly as SaaS/subscription. This is squarely enterprise software, closest existing catalog fit is Software/SaaS, with secondary cybersecurity exposure given its cyber recovery focus.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2592,7 +2592,7 @@
           "reason": "PagerDuty operates a SaaS digital operations management platform (incident management, AIOps) sold on subscription basis, fitting Software/SaaS narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3243,6 +3243,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "VSAT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Viasat provides satellite communications services and defense/advanced technologies (including military communications systems) as one of its two core reportable segments, alongside commercial broadband satellite services. Given the material defense/government segment and the specialized satellite infrastructure nature of the business, defense_aerospace is the closest fit in the catalog, though the company also has a large commercial satellite broadband component not perfectly captured by any single existing narrative. No better-fitting existing satellite-communications-specific narrative exists in the catalog, so this is the best available match with moderate-high confidence.",
+          "added_at": "2026-10-19",
+          "last_reviewed_at": "2026-10-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -3369,7 +3380,7 @@
           "reason": "Chime Financial is a fintech providing digital banking services via technology platform in partnership with banks.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5804,7 +5815,7 @@
           "reason": "Development-stage mining company focused on a high-grade gold and silver project.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5870,7 +5881,7 @@
           "reason": "Hecla Mining is a major silver and gold producer with additional base metals, fitting well within the gold/precious metals miners narrative given its core silver/gold operating segments.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6797,7 +6808,7 @@
           "reason": "Manufactures aerial work platforms, materials processing and specialty equipment for construction and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6808,7 +6819,7 @@
           "reason": "CNH Industrial manufactures agricultural machinery and construction equipment (Case, New Holland brands). Agricultural machinery is closest to Agriculture/Agribusiness in end-market but the company itself is a heavy equipment manufacturer, best matched to Industrial/Specialty Vehicle Machinery given its construction machinery SIC code and specialty vehicle/equipment manufacturing model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -8803,7 +8814,7 @@
           "reason": "RXO is an asset-light brokered transportation and truck brokerage platform, fitting freight logistics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9064,7 +9075,7 @@
           "reason": "Neptune is an MGA offering flood and earthquake insurance products, a specialty P&C insurance line distributed through agents.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9445,7 +9456,7 @@
           "reason": "Banco Macro is a traditional retail and corporate bank in Argentina, fitting Banking/Financial Services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9500,7 +9511,7 @@
           "reason": "StoneX is a diversified brokerage/financial services firm offering execution, OTC market-making, clearing, and payments across commercial, institutional, and retail segments.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10274,7 +10285,7 @@
           "reason": "Celsius Holdings markets branded energy drinks (Celsius, Alani Nu, Rockstar) as consumer packaged goods, outsourcing manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10841,7 +10852,7 @@
           "reason": "VEON provides mobile and fixed-line telecommunications and broadband internet services to corporations and individuals across multiple markets, fitting the telecom/broadband services narrative despite being wireless-heavy rather than cable-based.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11694,7 +11705,7 @@
           "reason": "Solaris Resources is engaged in exploration and development of copper properties (Warintza, La Verde, Tamarugo), fitting directly into the copper/base metals mining narrative.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11769,7 +11780,7 @@
           "reason": "HF Sinclair operates seven refineries with crude oil throughput and produces renewable diesel - directly matches the petroleum_refining narrative definition despite pipeline SIC code.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11899,7 +11910,7 @@
           "reason": "Coty is a global beauty company with fragrance, cosmetics, and skincare brands - directly fits beauty/cosmetics products category with high confidence.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12050,7 +12061,7 @@
           "reason": "Vestis provides uniform rentals and workplace supplies through recurring service contracts, a distinct business model not covered by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12114,7 +12125,7 @@
           "reason": "WillScot provides turnkey modular space and portable storage solutions on a rental/leasing basis across multiple industries, a distinct equipment rental business model not matched by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13179,7 +13190,7 @@
           "reason": "Axon builds public safety hardware (TASER devices, body cameras, drones) plus cloud software (digital evidence management) for law enforcement/public safety. This is closest to security/public-safety equipment manufacturing with a software layer, similar economically to the security alarm systems manufacturing narrative (physical security hardware + connected software/services for institutional customers), though Axon serves government/public safety rather than commercial/residential. No better existing fit; defense_aerospace doesn't match its municipal/law enforcement customer base.",
           "added_at": "2026-09-25",
           "last_reviewed_at": "2026-09-25",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13421,6 +13432,60 @@
           "reason": "Xometry operates an online marketplace/platform connecting engineers and businesses with a distributed network of manufacturing partners for custom part production (CNC, injection molding, 3D printing, etc.), monetizing via marketplace transaction fees rather than owning factories. This is distinct from traditional EMS (which directly manufactures) or generic software/SaaS. No existing catalog narrative captures the marketplace-for-manufacturing model, so a new precise narrative is warranted.",
           "added_at": "2026-10-10",
           "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "crude_oil_tanker_shipping",
+      "name": "Crude Oil Tanker Shipping",
+      "status": "emerging",
+      "classification_hint": "Companies that own and operate fleets of crude oil tanker vessels (e.g., Suezmax, VLCC, Aframax) providing international seaborne transportation of crude oil, generating revenue from time charter and spot market voyages.",
+      "created_at": "2026-10-19",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "ECO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Okeanis Eco Tankers owns/operates Suezmax and VLCC crude oil tankers - no existing catalog narrative covers crude oil tanker shipping (only LPG/gas shipping exists), so a new precise narrative is warranted.",
+          "added_at": "2026-10-19",
+          "last_reviewed_at": "2026-10-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "INSW": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "International Seaways owns/operates a fleet of crude oil and petroleum product tankers (ULCC, VLCC, Suezmax, Aframax, Panamax) - same economic model as newly defined crude_oil_tanker_shipping narrative used for ECO/DHT/NAT/TEN.",
+          "added_at": "2026-10-19",
+          "last_reviewed_at": "2026-10-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "NAT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Nordic American Tankers owns/operates double-hull Suezmax crude oil tankers trading spot/charter - directly matches the newly defined crude_oil_tanker_shipping narrative.",
+          "added_at": "2026-10-19",
+          "last_reviewed_at": "2026-10-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TEN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Tsakos Energy Navigation operates a fleet of crude oil and petroleum product tankers providing international seaborne transportation - matches the crude_oil_tanker_shipping narrative used for other tanker companies (DHT, ECO, NAT, INSW).",
+          "added_at": "2026-10-19",
+          "last_reviewed_at": "2026-10-19",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
