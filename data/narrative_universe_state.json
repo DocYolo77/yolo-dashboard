@@ -1,8 +1,8 @@
 {
-  "as_of_date": "2026-10-19",
-  "eligible_count": 515,
-  "classified_eligible_count": 478,
-  "coverage_pct": 92.8,
+  "as_of_date": "2026-10-20",
+  "eligible_count": 502,
+  "classified_eligible_count": 463,
+  "coverage_pct": 92.2,
   "entered": [
     "BVC",
     "CAR",
@@ -13,65 +13,87 @@
     "DASH",
     "DHT",
     "DPC",
-    "ECO",
     "FRVO",
     "GLW",
     "GLXY",
     "GME",
     "GPGI",
     "GSHD",
-    "INSW",
+    "LBTYA",
+    "LBTYK",
     "LW",
     "MAAS",
     "MAN",
     "MFP",
     "MRP",
     "MRX",
-    "NAT",
+    "NCLH",
     "NN",
     "NOVT",
     "NSP",
-    "NVA",
+    "NVT",
     "ODC",
+    "ODD",
     "P",
     "PLBL",
     "PLNT",
+    "PLPC",
     "RHI",
     "RSKD",
     "SECZ",
     "SID",
     "TDAY",
-    "TEN",
     "TOP",
     "VIRT",
-    "VSAT",
     "WRD"
   ],
   "reentered": [
-    "AXON",
-    "BMA",
-    "CELH",
-    "CNH",
-    "CVLT",
-    "FRSH",
-    "PD",
-    "SLSR",
-    "SNEX",
-    "TEX",
-    "VEON"
+    "ALK",
+    "BRBR",
+    "FSLR",
+    "GEV",
+    "HIMX",
+    "LION",
+    "MKSI",
+    "NHP",
+    "NOK",
+    "ON",
+    "VYX",
+    "WBI",
+    "WSC"
   ],
   "exited": [
-    "CHYM",
-    "COTY",
-    "DINO",
-    "HL",
-    "LSCC",
-    "NOK",
-    "NP",
-    "RXO",
-    "SKE",
-    "VSTS",
-    "WSC"
+    "ACN",
+    "AIP",
+    "BRUN",
+    "CE",
+    "CECO",
+    "CELH",
+    "CHWY",
+    "CRML",
+    "EMAT",
+    "EXPE",
+    "FLNC",
+    "FMC",
+    "FUN",
+    "GDDY",
+    "HLNE",
+    "LGIH",
+    "MOS",
+    "PAY",
+    "PD",
+    "POET",
+    "PUMP",
+    "PWP",
+    "QMCO",
+    "SGML",
+    "SHAZ",
+    "SNEX",
+    "SSRM",
+    "TBN",
+    "TTD",
+    "UMAC",
+    "XNDU"
   ],
   "newly_classified": [
     "BVC",
@@ -83,43 +105,41 @@
     "DASH",
     "DHT",
     "DPC",
-    "ECO",
     "FRVO",
     "GLW",
     "GLXY",
     "GME",
     "GPGI",
     "GSHD",
-    "INSW",
+    "LBTYA",
+    "LBTYK",
     "LW",
     "MAAS",
     "MAN",
     "MFP",
     "MRP",
     "MRX",
-    "NAT",
+    "NCLH",
     "NN",
     "NOVT",
     "NSP",
-    "NVA",
+    "NVT",
     "ODC",
+    "ODD",
     "P",
     "PLBL",
     "PLNT",
+    "PLPC",
     "RHI",
     "RSKD",
     "SECZ",
     "SID",
     "TDAY",
-    "TEN",
     "TOP",
     "VIRT",
-    "VSAT",
     "WRD"
   ],
-  "new_narratives_created": [
-    "crude_oil_tanker_shipping"
-  ],
+  "new_narratives_created": [],
   "unresolved_after_retries": [
     {
       "ticker": "BVC",
@@ -147,10 +167,6 @@
     },
     {
       "ticker": "DASH",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "DHT",
       "reason": "low_confidence_primary"
     },
     {
@@ -206,6 +222,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "NCLH",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "NN",
       "reason": "low_confidence_primary"
     },
@@ -218,11 +238,15 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "NVA",
+      "ticker": "NVT",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "ODC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ODD",
       "reason": "low_confidence_primary"
     },
     {
@@ -235,6 +259,10 @@
     },
     {
       "ticker": "PLNT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PLPC",
       "reason": "low_confidence_primary"
     },
     {
@@ -271,11 +299,11 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (BVC..VIRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 2 Batch (BVC..WRD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 340,
-  "eligible_without_active_narrative": 175,
-  "active_narrative_coverage_pct": 66.0,
-  "active_narrative_count": 32,
-  "undersized_narrative_count": 104
+  "eligible_with_active_narrative": 325,
+  "eligible_without_active_narrative": 177,
+  "active_narrative_coverage_pct": 64.7,
+  "active_narrative_count": 30,
+  "undersized_narrative_count": 106
 }

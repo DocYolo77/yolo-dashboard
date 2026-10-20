@@ -72,7 +72,7 @@
           "reason": "Delivers end-to-end data management and storage solutions for unstructured data including video/audio for AI era.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -170,7 +170,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "MCHP": {
           "role": "core",
@@ -333,7 +333,7 @@
           "reason": "Arteris provides semiconductor system IP (interconnect technology) for SoC and chiplet designs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -685,7 +685,7 @@
           "reason": "Himax is a semiconductor solutions provider specializing in display driver ICs and related non-driver semiconductor products, a clear fit for the Semiconductors narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -707,7 +707,7 @@
           "reason": "MKS Inc provides instruments, subsystems and specialty chemicals for semiconductor manufacturing and related industrial applications, fitting semiconductors equipment supply chain narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -858,7 +858,7 @@
           "reason": "POET Technologies designs optical engines and optical interposer modules for AI systems and hyperscale data centers, a photonics/optical semiconductor business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1053,7 +1053,7 @@
           "reason": "Neocloud operator providing AI/HPC infrastructure via data center compute capacity.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1097,7 +1097,7 @@
           "reason": "Boost Run is an NVIDIA Cloud Provider offering GPU compute and managed infrastructure for AI workloads, directly fitting the AI infrastructure narrative.",
           "added_at": "2026-08-30",
           "last_reviewed_at": "2026-08-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -1281,7 +1281,7 @@
           "reason": "Neocloud operator providing AI/HPC infrastructure via data center compute capacity.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1390,7 +1390,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "FFIV": {
           "role": "core",
@@ -2427,7 +2427,7 @@
           "reason": "GoDaddy provides an integrated cloud platform (domains, hosting, websites, commerce tools) monetized via subscriptions/recurring services to SMBs, functioning economically as a SaaS/cloud platform business rather than pure IT integration services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -2570,7 +2570,7 @@
           "reason": "NCR Voyix provides software solutions (POS, digital commerce platforms) for retail and restaurant industries, transitioning from hardware to software/subscription-based commerce solutions. This is best captured as Software/SaaS given its focus on software platforms for retail and restaurant operations, though it retains some hardware/services legacy which introduces some uncertainty.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2592,7 +2592,7 @@
           "reason": "PagerDuty operates a SaaS digital operations management platform (incident management, AIOps) sold on subscription basis, fitting Software/SaaS narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2808,7 +2808,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "MIR": {
           "role": "secondary",
@@ -3207,7 +3207,7 @@
           "reason": "Unusual Machines manufactures and sells drone components and drones for B2B and retail channels. Drones are increasingly used in defense/military and dual-use applications, and the company positions itself within the US drone supply chain (often tied to defense-related sourcing initiatives like Blue UAS). While not a pure defense contractor, its core product (drones/drone components) is closely tied to the defense/aerospace narrative economically, more so than generic electronics manufacturing.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3468,7 +3468,7 @@
           "reason": "Paymentus provides SaaS-based electronic bill payment and customer communication platform, a payments fintech model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5178,7 +5178,7 @@
           "reason": "Xanadu Quantum Technologies designs photonic quantum computers and related quantum computing platforms.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5329,7 +5329,7 @@
           "reason": "Commercial producer of lithium concentrate, a key input for EV batteries; closest match to EV/Battery supply chain narrative given no dedicated mining category for lithium.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5372,7 +5372,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "ENPH": {
           "role": "core",
@@ -5425,7 +5425,7 @@
           "reason": "Fluence Energy provides intelligent energy storage systems and software optimizing renewable energy portfolios, aligning with clean energy transition infrastructure.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5826,7 +5826,7 @@
           "reason": "Precious metals mining company producing gold and silver from multiple mines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6274,7 +6274,7 @@
           "reason": "National Healthcare Properties is a REIT owning senior housing operating properties and outpatient medical facilities - closely matches healthcare services/facilities real estate given the operating property focus, though hotel/lodging REIT structure analog exists for other REIT types this fits healthcare facilities better.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6349,7 +6349,7 @@
           "reason": "Accenture is a diversified global IT consulting and outsourcing services firm.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6862,7 +6862,7 @@
           "reason": "Scheduled passenger and cargo airline operator (Alaska Airlines, Horizon).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -7048,7 +7048,7 @@
           "reason": "ProPetro provides hydraulic fracturing, wireline, and related oilfield services to upstream oil and gas E&P companies.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7114,7 +7114,7 @@
           "reason": "WaterBridge Infrastructure provides produced water infrastructure management services supporting oil and gas operations in the Delaware Basin.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7354,7 +7354,7 @@
           "reason": "FMC is a pure-play crop protection company developing agricultural chemical products for farming, fitting agribusiness/agriculture narrative most closely despite chemical manufacturing base.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7365,7 +7365,7 @@
           "reason": "Mosaic produces phosphate and potash fertilizers, directly serving agricultural end markets, fitting agribusiness/agricultural chemicals narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7748,7 +7748,7 @@
           "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7901,7 +7901,7 @@
           "reason": "Manufactures engineered industrial air/water treatment equipment (dampers, dust collectors, cyclones) serving industrial and energy transition markets.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7933,7 +7933,7 @@
           "reason": "Mining exploration and development company focused on lithium and rare earth element deposits, aligning with critical metals mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7944,7 +7944,7 @@
           "reason": "Focused on critical minerals/rare earth elements supply chain and recycling, aligning with critical/strategic metals mining/materials narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8137,7 +8137,7 @@
           "reason": "Perella Weinberg Partners is an independent investment banking advisory firm providing strategic and financial advice, matching professional/financial advisory services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8717,7 +8717,7 @@
           "reason": "The Trade Desk operates a demand-side programmatic advertising platform (DSP), directly matching the AdTech narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8934,7 +8934,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9511,7 +9511,7 @@
           "reason": "StoneX is a diversified brokerage/financial services firm offering execution, OTC market-making, clearing, and payments across commercial, institutional, and retail segments.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10285,7 +10285,7 @@
           "reason": "Celsius Holdings markets branded energy drinks (Celsius, Alani Nu, Rockstar) as consumer packaged goods, outsourcing manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10329,7 +10329,7 @@
           "reason": "BellRing Brands (Premier Protein, Dymatize, PowerBar) directly matches branded nutrition/CPG narrative - ready-to-drink protein shakes, powders and bars sold via retail channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10480,7 +10480,7 @@
           "reason": "Celanese produces acetic acid, specialty polymers and chemicals for diverse industrial end markets, fitting the specialty chemicals narrative alongside Chemours.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10855,6 +10855,28 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "LBTYA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Liberty Global is a holding company owning cable/broadband and mobile telecom operators across Europe.",
+          "added_at": "2026-10-20",
+          "last_reviewed_at": "2026-10-20",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "LBTYK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Same underlying business as LBTYA - European cable and telecom operator.",
+          "added_at": "2026-10-20",
+          "last_reviewed_at": "2026-10-20",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10905,7 +10927,7 @@
           "reason": "LGI Homes designs, constructs and sells new homes across entry-level, move-up and luxury segments.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11284,7 +11306,7 @@
           "reason": "Expedia is a leading online travel agency operating branded booking sites for lodging, air, cars and cruises, directly matching the Online Travel Booking Platform narrative's core definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -11338,7 +11360,7 @@
           "reason": "Lionsgate Studios is a motion picture and television production studio aligned with STARZ streaming platform, fitting the media & entertainment conglomerate narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12125,7 +12147,7 @@
           "reason": "WillScot provides turnkey modular space and portable storage solutions on a rental/leasing basis across multiple industries, a distinct equipment rental business model not matched by existing catalog entries.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12369,7 +12391,7 @@
           "reason": "Six Flags operates amusement parks, water parks and resorts, directly matching theme park/entertainment operator category.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12532,7 +12554,7 @@
           "reason": "Tamboran is engaged in exploration and appraisal of unconventional natural gas resources in Australia, fitting the oil & gas E&P narrative despite being gas-focused and early-stage.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13486,6 +13508,17 @@
           "reason": "Tsakos Energy Navigation operates a fleet of crude oil and petroleum product tankers providing international seaborne transportation - matches the crude_oil_tanker_shipping narrative used for other tanker companies (DHT, ECO, NAT, INSW).",
           "added_at": "2026-10-19",
           "last_reviewed_at": "2026-10-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "DHT": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "DHT Holdings operates a fleet of VLCC crude oil tankers, directly matching this narrative.",
+          "added_at": "2026-10-20",
+          "last_reviewed_at": "2026-10-20",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
