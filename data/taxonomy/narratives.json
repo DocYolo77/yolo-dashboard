@@ -487,7 +487,7 @@
           "reason": "Designs and manufactures capital equipment used for assembling semiconductor devices.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -498,7 +498,7 @@
           "reason": "Lattice Semiconductor develops and sells FPGA semiconductor products for computing, communications, and industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -685,7 +685,7 @@
           "reason": "Himax is a semiconductor solutions provider specializing in display driver ICs and related non-driver semiconductor products, a clear fit for the Semiconductors narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -1390,7 +1390,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "FFIV": {
           "role": "core",
@@ -1910,7 +1910,7 @@
           "reason": "Provides cloud-based digital banking software platforms to financial institutions, blending fintech and SaaS.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2130,7 +2130,7 @@
           "reason": "Freshworks provides a SaaS platform for customer support, IT service management, sales and marketing automation targeting SMBs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2229,7 +2229,7 @@
           "reason": "NICE is an enterprise software company providing cloud-deployed customer engagement (CCaaS) and financial crime/compliance software solutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3347,7 +3347,7 @@
           "reason": "Provides cloud-based digital banking software platforms to financial institutions, blending fintech and SaaS.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3523,7 +3523,7 @@
           "reason": "Remitly provides digital cross-border money transfer and financial services to immigrants, a core fintech/payments business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5372,7 +5372,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "ENPH": {
           "role": "core",
@@ -5749,7 +5749,7 @@
           "reason": "Elemental Royalty Corp is a gold-focused royalty and exploration company, fitting the gold/precious metals miners narrative given its royalty generation on gold assets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5870,7 +5870,7 @@
           "reason": "Aya Gold & Silver is a precious metals mining company operating a silver mine in Morocco, directly fitting gold/precious metals miners narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6819,7 +6819,7 @@
           "reason": "CNH Industrial manufactures agricultural machinery and construction equipment (Case, New Holland brands). Agricultural machinery is closest to Agriculture/Agribusiness in end-market but the company itself is a heavy equipment manufacturer, best matched to Industrial/Specialty Vehicle Machinery given its construction machinery SIC code and specialty vehicle/equipment manufacturing model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -6906,6 +6906,17 @@
           "reason": "Azul operates passenger and cargo airline services, including charter and maintenance operations, squarely fitting the Airlines narrative.",
           "added_at": "2026-09-10",
           "last_reviewed_at": "2026-09-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "UAL": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "United Airlines is a major scheduled passenger airline operating hub-and-spoke network - direct match to airlines narrative.",
+          "added_at": "2026-10-21",
+          "last_reviewed_at": "2026-10-21",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -7136,7 +7147,7 @@
           "reason": "Select Water Solutions provides water management infrastructure and services to the energy/oilfield industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7365,7 +7376,7 @@
           "reason": "Mosaic produces phosphate and potash fertilizers, directly serving agricultural end markets, fitting agribusiness/agricultural chemicals narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7463,7 +7474,7 @@
           "reason": "Dycom Industries provides specialty contracting services for telecommunications infrastructure and utility industries, fitting construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8104,7 +8115,7 @@
           "reason": "Provides independent tax, valuation, and financial advisory services; not IT/consulting but professional financial services, no existing catalog match.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8359,6 +8370,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "VFC": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "VF Corporation designs, markets, and distributes branded apparel and footwear (Vans, The North Face, Timberland) through wholesale and direct-to-consumer channels, matching the Apparel Retail narrative.",
+          "added_at": "2026-10-21",
+          "last_reviewed_at": "2026-10-21",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8597,7 +8619,7 @@
           "reason": "Manufactures implantable lenses and delivery systems for ophthalmic surgery, a medical device business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9456,7 +9478,7 @@
           "reason": "Banco Macro is a traditional retail and corporate bank in Argentina, fitting Banking/Financial Services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9576,7 +9598,7 @@
           "reason": "Knife River provides construction materials (crushed stone, sand, gravel) and contracting services for infrastructure, aligning with building products/materials distribution.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10285,7 +10307,7 @@
           "reason": "Celsius Holdings markets branded energy drinks (Celsius, Alani Nu, Rockstar) as consumer packaged goods, outsourcing manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10863,7 +10885,7 @@
           "reason": "Liberty Global is a holding company owning cable/broadband and mobile telecom operators across Europe.",
           "added_at": "2026-10-20",
           "last_reviewed_at": "2026-10-20",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11295,7 +11317,7 @@
           "reason": "TripAdvisor operates a travel metasearch and review platform generating revenue from hotel bookings, restaurants and experiences.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11857,7 +11879,7 @@
           "reason": "Valero is one of the largest independent petroleum refiners, operating refineries converting crude oil into transportation fuels.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11932,7 +11954,7 @@
           "reason": "Coty is a global beauty company with fragrance, cosmetics, and skincare brands - directly fits beauty/cosmetics products category with high confidence.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12423,7 +12445,7 @@
           "reason": "Group 1 Automotive operates franchised dealerships and collision centers, directly matching auto dealership group category.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12434,7 +12456,7 @@
           "reason": "Lithia Motors operates a large network of franchised auto dealerships selling new and used vehicles and related services.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13519,6 +13541,17 @@
           "reason": "DHT Holdings operates a fleet of VLCC crude oil tankers, directly matching this narrative.",
           "added_at": "2026-10-20",
           "last_reviewed_at": "2026-10-20",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "FRO": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Frontline owns and operates VLCC, Suezmax, LR2 and Aframax tankers for international seaborne crude oil transportation - direct match to crude oil tanker shipping narrative.",
+          "added_at": "2026-10-21",
+          "last_reviewed_at": "2026-10-21",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
