@@ -487,7 +487,7 @@
           "reason": "Designs and manufactures capital equipment used for assembling semiconductor devices.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -685,7 +685,7 @@
           "reason": "Himax is a semiconductor solutions provider specializing in display driver ICs and related non-driver semiconductor products, a clear fit for the Semiconductors narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -956,7 +956,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "ARM": {
           "role": "core",
@@ -1151,7 +1151,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "SMCI": {
           "role": "core",
@@ -1328,6 +1328,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "BXDC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "REIT focused specifically on acquiring and owning hyperscale data center properties leased to investment-grade tenants.",
+          "added_at": "2026-10-22",
+          "last_reviewed_at": "2026-10-22",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -1390,7 +1401,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "FFIV": {
           "role": "core",
@@ -1660,7 +1671,7 @@
           "reason": "Consumer cybersecurity pure-play offering security, identity protection and privacy solutions (Norton, Avast, LifeLock).",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -1921,7 +1932,7 @@
           "reason": "Cloud-based property management software solutions provider for real estate industry, a clear vertical SaaS company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2262,7 +2273,7 @@
           "reason": "Procore is a cloud-based subscription software platform for construction management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3075,7 +3086,7 @@
           "reason": "Astronics provides electrical power, lighting, avionics, and test systems to aerospace and defense industries.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5815,7 +5826,7 @@
           "reason": "Development-stage mining company focused on a high-grade gold and silver project.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5870,7 +5881,7 @@
           "reason": "Aya Gold & Silver is a precious metals mining company operating a silver mine in Morocco, directly fitting gold/precious metals miners narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6349,7 +6360,7 @@
           "reason": "Accenture is a diversified global IT consulting and outsourcing services firm.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6600,7 +6611,7 @@
           "reason": "Adient is a leading global automotive seating supplier to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6920,6 +6931,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "AAL": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 97,
+          "reason": "American Airlines is a major scheduled passenger/cargo airline operator.",
+          "added_at": "2026-10-22",
+          "last_reviewed_at": "2026-10-22",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7037,7 +7059,7 @@
           "reason": "Oceaneering International provides engineered services and robotic solutions primarily to offshore oil and gas market.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7048,7 +7070,7 @@
           "reason": "Patterson-UTI provides contract drilling, completion, and directional drilling services to oil and gas E&P companies, a classic oilfield services business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7147,7 +7169,7 @@
           "reason": "Select Water Solutions provides water management infrastructure and services to the energy/oilfield industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7225,6 +7247,17 @@
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SDRL": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Seadrill is an offshore drilling contractor owning and operating drillships, semi-submersible rigs and jack-up rigs providing drilling services to oil and gas companies. This is best captured by the oil & gas services/equipment narrative, as it provides equipment and services supporting oil & gas production rather than being an E&P or refiner itself.",
+          "added_at": "2026-10-22",
+          "last_reviewed_at": "2026-10-22",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7376,7 +7409,7 @@
           "reason": "Mosaic produces phosphate and potash fertilizers, directly serving agricultural end markets, fitting agribusiness/agricultural chemicals narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7770,7 +7803,7 @@
           "reason": "Etsy operates a global online marketplace connecting buyers and sellers of handmade/vintage goods, directly fitting e-commerce platform narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7857,7 +7890,7 @@
           "reason": "DXP distributes MRO products, equipment and services (industrial machinery/equipment wholesale) to industrial end markets - closest existing fit is Industrial Machinery given SIC 5084 wholesale industrial machinery & equipment.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7913,6 +7946,17 @@
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "BMI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Badger Meter manufactures water flow measurement/metering hardware and software for utilities - essentially a specialized industrial equipment/instrumentation manufacturer. No closer existing narrative (e.g., water utility, IoT) fully captures the hardware manufacturing core, but Industrial Machinery is the closest fit given its SIC code (totalizing fluid meters) and product nature.",
+          "added_at": "2026-10-22",
+          "last_reviewed_at": "2026-10-22",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8040,7 +8084,7 @@
           "reason": "Provides healthcare workforce solutions and staffing services; distinct from direct healthcare service/facility providers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -8072,7 +8116,7 @@
           "reason": "Peabody Energy is a producer of metallurgical and thermal coal, directly matching Coal Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8137,7 +8181,7 @@
           "reason": "Lazard is a financial advisory and asset management firm providing M&A advice, capital markets and restructuring services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8213,7 +8257,7 @@
           "reason": "Boot Barn operates specialty retail stores selling western boots, apparel and accessories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8378,7 +8422,7 @@
           "reason": "VF Corporation designs, markets, and distributes branded apparel and footwear (Vans, The North Face, Timberland) through wholesale and direct-to-consumer channels, matching the Apparel Retail narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9205,7 +9249,7 @@
           "reason": "Producer of semi-fabricated specialty aluminum products serving aerospace, packaging, and automotive end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9576,7 +9620,7 @@
           "reason": "Builders FirstSource manufactures and distributes building materials such as engineered wood, trusses, and millwork for residential construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9783,7 +9827,7 @@
           "reason": "Bel Fuse designs and manufactures electronic components (magnetics, power, connectivity solutions) for diverse industrial and tech end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9969,7 +10013,7 @@
           "reason": "Biglari Holdings explicitly owns restaurant operations (Steak n Shake, Western Sizzlin), insurance operations, and oil & gas operations - a direct match to the diversified restaurant/insurance holding company narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9980,7 +10024,7 @@
           "reason": "Same entity as BH (different share class) - Biglari Holdings owns restaurant, insurance, and oil & gas operating businesses, directly matching this diversified holding company narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -10404,7 +10448,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10899,6 +10943,28 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "TDS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "TDS is a diversified telecom operator providing broadband, video, voice, and wireless communications services, fitting the telecom/cable broadband services narrative given its wireline/broadband focus through TDS Telecom segment.",
+          "added_at": "2026-10-22",
+          "last_reviewed_at": "2026-10-22",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TIGO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Millicom provides wireless and fixed-line telecom services across Latin American markets, combining mobile and broadband/cable offerings, fitting closely with telecom/cable broadband services narrative.",
+          "added_at": "2026-10-22",
+          "last_reviewed_at": "2026-10-22",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10962,6 +11028,28 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": false,
           "classification_source": "cleanup_reclassification",
+          "classification_version": 1
+        },
+        "LEN": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 97,
+          "reason": "Lennar is a leading US homebuilder constructing and selling residential homes.",
+          "added_at": "2026-10-22",
+          "last_reviewed_at": "2026-10-22",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "LEN.B": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 97,
+          "reason": "Same company as LEN, Class B shares; Lennar is a leading US homebuilder.",
+          "added_at": "2026-10-22",
+          "last_reviewed_at": "2026-10-22",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -11987,7 +12075,7 @@
           "reason": "Bath & Body Works is a specialty retailer of fragrance and body care products, closely aligned with beauty/cosmetics products retail model.",
           "added_at": "2026-08-30",
           "last_reviewed_at": "2026-08-30",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12008,7 +12096,7 @@
           "reason": "EZCORP operates pawn stores and short-term consumer lending - no existing catalog narrative captures pawn lending specifically (off_price_thrift_retail is about donation/resale retail without lending); a new precise narrative is warranted.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12565,7 +12653,7 @@
           "reason": "Natural gas E&P company with additional power generation assets.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13552,7 +13640,7 @@
           "reason": "Frontline owns and operates VLCC, Suezmax, LR2 and Aframax tankers for international seaborne crude oil transportation - direct match to crude oil tanker shipping narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }

@@ -1,10 +1,13 @@
 {
-  "as_of_date": "2026-10-21",
-  "eligible_count": 494,
-  "classified_eligible_count": 454,
+  "as_of_date": "2026-10-22",
+  "eligible_count": 521,
+  "classified_eligible_count": 479,
   "coverage_pct": 91.9,
   "entered": [
+    "AAL",
+    "BMI",
     "BVC",
+    "BXDC",
     "CAR",
     "CARG",
     "CBRL",
@@ -12,7 +15,6 @@
     "CRSR",
     "DASH",
     "DPC",
-    "FRO",
     "FRVO",
     "GLW",
     "GLXY",
@@ -20,17 +22,20 @@
     "GPGI",
     "GSHD",
     "HBNB",
+    "LEN",
+    "LEN.B",
+    "LW",
     "MAAS",
     "MAN",
     "MFP",
     "MPT",
     "MRP",
     "MRX",
-    "NCLH",
     "NN",
     "NOVT",
     "NSP",
     "NVT",
+    "NXDR",
     "ODC",
     "ODD",
     "P",
@@ -39,47 +44,59 @@
     "PLPC",
     "RHI",
     "RSKD",
+    "SDRL",
     "SECZ",
     "SID",
+    "SLVM",
     "TDAY",
+    "TDS",
+    "TIGO",
     "TOP",
-    "UAL",
-    "VFC",
     "VIRT",
     "WRD"
   ],
   "reentered": [
-    "CELH",
-    "COTY",
-    "DY",
-    "GPI",
-    "LAD",
-    "LSCC",
-    "MOS"
-  ],
-  "exited": [
-    "ALKT",
-    "ANDG",
+    "ACN",
+    "AMN",
+    "APPF",
+    "ATRO",
     "AYA",
-    "BMA",
-    "CNH",
-    "ELE",
-    "FRSH",
-    "FSLR",
+    "BBWI",
+    "BELFB",
+    "BH",
+    "BH.A",
+    "BKV",
+    "BLDR",
+    "BOOT",
+    "CAVA",
+    "DXPE",
+    "EZPW",
     "HIMX",
+    "KALU",
     "KLIC",
-    "KNF",
-    "LBTYA",
-    "NICE",
+    "LAZ",
     "NOK",
-    "RELY",
-    "STAA",
-    "TRIP",
-    "VLO",
+    "OII",
+    "PTEN",
+    "SKE",
+    "VRT",
     "WTTR"
   ],
+  "exited": [
+    "ADNT",
+    "BTU",
+    "ETSY",
+    "FRO",
+    "GEN",
+    "MOS",
+    "PCOR",
+    "VFC"
+  ],
   "newly_classified": [
+    "AAL",
+    "BMI",
     "BVC",
+    "BXDC",
     "CAR",
     "CARG",
     "CBRL",
@@ -87,7 +104,6 @@
     "CRSR",
     "DASH",
     "DPC",
-    "FRO",
     "FRVO",
     "GLW",
     "GLXY",
@@ -95,17 +111,20 @@
     "GPGI",
     "GSHD",
     "HBNB",
+    "LEN",
+    "LEN.B",
+    "LW",
     "MAAS",
     "MAN",
     "MFP",
     "MPT",
     "MRP",
     "MRX",
-    "NCLH",
     "NN",
     "NOVT",
     "NSP",
     "NVT",
+    "NXDR",
     "ODC",
     "ODD",
     "P",
@@ -114,12 +133,14 @@
     "PLPC",
     "RHI",
     "RSKD",
+    "SDRL",
     "SECZ",
     "SID",
+    "SLVM",
     "TDAY",
+    "TDS",
+    "TIGO",
     "TOP",
-    "UAL",
-    "VFC",
     "VIRT",
     "WRD"
   ],
@@ -186,6 +207,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "LW",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "MAAS",
       "reason": "low_confidence_primary"
     },
@@ -210,10 +235,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "NCLH",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "NN",
       "reason": "low_confidence_primary"
     },
@@ -227,6 +248,10 @@
     },
     {
       "ticker": "NVT",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "NXDR",
       "reason": "low_confidence_primary"
     },
     {
@@ -270,6 +295,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "SLVM",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "TDAY",
       "reason": "low_confidence_primary"
     },
@@ -287,12 +316,11 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (BVC..WRD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (BVC..WRD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (BMI..TDAY): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 308,
-  "eligible_without_active_narrative": 186,
-  "active_narrative_coverage_pct": 62.3,
-  "active_narrative_count": 28,
-  "undersized_narrative_count": 108
+  "eligible_with_active_narrative": 336,
+  "eligible_without_active_narrative": 185,
+  "active_narrative_coverage_pct": 64.5,
+  "active_narrative_count": 31,
+  "undersized_narrative_count": 105
 }
