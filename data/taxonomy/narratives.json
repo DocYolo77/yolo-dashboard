@@ -1336,6 +1336,17 @@
           "reason": "REIT focused specifically on acquiring and owning hyperscale data center properties leased to investment-grade tenants.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CSQR": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Csquare owns and operates carrier-neutral colocation data centers providing interconnection services, a direct match to the Data Center narrative.",
+          "added_at": "2026-10-23",
+          "last_reviewed_at": "2026-10-23",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -2042,7 +2053,7 @@
           "reason": "Unified AI-based SaaS platform enabling customer-facing teams to manage customer experience across digital channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2841,6 +2852,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "STDN": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Standard Nuclear designs and manufactures advanced nuclear fuel (TRISO fuel) for next-generation reactors, placing it squarely in the nuclear industry value chain despite its SIC classification under industrial inorganic chemicals.",
+          "added_at": "2026-10-23",
+          "last_reviewed_at": "2026-10-23",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -6611,7 +6633,7 @@
           "reason": "Adient is a leading global automotive seating supplier to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7037,7 +7059,7 @@
           "reason": "Nabors Industries owns and operates land-based and offshore drilling rig fleets and provides drilling-related oilfield services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7595,7 +7617,7 @@
           "reason": "Quanta Services is a specialty contractor providing electrical and infrastructure construction services to utility, telecom, and energy markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7606,7 +7628,7 @@
           "reason": "Construction Partners is a civil infrastructure company building and maintaining roadways, bridges, and airports.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7803,7 +7825,7 @@
           "reason": "Etsy operates a global online marketplace connecting buyers and sellers of handmade/vintage goods, directly fitting e-commerce platform narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8116,7 +8138,7 @@
           "reason": "Peabody Energy is a producer of metallurgical and thermal coal, directly matching Coal Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9620,7 +9642,7 @@
           "reason": "Builders FirstSource manufactures and distributes building materials such as engineered wood, trusses, and millwork for residential construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10448,7 +10470,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10579,7 +10601,7 @@
           "reason": "Olin is a large chlor-alkali chemical producer with a diversified chemicals segment, fitting specialty/industrial chemicals.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10634,7 +10656,7 @@
           "reason": "Huntsman manufactures differentiated organic chemical products (MDI, amines, epoxy) serving diverse industrial end markets, a direct match for specialty chemicals.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10929,7 +10951,7 @@
           "reason": "Liberty Global is a holding company owning cable/broadband and mobile telecom operators across Europe.",
           "added_at": "2026-10-20",
           "last_reviewed_at": "2026-10-20",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10962,7 +10984,7 @@
           "reason": "Millicom provides wireless and fixed-line telecom services across Latin American markets, combining mobile and broadband/cable offerings, fitting closely with telecom/cable broadband services narrative.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11373,7 +11395,7 @@
           "reason": "Cboe operates the largest US options exchange and other securities exchanges, earning transaction and listing fees, directly matching the financial exchange operator narrative.",
           "added_at": "2026-10-13",
           "last_reviewed_at": "2026-10-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11470,7 +11492,7 @@
           "reason": "Lionsgate Studios is a motion picture and television production studio aligned with STARZ streaming platform, fitting the media & entertainment conglomerate narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11492,6 +11514,17 @@
           "reason": "Newsmax is a multi-platform media company operating cable/OTT news channels, publishing and e-commerce, similar to diversified media/broadcasting operators.",
           "added_at": "2026-08-30",
           "last_reviewed_at": "2026-08-30",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TDAY": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "USA Today Co is a diversified media company operating newspaper publishing and digital news networks, generating revenue from advertising, subscriptions, and content. While it doesn't own TV broadcast/streaming assets like the catalog definition implies, it is the closest existing economic category for a diversified multi-brand media/publishing company versus a niche single-title publisher. No better-fitting existing narrative (e.g., pure 'newspaper publishing') exists in the catalog, so this is the best available fit with moderate-high confidence.",
+          "added_at": "2026-10-23",
+          "last_reviewed_at": "2026-10-23",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11815,7 +11848,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12759,7 +12792,7 @@
           "reason": "First Advantage provides HR technology and background screening/verification services, a distinct niche not covered by IT services/consulting generically.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13279,7 +13312,7 @@
           "reason": "Mega Fortune is an IoT solution provider helping enterprises with digital transformation via IoT platforms and tools - no existing narrative captures IoT platform businesses specifically.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13640,7 +13673,7 @@
           "reason": "Frontline owns and operates VLCC, Suezmax, LR2 and Aframax tankers for international seaborne crude oil transportation - direct match to crude oil tanker shipping narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
