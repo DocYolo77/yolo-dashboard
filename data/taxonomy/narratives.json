@@ -825,7 +825,7 @@
           "reason": "Manufacturer of fiber lasers, laser systems and optical components used across industrial and manufacturing applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1487,7 +1487,7 @@
           "reason": "Harmonic provides broadband access infrastructure equipment (cable/video delivery hardware/software) for network operators - core networking/telecom infrastructure equipment business.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -1857,7 +1857,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "U": {
           "role": "secondary",
@@ -3185,7 +3185,7 @@
           "reason": "Moog manufactures precision motion and fluid control systems primarily for aerospace and defense end markets (Space and Defense, Military Aircraft, Commercial Aircraft segments).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5556,7 +5556,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "SYM": {
           "role": "core",
@@ -5694,7 +5694,7 @@
           "reason": "Allied Gold operates gold mines in Africa, directly fitting the gold miners narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5837,7 +5837,7 @@
           "reason": "Seabridge Gold is a development-stage gold exploration company with gold properties in North America, directly matching gold/precious metals mining.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5859,7 +5859,7 @@
           "reason": "Precious metals mining company producing gold and silver from multiple mines.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6109,7 +6109,7 @@
           "reason": "Astrana Health is a population health management company coordinating physician-led care delivery, aligning with healthcare services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6852,7 +6852,7 @@
           "reason": "CNH Industrial manufactures agricultural machinery and construction equipment (Case, New Holland brands). Agricultural machinery is closest to Agriculture/Agribusiness in end-market but the company itself is a heavy equipment manufacturer, best matched to Industrial/Specialty Vehicle Machinery given its construction machinery SIC code and specialty vehicle/equipment manufacturing model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -7981,6 +7981,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SXI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Standex International is a diversified industrial manufacturer with segments in Electronics, Aerospace & Defense, Scientific, and Engraving & Hydraulics, producing specialized industrial equipment and components across multiple commercial/industrial end markets. This fits the broad Industrial Machinery narrative best, as no more specific single-segment narrative captures its diversified multi-industrial nature. Confidence is reasonably high given the SIC code (refrigeration/service industry machinery) and description clearly align with diversified industrial manufacturing rather than any niche category.",
+          "added_at": "2026-10-26",
+          "last_reviewed_at": "2026-10-26",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8772,7 +8783,7 @@
           "reason": "Magnite is a supply-side advertising platform providing programmatic ad technology and yield management to publishers, directly matching the AdTech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9238,7 +9249,7 @@
           "reason": "Century Aluminum produces primary aluminum, a specialty/base metal producer serving industrial markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9260,7 +9271,7 @@
           "reason": "Supplies specialty alloys and advanced materials to aerospace, defense, medical and energy end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9544,7 +9555,7 @@
           "reason": "Banco Macro is a traditional retail and corporate bank in Argentina, fitting Banking/Financial Services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10373,7 +10384,7 @@
           "reason": "Celsius Holdings markets branded energy drinks (Celsius, Alani Nu, Rockstar) as consumer packaged goods, outsourcing manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10470,7 +10481,7 @@
           "reason": "CAVA operates a fast-casual Mediterranean restaurant chain, a distinct restaurant sub-segment not directly covered by existing catalog entries which focus on full-service dining or other retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10612,7 +10623,7 @@
           "reason": "Perimeter Solutions manufactures fire retardants and firefighting foams, a specialty chemical product line serving fire safety end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11355,6 +11366,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "AFYA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Afya is a Brazilian medical and health sciences education group operating undergraduate programs and content; closest existing narrative is education content/publishing/higher-ed services.",
+          "added_at": "2026-10-26",
+          "last_reviewed_at": "2026-10-26",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11395,7 +11417,7 @@
           "reason": "Cboe operates the largest US options exchange and other securities exchanges, earning transaction and listing fees, directly matching the financial exchange operator narrative.",
           "added_at": "2026-10-13",
           "last_reviewed_at": "2026-10-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11438,7 +11460,7 @@
           "reason": "Expedia is a leading online travel agency operating branded booking sites for lodging, air, cars and cruises, directly matching the Online Travel Booking Platform narrative's core definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -11492,7 +11514,7 @@
           "reason": "Lionsgate Studios is a motion picture and television production studio aligned with STARZ streaming platform, fitting the media & entertainment conglomerate narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11848,7 +11870,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12792,7 +12814,7 @@
           "reason": "First Advantage provides HR technology and background screening/verification services, a distinct niche not covered by IT services/consulting generically.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13344,7 +13366,7 @@
           "reason": "Arlo provides cloud-based video security/surveillance cameras and monitoring solutions for homes and businesses - closely matches security alarm/surveillance systems manufacturing narrative with recurring subscription model.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },

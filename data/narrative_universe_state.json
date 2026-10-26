@@ -1,19 +1,19 @@
 {
-  "as_of_date": "2026-10-23",
-  "eligible_count": 529,
-  "classified_eligible_count": 486,
+  "as_of_date": "2026-10-26",
+  "eligible_count": 543,
+  "classified_eligible_count": 499,
   "coverage_pct": 91.9,
   "entered": [
+    "AFYA",
     "BVC",
     "CAR",
     "CARG",
+    "CART",
     "CBRL",
     "CLVT",
     "CRSR",
-    "CSQR",
     "DASH",
     "DPC",
-    "ECHO",
     "FRVO",
     "GLW",
     "GLXY",
@@ -36,6 +36,7 @@
     "ODC",
     "ODD",
     "P",
+    "PAGS",
     "PLBL",
     "PLPC",
     "RHI",
@@ -44,48 +45,50 @@
     "SID",
     "SLVM",
     "STC",
-    "STDN",
     "SXI",
-    "TDAY",
     "TOP",
+    "TSCO",
     "VIRT",
     "WRD"
   ],
   "reentered": [
-    "ADNT",
-    "BTU",
-    "ETSY",
-    "FA",
-    "FRO",
-    "HBM",
-    "HUN",
-    "LBTYA",
-    "MGRT",
-    "NBR",
-    "OLN",
-    "PWR"
-  ],
-  "exited": [
-    "BLDR",
-    "BXDC",
+    "AAUC",
+    "ARLO",
+    "BMA",
     "CAVA",
     "CBOE",
-    "CXM",
+    "CENX",
+    "CNH",
+    "CRS",
+    "EXPE",
+    "HLIT",
+    "IPGP",
     "LION",
-    "ROAD",
-    "TIGO"
+    "MGNI",
+    "MOG.A",
+    "PLTR",
+    "SA",
+    "SSRM"
+  ],
+  "exited": [
+    "ASTH",
+    "CELH",
+    "FA",
+    "HBM",
+    "PATH",
+    "PRM"
   ],
   "newly_classified": [
+    "AFYA",
     "BVC",
     "CAR",
     "CARG",
+    "CART",
     "CBRL",
     "CLVT",
     "CRSR",
-    "CSQR",
     "DASH",
     "DPC",
-    "ECHO",
     "FRVO",
     "GLW",
     "GLXY",
@@ -108,6 +111,7 @@
     "ODC",
     "ODD",
     "P",
+    "PAGS",
     "PLBL",
     "PLPC",
     "RHI",
@@ -116,10 +120,9 @@
     "SID",
     "SLVM",
     "STC",
-    "STDN",
     "SXI",
-    "TDAY",
     "TOP",
+    "TSCO",
     "VIRT",
     "WRD"
   ],
@@ -135,6 +138,10 @@
     },
     {
       "ticker": "CARG",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CART",
       "reason": "low_confidence_primary"
     },
     {
@@ -155,10 +162,6 @@
     },
     {
       "ticker": "DPC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ECHO",
       "reason": "low_confidence_primary"
     },
     {
@@ -250,6 +253,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "PAGS",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "PLBL",
       "reason": "low_confidence_primary"
     },
@@ -282,11 +289,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "SXI",
+      "ticker": "TOP",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "TOP",
+      "ticker": "TSCO",
       "reason": "low_confidence_primary"
     },
     {
@@ -299,12 +306,11 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (BVC..SXI): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (BVC..SXI): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (BVC..STC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 339,
-  "eligible_without_active_narrative": 190,
-  "active_narrative_coverage_pct": 64.1,
-  "active_narrative_count": 31,
-  "undersized_narrative_count": 105
+  "eligible_with_active_narrative": 367,
+  "eligible_without_active_narrative": 176,
+  "active_narrative_coverage_pct": 67.6,
+  "active_narrative_count": 35,
+  "undersized_narrative_count": 101
 }
