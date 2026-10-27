@@ -1685,6 +1685,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "RPD": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Rapid7 provides vulnerability management, detection and response, SIEM, and cloud security solutions, core cybersecurity business.",
+          "added_at": "2026-10-27",
+          "last_reviewed_at": "2026-10-27",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -2163,7 +2174,7 @@
           "reason": "Cloud-based SaaS software for professional and financial services firms.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2526,7 +2537,7 @@
           "reason": "AvePoint provides SaaS-based data protection, governance and management software for cloud collaboration platforms.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3097,7 +3108,7 @@
           "reason": "AAR Corp provides products and services to commercial aviation and government/defense aerospace markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3119,7 +3130,7 @@
           "reason": "AEVEX Corp is a defense technology company providing navigation, autonomy and uncrewed systems for military applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3185,7 +3196,7 @@
           "reason": "Moog manufactures precision motion and fluid control systems primarily for aerospace and defense end markets (Space and Defense, Military Aircraft, Commercial Aircraft segments).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3327,7 +3338,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AFRM": {
           "role": "core",
@@ -3677,7 +3688,7 @@
           "reason": "Nu Holdings (Nubank) is a digital banking/fintech firm offering credit cards, savings accounts, loans, insurance and investments across Latin America, fitting fintech narrative well.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3710,6 +3721,17 @@
           "reason": "AGI Inc is a Brazilian tech-powered specialized financial services provider offering secured lending, banking, credit and insurance products via technology platform - fits fintech lending model.",
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PAGS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "PagSeguro provides financial technology solutions including payments and working capital access for SMEs in Brazil, core fintech business model.",
+          "added_at": "2026-10-27",
+          "last_reviewed_at": "2026-10-27",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -5663,7 +5685,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "IAG": {
           "role": "secondary",
@@ -5771,7 +5793,7 @@
           "reason": "Exploration and development company focused on gold/copper mineral projects in Colombia, fitting precious metals mining/exploration narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5925,7 +5947,7 @@
           "reason": "Highlander Silver is a mineral exploration company advancing a gold-silver project in Peru, fitting precious metals mining/exploration narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6426,7 +6448,7 @@
           "reason": "Multinational IT services provider offering consulting and business process outsourcing to enterprise clients.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6808,7 +6830,7 @@
           "reason": "Provides specialty equipment and trucks for utility, telecom, forestry and infrastructure end markets, matching specialty vehicle/machinery narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7344,7 +7366,7 @@
           "reason": "Hinge Health operates a digital health platform delivering MSK (musculoskeletal) care via software/AI, monetizing through enterprise/health plan contracts - fundamentally a healthcare services delivery model rather than a horizontal SaaS tool.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7431,7 +7453,7 @@
           "reason": "Mosaic produces phosphate and potash fertilizers, directly serving agricultural end markets, fitting agribusiness/agricultural chemicals narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7672,7 +7694,7 @@
           "reason": "Ameresco provides energy infrastructure solutions, energy efficiency and decarbonization projects, aligning with construction/engineering services for energy infrastructure.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8290,7 +8312,7 @@
           "reason": "Boot Barn operates specialty retail stores selling western boots, apparel and accessories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8345,7 +8367,7 @@
           "reason": "Under Armour develops, markets and distributes athletic apparel, footwear and accessories, matching apparel retail definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8783,7 +8805,7 @@
           "reason": "Magnite is a supply-side advertising platform providing programmatic ad technology and yield management to publishers, directly matching the AdTech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9033,7 +9055,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9098,7 +9120,7 @@
           "reason": "Floor & Decor is a specialty retailer of hard surface flooring products (tile, wood, laminate, stone) sold through retail stores, closely aligned with home furnishings/building materials retail.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9238,7 +9260,7 @@
           "reason": "ATI supplies specialty metals and advanced alloys to aerospace, defense and energy markets, distinct from generic steel pipe classification.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9621,6 +9643,17 @@
           "reason": "Banco Bradesco is a major Brazilian private bank offering retail, corporate and investment banking services, also a large insurer.",
           "added_at": "2026-10-10",
           "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "BBD": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 92,
+          "reason": "Brazil's second-largest private bank offering deposits, lending, and asset management services, core traditional banking.",
+          "added_at": "2026-10-27",
+          "last_reviewed_at": "2026-10-27",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10406,7 +10439,7 @@
           "reason": "Flowers Foods produces and markets branded packaged bakery foods (breads, snacks) sold through retail channels, fitting branded CPG food narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10721,7 +10754,7 @@
           "reason": "Central Puerto is a power generation company with electric power generation and natural gas distribution segments, fitting a utilities narrative not present in the catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11417,7 +11450,7 @@
           "reason": "Cboe operates the largest US options exchange and other securities exchanges, earning transaction and listing fees, directly matching the financial exchange operator narrative.",
           "added_at": "2026-10-13",
           "last_reviewed_at": "2026-10-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11460,7 +11493,7 @@
           "reason": "Expedia is a leading online travel agency operating branded booking sites for lodging, air, cars and cruises, directly matching the Online Travel Booking Platform narrative's core definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -11568,7 +11601,7 @@
           "reason": "Peloton is the archetype of Connected Fitness Platform - connected hardware bundled with subscription content, exact match to existing narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -11698,7 +11731,7 @@
           "reason": "Pinterest is a social media/content discovery platform monetizing primarily through advertising.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11870,7 +11903,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12022,7 +12055,7 @@
           "reason": "Valero is one of the largest independent petroleum refiners, operating refineries converting crude oil into transportation fuels.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12621,6 +12654,17 @@
           "reason": "CarMax sells, finances and services used and new cars through a large network of retail dealership stores - core business matches auto dealership group narrative well.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ABG": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 97,
+          "reason": "Operates new/used vehicle dealerships and collision centers with financing and insurance products, matching the auto dealership group narrative exactly.",
+          "added_at": "2026-10-27",
+          "last_reviewed_at": "2026-10-27",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -13451,7 +13495,7 @@
           "reason": "FuelCell Energy develops molten carbonate fuel cell systems for clean electric power generation, matching the newly defined fuel cell power generation narrative used for BE.",
           "added_at": "2026-09-01",
           "last_reviewed_at": "2026-09-01",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13695,6 +13739,48 @@
           "reason": "Frontline owns and operates VLCC, Suezmax, LR2 and Aframax tankers for international seaborne crude oil transportation - direct match to crude oil tanker shipping narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "mice_event_management_services",
+      "name": "MICE / Event Management Services",
+      "status": "emerging",
+      "classification_hint": "Companies providing meetings, incentives, conferences, and exhibitions (MICE) solutions including event management, creative planning, project management and stage production for corporate and cultural events.",
+      "created_at": "2026-10-27",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "BUUU": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "BUUU provides comprehensive MICE solutions focused on event management and stage production, which does not match any existing catalog narrative.",
+          "added_at": "2026-10-27",
+          "last_reviewed_at": "2026-10-27",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "casino_gaming_resort_operator",
+      "name": "Casino / Gaming Resort Operator",
+      "status": "emerging",
+      "classification_hint": "Companies that own and operate licensed casino resorts and gaming facilities, generating revenue from gaming operations, hospitality, and entertainment.",
+      "created_at": "2026-10-27",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "MLCO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Melco Resorts operates licensed casino resorts in Macao, a distinct gaming/hospitality business model not covered by existing catalog entries like online gaming or theme parks.",
+          "added_at": "2026-10-27",
+          "last_reviewed_at": "2026-10-27",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1

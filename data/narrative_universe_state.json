@@ -1,15 +1,17 @@
 {
-  "as_of_date": "2026-10-26",
-  "eligible_count": 543,
-  "classified_eligible_count": 499,
-  "coverage_pct": 91.9,
+  "as_of_date": "2026-10-27",
+  "eligible_count": 549,
+  "classified_eligible_count": 507,
+  "coverage_pct": 92.3,
   "entered": [
-    "AFYA",
-    "BVC",
+    "ABG",
+    "BBD",
+    "BUUU",
     "CAR",
     "CARG",
     "CART",
     "CBRL",
+    "CD",
     "CLVT",
     "CRSR",
     "DASH",
@@ -21,10 +23,10 @@
     "GPGI",
     "GSHD",
     "HBNB",
-    "LW",
     "MAAS",
     "MAN",
     "MFP",
+    "MLCO",
     "MPT",
     "MRP",
     "MRX",
@@ -40,51 +42,60 @@
     "PLBL",
     "PLPC",
     "RHI",
+    "RPD",
     "RSKD",
     "SECZ",
     "SID",
     "SLVM",
     "STC",
-    "SXI",
     "TOP",
     "TSCO",
     "VIRT",
     "WRD"
   ],
   "reentered": [
-    "AAUC",
-    "ARLO",
-    "BMA",
-    "CAVA",
-    "CBOE",
-    "CENX",
-    "CNH",
-    "CRS",
-    "EXPE",
-    "HLIT",
-    "IPGP",
-    "LION",
-    "MGNI",
-    "MOG.A",
-    "PLTR",
-    "SA",
-    "SSRM"
+    "ATI",
+    "CEPU",
+    "CTOS",
+    "CTSH",
+    "EGO",
+    "FLO",
+    "FND",
+    "HBM",
+    "HLNE",
+    "INTA",
+    "MOS",
+    "NU",
+    "PINS",
+    "SOFI",
+    "UA",
+    "VLO"
   ],
   "exited": [
-    "ASTH",
-    "CELH",
-    "FA",
-    "HBM",
-    "PATH",
-    "PRM"
+    "AIR",
+    "AMRC",
+    "AVEX",
+    "AVPT",
+    "BOOT",
+    "CBOE",
+    "CNL",
+    "EXPE",
+    "FCEL",
+    "HNGE",
+    "HSLV",
+    "MGNI",
+    "MOG.A",
+    "PTON"
   ],
   "newly_classified": [
-    "AFYA",
-    "BVC",
+    "ABG",
+    "BBD",
+    "BUUU",
     "CAR",
     "CARG",
     "CART",
     "CBRL",
+    "CD",
     "CLVT",
     "CRSR",
     "DASH",
@@ -96,10 +107,10 @@
     "GPGI",
     "GSHD",
     "HBNB",
-    "LW",
     "MAAS",
     "MAN",
     "MFP",
+    "MLCO",
     "MPT",
     "MRP",
     "MRX",
@@ -115,23 +126,22 @@
     "PLBL",
     "PLPC",
     "RHI",
+    "RPD",
     "RSKD",
     "SECZ",
     "SID",
     "SLVM",
     "STC",
-    "SXI",
     "TOP",
     "TSCO",
     "VIRT",
     "WRD"
   ],
-  "new_narratives_created": [],
+  "new_narratives_created": [
+    "casino_gaming_resort_operator",
+    "mice_event_management_services"
+  ],
   "unresolved_after_retries": [
-    {
-      "ticker": "BVC",
-      "reason": "low_confidence_primary"
-    },
     {
       "ticker": "CAR",
       "reason": "low_confidence_primary"
@@ -146,6 +156,10 @@
     },
     {
       "ticker": "CBRL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CD",
       "reason": "low_confidence_primary"
     },
     {
@@ -190,10 +204,6 @@
     },
     {
       "ticker": "HBNB",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "LW",
       "reason": "low_confidence_primary"
     },
     {
@@ -253,10 +263,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "PAGS",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "PLBL",
       "reason": "low_confidence_primary"
     },
@@ -306,11 +312,12 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (BVC..STC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (CAR..TSCO): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (CAR..TSCO): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 367,
-  "eligible_without_active_narrative": 176,
-  "active_narrative_coverage_pct": 67.6,
-  "active_narrative_count": 35,
-  "undersized_narrative_count": 101
+  "eligible_with_active_narrative": 386,
+  "eligible_without_active_narrative": 163,
+  "active_narrative_coverage_pct": 70.3,
+  "active_narrative_count": 38,
+  "undersized_narrative_count": 100
 }
