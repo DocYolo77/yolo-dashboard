@@ -75,6 +75,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SKHY": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "SK Hynix is a leading global memory semiconductor manufacturer with DRAM and NAND being its core revenue drivers, directly matching the Memory/Storage narrative.",
+          "added_at": "2026-10-29",
+          "last_reviewed_at": "2026-10-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -115,7 +126,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "INTC": {
           "role": "core",
@@ -934,7 +945,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "SMCI": {
           "role": "core",
@@ -1390,7 +1401,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "CIEN": {
           "role": "core",
@@ -1998,7 +2009,7 @@
           "reason": "Blackbaud provides software solutions (SaaS) for nonprofits and social good organizations.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2020,7 +2031,7 @@
           "reason": "Braze provides a SaaS customer engagement platform for marketing and customer interactions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2614,7 +2625,7 @@
           "reason": "LegalZoom sells subscription-based online legal compliance, business formation and document services to consumers/SMBs via a digital platform - an online software/subscription service model closest to Software/SaaS despite not being pure enterprise SaaS.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3196,7 +3207,7 @@
           "reason": "Moog manufactures precision motion and fluid control systems primarily for aerospace and defense end markets (Space and Defense, Military Aircraft, Commercial Aircraft segments).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3688,7 +3699,7 @@
           "reason": "Nu Holdings (Nubank) is a digital banking/fintech firm offering credit cards, savings accounts, loans, insurance and investments across Latin America, fitting fintech narrative well.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3721,7 +3732,7 @@
           "reason": "AGI Inc is a Brazilian tech-powered specialized financial services provider offering secured lending, banking, credit and insurance products via technology platform - fits fintech lending model.",
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3732,6 +3743,17 @@
           "reason": "PagSeguro provides financial technology solutions including payments and working capital access for SMEs in Brazil, core fintech business model.",
           "added_at": "2026-10-27",
           "last_reviewed_at": "2026-10-27",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SECZ": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Securitize provides a blockchain-based platform for tokenizing real-world assets (funds, equities, fixed income). This is fundamentally a financial technology infrastructure business - combining capital markets services with blockchain/digital asset technology. While no catalog narrative perfectly captures 'tokenization platform', Fintech is the closest existing economic category since the core business is technology-enabled financial services infrastructure (issuance, custody, trading of securities on-chain), not crypto mining/treasury which is a different economic model.",
+          "added_at": "2026-10-29",
+          "last_reviewed_at": "2026-10-29",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -5609,7 +5631,7 @@
           "reason": "Cognex provides machine vision products that automate manufacturing processes, fitting robotics/automation narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6131,7 +6153,7 @@
           "reason": "Astrana Health is a population health management company coordinating physician-led care delivery, aligning with healthcare services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6361,7 +6383,7 @@
           "reason": "Specialty grocery retailer focused on fresh, natural and organic products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6655,7 +6677,7 @@
           "reason": "Adient is a leading global automotive seating supplier to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7136,7 +7158,7 @@
           "reason": "RPC Inc provides specialized oilfield services and equipment to oil and gas E&P companies, a classic oil & gas services/equipment business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7290,7 +7312,7 @@
           "reason": "Forum Energy Technologies manufactures engineered capital equipment and consumable products used in drilling, well construction and production for oil, gas and energy industries.",
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7748,7 +7770,7 @@
           "reason": "GigaCloud Technology operates a B2B e-commerce marketplace platform integrating discovery, payments, and logistics for large parcel merchandise.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8367,7 +8389,7 @@
           "reason": "Under Armour develops, markets and distributes athletic apparel, footwear and accessories, matching apparel retail definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8477,7 +8499,7 @@
           "reason": "VF Corporation designs, markets, and distributes branded apparel and footwear (Vans, The North Face, Timberland) through wholesale and direct-to-consumer channels, matching the Apparel Retail narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9011,7 +9033,7 @@
           "reason": "Blue Owl Capital is a large alternative asset manager across private equity, credit, and real assets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9362,6 +9384,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SID": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "CSN is an integrated steel producer with mining (iron ore) operations - primarily a steel/metals producer. No exact 'steel' narrative exists in catalog; closest fit is Specialty Metals/Advanced Materials given its core metal production business, though it's broader (also cement). Confidence raised since steel production is clearly the dominant economic driver.",
+          "added_at": "2026-10-29",
+          "last_reviewed_at": "2026-10-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9686,7 +9719,7 @@
           "reason": "Builders FirstSource manufactures and distributes building materials such as engineered wood, trusses, and millwork for residential construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9926,7 +9959,7 @@
           "reason": "Knowles manufactures micro-acoustic components, capacitors and RF filtering products used across electronics applications, fitting electronic components manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9937,7 +9970,7 @@
           "reason": "Littelfuse supplies circuit protection products (fuses, relays) and power semiconductors for transportation, industrial and consumer electronics markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10014,7 +10047,7 @@
           "reason": "Jabil is a large electronics manufacturing services (EMS) provider offering design, manufacturing and supply chain solutions across electronics/PCBs. Closest existing narrative is Electronic Components Manufacturing given SIC 3672 (Printed Circuit Boards) and its role supplying electronic manufacturing to OEMs across industries, though it's broader EMS/contract manufacturing rather than pure components.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10439,7 +10472,7 @@
           "reason": "Flowers Foods produces and markets branded packaged bakery foods (breads, snacks) sold through retail channels, fitting branded CPG food narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10754,7 +10787,7 @@
           "reason": "Central Puerto is a power generation company with electric power generation and natural gas distribution segments, fitting a utilities narrative not present in the catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10984,7 +11017,7 @@
           "reason": "VEON provides mobile and fixed-line telecommunications and broadband internet services to corporations and individuals across multiple markets, fitting the telecom/broadband services narrative despite being wireless-heavy rather than cable-based.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11580,7 +11613,7 @@
           "reason": "USA Today Co is a diversified media company operating newspaper publishing and digital news networks, generating revenue from advertising, subscriptions, and content. While it doesn't own TV broadcast/streaming assets like the catalog definition implies, it is the closest existing economic category for a diversified multi-brand media/publishing company versus a niche single-title publisher. No better-fitting existing narrative (e.g., pure 'newspaper publishing') exists in the catalog, so this is the best available fit with moderate-high confidence.",
           "added_at": "2026-10-23",
           "last_reviewed_at": "2026-10-23",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11731,7 +11764,7 @@
           "reason": "Pinterest is a social media/content discovery platform monetizing primarily through advertising.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11903,7 +11936,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12000,7 +12033,7 @@
           "reason": "HF Sinclair operates seven refineries with crude oil throughput and produces renewable diesel - directly matches the petroleum_refining narrative definition despite pipeline SIC code.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12249,7 +12282,7 @@
           "reason": "CoStar Group operates real estate information, analytics and online marketplaces (LoopNet, Apartments.com) for commercial and residential real estate, a strong fit for real estate marketplace platform narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12654,7 +12687,7 @@
           "reason": "CarMax sells, finances and services used and new cars through a large network of retail dealership stores - core business matches auto dealership group narrative well.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12837,7 +12870,7 @@
           "reason": "National Vision is a specialty optical retailer, distinct from apparel retail; creating a precise new category for optical retail.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13198,7 +13231,7 @@
           "reason": "Hesai develops LiDAR solutions for autonomous vehicles and robotics applications, a distinct sensing hardware category.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13739,6 +13772,17 @@
           "reason": "Frontline owns and operates VLCC, Suezmax, LR2 and Aframax tankers for international seaborne crude oil transportation - direct match to crude oil tanker shipping narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TNK": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 92,
+          "reason": "Teekay Tankers operates a fleet of medium-sized oil tankers providing seaborne transportation of crude oil, directly matching the Crude Oil Tanker Shipping narrative.",
+          "added_at": "2026-10-29",
+          "last_reviewed_at": "2026-10-29",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
