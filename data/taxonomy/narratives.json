@@ -83,7 +83,7 @@
           "reason": "SK Hynix is a leading global memory semiconductor manufacturer with DRAM and NAND being its core revenue drivers, directly matching the Memory/Storage narrative.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -225,7 +225,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "KLAC": {
           "role": "core",
@@ -236,7 +236,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AMAT": {
           "role": "core",
@@ -280,7 +280,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "SWKS": {
           "role": "core",
@@ -410,7 +410,7 @@
           "reason": "ASE Technology is a leading semiconductor assembly, packaging and testing (OSAT) company, core semiconductor value chain player.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -520,7 +520,7 @@
           "reason": "Monolithic Power Systems is a fabless semiconductor company specializing in power management chips for data center, automotive, industrial and consumer markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1434,7 +1434,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AKAM": {
           "role": "secondary",
@@ -1552,7 +1552,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "S": {
           "role": "core",
@@ -2449,7 +2449,7 @@
           "reason": "Workiva provides a cloud-based SaaS platform for finance, risk, and compliance reporting workflows.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2548,7 +2548,7 @@
           "reason": "AvePoint provides SaaS-based data protection, governance and management software for cloud collaboration platforms.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2625,7 +2625,7 @@
           "reason": "LegalZoom sells subscription-based online legal compliance, business formation and document services to consumers/SMBs via a digital platform - an online software/subscription service model closest to Software/SaaS despite not being pure enterprise SaaS.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3174,7 +3174,7 @@
           "reason": "Ducommun provides engineering and manufacturing for aerospace and defense structural and electronic systems, primarily serving defense/aerospace end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3306,6 +3306,17 @@
           "reason": "Viasat provides satellite communications services and defense/advanced technologies (including military communications systems) as one of its two core reportable segments, alongside commercial broadband satellite services. Given the material defense/government segment and the specialized satellite infrastructure nature of the business, defense_aerospace is the closest fit in the catalog, though the company also has a large commercial satellite broadband component not perfectly captured by any single existing narrative. No better-fitting existing satellite-communications-specific narrative exists in the catalog, so this is the best available match with moderate-high confidence.",
           "added_at": "2026-10-19",
           "last_reviewed_at": "2026-10-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "HONA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Honeywell Aerospace manufactures avionics, engines and defense systems, matching defense/aerospace narrative.",
+          "added_at": "2026-10-30",
+          "last_reviewed_at": "2026-10-30",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -3765,6 +3776,17 @@
           "reason": "Riskified provides AI-powered fraud prevention and chargeback guarantee services for e-commerce merchants, a fintech/risk-management platform rather than a pure software company, though it also closely resembles general SaaS.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PRG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "PROG Holdings is a fintech holding company offering lease-to-own and consumer financing solutions (Progressive Leasing, Vive Financial), making payment/financing technology its core business model.",
+          "added_at": "2026-10-30",
+          "last_reviewed_at": "2026-10-30",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -5442,6 +5464,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "VFS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "VinFast designs and manufactures electric vehicles (EVs), e-scooters, and e-buses, directly matching the EV/Battery narrative as a vehicle OEM.",
+          "added_at": "2026-10-30",
+          "last_reviewed_at": "2026-10-30",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -5771,7 +5804,7 @@
           "reason": "Canadian gold mining company operating gold mines in Colombia and Guyana, exploration/production of gold properties.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5892,7 +5925,7 @@
           "reason": "Seabridge Gold is a development-stage gold exploration company with gold properties in North America, directly matching gold/precious metals mining.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5969,7 +6002,7 @@
           "reason": "Hecla Mining is a major silver and gold producer with additional base metals, fitting well within the gold/precious metals miners narrative given its core silver/gold operating segments.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6481,7 +6514,7 @@
           "reason": "Multinational IT services provider offering consulting and business process outsourcing to enterprise clients.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6710,7 +6743,7 @@
           "reason": "Supplies drive systems, electrodynamic technologies and sealing solutions to vehicle manufacturers worldwide.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7005,7 +7038,7 @@
           "reason": "Azul operates passenger and cargo airline services, including charter and maintenance operations, squarely fitting the Airlines narrative.",
           "added_at": "2026-09-10",
           "last_reviewed_at": "2026-09-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7027,7 +7060,7 @@
           "reason": "American Airlines is a major scheduled passenger/cargo airline operator.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7092,7 +7125,7 @@
           "reason": "Designs and manufactures engineered products for oil and gas wellhead and production applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7191,7 +7224,7 @@
           "reason": "Transocean provides offshore contract drilling rigs and services for oil and gas wells, a core oilfield services business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7792,7 +7825,7 @@
           "reason": "GigaCloud Technology operates a B2B e-commerce marketplace platform integrating discovery, payments, and logistics for large parcel merchandise.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7934,7 +7967,7 @@
           "reason": "Regal Rexnord manufactures industrial powertrain solutions, power transmission components, electric motors and air-moving products - core general industrial machinery/equipment manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8838,7 +8871,7 @@
           "reason": "Vertically integrated ad-tech company operating DSP/SSP/exchange for mobile advertising; distinct from generic software/SaaS or e-commerce categories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8882,7 +8915,7 @@
           "reason": "The Trade Desk operates a demand-side programmatic advertising platform (DSP), directly matching the AdTech narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8968,7 +9001,7 @@
           "reason": "C.H. Robinson is a non-asset-based third-party logistics provider focused on freight brokerage across truck, rail, air and ocean modes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9023,7 +9056,7 @@
           "reason": "FedEx Freight is a less-than-truckload (LTL) freight carrier providing trucking transportation services, matching trucking/freight logistics.",
           "added_at": "2026-09-10",
           "last_reviewed_at": "2026-09-10",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9709,7 +9742,7 @@
           "reason": "Brazil's second-largest private bank offering deposits, lending, and asset management services, core traditional banking.",
           "added_at": "2026-10-27",
           "last_reviewed_at": "2026-10-27",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10638,6 +10671,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "BROS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Dutch Bros operates company-owned and franchised coffee/beverage stores, similar business model to fast-casual restaurant chains with store growth driven revenue.",
+          "added_at": "2026-10-30",
+          "last_reviewed_at": "2026-10-30",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10951,7 +10995,7 @@
           "reason": "Liberty Global is a holding company with cable network interests across European geographies, providing broadband and telecom services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11039,7 +11083,7 @@
           "reason": "VEON provides mobile and fixed-line telecommunications and broadband internet services to corporations and individuals across multiple markets, fitting the telecom/broadband services narrative despite being wireless-heavy rather than cable-based.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11169,6 +11213,17 @@
           "reason": "Same company as LEN, Class B shares; Lennar is a leading US homebuilder.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CCS": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Century Communities designs, builds and sells single-family homes, directly matching homebuilders narrative.",
+          "added_at": "2026-10-30",
+          "last_reviewed_at": "2026-10-30",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11352,7 +11407,7 @@
           "reason": "McGraw Hill provides educational content, curriculum and software for K-12, higher education and professional learning markets, a distinct publishing/education business not covered in the catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11548,7 +11603,7 @@
           "reason": "Expedia is a leading online travel agency operating branded booking sites for lodging, air, cars and cruises, directly matching the Online Travel Booking Platform narrative's core definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -11958,7 +12013,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12720,7 +12775,7 @@
           "reason": "Operates new/used vehicle dealerships and collision centers with financing and insurance products, matching the auto dealership group narrative exactly.",
           "added_at": "2026-10-27",
           "last_reviewed_at": "2026-10-27",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12731,7 +12786,7 @@
           "reason": "Rush Enterprises operates a network of commercial vehicle (truck) dealerships, selling and servicing trucks manufactured by OEMs like Peterbilt, fitting the dealership group model applied to commercial vehicles.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13200,7 +13255,7 @@
           "reason": "HP focuses on PC and printing hardware markets, a distinct consumer/commercial technology hardware category.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13828,6 +13883,17 @@
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "STNG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Scorpio Tankers owns and operates tanker vessels for marine transportation of petroleum/refined products, closely matching the crude oil tanker shipping narrative (though its fleet is product tankers rather than purely crude).",
+          "added_at": "2026-10-30",
+          "last_reviewed_at": "2026-10-30",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
