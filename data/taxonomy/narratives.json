@@ -83,7 +83,7 @@
           "reason": "SK Hynix is a leading global memory semiconductor manufacturer with DRAM and NAND being its core revenue drivers, directly matching the Memory/Storage narrative.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -836,7 +836,7 @@
           "reason": "Manufacturer of fiber lasers, laser systems and optical components used across industrial and manufacturing applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1954,7 +1954,7 @@
           "reason": "Provides cloud-based digital banking software platforms to financial institutions, blending fintech and SaaS.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2427,7 +2427,7 @@
           "reason": "Waystar provides cloud-based technology platform for healthcare payments processing, a healthcare-focused SaaS business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2526,7 +2526,7 @@
           "reason": "Progress Software provides software products for developing, deploying and managing applications - core enterprise software/SaaS company.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2625,7 +2625,7 @@
           "reason": "LegalZoom sells subscription-based online legal compliance, business formation and document services to consumers/SMBs via a digital platform - an online software/subscription service model closest to Software/SaaS despite not being pure enterprise SaaS.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3402,7 +3402,7 @@
           "reason": "Provides cloud-based digital banking software platforms to financial institutions, blending fintech and SaaS.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3752,6 +3752,17 @@
           "assignment_priority": "primary",
           "confidence": 72,
           "reason": "Securitize provides a blockchain-based platform for tokenizing real-world assets (funds, equities, fixed income). This is fundamentally a financial technology infrastructure business - combining capital markets services with blockchain/digital asset technology. While no catalog narrative perfectly captures 'tokenization platform', Fintech is the closest existing economic category since the core business is technology-enabled financial services infrastructure (issuance, custody, trading of securities on-chain), not crypto mining/treasury which is a different economic model.",
+          "added_at": "2026-10-29",
+          "last_reviewed_at": "2026-10-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "RSKD": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Riskified provides AI-powered fraud prevention and chargeback guarantee services for e-commerce merchants, a fintech/risk-management platform rather than a pure software company, though it also closely resembles general SaaS.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
           "active_eligible": true,
@@ -5881,7 +5892,7 @@
           "reason": "Seabridge Gold is a development-stage gold exploration company with gold properties in North America, directly matching gold/precious metals mining.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6056,7 +6067,7 @@
           "reason": "Madison Air Solutions is an HVAC and indoor air-quality technology company delivering engineered commercial and residential air quality systems.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6405,7 +6416,7 @@
           "reason": "Grocery Outlet operates discount grocery stores selling name-brand consumables, matching grocery/food retail directly.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6899,6 +6910,17 @@
           "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
+        },
+        "AGCO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "AGCO manufactures agricultural machinery (tractors, equipment) under Fendt, Massey Ferguson, Valtra brands - a farm equipment manufacturer best captured by industrial/specialty vehicle machinery, with secondary agriculture exposure.",
+          "added_at": "2026-10-29",
+          "last_reviewed_at": "2026-10-29",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7388,7 +7410,7 @@
           "reason": "Hinge Health operates a digital health platform delivering MSK (musculoskeletal) care via software/AI, monetizing through enterprise/health plan contracts - fundamentally a healthcare services delivery model rather than a horizontal SaaS tool.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7475,7 +7497,7 @@
           "reason": "Mosaic produces phosphate and potash fertilizers, directly serving agricultural end markets, fitting agribusiness/agricultural chemicals narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7650,7 +7672,7 @@
           "reason": "Parsons provides technology-driven engineering and technical services to defense, intelligence, and critical infrastructure markets, matching construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7672,7 +7694,7 @@
           "reason": "Construction Partners is a civil infrastructure company building and maintaining roadways, bridges, and airports.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8334,7 +8356,7 @@
           "reason": "Boot Barn operates specialty retail stores selling western boots, apparel and accessories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8400,7 +8422,7 @@
           "reason": "Under Armour develops, markets and distributes athletic apparel, footwear and accessories, matching apparel retail definition (dual share class of same company as UA).",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8816,7 +8838,7 @@
           "reason": "Vertically integrated ad-tech company operating DSP/SSP/exchange for mobile advertising; distinct from generic software/SaaS or e-commerce categories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9077,7 +9099,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9959,7 +9981,7 @@
           "reason": "Knowles manufactures micro-acoustic components, capacitors and RF filtering products used across electronics applications, fitting electronic components manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10112,7 +10134,7 @@
           "reason": "Biglari Holdings explicitly owns restaurant operations (Steak n Shake, Western Sizzlin), insurance operations, and oil & gas operations - a direct match to the diversified restaurant/insurance holding company narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10787,7 +10809,7 @@
           "reason": "Central Puerto is a power generation company with electric power generation and natural gas distribution segments, fitting a utilities narrative not present in the catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11082,7 +11104,7 @@
           "reason": "Cimpress operates mass-customization printing businesses producing marketing materials and business products, distinct from other catalog categories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -11136,7 +11158,7 @@
           "reason": "Lennar is a leading US homebuilder constructing and selling residential homes.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11330,7 +11352,7 @@
           "reason": "McGraw Hill provides educational content, curriculum and software for K-12, higher education and professional learning markets, a distinct publishing/education business not covered in the catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11526,7 +11548,7 @@
           "reason": "Expedia is a leading online travel agency operating branded booking sites for lodging, air, cars and cruises, directly matching the Online Travel Booking Platform narrative's core definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -11764,7 +11786,7 @@
           "reason": "Pinterest is a social media/content discovery platform monetizing primarily through advertising.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12228,7 +12250,7 @@
           "reason": "FirstCash operates pawn stores generating revenue from pawn loans and resale of forfeited merchandise - direct match to pawn_lending_secondhand_retail definition.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12346,7 +12368,7 @@
           "reason": "Newell Brands is a diversified branded consumer products company (Rubbermaid, Sharpie, Coleman, Oster, Graco) - closest existing fit is household appliances/consumer products manufacturing given branded consumer durable goods focus, though it's broader than pure appliances.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12698,6 +12720,17 @@
           "reason": "Operates new/used vehicle dealerships and collision centers with financing and insurance products, matching the auto dealership group narrative exactly.",
           "added_at": "2026-10-27",
           "last_reviewed_at": "2026-10-27",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "RUSHB": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Rush Enterprises operates a network of commercial vehicle (truck) dealerships, selling and servicing trucks manufactured by OEMs like Peterbilt, fitting the dealership group model applied to commercial vehicles.",
+          "added_at": "2026-10-29",
+          "last_reviewed_at": "2026-10-29",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -12741,7 +12774,7 @@
           "reason": "Comstock Resources is a pure-play independent natural gas E&P operator in the Haynesville shale, a clear and confident fit to this existing narrative.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13654,7 +13687,7 @@
           "reason": "Mattel manufactures and markets toys and games for children/families, a distinct consumer products category not represented in catalog.",
           "added_at": "2026-10-10",
           "last_reviewed_at": "2026-10-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13696,6 +13729,17 @@
           "reason": "Xometry operates an online marketplace/platform connecting engineers and businesses with a distributed network of manufacturing partners for custom part production (CNC, injection molding, 3D printing, etc.), monetizing via marketplace transaction fees rather than owning factories. This is distinct from traditional EMS (which directly manufactures) or generic software/SaaS. No existing catalog narrative captures the marketplace-for-manufacturing model, so a new precise narrative is warranted.",
           "added_at": "2026-10-10",
           "last_reviewed_at": "2026-10-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PRLB": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Proto Labs is a direct match for on-demand manufacturing, providing quick-turn custom parts via injection molding, CNC machining, and 3D printing for prototyping and short-run production.",
+          "added_at": "2026-10-29",
+          "last_reviewed_at": "2026-10-29",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -13783,7 +13827,7 @@
           "reason": "Teekay Tankers operates a fleet of medium-sized oil tankers providing seaborne transportation of crude oil, directly matching the Crude Oil Tanker Shipping narrative.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13825,7 +13869,7 @@
           "reason": "Melco Resorts operates licensed casino resorts in Macao, a distinct gaming/hospitality business model not covered by existing catalog entries like online gaming or theme parks.",
           "added_at": "2026-10-27",
           "last_reviewed_at": "2026-10-27",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }

@@ -1,9 +1,10 @@
 {
   "as_of_date": "2026-10-29",
-  "eligible_count": 561,
-  "classified_eligible_count": 516,
-  "coverage_pct": 92.0,
+  "eligible_count": 557,
+  "classified_eligible_count": 512,
+  "coverage_pct": 91.9,
   "entered": [
+    "AGCO",
     "CAR",
     "CARG",
     "CART",
@@ -12,7 +13,6 @@
     "CHEF",
     "CLVT",
     "CRSR",
-    "CWST",
     "DASH",
     "DPC",
     "ECHO",
@@ -29,69 +29,69 @@
     "MPT",
     "MRP",
     "MRX",
+    "NCLH",
     "NN",
     "NOVT",
-    "NPO",
     "NSP",
     "NVT",
-    "NXDR",
     "ODC",
     "ODD",
+    "OLED",
     "P",
     "PDS",
     "PLBL",
     "PLPC",
     "PRG",
+    "PRLB",
     "RHI",
     "RSKD",
-    "SECZ",
-    "SID",
-    "SKHY",
+    "RUSHB",
     "SLVM",
     "STC",
-    "TNK",
+    "STGW",
+    "TNET",
     "TOP",
     "TSCO",
     "WRD"
   ],
   "reentered": [
-    "AMD",
-    "ASTH",
-    "BLDR",
-    "BLKB",
-    "CGNX",
-    "CSGP",
-    "DINO",
-    "EXTR",
-    "EYE",
-    "FET",
-    "HSAI",
-    "KN",
-    "LFUS",
-    "LZ",
-    "MOG.A",
-    "OWL",
-    "RES",
-    "SFM",
-    "VFC"
+    "ALKT",
+    "BOOT",
+    "CEPU",
+    "CMPR",
+    "EXPE",
+    "FCFS",
+    "HNGE",
+    "MAIR",
+    "NWL",
+    "PINS",
+    "PSN",
+    "ROAD"
   ],
   "exited": [
-    "ADNT",
-    "AGBK",
-    "BRZE",
-    "CEPU",
-    "FLO",
-    "GCT",
-    "HBM",
-    "JBL",
-    "KMX",
-    "NU",
-    "PINS",
-    "TDAY",
-    "UA",
-    "VEON"
+    "ABG",
+    "APP",
+    "BH",
+    "CRK",
+    "GO",
+    "HLNE",
+    "IPGP",
+    "KN",
+    "LEN",
+    "LZ",
+    "MAT",
+    "MH",
+    "MLCO",
+    "MOS",
+    "PRGS",
+    "SA",
+    "SKHY",
+    "TNK",
+    "UAA",
+    "WAY"
   ],
   "newly_classified": [
+    "AGCO",
     "CAR",
     "CARG",
     "CART",
@@ -100,7 +100,6 @@
     "CHEF",
     "CLVT",
     "CRSR",
-    "CWST",
     "DASH",
     "DPC",
     "ECHO",
@@ -117,27 +116,27 @@
     "MPT",
     "MRP",
     "MRX",
+    "NCLH",
     "NN",
     "NOVT",
-    "NPO",
     "NSP",
     "NVT",
-    "NXDR",
     "ODC",
     "ODD",
+    "OLED",
     "P",
     "PDS",
     "PLBL",
     "PLPC",
     "PRG",
+    "PRLB",
     "RHI",
     "RSKD",
-    "SECZ",
-    "SID",
-    "SKHY",
+    "RUSHB",
     "SLVM",
     "STC",
-    "TNK",
+    "STGW",
+    "TNET",
     "TOP",
     "TSCO",
     "WRD"
@@ -174,10 +173,6 @@
     },
     {
       "ticker": "CRSR",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CWST",
       "reason": "low_confidence_primary"
     },
     {
@@ -245,15 +240,15 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "NCLH",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "NN",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "NOVT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "NPO",
       "reason": "low_confidence_primary"
     },
     {
@@ -265,15 +260,15 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "NXDR",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "ODC",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "ODD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "OLED",
       "reason": "low_confidence_primary"
     },
     {
@@ -301,15 +296,19 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "RSKD",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "SLVM",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "STC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "STGW",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "TNET",
       "reason": "low_confidence_primary"
     },
     {
@@ -326,12 +325,12 @@
     }
   ],
   "classification_errors": [
-    "Batch 1 (CAR..RSKD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (CAR..RSKD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (CAR..STC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (CAR..STC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 387,
-  "eligible_without_active_narrative": 174,
-  "active_narrative_coverage_pct": 69.0,
-  "active_narrative_count": 37,
-  "undersized_narrative_count": 101
+  "eligible_with_active_narrative": 380,
+  "eligible_without_active_narrative": 177,
+  "active_narrative_coverage_pct": 68.2,
+  "active_narrative_count": 36,
+  "undersized_narrative_count": 102
 }
