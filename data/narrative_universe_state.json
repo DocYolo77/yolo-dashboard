@@ -1,22 +1,21 @@
 {
-  "as_of_date": "2026-10-30",
-  "eligible_count": 586,
-  "classified_eligible_count": 537,
-  "coverage_pct": 91.6,
+  "as_of_date": "2026-11-03",
+  "eligible_count": 612,
+  "classified_eligible_count": 560,
+  "coverage_pct": 91.5,
   "entered": [
     "ARE",
     "BFAM",
-    "BROS",
     "CAR",
+    "CARG",
     "CART",
     "CBRL",
-    "CCS",
     "CD",
+    "CDLR",
     "CHEF",
     "CLVT",
     "CRSR",
     "DASH",
-    "DBD",
     "DPC",
     "ECHO",
     "FRVO",
@@ -25,16 +24,20 @@
     "GME",
     "GPGI",
     "GSHD",
+    "GTX",
     "HBNB",
-    "HONA",
     "MAAS",
     "MAN",
     "MFP",
+    "MHK",
     "MPT",
     "MRP",
     "MRX",
+    "NCLH",
+    "NMRK",
     "NN",
     "NOVT",
+    "NPO",
     "NSP",
     "NVT",
     "ODC",
@@ -46,75 +49,64 @@
     "PDS",
     "PLBL",
     "PLPC",
-    "PRG",
     "RHI",
-    "SLVM",
     "STC",
     "STGW",
-    "STNG",
     "TNET",
     "TOP",
     "TSCO",
-    "VFS",
     "WCC",
     "WRD",
     "ZONE"
   ],
   "reentered": [
-    "ABG",
-    "APP",
-    "ARIS",
-    "ASX",
-    "AVPT",
-    "CHRW",
-    "DAN",
-    "DCO",
-    "FDXF",
-    "FFIV",
-    "FTNT",
-    "GCT",
-    "HBM",
-    "HL",
-    "HPQ",
-    "INVX",
-    "KLAC",
-    "LRCX",
-    "LZ",
-    "MH",
-    "MPWR",
-    "NXPI",
-    "RIG",
-    "RRX",
-    "SA",
-    "SKHY",
-    "TTD",
-    "VEON"
+    "AAL",
+    "ADNT",
+    "AGYS",
+    "ANET",
+    "BELFA",
+    "CTRI",
+    "CTSH",
+    "FLO",
+    "GDDY",
+    "GGAL",
+    "HCC",
+    "HP",
+    "KN",
+    "KNF",
+    "LB",
+    "LOAR",
+    "MCHP",
+    "MGNI",
+    "MRCY",
+    "NTAP",
+    "NXE",
+    "RUSHB",
+    "SVV",
+    "TDW",
+    "VAL",
+    "WK"
   ],
   "exited": [
-    "AAL",
-    "AZUL",
-    "BBD",
-    "CTSH",
-    "EXPE",
-    "LBTYB",
-    "LEN.B",
-    "RUSHB",
-    "WK"
+    "AFYA",
+    "ASTH",
+    "CHRW",
+    "LZ",
+    "MGRT"
   ],
   "newly_classified": [
     "ARE",
     "BFAM",
-    "BROS",
     "CAR",
+    "CARG",
     "CART",
     "CBRL",
-    "CCS",
     "CD",
+    "CDLR",
     "CHEF",
     "CLVT",
     "CRSR",
     "DASH",
-    "DBD",
     "DPC",
     "ECHO",
     "FRVO",
@@ -123,16 +115,20 @@
     "GME",
     "GPGI",
     "GSHD",
+    "GTX",
     "HBNB",
-    "HONA",
     "MAAS",
     "MAN",
     "MFP",
+    "MHK",
     "MPT",
     "MRP",
     "MRX",
+    "NCLH",
+    "NMRK",
     "NN",
     "NOVT",
+    "NPO",
     "NSP",
     "NVT",
     "ODC",
@@ -144,16 +140,12 @@
     "PDS",
     "PLBL",
     "PLPC",
-    "PRG",
     "RHI",
-    "SLVM",
     "STC",
     "STGW",
-    "STNG",
     "TNET",
     "TOP",
     "TSCO",
-    "VFS",
     "WCC",
     "WRD",
     "ZONE"
@@ -173,6 +165,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "CARG",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "CART",
       "reason": "low_confidence_primary"
     },
@@ -182,6 +178,10 @@
     },
     {
       "ticker": "CD",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CDLR",
       "reason": "low_confidence_primary"
     },
     {
@@ -201,107 +201,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "DBD",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "DPC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ECHO",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "FRVO",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GLW",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GLXY",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GME",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GPGI",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GSHD",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "HBNB",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MAAS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MAN",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MFP",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MPT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MRP",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "MRX",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "NN",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "NOVT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "NSP",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "NVT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ODC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "ODD",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "OPRA",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "OPY",
-      "reason": "low_confidence_primary"
+      "ticker": "CHEF2_PLACEHOLDER_REMOVE",
+      "reason": "parse_error:unbekannter oder fehlender ticker in Klassifikationsantwort: 'CHEF2_PLACEHOLDER_REMOVE'"
     },
     {
       "ticker": "P",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "PDS",
       "reason": "low_confidence_primary"
     },
     {
@@ -314,10 +218,6 @@
     },
     {
       "ticker": "RHI",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "SLVM",
       "reason": "low_confidence_primary"
     },
     {
@@ -354,12 +254,12 @@
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (ARE..SLVM): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (ARE..SLVM): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Batch 1 (ARE..OPRA): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (ARE..OPRA): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 416,
-  "eligible_without_active_narrative": 170,
-  "active_narrative_coverage_pct": 71.0,
-  "active_narrative_count": 40,
-  "undersized_narrative_count": 98
+  "eligible_with_active_narrative": 443,
+  "eligible_without_active_narrative": 169,
+  "active_narrative_coverage_pct": 72.4,
+  "active_narrative_count": 41,
+  "undersized_narrative_count": 97
 }

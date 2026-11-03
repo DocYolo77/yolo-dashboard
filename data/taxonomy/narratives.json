@@ -52,7 +52,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "SIMO": {
           "role": "core",
@@ -192,7 +192,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "ADI": {
           "role": "core",
@@ -1206,7 +1206,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "CBRS": {
           "role": "core",
@@ -1390,7 +1390,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "EXTR": {
           "role": "core",
@@ -1932,7 +1932,7 @@
           "reason": "Agilysys delivers cloud-native SaaS and on-premise hospitality software solutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2449,7 +2449,7 @@
           "reason": "Workiva provides a cloud-based SaaS platform for finance, risk, and compliance reporting workflows.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2471,7 +2471,7 @@
           "reason": "GoDaddy provides an integrated cloud platform (domains, hosting, websites, commerce tools) monetized via subscriptions/recurring services to SMBs, functioning economically as a SaaS/cloud platform business rather than pure IT integration services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -2625,7 +2625,7 @@
           "reason": "LegalZoom sells subscription-based online legal compliance, business formation and document services to consumers/SMBs via a digital platform - an online software/subscription service model closest to Software/SaaS despite not being pure enterprise SaaS.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2968,7 +2968,7 @@
           "reason": "NexGen Energy is a uranium exploration and development company with major uranium projects in Canada.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         }
@@ -3196,7 +3196,7 @@
           "reason": "Loar Holdings designs and manufactures niche aerospace and defense components essential to aircraft systems.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3218,7 +3218,7 @@
           "reason": "Mercury Systems provides secure processing and mission-critical electronic systems specifically for the aerospace and defense industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6197,7 +6197,7 @@
           "reason": "Astrana Health is a population health management company coordinating physician-led care delivery, aligning with healthcare services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6514,7 +6514,7 @@
           "reason": "Multinational IT services provider offering consulting and business process outsourcing to enterprise clients.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6721,7 +6721,7 @@
           "reason": "Adient is a leading global automotive seating supplier to OEMs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7060,7 +7060,7 @@
           "reason": "American Airlines is a major scheduled passenger/cargo airline operator.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7246,7 +7246,7 @@
           "reason": "Provides marine vessel support services to offshore oil, gas and windfarm energy industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7323,7 +7323,7 @@
           "reason": "Valaris provides offshore contract drilling services (rigs, drillships) to oil and gas industry - core oilfield services model.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7334,7 +7334,7 @@
           "reason": "Helmerich & Payne provides contract drilling services and technology to oil and gas E&P companies, fitting oilfield services/equipment narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7378,6 +7378,17 @@
           "reason": "Seadrill is an offshore drilling contractor owning and operating drillships, semi-submersible rigs and jack-up rigs providing drilling services to oil and gas companies. This is best captured by the oil & gas services/equipment narrative, as it provides equipment and services supporting oil & gas production rather than being an E&P or refiner itself.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PDS": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Precision Drilling provides contract drilling, completion, and production services to oil and gas E&P companies, a core oilfield services business model.",
+          "added_at": "2026-11-03",
+          "last_reviewed_at": "2026-11-03",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -7617,7 +7628,7 @@
           "reason": "Provides utility infrastructure maintenance, upgrade and construction services partnering with regulated utilities.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8259,7 +8270,7 @@
           "reason": "Warrior Met Coal produces and exports metallurgical coal used in steel production, directly matching coal mining narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8882,7 +8893,7 @@
           "reason": "Magnite is a supply-side advertising platform providing programmatic ad technology and yield management to publishers, directly matching the AdTech narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9001,7 +9012,7 @@
           "reason": "C.H. Robinson is a non-asset-based third-party logistics provider focused on freight brokerage across truck, rail, air and ocean modes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9676,7 +9687,7 @@
           "reason": "Grupo Financiero Galicia is a financial services holding company providing banking, credit card, personal loans, and insurance services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9745,6 +9756,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "OPY": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Oppenheimer Holdings is a full-service securities broker-dealer offering retail brokerage, investment banking, institutional trading, and asset management - core financial services activities.",
+          "added_at": "2026-11-03",
+          "last_reviewed_at": "2026-11-03",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9796,7 +9818,7 @@
           "reason": "Knife River provides construction materials (crushed stone, sand, gravel) and contracting services for infrastructure, aligning with building products/materials distribution.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9970,7 +9992,7 @@
           "reason": "Bel Fuse designs and manufactures electronic components (magnetics, power, connectivity solutions) for diverse industrial and tech end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10014,7 +10036,7 @@
           "reason": "Knowles manufactures micro-acoustic components, capacitors and RF filtering products used across electronics applications, fitting electronic components manufacturing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10527,7 +10549,7 @@
           "reason": "Flowers Foods produces and markets branded packaged bakery foods (breads, snacks) sold through retail channels, fitting branded CPG food narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11517,7 +11539,7 @@
           "reason": "Afya is a Brazilian medical and health sciences education group operating undergraduate programs and content; closest existing narrative is education content/publishing/higher-ed services.",
           "added_at": "2026-10-26",
           "last_reviewed_at": "2026-10-26",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11894,7 +11916,7 @@
           "reason": "For-profit thrift store operator selling secondhand goods, distinct value retail model not matching existing apparel/home furnishings categories.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -12646,7 +12668,7 @@
           "reason": "LandBridge generates revenue from land/resource management, surface use fees, and oil & gas royalties, closely matching the royalty trust/royalty income model even though structured as an LLC managing land.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12786,7 +12808,7 @@
           "reason": "Rush Enterprises operates a network of commercial vehicle (truck) dealerships, selling and servicing trucks manufactured by OEMs like Peterbilt, fitting the dealership group model applied to commercial vehicles.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13499,7 +13521,7 @@
           "reason": "Mega Fortune is an IoT solution provider helping enterprises with digital transformation via IoT platforms and tools - no existing narrative captures IoT platform businesses specifically.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
