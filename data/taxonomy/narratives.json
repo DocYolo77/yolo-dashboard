@@ -236,7 +236,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "AMAT": {
           "role": "core",
@@ -836,7 +836,7 @@
           "reason": "Manufacturer of fiber lasers, laser systems and optical components used across industrial and manufacturing applications.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1303,7 +1303,7 @@
           "reason": "VNET Group operates data center colocation and cloud services business in China.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2086,7 +2086,7 @@
           "reason": "Doximity provides an online SaaS platform for physicians and healthcare professionals to collaborate, manage careers, and conduct telehealth.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2427,7 +2427,7 @@
           "reason": "Waystar provides cloud-based technology platform for healthcare payments processing, a healthcare-focused SaaS business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2449,7 +2449,7 @@
           "reason": "Workiva provides a cloud-based SaaS platform for finance, risk, and compliance reporting workflows.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2548,7 +2548,7 @@
           "reason": "AvePoint provides SaaS-based data protection, governance and management software for cloud collaboration platforms.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2625,7 +2625,7 @@
           "reason": "LegalZoom sells subscription-based online legal compliance, business formation and document services to consumers/SMBs via a digital platform - an online software/subscription service model closest to Software/SaaS despite not being pure enterprise SaaS.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3534,7 +3534,7 @@
           "reason": "Paymentus provides SaaS-based electronic bill payment and customer communication platform, a payments fintech model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3567,7 +3567,7 @@
           "reason": "PicS operates a P2P digital payments platform with wallets, instant payments, cards and loans, a fintech business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5342,7 +5342,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "LCID": {
           "role": "core",
@@ -5914,7 +5914,7 @@
           "reason": "New Pacific Metals is exploring and developing precious metal (silver) properties in Bolivia, aligning with gold/precious metals miners narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5958,7 +5958,7 @@
           "reason": "Mining company focused on silver and related precious metals exploration and production.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5969,7 +5969,7 @@
           "reason": "Americas Gold and Silver is a precious metals mining company producing gold and silver from operations in Mexico and the US.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6133,7 +6133,7 @@
           "reason": "Watsco is the largest HVAC and refrigeration products distributor in North America - fits HVAC/climate control equipment category despite being a distributor rather than manufacturer.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6197,7 +6197,7 @@
           "reason": "Astrana Health is a population health management company coordinating physician-led care delivery, aligning with healthcare services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6591,7 +6591,7 @@
           "reason": "Insight Enterprises is an IT solutions provider helping enterprises, government, and healthcare with technology procurement and services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6646,7 +6646,7 @@
           "reason": "Gartner provides IT research, analysis and consulting services to enterprises, fitting IT services/consulting category well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7246,7 +7246,7 @@
           "reason": "Provides marine vessel support services to offshore oil, gas and windfarm energy industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7530,7 +7530,7 @@
           "reason": "FMC is a pure-play crop protection company developing agricultural chemical products for farming, fitting agribusiness/agriculture narrative most closely despite chemical manufacturing base.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7574,7 +7574,7 @@
           "reason": "Corteva develops and sells crop protection and seed products for agricultural markets, fitting agribusiness.",
           "added_at": "2026-10-02",
           "last_reviewed_at": "2026-10-02",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7628,7 +7628,7 @@
           "reason": "Provides utility infrastructure maintenance, upgrade and construction services partnering with regulated utilities.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7782,7 +7782,7 @@
           "reason": "Ameresco provides energy infrastructure solutions, energy efficiency and decarbonization projects, aligning with construction/engineering services for energy infrastructure.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7891,7 +7891,7 @@
           "reason": "Revolve Group is an online marketplace selling apparel, accessories and beauty products directly to consumers via e-commerce.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8131,7 +8131,7 @@
           "reason": "Mining exploration and development company focused on lithium and rare earth element deposits, aligning with critical metals mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8335,7 +8335,7 @@
           "reason": "Perella Weinberg Partners is an independent investment banking advisory firm providing strategic and financial advice, matching professional/financial advisory services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8422,7 +8422,7 @@
           "reason": "Makes and sells branded children's and baby apparel through retail, e-commerce and wholesale channels.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9143,7 +9143,7 @@
           "reason": "Hamilton Lane is a private markets investment firm managing capital for institutional and private wealth investors - direct match to Alternative Asset Management narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9165,7 +9165,7 @@
           "reason": "WisdomTree is an asset manager that creates and manages exchange-traded products (ETPs), private market investments, and digital asset/tokenized products, earning management fees on assets under management. This model is economically closest to alternative asset management (fee-based investment management across diverse product structures including alternatives like private markets and digital assets), even though it also has a strong ETF/index-product component not perfectly captured elsewhere in the catalog.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9262,7 +9262,7 @@
           "reason": "Insurance holding company offering personal and commercial auto insurance plus life insurance products.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9458,7 +9458,7 @@
           "reason": "CSN is an integrated steel producer with mining (iron ore) operations - primarily a steel/metals producer. No exact 'steel' narrative exists in catalog; closest fit is Specialty Metals/Advanced Materials given its core metal production business, though it's broader (also cement). Confidence raised since steel production is clearly the dominant economic driver.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10171,6 +10171,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "OLED": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Universal Display develops and manufactures OLED materials and technologies used in displays and lighting, licensing/supplying components to display manufacturers - closest fit is electronic components manufacturing with a materials science/IP licensing angle.",
+          "added_at": "2026-11-04",
+          "last_reviewed_at": "2026-11-04",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10189,7 +10200,7 @@
           "reason": "Biglari Holdings explicitly owns restaurant operations (Steak n Shake, Western Sizzlin), insurance operations, and oil & gas operations - a direct match to the diversified restaurant/insurance holding company narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10582,7 +10593,18 @@
           "reason": "Herbalife develops and sells branded nutrition and wellness consumer products through a direct-selling channel, fitting branded nutrition/CPG narrative.",
           "added_at": "2026-08-14",
           "last_reviewed_at": "2026-08-14",
-          "active_eligible": false,
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SMPL": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 92,
+          "reason": "Simply Good Foods develops and markets branded nutrition products like protein bars, shakes, and low-sugar snacks (Quest, Atkins, OWYN), directly matching the branded nutrition/CPG narrative.",
+          "added_at": "2026-11-04",
+          "last_reviewed_at": "2026-11-04",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10722,7 +10744,7 @@
           "reason": "Chemours produces industrial and specialty chemicals across multiple end markets, fitting a specialty chemicals manufacturer profile not covered in existing catalog.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10744,7 +10766,7 @@
           "reason": "Specialty chemicals company serving electronics and industrial end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -10788,7 +10810,7 @@
           "reason": "Qnity Electronics is a specialty chemicals company supplying materials science products/chemicals to the semiconductor and electronics industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11094,7 +11116,7 @@
           "reason": "Televisa's cable arm Izzi provides broadband and pay-TV services to millions of Mexican homes, and it also owns Sky Mexico satellite TV. Core business is telecom/cable broadband and pay-television distribution.",
           "added_at": "2026-09-21",
           "last_reviewed_at": "2026-09-21",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11202,7 +11224,7 @@
           "reason": "LGI Homes designs, constructs and sells new homes across entry-level, move-up and luxury segments.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11938,7 +11960,7 @@
           "reason": "Ollie's sells closeout and excess inventory merchandise at deep discounts, similar economic model to off-price/discount value retail, though not strictly secondhand/thrift.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11981,7 +12003,7 @@
           "reason": "Graphic Packaging manufactures paperboard consumer packaging products - directly matches the Packaging/Paperboard Manufacturing narrative definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12035,7 +12057,7 @@
           "reason": "Hudbay Minerals is a copper-focused critical minerals mining company with operations in Canada, Peru and US - direct match to Copper/Base Metals Mining narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12089,7 +12111,7 @@
           "reason": "GEO Group operates private detention facilities, secure services, and electronic monitoring under government contracts - a distinct economic model not covered by existing catalog categories (miscategorized under residential building SIC code but actual business is corrections/detention services).",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12786,7 +12808,7 @@
           "reason": "CarMax sells, finances and services used and new cars through a large network of retail dealership stores - core business matches auto dealership group narrative well.",
           "added_at": "2026-09-30",
           "last_reviewed_at": "2026-09-30",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12906,7 +12928,7 @@
           "reason": "Tamboran is engaged in exploration and appraisal of unconventional natural gas resources in Australia, fitting the oil & gas E&P narrative despite being gas-focused and early-stage.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13725,6 +13747,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "NMRK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Newmark Group is a commercial real estate advisory firm offering leasing, investment sales, mortgage brokerage and valuation services, a direct fit for the commercial real estate services category.",
+          "added_at": "2026-11-04",
+          "last_reviewed_at": "2026-11-04",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -13958,6 +13991,17 @@
           "added_at": "2026-10-27",
           "last_reviewed_at": "2026-10-27",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PENN": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "PENN operates land-based casino resorts across many properties/brands, generating most revenue from gaming and hospitality, which is the core casino/gaming resort operator narrative.",
+          "added_at": "2026-11-04",
+          "last_reviewed_at": "2026-11-04",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
