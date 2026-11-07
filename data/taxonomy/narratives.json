@@ -1998,7 +1998,7 @@
           "reason": "BlackLine provides SaaS financial close and accounting automation software, fitting Software/SaaS narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2196,7 +2196,7 @@
           "reason": "Provides accounting, tax, and financial SaaS software products like QuickBooks and TurboTax.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2383,7 +2383,7 @@
           "reason": "Provides enterprise data and analytics software platform (VantageCloud) delivered via cloud and on-prem licensing.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2449,7 +2449,7 @@
           "reason": "Workiva provides a cloud-based SaaS platform for finance, risk, and compliance reporting workflows.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2471,7 +2471,7 @@
           "reason": "GoDaddy provides an integrated cloud platform (domains, hosting, websites, commerce tools) monetized via subscriptions/recurring services to SMBs, functioning economically as a SaaS/cloud platform business rather than pure IT integration services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -2548,7 +2548,7 @@
           "reason": "AvePoint provides SaaS-based data protection, governance and management software for cloud collaboration platforms.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2926,7 +2926,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "UEC": {
           "role": "core",
@@ -3342,6 +3342,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "WWD": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Woodward designs, manufactures and services control systems/components (fuel systems, actuation, controls) primarily for aerospace (commercial and defense) and industrial markets (energy, power generation). While SIC code is Electrical Industrial Apparatus, the company's core economic identity is as an aerospace/industrial controls supplier heavily tied to aerospace OEMs and defense platforms, making Defense/Aerospace the most fitting existing narrative, with industrial machinery as a secondary given its energy/industrial segment.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -3468,7 +3479,7 @@
           "reason": "Chime Financial is a fintech providing digital banking services via technology platform in partnership with banks.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3655,7 +3666,7 @@
           "reason": "BILL Holdings provides SaaS-based payments, spend and expense management software for businesses, a fintech/software hybrid; fintech captures the payments focus best.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3666,7 +3677,7 @@
           "reason": "Flywire operates a global payments platform enabling cross-border payment processing for education, healthcare and travel verticals, a core fintech/payments business model.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3677,7 +3688,7 @@
           "reason": "EVERTEC provides transaction processing and payment solutions across Latin America and the Caribbean, aligning with fintech/payments processing.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3809,6 +3820,17 @@
           "reason": "PROG Holdings is a fintech holding company offering lease-to-own and consumer financing solutions (Progressive Leasing, Vive Financial), making payment/financing technology its core business model.",
           "added_at": "2026-10-30",
           "last_reviewed_at": "2026-10-30",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "DLO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "DLocal is a cross-border payment processing platform for emerging markets, fitting fintech/payments narrative.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -5729,7 +5751,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "HYMC": {
           "role": "core",
@@ -6635,7 +6657,7 @@
           "reason": "ePlus provides IT solutions spanning security, cloud, data center, networking to enterprises, functioning as an IT services/VAR provider.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6690,6 +6712,17 @@
           "reason": "Everforth is a technology/digital engineering consulting company offering AI, cloud, digital engineering, CX, cybersecurity and enterprise platform services - this matches IT Services/Consulting well despite SIC code being help supply services.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GDYN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Grid Dynamics provides technology consulting, engineering, and analytics services across industry verticals, matching IT services/consulting narrative.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -7006,7 +7039,7 @@
           "reason": "AGCO manufactures agricultural machinery (tractors, equipment) under Fendt, Massey Ferguson, Valtra brands - a farm equipment manufacturer best captured by industrial/specialty vehicle machinery, with secondary agriculture exposure.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7760,7 +7793,7 @@
           "reason": "Fluor is a global engineering, procurement, and construction (EPC) services firm serving energy, mining, and infrastructure markets, matching this narrative directly.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8446,7 +8479,7 @@
           "reason": "Core Natural Resources produces and exports metallurgical and thermal coal via mining operations.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8763,6 +8796,28 @@
           "reason": "Steven Madden designs, sources and markets branded footwear, accessories and apparel, fitting apparel retail narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "LULU": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 92,
+          "reason": "Lululemon designs, markets and sells branded athletic apparel, footwear and accessories through omnichannel retail, matching the Apparel Retail narrative definition precisely.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "M": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Macy's is a department store retailer selling apparel and general merchandise omnichannel; closest existing narrative is Apparel Retail given no dedicated department store category.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -9102,7 +9157,7 @@
           "reason": "QuinStreet delivers performance marketing/lead generation for financial services and home services industries, closely aligned with digital advertising/marketplace model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9526,7 +9581,7 @@
           "reason": "Neptune is an MGA offering flood and earthquake insurance products, a specialty P&C insurance line distributed through agents.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10028,7 +10083,7 @@
           "reason": "Oppenheimer Holdings is a full-service securities broker-dealer offering retail brokerage, investment banking, institutional trading, and asset management - core financial services activities.",
           "added_at": "2026-11-03",
           "last_reviewed_at": "2026-11-03",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10082,7 +10137,7 @@
           "reason": "Homebuilding products company selling plumbing, outdoor and security products for residential construction and renovation markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10247,6 +10302,17 @@
           "reason": "Owens Corning manufactures roofing, insulation, and door building products for residential/commercial construction.",
           "added_at": "2026-11-05",
           "last_reviewed_at": "2026-11-05",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TTAM": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Titan America is a vertically integrated manufacturer and supplier of heavy building materials (cement, aggregates, concrete) across US regional markets, matching the building products/materials distribution narrative closely.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11067,6 +11133,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "JMKE": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Jersey Mike's Subs is a fast-casual sandwich restaurant franchisor, directly matching this narrative.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11140,7 +11217,7 @@
           "reason": "Perimeter Solutions manufactures fire retardants and firefighting foams, a specialty chemical product line serving fire safety end markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11218,6 +11295,17 @@
           "added_at": "2026-09-01",
           "last_reviewed_at": "2026-09-01",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "MEOH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Methanex produces and supplies methanol and ammonia, industrial chemical commodities, best matching Specialty Chemicals given no dedicated methanol/commodity chemicals narrative.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11326,6 +11414,17 @@
           "reason": "AMSC provides grid interconnection, power quality, and wind turbine control systems (Gridtec/Windtec) that enable renewable energy generation and grid resiliency - core electrical grid infrastructure/power equipment business.",
           "added_at": "2026-10-09",
           "last_reviewed_at": "2026-10-09",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CIG.C": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "CEMIG is a Brazilian utility engaged in generation, transmission, distribution of electricity and gas, matching utilities narrative directly.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11836,7 +11935,7 @@
           "reason": "Post-secondary education provider operating universities and job-skills programs.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -12894,7 +12993,7 @@
           "reason": "Coca-Cola Consolidated is a bottler/distributor of Coca-Cola branded beverages, a distinct business model from generic branded CPG/nutrition companies; best captured by a dedicated beverage bottling narrative since no exact match exists in catalog.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13053,7 +13152,7 @@
           "reason": "Permian Basin Royalty Trust holds royalty/mineral interests in oil fields, a distinct passive income vehicle from operating E&P companies or service providers.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13404,6 +13503,28 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "MUR": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Murphy Oil is a classic independent E&P company with onshore and offshore crude oil and natural gas operations.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "NOG": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Northern Oil & Gas is an independent E&P company focused on non-operated crude oil and natural gas interests.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -13422,7 +13543,7 @@
           "reason": "Encore Capital purchases and manages defaulted consumer debt portfolios, a specialty finance/debt recovery model distinct from traditional banking; no exact existing narrative fits so a new one is created.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13602,7 +13723,7 @@
           "reason": "GoodRx operates a prescription price comparison and discount platform, a distinct digital healthcare consumer model.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -14083,6 +14204,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "TRNS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Transcat provides accredited calibration, compliance, and quality/validation services, which aligns with testing/inspection/certification services even though its SIC code is instruments. Its core business is a service offering ensuring measurement accuracy and regulatory compliance for regulated industries.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -14228,6 +14360,17 @@
           "reason": "Newmark Group is a commercial real estate advisory firm offering leasing, investment sales, mortgage brokerage and valuation services, a direct fit for the commercial real estate services category.",
           "added_at": "2026-11-04",
           "last_reviewed_at": "2026-11-04",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CIGI": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Colliers provides commercial real estate brokerage, investment management and advisory services globally, matching this narrative precisely.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -14621,6 +14764,49 @@
           "reason": "Corning manufactures specialty glass, ceramics and optical fiber across diverse end markets, a distinct materials science business not covered by existing narratives.",
           "added_at": "2026-11-05",
           "last_reviewed_at": "2026-11-05",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "electronic_components_distribution",
+      "name": "Electronic Components Distribution",
+      "status": "emerging",
+      "classification_hint": "Companies that distribute electronic components and enterprise computing/IT products sourced from manufacturers to a broad base of commercial and industrial customers, earning margin on volume throughput rather than manufacturing products themselves.",
+      "created_at": "2026-11-07",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "AVT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Avnet is a large-scale distributor of electronic components and computing solutions, a distinct business model from EMS manufacturing or component production; no existing catalog narrative captures pure distribution, so a new precise narrative is warranted.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SCSC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "ScanSource is a technology products distributor providing hardware, SaaS, connectivity and cloud solutions through channel partners, matching electronic components/IT distribution narrative well.",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "WCC": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Wesco International is a wholesale distributor of electrical apparatus, equipment, and wiring supplies (SIC 5063), sourcing from manufacturers and distributing to commercial/industrial/utility customers. This is economically a distribution business earning margin on throughput, closely matching the Electronic Components Distribution narrative even though the product category is broader electrical/industrial supplies rather than strictly electronic components; no better-fitting existing narrative exists in the catalog (e.g., no generic 'industrial/electrical distribution' category).",
+          "added_at": "2026-11-07",
+          "last_reviewed_at": "2026-11-07",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
