@@ -1,31 +1,35 @@
 {
-  "as_of_date": "2026-11-07",
-  "eligible_count": 835,
-  "classified_eligible_count": 760,
-  "coverage_pct": 91.0,
+  "as_of_date": "2026-11-10",
+  "eligible_count": 862,
+  "classified_eligible_count": 792,
+  "coverage_pct": 91.9,
   "entered": [
+    "AGQ",
     "ARW",
-    "AVT",
+    "BKR",
     "CARG",
     "CBRL",
-    "CIG.C",
-    "CIGI",
+    "CDNS",
     "CLVT",
+    "CR",
     "CRCT",
     "CRSR",
+    "CSW",
     "CXT",
     "DASH",
     "DBD",
     "DFIN",
-    "DLO",
     "DLTR",
     "DMC",
     "ECHO",
     "ENR",
     "ETN",
     "EVR",
+    "FLS",
+    "FRBT",
+    "FRHC",
+    "FSM",
     "FUTU",
-    "GDYN",
     "GLBE",
     "GLXY",
     "GME",
@@ -39,30 +43,27 @@
     "HGV",
     "HLIO",
     "HLMN",
+    "IBKR",
     "IEP",
     "INGM",
     "IRS",
-    "JMKE",
     "KARO",
     "KEYS",
     "KFRC",
     "KRT",
     "LILAK",
     "LOPE",
-    "LULU",
-    "M",
     "MAAS",
     "MAN",
-    "MEOH",
     "MPT",
     "MRX",
-    "MUR",
+    "MYE",
     "NCLH",
     "NN",
-    "NOG",
     "NOVT",
     "NPO",
     "NSP",
+    "NTNX",
     "NVT",
     "OPRA",
     "P",
@@ -70,85 +71,81 @@
     "PLBL",
     "PLPC",
     "PPLI",
+    "PRSU",
     "RAL",
     "RHI",
     "SARO",
-    "SCSC",
+    "SEB",
+    "SGI",
     "SLG",
     "SLVM",
     "STC",
     "STGW",
     "STLD",
+    "TAC",
     "TAP.A",
     "THO",
     "TNET",
     "TOP",
     "TRMD",
-    "TRNS",
     "TSCO",
-    "TTAM",
     "UPBD",
     "UPWK",
+    "USLM",
     "VAC",
+    "VCTR",
+    "VISN",
     "VTOL",
-    "WCC",
     "WEST",
     "WRD",
-    "WWD"
+    "ZM"
   ],
   "reentered": [
-    "AVPT",
-    "BILL",
-    "BL",
-    "BTG",
-    "CCJ",
-    "CHYM",
-    "CNR",
-    "COKE",
-    "ECPG",
-    "EVTC",
-    "FBIN",
-    "FLR",
-    "FLYW",
-    "GDDY",
-    "GDRX",
-    "INTU",
-    "NP",
-    "PBT",
-    "PLUS",
-    "PRM",
-    "QNST",
-    "STRA",
-    "TDC",
-    "WK"
+    "AEO",
+    "AGCO",
+    "BCO",
+    "CALX",
+    "CE",
+    "GRDN",
+    "PII",
+    "PLAB",
+    "TREX",
+    "TSLA",
+    "TXN"
   ],
   "exited": [
-    "AGCO",
-    "OPY"
-  ],
-  "newly_classified": [
-    "ARW",
-    "AVT",
-    "CARG",
-    "CBRL",
     "CIG.C",
     "CIGI",
+    "NMRK",
+    "PATH"
+  ],
+  "newly_classified": [
+    "AGQ",
+    "ARW",
+    "BKR",
+    "CARG",
+    "CBRL",
+    "CDNS",
     "CLVT",
+    "CR",
     "CRCT",
     "CRSR",
+    "CSW",
     "CXT",
     "DASH",
     "DBD",
     "DFIN",
-    "DLO",
     "DLTR",
     "DMC",
     "ECHO",
     "ENR",
     "ETN",
     "EVR",
+    "FLS",
+    "FRBT",
+    "FRHC",
+    "FSM",
     "FUTU",
-    "GDYN",
     "GLBE",
     "GLXY",
     "GME",
@@ -162,30 +159,27 @@
     "HGV",
     "HLIO",
     "HLMN",
+    "IBKR",
     "IEP",
     "INGM",
     "IRS",
-    "JMKE",
     "KARO",
     "KEYS",
     "KFRC",
     "KRT",
     "LILAK",
     "LOPE",
-    "LULU",
-    "M",
     "MAAS",
     "MAN",
-    "MEOH",
     "MPT",
     "MRX",
-    "MUR",
+    "MYE",
     "NCLH",
     "NN",
-    "NOG",
     "NOVT",
     "NPO",
     "NSP",
+    "NTNX",
     "NVT",
     "OPRA",
     "P",
@@ -193,38 +187,48 @@
     "PLBL",
     "PLPC",
     "PPLI",
+    "PRSU",
     "RAL",
     "RHI",
     "SARO",
-    "SCSC",
+    "SEB",
+    "SGI",
     "SLG",
     "SLVM",
     "STC",
     "STGW",
     "STLD",
+    "TAC",
     "TAP.A",
     "THO",
     "TNET",
     "TOP",
     "TRMD",
-    "TRNS",
     "TSCO",
-    "TTAM",
     "UPBD",
     "UPWK",
+    "USLM",
     "VAC",
+    "VCTR",
+    "VISN",
     "VTOL",
-    "WCC",
     "WEST",
     "WRD",
-    "WWD"
+    "ZM"
   ],
   "new_narratives_created": [
-    "electronic_components_distribution"
+    "autonomous_driving_technology_platform",
+    "farm_ranch_retail",
+    "freelance_gig_work_marketplace",
+    "helicopter_vertical_flight_services",
+    "lease_to_own_retail_financing",
+    "online_brokerage_trading_platform",
+    "recreational_vehicle_rv_manufacturing",
+    "vacation_ownership_timeshare_resorts"
   ],
   "unresolved_after_retries": [
     {
-      "ticker": "ARW",
+      "ticker": "AGQ",
       "reason": "low_confidence_primary"
     },
     {
@@ -240,11 +244,19 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "CR",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "CRCT",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "CRSR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CSW",
       "reason": "low_confidence_primary"
     },
     {
@@ -288,7 +300,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "FUTU",
+      "ticker": "FLS",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FRHC",
       "reason": "low_confidence_primary"
     },
     {
@@ -332,10 +348,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "HGV",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "HLIO",
       "reason": "low_confidence_primary"
     },
@@ -348,15 +360,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "INGM",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "IRS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "KARO",
       "reason": "low_confidence_primary"
     },
     {
@@ -369,14 +373,6 @@
     },
     {
       "ticker": "KRT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "LILAK",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "LOPE",
       "reason": "low_confidence_primary"
     },
     {
@@ -393,6 +389,10 @@
     },
     {
       "ticker": "MRX",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "MYE",
       "reason": "low_confidence_primary"
     },
     {
@@ -444,6 +444,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "PRSU",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "RAL",
       "reason": "low_confidence_primary"
     },
@@ -453,6 +457,14 @@
     },
     {
       "ticker": "SARO",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SEB",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SGI",
       "reason": "low_confidence_primary"
     },
     {
@@ -480,57 +492,29 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "THO",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "TNET",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "TOP",
+      "ticker": "USLM",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "TRMD",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "TSCO",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "UPBD",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "UPWK",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "VAC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "VTOL",
+      "ticker": "VISN",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "WEST",
       "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "WRD",
-      "reason": "low_confidence_primary"
     }
   ],
   "classification_errors": [
-    "Batch 2 (KEYS..TRMD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (ARW..MAAS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AGQ..KFRC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (KRT..WEST): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 613,
+  "eligible_with_active_narrative": 640,
   "eligible_without_active_narrative": 222,
-  "active_narrative_coverage_pct": 73.4,
-  "active_narrative_count": 49,
-  "undersized_narrative_count": 97
+  "active_narrative_coverage_pct": 74.2,
+  "active_narrative_count": 51,
+  "undersized_narrative_count": 103
 }
