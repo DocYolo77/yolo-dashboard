@@ -674,7 +674,7 @@
           "reason": "United Microelectronics is a major dedicated semiconductor foundry manufacturing chips for customers globally.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1347,7 +1347,7 @@
           "reason": "REIT focused specifically on acquiring and owning hyperscale data center properties leased to investment-grade tenants.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2196,7 +2196,7 @@
           "reason": "Provides accounting, tax, and financial SaaS software products like QuickBooks and TurboTax.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3578,7 +3578,7 @@
           "reason": "Technology-driven payments company offering buy-now-pay-later and merchant payment solutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3721,7 +3721,7 @@
           "reason": "EVERTEC provides transaction processing and payment solutions across Latin America and the Caribbean, aligning with fintech/payments processing.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7793,7 +7793,7 @@
           "reason": "Engineering and technology solutions provider serving government/defense/space/energy sectors, similar to EPC/technical consulting services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8177,7 +8177,7 @@
           "reason": "Instacart operates an on-demand grocery delivery marketplace connecting consumers, retailers and couriers, fitting the e-commerce/marketplace platform model.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8352,6 +8352,17 @@
           "reason": "Midera Food Processing provides food processing equipment and automation solutions (industrial machinery for food/protein/bakery producers), fitting the broad industrial machinery category better than any other existing narrative.",
           "added_at": "2026-11-05",
           "last_reviewed_at": "2026-11-05",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "KEYS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Keysight is a test & measurement instrument maker (SIC 3823) serving electronics, communications, semiconductor and aerospace OEMs. No existing narrative precisely captures 'electronic test & measurement equipment'; closest fit among catalog is Industrial Machinery as a broad industrial equipment maker, though imperfect. Given repeated rejection for low confidence, I raise it moderately as this is a well-established, clear business model (T&M instrumentation) even though no perfect catalog match exists.",
+          "added_at": "2026-11-11",
+          "last_reviewed_at": "2026-11-11",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -8555,7 +8566,7 @@
           "reason": "Provides independent tax, valuation, and financial advisory services; not IT/consulting but professional financial services, no existing catalog match.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8829,7 +8840,7 @@
           "reason": "VF Corporation designs, markets, and distributes branded apparel and footwear (Vans, The North Face, Timberland) through wholesale and direct-to-consumer channels, matching the Apparel Retail narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10313,7 +10324,7 @@
           "reason": "Manufactures architectural glass and windows for residential and commercial construction.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11141,7 +11152,7 @@
           "reason": "Wendy's is a quick-service restaurant franchisor/operator; while technically QSR rather than fast-casual, it is the closest existing restaurant category in the catalog given no dedicated QSR/quick-service narrative exists.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11502,7 +11513,7 @@
           "reason": "CEMIG is a Brazilian utility engaged in generation, transmission, distribution of electricity and gas, matching utilities narrative directly.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11578,7 +11589,7 @@
           "reason": "Liberty Latin America provides video, broadband internet, fixed-line telephony and mobile services across Latin American and Caribbean markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -12012,7 +12023,7 @@
           "reason": "Perdoceo Education operates for-profit online and campus-based postsecondary education institutions, aligning with education content/services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -12056,7 +12067,7 @@
           "reason": "Stride Inc provides proprietary curriculum, software and educational platform services for K-12 and adult learners - directly matches Education Content/Publishing definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12521,7 +12532,7 @@
           "reason": "Ollie's sells closeout and excess inventory merchandise at deep discounts, similar economic model to off-price/discount value retail, though not strictly secondhand/thrift.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12867,7 +12878,7 @@
           "reason": "Sally Beauty is a specialty retailer of professional beauty and cosmetics products across many countries, directly matching the beauty/cosmetics products narrative from a retail distribution perspective.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12878,7 +12889,7 @@
           "reason": "Edgewell makes personal care products (shaving, sun/skin care, feminine care) sold under brands - closely aligned with beauty/cosmetics products branded CPG model even though broader than pure cosmetics.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13489,7 +13500,7 @@
           "reason": "Matador Resources is an independent E&P company focused on oil and natural gas shale plays in the US.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14481,7 +14492,7 @@
           "reason": "Newmark Group is a commercial real estate advisory firm offering leasing, investment sales, mortgage brokerage and valuation services, a direct fit for the commercial real estate services category.",
           "added_at": "2026-11-04",
           "last_reviewed_at": "2026-11-04",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },

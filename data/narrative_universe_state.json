@@ -1,20 +1,18 @@
 {
-  "as_of_date": "2026-11-10",
-  "eligible_count": 862,
-  "classified_eligible_count": 792,
-  "coverage_pct": 91.9,
+  "as_of_date": "2026-11-11",
+  "eligible_count": 878,
+  "classified_eligible_count": 801,
+  "coverage_pct": 91.2,
   "entered": [
-    "AGQ",
-    "ARW",
-    "BKR",
+    "AIN",
+    "BFH",
+    "CACC",
     "CARG",
     "CBRL",
-    "CDNS",
     "CLVT",
-    "CR",
     "CRCT",
     "CRSR",
-    "CSW",
+    "CWST",
     "CXT",
     "DASH",
     "DBD",
@@ -23,13 +21,14 @@
     "DMC",
     "ECHO",
     "ENR",
+    "ENVA",
     "ETN",
     "EVR",
+    "FG",
     "FLS",
-    "FRBT",
     "FRHC",
-    "FSM",
-    "FUTU",
+    "FTI",
+    "GGB",
     "GLBE",
     "GLXY",
     "GME",
@@ -38,21 +37,16 @@
     "GSHD",
     "GTES",
     "GTN.A",
+    "HAFN",
     "HAPN",
     "HBNB",
-    "HGV",
     "HLIO",
     "HLMN",
-    "IBKR",
     "IEP",
-    "INGM",
     "IRS",
-    "KARO",
     "KEYS",
     "KFRC",
     "KRT",
-    "LILAK",
-    "LOPE",
     "MAAS",
     "MAN",
     "MPT",
@@ -63,7 +57,6 @@
     "NOVT",
     "NPO",
     "NSP",
-    "NTNX",
     "NVT",
     "OPRA",
     "P",
@@ -76,61 +69,54 @@
     "RHI",
     "SARO",
     "SEB",
+    "SFL",
     "SGI",
     "SLG",
     "SLVM",
     "STC",
     "STGW",
     "STLD",
-    "TAC",
     "TAP.A",
-    "THO",
+    "TK",
     "TNET",
-    "TOP",
-    "TRMD",
-    "TSCO",
-    "UPBD",
-    "UPWK",
-    "USLM",
-    "VAC",
-    "VCTR",
     "VISN",
-    "VTOL",
     "WEST",
-    "WRD",
-    "ZM"
+    "WMB"
   ],
   "reentered": [
-    "AEO",
-    "AGCO",
-    "BCO",
-    "CALX",
-    "CE",
-    "GRDN",
-    "PII",
-    "PLAB",
-    "TREX",
-    "TSLA",
-    "TXN"
+    "AMTM",
+    "ANDG",
+    "CIG.C",
+    "EPC",
+    "KLAR",
+    "LILA",
+    "LRN",
+    "MTDR",
+    "NMRK",
+    "PRDO",
+    "SBH",
+    "TGLS",
+    "UMC",
+    "WEN"
   ],
   "exited": [
-    "CIG.C",
-    "CIGI",
-    "NMRK",
-    "PATH"
+    "BXDC",
+    "CART",
+    "EVTC",
+    "INTU",
+    "OLLI",
+    "VFC"
   ],
   "newly_classified": [
-    "AGQ",
-    "ARW",
-    "BKR",
+    "AIN",
+    "BFH",
+    "CACC",
     "CARG",
     "CBRL",
-    "CDNS",
     "CLVT",
-    "CR",
     "CRCT",
     "CRSR",
-    "CSW",
+    "CWST",
     "CXT",
     "DASH",
     "DBD",
@@ -139,13 +125,14 @@
     "DMC",
     "ECHO",
     "ENR",
+    "ENVA",
     "ETN",
     "EVR",
+    "FG",
     "FLS",
-    "FRBT",
     "FRHC",
-    "FSM",
-    "FUTU",
+    "FTI",
+    "GGB",
     "GLBE",
     "GLXY",
     "GME",
@@ -154,21 +141,16 @@
     "GSHD",
     "GTES",
     "GTN.A",
+    "HAFN",
     "HAPN",
     "HBNB",
-    "HGV",
     "HLIO",
     "HLMN",
-    "IBKR",
     "IEP",
-    "INGM",
     "IRS",
-    "KARO",
     "KEYS",
     "KFRC",
     "KRT",
-    "LILAK",
-    "LOPE",
     "MAAS",
     "MAN",
     "MPT",
@@ -179,7 +161,6 @@
     "NOVT",
     "NPO",
     "NSP",
-    "NTNX",
     "NVT",
     "OPRA",
     "P",
@@ -192,43 +173,32 @@
     "RHI",
     "SARO",
     "SEB",
+    "SFL",
     "SGI",
     "SLG",
     "SLVM",
     "STC",
     "STGW",
     "STLD",
-    "TAC",
     "TAP.A",
-    "THO",
+    "TK",
     "TNET",
-    "TOP",
-    "TRMD",
-    "TSCO",
-    "UPBD",
-    "UPWK",
-    "USLM",
-    "VAC",
-    "VCTR",
     "VISN",
-    "VTOL",
     "WEST",
-    "WRD",
-    "ZM"
+    "WMB"
   ],
-  "new_narratives_created": [
-    "autonomous_driving_technology_platform",
-    "farm_ranch_retail",
-    "freelance_gig_work_marketplace",
-    "helicopter_vertical_flight_services",
-    "lease_to_own_retail_financing",
-    "online_brokerage_trading_platform",
-    "recreational_vehicle_rv_manufacturing",
-    "vacation_ownership_timeshare_resorts"
-  ],
+  "new_narratives_created": [],
   "unresolved_after_retries": [
     {
-      "ticker": "AGQ",
+      "ticker": "AIN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "BFH",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CACC",
       "reason": "low_confidence_primary"
     },
     {
@@ -244,10 +214,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CR",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "CRCT",
       "reason": "low_confidence_primary"
     },
@@ -256,7 +222,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "CSW",
+      "ticker": "CWST",
       "reason": "low_confidence_primary"
     },
     {
@@ -292,6 +258,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "ENVA",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "ETN",
       "reason": "low_confidence_primary"
     },
@@ -300,11 +270,23 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "FG",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "FLS",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "FRHC",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FTI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GGB",
       "reason": "low_confidence_primary"
     },
     {
@@ -340,6 +322,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "HAFN",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "HAPN",
       "reason": "low_confidence_primary"
     },
@@ -361,10 +347,6 @@
     },
     {
       "ticker": "IRS",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "KEYS",
       "reason": "low_confidence_primary"
     },
     {
@@ -464,6 +446,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "SFL",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "SGI",
       "reason": "low_confidence_primary"
     },
@@ -492,11 +478,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "TNET",
+      "ticker": "TK",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "USLM",
+      "ticker": "TNET",
       "reason": "low_confidence_primary"
     },
     {
@@ -506,15 +492,19 @@
     {
       "ticker": "WEST",
       "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "WMB",
+      "reason": "low_confidence_primary"
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (AGQ..KFRC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 1 Batch (KRT..WEST): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AIN..IRS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AIN..IRS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 640,
-  "eligible_without_active_narrative": 222,
-  "active_narrative_coverage_pct": 74.2,
-  "active_narrative_count": 51,
-  "undersized_narrative_count": 103
+  "eligible_with_active_narrative": 652,
+  "eligible_without_active_narrative": 226,
+  "active_narrative_coverage_pct": 74.3,
+  "active_narrative_count": 52,
+  "undersized_narrative_count": 102
 }
