@@ -1237,7 +1237,7 @@
           "reason": "Fermi Inc is building a private power campus and high-performance computing facilities purpose-built for AI hyperscale customers, combining energy generation with data center infrastructure.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -1704,7 +1704,7 @@
           "reason": "Rapid7 provides vulnerability management, detection and response, SIEM, and cloud security solutions, core cybersecurity business.",
           "added_at": "2026-10-27",
           "last_reviewed_at": "2026-10-27",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -2064,7 +2064,7 @@
           "reason": "Online learning platform delivering educational content via a unified software/technology platform to learners and institutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2295,7 +2295,7 @@
           "reason": "Paycom is a cloud-based HCM/payroll SaaS provider.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2482,7 +2482,7 @@
           "reason": "ZoomInfo provides a cloud-based go-to-market intelligence SaaS platform for sales, marketing and recruiting professionals, a clear fit for the Software/SaaS narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -2625,7 +2625,7 @@
           "reason": "LegalZoom sells subscription-based online legal compliance, business formation and document services to consumers/SMBs via a digital platform - an online software/subscription service model closest to Software/SaaS despite not being pure enterprise SaaS.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2669,7 +2669,7 @@
           "reason": "Nutanix provides cloud software and hybrid multicloud infrastructure management platform, a core enterprise software/SaaS business.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3721,7 +3721,7 @@
           "reason": "EVERTEC provides transaction processing and payment solutions across Latin America and the Caribbean, aligning with fintech/payments processing.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -5936,7 +5936,7 @@
           "reason": "Exploration and development company focused on gold/copper mineral projects in Colombia, fitting precious metals mining/exploration narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5991,7 +5991,7 @@
           "reason": "New Pacific Metals is exploring and developing precious metal (silver) properties in Bolivia, aligning with gold/precious metals miners narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6046,7 +6046,7 @@
           "reason": "Americas Gold and Silver is a precious metals mining company producing gold and silver from operations in Mexico and the US.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6199,7 +6199,7 @@
           "reason": "Resideo makes HVAC controls, sensing and security products for residential/commercial markets; HVAC controls are a core product line alongside security.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7203,7 +7203,7 @@
           "reason": "Southwest is a scheduled passenger airline, directly matching the Airlines narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -7224,7 +7224,7 @@
           "reason": "Atlas Energy Solutions supplies proppant and logistics services to oil and gas producers in the Permian Basin.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7235,7 +7235,7 @@
           "reason": "Borr Drilling is an offshore shallow-water drilling contractor providing rigs and services to the oil and gas industry.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7717,7 +7717,7 @@
           "reason": "FMC is a pure-play crop protection company developing agricultural chemical products for farming, fitting agribusiness/agriculture narrative most closely despite chemical manufacturing base.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7793,7 +7793,7 @@
           "reason": "Engineering and technology solutions provider serving government/defense/space/energy sectors, similar to EPC/technical consulting services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8002,7 +8002,7 @@
           "reason": "Granite Construction builds and develops heavy civil infrastructure projects like roads, bridges, and tunnels, fitting construction/engineering services.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8133,7 +8133,7 @@
           "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8297,7 +8297,7 @@
           "reason": "Graham Corp manufactures fluid, power, heat transfer and vacuum equipment for defense (nuclear propulsion), energy/process and space markets. Its core business model is engineered industrial equipment manufacturing (SIC 3560 General Industrial Machinery), while defense/space are end-markets rather than its core identity. Industrial Machinery captures the manufacturing/engineering nature best.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8363,6 +8363,17 @@
           "reason": "Keysight is a test & measurement instrument maker (SIC 3823) serving electronics, communications, semiconductor and aerospace OEMs. No existing narrative precisely captures 'electronic test & measurement equipment'; closest fit among catalog is Industrial Machinery as a broad industrial equipment maker, though imperfect. Given repeated rejection for low confidence, I raise it moderately as this is a well-established, clear business model (T&M instrumentation) even though no perfect catalog match exists.",
           "added_at": "2026-11-11",
           "last_reviewed_at": "2026-11-11",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "HLIO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Helios designs/manufactures hydraulic components and electronic controls for industrial applications - fits industrial machinery broadly.",
+          "added_at": "2026-11-12",
+          "last_reviewed_at": "2026-11-12",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -8664,7 +8675,7 @@
           "reason": "Birkenstock designs, manufactures and sells footwear/apparel-adjacent branded products to consumers, matching the apparel retail/branded consumer goods narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9310,7 +9321,7 @@
           "reason": "Mobile growth/advertising platform connecting advertisers, publishers, carriers and OEMs; ad-tech business model.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -9342,7 +9353,7 @@
           "reason": "C.H. Robinson is a non-asset-based third-party logistics provider focused on freight brokerage across truck, rail, air and ocean modes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9528,6 +9539,17 @@
           "reason": "Victory Capital is a diversified investment management firm offering mutual funds, ETFs and investment strategies - closest fit is alternative asset management though it includes more traditional long-only strategies as well.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "AAMI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Acadian Asset Management is a systematic institutional investment management firm offering diversified investment strategies, fitting alternative/institutional asset management.",
+          "added_at": "2026-11-12",
+          "last_reviewed_at": "2026-11-12",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -9832,7 +9854,7 @@
           "reason": "CSN is an integrated steel producer with mining (iron ore) operations - primarily a steel/metals producer. No exact 'steel' narrative exists in catalog; closest fit is Specialty Metals/Advanced Materials given its core metal production business, though it's broader (also cement). Confidence raised since steel production is clearly the dominant economic driver.",
           "added_at": "2026-10-29",
           "last_reviewed_at": "2026-10-29",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11152,7 +11174,7 @@
           "reason": "Wendy's is a quick-service restaurant franchisor/operator; while technically QSR rather than fast-casual, it is the closest existing restaurant category in the catalog given no dedicated QSR/quick-service narrative exists.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11513,7 +11535,7 @@
           "reason": "CEMIG is a Brazilian utility engaged in generation, transmission, distribution of electricity and gas, matching utilities narrative directly.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11524,7 +11546,7 @@
           "reason": "TransAlta is an independent power producer operating diverse hydro, wind/solar, and gas generation assets, directly fitting the power generation/utilities narrative.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11633,7 +11655,7 @@
           "reason": "Liberty Capital's subsidiary provides data, mobile, voice, and managed services, matching telecom/cable broadband services.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11644,7 +11666,7 @@
           "reason": "Liberty Capital/GCI Group provides data, mobile, voice, and managed services to residential and business customers - core cable/broadband/telecom service provider model, consistent with SIC 4813 telephone communications and the described broadband/voice/managed services bundle.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11763,7 +11785,7 @@
           "reason": "Dream Finders Homes is a residential homebuilder, which is a distinct economic category not covered by existing narratives like construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12295,7 +12317,7 @@
           "reason": "Newsmax is a multi-platform media company operating cable/OTT news channels, publishing and e-commerce, similar to diversified media/broadcasting operators.",
           "added_at": "2026-08-30",
           "last_reviewed_at": "2026-08-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12306,7 +12328,7 @@
           "reason": "USA Today Co is a diversified media company operating newspaper publishing and digital news networks, generating revenue from advertising, subscriptions, and content. While it doesn't own TV broadcast/streaming assets like the catalog definition implies, it is the closest existing economic category for a diversified multi-brand media/publishing company versus a niche single-title publisher. No better-fitting existing narrative (e.g., pure 'newspaper publishing') exists in the catalog, so this is the best available fit with moderate-high confidence.",
           "added_at": "2026-10-23",
           "last_reviewed_at": "2026-10-23",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12359,7 +12381,7 @@
           "reason": "Playtika develops and operates mobile social casino/games (Slotomania, Bingo Blitz, Poker Heat), monetizing via virtual currency and in-game purchases - fits online gaming platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13199,7 +13221,7 @@
           "reason": "Navigator Holdings owns and operates liquefied gas carriers (handysize LPG/ethylene), matching LPG/gas shipping narrative directly.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13348,7 +13370,7 @@
           "reason": "Six Flags operates amusement parks, water parks and resorts, directly matching theme park/entertainment operator category.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13511,7 +13533,7 @@
           "reason": "HighPeak Energy is an independent E&P company focused on crude oil and natural gas development in the Midland Basin.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13533,7 +13555,7 @@
           "reason": "Tamboran is engaged in exploration and appraisal of unconventional natural gas resources in Australia, fitting the oil & gas E&P narrative despite being gas-focused and early-stage.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13566,7 +13588,7 @@
           "reason": "Riley Exploration Permian is an independent E&P company focused on oil and natural gas in the Permian Basin.",
           "added_at": "2026-11-05",
           "last_reviewed_at": "2026-11-05",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13599,7 +13621,7 @@
           "reason": "GeoPark is an independent energy company engaged in oil and gas exploration and production across Latin America.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13643,6 +13665,17 @@
           "reason": "Northern Oil & Gas is an independent E&P company focused on non-operated crude oil and natural gas interests.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CHRD": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Chord Energy is an independent E&P company focused on crude oil, NGL, and natural gas production in the Williston Basin.",
+          "added_at": "2026-11-12",
+          "last_reviewed_at": "2026-11-12",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -13876,7 +13909,7 @@
           "reason": "Power Solutions International manufactures power systems (engines) running on natural gas, propane, gasoline for power generation and industrial applications, fitting power generation equipment manufacturing.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14728,7 +14761,7 @@
           "reason": "BUUU provides comprehensive MICE solutions focused on event management and stage production, which does not match any existing catalog narrative.",
           "added_at": "2026-10-27",
           "last_reviewed_at": "2026-10-27",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -14975,6 +15008,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "ADIG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "ADI Global Distribution is a specialty wholesale distributor of low-voltage security and AV products to professional installers/integrators - a distribution/throughput margin business model closely matching electronic components distribution, even though the product category (security/AV) differs slightly from core electronic components.",
+          "added_at": "2026-11-12",
+          "last_reviewed_at": "2026-11-12",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -15173,6 +15217,27 @@
           "reason": "WeRide develops autonomous driving technology platforms spanning L2-L4 autonomy for various vehicle types (not specifically heavy trucks), making it distinct from the trucking-specific autonomous_trucking_technology narrative.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "waste_management_services",
+      "name": "Waste Management Services",
+      "status": "emerging",
+      "classification_hint": "Companies providing solid waste collection, transfer, recycling, and disposal services to residential, commercial, municipal, and industrial customers.",
+      "created_at": "2026-11-12",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "CWST": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Casella Waste Systems is a solid waste removal/resource management company - no existing catalog narrative captures waste management services, warranting a new one.",
+          "added_at": "2026-11-12",
+          "last_reviewed_at": "2026-11-12",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
