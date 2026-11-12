@@ -2051,3 +2051,48 @@ test('setStopMode("single") respects direction=short (stop above entry, PnL sign
   // eq=100000, risk=0.5% -> maxR=500; rps=5 -> sh=100; short PnL at stop = sh*(en-sl) = 100*(100-105) = -500
   assert.match(tbody, /-\$500,00/);
 });
+
+// ══════════════════════════════════════════════════════════════════════
+// REVIEWS & TRAINING (08) — permanente Kurzfassungen der Trader-Reviews
+// (Martin Luk, Clement Ang) aus den Marktausblicken + Links zu den
+// externen Tools (Momentum Replay, Trade Reviews 2026). Kein Nachbau der
+// Tools selbst, nur statische Struktur-Checks.
+// ══════════════════════════════════════════════════════════════════════
+
+test('index.html: jump-nav links to the new Reviews & Training section', () => {
+  assert.match(html, /<a href="#reviews-training">08 Reviews &amp; Training<\/a>/);
+});
+
+test('index.html: Reviews & Training section renders 4 review-cards (Martin Luk, Clement Ang, Momentum Replay, Trade Reviews 2026)', () => {
+  const section = html.match(/<div class="section fade-in" id="reviews-training">[\s\S]*?(?=<footer)/);
+  assert.ok(section, 'Reviews & Training section not found');
+  const s = section[0];
+
+  const cards = s.match(/<div class="review-card">/g) || [];
+  assert.equal(cards.length, 4);
+
+  assert.match(s, /Martin Luk Review/);
+  assert.match(s, /href="https:\/\/yoloausblick251026schiffbruch\.netlify\.app\/#martin-luk"/);
+  assert.match(s, /href="https:\/\/yoloausblick251026schiffbruch\.netlify\.app\/downloads\/Martin_Luk_Stream_Zusammenfassungen_Januar_September_2026\.pdf"/);
+
+  assert.match(s, /Clement Ang Review/);
+  assert.match(s, /href="https:\/\/marktausblickyolo0811schiffbruch\.netlify\.app\/#clement-ang"/);
+  assert.match(s, /href="https:\/\/clementangstudie0111\.netlify\.app\/"/);
+
+  assert.match(s, /Momentum Replay/);
+  assert.match(s, /href="https:\/\/marktausblickyolo0811schiffbruch\.netlify\.app\/#momentum-replay"/);
+
+  assert.match(s, /Trade Reviews 2026/);
+  assert.match(s, /href="https:\/\/patreonstocks2026\.netlify\.app\/"/);
+  assert.match(s, /<img src="assets\/trade-reviews-2026-preview\.jpg"/);
+});
+
+test('index.html: all Reviews & Training external links open in a new tab with rel="noopener"', () => {
+  const section = html.match(/<div class="section fade-in" id="reviews-training">[\s\S]*?(?=<footer)/)[0];
+  const links = [...section.matchAll(/<a class="rc-link[^"]*" href="([^"]+)"([^>]*)>/g)];
+  assert.ok(links.length >= 6, 'expected at least 6 review-card links');
+  for (const [, href, attrs] of links) {
+    assert.match(attrs, /target="_blank"/, `${href} missing target=_blank`);
+    assert.match(attrs, /rel="noopener"/, `${href} missing rel=noopener`);
+  }
+});

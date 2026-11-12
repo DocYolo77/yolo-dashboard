@@ -185,6 +185,24 @@ html { scroll-behavior: smooth; }
 .rr-item .rr-price { font-family: var(--mono-font); font-size: 13px; font-weight: 500; color: var(--positive); margin-top: 2px; }
 .rr-item .rr-pnl { font-family: var(--mono-font); font-size: 10px; color: var(--positive); margin-top: 1px; }
 
+/* REVIEWS & TRAINING (08) — permanente Kurzfassungen der Trader-Reviews aus
+   den Marktausblicken (Martin Luk, Clement Ang) sowie Links zu den
+   externen Tools (Momentum Replay, Trade Reviews 2026). Kein Nachbau der
+   Tools selbst -- die leben als eigene interaktive Netlify-Seiten weiter. */
+.reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.review-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+.review-card .rc-eyebrow { font-family: var(--mono-font); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-muted); }
+.review-card .rc-title { font-family: var(--header-font); font-size: 20px; font-weight: 700; }
+.review-card .rc-text { font-family: var(--body-font); font-size: 13px; line-height: 1.7; color: var(--ink-light); flex: 1; }
+.review-card .rc-preview { border-radius: 2px; overflow: hidden; border: 1px solid var(--card-border); }
+.review-card .rc-preview img { width: 100%; display: block; }
+.review-card .rc-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.review-card .rc-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--card-border); border-radius: 2px; color: var(--ink); text-decoration: none; font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.5px; transition: all 0.2s ease; }
+.review-card .rc-link:hover { border-color: var(--ink-light); background: var(--sand-darker); }
+.review-card .rc-link.primary { background: var(--ink); color: var(--sand); border-color: var(--ink); }
+.review-card .rc-link.primary:hover { background: var(--ink-light); }
+.review-card .rc-link .arrow { opacity: 0.5; }
+
 .footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--card-border); margin-top: 40px; }
 .footer p { font-family: var(--mono-font); font-size: 10px; color: var(--ink-muted); letter-spacing: 1px; }
 
@@ -422,7 +440,7 @@ html { scroll-behavior: smooth; }
 
 @media (max-width: 900px) {
   .hero-top { flex-direction: column; gap: 16px; }
-  .mcclellan-grid, .sizer-grid { grid-template-columns: 1fr; }
+  .mcclellan-grid, .sizer-grid, .reviews-grid { grid-template-columns: 1fr; }
   .rr-grid { grid-template-columns: repeat(3, 1fr); }
   .qqq-price-structure { grid-template-columns: repeat(3, 1fr); }
   .exec-tiles { grid-template-columns: repeat(2, 1fr); }
@@ -472,6 +490,7 @@ html { scroll-behavior: smooth; }
     <a href="#opportunities">05 Opportunities</a>
     <a href="#screener">06 Screener</a>
     <a href="#trade-calculator">07 Traderechner</a>
+    <a href="#reviews-training">08 Reviews &amp; Training</a>
   </div>
 </nav>
 
@@ -1099,6 +1118,52 @@ html { scroll-behavior: smooth; }
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 08 · REVIEWS & TRAINING ═══ -->
+  <div class="section fade-in" id="reviews-training">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <span class="section-title">Reviews &amp; Training</span>
+      <span class="section-sub">Trader-Reviews aus dem Marktausblick &middot; externe Trainings-Tools</span>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="rc-eyebrow">Trader Review &middot; Marktausblick 25.10.2026</div>
+        <div class="rc-title">Martin Luk Review</div>
+        <div class="rc-text">Martin Luk ist für mich einfach der Boss: +969,8&nbsp;% in der USIC 2025 und zuletzt offiziell +785,8&nbsp;% bis Ende September 2026. Mich interessiert vor allem das Warum hinter seinen Trades. Ich habe alle Streams von Januar bis September mit Hilfe der KI zusammengefasst. Anhand seiner Zitate und Aussagen versuche ich nachzuvollziehen, wie er über Trades nachdenkt und seine Entscheidungen trifft. Damit soll es möglich sein, die Denkweise dieses Trading-Genies besser zu verstehen.</div>
+        <div class="rc-links">
+          <a class="rc-link primary" href="https://yoloausblick251026schiffbruch.netlify.app/#martin-luk" target="_blank" rel="noopener">Review lesen <span class="arrow">↗</span></a>
+          <a class="rc-link" href="https://yoloausblick251026schiffbruch.netlify.app/downloads/Martin_Luk_Stream_Zusammenfassungen_Januar_September_2026.pdf" target="_blank" rel="noopener">Stream-Zusammenfassungen (PDF) <span class="arrow">↗</span></a>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="rc-eyebrow">Trader Review &middot; Marktausblick 01.11.2026</div>
+        <div class="rc-title">Clement Ang Review</div>
+        <div class="rc-text">Viele von euch haben mir geschrieben, dass sie nach dem Lauf im April und Mai ihre gesamten Jahresgewinne wieder abgegeben haben. Auch meine Equity Curve ist von über 50&nbsp;% auf 23&nbsp;% abgeschmolzen. Das ist eines der größten Probleme im Momentum-Trading: auf den Händen zu sitzen, wenn das Easy-Money-Umfeld wegbricht und der Chop kommt. Vor ein paar Wochen hatte ich ein gutes Interview mit Clement Ang dazu gesehen. Ich habe Claude gebeten, meine Notizen und das Video mit genau diesem Fokus aufzuarbeiten.</div>
+        <div class="rc-links">
+          <a class="rc-link primary" href="https://marktausblickyolo0811schiffbruch.netlify.app/#clement-ang" target="_blank" rel="noopener">Review lesen <span class="arrow">↗</span></a>
+          <a class="rc-link" href="https://clementangstudie0111.netlify.app/" target="_blank" rel="noopener">Studie ansehen <span class="arrow">↗</span></a>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="rc-eyebrow">Yolo Investing &middot; Training</div>
+        <div class="rc-title">Momentum Replay</div>
+        <div class="rc-text">Trainiere dein Auge an 30 historischen Chart-Kandidaten: Chart lesen, Entry &amp; Stop setzen, BUY/WAIT/PASS entscheiden — und danach sehen, was wirklich passiert ist.</div>
+        <div class="rc-links">
+          <a class="rc-link primary" href="https://marktausblickyolo0811schiffbruch.netlify.app/#momentum-replay" target="_blank" rel="noopener">Tool öffnen <span class="arrow">↗</span></a>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="rc-eyebrow">Trading 2026 &middot; Community</div>
+        <div class="rc-title">Trade Reviews 2026</div>
+        <div class="rc-preview"><img src="assets/trade-reviews-2026-preview.jpg" alt="Vorschau: Trade Reviews 2026 Tool" loading="lazy"></div>
+        <div class="rc-text">221 Trades aus der Community 2026 interaktiv durchgehen: große Daily-/m5-Charts, EMA10/20, SMA50, Session-VWAP, QQQ-Vergleich, Kalender und Notizen pro Trade. Einzelne Monate oder das gesamte Jahr lassen sich inkl. Charts als PDF exportieren.</div>
+        <div class="rc-links">
+          <a class="rc-link primary" href="https://patreonstocks2026.netlify.app/" target="_blank" rel="noopener">Tool öffnen <span class="arrow">↗</span></a>
         </div>
       </div>
     </div>
