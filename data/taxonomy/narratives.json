@@ -2262,7 +2262,7 @@
           "reason": "nCino provides cloud-based SaaS software specifically for financial institutions' commercial and small business lending processes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2273,7 +2273,7 @@
           "reason": "NICE is an enterprise software company providing cloud-deployed customer engagement (CCaaS) and financial crime/compliance software solutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2537,7 +2537,7 @@
           "reason": "Toast provides a cloud-based SaaS platform purpose-built for restaurants, including payments and hardware - core vertical SaaS company.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2959,7 +2959,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "UEC": {
           "role": "core",
@@ -3699,7 +3699,7 @@
           "reason": "BILL Holdings provides SaaS-based payments, spend and expense management software for businesses, a fintech/software hybrid; fintech captures the payments focus best.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6569,7 +6569,7 @@
           "reason": "Accenture is a diversified global IT consulting and outsourcing services firm.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7695,7 +7695,7 @@
           "reason": "Adecoagro is a diversified agricultural company involved in farming, sugar, ethanol, and dairy operations.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7739,7 +7739,7 @@
           "reason": "Seneca Foods packages fruits and vegetables and has significant farming/agricultural operations plus packaging (cans). Agriculture/Agribusiness fits well as a food processor with farming operations; closest existing category despite being more of packaged food company.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7761,7 +7761,7 @@
           "reason": "Corteva develops and sells crop protection and seed products for agricultural markets, fitting agribusiness.",
           "added_at": "2026-10-02",
           "last_reviewed_at": "2026-10-02",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8577,7 +8577,7 @@
           "reason": "Provides independent tax, valuation, and financial advisory services; not IT/consulting but professional financial services, no existing catalog match.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8675,7 +8675,7 @@
           "reason": "Birkenstock designs, manufactures and sells footwear/apparel-adjacent branded products to consumers, matching the apparel retail/branded consumer goods narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8884,7 +8884,7 @@
           "reason": "Lululemon designs, markets and sells branded athletic apparel, footwear and accessories through omnichannel retail, matching the Apparel Retail narrative definition precisely.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9539,7 +9539,7 @@
           "reason": "Victory Capital is a diversified investment management firm offering mutual funds, ETFs and investment strategies - closest fit is alternative asset management though it includes more traditional long-only strategies as well.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9550,7 +9550,7 @@
           "reason": "Acadian Asset Management is a systematic institutional investment management firm offering diversified investment strategies, fitting alternative/institutional asset management.",
           "added_at": "2026-11-12",
           "last_reviewed_at": "2026-11-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10116,7 +10116,7 @@
           "reason": "Grupo Aval is a Colombian financial holding company offering banking, trust, and merchant banking services - core traditional banking/financial services business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10225,7 +10225,7 @@
           "reason": "Boise Cascade manufactures engineered wood products and distributes building materials, distinct from construction machinery or engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10269,7 +10269,7 @@
           "reason": "Louisiana-Pacific produces oriented strand board and engineered wood siding for residential construction and remodeling, fitting the building products manufacturing narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10324,7 +10324,7 @@
           "reason": "Gibraltar Industries manufactures building products for residential, infrastructure, and renewable energy markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11099,6 +11099,17 @@
           "reason": "Simply Good Foods develops and markets branded nutrition products like protein bars, shakes, and low-sugar snacks (Quest, Atkins, OWYN), directly matching the branded nutrition/CPG narrative.",
           "added_at": "2026-11-04",
           "last_reviewed_at": "2026-11-04",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "WEST": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Westrock Coffee is an integrated coffee, tea, flavors, extracts and ingredients provider offering sourcing, roasting, packaging and distribution of branded/private-label beverage products to retail and foodservice customers. This is fundamentally a consumer packaged goods (beverage ingredients) manufacturing and supply chain business, closest economically to the Branded Nutrition / CPG narrative which covers companies developing and distributing branded food/beverage products through retail and direct channels. It doesn't fit Beverage Bottling/Distribution (which is specifically about licensed bottling of carbonated soft drinks) as well, since Westrock's core model is sourcing/roasting/ingredient solutions rather than bottling under license.",
+          "added_at": "2026-11-13",
+          "last_reviewed_at": "2026-11-13",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -12176,7 +12187,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -12230,7 +12241,7 @@
           "reason": "TripAdvisor operates a travel metasearch and review platform generating revenue from hotel bookings, restaurants and experiences.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12933,7 +12944,7 @@
           "reason": "Estee Lauder is a global manufacturer and marketer of prestige skincare, makeup, fragrance and haircare brands.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13338,7 +13349,7 @@
           "reason": "Pilgrim's Pride is a large poultry producer/processor, a distinct food production/protein processing business not well captured by general agribusiness definition.",
           "added_at": "2026-08-17",
           "last_reviewed_at": "2026-08-17",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13676,6 +13687,17 @@
           "reason": "Chord Energy is an independent E&P company focused on crude oil, NGL, and natural gas production in the Williston Basin.",
           "added_at": "2026-11-12",
           "last_reviewed_at": "2026-11-12",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "APA": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "APA Corp is an independent E&P company developing and producing crude oil, natural gas and NGLs across multiple international segments.",
+          "added_at": "2026-11-13",
+          "last_reviewed_at": "2026-11-13",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -13856,7 +13878,7 @@
           "reason": "Frontdoor provides home warranty service plans, a distinct consumer subscription services model not matching healthcare or other categories.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -14377,7 +14399,7 @@
           "reason": "Transcat provides accredited calibration, compliance, and quality/validation services, which aligns with testing/inspection/certification services even though its SIC code is instruments. Its core business is a service offering ensuring measurement accuracy and regulatory compliance for regulated industries.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -14972,7 +14994,7 @@
           "reason": "ScanSource is a technology products distributor providing hardware, SaaS, connectivity and cloud solutions through channel partners, matching electronic components/IT distribution narrative well.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -15080,7 +15102,7 @@
           "reason": "Interactive Brokers is a large automated retail and institutional brokerage providing electronic trading services - direct, strong match to Online Brokerage / Trading Platform narrative.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }

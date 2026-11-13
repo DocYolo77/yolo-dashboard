@@ -1,40 +1,35 @@
 {
-  "as_of_date": "2026-11-12",
-  "eligible_count": 874,
-  "classified_eligible_count": 797,
-  "coverage_pct": 91.2,
+  "as_of_date": "2026-11-13",
+  "eligible_count": 867,
+  "classified_eligible_count": 786,
+  "coverage_pct": 90.7,
   "entered": [
-    "AAMI",
-    "ADIG",
     "AIN",
+    "APA",
     "BFH",
     "BV",
     "CACC",
     "CARG",
     "CBRL",
-    "CHRD",
+    "CLBT",
     "CLVT",
     "CR",
     "CRCT",
     "CRSR",
     "CSW",
-    "CWST",
     "CXT",
-    "DAR",
     "DASH",
     "DBD",
     "DFIN",
     "DLTR",
-    "DMC",
     "ECHO",
-    "ENR",
+    "ENS",
     "ENVA",
+    "EPAC",
     "ETN",
+    "FG",
     "FIS",
-    "FLS",
     "FRHC",
-    "FTI",
-    "GGB",
     "GLBE",
     "GLXY",
     "GME",
@@ -44,18 +39,22 @@
     "GTES",
     "HAPN",
     "HBNB",
-    "HLIO",
+    "HGTY",
     "HLMN",
     "IEP",
     "IRS",
-    "KFRC",
+    "KBR",
     "KRT",
+    "LTH",
     "MAAS",
     "MAN",
+    "MHO",
     "MPT",
     "MRX",
+    "MTH",
     "MYE",
     "NCLH",
+    "NIQ",
     "NN",
     "NOVT",
     "NPO",
@@ -74,96 +73,79 @@
     "SARO",
     "SEB",
     "SGI",
+    "SKYW",
     "SLG",
     "SLVM",
     "SONO",
     "STC",
     "STGW",
     "STLD",
+    "SXT",
     "TAP.A",
+    "TFII",
     "TNET",
     "VISN",
     "WEST",
-    "WMB",
     "ZD"
   ],
   "reentered": [
-    "BIRK",
-    "CHRW",
-    "CNL",
-    "DFH",
-    "EVTC",
-    "FUN",
-    "GHM",
-    "GLIBA",
-    "GLIBK",
-    "NEWP",
-    "PAYC",
-    "PLTK",
-    "REZI",
-    "SID",
-    "TDAY",
-    "USAS"
+    "AGRO",
+    "AVAL",
+    "BCC",
+    "CTVA",
+    "FTDR",
+    "PPC",
+    "SENEA"
   ],
   "exited": [
-    "AESI",
-    "AMTM",
-    "APPS",
-    "BORR",
-    "BUUU",
-    "CHWY",
-    "CIG.C",
-    "COUR",
-    "FMC",
-    "FRMI",
-    "GPRK",
-    "GTM",
-    "GVA",
-    "HPK",
-    "LUV",
-    "LZ",
-    "NMAX",
-    "NTNX",
-    "NVGS",
-    "PSIX",
-    "REPX",
-    "RPD",
-    "TAC",
-    "TBN",
-    "WEN"
+    "AAMI",
+    "ACN",
+    "ANDG",
+    "BILL",
+    "BIRK",
+    "CCJ",
+    "CHRD",
+    "EL",
+    "IBKR",
+    "LPX",
+    "LULU",
+    "MIAX",
+    "NCNO",
+    "NICE",
+    "ROCK",
+    "SCSC",
+    "TOST",
+    "TRIP",
+    "TRNS",
+    "VCTR"
   ],
   "newly_classified": [
-    "AAMI",
-    "ADIG",
     "AIN",
+    "APA",
     "BFH",
     "BV",
     "CACC",
     "CARG",
     "CBRL",
-    "CHRD",
+    "CLBT",
     "CLVT",
     "CR",
     "CRCT",
     "CRSR",
     "CSW",
-    "CWST",
     "CXT",
-    "DAR",
     "DASH",
     "DBD",
     "DFIN",
     "DLTR",
-    "DMC",
     "ECHO",
-    "ENR",
+    "ENS",
     "ENVA",
+    "EPAC",
     "ETN",
+    "FG",
     "FIS",
-    "FLS",
     "FRHC",
-    "FTI",
-    "GGB",
     "GLBE",
     "GLXY",
     "GME",
@@ -173,18 +155,22 @@
     "GTES",
     "HAPN",
     "HBNB",
-    "HLIO",
+    "HGTY",
     "HLMN",
     "IEP",
     "IRS",
-    "KFRC",
+    "KBR",
     "KRT",
+    "LTH",
     "MAAS",
     "MAN",
+    "MHO",
     "MPT",
     "MRX",
+    "MTH",
     "MYE",
     "NCLH",
+    "NIQ",
     "NN",
     "NOVT",
     "NPO",
@@ -203,22 +189,22 @@
     "SARO",
     "SEB",
     "SGI",
+    "SKYW",
     "SLG",
     "SLVM",
     "SONO",
     "STC",
     "STGW",
     "STLD",
+    "SXT",
     "TAP.A",
+    "TFII",
     "TNET",
     "VISN",
     "WEST",
-    "WMB",
     "ZD"
   ],
-  "new_narratives_created": [
-    "waste_management_services"
-  ],
+  "new_narratives_created": [],
   "unresolved_after_retries": [
     {
       "ticker": "AIN",
@@ -242,6 +228,10 @@
     },
     {
       "ticker": "CBRL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CLBT",
       "reason": "low_confidence_primary"
     },
     {
@@ -269,10 +259,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "DAR",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "DASH",
       "reason": "low_confidence_primary"
     },
@@ -289,15 +275,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "DMC",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "ECHO",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "ENR",
+      "ticker": "ENS",
       "reason": "low_confidence_primary"
     },
     {
@@ -305,7 +287,15 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "EPAC",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "ETN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FG",
       "reason": "low_confidence_primary"
     },
     {
@@ -313,19 +303,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "FLS",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "FRHC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "FTI",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GGB",
       "reason": "low_confidence_primary"
     },
     {
@@ -365,6 +343,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "HGTY",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "HLMN",
       "reason": "low_confidence_primary"
     },
@@ -377,16 +359,188 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "KFRC",
+      "ticker": "KBR",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "KRT",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "LTH",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "MAAS",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "MAN",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "MHO",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "MPT",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "MRX",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "MTH",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "MYE",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "NCLH",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "NIQ",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "NN",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "NOVT",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "NPO",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "NSP",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "NVT",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "OPRA",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "P",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "PATK",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "PLBL",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "PLPC",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "PPLI",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "PRSU",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "RAL",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "RHI",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "RHLD",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "SARO",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "SEB",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "SGI",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "SKYW",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "SLG",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "SLVM",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "SONO",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "STC",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "STGW",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "STLD",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "SXT",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "TAP.A",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "TFII",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "TNET",
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "VISN",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "ZD",
       "reason": "low_confidence_primary"
     }
   ],
   "classification_errors": [
-    "Retry-Runde 2 Batch (AIN..KFRC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Batch 2 (KRT..TNET): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (AIN..KRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (LTH..VISN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AIN..KRT): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (LTH..VISN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 654,
-  "eligible_without_active_narrative": 220,
-  "active_narrative_coverage_pct": 74.8,
+  "eligible_with_active_narrative": 643,
+  "eligible_without_active_narrative": 224,
+  "active_narrative_coverage_pct": 74.2,
   "active_narrative_count": 53,
   "undersized_narrative_count": 102
 }
