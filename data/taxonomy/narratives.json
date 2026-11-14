@@ -115,7 +115,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AMD": {
           "role": "core",
@@ -912,7 +912,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "AVGO": {
           "role": "core",
@@ -1119,7 +1119,7 @@
           "reason": "BigBear.ai provides AI/ML and decision intelligence software primarily for defense and government customers; closest fit is AI Infrastructure given its mission-critical AI platform focus, though it's software-centric.",
           "added_at": "2026-10-01",
           "last_reviewed_at": "2026-10-01",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -1932,7 +1932,7 @@
           "reason": "Agilysys delivers cloud-native SaaS and on-premise hospitality software solutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2207,7 +2207,7 @@
           "reason": "Cloud platform (IoT-enabled SaaS) for connected operations, fleet and asset management analytics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2295,7 +2295,7 @@
           "reason": "Paycom is a cloud-based HCM/payroll SaaS provider.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2306,7 +2306,7 @@
           "reason": "Procore is a cloud-based subscription software platform for construction management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2548,7 +2548,7 @@
           "reason": "AvePoint provides SaaS-based data protection, governance and management software for cloud collaboration platforms.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2680,7 +2680,7 @@
           "reason": "Zoom provides a cloud-native video/voice/chat communications platform via subscription SaaS model, fitting squarely into software/SaaS.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3207,7 +3207,7 @@
           "reason": "CACI International provides technology and expertise supporting national security, intelligence, and defense customers, matching Defense/Aerospace narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6145,7 +6145,7 @@
           "reason": "Fortuna Mining operates gold and silver producing mines across Latin America and West Africa, directly matching precious metals mining narrative.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6897,7 +6897,7 @@
           "reason": "Versigent designs and manufactures electrical architecture components (signal, power, data distribution) for automotive, commercial vehicle, agriculture and energy storage sectors, fitting components supplier narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7039,7 +7039,7 @@
           "reason": "Polaris designs and manufactures off-road vehicles, snowmobiles, and specialty on-road/marine vehicles.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7170,7 +7170,7 @@
           "reason": "Azul operates passenger and cargo airline services, including charter and maintenance operations, squarely fitting the Airlines narrative.",
           "added_at": "2026-09-10",
           "last_reviewed_at": "2026-09-10",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8577,7 +8577,7 @@
           "reason": "Provides independent tax, valuation, and financial advisory services; not IT/consulting but professional financial services, no existing catalog match.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9353,7 +9353,7 @@
           "reason": "C.H. Robinson is a non-asset-based third-party logistics provider focused on freight brokerage across truck, rail, air and ocean modes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9506,7 +9506,7 @@
           "reason": "TPG is a large alternative asset management firm investing across private equity, credit, real estate and other alternative strategies, directly matching the alternative asset management narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9550,7 +9550,7 @@
           "reason": "Acadian Asset Management is a systematic institutional investment management firm offering diversified investment strategies, fitting alternative/institutional asset management.",
           "added_at": "2026-11-12",
           "last_reviewed_at": "2026-11-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9703,6 +9703,17 @@
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "DGICB": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Donegal Group is an insurance holding company underwriting property and casualty insurance across multiple states, matching specialty P&C insurance narrative.",
+          "added_at": "2026-11-14",
+          "last_reviewed_at": "2026-11-14",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10225,7 +10236,7 @@
           "reason": "Boise Cascade manufactures engineered wood products and distributes building materials, distinct from construction machinery or engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11110,7 +11121,7 @@
           "reason": "Westrock Coffee is an integrated coffee, tea, flavors, extracts and ingredients provider offering sourcing, roasting, packaging and distribution of branded/private-label beverage products to retail and foodservice customers. This is fundamentally a consumer packaged goods (beverage ingredients) manufacturing and supply chain business, closest economically to the Branded Nutrition / CPG narrative which covers companies developing and distributing branded food/beverage products through retail and direct channels. It doesn't fit Beverage Bottling/Distribution (which is specifically about licensed bottling of carbonated soft drinks) as well, since Westrock's core model is sourcing/roasting/ingredient solutions rather than bottling under license.",
           "added_at": "2026-11-13",
           "last_reviewed_at": "2026-11-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11862,7 +11873,7 @@
           "reason": "Cavco designs and produces factory-built/manufactured homes distributed through retailers, an adjacent segment of residential homebuilding.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12024,7 +12035,7 @@
           "reason": "Grab operates ride-sharing, delivery, and mobile platform services connecting riders/merchants with consumers in Southeast Asia - core mobility platform business.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12100,7 +12111,7 @@
           "reason": "Stride Inc provides proprietary curriculum, software and educational platform services for K-12 and adult learners - directly matches Education Content/Publishing definition.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12187,7 +12198,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -12706,7 +12717,7 @@
           "reason": "Southern Copper mines, smelts and refines copper and other base metals, directly matching this narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13065,6 +13076,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "UNF": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "UniFirst provides uniform rental, cleaning, and workplace supply services directly matching this narrative.",
+          "added_at": "2026-11-14",
+          "last_reviewed_at": "2026-11-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -13147,6 +13169,17 @@
           "reason": "Coca-Cola Consolidated is a bottler/distributor of Coca-Cola branded beverages, a distinct business model from generic branded CPG/nutrition companies; best captured by a dedicated beverage bottling narrative since no exact match exists in catalog.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "AKO.B": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Embotelladora Andina is a Coca-Cola bottler distributing beverages in Latin America, directly matching the beverage bottling/distribution narrative.",
+          "added_at": "2026-11-14",
+          "last_reviewed_at": "2026-11-14",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -13533,7 +13566,7 @@
           "reason": "Matador Resources is an independent E&P company focused on oil and natural gas shale plays in the US.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13577,7 +13610,7 @@
           "reason": "Greenfire explores, develops and produces oil (oil sands) in Canada, matching oil & gas E&P.",
           "added_at": "2026-09-25",
           "last_reviewed_at": "2026-09-25",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13698,7 +13731,7 @@
           "reason": "APA Corp is an independent E&P company developing and producing crude oil, natural gas and NGLs across multiple international segments.",
           "added_at": "2026-11-13",
           "last_reviewed_at": "2026-11-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -14324,7 +14357,7 @@
           "reason": "Karooooo's Cartrack platform provides IoT-based fleet/asset management, tracking, and operational intelligence via connected devices, fitting IoT solutions platform model.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -15186,7 +15219,7 @@
           "reason": "Marriott Vacations Worldwide operates vacation ownership/timeshare resorts under Marriott and Ritz-Carlton brands, a distinct business model from standard hotel REITs since it involves selling ownership interests rather than just operating hotel rooms.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
