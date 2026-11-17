@@ -1347,7 +1347,7 @@
           "reason": "REIT focused specifically on acquiring and owning hyperscale data center properties leased to investment-grade tenants.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2009,7 +2009,7 @@
           "reason": "Blackbaud provides software solutions (SaaS) for nonprofits and social good organizations.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2207,7 +2207,7 @@
           "reason": "Cloud platform (IoT-enabled SaaS) for connected operations, fleet and asset management analytics.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2537,7 +2537,7 @@
           "reason": "Toast provides a cloud-based SaaS platform purpose-built for restaurants, including payments and hardware - core vertical SaaS company.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -2959,7 +2959,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "UEC": {
           "role": "core",
@@ -3218,7 +3218,7 @@
           "reason": "Delivers engineered products and services to defense, power generation and industrial markets including weapons handling and control systems.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3699,7 +3699,7 @@
           "reason": "BILL Holdings provides SaaS-based payments, spend and expense management software for businesses, a fintech/software hybrid; fintech captures the payments focus best.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -5408,7 +5408,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "RIVN": {
           "role": "core",
@@ -6145,7 +6145,7 @@
           "reason": "Fortuna Mining operates gold and silver producing mines across Latin America and West Africa, directly matching precious metals mining narrative.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6897,7 +6897,7 @@
           "reason": "Versigent designs and manufactures electrical architecture components (signal, power, data distribution) for automotive, commercial vehicle, agriculture and energy storage sectors, fitting components supplier narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7499,7 +7499,7 @@
           "reason": "NGL Energy Partners operates crude oil, water solutions, and liquids logistics infrastructure - services/logistics supporting oil & gas production, best matched to oil & gas services/equipment given lack of a dedicated midstream logistics category.",
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7793,7 +7793,7 @@
           "reason": "Engineering and technology solutions provider serving government/defense/space/energy sectors, similar to EPC/technical consulting services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8003,6 +8003,17 @@
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "KBR": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 88,
+          "reason": "KBR provides engineering, procurement, construction, and technical/mission solutions services, fitting the construction/engineering services narrative.",
+          "added_at": "2026-11-17",
+          "last_reviewed_at": "2026-11-17",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8374,6 +8385,17 @@
           "reason": "Helios designs/manufactures hydraulic components and electronic controls for industrial applications - fits industrial machinery broadly.",
           "added_at": "2026-11-12",
           "last_reviewed_at": "2026-11-12",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "AIN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Albany International manufactures engineered fabrics (machine clothing) for paper industry and composite components/assemblies for aerospace - a diversified industrial manufacturer. Industrial Machinery fits best among existing catalog given no textile-specific industrial narrative exists.",
+          "added_at": "2026-11-17",
+          "last_reviewed_at": "2026-11-17",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -8898,6 +8920,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "REF": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Reformation sells womenswear apparel and accessories through owned and wholesale channels, matching apparel retail narrative directly.",
+          "added_at": "2026-11-17",
+          "last_reviewed_at": "2026-11-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9386,7 +9419,7 @@
           "reason": "Werner Enterprises is a truckload transportation and logistics company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9397,7 +9430,7 @@
           "reason": "Hub Group is a large intermodal and transportation/logistics solutions provider, fitting well within trucking/freight logistics despite being rail-intermodal-focused rather than pure trucking.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9419,6 +9452,17 @@
           "reason": "XPO is a pure-play asset-based less-than-truckload (LTL) carrier with European truckload/LTL operations, directly matching trucking/freight logistics.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TFII": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "TFI International provides LTL, truckload and logistics transportation services across North America, matching the trucking/freight logistics narrative directly.",
+          "added_at": "2026-11-17",
+          "last_reviewed_at": "2026-11-17",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -9506,7 +9550,7 @@
           "reason": "TPG is a large alternative asset management firm investing across private equity, credit, real estate and other alternative strategies, directly matching the alternative asset management narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9539,7 +9583,7 @@
           "reason": "Victory Capital is a diversified investment management firm offering mutual funds, ETFs and investment strategies - closest fit is alternative asset management though it includes more traditional long-only strategies as well.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9736,6 +9780,17 @@
           "last_reviewed_at": "2026-08-12",
           "active_eligible": true,
           "classification_source": "full_universe_run",
+          "classification_version": 1
+        },
+        "AD": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Array Digital Infrastructure (formerly US Cellular) sold its wireless operations to T-Mobile and is retaining and monetizing spectrum licenses, shifting the business toward holding/managing wireless spectrum assets rather than operating as a traditional wireless carrier.",
+          "added_at": "2026-11-17",
+          "last_reviewed_at": "2026-11-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
       }
@@ -10215,7 +10270,7 @@
           "reason": "Forbright is a state chartered bank holding company providing deposit, retail banking and financing services, matching traditional banking narrative.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10236,7 +10291,7 @@
           "reason": "Boise Cascade manufactures engineered wood products and distributes building materials, distinct from construction machinery or engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11440,6 +11495,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "NGVT": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Ingevity manufactures performance chemicals, polymers and materials serving diverse industrial end markets, fitting specialty chemicals narrative well.",
+          "added_at": "2026-11-17",
+          "last_reviewed_at": "2026-11-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11768,6 +11834,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "KYIV": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Kyivstar is a telecom operator providing mobile, broadband, and fixed-line services in Ukraine, core business is telecommunications infrastructure/services.",
+          "added_at": "2026-11-17",
+          "last_reviewed_at": "2026-11-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -11829,7 +11906,7 @@
           "reason": "Factory-built housing company producing manufactured and modular homes for residential markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12198,7 +12275,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -12576,7 +12653,7 @@
           "reason": "Ollie's sells closeout and excess inventory merchandise at deep discounts, similar economic model to off-price/discount value retail, though not strictly secondhand/thrift.",
           "added_at": "2026-09-14",
           "last_reviewed_at": "2026-09-14",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -12717,7 +12794,7 @@
           "reason": "Southern Copper mines, smelts and refines copper and other base metals, directly matching this narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13755,6 +13832,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "JCAP": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 92,
+          "reason": "Jefferson Capital purchases portfolios of defaulted consumer receivables and manages debt recovery across multiple geographies, matching the debt collection/recovery narrative directly.",
+          "added_at": "2026-11-17",
+          "last_reviewed_at": "2026-11-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -14784,7 +14872,7 @@
           "reason": "Scorpio Tankers owns and operates tanker vessels for marine transportation of petroleum/refined products, closely matching the crude oil tanker shipping narrative (though its fleet is product tankers rather than purely crude).",
           "added_at": "2026-10-30",
           "last_reviewed_at": "2026-10-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14795,7 +14883,7 @@
           "reason": "TORM operates product tankers transporting refined oil products (gasoline, jet fuel, naphtha, diesel) rather than crude oil, but the business model (tanker shipping of petroleum products) is closely analogous to crude oil tanker shipping.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -15074,6 +15162,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SNX": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "TD Synnex aggregates and distributes IT hardware, software and related products to the IT ecosystem, matching the electronic components/IT distribution narrative closely.",
+          "added_at": "2026-11-17",
+          "last_reviewed_at": "2026-11-17",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -15219,7 +15318,7 @@
           "reason": "Marriott Vacations Worldwide operates vacation ownership/timeshare resorts under Marriott and Ritz-Carlton brands, a distinct business model from standard hotel REITs since it involves selling ownership interests rather than just operating hotel rooms.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
