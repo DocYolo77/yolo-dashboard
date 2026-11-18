@@ -170,7 +170,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "secondary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "ON": {
           "role": "core",
@@ -923,7 +923,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "MRVL": {
           "role": "core",
@@ -2680,7 +2680,7 @@
           "reason": "Zoom provides a cloud-native video/voice/chat communications platform via subscription SaaS model, fitting squarely into software/SaaS.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8906,7 +8906,7 @@
           "reason": "Lululemon designs, markets and sells branded athletic apparel, footwear and accessories through omnichannel retail, matching the Apparel Retail narrative definition precisely.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9691,7 +9691,7 @@
           "reason": "Ategrity is a specialty P&C insurance holding company focused on excess and surplus lines for SMBs, which is distinct from existing catalog narratives.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10271,6 +10271,17 @@
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "BFH": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Bread Financial provides private-label and co-branded credit cards and consumer financing, partnering with retailers - classic consumer credit institution similar to banking/financial services rather than pure fintech software.",
+          "added_at": "2026-11-18",
+          "last_reviewed_at": "2026-11-18",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11251,7 +11262,7 @@
           "reason": "Wendy's is a quick-service restaurant franchisor/operator; while technically QSR rather than fast-casual, it is the closest existing restaurant category in the catalog given no dedicated QSR/quick-service narrative exists.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11503,7 +11514,7 @@
           "reason": "Ingevity manufactures performance chemicals, polymers and materials serving diverse industrial end markets, fitting specialty chemicals narrative well.",
           "added_at": "2026-11-17",
           "last_reviewed_at": "2026-11-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11906,7 +11917,7 @@
           "reason": "Factory-built housing company producing manufactured and modular homes for residential markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12275,7 +12286,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -13032,7 +13043,7 @@
           "reason": "Estee Lauder is a global manufacturer and marketer of prestige skincare, makeup, fragrance and haircare brands.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13643,7 +13654,7 @@
           "reason": "Matador Resources is an independent E&P company focused on oil and natural gas shale plays in the US.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14158,7 +14169,7 @@
           "reason": "Harley-Davidson manufactures heavyweight motorcycles, a distinct vehicle manufacturing category not matching auto parts supplier.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -14434,7 +14445,7 @@
           "reason": "Mega Fortune is an IoT solution provider helping enterprises with digital transformation via IoT platforms and tools - no existing narrative captures IoT platform businesses specifically.",
           "added_at": "2026-08-31",
           "last_reviewed_at": "2026-08-31",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14521,6 +14532,17 @@
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ULS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "UL Solutions is a global leader in product testing, inspection and certification services (TIC) across industrial and consumer segments - direct match to testing_inspection_certification_services category.",
+          "added_at": "2026-11-18",
+          "last_reviewed_at": "2026-11-18",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -15237,6 +15259,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "LPLA": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "LPL Financial is the largest independent broker-dealer platform providing custody, trading, and advisory infrastructure to financial advisors, earning revenue from commissions, advisory fees, and net interest income on client cash - core broker-dealer/trading platform economics.",
+          "added_at": "2026-11-18",
+          "last_reviewed_at": "2026-11-18",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -15392,7 +15425,7 @@
           "reason": "Casella Waste Systems is a solid waste removal/resource management company - no existing catalog narrative captures waste management services, warranting a new one.",
           "added_at": "2026-11-12",
           "last_reviewed_at": "2026-11-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
