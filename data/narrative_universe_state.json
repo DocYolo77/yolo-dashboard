@@ -1,17 +1,17 @@
 {
-  "as_of_date": "2026-11-18",
-  "eligible_count": 876,
-  "classified_eligible_count": 800,
-  "coverage_pct": 91.3,
+  "as_of_date": "2026-11-19",
+  "eligible_count": 897,
+  "classified_eligible_count": 814,
+  "coverage_pct": 90.7,
   "entered": [
-    "BFH",
+    "ALG",
+    "ATAT",
     "BRSL",
     "BV",
     "BZ",
     "CACC",
     "CARG",
     "CBRL",
-    "CHA",
     "CLBT",
     "CLVT",
     "CR",
@@ -23,9 +23,10 @@
     "DASH",
     "DBD",
     "DFIN",
+    "DKS",
     "DLTR",
-    "DMC",
     "ECHO",
+    "ENR",
     "ENS",
     "ENVA",
     "EPAC",
@@ -34,7 +35,10 @@
     "FIS",
     "FRHC",
     "FTI",
+    "GEF",
+    "GLBE",
     "GLXY",
+    "GME",
     "GPGI",
     "GPN",
     "GSHD",
@@ -43,10 +47,11 @@
     "HBNB",
     "HGTY",
     "HLMN",
+    "ICFI",
     "IEP",
     "IRS",
     "KC",
-    "LPLA",
+    "LII",
     "LTH",
     "MAAS",
     "MPT",
@@ -58,19 +63,25 @@
     "NOVT",
     "NPO",
     "NSP",
+    "NTCT",
     "NVT",
     "ONON",
     "OPRA",
     "P",
     "PAM",
     "PATK",
+    "PAX",
     "PLBL",
     "PLPC",
+    "PPLI",
+    "PRSU",
+    "PSX",
     "RAL",
     "RHI",
     "RHLD",
     "SARO",
     "SGI",
+    "SIG",
     "SLVM",
     "SONO",
     "STC",
@@ -80,36 +91,42 @@
     "TAP.A",
     "TNET",
     "TTWO",
-    "ULS",
     "USLM",
+    "VIK",
+    "YETI",
     "ZD"
   ],
   "reentered": [
-    "ASIC",
-    "AVGO",
-    "EL",
-    "HOG",
-    "LULU",
-    "MGRT",
-    "MIAX",
-    "MTDR",
-    "SKY",
-    "WEN",
-    "ZM"
+    "AGYS",
+    "ANDE",
+    "BVN",
+    "CHRD",
+    "CHWY",
+    "HUBG",
+    "IP",
+    "LPX",
+    "NGVT",
+    "TRMD",
+    "VFC",
+    "WU"
   ],
   "exited": [
-    "CWST",
-    "NGVT"
+    "AAL",
+    "AN",
+    "KYIV",
+    "MC",
+    "MIAX",
+    "SCCO"
   ],
   "newly_classified": [
-    "BFH",
+    "ALG",
+    "ATAT",
     "BRSL",
     "BV",
     "BZ",
     "CACC",
     "CARG",
     "CBRL",
-    "CHA",
     "CLBT",
     "CLVT",
     "CR",
@@ -121,9 +138,10 @@
     "DASH",
     "DBD",
     "DFIN",
+    "DKS",
     "DLTR",
-    "DMC",
     "ECHO",
+    "ENR",
     "ENS",
     "ENVA",
     "EPAC",
@@ -132,7 +150,10 @@
     "FIS",
     "FRHC",
     "FTI",
+    "GEF",
+    "GLBE",
     "GLXY",
+    "GME",
     "GPGI",
     "GPN",
     "GSHD",
@@ -141,10 +162,11 @@
     "HBNB",
     "HGTY",
     "HLMN",
+    "ICFI",
     "IEP",
     "IRS",
     "KC",
-    "LPLA",
+    "LII",
     "LTH",
     "MAAS",
     "MPT",
@@ -156,19 +178,25 @@
     "NOVT",
     "NPO",
     "NSP",
+    "NTCT",
     "NVT",
     "ONON",
     "OPRA",
     "P",
     "PAM",
     "PATK",
+    "PAX",
     "PLBL",
     "PLPC",
+    "PPLI",
+    "PRSU",
+    "PSX",
     "RAL",
     "RHI",
     "RHLD",
     "SARO",
     "SGI",
+    "SIG",
     "SLVM",
     "SONO",
     "STC",
@@ -178,12 +206,17 @@
     "TAP.A",
     "TNET",
     "TTWO",
-    "ULS",
     "USLM",
+    "VIK",
+    "YETI",
     "ZD"
   ],
   "new_narratives_created": [],
   "unresolved_after_retries": [
+    {
+      "ticker": "ATAT",
+      "reason": "low_confidence_primary"
+    },
     {
       "ticker": "BRSL",
       "reason": "low_confidence_primary"
@@ -206,10 +239,6 @@
     },
     {
       "ticker": "CBRL",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "CHA",
       "reason": "low_confidence_primary"
     },
     {
@@ -257,15 +286,19 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "DKS",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "DLTR",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "DMC",
+      "ticker": "ECHO",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "ECHO",
+      "ticker": "ENR",
       "reason": "low_confidence_primary"
     },
     {
@@ -301,7 +334,19 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "GEF",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GLBE",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "GLXY",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "GME",
       "reason": "low_confidence_primary"
     },
     {
@@ -326,10 +371,6 @@
     },
     {
       "ticker": "HBNB",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "HGTY",
       "reason": "low_confidence_primary"
     },
     {
@@ -393,6 +434,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "NTCT",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "NVT",
       "reason": "low_confidence_primary"
     },
@@ -425,6 +470,14 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "PPLI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "PRSU",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "RAL",
       "reason": "low_confidence_primary"
     },
@@ -442,6 +495,10 @@
     },
     {
       "ticker": "SGI",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "SIG",
       "reason": "low_confidence_primary"
     },
     {
@@ -465,10 +522,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "SXT",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "TAP.A",
       "reason": "low_confidence_primary"
     },
@@ -485,18 +538,23 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "YETI",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "ZD",
       "reason": "low_confidence_primary"
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (BRSL..IRS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 1 Batch (KC..ZD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (BRSL..IRS): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (ATAT..HBNB): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (HLMN..TTWO): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (ATAT..HBNB): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (HLMN..TTWO): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 639,
-  "eligible_without_active_narrative": 237,
-  "active_narrative_coverage_pct": 72.9,
-  "active_narrative_count": 51,
-  "undersized_narrative_count": 104
+  "eligible_with_active_narrative": 665,
+  "eligible_without_active_narrative": 232,
+  "active_narrative_coverage_pct": 74.1,
+  "active_narrative_count": 54,
+  "undersized_narrative_count": 101
 }

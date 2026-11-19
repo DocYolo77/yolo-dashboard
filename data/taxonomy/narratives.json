@@ -1932,7 +1932,7 @@
           "reason": "Agilysys delivers cloud-native SaaS and on-premise hospitality software solutions.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -3677,7 +3677,7 @@
           "reason": "Western Union provides money transfer and payment services globally through agent networks and digital channels, a core fintech/payments business.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -5914,7 +5914,7 @@
           "reason": "Buenaventura is a Peruvian precious metals mining company engaged in exploration, development and production of gold and silver.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6221,6 +6221,17 @@
           "reason": "Watsco is the largest HVAC and refrigeration products distributor in North America - fits HVAC/climate control equipment category despite being a distributor rather than manufacturer.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "LII": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Lennox manufactures and distributes HVAC and refrigeration products for residential and commercial markets - direct match.",
+          "added_at": "2026-11-19",
+          "last_reviewed_at": "2026-11-19",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -6770,6 +6781,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "ICFI": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "ICF provides management, technology, and policy consulting/implementation services to government and commercial clients - fits IT services/consulting narrative.",
+          "added_at": "2026-11-19",
+          "last_reviewed_at": "2026-11-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7086,6 +7108,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "ALG": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Alamo Group designs/manufactures vegetation management and infrastructure maintenance equipment (mowers, chippers, street sweepers) for government, industrial and agricultural use - specialty vehicle/machinery for infrastructure maintenance.",
+          "added_at": "2026-11-19",
+          "last_reviewed_at": "2026-11-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7192,7 +7225,7 @@
           "reason": "American Airlines is a major scheduled passenger/cargo airline operator.",
           "added_at": "2026-10-22",
           "last_reviewed_at": "2026-10-22",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7706,7 +7739,7 @@
           "reason": "Agriculture and renewable fuels company with Agribusiness segment (commodity merchandising/logistics) as core.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8144,7 +8177,7 @@
           "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8665,7 +8698,7 @@
           "reason": "Moelis is an independent investment bank providing strategic and financial advisory services, matching this narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8873,7 +8906,7 @@
           "reason": "VF Corporation designs, markets, and distributes branded apparel and footwear (Vans, The North Face, Timberland) through wholesale and direct-to-consumer channels, matching the Apparel Retail narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9430,7 +9463,7 @@
           "reason": "Hub Group is a large intermodal and transportation/logistics solutions provider, fitting well within trucking/freight logistics despite being rail-intermodal-focused rather than pure trucking.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -9597,6 +9630,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "PAX": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Patria Investments is an alternative asset management firm focused on Latin America, fitting the alternative asset management narrative directly.",
+          "added_at": "2026-11-19",
+          "last_reviewed_at": "2026-11-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -9757,6 +9801,17 @@
           "reason": "Donegal Group is an insurance holding company underwriting property and casualty insurance across multiple states, matching specialty P&C insurance narrative.",
           "added_at": "2026-11-14",
           "last_reviewed_at": "2026-11-14",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "HGTY": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Hagerty underwrites and distributes specialty classic/enthusiast vehicle insurance, generating commission and fee revenue - closest to specialty P&C insurance distribution/underwriting model.",
+          "added_at": "2026-11-19",
+          "last_reviewed_at": "2026-11-19",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10346,7 +10401,7 @@
           "reason": "Louisiana-Pacific produces oriented strand board and engineered wood siding for residential construction and remodeling, fitting the building products manufacturing narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11514,7 +11569,18 @@
           "reason": "Ingevity manufactures performance chemicals, polymers and materials serving diverse industrial end markets, fitting specialty chemicals narrative well.",
           "added_at": "2026-11-17",
           "last_reviewed_at": "2026-11-17",
-          "active_eligible": false,
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SXT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Sensient manufactures natural/synthetic colors, flavors and specialty ingredients for food, beverage, cosmetics and pharma - fits specialty chemicals as it produces performance chemical ingredients for diverse end markets.",
+          "added_at": "2026-11-19",
+          "last_reviewed_at": "2026-11-19",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -11853,7 +11919,7 @@
           "reason": "Kyivstar is a telecom operator providing mobile, broadband, and fixed-line services in Ukraine, core business is telecommunications infrastructure/services.",
           "added_at": "2026-11-17",
           "last_reviewed_at": "2026-11-17",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12286,7 +12352,7 @@
           "reason": "Miami International Holdings operates regulated exchange markets for options, equities, futures, providing trading infrastructure, distinct from banking or asset management.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -12718,7 +12784,7 @@
           "reason": "International Paper is a vertically integrated manufacturer of corrugated and consumer packaging products, a direct match for the packaging/paperboard manufacturing narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -12805,7 +12871,7 @@
           "reason": "Southern Copper mines, smelts and refines copper and other base metals, directly matching this narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12935,6 +13001,17 @@
           "reason": "Marathon Petroleum operates 13 refineries converting crude oil into fuels, directly matching the petroleum refining narrative, with midstream operations as secondary.",
           "added_at": "2026-10-06",
           "last_reviewed_at": "2026-10-06",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "PSX": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Phillips 66 operates refineries plus midstream crude/NGL infrastructure - core business is petroleum refining.",
+          "added_at": "2026-11-19",
+          "last_reviewed_at": "2026-11-19",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -13556,7 +13633,7 @@
           "reason": "Operates franchised dealerships, used-vehicle stores, collision centers, and captive lender - core auto dealership group model.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13808,7 +13885,7 @@
           "reason": "Chord Energy is an independent E&P company focused on crude oil, NGL, and natural gas production in the Williston Basin.",
           "added_at": "2026-11-12",
           "last_reviewed_at": "2026-11-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14385,6 +14462,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "VIK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Viking Holdings operates river, ocean, and expedition cruises as 'floating hotels' - closely matches expedition/adventure cruise narrative though it also covers mainstream river/ocean cruising.",
+          "added_at": "2026-11-19",
+          "last_reviewed_at": "2026-11-19",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -14905,7 +14993,7 @@
           "reason": "TORM operates product tankers transporting refined oil products (gasoline, jet fuel, naphtha, diesel) rather than crude oil, but the business model (tanker shipping of petroleum products) is closely analogous to crude oil tanker shipping.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
