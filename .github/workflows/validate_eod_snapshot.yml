@@ -1,0 +1,26 @@
+name: Validate Dashboard 2.0 EOD branch
+
+on:
+  push:
+    branches: [phase-1/eod-data]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements-eod.txt
+      - run: python -m unittest discover -s tests -p 'test_eod_snapshot.py' -v
+      - name: Check the existing repository secret against Massive
+        env:
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+        run: python scripts/build_eod_snapshot.py --probe
