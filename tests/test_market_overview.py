@@ -76,6 +76,36 @@ class OverviewTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'last candle/session'):
             build(self.root,store)
 
+    def test_ignores_18_november_close_under_19_november_score_date(self):
+        self.day='2026-11-19'
+        self.payloads['dashboard_state']['meta']['as_of_date']=self.day
+        for source in ('market_features','narratives'):
+            self.payloads[source]['meta']['date_range'][-1]=self.day
+        store,chart=self.make_store()
+        # Reproduce the observed mixed-date input, while keeping the existing
+        # formulas: only the pinned Massive chart may provide today's prices.
+        self.payloads['snapshot']['regime']['QQQ']['price']=659.51
+        self.payloads['dashboard_state']['qqq_health']['price_structure']={'close':659.51}
+        self.write()
+        for bar in chart['bars']:
+            bar.update(o=650,h=660,l=640,c=645.04,ema10=667.71,ema20=681.16,sma50=713.09,sma200=683)
+        chart['bars'][-2].update(o=660,h=670,l=650,c=659.51)
+        (store/'charts/QQQ.json').write_text(json.dumps(chart))
+        (store/'market.json').write_text(json.dumps({'as_of_date':self.day,'benchmarks':{'QQQ':chart['bars'][-1]}}))
+        result=build(self.root,store)
+        health=result['health']
+        self.assertEqual(result['meta']['as_of_date'],'2026-11-19')
+        self.assertEqual(health['as_of_date'],'2026-11-19')
+        self.assertEqual(health['price_structure']['close'],645.04)
+        self.assertNotEqual(health['price_structure']['close'],659.51)
+        for field in ('ema10','ema20','sma50','sma200'):
+            self.assertEqual(health['price_structure'][field],chart['bars'][-1][field])
+        # Changing the stale legacy quote cannot affect the EOD-derived Health.
+        self.payloads['snapshot']['regime']['QQQ']['price']=1
+        self.payloads['dashboard_state']['qqq_health']['price_structure']['close']=1
+        self.write()
+        self.assertEqual(build(self.root,store)['health'],health)
+
     def test_refuses_stale_breadth_and_inconsistent_scalar(self):
         store,_=self.make_store()
         b=self.payloads['snapshot']['qqq_breadth']
@@ -109,7 +139,7 @@ class OverviewTests(unittest.TestCase):
 
     def set_breadth(self):
         b=self.payloads['snapshot']['qqq_breadth']
-        labels=['18.11.']*20
+        labels=[date.fromisoformat(self.day).strftime('%d.%m.')]*20
         for key in ('mco_zscore_dates','summation_zscore_dates','hl_dates','kma_dates'):
             b[key]=labels.copy()
         for history,scalar in [('mco_history','mco'),('mco_zscore_history','mco_zscore'),('summation_zscore_history','summation_zscore'),('summation_zscore_sma10_history','summation_zscore_sma10'),('hl_history','hl_osc')]:
