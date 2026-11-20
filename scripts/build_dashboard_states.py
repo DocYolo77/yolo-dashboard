@@ -349,6 +349,45 @@ def calc_qqq_modifiers(qqq_breadth, close_above_ema20, base_state, prev_extended
     return modifiers, extended
 
 
+def build_qqq_health(qqq_regime, qqq_breadth, qh_cfg, prev_qqq=None):
+    """Canonical QQQ Health assembly, shared by legacy and pinned EOD inputs."""
+    prev_qqq = prev_qqq or {}
+    trend = calc_qqq_trend_score(qqq_regime, qh_cfg["trend_points"])
+    breadth_q = calc_qqq_breadth_score(qqq_breadth.get("kma_now"), qh_cfg["breadth_component_weights"])
+    mco = calc_mco_score(qqq_breadth.get("mco_zscore"))
+    mcsi = calc_mcsi_score(qqq_breadth.get("summation_zscore"), qqq_breadth.get("summation_zscore_sma10"), qh_cfg["mcsi_weights"])
+    high_low = calc_high_low_score(qqq_breadth.get("hl_history"), qqq_breadth.get("n_components"), qh_cfg["high_low_lookback_days"])
+    qh_score = calc_qqq_health_score(trend, breadth_q, mco, mcsi, high_low, qh_cfg["final_weights"])
+    qh_base_state = state_from_thresholds(qh_score, qh_cfg["base_state_thresholds"])
+
+    close_above_ema20 = bool(qqq_regime.get("price") is not None and (qqq_regime.get("mas") or {}).get("ema20") is not None
+                              and qqq_regime["price"] > qqq_regime["mas"]["ema20"])
+    modifiers, extended = calc_qqq_modifiers(qqq_breadth, close_above_ema20, qh_base_state,
+                                              prev_qqq.get("extended"), qqq_regime.get("atr_extension"), qh_cfg)
+    mas = qqq_regime.get("mas") or {}
+    price = qqq_regime.get("price")
+    qqq_health = {
+        "score": qh_score, "base_state": qh_base_state, "modifiers": modifiers,
+        "prev_score": prev_qqq.get("score"),
+        "score_delta": round(qh_score - prev_qqq["score"], 1) if (qh_score is not None and prev_qqq.get("score") is not None) else None,
+        "components": {"trend": trend, "breadth": breadth_q, "mco": mco, "mcsi": mcsi, "high_low": high_low},
+        "price_structure": {
+            "close": price, "ema10": mas.get("ema10"), "ema20": mas.get("ema20"),
+            "sma50": mas.get("sma50"), "sma200": mas.get("sma200"),
+            "dist_ema10_pct": round((price - mas["ema10"]) / mas["ema10"] * 100, 2) if price and mas.get("ema10") else None,
+            "dist_ema20_pct": round((price - mas["ema20"]) / mas["ema20"] * 100, 2) if price and mas.get("ema20") else None,
+            "ema10_above_ema20": bool(mas.get("ema10") is not None and mas.get("ema20") is not None and mas["ema10"] > mas["ema20"]),
+            "close_above_ema10": bool(price is not None and mas.get("ema10") is not None and price > mas["ema10"]),
+            "close_above_ema20": close_above_ema20,
+            "close_above_sma50": bool(price is not None and mas.get("sma50") is not None and price > mas["sma50"]),
+            "close_above_sma200": bool(price is not None and mas.get("sma200") is not None and price > mas["sma200"]),
+            "atr14": qqq_regime.get("atr14"), "atr_pct": qqq_regime.get("atr_pct"),
+            "atr_extension": qqq_regime.get("atr_extension"),
+        },
+    }
+    return qqq_health, extended
+
+
 # ─────────────────────────────────────────────
 # NARRATIVE MOMENTUM SCORE + LIFECYCLE (point 17-18)
 # ─────────────────────────────────────────────
@@ -1279,40 +1318,9 @@ def main():
     qqq_regime = (snapshot.get("regime") or {}).get("QQQ") or {}
     qqq_breadth = snapshot.get("qqq_breadth") or {}
 
-    trend = calc_qqq_trend_score(qqq_regime, qh_cfg["trend_points"])
-    breadth_q = calc_qqq_breadth_score(qqq_breadth.get("kma_now"), qh_cfg["breadth_component_weights"])
-    mco = calc_mco_score(qqq_breadth.get("mco_zscore"))
-    mcsi = calc_mcsi_score(qqq_breadth.get("summation_zscore"), qqq_breadth.get("summation_zscore_sma10"), qh_cfg["mcsi_weights"])
-    high_low = calc_high_low_score(qqq_breadth.get("hl_history"), qqq_breadth.get("n_components"), qh_cfg["high_low_lookback_days"])
-    qh_score = calc_qqq_health_score(trend, breadth_q, mco, mcsi, high_low, qh_cfg["final_weights"])
-    qh_base_state = state_from_thresholds(qh_score, qh_cfg["base_state_thresholds"])
-
-    close_above_ema20 = bool(qqq_regime.get("price") is not None and (qqq_regime.get("mas") or {}).get("ema20") is not None
-                              and qqq_regime["price"] > qqq_regime["mas"]["ema20"])
     prev_qqq = (yesterday or {}).get("qqq_health") or {}
-    modifiers, extended = calc_qqq_modifiers(qqq_breadth, close_above_ema20, qh_base_state,
-                                              prev_qqq.get("extended"), qqq_regime.get("atr_extension"), qh_cfg)
-    mas = qqq_regime.get("mas") or {}
-    price = qqq_regime.get("price")
-    qqq_health = {
-        "score": qh_score, "base_state": qh_base_state, "modifiers": modifiers,
-        "prev_score": prev_qqq.get("score"),
-        "score_delta": round(qh_score - prev_qqq["score"], 1) if (qh_score is not None and prev_qqq.get("score") is not None) else None,
-        "components": {"trend": trend, "breadth": breadth_q, "mco": mco, "mcsi": mcsi, "high_low": high_low},
-        "price_structure": {
-            "close": price, "ema10": mas.get("ema10"), "ema20": mas.get("ema20"),
-            "sma50": mas.get("sma50"), "sma200": mas.get("sma200"),
-            "dist_ema10_pct": round((price - mas["ema10"]) / mas["ema10"] * 100, 2) if price and mas.get("ema10") else None,
-            "dist_ema20_pct": round((price - mas["ema20"]) / mas["ema20"] * 100, 2) if price and mas.get("ema20") else None,
-            "ema10_above_ema20": bool(mas.get("ema10") is not None and mas.get("ema20") is not None and mas["ema10"] > mas["ema20"]),
-            "close_above_ema10": bool(price is not None and mas.get("ema10") is not None and price > mas["ema10"]),
-            "close_above_ema20": close_above_ema20,
-            "close_above_sma50": bool(price is not None and mas.get("sma50") is not None and price > mas["sma50"]),
-            "close_above_sma200": bool(price is not None and mas.get("sma200") is not None and price > mas["sma200"]),
-            "atr14": qqq_regime.get("atr14"), "atr_pct": qqq_regime.get("atr_pct"),
-            "atr_extension": qqq_regime.get("atr_extension"),
-        },
-    }
+    qqq_health, extended = build_qqq_health(qqq_regime, qqq_breadth, qh_cfg, prev_qqq)
+    qh_score, qh_base_state, modifiers = qqq_health["score"], qqq_health["base_state"], qqq_health["modifiers"]
     print(f"  ✅ QQQ Health: {qh_score} ({qh_base_state} {' · '.join(modifiers) if modifiers else ''})")
 
     # ── NARRATIVE STRUCTURAL SCORE + LIFECYCLE (V1.1) ────────────────

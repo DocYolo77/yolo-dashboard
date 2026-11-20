@@ -34,8 +34,10 @@ function miniChart(id, values, dates, bars=false, percent=false) {
   const series=values ?? [];
   if(!series.length || series.some(v=>!finite(v)) || dates?.length!==series.length){empty(id,'Keine Historie','Für dieses Universum liegt keine vollständige Zeitreihe vor.');return;}
   const low=percent?0:Math.min(0,...series)*1.15, high=percent?100:Math.max(1,...series)*1.15;
-  $(id).innerHTML=chartFrame(650,145,low,high,dates,({x,y,bottom})=>{
-    if(bars) return series.map((v,i)=>`<rect x="${x(i)-1.4}" y="${Math.min(y(0),y(v))}" width="${Math.max(1,540/series.length-1)}" height="${Math.max(1,Math.abs(y(v)-y(0)))}" fill="${v>=0?'#3dce81':'#e65b65'}"><title>${escapeHTML(dates[i])}: ${format(v)}</title></rect>`).join('');
+  const width=Math.max(280,Math.round($(id).clientWidth));
+  const height=Math.max(117,Math.round($(id).clientHeight));
+  $(id).innerHTML=chartFrame(width,height,low,high,dates,({x,y,bottom})=>{
+    if(bars) return series.map((v,i)=>`<rect x="${x(i)-1}" y="${Math.min(y(0),y(v))}" width="${Math.max(1,(width-80)/series.length-1)}" height="${Math.max(1,Math.abs(y(v)-y(0)))}" fill="${v>=0?'#3dce81':'#e65b65'}"><title>${escapeHTML(dates[i])}: ${format(v)}</title></rect>`).join('');
     const path=series.map((v,i)=>`${i?'L':'M'}${x(i)},${y(v)}`).join(' ');
     return `<path d="${path} L${x(series.length-1)},${bottom} L${x(0)},${bottom}Z" fill="#3bc98412"/><path d="${path}" fill="none" stroke="#46d88c" stroke-width="2"/>`;
   },percent?50:0);
@@ -49,8 +51,10 @@ function priceChart(data, range) {
   $('legend').innerHTML=Object.entries(colors).map(([key,color])=>`<span style="--line:${color}">${key.toUpperCase()} ${format(latest[key],2)}</span>`).join('');
   const prices=bars.flatMap(b=>[b.h,b.l,...Object.keys(colors).map(k=>b[k])]).filter(finite);
   const low=Math.min(...prices)*.98,high=Math.max(...prices)*1.02;
-  $('priceChart').innerHTML=chartFrame(900,290,low,high,bars.map(b=>b.date.slice(5).split('-').reverse().join('.')),({x,y,bottom})=>{
-    let marks=''; const w=Math.max(1,Math.min(6,790/bars.length*.65));const maxV=Math.max(1,...bars.map(b=>b.v));
+  const width=Math.max(280,Math.round($('priceChart').clientWidth));
+  const height=Math.max(245,Math.round($('priceChart').clientHeight));
+  $('priceChart').innerHTML=chartFrame(width,height,low,high,bars.map(b=>b.date.slice(5).split('-').reverse().join('.')),({x,y,bottom})=>{
+    let marks=''; const w=Math.max(.7,Math.min(6,(width-80)/bars.length*.65));const maxV=Math.max(1,...bars.map(b=>b.v));
     bars.forEach((b,i)=>{const c=b.c>=b.o?'#42ce85':'#ee6068';marks+=`<g><title>${escapeHTML(b.date)} · O ${format(b.o,2)} · H ${format(b.h,2)} · L ${format(b.l,2)} · C ${format(b.c,2)} · Vol ${format(b.v,0)}</title><line x1="${x(i)}" y1="${y(b.h)}" x2="${x(i)}" y2="${y(b.l)}" stroke="${c}"/><rect x="${x(i)-w/2}" y="${Math.min(y(b.o),y(b.c))}" width="${w}" height="${Math.max(1,Math.abs(y(b.o)-y(b.c)))}" fill="${c}"/><rect x="${x(i)-w/2}" y="${bottom-b.v/maxV*30}" width="${w}" height="${b.v/maxV*30}" fill="${c}" opacity=".35"/></g>`;});
     for(const [key,color] of Object.entries(colors)){let pen=false;const path=bars.map((b,i)=>{if(!finite(b[key])){pen=false;return '';}const command=pen?'L':'M';pen=true;return `${command}${x(i)},${y(b[key])}`;}).join(' ');marks+=`<path d="${path}" fill="none" stroke="${color}" stroke-width="1.6"/>`;}
     return marks;
@@ -66,7 +70,7 @@ function render(data) {
   const date=new Date(`${data.meta.as_of_date}T12:00:00Z`).toLocaleDateString('de-DE',{day:'numeric',month:'short',year:'numeric'});
   text('dataStatus',`Daten: ${date} · ${data.meta.eod_pinned?'EOD-Version':'bestehender Datenstand'}`);
   text('notice', data.meta.eod_pinned ? 'QQQ-Kurshistorie verfügbar. Die übrigen Marktindikatoren sind noch nicht vollständig auf denselben Handelstag abgestimmt.' : 'QQQ-Kurshistorie noch nicht verfügbar. Die Marktindikatoren sind noch nicht vollständig auf denselben Handelstag abgestimmt.');
-  $('notice').hidden=false;
+  $('notice').hidden=data.meta.session_synchronized === true;
   colored('regimeState',r.state ?? '—',`regime-state ${tone(r.score)}`);
   details('regimeDetails',[['Score',`${format(r.score)} / 100`,tone(r.score)],['Marktbreite',format(r.components?.breadth?.score),tone(r.components?.breadth?.score)],['Momentum',format(r.components?.momentum?.score),tone(r.components?.momentum?.score)]]);
   colored('healthScore',format(h.score),tone(h.score));colored('healthState',h.base_state ?? '—',`badge ${tone(h.score)}`);
@@ -81,10 +85,15 @@ function render(data) {
   rows('narratives',data.narratives,v=>`<tr><td>${escapeHTML(v.name)}</td><td><div class="bar-cell"><div class="bar-track"><i style="width:${Math.max(0,Math.min(100,v.score))}%"></i></div><span>${format(v.score,0)}</span></div></td></tr>`,2);
   rows('leadership',data.leadership,v=>`<tr><td><a href="index.html#screener">${escapeHTML(v.symbol)}</a></td><td>${escapeHTML(v.name)}</td><td><span class="rank">${format(v.score,0)}</span></td></tr>`);
   rows('opportunities',data.opportunities,v=>`<tr><td><a href="index.html#opportunities">${escapeHTML(v.symbol)}</a></td><td>${escapeHTML(v.setup)}</td><td><span class="rank">${format(v.score,0)}</span></td></tr>`);
-  miniChart('breadthChart',n.kma_history?.sma50,n.kma_dates,false,true);
-  miniChart('mcoChart',n.mco_history,n.mco_zscore_dates,true);
-  priceChart(data,'1Y');
-  document.querySelectorAll('[data-range]').forEach(button=>{button.disabled=!data.qqq_chart?.bars?.length;button.addEventListener('click',()=>priceChart(data,button.dataset.range));});
+  let activeRange='1Y', resizeTimer;
+  const drawCharts=()=>{
+    miniChart('breadthChart',n.kma_history?.sma50,n.kma_dates,false,true);
+    miniChart('mcoChart',n.mco_history,n.mco_zscore_dates,true);
+    priceChart(data,activeRange);
+  };
+  drawCharts();
+  document.querySelectorAll('[data-range]').forEach(button=>{button.disabled=!data.qqq_chart?.bars?.length;button.addEventListener('click',()=>{activeRange=button.dataset.range;priceChart(data,activeRange);});});
+  window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(drawCharts,100);});
   text('source',`${data.meta.source} · Markt-Snapshot aktualisiert: ${data.meta.snapshot_updated_at ?? 'unbekannt'}`);
 }
 if(typeof document!=='undefined') {

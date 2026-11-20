@@ -19,7 +19,7 @@ den Export erneut bauen; kein bestehender Refresh-Workflow wird geändert.
 ## Phase-1-Anbindung
 
 ```sh
-python scripts/build_market_overview.py --eod-store /private/yolo-eod
+python scripts/build_market_overview.py --data /private/review-inputs --eod-store /private/yolo-eod --history-dir data/history/daily
 ```
 
 Der Adapter liest `latest.json` einmal und lädt `market.json` sowie
@@ -30,13 +30,24 @@ der Benchmarks stammen dann aus Phase 1. Kerzen, Volumen, EMA10/20 und
 SMA50/200 sind als SVG mit 1M/3M/6M/YTD/1Y-Auswahl und OHLCV-Tooltips
 implementiert. Es werden keine Zugangsdaten benötigt oder übernommen.
 
-Im aktuellen Checkout fehlen QQQ-Kerzen. Der Standardexport markiert daher
-den Chart als nicht verfügbar und deaktiviert die Zeitraumwahl. Er füllt
-keine Kurse auf. IWM/RSP sind ohne Phase-1-Export ebenfalls nicht verfügbar.
+QQQ Health verwendet im EOD-Modus die gemeinsame kanonische Funktion
+`build_qqq_health` aus `build_dashboard_states.py`. Der bisherige State Builder
+verwendet dieselbe Funktion. Gewichte, Formeln und Schwellenwerte sind identisch.
+Kurs und vier Durchschnitte kommen direkt aus der letzten gepinnten QQQ-Kerze;
+ATR14 ist der einfache Mittelwert der letzten 14 True Ranges. ATR%, Rundung und
+ATR-Extension entsprechen der bisherigen `calc_atr_extension`-Definition.
+`--history-dir` bindet die vorherigen Tagesstates für Delta und Hysterese an.
+Es erfolgt kein Rückgriff auf den alten Yahoo-QQQ-Schlusskurs.
+
+Der Review-Export enthält jetzt echte QQQ-Kerzen für den 19.11.2026. Ein
+Neuaufbau ohne `--eod-store` bleibt als Legacy-Vorschau möglich, markiert aber
+fehlende QQQ-Kerzen und deaktiviert die Zeitraumwahl. Der Review-CI-Check
+verlangt dagegen einen vollständigen, konsistenten EOD-Export.
 
 ## Bedeutung und Grenzen
 
-- Market Regime und QQQ Health übernehmen die vorhandenen Backend-Scores.
+- Market Regime übernimmt den vorhandenen Backend-Score. QQQ Health verwendet
+  die vorhandenen Formeln mit der Kursbasis des gepinnten Massive-Charts.
 - Market Breadth zeigt den Anteil über SMA50 im eligible YOLO-Universum;
   fehlende Durchschnitte werden aus dem jeweiligen Nenner ausgeschlossen.
 - Nasdaq-Breadth-Chart, neue Hochs/Tiefs, McClellan und Summation Index
@@ -49,9 +60,31 @@ keine Kurse auf. IWM/RSP sind ohne Phase-1-Export ebenfalls nicht verfügbar.
 - Opportunities übernimmt vorhandene Pullback-/Reset-/Fresh-Leader-Flags,
   lässt Extended-/Laggard-Titel aus und sortiert nach Structural RS. Die
   Spaltenüberschrift benennt diesen Wert; es wird kein Setup-Score erfunden.
-- Der Legacy-Snapshot hat nur einen Erstellungszeitpunkt. Deshalb behauptet
-  die Ansicht auch bei vorhandenem Phase-1-Export keine Synchronität aller
-  Legacy-Indikatoren. Ein sichtbarer Hinweis benennt diese Einschränkung.
+- Der Legacy-Snapshot hat nur einen Erstellungszeitpunkt. Im EOD-Modus prüft
+  der Adapter deshalb zusätzlich die tatsächlichen letzten Datumslabels von
+  Nasdaq-Breadth, McClellan, Summation und Hoch-/Tief-Historie sowie die
+  Übereinstimmung ihrer skalaren Endwerte mit den Historien. Die Legacy-
+  Tages-/Monatslabels werden gegen den vollständigen Score-Handelstag geprüft.
+  Veraltete Kerzen, abweichende Benchmark-Kurse oder verschiedene Datumsstände
+  brechen den Export ab, statt nur das Anzeigedatum umzuschreiben.
+
+## Verifizierter Review-Stand
+
+- Eingangsdaten: öffentlicher Repository-Commit
+  `d99d216500bab9f952e96a1990d4e8ebbe59dc19`, privat heruntergeladen; kein Merge.
+- Phase-1-Version: `2026-11-19-35e8374a51244eadb44d78f7d8f4920a`;
+  460 Sitzungen im privaten Store, 252 QQQ-Kerzen im kompakten Review-Export.
+- Manifest, Chart-Ende, Benchmark, Feature-/Narrative-Daten und QQQ Health:
+  `2026-11-19`. Chart- und Health-Schlusskurs: `645.04 USD`.
+- Der alte auf 19.11. datierte Health-State verwendete `659.51 USD`, den
+  tatsächlichen Schlusskurs vom 18.11. Die Kursbasis ist korrigiert.
+- Der numerische Health-Score bleibt `10.0 / 100` (`RISK OFF`), weil die
+  korrigierten Kursbedingungen dieselben Trend-Punkte ergeben. Unveränderte
+  Score-Zahl bedeutet hier nicht unveränderte Kursbasis.
+- Der volle Store und SQLite-Dateien bleiben außerhalb von Git. Versioniert
+  wird nur der kompakte Frontend-Export, ohne Schlüssel oder Laufzeitdatenbank.
+- Dies ist ein einzelner echter Snapshot-Lauf. Die Abnahme über fünf echte
+  Handelssitzungen steht weiterhin aus; kein Deployment.
 
 ## Checks
 
@@ -60,3 +93,10 @@ python -m unittest discover -s tests -p test_market_overview.py -v
 node --test tests/market_overview.test.mjs
 node --test tests/dashboard_filters.test.mjs
 ```
+
+Die Branch-Action `Validate Dashboard 2.0 Market Overview` führt außerdem
+die bestehenden V1-/V1.1-Score-Tests und die Konsistenzprüfung des tatsächlich
+versionierten Frontend-Exports aus. Sie ruft Massive nicht erneut ab.
+Die SVG-Charts richten ihre Zeichenfläche an der tatsächlichen Kartenbreite
+aus; Achsenbeschriftungen bleiben auch auf Mobilgeräten lesbar. Ein
+Zeitraumwechsel und Größenänderungen zeichnen die gleichen gepinnten Daten neu.

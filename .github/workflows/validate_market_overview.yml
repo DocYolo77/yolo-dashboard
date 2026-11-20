@@ -1,0 +1,36 @@
+name: Validate Dashboard 2.0 Market Overview
+
+on:
+  push:
+    branches: [phase-2/market-overview]
+  pull_request:
+    paths:
+      - 'market-overview.html'
+      - 'assets/market-overview.*'
+      - 'scripts/build_market_overview.py'
+      - 'scripts/build_dashboard_states.py'
+      - 'data/market_overview.json'
+      - 'tests/*market_overview*'
+      - '.github/workflows/validate_market_overview.yml'
+      - 'requirements-eod.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r requirements-eod.txt pytest
+      - run: python -m pytest tests/test_eod_snapshot.py tests/test_market_overview.py tests/test_market_overview_export.py tests/test_dashboard_states.py tests/test_dashboard_states_v1_1.py -q
+      - run: node --test tests/dashboard_filters.test.mjs tests/market_overview.test.mjs

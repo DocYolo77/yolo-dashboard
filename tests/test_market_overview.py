@@ -1,4 +1,5 @@
 import json
+from datetime import date, timedelta
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
@@ -40,20 +41,83 @@ class OverviewTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'matching session'):
             build(self.root)
 
-    def test_pins_eod_revision_and_refuses_mixed_payload_dates(self):
+    def make_store(self):
         store=self.root/'store'
         store.mkdir()
-        manifest={'as_of_date':self.day,'market':'market.json','charts':'charts/'}
+        manifest={'as_of_date':self.day,'version':'test-revision','market':'market.json','charts':'charts/'}
         (store/'latest.json').write_text(json.dumps(manifest))
-        (store/'market.json').write_text(json.dumps({'as_of_date':self.day,'benchmarks':{'QQQ':{'c':123}}}))
+        last={'date':self.day,'o':120,'h':124,'l':119,'c':123,'v':100,'ema10':121,'ema20':120,'sma50':119,'sma200':110}
+        (store/'market.json').write_text(json.dumps({'as_of_date':self.day,'benchmarks':{'QQQ':last}}))
         (store/'charts').mkdir()
-        chart={'as_of_date':self.day,'bars':[{'date':self.day,'o':120,'h':124,'l':119,'c':123,'v':100}]}
+        chart={'as_of_date':self.day,'symbol':'QQQ','bars':[
+            {**last,'date':(date.fromisoformat(self.day)-timedelta(days=14-i)).isoformat()} for i in range(15)]}
         (store/'charts/QQQ.json').write_text(json.dumps(chart))
-        self.assertEqual(build(self.root,store)['qqq_chart'],chart)
+        self.set_breadth()
+        return store,chart
+
+    def test_pins_eod_revision_and_refuses_mixed_payload_dates(self):
+        store,chart=self.make_store()
+        result=build(self.root,store)
+        self.assertEqual(result['qqq_chart'],chart)
+        self.assertEqual(result['health']['price_structure']['close'],123)
+        self.assertEqual(result['health']['components']['trend'],100)
+        self.assertEqual(result['health']['price_structure']['atr14'],5)
+        self.assertEqual(result['health']['as_of_date'],self.day)
+        self.assertNotEqual(result['health']['score'],10.1)
         chart['as_of_date']='2026-11-17'
         (store/'charts/QQQ.json').write_text(json.dumps(chart))
         with self.assertRaisesRegex(ValueError,'payload date'):
             build(self.root,store)
+
+    def test_refuses_stale_actual_candle_even_if_metadata_claims_today(self):
+        store,chart=self.make_store()
+        chart['bars'][-1]['date']='2026-11-17'
+        (store/'charts/QQQ.json').write_text(json.dumps(chart))
+        with self.assertRaisesRegex(ValueError,'last candle/session'):
+            build(self.root,store)
+
+    def test_refuses_stale_breadth_and_inconsistent_scalar(self):
+        store,_=self.make_store()
+        b=self.payloads['snapshot']['qqq_breadth']
+        b['hl_dates'][-1]='17.11.'
+        self.write()
+        with self.assertRaisesRegex(ValueError,'score session'):
+            build(self.root,store)
+        b['hl_dates'][-1]='18.11.'
+        b['hl_osc']=5
+        self.write()
+        with self.assertRaisesRegex(ValueError,'history endpoint'):
+            build(self.root,store)
+
+    def test_refuses_conflicting_benchmark_and_chart_prices(self):
+        store,_=self.make_store()
+        market=json.loads((store/'market.json').read_text())
+        market['benchmarks']['QQQ']['c']=100
+        (store/'market.json').write_text(json.dumps(market))
+        with self.assertRaisesRegex(ValueError,'benchmark/chart disagree'):
+            build(self.root,store)
+
+    def test_previous_state_is_used_for_score_delta(self):
+        store,_=self.make_store()
+        history=self.root/'history/daily'
+        history.mkdir(parents=True)
+        (history/'2026-11-17.json').write_text(json.dumps({'qqq_health':{'score':40,'extended':False}}))
+        (history/'2026-11-19.json').write_text(json.dumps({'qqq_health':{'score':99,'extended':True}}))
+        health=build(self.root,store)['health']
+        self.assertEqual(health['prev_score'],40)
+        self.assertEqual(health['score_delta'],round(health['score']-40,1))
+
+    def set_breadth(self):
+        b=self.payloads['snapshot']['qqq_breadth']
+        labels=['18.11.']*20
+        for key in ('mco_zscore_dates','summation_zscore_dates','hl_dates','kma_dates'):
+            b[key]=labels.copy()
+        for history,scalar in [('mco_history','mco'),('mco_zscore_history','mco_zscore'),('summation_zscore_history','summation_zscore'),('summation_zscore_sma10_history','summation_zscore_sma10'),('hl_history','hl_osc')]:
+            b[history]=[0]*20;b[scalar]=0
+        b['kma_history']={k:[50]*20 for k in ('ema10','ema21','sma50','sma200')}
+        b['kma_now']={k:50 for k in b['kma_history']}
+        b['n_components']=100
+        self.write()
 
     def test_missing_opportunity_score_does_not_become_zero(self):
         self.payloads['dashboard_state']['opportunities']['items']=[{'symbol':'A','ema20_pullback':True,'structural_rs':None}]
