@@ -743,6 +743,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "TSM": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "TSMC is the world's largest dedicated semiconductor foundry, manufacturing chips for fabless semiconductor companies - core semiconductor manufacturing business.",
+          "added_at": "2026-11-21",
+          "last_reviewed_at": "2026-11-21",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -1965,7 +1976,7 @@
           "reason": "Cloud-based property management software solutions provider for real estate industry, a clear vertical SaaS company.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2196,7 +2207,7 @@
           "reason": "Provides accounting, tax, and financial SaaS software products like QuickBooks and TurboTax.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2449,7 +2460,7 @@
           "reason": "Workiva provides a cloud-based SaaS platform for finance, risk, and compliance reporting workflows.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2636,7 +2647,7 @@
           "reason": "PagerDuty operates a SaaS digital operations management platform (incident management, AIOps) sold on subscription basis, fitting Software/SaaS narrative.",
           "added_at": "2026-09-08",
           "last_reviewed_at": "2026-09-08",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -3404,7 +3415,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": false
+          "active_eligible": true
         },
         "PYPL": {
           "role": "core",
@@ -3864,6 +3875,17 @@
           "reason": "DLocal is a cross-border payment processing platform for emerging markets, fitting fintech/payments narrative.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GPN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "Global Payments is a leading payment processing and software solutions provider, core fintech/payments infrastructure business serving merchants globally.",
+          "added_at": "2026-11-21",
+          "last_reviewed_at": "2026-11-21",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -5752,7 +5774,7 @@
           "reason": "ATS Corp designs and builds automated manufacturing systems and automation products across multiple industries.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6243,7 +6265,7 @@
           "reason": "Lennox manufactures and distributes HVAC and refrigeration products for residential and commercial markets - direct match.",
           "added_at": "2026-11-19",
           "last_reviewed_at": "2026-11-19",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6275,7 +6297,7 @@
           "reason": "LKQ distributes replacement parts and aftermarket accessories for vehicles, aligning with auto parts retail/distribution economics.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -6941,7 +6963,7 @@
           "reason": "Dorman supplies automotive/heavy-duty replacement parts primarily to the aftermarket - fits automotive_parts_components_supplier well, though sold through distribution rather than direct OEM; still closest match given no dedicated aftermarket parts manufacturer category.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7130,6 +7152,28 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "CAT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Caterpillar manufactures construction and mining equipment, engines, and industrial machinery, matching the industrial/specialty vehicle machinery and general industrial machinery narratives; chosen for broadest coverage of heavy equipment manufacturing.",
+          "added_at": "2026-11-21",
+          "last_reviewed_at": "2026-11-21",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "OSK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Oshkosh manufactures specialty vehicles, access equipment and military trucks serving diverse industrial/government end markets, directly fitting the specialty vehicle machinery narrative.",
+          "added_at": "2026-11-21",
+          "last_reviewed_at": "2026-11-21",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -7214,7 +7258,7 @@
           "reason": "Azul operates passenger and cargo airline services, including charter and maintenance operations, squarely fitting the Airlines narrative.",
           "added_at": "2026-09-10",
           "last_reviewed_at": "2026-09-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7225,7 +7269,7 @@
           "reason": "United Airlines is a major scheduled passenger airline operating hub-and-spoke network - direct match to airlines narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8188,7 +8232,7 @@
           "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8286,7 +8330,7 @@
           "reason": "Kadant supplies process and engineering equipment (flow control, industrial processing, material handling) for papermaking, recycling and lumber manufacturing - core industrial machinery manufacturer for process industries.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8720,7 +8764,7 @@
           "reason": "Moelis is an independent investment bank providing strategic and financial advisory services, matching this narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8928,7 +8972,7 @@
           "reason": "Academy Sports and Outdoors is a full-line sporting goods and outdoor recreation retailer selling apparel, footwear, and sports equipment through omnichannel stores - closely matches the Apparel Retail narrative definition of omnichannel branded apparel/accessories retailers, though it's more broadly sporting goods focused.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9005,6 +9049,17 @@
           "reason": "Deckers designs and sells footwear and apparel brands (Ugg, Hoka) through wholesale and direct channels, fitting apparel/footwear retail and brand model.",
           "added_at": "2026-11-20",
           "last_reviewed_at": "2026-11-20",
+          "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GAP": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "Gap Inc. retails apparel, accessories, and footwear under multiple branded store concepts through omnichannel retail, a direct match to apparel retail narrative.",
+          "added_at": "2026-11-21",
+          "last_reviewed_at": "2026-11-21",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -9551,7 +9606,7 @@
           "reason": "TFI International provides LTL, truckload and logistics transportation services across North America, matching the trucking/freight logistics narrative directly.",
           "added_at": "2026-11-17",
           "last_reviewed_at": "2026-11-17",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -9780,6 +9835,17 @@
           "reason": "MillerKnoll designs and sells furniture (office and retail) through owned and other channels, fitting home furnishings retail/furniture manufacturing narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "WSM": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Williams-Sonoma is an omnichannel retailer of home furnishings and kitchenware brands - direct fit for home furnishings retail narrative.",
+          "added_at": "2026-11-21",
+          "last_reviewed_at": "2026-11-21",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -10478,7 +10544,7 @@
           "reason": "Louisiana-Pacific produces oriented strand board and engineered wood siding for residential construction and remodeling, fitting the building products manufacturing narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -10632,6 +10698,17 @@
           "reason": "Titan America is a vertically integrated manufacturer and supplier of heavy building materials (cement, aggregates, concrete) across US regional markets, matching the building products/materials distribution narrative closely.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "TILE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "Interface designs and manufactures carpet tiles, luxury vinyl tile, and rubber flooring for commercial/institutional building markets. This is a manufacturer of flooring building products sold into construction and renovation markets, closely matching the Building Products/Materials Distribution narrative (manufacturing + distribution of construction materials), even though the catalog's definition emphasizes engineered wood/lumber - the economic model (branded building material manufacturer serving commercial construction/renovation end markets) is analogous.",
+          "added_at": "2026-11-21",
+          "last_reviewed_at": "2026-11-21",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11394,7 +11471,7 @@
           "reason": "Wendy's is a quick-service restaurant franchisor/operator; while technically QSR rather than fast-casual, it is the closest existing restaurant category in the catalog given no dedicated QSR/quick-service narrative exists.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -11777,7 +11854,7 @@
           "reason": "CEMIG is a Brazilian utility engaged in generation, transmission, distribution of electricity and gas, matching utilities narrative directly.",
           "added_at": "2026-11-07",
           "last_reviewed_at": "2026-11-07",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11886,7 +11963,7 @@
           "reason": "Uniti owns and operates a large fiber network selling high-capacity circuits and broadband/fiber services to enterprise and residential customers.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -12060,7 +12137,7 @@
           "reason": "Factory-built housing company producing manufactured and modular homes for residential markets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12180,7 +12257,7 @@
           "reason": "Super Group operates online sports betting and casino gaming brands (Betway, Spin, etc.), directly matching online gaming/sports betting narrative.",
           "added_at": "2026-11-20",
           "last_reviewed_at": "2026-11-20",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -12970,7 +13047,7 @@
           "reason": "Southern Copper mines, smelts and refines copper and other base metals, directly matching this narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13262,7 +13339,7 @@
           "reason": "FirstCash operates pawn stores generating revenue from pawn loans and resale of forfeited merchandise - direct match to pawn_lending_secondhand_retail definition.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13402,7 +13479,7 @@
           "reason": "SharkNinja designs and sells branded small household appliances (vacuums, cooking, food prep, beauty devices), fitting well with the household appliances manufacturing narrative despite being smaller/consumer appliances rather than major appliances.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13841,7 +13918,7 @@
           "reason": "Matador Resources is an independent E&P company focused on oil and natural gas shale plays in the US.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13918,7 +13995,7 @@
           "reason": "Vermilion Energy is an international oil and gas E&P company focused on acquisition, exploration and development of oil and gas assets across Canada and Europe.",
           "added_at": "2026-11-05",
           "last_reviewed_at": "2026-11-05",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14133,7 +14210,7 @@
           "reason": "Major credit bureau providing consumer credit information, analytics, and fraud detection services to financial institutions - direct fit with credit scoring/analytics category.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14197,7 +14274,7 @@
           "reason": "Frontdoor provides home warranty service plans, a distinct consumer subscription services model not matching healthcare or other categories.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -14294,6 +14371,17 @@
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CALY": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Callaway designs and manufactures golf clubs, balls, and apparel under multiple branded lines, directly matching the golf equipment and apparel manufacturing narrative.",
+          "added_at": "2026-11-21",
+          "last_reviewed_at": "2026-11-21",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -15454,7 +15542,7 @@
           "reason": "Interactive Brokers is a large automated retail and institutional brokerage providing electronic trading services - direct, strong match to Online Brokerage / Trading Platform narrative.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
