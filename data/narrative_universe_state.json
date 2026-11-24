@@ -1,27 +1,32 @@
 {
-  "as_of_date": "2026-11-21",
-  "eligible_count": 904,
-  "classified_eligible_count": 818,
-  "coverage_pct": 90.5,
+  "as_of_date": "2026-11-24",
+  "eligible_count": 911,
+  "classified_eligible_count": 827,
+  "coverage_pct": 90.8,
   "entered": [
+    "APTV",
+    "AS",
     "ATHM",
     "BRSL",
     "BZ",
     "CACC",
-    "CALY",
     "CARG",
-    "CAT",
     "CBRL",
+    "CCEC",
     "CHA",
     "CLBT",
     "CLVT",
+    "CRC",
     "CRCT",
     "CRSR",
     "CSW",
+    "CTS",
+    "CWEN",
     "CXT",
     "DAR",
     "DASH",
     "DBD",
+    "DFIN",
     "DKS",
     "DLX",
     "DOX",
@@ -32,24 +37,25 @@
     "ENS",
     "EPAC",
     "ETN",
-    "FG",
     "FIS",
     "FIVE",
+    "FLS",
     "FRHC",
     "FSS",
-    "GAP",
     "GBX",
-    "GGB",
+    "GEL",
+    "GFF",
     "GIL",
     "GLBE",
+    "GLP",
     "GLXY",
     "GOLD",
     "GPGI",
-    "GPN",
     "GSHD",
     "HAPN",
     "HLMN",
     "IEP",
+    "JHX",
     "KC",
     "LAUR",
     "LQDT",
@@ -68,9 +74,7 @@
     "NVT",
     "ONON",
     "OPRA",
-    "OSK",
     "P",
-    "PAM",
     "PATK",
     "PLBL",
     "PLPC",
@@ -79,80 +83,61 @@
     "RAL",
     "RHI",
     "RHLD",
+    "RLX",
     "SARO",
     "SGI",
     "SIG",
     "SLVM",
-    "SNPS",
     "SONO",
     "SPB",
     "STC",
     "STGW",
     "STLD",
-    "TILE",
     "TNET",
-    "TSM",
     "TTWO",
     "USLM",
     "VVV",
     "WMS",
-    "WSM",
-    "YETI"
+    "YETI",
+    "ZBRA"
   ],
   "reentered": [
-    "ASO",
-    "ATS",
-    "CHWY",
-    "CIG.C",
-    "DORM",
-    "FTDR",
-    "IBKR",
-    "INTU",
-    "KAI",
-    "LII",
-    "LPX",
-    "MC",
-    "PD",
-    "SCCO",
-    "SKY",
-    "SN",
-    "TFII",
-    "TRU",
-    "UAL",
-    "WK",
-    "XYZ"
+    "BFH",
+    "EL",
+    "TPG"
   ],
   "exited": [
-    "APPF",
-    "AZUL",
-    "DECK",
-    "FCFS",
-    "LKQ",
-    "MTDR",
-    "SGHC",
-    "UNIT",
-    "VET",
-    "WEN"
+    "AMG",
+    "ASO",
+    "DORM",
+    "SLSR",
+    "TRMD",
+    "TRU"
   ],
   "newly_classified": [
+    "APTV",
+    "AS",
     "ATHM",
     "BRSL",
     "BZ",
     "CACC",
-    "CALY",
     "CARG",
-    "CAT",
     "CBRL",
+    "CCEC",
     "CHA",
     "CLBT",
     "CLVT",
+    "CRC",
     "CRCT",
     "CRSR",
     "CSW",
+    "CTS",
+    "CWEN",
     "CXT",
     "DAR",
     "DASH",
     "DBD",
+    "DFIN",
     "DKS",
     "DLX",
     "DOX",
@@ -163,24 +148,25 @@
     "ENS",
     "EPAC",
     "ETN",
-    "FG",
     "FIS",
     "FIVE",
+    "FLS",
     "FRHC",
     "FSS",
-    "GAP",
     "GBX",
-    "GGB",
+    "GEL",
+    "GFF",
     "GIL",
     "GLBE",
+    "GLP",
     "GLXY",
     "GOLD",
     "GPGI",
-    "GPN",
     "GSHD",
     "HAPN",
     "HLMN",
     "IEP",
+    "JHX",
     "KC",
     "LAUR",
     "LQDT",
@@ -199,9 +185,7 @@
     "NVT",
     "ONON",
     "OPRA",
-    "OSK",
     "P",
-    "PAM",
     "PATK",
     "PLBL",
     "PLPC",
@@ -210,28 +194,30 @@
     "RAL",
     "RHI",
     "RHLD",
+    "RLX",
     "SARO",
     "SGI",
     "SIG",
     "SLVM",
-    "SNPS",
     "SONO",
     "SPB",
     "STC",
     "STGW",
     "STLD",
-    "TILE",
     "TNET",
-    "TSM",
     "TTWO",
     "USLM",
     "VVV",
     "WMS",
-    "WSM",
-    "YETI"
+    "YETI",
+    "ZBRA"
   ],
   "new_narratives_created": [],
   "unresolved_after_retries": [
+    {
+      "ticker": "AS",
+      "reason": "low_confidence_primary"
+    },
     {
       "ticker": "ATHM",
       "reason": "low_confidence_primary"
@@ -254,6 +240,10 @@
     },
     {
       "ticker": "CBRL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CCEC",
       "reason": "low_confidence_primary"
     },
     {
@@ -297,6 +287,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "DFIN",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "DKS",
       "reason": "low_confidence_primary"
     },
@@ -337,15 +331,15 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "FG",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "FIS",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "FIVE",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "FLS",
       "reason": "low_confidence_primary"
     },
     {
@@ -361,7 +355,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "GGB",
+      "ticker": "GEL",
       "reason": "low_confidence_primary"
     },
     {
@@ -369,7 +363,7 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "GLBE",
+      "ticker": "GLP",
       "reason": "low_confidence_primary"
     },
     {
@@ -382,10 +376,6 @@
     },
     {
       "ticker": "GPGI",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "GSHD",
       "reason": "low_confidence_primary"
     },
     {
@@ -465,19 +455,11 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "ONON",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "OPRA",
       "reason": "low_confidence_primary"
     },
     {
       "ticker": "P",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "PAM",
       "reason": "low_confidence_primary"
     },
     {
@@ -513,10 +495,6 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "SARO",
-      "reason": "low_confidence_primary"
-    },
-    {
       "ticker": "SGI",
       "reason": "low_confidence_primary"
     },
@@ -526,10 +504,6 @@
     },
     {
       "ticker": "SLVM",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "SNPS",
       "reason": "low_confidence_primary"
     },
     {
@@ -569,21 +543,22 @@
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "WMS",
+      "ticker": "YETI",
       "reason": "low_confidence_primary"
     },
     {
-      "ticker": "YETI",
+      "ticker": "ZBRA",
       "reason": "low_confidence_primary"
     }
   ],
   "classification_errors": [
-    "Retry-Runde 1 Batch (HLMN..STLD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (ATHM..HAPN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Retry-Runde 1 Batch (AS..GOLD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (AS..GOLD): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (GPGI..TTWO): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 683,
-  "eligible_without_active_narrative": 221,
-  "active_narrative_coverage_pct": 75.6,
-  "active_narrative_count": 56,
-  "undersized_narrative_count": 99
+  "eligible_with_active_narrative": 695,
+  "eligible_without_active_narrative": 216,
+  "active_narrative_coverage_pct": 76.3,
+  "active_narrative_count": 57,
+  "undersized_narrative_count": 98
 }

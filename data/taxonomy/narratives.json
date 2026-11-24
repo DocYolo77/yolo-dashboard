@@ -6963,7 +6963,7 @@
           "reason": "Dorman supplies automotive/heavy-duty replacement parts primarily to the aftermarket - fits automotive_parts_components_supplier well, though sold through distribution rather than direct OEM; still closest match given no dedicated aftermarket parts manufacturer category.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7029,6 +7029,17 @@
           "reason": "Visteon manufactures electronics components (displays, instrument clusters, infotainment) supplied to OEM automakers, matching the automotive parts/components supplier narrative.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "APTV": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Aptiv manufactures electrical/electronic components and systems (sensors, connectivity) supplied to automotive OEMs, fitting the parts/components supplier narrative.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -8290,6 +8301,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "GLBE": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "Global-E provides a cross-border e-commerce enablement platform for merchants, closely aligned with e-commerce platform businesses.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8972,7 +8994,7 @@
           "reason": "Academy Sports and Outdoors is a full-line sporting goods and outdoor recreation retailer selling apparel, footwear, and sports equipment through omnichannel stores - closely matches the Apparel Retail narrative definition of omnichannel branded apparel/accessories retailers, though it's more broadly sporting goods focused.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9060,6 +9082,17 @@
           "reason": "Gap Inc. retails apparel, accessories, and footwear under multiple branded store concepts through omnichannel retail, a direct match to apparel retail narrative.",
           "added_at": "2026-11-21",
           "last_reviewed_at": "2026-11-21",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ONON": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "On Holding designs and sells athletic footwear and apparel globally, fitting apparel/footwear branded products narrative.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -9693,7 +9726,7 @@
           "reason": "TPG is a large alternative asset management firm investing across private equity, credit, real estate and other alternative strategies, directly matching the alternative asset management narrative.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9759,7 +9792,7 @@
           "reason": "AMG takes majority stakes in boutique asset managers and earns a share of their revenue, a multi-affiliate alternative/traditional asset management model.",
           "added_at": "2026-11-20",
           "last_reviewed_at": "2026-11-20",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10468,7 +10501,7 @@
           "reason": "Bread Financial provides private-label and co-branded credit cards and consumer financing, partnering with retailers - classic consumer credit institution similar to banking/financial services rather than pure fintech software.",
           "added_at": "2026-11-18",
           "last_reviewed_at": "2026-11-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -10712,6 +10745,39 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "GFF": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 82,
+          "reason": "Griffon manufactures garage doors and rolling steel doors for residential/commercial building markets, fitting the building products manufacturing narrative.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "JHX": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "James Hardie manufactures fiber cement building products (siding) for residential construction, a core building products manufacturer.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "WMS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Advanced Drainage Systems manufactures water management/drainage pipe products (stormwater and septic/wastewater solutions) made from engineered plastics for construction and agriculture end markets. While SIC code is Plastics Foam Products, the economic business model (manufacturer of engineered building/construction materials serving residential/commercial/infrastructure construction) aligns well with the Building Products/Materials Distribution narrative, which already covers engineered wood/lumber/construction materials manufacturers. This is a reasonably strong fit given shared end markets (construction) and manufacturing-for-construction business model, raising confidence from prior attempt.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -10949,6 +11015,17 @@
           "reason": "Belden supplies network infrastructure, connectivity and automation solutions - broadly fits electronic components/connectivity manufacturing serving data centers, industrial and broadband markets.",
           "added_at": "2026-11-05",
           "last_reviewed_at": "2026-11-05",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "CTS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 80,
+          "reason": "CTS Corp designs and manufactures sensors, electronic components, and actuators for OEMs across aerospace, defense, industrial and automotive markets, directly matching this narrative.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -11868,6 +11945,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "CWEN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Clearway Energy owns and operates contracted clean energy generation assets (renewables, storage, flexible generation), fitting power generation/utilities narrative with clean energy focus.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -12322,6 +12410,17 @@
           "reason": "EverQuote operates an online insurance marketplace connecting consumers with insurance providers using data/technology, matching the digital insurance distribution narrative.",
           "added_at": "2026-11-20",
           "last_reviewed_at": "2026-11-20",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "GSHD": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Goosehead is a personal lines insurance agency leveraging technology-enabled distribution model, fitting insurtech distribution narrative.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -13025,7 +13124,7 @@
           "reason": "Solaris Resources is engaged in exploration and development of copper properties (Warintza, La Verde, Tamarugo), fitting directly into the copper/base metals mining narrative.",
           "added_at": "2026-08-15",
           "last_reviewed_at": "2026-08-15",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13234,6 +13333,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SARO": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 82,
+          "reason": "StandardAero provides MRO services for aircraft engines across commercial, military, and business jet platforms under OEM licenses, closely matching the engine parts/servicing economic model.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -13307,7 +13417,7 @@
           "reason": "Estee Lauder is a global manufacturer and marketer of prestige skincare, makeup, fragrance and haircare brands.",
           "added_at": "2026-11-06",
           "last_reviewed_at": "2026-11-06",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -14086,6 +14196,17 @@
           "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "CRC": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 90,
+          "reason": "California Resources is an independent E&P company operating oil and gas fields in California, directly matching this narrative.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -14210,7 +14331,7 @@
           "reason": "Major credit bureau providing consumer credit information, analytics, and fraud detection services to financial institutions - direct fit with credit scoring/analytics category.",
           "added_at": "2026-08-19",
           "last_reviewed_at": "2026-08-19",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14690,6 +14811,17 @@
           "added_at": "2026-08-28",
           "last_reviewed_at": "2026-08-28",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "RLX": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 75,
+          "reason": "RLX manufactures e-vapor products for adult smokers with distribution/retail model in China, fitting alternative nicotine products narrative.",
+          "added_at": "2026-11-24",
+          "last_reviewed_at": "2026-11-24",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -15191,7 +15323,7 @@
           "reason": "TORM operates product tankers transporting refined oil products (gasoline, jet fuel, naphtha, diesel) rather than crude oil, but the business model (tanker shipping of petroleum products) is closely analogous to crude oil tanker shipping.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
