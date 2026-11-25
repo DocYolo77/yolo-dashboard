@@ -2020,7 +2020,7 @@
           "reason": "Blackbaud provides software solutions (SaaS) for nonprofits and social good organizations.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -2680,7 +2680,7 @@
           "reason": "Nutanix provides cloud software and hybrid multicloud infrastructure management platform, a core enterprise software/SaaS business.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6254,7 +6254,7 @@
           "reason": "Watsco is the largest HVAC and refrigeration products distributor in North America - fits HVAC/climate control equipment category despite being a distributor rather than manufacturer.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -6559,7 +6559,7 @@
           "reason": "Albertsons is a major food and drug retailer operating supermarket chains across the US.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7280,7 +7280,7 @@
           "reason": "United Airlines is a major scheduled passenger airline operating hub-and-spoke network - direct match to airlines narrative.",
           "added_at": "2026-10-21",
           "last_reviewed_at": "2026-10-21",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -7675,7 +7675,7 @@
           "reason": "Baker Hughes provides oilfield services and equipment as one of the 'Big Three' oilfield services players, core to this narrative.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -8243,7 +8243,7 @@
           "reason": "Chewy is a leading e-commerce retailer of pet products with a strong subscription-based autoship model, fitting e-commerce platform narrative well.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8829,7 +8829,7 @@
           "reason": "Birkenstock designs, manufactures and sells footwear/apparel-adjacent branded products to consumers, matching the apparel retail/branded consumer goods narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -8994,7 +8994,7 @@
           "reason": "Academy Sports and Outdoors is a full-line sporting goods and outdoor recreation retailer selling apparel, footwear, and sports equipment through omnichannel stores - closely matches the Apparel Retail narrative definition of omnichannel branded apparel/accessories retailers, though it's more broadly sporting goods focused.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9093,6 +9093,28 @@
           "reason": "On Holding designs and sells athletic footwear and apparel globally, fitting apparel/footwear branded products narrative.",
           "added_at": "2026-11-24",
           "last_reviewed_at": "2026-11-24",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "AS": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Amer Sports designs, markets and sells branded outdoor/action sports apparel, footwear and equipment (e.g., Arc'teryx, Salomon, Wilson) through wholesale and DTC channels, similar to a branded apparel/sporting goods company.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "URBN": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 85,
+          "reason": "Urban Outfitters is a multibrand apparel and home goods retailer operating stores and e-commerce under several nameplates - clear fit for apparel retail.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -9562,7 +9584,7 @@
           "reason": "C.H. Robinson is a non-asset-based third-party logistics provider focused on freight brokerage across truck, rail, air and ocean modes.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -9781,7 +9803,7 @@
           "reason": "Patria Investments is an alternative asset management firm focused on Latin America, fitting the alternative asset management narrative directly.",
           "added_at": "2026-11-19",
           "last_reviewed_at": "2026-11-19",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -9792,7 +9814,7 @@
           "reason": "AMG takes majority stakes in boutique asset managers and earns a share of their revenue, a multi-affiliate alternative/traditional asset management model.",
           "added_at": "2026-11-20",
           "last_reviewed_at": "2026-11-20",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -10753,7 +10775,7 @@
           "reason": "Griffon manufactures garage doors and rolling steel doors for residential/commercial building markets, fitting the building products manufacturing narrative.",
           "added_at": "2026-11-24",
           "last_reviewed_at": "2026-11-24",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -11026,7 +11048,7 @@
           "reason": "CTS Corp designs and manufactures sensors, electronic components, and actuators for OEMs across aerospace, defense, industrial and automotive markets, directly matching this narrative.",
           "added_at": "2026-11-24",
           "last_reviewed_at": "2026-11-24",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13016,7 +13038,7 @@
           "reason": "Burlington is a classic off-price retailer selling discounted first-quality apparel and home goods.",
           "added_at": "2026-09-22",
           "last_reviewed_at": "2026-09-22",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13546,7 +13568,7 @@
           "reason": "UniFirst provides uniform rental, cleaning, and workplace supply services directly matching this narrative.",
           "added_at": "2026-11-14",
           "last_reviewed_at": "2026-11-14",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
@@ -13952,7 +13974,7 @@
           "reason": "Operates new/used vehicle dealerships and collision centers with financing and insurance products, matching the auto dealership group narrative exactly.",
           "added_at": "2026-10-27",
           "last_reviewed_at": "2026-10-27",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14491,7 +14513,7 @@
           "reason": "Acushnet designs/manufactures golf products across balls, clubs, shoes and apparel, a distinct sporting goods niche not matching general apparel retail.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -15844,6 +15866,185 @@
           "added_at": "2026-11-12",
           "last_reviewed_at": "2026-11-12",
           "active_eligible": false,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "steel_production_metals_recycling",
+      "name": "Steel Production / Metals Recycling",
+      "status": "emerging",
+      "classification_hint": "Companies that produce steel (flat-rolled, plate, bar, structural, fabricated) via mini-mill or integrated processes and recycle scrap metal as a key feedstock, selling to construction, automotive, and industrial end markets.",
+      "created_at": "2026-11-25",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "STLD": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Steel Dynamics is a domestic steel producer and metal recycler, producing hot rolled, cold rolled, and painted sheet steel products, and operates metals recycling and steel fabrication segments - this is a direct, unambiguous match to the Steel Production / Metals Recycling narrative definition.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "industrial_bearings_motion_technology",
+      "name": "Industrial Bearings / Motion Technology",
+      "status": "emerging",
+      "classification_hint": "Manufacturers of engineered bearings (ball, roller, tapered, plain), power transmission components, and related motion/lubrication systems sold to industrial, agricultural, automotive, and off-highway end markets.",
+      "created_at": "2026-11-25",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "TKR": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 93,
+          "reason": "Timken designs and manufactures engineered bearings (ball, tapered roller, plain, housed bearings) and industrial motion products including power transmission and lubrication systems, serving industrial and agricultural end markets - this is a precise match to the Industrial Bearings / Motion Technology narrative.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "professional_employer_organization_peo_hr_outsourcing",
+      "name": "Professional Employer Organization (PEO) / HR Outsourcing",
+      "status": "emerging",
+      "classification_hint": "Companies that act as a co-employer for small and medium-sized businesses, bundling payroll administration, employee benefits, workers' compensation/risk mitigation, and HR compliance services into an outsourced technology-enabled platform, earning fees per employee.",
+      "created_at": "2026-11-25",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "TNET": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 94,
+          "reason": "TriNet explicitly operates as a PEO providing co-employment HR solutions to small and medium businesses, bundling payroll, benefits, workers' comp/risk mitigation, and compliance - this matches the PEO/HR Outsourcing narrative definition almost verbatim.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "NSP": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "Insperity provides PEO co-employment HR outsourcing services (payroll, benefits, workforce optimization) to small/midsize businesses, matching this narrative's definition closely.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "video_game_publishing",
+      "name": "Video Game Publishing",
+      "status": "emerging",
+      "classification_hint": "Companies that develop and publish interactive entertainment software (console, PC, and mobile video games) under owned franchises and labels, generating revenue from game sales, digital downloads, in-game purchases, and licensing.",
+      "created_at": "2026-11-25",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "TTWO": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 96,
+          "reason": "Take-Two is a major global video game developer and publisher (Rockstar, 2K, Zynga labels) with flagship franchises like Grand Theft Auto and NBA 2K, generating revenue from game sales and digital/in-game purchases - a direct match to Video Game Publishing.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "lime_limestone_production",
+      "name": "Lime / Limestone Production",
+      "status": "emerging",
+      "classification_hint": "Companies engaged in quarrying limestone and manufacturing lime-based products (quicklime, hydrated lime, lime slurry, pulverized limestone) sold to construction, industrial (steel, paper, glass), environmental/utility, and agricultural end markets.",
+      "created_at": "2026-11-25",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "USLM": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 96,
+          "reason": "United States Lime & Minerals manufactures lime and limestone products (quicklime, hydrated lime, lime slurry, PLS) supplying construction, industrial (paper, glass), and other end markets - an exact match to the Lime / Limestone Production narrative.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "quick_lube_automotive_preventive_maintenance_services",
+      "name": "Quick-Lube / Automotive Preventive Maintenance Services",
+      "status": "emerging",
+      "classification_hint": "Companies operating retail service center networks providing fast, stay-in-your-car preventive vehicle maintenance such as oil changes, fluid top-offs, and minor part replacements (batteries, wipers, bulbs) directly to consumers.",
+      "created_at": "2026-11-25",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "VVV": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "Valvoline operates retail stores providing approximately 15-minute stay-in-your-car oil changes and related preventive maintenance services (batteries, wipers, tire rotations) - this is a precise, direct match to the Quick-Lube / Automotive Preventive Maintenance Services narrative.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "outdoor_recreation_products_manufacturing",
+      "name": "Outdoor Recreation Products Manufacturing",
+      "status": "emerging",
+      "classification_hint": "Companies that design, manufacture and market premium branded outdoor and recreation products such as coolers, drinkware, and related accessories sold through retail and direct-to-consumer channels.",
+      "created_at": "2026-11-25",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "YETI": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 95,
+          "reason": "YETI designs, markets and distributes premium branded outdoor/recreation products including coolers, drinkware and accessories sold through retail and direct-to-consumer channels - an exact match to the Outdoor Recreation Products Manufacturing narrative.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        }
+      }
+    },
+    {
+      "id": "automatic_identification_data_capture_aidc_technology",
+      "name": "Automatic Identification & Data Capture (AIDC) Technology",
+      "status": "emerging",
+      "classification_hint": "Companies that design and manufacture barcode printers, scanners, mobile computers, RFID readers, and related workflow optimization software/hardware used by enterprises to track assets and automate data capture across retail, logistics, manufacturing, and healthcare operations.",
+      "created_at": "2026-11-25",
+      "created_reason": "Full-Universe classification (daily_reconciliation)",
+      "tickers": {
+        "ZBRA": {
+          "role": "core",
+          "assignment_priority": "primary",
+          "confidence": 96,
+          "reason": "Zebra Technologies is explicitly described as the largest provider of automatic identification and data capture (AIDC) technology, including barcode printers/scanners, mobile computers, and workflow optimization software for retail, logistics, manufacturing and healthcare - a verbatim match to the AIDC Technology narrative.",
+          "added_at": "2026-11-25",
+          "last_reviewed_at": "2026-11-25",
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
