@@ -377,7 +377,7 @@
           "reason": "Fabless semiconductor company providing ultra-low power SoC solutions using patented SPOT platform.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -707,7 +707,7 @@
           "reason": "Ichor designs and manufactures fluid delivery subsystems primarily for semiconductor capital equipment, positioning it as a key supplier within the semiconductor equipment supply chain.",
           "added_at": "2026-08-13",
           "last_reviewed_at": "2026-08-13",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -805,7 +805,7 @@
           "classification_source": "manual_migration",
           "classification_version": 1,
           "assignment_priority": "primary",
-          "active_eligible": true
+          "active_eligible": false
         },
         "ONTO": {
           "role": "core",
@@ -1281,7 +1281,7 @@
           "reason": "Develops and owns data centers and energy infrastructure for high-performance computing and AI workloads.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6002,7 +6002,7 @@
           "reason": "Exploration and development company focused on gold/copper mineral projects in Colombia, fitting precious metals mining/exploration narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -6013,7 +6013,7 @@
           "reason": "Elemental Royalty Corp is a gold-focused royalty and exploration company, fitting the gold/precious metals miners narrative given its royalty generation on gold assets.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -7051,7 +7051,7 @@
           "reason": "Dauch Corp is a Tier 1 automotive supplier designing driveline and metal forming technologies for vehicles, matching the automotive parts/components supplier narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -8028,6 +8028,17 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "UAN": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 78,
+          "reason": "CVR Partners manufactures nitrogen fertilizer products (UAN, ammonia) sold primarily to agricultural customers, directly supporting crop production inputs. This is fundamentally an agricultural inputs/agribusiness economic activity -- fertilizer manufacturing is a core upstream component of the agribusiness value chain, and the SIC code (Agricultural Chemicals) confirms this classification. While a dedicated 'fertilizer manufacturing' narrative would be more precise, Agriculture/Agribusiness is the best existing fit given its direct economic tie to farming/crop production inputs and agricultural commodity end markets.",
+          "added_at": "2026-11-27",
+          "last_reviewed_at": "2026-11-27",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
         }
       }
     },
@@ -8616,7 +8627,7 @@
           "reason": "Manufactures engineered industrial air/water treatment equipment (dampers, dust collectors, cyclones) serving industrial and energy transition markets.",
           "added_at": "2026-09-29",
           "last_reviewed_at": "2026-09-29",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -8715,6 +8726,28 @@
           "reason": "Flowserve manufactures pumps, valves, seals and flow control equipment plus aftermarket services across industrial end markets.",
           "added_at": "2026-11-26",
           "last_reviewed_at": "2026-11-26",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "SWK": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 72,
+          "reason": "Stanley Black & Decker manufactures hand tools, power tools, outdoor products and engineered fastening solutions. While no catalog narrative is an exact match for 'tools manufacturing,' Industrial Machinery is the closest existing economic category for a diversified industrial manufacturer of tools and fastening equipment sold to professional and consumer end markets. The company is not a pure retailer (rules out apparel/retail categories) and not an automotive parts supplier despite some overlap via engineered fastening (secondary). Given the breadth of its tools/hardware manufacturing business, this is a reasonably confident fit within the broader industrial manufacturing narrative, though it's an imperfect categorical match since no dedicated 'tools & hardware manufacturing' narrative exists.",
+          "added_at": "2026-11-27",
+          "last_reviewed_at": "2026-11-27",
+          "active_eligible": true,
+          "classification_source": "daily_reconciliation",
+          "classification_version": 1
+        },
+        "ITT": {
+          "role": "secondary",
+          "assignment_priority": "primary",
+          "confidence": 70,
+          "reason": "ITT designs and manufactures pumps, fluid handling and engineered industrial products (SIC pumps & pumping equipment) serving diverse industrial end markets, fitting broad industrial machinery classification.",
+          "added_at": "2026-11-27",
+          "last_reviewed_at": "2026-11-27",
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
@@ -8951,7 +8984,7 @@
           "reason": "Perella Weinberg Partners is an independent investment banking advisory firm providing strategic and financial advice, matching professional/financial advisory services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11617,7 +11650,7 @@
           "reason": "Sharplink has adopted ETH as its primary treasury reserve asset, matching the digital asset treasury narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "full_universe_run",
           "classification_version": 1
         },
@@ -11780,7 +11813,7 @@
           "reason": "Bitdeer provides digital asset (crypto) mining services including proprietary mining and cloud hash rate sharing, matching the crypto mining/treasury narrative.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         }
@@ -12500,7 +12533,7 @@
           "reason": "Dream Finders Homes is a residential homebuilder, which is a distinct economic category not covered by existing narratives like construction/engineering services.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12511,7 +12544,7 @@
           "reason": "LGI Homes designs, constructs and sells new homes across entry-level, move-up and luxury segments.",
           "added_at": "2026-08-12",
           "last_reviewed_at": "2026-08-12",
-          "active_eligible": false,
+          "active_eligible": true,
           "classification_source": "cleanup_reclassification",
           "classification_version": 1
         },
@@ -12707,7 +12740,7 @@
           "reason": "EverQuote operates an online insurance marketplace connecting consumers with insurance providers using data/technology, matching the digital insurance distribution narrative.",
           "added_at": "2026-11-20",
           "last_reviewed_at": "2026-11-20",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13076,7 +13109,7 @@
           "reason": "Newsmax is a multi-platform media company operating cable/OTT news channels, publishing and e-commerce, similar to diversified media/broadcasting operators.",
           "added_at": "2026-08-30",
           "last_reviewed_at": "2026-08-30",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -13087,7 +13120,7 @@
           "reason": "USA Today Co is a diversified media company operating newspaper publishing and digital news networks, generating revenue from advertising, subscriptions, and content. While it doesn't own TV broadcast/streaming assets like the catalog definition implies, it is the closest existing economic category for a diversified multi-brand media/publishing company versus a niche single-title publisher. No better-fitting existing narrative (e.g., pure 'newspaper publishing') exists in the catalog, so this is the best available fit with moderate-high confidence.",
           "added_at": "2026-10-23",
           "last_reviewed_at": "2026-10-23",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -14347,7 +14380,7 @@
           "reason": "Kosmos Energy is a deepwater oil and gas exploration and production company with international offshore assets.",
           "added_at": "2026-08-18",
           "last_reviewed_at": "2026-08-18",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         },
@@ -16163,7 +16196,7 @@
           "reason": "WeRide develops autonomous driving technology platforms spanning L2-L4 autonomy for various vehicle types (not specifically heavy trucks), making it distinct from the trucking-specific autonomous_trucking_technology narrative.",
           "added_at": "2026-11-10",
           "last_reviewed_at": "2026-11-10",
-          "active_eligible": true,
+          "active_eligible": false,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
         }
