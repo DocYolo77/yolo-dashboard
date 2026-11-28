@@ -1,16 +1,18 @@
 {
-  "as_of_date": "2026-11-27",
-  "eligible_count": 947,
-  "classified_eligible_count": 868,
-  "coverage_pct": 91.7,
+  "as_of_date": "2026-11-28",
+  "eligible_count": 924,
+  "classified_eligible_count": 844,
+  "coverage_pct": 91.3,
   "entered": [
     "ATHM",
     "BBY",
+    "BKE",
     "BRSL",
     "BZ",
     "CACC",
     "CARG",
     "CBRL",
+    "CENTA",
     "CHA",
     "CLBT",
     "CLVT",
@@ -21,7 +23,6 @@
     "DAR",
     "DASH",
     "DBD",
-    "DFIN",
     "DKS",
     "DLTR",
     "DLX",
@@ -33,6 +34,7 @@
     "ETN",
     "FG",
     "FIVE",
+    "FOX",
     "FRHC",
     "GBX",
     "GEL",
@@ -46,14 +48,12 @@
     "HBNB",
     "HLMN",
     "IEP",
-    "ITT",
     "IVZ",
     "KC",
-    "LAUR",
     "LQDT",
-    "LTH",
     "MAAS",
     "MATX",
+    "MMS",
     "MPT",
     "MRX",
     "MYE",
@@ -73,50 +73,62 @@
     "PLPC",
     "PRSU",
     "RAL",
+    "RHI",
     "RHLD",
     "SBSW",
     "SGI",
     "SIG",
     "SKM",
+    "SKYW",
     "SLVM",
-    "SNPS",
     "SONO",
     "SPB",
     "STC",
-    "STGW",
-    "SWK",
-    "UAN"
+    "STGW"
   ],
   "reentered": [
-    "CECO",
-    "DFH",
-    "LGIH"
+    "ASML",
+    "KYIV"
   ],
   "exited": [
-    "AMBQ",
-    "BTDR",
-    "CNL",
-    "DCH",
-    "ELE",
-    "EVER",
-    "ICHR",
-    "KEEL",
-    "KOS",
-    "NMAX",
-    "PWP",
-    "SBET",
-    "TDAY",
-    "WOLF",
-    "WRD"
+    "APG",
+    "APO",
+    "ARE",
+    "ARES",
+    "ATMU",
+    "CHRD",
+    "CMC",
+    "CRH",
+    "CRM",
+    "CSL",
+    "EXP",
+    "FLS",
+    "FSS",
+    "GDRX",
+    "GLIBA",
+    "HGTY",
+    "HGV",
+    "ITT",
+    "LION",
+    "LKQ",
+    "LPLA",
+    "MHK",
+    "OSK",
+    "SARO",
+    "SWK",
+    "VET",
+    "WDAY"
   ],
   "newly_classified": [
     "ATHM",
     "BBY",
+    "BKE",
     "BRSL",
     "BZ",
     "CACC",
     "CARG",
     "CBRL",
+    "CENTA",
     "CHA",
     "CLBT",
     "CLVT",
@@ -127,7 +139,6 @@
     "DAR",
     "DASH",
     "DBD",
-    "DFIN",
     "DKS",
     "DLTR",
     "DLX",
@@ -139,6 +150,7 @@
     "ETN",
     "FG",
     "FIVE",
+    "FOX",
     "FRHC",
     "GBX",
     "GEL",
@@ -152,14 +164,12 @@
     "HBNB",
     "HLMN",
     "IEP",
-    "ITT",
     "IVZ",
     "KC",
-    "LAUR",
     "LQDT",
-    "LTH",
     "MAAS",
     "MATX",
+    "MMS",
     "MPT",
     "MRX",
     "MYE",
@@ -179,19 +189,18 @@
     "PLPC",
     "PRSU",
     "RAL",
+    "RHI",
     "RHLD",
     "SBSW",
     "SGI",
     "SIG",
     "SKM",
+    "SKYW",
     "SLVM",
-    "SNPS",
     "SONO",
     "SPB",
     "STC",
-    "STGW",
-    "SWK",
-    "UAN"
+    "STGW"
   ],
   "new_narratives_created": [],
   "unresolved_after_retries": [
@@ -221,6 +230,10 @@
     },
     {
       "ticker": "CBRL",
+      "reason": "low_confidence_primary"
+    },
+    {
+      "ticker": "CENTA",
       "reason": "low_confidence_primary"
     },
     {
@@ -261,10 +274,6 @@
     },
     {
       "ticker": "DBD",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "DFIN",
       "reason": "low_confidence_primary"
     },
     {
@@ -312,6 +321,10 @@
       "reason": "low_confidence_primary"
     },
     {
+      "ticker": "FOX",
+      "reason": "low_confidence_primary"
+    },
+    {
       "ticker": "FRHC",
       "reason": "low_confidence_primary"
     },
@@ -349,163 +362,163 @@
     },
     {
       "ticker": "HAPN",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "HBNB",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "HLMN",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "IEP",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "IVZ",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "KC",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "LAUR",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "LQDT",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "LTH",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "MAAS",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "MATX",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "MMS",
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "MPT",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "MRX",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "MYE",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "MZTI",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "NCLH",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "NIQ",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "NN",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "NOVT",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "NPO",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "NTCT",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "NVT",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "OCTV",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "OPRA",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "P",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "PAM",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "PLBL",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "PLPC",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "PRSU",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "RAL",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "RHI",
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "RHLD",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "SBSW",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "SGI",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "SIG",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "SKM",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
+    },
+    {
+      "ticker": "SKYW",
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "SLVM",
-      "reason": "low_confidence_primary"
-    },
-    {
-      "ticker": "SNPS",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "SONO",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "SPB",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "STC",
-      "reason": "low_confidence_primary"
+      "reason": "llm_call_failed"
     },
     {
       "ticker": "STGW",
@@ -513,13 +526,15 @@
     }
   ],
   "classification_errors": [
-    "Batch 2 (HLMN..STGW): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 1 Batch (HLMN..STGW): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
-    "Retry-Runde 2 Batch (ATHM..HBNB): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
+    "Batch 2 (HAPN..STC): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (ATHM..HAPN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 1 Batch (HBNB..STGW): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (ATHM..HAPN): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array",
+    "Retry-Runde 2 Batch (HBNB..STGW): LLM-Aufruf endgueltig fehlgeschlagen: Tool-Antwort enthält kein 'classifications'-Array"
   ],
-  "eligible_with_active_narrative": 704,
-  "eligible_without_active_narrative": 243,
-  "active_narrative_coverage_pct": 74.3,
+  "eligible_with_active_narrative": 689,
+  "eligible_without_active_narrative": 235,
+  "active_narrative_coverage_pct": 74.6,
   "active_narrative_count": 53,
   "undersized_narrative_count": 110
 }
