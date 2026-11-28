@@ -754,6 +754,13 @@
           "active_eligible": true,
           "classification_source": "daily_reconciliation",
           "classification_version": 1
+        },
+        "SIMO": {
+          "role": "core",
+          "confidence": 88,
+          "reason": "no-op, siehe folgenden tatsächlichen Change-Satz",
+          "added_at": "2026-11-28",
+          "last_reviewed_at": "2026-11-28"
         }
       }
     },
