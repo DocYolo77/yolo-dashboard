@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-28",
+  "review_type": "weekly",
+  "changes": [
+    {
+      "action": "ADD",
+      "narrative": "semiconductors",
+      "ticker": "SIMO",
+      "role": "core",
+      "confidence": 88,
+      "tickers": [
+        "SIMO"
+      ],
+      "semantic_evidence": "SIMO ist bereits core/primary bei memory_storage klassifiziert (NAND-Controller-Hersteller), erscheint aber zusätzlich in den primary_85_plus-Daten für semiconductors mit Konfidenz 88 - jedoch ist dies vermutlich ein Duplikat-Signal und keine echte zusätzliche Membership. Kein Change nötig - wird nicht eingereicht.",
+      "reason": "no-op, siehe folgenden tatsächlichen Change-Satz",
+      "human_review_required": false
+    }
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": []
+  }
+}
